@@ -491,6 +491,16 @@ h2 {
   background: var(--panel-strong);
   color: var(--text);
   box-shadow: 0 34px 120px rgba(0, 0, 0, 0.28);
+  caret-color: transparent;
+}
+
+.paper-modal *:focus,
+.paper-modal *:focus-visible {
+  caret-color: transparent;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 .paper-modal::backdrop {

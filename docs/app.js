@@ -261,6 +261,13 @@ function openPaperModal(paper) {
   elements.modalAbs.href = paper.abs_url;
   elements.modalPdf.href = paper.pdf_url;
   elements.modal.showModal();
+  document.body.classList.add("modal-open");
+}
+
+function closePaperModal() {
+  if (elements.modal.open) {
+    elements.modal.close();
+  }
 }
 
 function renderPapers() {
@@ -336,7 +343,12 @@ function toggleCategory(category) {
 
 function toggleAllCategories() {
   const available = allCategoriesForCurrentPayload();
-  state.selectedCategories = new Set(available);
+  const selected = effectiveSelectedCategories();
+  if (selected.size === available.length && available.length > 0) {
+    state.selectedCategories = new Set();
+  } else {
+    state.selectedCategories = new Set(available);
+  }
   persistUiState();
   scheduleRender();
 }
@@ -422,7 +434,10 @@ elements.filterInput.addEventListener("input", (event) => {
 });
 
 elements.themeToggle.addEventListener("click", toggleTheme);
-elements.modalClose.addEventListener("click", () => elements.modal.close());
+elements.modalClose.addEventListener("click", () => closePaperModal());
+elements.modal.addEventListener("close", () => {
+  document.body.classList.remove("modal-open");
+});
 elements.modal.addEventListener("click", (event) => {
   const content = elements.modal.querySelector(".paper-modal-content");
   const closeButton = elements.modalClose;
@@ -430,7 +445,7 @@ elements.modal.addEventListener("click", (event) => {
     return;
   }
   if (!content.contains(event.target) && event.target !== closeButton) {
-    elements.modal.close();
+    closePaperModal();
   }
 });
 

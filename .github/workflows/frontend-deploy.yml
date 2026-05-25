@@ -16,9 +16,11 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
+# No top-level concurrency block here. The reusable workflow we call
+# (pages.yml) already declares `concurrency: group: pages`, so adding the
+# same group at this level deadlocks: this workflow holds `pages`, then
+# calls pages.yml which waits forever for the same group. Let the callee
+# own the lock.
 
 jobs:
   deploy:
