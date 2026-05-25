@@ -54,6 +54,9 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       PIP_DISABLE_PIP_VERSION_CHECK: "1"
+      # Bridge to Node 24 ahead of GitHub's June-2026 forced cutover.
+      # See https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
       - name: Checkout main (code)
         uses: actions/checkout@v4
@@ -179,6 +182,22 @@ jobs:
             "tmp/state/${{ steps.vars.outputs.run_date }}.json" \
             docs/data/index.json \
             "docs/data/${{ steps.vars.outputs.run_date }}.json"
+
+      - name: Stage 4b / Regression guard against data branch
+        # Refuse to publish if any historical date now has fewer papers than
+        # the version on the `data` branch. Protects against schema drift,
+        # accidental wipes, or build bugs silently shrinking history.
+        run: |
+          set -euo pipefail
+          if ! git show-ref --verify --quiet refs/remotes/origin/data; then
+            echo "No data branch yet — skipping regression guard."
+            exit 0
+          fi
+          ref_dir="$RUNNER_TEMP/data-prev"
+          rm -rf "$ref_dir"
+          git worktree add --detach "$ref_dir" origin/data
+          python scripts/check_regression.py "$ref_dir/docs/data" docs/data
+          git worktree remove --force "$ref_dir"
 
       - name: Save PDF cache
         if: always()

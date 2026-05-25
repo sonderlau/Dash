@@ -121,7 +121,75 @@ PDF 下载/解析结果用 `actions/cache` 按月分桶（key 是 `pdf-YYYY-MM-D
 - **数据回滚：** `data` 分支上 `git revert` 对应那次 `data: arxiv digest YYYY-MM-DD` 提交，pages.yml 在下次触发时取新的 data
 - **彻底重建：** 删 `data` 分支 + 清 Actions cache，再触发一次 daily workflow
 
-## 风险与注意
+## 增量更新与稳定性保证
+
+> 你以后会在本地改代码、改 prompt、改 config，然后 push main。这一节说明这些改动**为什么不会破坏已经生成的 paper**，以及当真的有 bug 时哪些地方会兜住。
+
+### 数据隔离模型
+
+```
+main 分支     →  代码、prompt、frontend、workflow（你 push 这里）
+data 分支     →  历史 paper JSON 归档（只由 daily.yml 自动写）
+docs/data/   →  在 main 上 gitignore，本地跑 pipeline 的产物不会污染 main
+tmp/state/   →  本地 pipeline 工作区，gitignore，跟线上无关
+```
+
+push main 不会触发数据重建。**只有 daily.yml 会写 data 分支**，且每次都会先把 data 分支 seed 回工作区，所以历史数据不会丢失。
+
+### enrich.py 的幂等性
+
+`enrich.py` 默认对每篇 paper 检查两个状态：
+
+- `summary_status == "ok"` → 跳过 LLM 调用（除非 `refresh_ok=true`）
+- `fulltext_status == "ok"` → 跳过 PDF 重新解析（除非 `refresh_extract=true`）
+
+所以同一天重跑 daily.yml 不会重新烧 token；改了脚本后再跑，已经 ok 的 paper 也不会被重做。
+
+### 三层兜底
+
+1. **`validate_data.py`（Stage 4）：** 任何输出 JSON 为空 / paper_count ≤ 0 都直接 fail，commit 步骤被 `if: success()` 拦下来。
+2. **`check_regression.py`（Stage 4b）：** 把新 build 出来的 `docs/data/*.json` 与 `data` 分支上的旧版逐天比对 paper_count，**任何历史日期变少或缺失** 都 fail。这里是 schema 漂移和误删的最后一道防线。
+3. **`if: success()`（Stage 5）：** 上面任何一步失败都不 commit 到 data 分支，旧数据原封不动留在线上。
+
+### 改动 schema 时怎么做
+
+如果你打算给 paper 加新字段（比如 `relevance_score`），记住：
+
+- 老的 `2026-05-XX.json` 不会有这个字段。前端 `app.js` **必须用 `paper.relevance_score ?? null` 这种安全访问**，不能假设字段存在。
+- 如果新字段是"重字段"（不希望进 public payload），加到 `build_site_data.py:HEAVY_PAPER_FIELDS`。
+- 想给历史日期补字段：在 main 上跑 `python scripts/enrich.py --date YYYY-MM-DD --refresh-ok` 本地刷，然后提示 daily.yml 重建，但**通常不值得** —— 让旧数据保留旧字段集即可。
+
+### 改动 prompt 时怎么做
+
+prompt 在 `src/prompts/*.txt`。改完 push main 不会自动重做摘要，因为已经 ok 的 paper 会被跳过。
+
+要重做：Run workflow → 勾 `refresh_ok=true` →（可选）填具体 `date`。这会**烧 token**，谨慎使用。
+
+### 想"重做今天"
+
+正确：在 Actions 里 Run workflow，`date` 留空或填今天，`refresh_ok=true`。
+危险（不要做）：在本地 `git push --force` data 分支、手动删 docs/data/。
+
+### 不会破坏数据的常见操作
+
+| 操作 | 影响 |
+|---|---|
+| 改 frontend (`docs/app.js` / `style.css` / `index.html`) | 只触发 frontend-deploy.yml，不动 data 分支 |
+| 改 prompt | push 后下次 daily.yml 才会用新 prompt，且只用于新 paper |
+| 改 worker 数量 / `daily.yml` env | 下次 daily.yml 生效，旧数据不动 |
+| 本地 `pipeline.py --date 2026-05-XX` | 只写本地 `tmp/state/`，gitignore，不会上传 |
+| 改 `config.yaml` 里的 categories | 下次 daily.yml 抓的 category 变了；旧日期的 paper 不会重新分类 |
+
+### 真要触发数据破坏的场景（避免）
+
+| 危险操作 | 后果 | 替代 |
+|---|---|---|
+| 手动 `git push origin :data` 删 data 分支 | 历史归档丢失 | 永远不要做；要"清空"用 Run workflow 重建 |
+| 在 data 分支手动 commit | 跟自动 commit 冲突，下次 daily.yml 可能 push 失败 | 不要直接动 data 分支 |
+| 改 `tmp/state/YYYY-MM-DD.json` schema 同时不改前端 | 前端字段 missing | schema 改动配前端 `?? defaultValue` |
+| 用 `--refresh-extract` 全量刷 | 烧时间，不烧 token | 谨慎使用，通常没必要 |
+
+### 杂项注意
 
 - **DeepSeek API 费用是唯一变量成本。** 100 篇 chunk_reduce 模式平均 ~10–15K tokens / 篇，按 `deepseek-v4-flash` 价格估算每天每天 < $1（自己核对）。`LLM_ENABLED=false` 是紧急关阀。
 - **Java 在 ubuntu-latest 自带 OpenJDK 21。** 不需要额外 setup。
