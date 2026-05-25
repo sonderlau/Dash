@@ -134,10 +134,13 @@ jobs:
 
       - name: Stage 1 / Fetch arXiv listing & dedup
         env:
-          # Sized for ubuntu-latest (4 vCPU / 16 GB). 5 categories × HTML pages =
-          # plenty of headroom; arXiv API chunked calls are 4-way for politeness.
+          # Sized for ubuntu-latest (4 vCPU / 16 GB).
+          # ARXIV_LIST_WORKERS: 5 categories worth of HTML pages, low load.
+          # ARXIV_API_WORKERS: arXiv API limits shared egress IPs (CI runners
+          #   share IPs with many tenants). 1 worker + the built-in 3s gap
+          #   between 50-id chunks matches arXiv's official guidance.
           ARXIV_LIST_WORKERS: "5"
-          ARXIV_API_WORKERS: "4"
+          ARXIV_API_WORKERS: "1"
         run: python scripts/run_daily.py --date "${{ steps.vars.outputs.run_date }}"
 
       - name: Stage 2 / Extract fulltext + summarize (pipelined)

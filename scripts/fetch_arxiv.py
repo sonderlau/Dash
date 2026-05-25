@@ -3,6 +3,8 @@ from __future__ import annotations
 import argparse
 import os
 import re
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from collections import OrderedDict
@@ -20,6 +22,8 @@ ARXIV_API_URL = "https://export.arxiv.org/api/query"
 ARXIV_LIST_URL = "https://arxiv.org/list/{category}/new"
 USER_AGENT = "Dash/0.1 (+https://github.com/sonderlau/Dash)"
 ID_PATTERN = re.compile(r"^([0-9]{4}\.[0-9]{4,5})(v\d+)?$")
+RETRYABLE_HTTP_CODES = {408, 425, 429, 500, 502, 503, 504}
+DEFAULT_FETCH_RETRIES = 4
 
 
 @dataclass
@@ -95,10 +99,67 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def fetch_url(url: str, timeout: int = 60) -> bytes:
+def _retry_after_seconds(headers, attempt: int) -> float:
+    """Honor Retry-After when present, else exponential backoff with cap."""
+    raw = ""
+    if headers is not None:
+        try:
+            raw = (headers.get("Retry-After") or "").strip()
+        except AttributeError:
+            raw = ""
+    if raw.isdigit():
+        return max(1.0, min(float(raw), 90.0))
+    return min(2.0 ** attempt, 30.0)
+
+
+def fetch_url(url: str, timeout: int = 60, retries: int = DEFAULT_FETCH_RETRIES) -> bytes:
+    """GET a URL with retry on 429/5xx and transient transport errors.
+
+    arXiv occasionally rate-limits the API endpoint and the public list pages,
+    especially from shared egress IPs (CI runners, cloud). We retry up to
+    `retries` times with exponential backoff, honoring `Retry-After` when the
+    server provides it.
+    """
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        return response.read()
+    last_exc: Exception | None = None
+    for attempt in range(retries + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return response.read()
+        except urllib.error.HTTPError as exc:
+            last_exc = exc
+            if exc.code not in RETRYABLE_HTTP_CODES or attempt >= retries:
+                raise
+            wait = _retry_after_seconds(exc.headers, attempt)
+            print(
+                {
+                    "stage": "fetch_url",
+                    "url": url,
+                    "status": exc.code,
+                    "attempt": attempt + 1,
+                    "retry_in_s": round(wait, 1),
+                }
+            )
+            time.sleep(wait)
+        except urllib.error.URLError as exc:
+            last_exc = exc
+            if attempt >= retries:
+                raise
+            wait = _retry_after_seconds(None, attempt)
+            print(
+                {
+                    "stage": "fetch_url",
+                    "url": url,
+                    "error": exc.__class__.__name__,
+                    "detail": str(exc.reason)[:120] if hasattr(exc, "reason") else str(exc)[:120],
+                    "attempt": attempt + 1,
+                    "retry_in_s": round(wait, 1),
+                }
+            )
+            time.sleep(wait)
+    if last_exc is not None:
+        raise last_exc
+    raise RuntimeError("fetch_url exhausted retries without recording an error")
 
 
 def fetch_new_category_ids(category: str) -> dict[str, list[str]]:
@@ -114,7 +175,18 @@ def fetch_new_category_ids(category: str) -> dict[str, list[str]]:
     return matched
 
 
-def fetch_feed_entries_by_ids(arxiv_ids: list[str], max_workers: int = 4) -> list[feedparser.FeedParserDict]:
+def fetch_feed_entries_by_ids(
+    arxiv_ids: list[str],
+    max_workers: int = 1,
+    request_delay_seconds: float = 3.0,
+) -> list[feedparser.FeedParserDict]:
+    """Fetch arXiv API metadata in 50-id chunks.
+
+    Defaults to serial calls with a 3-second pause between chunks, matching
+    arXiv's published API guidance. The CI runner shares egress IPs with many
+    other tenants, so even a 4-way burst gets 429'd. Bumping `max_workers`
+    above 1 only makes sense from a private network.
+    """
     if not arxiv_ids:
         return []
     chunk_size = 50
@@ -136,7 +208,16 @@ def fetch_feed_entries_by_ids(arxiv_ids: list[str], max_workers: int = 4) -> lis
         return fetch_one(chunks[0])
 
     entries: list[feedparser.FeedParserDict] = []
-    with ThreadPoolExecutor(max_workers=max(1, min(max_workers, len(chunks)))) as executor:
+    workers = max(1, min(max_workers, len(chunks)))
+    if workers == 1:
+        # Serial path with arXiv-recommended 3s gap between chunks.
+        for index, chunk in enumerate(chunks):
+            entries.extend(fetch_one(chunk))
+            if index < len(chunks) - 1 and request_delay_seconds > 0:
+                time.sleep(request_delay_seconds)
+        return entries
+
+    with ThreadPoolExecutor(max_workers=workers) as executor:
         for chunk_entries in executor.map(fetch_one, chunks):
             entries.extend(chunk_entries)
     return entries
@@ -206,7 +287,7 @@ def normalize_paper(
 def fetch_papers(config: dict) -> tuple[list[dict], FetchStats]:
     categories = list(config["arxiv"]["categories"])
     list_workers = max(1, int(os.getenv("ARXIV_LIST_WORKERS", str(min(8, max(1, len(categories)))))))
-    api_workers = max(1, int(os.getenv("ARXIV_API_WORKERS", "4")))
+    api_workers = max(1, int(os.getenv("ARXIV_API_WORKERS", "1")))
 
     by_id: OrderedDict[str, dict] = OrderedDict()
     matched_categories_by_id: dict[str, set[str]] = {}
