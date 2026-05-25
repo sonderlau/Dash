@@ -149,6 +149,8 @@ activemq-data/
 
 # Environments
 .env
+.env.local
+.env.development
 .envrc
 .venv
 env/
@@ -202,6 +204,15 @@ cython_debug/
 # .vscode/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
+tmp/paper_cache/
+tmp/pdf_extract/
+tmp/state/
+
+# Generated daily site data — lives on the `data` branch, not main.
+docs/data/
+
+# macOS
+.DS_Store
 
 # Ruff stuff:
 .ruff_cache/

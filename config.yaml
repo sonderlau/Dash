@@ -1,0 +1,28 @@
+site:
+  title: "Dash"
+  subtitle: "Daily arXiv Summary Hub"
+  description: "Personal daily arXiv reader with Chinese summaries."
+  base_url: "/Dash/"
+
+arxiv:
+  categories:
+    - cs.CV
+    - cs.LG
+    - stat.ML
+    - cs.AI
+    - physics.ao-ph
+  max_results_per_category: 100
+  pdf_fulltext_enabled: true
+  pdf_fulltext_format: "markdown,json"
+  pdf_download_timeout_seconds: 180
+  pdf_extract_timeout_seconds: 180
+  pdf_cache_dir: "tmp/paper_cache"
+  pdf_extract_dir: "tmp/pdf_extract"
+  summary_chunk_char_budget: 12000
+  summary_chunk_trigger_chars: 18000
+  summary_chunk_overlap_chars: 1200
+
+output:
+  keep_days: 90
+  write_pretty_json: true
+  fallback_to_english_abstract: true

@@ -1,0 +1,269 @@
+name: Daily arXiv Digest
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Target date (YYYY-MM-DD). Empty = today (UTC)."
+        required: false
+        default: ""
+      limit:
+        description: "Cap papers processed by enrich (0 = no cap)."
+        required: false
+        default: "0"
+      skip_summarize:
+        description: "Skip the LLM summary stage."
+        required: false
+        default: "false"
+        type: boolean
+      refresh_extract:
+        description: "Re-extract fulltext even if cached."
+        required: false
+        default: "false"
+        type: boolean
+      refresh_ok:
+        description: "Re-summarize papers already marked ok."
+        required: false
+        default: "false"
+        type: boolean
+      skip_deploy:
+        description: "Build data only; do not redeploy Pages."
+        required: false
+        default: "false"
+        type: boolean
+  schedule:
+    - cron: "20 23 * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-arxiv-digest
+  cancel-in-progress: false
+
+jobs:
+  build-data:
+    name: Fetch / Enrich / Archive
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    outputs:
+      run_date: ${{ steps.vars.outputs.run_date }}
+      data_changed: ${{ steps.commit.outputs.changed }}
+    env:
+      PYTHONUNBUFFERED: "1"
+      PIP_DISABLE_PIP_VERSION_CHECK: "1"
+    steps:
+      - name: Checkout main (code)
+        uses: actions/checkout@v4
+
+      - name: Resolve run date
+        id: vars
+        run: |
+          set -euo pipefail
+          input_date='${{ github.event.inputs.date }}'
+          if [[ -n "$input_date" ]]; then
+            run_date="$input_date"
+          else
+            run_date="$(date -u +%F)"
+          fi
+          echo "run_date=$run_date" >> "$GITHUB_OUTPUT"
+          echo "month=$(echo "$run_date" | cut -c1-7)" >> "$GITHUB_OUTPUT"
+          echo "Resolved run date: $run_date"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Runner diagnostics
+        run: |
+          set -euo pipefail
+          echo "----- runner topology -----"
+          uname -a
+          echo "vCPU (nproc): $(nproc)"
+          echo "----- memory -----"
+          free -h
+          echo "----- disk -----"
+          df -h /
+          echo "----- java -----"
+          java -version 2>&1 || true
+          echo "----- python -----"
+          python --version
+
+      - name: Seed tmp/state from data branch
+        run: |
+          set -euo pipefail
+          mkdir -p tmp/state
+          if git fetch --no-tags --depth=1 origin data 2>/dev/null; then
+            wt="$RUNNER_TEMP/data-seed"
+            rm -rf "$wt"
+            git worktree add --detach "$wt" origin/data
+            if [[ -d "$wt/docs/data" ]]; then
+              find "$wt/docs/data" -maxdepth 1 -name "*.json" ! -name "index.json" \
+                -exec cp {} tmp/state/ \;
+            fi
+            git worktree remove --force "$wt"
+          else
+            echo "data branch does not exist yet; starting clean."
+          fi
+          ls -la tmp/state || true
+
+      - name: Restore PDF cache (downloads + extractions)
+        id: cache_pdf
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            tmp/paper_cache
+            tmp/pdf_extract
+          key: pdf-${{ steps.vars.outputs.month }}-${{ steps.vars.outputs.run_date }}
+          restore-keys: |
+            pdf-${{ steps.vars.outputs.month }}-
+            pdf-
+
+      - name: Stage 1 / Fetch arXiv listing & dedup
+        env:
+          # Sized for ubuntu-latest (4 vCPU / 16 GB). 5 categories × HTML pages =
+          # plenty of headroom; arXiv API chunked calls are 4-way for politeness.
+          ARXIV_LIST_WORKERS: "5"
+          ARXIV_API_WORKERS: "4"
+        run: python scripts/run_daily.py --date "${{ steps.vars.outputs.run_date }}"
+
+      - name: Stage 2 / Extract fulltext + summarize (pipelined)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ vars.OPENAI_BASE_URL }}
+          MODEL_NAME: ${{ vars.MODEL_NAME }}
+          LANGUAGE: ${{ vars.LANGUAGE }}
+          LLM_ENABLED: ${{ vars.LLM_ENABLED }}
+          # Worker pool sizing — tuned for GitHub-hosted ubuntu-latest
+          # (4 vCPU / 16 GB / shared network):
+          #   download: pure network I/O, safe at 8 (PDFs are 1–10 MB each)
+          #   extract:  JVM-bound, ~0.5–1 GB / process; 2 keeps memory headroom
+          #   summary:  DeepSeek API calls; 4 matches retry tolerance
+          PDF_DOWNLOAD_MAX_WORKERS: "8"
+          PDF_EXTRACT_MAX_WORKERS: "2"
+          SUMMARY_MAX_WORKERS: "4"
+        run: |
+          set -euo pipefail
+          args=(--date "${{ steps.vars.outputs.run_date }}")
+          limit='${{ github.event.inputs.limit }}'
+          if [[ -n "$limit" && "$limit" != "0" ]]; then
+            args+=(--limit "$limit")
+          fi
+          if [[ '${{ github.event.inputs.skip_summarize }}' == 'true' ]]; then
+            args+=(--skip-summarize)
+          fi
+          if [[ '${{ github.event.inputs.refresh_extract }}' == 'true' ]]; then
+            args+=(--refresh-extract)
+          fi
+          if [[ '${{ github.event.inputs.refresh_ok }}' == 'true' ]]; then
+            args+=(--refresh-ok)
+          fi
+          python scripts/enrich.py "${args[@]}"
+
+      - name: Stage 3 / Rebuild site index
+        run: python scripts/build_site_data.py --latest-date "${{ steps.vars.outputs.run_date }}"
+
+      - name: Stage 4 / Validate generated data
+        run: |
+          python scripts/validate_data.py \
+            "tmp/state/${{ steps.vars.outputs.run_date }}.json" \
+            docs/data/index.json \
+            "docs/data/${{ steps.vars.outputs.run_date }}.json"
+
+      - name: Save PDF cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            tmp/paper_cache
+            tmp/pdf_extract
+          key: pdf-${{ steps.vars.outputs.month }}-${{ steps.vars.outputs.run_date }}
+
+      - name: Upload run snapshot (debug artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: snapshot-${{ steps.vars.outputs.run_date }}
+          path: |
+            tmp/state/${{ steps.vars.outputs.run_date }}.json
+            docs/data/${{ steps.vars.outputs.run_date }}.json
+            docs/data/index.json
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Stage 5 / Commit data to `data` branch
+        id: commit
+        if: success()
+        run: |
+          set -euo pipefail
+          run_date='${{ steps.vars.outputs.run_date }}'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Stage produced files outside the working tree so we can checkout
+          # the `data` branch into a worktree without touching this checkout.
+          staging="$RUNNER_TEMP/data-archive"
+          rm -rf "$staging"
+          mkdir -p "$staging"
+          cp -r docs/data/. "$staging/"
+
+          wt="$RUNNER_TEMP/data-wt"
+          rm -rf "$wt"
+
+          if git fetch --no-tags origin data 2>/dev/null && \
+             git show-ref --verify --quiet refs/remotes/origin/data; then
+            git worktree add -B data "$wt" origin/data
+          else
+            git worktree add --detach "$wt"
+            (
+              cd "$wt"
+              git checkout --orphan data
+              git rm -rf . >/dev/null 2>&1 || true
+            )
+          fi
+
+          (
+            cd "$wt"
+            mkdir -p docs/data
+            rm -rf docs/data/*
+            cp -r "$staging/." docs/data/
+
+            if [[ ! -f README.md ]]; then
+              printf '%s\n' \
+                '# data branch' \
+                '' \
+                'Auto-generated archive of `docs/data/*.json` produced by the' \
+                'Daily arXiv Digest workflow. Do not edit by hand.' \
+                > README.md
+            fi
+
+            git add docs/data README.md
+            if git diff --cached --quiet; then
+              echo "No data changes to commit."
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            git commit -m "data: arxiv digest ${run_date}"
+            git push origin data
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          )
+
+          git worktree remove --force "$wt"
+
+  deploy:
+    name: Deploy Pages
+    needs: build-data
+    if: needs.build-data.outputs.data_changed == 'true' && github.event.inputs.skip_deploy != 'true'
+    uses: ./.github/workflows/pages.yml
+    with:
+      run_date: ${{ needs.build-data.outputs.run_date }}

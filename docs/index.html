@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dash</title>
+    <meta
+      name="description"
+      content="Personal daily arXiv reader with Chinese summaries."
+    />
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <link
+      rel="preconnect"
+      href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn"
+      crossorigin
+    />
+    <link
+      rel="dns-prefetch"
+      href="//google-fonts.mirrors.sjtug.sjtu.edu.cn"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <p class="brand-kicker">Dash</p>
+          <div class="brand-line">
+            <h1 id="site-title">Daily arXiv Reader</h1>
+            <span class="brand-meta" id="latest-date">-</span>
+          </div>
+          <p class="brand-description" id="site-description">
+            每日抓取与总结 arXiv 论文，面向个人阅读，不绑定 arXiv 公布日。
+          </p>
+        </div>
+        <div class="theme-toggle-wrap">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换主题">
+            <span class="theme-toggle-track">
+              <span class="theme-toggle-label theme-toggle-label-dark">Dark</span>
+              <span class="theme-toggle-label theme-toggle-label-light">Light</span>
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <section class="control-bar">
+        <div class="control-grid">
+          <div class="control-field control-field-date">
+            <label for="date-input">Date</label>
+            <input id="date-input" type="date" />
+            <div class="control-foot">
+              <p class="control-note" id="date-hint"></p>
+            </div>
+          </div>
+          <div class="control-field control-field-search">
+            <label for="search-input">Search</label>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Search title / author / summary"
+              autocomplete="off"
+            />
+            <div class="control-foot">
+              <p class="control-note">Match title, author, and summary.</p>
+            </div>
+          </div>
+          <div class="control-field control-field-filter">
+            <label for="filter-input">Filter</label>
+            <input
+              id="filter-input"
+              type="search"
+              placeholder="keyword1, keyword2, keyword3"
+              autocomplete="off"
+            />
+            <div class="control-foot">
+              <p class="control-note">OR 逻辑，匹配 title 和 abstract，留空即关闭。</p>
+            </div>
+          </div>
+        </div>
+        <div class="control-field control-field-categories">
+          <div class="category-toolbar-head">
+            <span class="control-label">Categories</span>
+          </div>
+          <div class="category-chip-row" id="toolbar-category-counts"></div>
+        </div>
+      </section>
+
+      <section class="page-head">
+        <div>
+          <p class="page-kicker">Paper Shelf</p>
+          <h2 id="current-date-title">Loading</h2>
+        </div>
+        <p class="page-meta" id="current-date-meta">Fetching index…</p>
+      </section>
+
+      <main>
+        <div class="paper-grid" id="paper-list"></div>
+      </main>
+    </div>
+
+    <dialog class="paper-modal" id="paper-modal">
+      <form method="dialog" class="paper-modal-shell">
+        <button class="paper-modal-close" id="paper-modal-close" aria-label="关闭详情">
+          Close
+        </button>
+        <div class="paper-modal-content">
+          <div class="paper-modal-top">
+            <div>
+              <p class="modal-kicker" id="modal-category">Paper</p>
+              <h3 class="paper-modal-title" id="modal-title">Select a paper</h3>
+            </div>
+            <div class="paper-modal-links">
+              <a class="paper-link" id="modal-abs" target="_blank" rel="noreferrer">Abstract</a>
+              <a class="paper-link" id="modal-pdf" target="_blank" rel="noreferrer">PDF</a>
+            </div>
+          </div>
+
+          <p class="paper-modal-authors" id="modal-authors"></p>
+          <div class="paper-modal-tags" id="modal-tags"></div>
+
+          <section class="modal-section modal-section-tldr">
+            <h4>TL;DR</h4>
+            <p id="modal-tldr"></p>
+          </section>
+          <section class="modal-note-grid" aria-label="Paper notes">
+            <article class="modal-note-card modal-note-card-motivation">
+              <h4>Motivation</h4>
+              <p id="modal-motivation"></p>
+            </article>
+            <article class="modal-note-card modal-note-card-method">
+              <h4>Method</h4>
+              <p id="modal-method"></p>
+            </article>
+            <article class="modal-note-card modal-note-card-result">
+              <h4>Result</h4>
+              <p id="modal-result"></p>
+            </article>
+            <article class="modal-note-card modal-note-card-conclusion">
+              <h4>Conclusion</h4>
+              <p id="modal-conclusion"></p>
+            </article>
+          </section>
+          <section class="modal-section modal-section-abstract">
+            <h4>Original Abstract</h4>
+            <p id="modal-abstract"></p>
+          </section>
+        </div>
+      </form>
+    </dialog>
+
+    <template id="paper-card-template">
+      <article class="paper-card">
+        <div class="paper-card-top">
+          <span class="category-badge"></span>
+        </div>
+        <h3 class="paper-title"></h3>
+        <p class="paper-authors"></p>
+        <p class="paper-tldr"></p>
+      </article>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

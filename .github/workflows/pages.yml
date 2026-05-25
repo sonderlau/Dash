@@ -1,0 +1,67 @@
+name: Deploy Pages
+
+on:
+  workflow_call:
+    inputs:
+      run_date:
+        description: "Optional run date for log clarity (YYYY-MM-DD)."
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    name: Assemble _site & deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Checkout main (frontend code)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main
+
+      - name: Checkout data branch (data archive)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        id: checkout_data
+        with:
+          ref: data
+          path: data-branch
+
+      - name: Assemble _site
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp -r main/docs/. _site/
+          rm -rf _site/data
+          mkdir -p _site/data
+          if [[ -d data-branch/docs/data ]]; then
+            cp -r data-branch/docs/data/. _site/data/ || true
+          fi
+          echo "Run date: ${{ inputs.run_date }}"
+          echo "----- _site root -----"
+          ls -la _site
+          echo "----- _site/data -----"
+          ls -la _site/data || true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
