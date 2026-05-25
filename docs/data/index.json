@@ -1,0 +1,24 @@
+{
+  "site": {
+    "title": "Dash",
+    "subtitle": "Daily arXiv Summary Hub",
+    "description": "Personal daily arXiv reader with Chinese summaries.",
+    "base_url": "/Dash/",
+    "generated_at": "2026-05-25T04:32:54Z"
+  },
+  "available_dates": [
+    "2026-05-25"
+  ],
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "counts_by_date": {
+    "2026-05-25": 623
+  },
+  "latest_date": "2026-05-25",
+  "mode": "daily_snapshot"
+}
