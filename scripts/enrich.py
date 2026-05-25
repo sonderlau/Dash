@@ -122,6 +122,10 @@ def main() -> None:
         "extract_fail": 0,
         "summary_ok": 0,
         "summary_fallback": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 0,
     }
     stats_lock = threading.Lock()
 
@@ -150,6 +154,10 @@ def main() -> None:
                 )
                 with stats_lock:
                     stats["summary_ok"] += 1
+                    stats["prompt_tokens"] += telemetry.get("prompt_tokens") or 0
+                    stats["completion_tokens"] += telemetry.get("completion_tokens") or 0
+                    stats["prompt_cache_hit_tokens"] += telemetry.get("prompt_cache_hit_tokens") or 0
+                    stats["prompt_cache_miss_tokens"] += telemetry.get("prompt_cache_miss_tokens") or 0
                 print(
                     {
                         "stage": "summary",
@@ -345,7 +353,11 @@ def main() -> None:
         refresh_summary_counts(payload)
         write_json(target, payload, pretty=pretty)
 
-    print({"status": "ok", **stats})
+    cache_hit = stats["prompt_cache_hit_tokens"]
+    cache_miss = stats["prompt_cache_miss_tokens"]
+    cache_total = cache_hit + cache_miss
+    hit_rate = round(cache_hit / cache_total, 3) if cache_total > 0 else None
+    print({"status": "ok", **stats, "prompt_cache_hit_rate": hit_rate})
 
 
 if __name__ == "__main__":

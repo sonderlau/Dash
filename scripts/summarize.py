@@ -128,21 +128,30 @@ def split_text_into_chunks(text: str, chunk_size: int, overlap: int) -> list[str
     return chunks
 
 
+def render_system(template_name: str, language: str) -> str:
+    """Render a system prompt with language baked in.
+
+    System prompts are designed to be the cacheable prefix: as long as
+    `language` is constant across calls (which it is in practice), the
+    rendered string is byte-for-byte identical between requests, so DeepSeek's
+    prompt cache can hit on the entire system message.
+    """
+    return load_prompt(template_name).format(language=language)
+
+
 def build_messages(
     system_prompt: str,
     user_prompt: str,
     paper: dict[str, Any],
-    language: str,
 ) -> list[dict[str, str]]:
     user_content = user_prompt.format(
         title=paper["title"],
         categories=", ".join(paper["matched_categories"]),
         abstract_en=paper["abstract_en"],
         fulltext_context=prepare_summary_context(paper),
-        language=language,
     )
     return [
-        {"role": "system", "content": system_prompt.format(language=language)},
+        {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_content},
     ]
 
@@ -157,14 +166,14 @@ def build_request_payload(
     paper: dict[str, Any],
     max_tokens: int,
 ) -> dict[str, Any]:
-    system_prompt = load_prompt("summary_system.txt")
+    system_prompt = render_system("summary_system.txt", llm_settings["language"])
     user_prompt = load_prompt("summary_user.txt")
     return {
         "model": llm_settings["model"],
         "temperature": 0.15,
         "max_tokens": max_tokens,
         "response_format": {"type": "json_object"},
-        "messages": build_messages(system_prompt, user_prompt, paper, llm_settings["language"]),
+        "messages": build_messages(system_prompt, user_prompt, paper),
     }
 
 
@@ -180,7 +189,7 @@ def build_custom_payload(
         "max_tokens": max_tokens,
         "response_format": {"type": "json_object"},
         "messages": [
-            {"role": "system", "content": system_prompt.format(language=llm_settings["language"])},
+            {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_content},
         ],
     }
@@ -272,6 +281,8 @@ def request_summary(
         "completion_tokens": usage.get("completion_tokens"),
         "prompt_tokens": usage.get("prompt_tokens"),
         "total_tokens": usage.get("total_tokens"),
+        "prompt_cache_hit_tokens": usage.get("prompt_cache_hit_tokens"),
+        "prompt_cache_miss_tokens": usage.get("prompt_cache_miss_tokens"),
         "max_tokens": max_tokens,
     }
     return sections, telemetry
@@ -449,10 +460,13 @@ def summarize_via_chunks(
     if len(chunks) <= 1:
         return summarize_text(client, llm_settings, paper, retries, initial_max_tokens)
 
-    system_prompt = load_prompt("summary_system.txt")
+    chunk_system_prompt = render_system("summary_chunk_system.txt", llm_settings["language"])
+    reduce_system_prompt = render_system("summary_reduce_system.txt", llm_settings["language"])
     chunk_results: list[dict[str, str]] = []
     total_prompt_tokens = 0
     total_completion_tokens = 0
+    total_cache_hit_tokens = 0
+    total_cache_miss_tokens = 0
     attempts = 0
 
     for chunk_index, chunk_content in enumerate(chunks, start=1):
@@ -463,9 +477,8 @@ def summarize_via_chunks(
             chunk_index=chunk_index,
             chunk_total=len(chunks),
             chunk_content=chunk_content,
-            language=llm_settings["language"],
         )
-        payload = build_custom_payload(llm_settings, system_prompt, user_content, initial_max_tokens)
+        payload = build_custom_payload(llm_settings, chunk_system_prompt, user_content, initial_max_tokens)
         sections, telemetry = summarize_custom_payload(
             client=client,
             llm_settings=llm_settings,
@@ -477,6 +490,8 @@ def summarize_via_chunks(
         chunk_results.append(sections)
         total_prompt_tokens += telemetry.get("prompt_tokens") or 0
         total_completion_tokens += telemetry.get("completion_tokens") or 0
+        total_cache_hit_tokens += telemetry.get("prompt_cache_hit_tokens") or 0
+        total_cache_miss_tokens += telemetry.get("prompt_cache_miss_tokens") or 0
         attempts += telemetry.get("attempt", 1)
 
     chunk_summaries = []
@@ -499,9 +514,8 @@ def summarize_via_chunks(
         title=paper["title"],
         categories=", ".join(paper["matched_categories"]),
         chunk_summaries="\n\n".join(chunk_summaries),
-        language=llm_settings["language"],
     )
-    reduce_payload = build_custom_payload(llm_settings, system_prompt, reduce_user_content, initial_max_tokens)
+    reduce_payload = build_custom_payload(llm_settings, reduce_system_prompt, reduce_user_content, initial_max_tokens)
     final_sections, reduce_telemetry = summarize_custom_payload(
         client=client,
         llm_settings=llm_settings,
@@ -512,6 +526,8 @@ def summarize_via_chunks(
     )
     total_prompt_tokens += reduce_telemetry.get("prompt_tokens") or 0
     total_completion_tokens += reduce_telemetry.get("completion_tokens") or 0
+    total_cache_hit_tokens += reduce_telemetry.get("prompt_cache_hit_tokens") or 0
+    total_cache_miss_tokens += reduce_telemetry.get("prompt_cache_miss_tokens") or 0
     attempts += reduce_telemetry.get("attempt", 1)
 
     telemetry = {
@@ -519,6 +535,8 @@ def summarize_via_chunks(
         "prompt_tokens": total_prompt_tokens,
         "completion_tokens": total_completion_tokens,
         "total_tokens": total_prompt_tokens + total_completion_tokens,
+        "prompt_cache_hit_tokens": total_cache_hit_tokens,
+        "prompt_cache_miss_tokens": total_cache_miss_tokens,
         "max_tokens": reduce_telemetry.get("max_tokens", initial_max_tokens),
         "finish_reason": reduce_telemetry.get("finish_reason", ""),
         "chunk_count": len(chunks),
