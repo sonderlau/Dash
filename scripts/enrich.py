@@ -59,6 +59,12 @@ def parse_args() -> argparse.Namespace:
         help="Initial max_tokens for one summary request.",
     )
     parser.add_argument(
+        "--reduce-max-tokens",
+        type=int,
+        default=1600,
+        help="Initial max_tokens for the reduce step in chunk_reduce mode (synthesizes 5 fields across chunks; needs more headroom than a single-shot summary).",
+    )
+    parser.add_argument(
         "--refresh-extract",
         action="store_true",
         help="Re-extract fulltext even if cached markdown exists.",
@@ -211,6 +217,7 @@ def main() -> None:
                 chunk_size,
                 chunk_overlap,
                 client,
+                args.reduce_max_tokens,
             )
             summary_future.add_done_callback(
                 lambda fut, idx=index: on_summary_done(idx, fut)

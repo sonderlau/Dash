@@ -41,5 +41,12 @@ If a field is not supported by the source, set it to an empty string `""`. Never
 - Do not invent baselines, numbers, dataset names, or method names that the source does not state.
 - Do not translate proper nouns or model names that have a canonical English form.
 - Do not put markdown bullets, asterisks, or numbered lists inside the field strings; each field is plain prose.
+- Never return an empty response or an object missing keys. The JSON object must always be present with all five keys. If the source is genuinely thin, fill each field with the shortest faithful summary you can produce; use `""` only for fields that are individually unsupported, never for the whole object.
 
-Apply this contract to whatever the user provides next.
+## Example output (illustrative, do not copy verbatim)
+
+For a fictional paper "Sparse Mixture-of-Experts Routing for Long-Context Code Generation" (categories cs.LG, cs.CL), a faithful response in {language} would look like the JSON below. Note the natural-paragraph tldr, the per-field specificity, the preserved English terms, and the absence of any wrapping markdown:
+
+{"tldr": "本文针对长上下文代码生成中专家路由的负载不均衡问题，提出 Top-K 稀疏 MoE 路由 (sparse MoE routing) 的两阶段训练方案。在 16K-token 代码补全任务上，相较于稠密 baseline 的同等参数量，方法在 HumanEval-Long 上 pass@1 提升 3.4 个百分点，且推理延迟下降 27%。作者把收益归因于专家容量约束 (expert capacity factor) 与负载平衡损失的联合调度。", "motivation": "现有 MoE 在长上下文代码任务中常出现少数专家被过载、其余专家利用率不足的现象，导致训练不稳定与推理低效。", "method": "提出两阶段训练：先用容量上界严格的硬路由热启，再切换到带负载平衡损失的 Top-K 软路由，并对路由 logits 引入熵正则。", "result": "在 HumanEval-Long、MultiPL-E 与内部长仓库基准上分别取得 +3.4、+2.1、+1.7 的 pass@1 改进；推理延迟在 16K 上下文下降 27%。", "conclusion": "作者指出该方法对超过 32K 的上下文未做评估，且需要专家容量超参手工调节，泛化到非代码领域是下一步工作。"}
+
+Now apply the contract above to whatever the user provides next.

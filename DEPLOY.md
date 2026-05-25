@@ -198,6 +198,48 @@ prompt 在 `src/prompts/*.txt`。改完 push main 不会自动重做摘要，因
 - **`docs/data/` 在 main 分支被 gitignore。** 数据只活在 `data` 分支，pages.yml 把两边合并到 `_site` 后部署。
 - **前端字体引用 SJTU 镜像。** `docs/index.html` 里 Google Fonts 走 `google-fonts.mirrors.sjtug.sjtu.edu.cn`。国外用户访问可能慢；如需更稳，换回 `fonts.googleapis.com` 或自托管 woff2。字体加载失败有 system fallback，不会渲染崩。
 
+## DeepSeek 适配要点
+
+我们项目针对 DeepSeek 做了若干强假设，照官方文档对齐。以下事实变了就要回来调代码。
+
+### Prompt cache（KV cache）
+
+- **默认开启，不需要客户端配置。** 系统按 prefix 匹配，识别到固定前缀就落盘缓存。
+- **缓存按账号分级**，由 `user_id` 隔离（如果传了的话）。我们 **不传 `user_id`**，所有请求共享同一个 cache 池，命中率最大化。
+- **完整匹配才算命中。** 我们三个 system prompt（normal/chunk/reduce）每次渲染都是 byte-identical，前提是 `LANGUAGE` 不变。**LANGUAGE 一旦设了 `zh-CN` 就不要改**；改了之后所有 cache 失效，要重新预热几篇 paper 才能恢复命中率。
+- **TTL 几小时到几天，不可配。** 如果一段时间没跑流水线，第一篇会 miss 重新落盘，后续命中。
+- **`prompt_cache_hit_rate` 是关键 metric。** `enrich.py` 的末尾日志会打印这一行；正常应该 > 0.4。如果某天 daily.yml 跑完看到 `prompt_cache_hit_rate` 显著低于平时（比如 < 0.1），先怀疑：(a) 改了 `LANGUAGE`；(b) 改了 system prompts；(c) 切换了 `MODEL_NAME`。
+- 命中部分按缓存价格（约 1/10）计费。预算敏感时这是核心杠杆。
+
+### JSON mode（`response_format`）
+
+- **强制要求**：system 或 user prompt 含 `json` 字样 + 给出 JSON 输出示例。我们三个 system prompt 各自有 EXAMPLE OUTPUT 段，对齐文档要求。
+- **空 content 是已知坑。** 文档明确说"API 有概率会返回空的 content"，建议靠改 prompt 缓解。我们 system prompt 里写了 "Never return an empty response or an object missing keys" 显式禁止；如果再看到空 content，先改 system prompt 而不是怪重试逻辑。
+- **截断（finish_reason=length）需要更多 max_tokens。** `summarize.py` 已实现 LengthLimitError → 增大 max_tokens 重试的策略：normal 路径 1300 起步、reduce 路径 1600 起步、上限 1800（`MAX_SUMMARY_TOKENS`）。
+- **content 是字符串不是对象，必须自己 `json.loads`。** `extract_json_object()` 已处理；不要替换为别的解析。
+
+### 并发与速率
+
+- **没有 RPM/TPM 限制，只有并发上限。** `deepseek-v4-flash` 单账号 **2500 并发**。我们 `SUMMARY_MAX_WORKERS=4`，远低于上限，**永远不会撞墙**。
+- **超出并发返 HTTP 429**，没有 `Retry-After` header。`summarize.py` 的 `compute_backoff_seconds` 会回退到 `5 × attempt` 的指数退避，没问题。
+- **没有 ack 机制；服务器忙时会用空行/SSE keep-alive 保持连接**。我们 httpx 非流式调用会等到完整响应；服务器 10 分钟内必须开始推理否则断连。`LLM_TIMEOUT_SECONDS=600` 正好是这个上限，匹配。
+- **不要传 `user_id`。** 文档里这是细粒度调度隔离参数，会同时把不同 `user_id` 的 KV cache 隔开。我们要 cache 共享。
+
+### 模型选择
+
+- 当前 `deepseek-v4-flash`：单价低 + 并发高（2500）+ 适合摘要任务。
+- 如果切到 `deepseek-v4-pro`：质量更好但单价高，并发上限 500（仍远高于我们 4 路）。**切换前考虑：cache 是按模型隔离的吗？** 文档没明说，保守假设是隔离的——切模型当于一次"清空 cache"，第一天命中率会跌。
+
+### 不要做的事
+
+| 操作 | 后果 |
+|---|---|
+| 改 `LANGUAGE` | 所有 system prompt 渲染结果变了，cache 全 miss |
+| 改 `src/prompts/*_system.txt` 任一字符 | 同上 |
+| 给请求加 `user_id` 参数 | cache 按 user_id 隔离，不共享 |
+| 把 `temperature` 调高 | 不影响 cache 命中（cache 只看输入前缀），但输出 JSON 稳定性下降，更容易触发 JsonOutputError 重试 |
+| 切换 `MODEL_NAME` | 大概率清空 cache 池 |
+
 ## 首次部署 checklist
 
 提交 main 分支前请确认：

@@ -47,5 +47,12 @@ If, after considering all chunks together, a field is still not adequately suppo
 - Do not translate proper nouns or model names that have a canonical English form.
 - Do not embed markdown lists or bullets inside field strings; each field is plain prose.
 - Do not let any chunk's wording dominate. The reduced output is your phrasing, drawing on the chunk evidence.
+- Never return an empty response or an object missing keys. The JSON object must always be present with all five keys. After synthesizing across all chunks, fill each field with the shortest faithful summary the evidence supports; use `""` only for fields that no chunk addresses, never for the whole object.
 
-Apply this contract to whatever chunk summaries the user provides next.
+## Example output (illustrative, do not copy verbatim)
+
+For a fictional paper "Sparse Mixture-of-Experts Routing for Long-Context Code Generation" (categories cs.LG, cs.CL) where chunks separately covered motivation, the two-stage method, the empirical numbers on three benchmarks, and a brief discussion of limitations, a faithful reduced response in {language} would look like the JSON below. Notice the paper-level tldr, the synthesis of details across chunks, the absence of "Chunk 1 says..." phrasing, and the preserved English terms:
+
+{"tldr": "本文针对长上下文代码生成中专家路由的负载不均衡问题，提出 Top-K 稀疏 MoE 路由 (sparse MoE routing) 的两阶段训练方案。在 16K-token 代码补全任务上，相较于稠密 baseline 的同等参数量，方法在 HumanEval-Long 上 pass@1 提升 3.4 个百分点，且推理延迟下降 27%。作者把收益归因于专家容量约束 (expert capacity factor) 与负载平衡损失的联合调度。", "motivation": "现有 MoE 在长上下文代码任务中常出现少数专家被过载、其余专家利用率不足的现象，导致训练不稳定与推理低效。", "method": "两阶段训练：第一阶段以专家容量上界做硬路由热启，第二阶段切换到带负载平衡损失的 Top-K 软路由，并在路由 logits 上加入熵正则，正则系数线性退火。", "result": "在 HumanEval-Long、MultiPL-E 与内部长仓库基准上分别取得 +3.4、+2.1、+1.7 的 pass@1 改进；16K 上下文下推理延迟下降 27%。", "conclusion": "作者指出方法在超过 32K 的上下文未做评估，专家容量超参仍需手工调节，向非代码领域的迁移留作未来工作。"}
+
+Now apply the contract above to whatever chunk summaries the user provides next.

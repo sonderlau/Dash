@@ -40,5 +40,12 @@ If a field is not supported by *this chunk*, set it to an empty string `""`. Nev
 - Do not translate proper nouns or model names that have a canonical English form.
 - Do not embed markdown lists or bullets inside field strings; each field is plain prose.
 - Do not duplicate the same sentence across multiple fields.
+- Never return an empty response or an object missing keys. The JSON object must always be present with all five keys. Empty individual fields are fine for chunk-level notes; an empty whole response is not.
 
-Apply this contract to whatever chunk the user provides next.
+## Example output (illustrative, do not copy verbatim)
+
+For a fictional paper "Sparse Mixture-of-Experts Routing for Long-Context Code Generation" where the user gives you chunk 2 / 4 — a method section that introduces a two-stage training scheme but does not yet report any numbers or motivation — a faithful chunk-level response in {language} would look like the JSON below. Notice that `motivation`, `result`, and `conclusion` are empty strings because this chunk does not address them, while `tldr` and `method` are filled from what the chunk does state:
+
+{"tldr": "本片段描述方法的两阶段训练流程：先用容量上界的硬路由热启，再切换到带负载平衡损失的 Top-K 软路由 (sparse Top-K routing)，并在路由 logits 上加入熵正则。", "motivation": "", "method": "第一阶段以严格的专家容量上界做硬分配训练，第二阶段切换为 Top-K 软路由并引入负载平衡损失与路由熵正则；正则系数随训练 step 线性退火。", "result": "", "conclusion": ""}
+
+Now apply the contract above to whatever chunk the user provides next.

@@ -23,6 +23,7 @@ except ModuleNotFoundError:  # pragma: no cover - local package-style invocation
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent / "src" / "prompts"
 DEFAULT_MAX_TOKENS = 1300
+DEFAULT_REDUCE_MAX_TOKENS = 1600
 MAX_SUMMARY_TOKENS = 1800
 FULLTEXT_CHAR_BUDGET = 0
 RETRYABLE_STATUS_CODES = {408, 409, 429, 500, 502, 503, 504}
@@ -135,8 +136,13 @@ def render_system(template_name: str, language: str) -> str:
     `language` is constant across calls (which it is in practice), the
     rendered string is byte-for-byte identical between requests, so DeepSeek's
     prompt cache can hit on the entire system message.
+
+    We use plain string replacement instead of ``str.format`` because the
+    prompts contain literal JSON examples with ``{`` and ``}`` characters.
+    Doubling those for ``format`` would obscure the example; the trade-off is
+    that the only supported placeholder is ``{language}``.
     """
-    return load_prompt(template_name).format(language=language)
+    return load_prompt(template_name).replace("{language}", language)
 
 
 def build_messages(
@@ -454,6 +460,7 @@ def summarize_via_chunks(
     initial_max_tokens: int,
     chunk_size: int,
     overlap: int,
+    reduce_max_tokens: int | None = None,
 ) -> tuple[dict[str, str], dict[str, Any]]:
     fulltext = prepare_summary_context(paper)
     chunks = split_text_into_chunks(fulltext, chunk_size=chunk_size, overlap=overlap)
@@ -515,13 +522,14 @@ def summarize_via_chunks(
         categories=", ".join(paper["matched_categories"]),
         chunk_summaries="\n\n".join(chunk_summaries),
     )
-    reduce_payload = build_custom_payload(llm_settings, reduce_system_prompt, reduce_user_content, initial_max_tokens)
+    effective_reduce_max_tokens = reduce_max_tokens if reduce_max_tokens is not None else DEFAULT_REDUCE_MAX_TOKENS
+    reduce_payload = build_custom_payload(llm_settings, reduce_system_prompt, reduce_user_content, effective_reduce_max_tokens)
     final_sections, reduce_telemetry = summarize_custom_payload(
         client=client,
         llm_settings=llm_settings,
         payload=reduce_payload,
         retries=retries,
-        initial_max_tokens=initial_max_tokens,
+        initial_max_tokens=effective_reduce_max_tokens,
         paper_id=f"{paper['id']}:reduce",
     )
     total_prompt_tokens += reduce_telemetry.get("prompt_tokens") or 0
@@ -610,6 +618,7 @@ def summarize_one_paper(
     chunk_size: int,
     chunk_overlap: int,
     client: httpx.Client,
+    reduce_max_tokens: int | None = None,
 ) -> tuple[dict[str, str], dict[str, Any]]:
     if len(paper.get("fulltext_markdown", "")) >= chunk_trigger_chars:
         return summarize_via_chunks(
@@ -620,6 +629,7 @@ def summarize_one_paper(
             initial_max_tokens=initial_max_tokens,
             chunk_size=chunk_size,
             overlap=chunk_overlap,
+            reduce_max_tokens=reduce_max_tokens,
         )
     return summarize_text(
         client=client,
