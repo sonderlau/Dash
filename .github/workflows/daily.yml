@@ -1,4 +1,4 @@
-name: Daily arXiv Digest
+Xname: Daily arXiv Digest
 
 on:
   workflow_dispatch:
@@ -31,8 +31,8 @@ on:
         required: false
         default: "false"
         type: boolean
-  schedule:
-    - cron: "20 23 * * *"
+  # schedule:
+  #   - cron: "20 23 * * *"
 
 permissions:
   contents: write
