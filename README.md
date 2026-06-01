@@ -3,8 +3,8 @@
 Dash is a personal arXiv daily reader that:
 
 - fetches papers from selected arXiv categories,
-- extracts PDF full text with `opendataloader-pdf`,
-- generates Chinese summaries with DeepSeek,
+- generates Chinese summaries from arXiv metadata and abstracts with DeepSeek,
+- optionally scores each paper against personal reading keywords,
 - writes stable daily JSON snapshots,
 - publishes a static reading site from `docs/`.
 
@@ -30,6 +30,7 @@ The initial architecture is intentionally small:
 
 ```text
 config.yaml
+keywords.yaml
 requirements.txt
 scripts/
 src/prompts/
@@ -64,20 +65,25 @@ Recommended DeepSeek local setup:
 - `LLM_TIMEOUT_SECONDS=600`
 - `LLM_RETRY_TIMES=3`
 
-## PDF full-text extraction
+## Metadata summaries and relevance scoring
 
-Summaries now prefer full paper text over abstract-only input.
+Summaries are abstract/metadata-only by default. The model receives title,
+authors, categories, arXiv dates, optional comment / journal reference / DOI,
+abstract URL, and the English abstract. It does not download PDFs or claim to
+have read the full paper.
 
-- PDF files are cached in `tmp/paper_cache/`
-- extracted markdown/json are cached in `tmp/pdf_extract/`
-- DeepSeek receives `abstract + extracted full text`
-- `docs/data/*.json` keeps frontend payloads lighter by stripping raw full text during site rebuild
+Personal relevance scoring is configured in `keywords.yaml`:
 
-Current tradeoff:
+```yaml
+keywords:
+  - diffusion planning
+  - robot manipulation
+  - long-context code generation
+```
 
-- summary quality is better because the model sees the paper body
-- latency and token usage are much higher on long papers
-- local cache becomes important to avoid repeated PDF downloads and repeated extraction
+Leave `keywords: []` empty to disable `relevance_score` generation. When
+enabled, the summary prompt asks DeepSeek to return an integer string from 0 to
+100 for personal reading priority, not paper quality.
 
 ## Pipeline stages
 
@@ -96,21 +102,19 @@ Useful variants:
 For scheduled / online execution, each stage should run as its own script:
 
 1. `python scripts/run_daily.py --date 2026-05-16`
-2. `python scripts/enrich.py --date 2026-05-16` — pipelines extract and summarize per paper (each paper hands off to summary as soon as its fulltext is ready, so total wall-clock is closer to `max(extract_total, summary_total)` than the sum). The split form below is still supported.
+2. `python scripts/enrich.py --date 2026-05-16` — summarizes papers concurrently from metadata and abstracts.
 3. `python scripts/build_site_data.py --latest-date 2026-05-16`
 4. `python scripts/validate_data.py tmp/state/2026-05-16.json docs/data/index.json docs/data/2026-05-16.json`
 
-The split form (run extract and summarize as separate stages) is still available — useful when you only want to refresh one side:
+The standalone summarizer is still available if you only want to refresh summaries:
 
-- `python scripts/extract_fulltext.py --date 2026-05-16`
 - `python scripts/summarize.py --date 2026-05-16`
 
 Stage-level parallelism:
 
-- `fetch_arxiv`抓取 5 个 category 的 `/list/<cat>/new` 是并发的（默认上限 8 路，由 `ARXIV_LIST_WORKERS` 控制），arXiv `/api/query` 的 50-id chunked 调用也并发（默认 4 路，由 `ARXIV_API_WORKERS` 控制）
-- `enrich` 是 download → extract → summary 的三段流水：每篇论文下载完立刻进入 extract，extract 完立刻进入 summary，wall-clock 接近 `max(download_total, extract_total, summary_total)`
-- 默认 8 个 download worker（纯网络 IO，可以高并发）、2 个 extract worker（JVM/CPU 受限）、4 个 summary worker；可用 `--download-workers` / `--extract-workers` / `--summary-workers`，或对应 env `PDF_DOWNLOAD_MAX_WORKERS` / `PDF_EXTRACT_MAX_WORKERS` / `SUMMARY_MAX_WORKERS` 覆盖
-- 独立运行的 `extract_fulltext` 和 `summarize` 也保留同名 env 与 worker 默认值
+- `fetch_arxiv` 抓取 category `/list/<cat>/new` 是并发的（默认上限 8 路，由 `ARXIV_LIST_WORKERS` 控制）；arXiv `/api/query` 的 50-id chunked 调用默认串行（`ARXIV_API_WORKERS=1`）以符合 arXiv API 节流建议
+- `enrich` 只有 summary worker pool；默认 4 个 summary worker，可用 `--summary-workers` 或 `SUMMARY_MAX_WORKERS` 覆盖
+- `scripts/summarize.py` 也保留 `--max-workers`，用于单独刷新 metadata/abstract summaries
 - 每日 snapshot 文件由 debounced 线程安全 writer 落盘，并发 worker 只 mark dirty，不竞争磁盘
 - 进度通过 `tqdm`（拆分 stage）或 `enrich` 的逐篇日志可见
 - pipeline stage 之间仍显式分开
@@ -118,16 +122,13 @@ Stage-level parallelism:
 
 File responsibilities:
 
-- `tmp/state/YYYY-MM-DD.json`: pipeline working state, including heavy fields
+- `tmp/state/YYYY-MM-DD.json`: pipeline working state
 - `docs/data/YYYY-MM-DD.json`: frontend-facing lightweight snapshot
 - `docs/data/index.json`: frontend index metadata
-- `tmp/paper_cache/`: cached PDFs
-- `tmp/pdf_extract/`: extracted markdown/json and extraction metadata
 
 Cleanup:
 
 - `python scripts/cleanup_artifacts.py --all`
-- `python scripts/cleanup_artifacts.py --pdf-cache --pdf-extract`
 
 ## Current stack decision
 
@@ -136,7 +137,7 @@ Cleanup:
 - Storage: versioned JSON files in `docs/data/`
 - Frontend: vanilla HTML/CSS/JS
 - Hosting: GitHub Pages from `/docs`
-- Automation: GitHub Actions scheduled workflow
+- Automation: GitHub Actions workflow; current cron schedule is commented out, manual dispatch remains available
 
 DeepSeek requests currently use:
 

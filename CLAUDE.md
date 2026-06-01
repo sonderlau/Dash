@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-Dash is a personal arXiv daily reader. A pipeline of Python scripts fetches papers from configured arXiv categories, downloads and extracts PDFs, generates Chinese summaries via DeepSeek, and writes a lightweight static site under `docs/` that GitHub Pages serves.
+Dash is a personal arXiv daily reader. A pipeline of Python scripts fetches papers from configured arXiv categories, generates Chinese summaries from arXiv metadata and abstracts via DeepSeek, optionally scores papers against personal keywords, and writes a lightweight static site under `docs/` that GitHub Pages serves.
 
 ## Non-negotiable preferences (treat as ADRs)
 
@@ -12,10 +12,10 @@ These come from `HANDOFF.md` and `REFACTOR_PLAN.md`. Do not relitigate them with
 
 - **No timezone logic in application code.** Scheduling is controlled by GitHub Actions cron, not Python.
 - **DeepSeek-only.** Do not introduce a generic LLM-provider abstraction. The `OPENAI_*` env names are leftover OpenAI-compatible naming, not a contract.
-- **`docs/data/*.json` must stay lightweight.** `build_site_data.py` strips `fulltext_markdown`, `fulltext_source`, `fulltext_status` from the public payload; `tmp/state/*.json` is the heavy working copy. Do not add heavy fields to the public snapshot.
+- **Summaries are metadata/abstract-only.** The production path must not download PDFs or claim to read full text.
+- **`docs/data/*.json` must stay lightweight.** Do not add heavy fields to the public snapshot.
 - **The online workflow (`.github/workflows/daily.yml`) calls stage scripts directly** (`run_daily.py`, `enrich.py`, `build_site_data.py`, `validate_data.py`). It does not call `pipeline.py`. `pipeline.py` is a local convenience wrapper only.
-- **Pipeline is explicitly staged; stages may parallelize internally.** Per-paper concurrency lives inside `enrich.py`/`extract_fulltext.py`/`summarize.py`, not across stages.
-- **Fulltext-first summarization.** Abstract-only summary is fallback when PDF extract fails or times out.
+- **Pipeline is explicitly staged; stages may parallelize internally.** Per-paper concurrency lives inside `enrich.py`/`summarize.py`, not across stages.
 - **`.env.local` is local-only; never commit it.** `.env.local.example` is the template.
 
 ## Snapshot date semantics
@@ -39,15 +39,14 @@ Stage-by-stage (matches what GitHub Actions runs):
 
 ```bash
 .venv/bin/python scripts/run_daily.py        --date 2026-05-16
-.venv/bin/python scripts/enrich.py           --date 2026-05-16        # extract + summarize, per-paper pipelined
+.venv/bin/python scripts/enrich.py           --date 2026-05-16        # metadata/abstract summaries
 .venv/bin/python scripts/build_site_data.py  --latest-date 2026-05-16
 .venv/bin/python scripts/validate_data.py tmp/state/2026-05-16.json docs/data/index.json docs/data/2026-05-16.json
 ```
 
-Split form (still supported, useful when refreshing only one side):
+Standalone summarizer:
 
 ```bash
-.venv/bin/python scripts/extract_fulltext.py --date 2026-05-16
 .venv/bin/python scripts/summarize.py        --date 2026-05-16
 ```
 
@@ -55,7 +54,6 @@ Cleanup:
 
 ```bash
 .venv/bin/python scripts/cleanup_artifacts.py --all
-.venv/bin/python scripts/cleanup_artifacts.py --pdf-cache --pdf-extract
 ```
 
 There is no test suite, no linter config, and no build step beyond running these scripts.
@@ -65,32 +63,28 @@ There is no test suite, no linter config, and no build step beyond running these
 ### Data flow and file responsibilities
 
 ```
-arXiv /list + /api  →  run_daily.py     →  tmp/state/YYYY-MM-DD.json   (heavy working state)
-                       enrich.py        ↻  (downloads PDFs to tmp/paper_cache/,
-                                            extracts to tmp/pdf_extract/,
-                                            then DeepSeek summary)
+arXiv /list + /api  →  run_daily.py     →  tmp/state/YYYY-MM-DD.json
+                       enrich.py        ↻  (DeepSeek metadata/abstract summary)
                        build_site_data  →  docs/data/YYYY-MM-DD.json   (lightweight public)
                                         →  docs/data/index.json
                        validate_data    →  fail loud if anything is empty/missing
 ```
 
-- `tmp/state/YYYY-MM-DD.json` — pipeline working copy with `fulltext_*` fields.
-- `docs/data/YYYY-MM-DD.json` — public, fulltext-stripped copy served by GitHub Pages.
+- `tmp/state/YYYY-MM-DD.json` — pipeline working copy.
+- `docs/data/YYYY-MM-DD.json` — public copy served by GitHub Pages.
 - `docs/data/index.json` — frontend index of available dates and metadata.
-- `tmp/paper_cache/` — cached PDF downloads.
-- `tmp/pdf_extract/<paper_id>/` — `opendataloader-pdf` output (markdown/json) plus extraction metadata.
 
 ### `enrich.py` — the per-paper pipeline
 
-`enrich.py` is the production stage. It runs three thread pools — download, extract, summary — and pipelines per-paper handoffs: as soon as one paper's PDF is downloaded it is queued for extraction, and as soon as extraction finishes it is queued for summary. Total wall-clock approximates `max(download_total, extract_total, summary_total)` rather than their sum.
+`enrich.py` is the production stage. It runs a summary worker pool over papers that still need summaries. It uses arXiv metadata and abstracts only, so a paper costs one short DeepSeek request instead of PDF download, JVM extraction, and chunk/reduce calls.
 
-Defaults: 8 download workers (pure network I/O), 2 extract workers (JVM/CPU bound), 4 summary workers. Override with `--download-workers` / `--extract-workers` / `--summary-workers` or `PDF_DOWNLOAD_MAX_WORKERS` / `PDF_EXTRACT_MAX_WORKERS` / `SUMMARY_MAX_WORKERS`.
+Default: 4 summary workers. Override with `--summary-workers` or `SUMMARY_MAX_WORKERS`.
 
-Splitting download out of extract is what unlocks the speedup: the legacy `ensure_fulltext_for_paper` did download+extract in one function, so download concurrency was capped at `extract_workers`. The new shape uses `download_pdf_for_paper` and `extract_pdf_to_markdown` from `pdf_fulltext.py`. `enrich.py` reuses helpers from `extract_fulltext.py` and `summarize.py` (`should_skip`, `summarize_one_paper`, etc.) — keep those importable.
+`enrich.py` reuses helpers from `summarize.py` (`should_skip`, `summarize_one_paper`, etc.) — keep those importable.
 
 ### `snapshot_writer.SnapshotWriter`
 
-Debounced, thread-safe writer for `tmp/state/YYYY-MM-DD.json`. All concurrent workers (extract + summary) call `mark_dirty()`; the writer flushes at most every `min_interval_seconds` or every `every_n` marks, with a forced flush at close. Never write the daily state JSON directly from a worker — go through this writer or you will fight the disk on every paper.
+Debounced, thread-safe writer for `tmp/state/YYYY-MM-DD.json`. Concurrent summary workers call `mark_dirty()`; the writer flushes at most every `min_interval_seconds` or every `every_n` marks, with a forced flush at close. Never write the daily state JSON directly from a worker — go through this writer or you will fight the disk on every paper.
 
 ### Configuration layering
 
@@ -98,18 +92,11 @@ Debounced, thread-safe writer for `tmp/state/YYYY-MM-DD.json`. All concurrent wo
 
 DeepSeek settings come from `load_deepseek_settings()` reading `LLM_ENABLED`, `OPENAI_API_KEY`, `OPENAI_BASE_URL`, `MODEL_NAME`, `LANGUAGE`, `LLM_TIMEOUT_SECONDS`, `LLM_RETRY_TIMES`. Requests use `httpx.Client(..., trust_env=False)` to bypass any local HTTP proxy and `response_format={"type": "json_object"}`. Retry covers rate-limit, timeout, transport, and malformed/truncated JSON.
 
+`scripts/common.py:load_keywords` reads `keywords.yaml`. Empty or missing keywords disable relevance scoring; non-empty keywords ask the model for a string integer `relevance_score` from 0 to 100.
+
 ### Prompts
 
-Live in `src/prompts/` as plain text files: `summary_system.txt`, `summary_user.txt`, `summary_chunk_user.txt`, `summary_reduce_user.txt`. The chunk/reduce pair is used when fulltext exceeds `summary_chunk_trigger_chars` in `config.yaml`.
-
-### PDF extraction layering caveat
-
-`opendataloader_pdf.convert()` already runs `java -jar` as a subprocess. `pdf_fulltext.py` historically wrapped that in another `subprocess.run([sys.executable, "-c", ...])` — the "Python → Python → java" stack noted in `REFACTOR_PLAN.md`. JVM startup per paper is unavoidable without switching to the hybrid server variant; check the current state of `pdf_fulltext.py` before claiming an optimization here.
-
-`pdf_fulltext.py` now exposes three functions:
-- `download_pdf_for_paper(paper, force_refresh, config)` — pure network I/O, safe to call with high concurrency.
-- `extract_pdf_to_markdown(paper, force_refresh, config)` — runs the JVM extractor on an already-downloaded PDF; CPU/JVM bound, keep concurrency low.
-- `ensure_fulltext_for_paper(paper, force_refresh)` — backwards-compatible composite for `extract_fulltext.py` and any caller that wants both in one call.
+Live in `src/prompts/` as plain text files: `summary_system.txt`, `summary_user.txt`. Prompts must preserve the six-field JSON contract: `tldr`, `motivation`, `method`, `result`, `conclusion`, `relevance_score`.
 
 ## Frontend
 

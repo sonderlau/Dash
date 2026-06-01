@@ -61,7 +61,7 @@
      - 其它保持默认
    - 跑一次完整流程；预期：
      - `Stage 1` 抓 arXiv 列表
-     - `Stage 2` 下载 + 解析 + LLM
+     - `Stage 2` 用 metadata / abstract 调 LLM 摘要
      - `Stage 5` 创建 `data` 分支并 push 一个 commit
      - 触发 `Deploy Pages`，Pages 上线
 
@@ -81,15 +81,21 @@
 
 ## 日常运维
 
-### 自动调度
+### 调度状态
 
-`daily.yml` 已配 `cron: "20 23 * * *"`（UTC 23:20，等于北京时间 07:20）。**调度时区只通过 cron 控制**，不要去 Python 里加时区逻辑。改时间直接改 cron 表达式。
+当前 `daily.yml` 保留 `workflow_dispatch` 手动触发，自动 `schedule` 仍注释关闭。需要恢复每日自动更新时，取消注释：
+
+```yaml
+schedule:
+  - cron: "20 23 * * *"
+```
+
+这对应 UTC 23:20（北京时间 07:20）。**调度时区只通过 cron 控制**，不要去 Python 里加时区逻辑。改时间直接改 cron 表达式。
 
 ### 手动重跑
 
 - **某天的数据：** Actions → Run workflow → `date` 填 `YYYY-MM-DD`
 - **跳过 LLM 调试：** 勾 `skip_summarize`
-- **强制重新解析 PDF：** 勾 `refresh_extract`（默认会用 PDF cache）
 - **重做摘要：** 勾 `refresh_ok`
 - **只 build 不 deploy：** 勾 `skip_deploy`
 
@@ -100,16 +106,14 @@
 | 阶段 | env | 默认 | 调整建议 |
 |---|---|---|---|
 | arXiv list 页抓取 | `ARXIV_LIST_WORKERS` | 5 | category 多就上调，arXiv 列表页是普通 HTML 没强限流 |
-| arXiv API chunk | `ARXIV_API_WORKERS` | 4 | 一般不动 |
-| PDF 下载 | `PDF_DOWNLOAD_MAX_WORKERS` | 8 | 网络 IO 受限，可加到 12 但收益递减 |
-| PDF 解析 | `PDF_EXTRACT_MAX_WORKERS` | 2 | **不要拉高**：每个 JVM ~0.5–1 GB；2 留给 4 vCPU 一半算力够稳。Self-hosted runner 内存大才考虑 3–4 |
+| arXiv API chunk | `ARXIV_API_WORKERS` | 1 | 一般不动；共享 CI IP 容易被限流，默认串行并带 3s gap |
 | DeepSeek 摘要 | `SUMMARY_MAX_WORKERS` | 4 | 触发 429 就降到 2，DeepSeek 没公开严格 rate limit |
 
 如果某天看到 `summary_fallback` 比例升高，先看日志里的具体 error name（`HTTPStatusError` / `TimeoutException`），再决定是降并发还是涨 `LLM_TIMEOUT_SECONDS`。
 
-### 缓存
+### relevance score
 
-PDF 下载/解析结果用 `actions/cache` 按月分桶（key 是 `pdf-YYYY-MM-DD`，restore-keys 回退到 `pdf-YYYY-MM-` 和 `pdf-`）。同月内多次重跑近乎免费；跨月第一次会 cold 一些。
+`keywords.yaml` 控制个人阅读优先级评分。`keywords: []` 时不计算 `relevance_score`；填入关键词后，后续新摘要会输出 0–100 的字符串分数。要给已生成的 paper 补分，需要手动重跑并勾 `refresh_ok=true`。
 
 ### 数据保留
 
@@ -138,10 +142,10 @@ push main 不会触发数据重建。**只有 daily.yml 会写 data 分支**，�
 
 ### enrich.py 的幂等性
 
-`enrich.py` 默认对每篇 paper 检查两个状态：
+`enrich.py` 默认对每篇 paper 检查摘要状态：
 
 - `summary_status == "ok"` → 跳过 LLM 调用（除非 `refresh_ok=true`）
-- `fulltext_status == "ok"` → 跳过 PDF 重新解析（除非 `refresh_extract=true`）
+- 如果 `keywords.yaml` 非空且旧摘要没有 `summary_sections.relevance_score`，则不会跳过，会补一次 relevance score
 
 所以同一天重跑 daily.yml 不会重新烧 token；改了脚本后再跑，已经 ok 的 paper 也不会被重做。
 
@@ -187,12 +191,11 @@ prompt 在 `src/prompts/*.txt`。改完 push main 不会自动重做摘要，因
 | 手动 `git push origin :data` 删 data 分支 | 历史归档丢失 | 永远不要做；要"清空"用 Run workflow 重建 |
 | 在 data 分支手动 commit | 跟自动 commit 冲突，下次 daily.yml 可能 push 失败 | 不要直接动 data 分支 |
 | 改 `tmp/state/YYYY-MM-DD.json` schema 同时不改前端 | 前端字段 missing | schema 改动配前端 `?? defaultValue` |
-| 用 `--refresh-extract` 全量刷 | 烧时间，不烧 token | 谨慎使用，通常没必要 |
+| 用 `--refresh-ok` 全量刷 | 重新烧 token | 谨慎使用，通常只给新 prompt / relevance keywords 补数据 |
 
 ### 杂项注意
 
-- **DeepSeek API 费用是唯一变量成本。** 100 篇 chunk_reduce 模式平均 ~10–15K tokens / 篇，按 `deepseek-v4-flash` 价格估算每天每天 < $1（自己核对）。`LLM_ENABLED=false` 是紧急关阀。
-- **Java 在 ubuntu-latest 自带 OpenJDK 21。** 不需要额外 setup。
+- **DeepSeek API 费用是唯一变量成本。** 当前每篇只用 metadata / abstract 做一个短请求；`LLM_ENABLED=false` 是紧急关阀。
 - **arXiv 列表抓取并发了 5 个 category。** 如果哪天看到 503/429，把 `ARXIV_LIST_WORKERS` 降到 1 临时回退到顺序。
 - **不要把 `.env.local` commit 到 main。** secrets 走 GitHub Actions secrets，本地走 `.env.local`，两条路完全分开。
 - **`docs/data/` 在 main 分支被 gitignore。** 数据只活在 `data` 分支，pages.yml 把两边合并到 `_site` 后部署。
@@ -206,16 +209,16 @@ prompt 在 `src/prompts/*.txt`。改完 push main 不会自动重做摘要，因
 
 - **默认开启，不需要客户端配置。** 系统按 prefix 匹配，识别到固定前缀就落盘缓存。
 - **缓存按账号分级**，由 `user_id` 隔离（如果传了的话）。我们 **不传 `user_id`**，所有请求共享同一个 cache 池，命中率最大化。
-- **完整匹配才算命中。** 我们三个 system prompt（normal/chunk/reduce）每次渲染都是 byte-identical，前提是 `LANGUAGE` 不变。**LANGUAGE 一旦设了 `zh-CN` 就不要改**；改了之后所有 cache 失效，要重新预热几篇 paper 才能恢复命中率。
+- **完整匹配才算命中。** 我们的 system prompt 每次渲染都是 byte-identical，前提是 `LANGUAGE` 不变。**LANGUAGE 一旦设了 `zh-CN` 就不要改**；改了之后所有 cache 失效，要重新预热几篇 paper 才能恢复命中率。
 - **TTL 几小时到几天，不可配。** 如果一段时间没跑流水线，第一篇会 miss 重新落盘，后续命中。
 - **`prompt_cache_hit_rate` 是关键 metric。** `enrich.py` 的末尾日志会打印这一行；正常应该 > 0.4。如果某天 daily.yml 跑完看到 `prompt_cache_hit_rate` 显著低于平时（比如 < 0.1），先怀疑：(a) 改了 `LANGUAGE`；(b) 改了 system prompts；(c) 切换了 `MODEL_NAME`。
 - 命中部分按缓存价格（约 1/10）计费。预算敏感时这是核心杠杆。
 
 ### JSON mode（`response_format`）
 
-- **强制要求**：system 或 user prompt 含 `json` 字样 + 给出 JSON 输出示例。我们三个 system prompt 各自有 EXAMPLE OUTPUT 段，对齐文档要求。
+- **强制要求**：system 或 user prompt 含 `json` 字样 + 给出 JSON 输出示例。我们的 system prompt 有 EXAMPLE OUTPUT 段，对齐文档要求。
 - **空 content 是已知坑。** 文档明确说"API 有概率会返回空的 content"，建议靠改 prompt 缓解。我们 system prompt 里写了 "Never return an empty response or an object missing keys" 显式禁止；如果再看到空 content，先改 system prompt 而不是怪重试逻辑。
-- **截断（finish_reason=length）需要更多 max_tokens。** `summarize.py` 已实现 LengthLimitError → 增大 max_tokens 重试的策略：normal 路径 1300 起步、reduce 路径 1600 起步、上限 1800（`MAX_SUMMARY_TOKENS`）。
+- **截断（finish_reason=length）需要更多 max_tokens。** `summarize.py` 已实现 LengthLimitError → 增大 max_tokens 重试的策略：1300 起步、上限 1800（`MAX_SUMMARY_TOKENS`）。
 - **content 是字符串不是对象，必须自己 `json.loads`。** `extract_json_object()` 已处理；不要替换为别的解析。
 
 ### 并发与速率

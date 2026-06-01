@@ -13,6 +13,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "config.yaml"
+KEYWORDS_PATH = ROOT / "keywords.yaml"
 DOCS_DATA_DIR = ROOT / "docs" / "data"
 STATE_DATA_DIR = ROOT / "tmp" / "state"
 
@@ -21,6 +22,7 @@ STATE_DATA_DIR = ROOT / "tmp" / "state"
 class Paths:
     root: Path = ROOT
     config: Path = CONFIG_PATH
+    keywords: Path = KEYWORDS_PATH
     docs_data: Path = DOCS_DATA_DIR
     state_data: Path = STATE_DATA_DIR
 
@@ -30,6 +32,40 @@ def load_config() -> dict[str, Any]:
     with CONFIG_PATH.open("r", encoding="utf-8") as handle:
         config = yaml.safe_load(handle) or {}
     return apply_env_overrides(config)
+
+
+def load_keywords(path: Path | None = None) -> list[str]:
+    keywords_path = path or KEYWORDS_PATH
+    if not keywords_path.exists():
+        return []
+
+    with keywords_path.open("r", encoding="utf-8") as handle:
+        raw = yaml.safe_load(handle) or {}
+
+    if isinstance(raw, dict):
+        raw_keywords = raw.get("keywords", [])
+    elif isinstance(raw, list):
+        raw_keywords = raw
+    else:
+        raise TypeError("keywords.yaml must contain a 'keywords' list or a top-level list")
+
+    if raw_keywords is None:
+        return []
+    if not isinstance(raw_keywords, list):
+        raise TypeError("keywords.yaml 'keywords' must be a list")
+
+    keywords: list[str] = []
+    seen: set[str] = set()
+    for item in raw_keywords:
+        keyword = str(item).strip()
+        if not keyword:
+            continue
+        key = keyword.casefold()
+        if key in seen:
+            continue
+        keywords.append(keyword)
+        seen.add(key)
+    return keywords
 
 
 def load_local_env(path: Path | None = None) -> None:
@@ -94,19 +130,6 @@ def ensure_docs_data_dir() -> Path:
 def ensure_state_data_dir() -> Path:
     STATE_DATA_DIR.mkdir(parents=True, exist_ok=True)
     return STATE_DATA_DIR
-
-
-def resolve_root_path(raw_path: str | Path) -> Path:
-    path = Path(raw_path)
-    if path.is_absolute():
-        return path
-    return ROOT / path
-
-
-def ensure_dir(path: str | Path) -> Path:
-    target = resolve_root_path(path)
-    target.mkdir(parents=True, exist_ok=True)
-    return target
 
 
 def write_json(path: Path, payload: Any, pretty: bool = True) -> None:

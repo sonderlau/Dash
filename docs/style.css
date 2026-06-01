@@ -354,6 +354,7 @@ input:focus {
 }
 
 .category-badge,
+.relevance-badge,
 .modal-tag {
   display: inline-flex;
   align-items: center;
@@ -368,6 +369,18 @@ input:focus {
 
 .category-badge {
   border: 1px solid color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.relevance-badge {
+  border: 1px solid color-mix(in srgb, var(--accent-warm) 24%, transparent);
+  background: color-mix(in srgb, var(--accent-warm) 14%, transparent);
+  color: var(--accent-warm);
+  font-family: var(--font-mono);
+}
+
+.relevance-badge[hidden],
+.modal-section-relevance[hidden] {
+  display: none;
 }
 
 .page-head {
@@ -441,7 +454,7 @@ h2 {
 
 .paper-card-top {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
   margin-bottom: 16px;
@@ -645,6 +658,30 @@ body.modal-open {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background: color-mix(in srgb, var(--panel) 94%, var(--primary-soft));
+}
+
+.modal-section-relevance {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 160px;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--accent-warm) 28%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--accent-warm) 10%, var(--panel));
+}
+
+.modal-section-relevance p {
+  color: var(--accent-warm);
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.score-unit {
+  color: var(--text-subtle);
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .modal-section-tldr p {

@@ -204,6 +204,8 @@ cython_debug/
 # .vscode/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
+tmp/
+.codegraph/
 tmp/paper_cache/
 tmp/pdf_extract/
 tmp/state/

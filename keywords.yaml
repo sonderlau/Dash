@@ -1,0 +1,8 @@
+# Optional reading-interest keywords for relevance scoring.
+# Leave the list empty to disable relevance_score generation.
+keywords:
+  - Precipitation
+  - Nowcasting
+  - Weather Forecasting
+  - Assimilation
+  - Rainfall

@@ -242,6 +242,9 @@ def normalize_paper(
 
     matched_categories = [cat for cat in configured_categories if cat in raw_categories]
     display_category = matched_categories[0] if matched_categories else "other"
+    primary_category = ""
+    if entry.get("arxiv_primary_category"):
+        primary_category = entry.arxiv_primary_category.get("term", "")
 
     published_dt = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
     updated_dt = datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc)
@@ -262,12 +265,13 @@ def normalize_paper(
         "categories": raw_categories,
         "matched_categories": matched_categories,
         "display_category": display_category,
+        "primary_category": primary_category,
         "abs_url": entry.link,
         "pdf_url": pdf_url,
         "abstract_en": " ".join(entry.summary.split()),
-        "fulltext_markdown": "",
-        "fulltext_source": "",
-        "fulltext_status": "pending",
+        "comment": " ".join(str(entry.get("arxiv_comment", "")).split()),
+        "journal_ref": " ".join(str(entry.get("arxiv_journal_ref", "")).split()),
+        "doi": " ".join(str(entry.get("arxiv_doi", "")).split()),
         "summary_zh": "",
         "summary_input_source": "",
         "summary_sections": {
@@ -276,6 +280,7 @@ def normalize_paper(
             "method": "",
             "result": "",
             "conclusion": "",
+            "relevance_score": "",
         },
         "summary_status": "pending",
         "published_date": published_dt.date().isoformat(),

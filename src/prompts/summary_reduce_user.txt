@@ -1,5 +1,0 @@
-标题：{title}
-匹配分类：{categories}
-
-阶段性摘要集合：
-{chunk_summaries}

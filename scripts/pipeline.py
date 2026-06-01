@@ -25,21 +25,18 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--from-stage",
         default="fetch_dedup",
-        choices=["fetch_dedup", "extract_fulltext", "summarize", "build_site", "validate"],
+        choices=["fetch_dedup", "summarize", "build_site", "validate"],
         help="Start running from this stage.",
     )
     parser.add_argument(
         "--to-stage",
         default="validate",
-        choices=["fetch_dedup", "extract_fulltext", "summarize", "build_site", "validate"],
+        choices=["fetch_dedup", "summarize", "build_site", "validate"],
         help="Stop after this stage.",
     )
     parser.add_argument("--skip-summarize", action="store_true", help="Skip the summarize stage.")
     parser.add_argument("--summarize-limit", type=int, default=None, help="Only summarize the first N papers.")
     parser.add_argument("--refresh-ok", action="store_true", help="Re-summarize papers already marked ok.")
-    parser.add_argument("--extract-limit", type=int, default=None, help="Only extract fulltext for the first N papers.")
-    parser.add_argument("--extract-refresh", action="store_true", help="Re-extract cached fulltext.")
-    parser.add_argument("--extract-max-workers", type=int, default=None, help="Override extract worker count.")
     parser.add_argument("--summary-max-workers", type=int, default=None, help="Override summary worker count.")
     return parser.parse_args()
 
@@ -67,7 +64,7 @@ def load_paper_count(state_path: Path) -> int:
     return int(payload.get("paper_count", 0))
 
 
-STAGE_ORDER = ["fetch_dedup", "extract_fulltext", "summarize", "build_site", "validate"]
+STAGE_ORDER = ["fetch_dedup", "summarize", "build_site", "validate"]
 
 
 def stage_enabled(stage_name: str, from_stage: str, to_stage: str) -> bool:
@@ -84,7 +81,6 @@ def main() -> None:
         raise SystemExit("--from-stage must not be after --to-stage")
 
     fetch_cmd = [str(PYTHON), "scripts/run_daily.py", "--date", run_date.isoformat()]
-    extract_cmd = [str(PYTHON), "scripts/extract_fulltext.py", "--date", run_date.isoformat()]
     build_cmd = [str(PYTHON), "scripts/build_site_data.py", "--latest-date", run_date.isoformat()]
     validate_cmd = [
         str(PYTHON),
@@ -93,13 +89,6 @@ def main() -> None:
         "docs/data/index.json",
         f"docs/data/{run_date.isoformat()}.json",
     ]
-    if args.extract_limit and args.extract_limit > 0:
-        extract_cmd.extend(["--limit", str(args.extract_limit)])
-    if args.extract_refresh:
-        extract_cmd.append("--refresh")
-    if args.extract_max_workers and args.extract_max_workers > 0:
-        extract_cmd.extend(["--max-workers", str(args.extract_max_workers)])
-
     if stage_enabled("fetch_dedup", args.from_stage, args.to_stage):
         run_stage("fetch_dedup", fetch_cmd)
 
@@ -112,9 +101,6 @@ def main() -> None:
         run_stage("validate", validate_cmd)
         print({"status": "ok", "message": "No new papers after dedup; summarize skipped."})
         return
-
-    if stage_enabled("extract_fulltext", args.from_stage, args.to_stage):
-        run_stage("extract_fulltext", extract_cmd)
 
     if not args.skip_summarize and stage_enabled("summarize", args.from_stage, args.to_stage):
         summarize_cmd = [str(PYTHON), "scripts/summarize.py", "--date", run_date.isoformat()]

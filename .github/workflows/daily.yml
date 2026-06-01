@@ -1,4 +1,4 @@
-Xname: Daily arXiv Digest
+name: Daily arXiv Digest
 
 on:
   workflow_dispatch:
@@ -13,11 +13,6 @@ on:
         default: "0"
       skip_summarize:
         description: "Skip the LLM summary stage."
-        required: false
-        default: "false"
-        type: boolean
-      refresh_extract:
-        description: "Re-extract fulltext even if cached."
         required: false
         default: "false"
         type: boolean
@@ -72,7 +67,6 @@ jobs:
             run_date="$(date -u +%F)"
           fi
           echo "run_date=$run_date" >> "$GITHUB_OUTPUT"
-          echo "month=$(echo "$run_date" | cut -c1-7)" >> "$GITHUB_OUTPUT"
           echo "Resolved run date: $run_date"
 
       - name: Set up Python
@@ -97,8 +91,6 @@ jobs:
           free -h
           echo "----- disk -----"
           df -h /
-          echo "----- java -----"
-          java -version 2>&1 || true
           echo "----- python -----"
           python --version
 
@@ -120,18 +112,6 @@ jobs:
           fi
           ls -la tmp/state || true
 
-      - name: Restore PDF cache (downloads + extractions)
-        id: cache_pdf
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            tmp/paper_cache
-            tmp/pdf_extract
-          key: pdf-${{ steps.vars.outputs.month }}-${{ steps.vars.outputs.run_date }}
-          restore-keys: |
-            pdf-${{ steps.vars.outputs.month }}-
-            pdf-
-
       - name: Stage 1 / Fetch arXiv listing & dedup
         env:
           # Sized for ubuntu-latest (4 vCPU / 16 GB).
@@ -143,20 +123,14 @@ jobs:
           ARXIV_API_WORKERS: "1"
         run: python scripts/run_daily.py --date "${{ steps.vars.outputs.run_date }}"
 
-      - name: Stage 2 / Extract fulltext + summarize (pipelined)
+      - name: Stage 2 / Summarize metadata
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_BASE_URL: ${{ vars.OPENAI_BASE_URL }}
           MODEL_NAME: ${{ vars.MODEL_NAME }}
           LANGUAGE: ${{ vars.LANGUAGE }}
           LLM_ENABLED: ${{ vars.LLM_ENABLED }}
-          # Worker pool sizing — tuned for GitHub-hosted ubuntu-latest
-          # (4 vCPU / 16 GB / shared network):
-          #   download: pure network I/O, safe at 8 (PDFs are 1–10 MB each)
-          #   extract:  JVM-bound, ~0.5–1 GB / process; 2 keeps memory headroom
-          #   summary:  DeepSeek API calls; 4 matches retry tolerance
-          PDF_DOWNLOAD_MAX_WORKERS: "8"
-          PDF_EXTRACT_MAX_WORKERS: "2"
+          # Abstract/metadata-only summaries: no PDF download/extract stage.
           SUMMARY_MAX_WORKERS: "4"
         run: |
           set -euo pipefail
@@ -167,9 +141,6 @@ jobs:
           fi
           if [[ '${{ github.event.inputs.skip_summarize }}' == 'true' ]]; then
             args+=(--skip-summarize)
-          fi
-          if [[ '${{ github.event.inputs.refresh_extract }}' == 'true' ]]; then
-            args+=(--refresh-extract)
           fi
           if [[ '${{ github.event.inputs.refresh_ok }}' == 'true' ]]; then
             args+=(--refresh-ok)
@@ -201,15 +172,6 @@ jobs:
           git worktree add --detach "$ref_dir" origin/data
           python scripts/check_regression.py "$ref_dir/docs/data" docs/data
           git worktree remove --force "$ref_dir"
-
-      - name: Save PDF cache
-        if: always()
-        uses: actions/cache/save@v4
-        with:
-          path: |
-            tmp/paper_cache
-            tmp/pdf_extract
-          key: pdf-${{ steps.vars.outputs.month }}-${{ steps.vars.outputs.run_date }}
 
       - name: Upload run snapshot (debug artifact)
         if: always()

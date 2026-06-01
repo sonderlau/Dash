@@ -1,7 +1,21 @@
 标题：{title}
+作者：{authors}
 匹配分类：{categories}
+全部分类：{all_categories}
+主分类：{primary_category}
+发布日期：{published_date}
+更新日期：{updated_date}
+arXiv comment：{comment}
+Journal reference：{journal_ref}
+DOI：{doi}
+arXiv abstract URL：{abs_url}
+
 英文摘要：
 {abstract_en}
 
-提取出的论文全文（可能保留了 markdown 结构）：
-{fulltext_context}
+个人阅读关键词（可能为空）：
+{keywords}
+
+{relevance_instruction}
+
+请只基于上面的 metadata 和 abstract 输出 JSON。不要假设你读过 PDF 全文。

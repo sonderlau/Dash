@@ -1,6 +1,0 @@
-标题：{title}
-匹配分类：{categories}
-这是第 {chunk_index} / {chunk_total} 个片段。
-
-论文片段内容：
-{chunk_content}

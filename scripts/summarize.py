@@ -14,18 +14,16 @@ import httpx
 from tqdm import tqdm
 
 try:
-    from common import daily_path, load_config, load_deepseek_settings, read_json, write_json
+    from common import daily_path, load_config, load_deepseek_settings, load_keywords, read_json, write_json
     from snapshot_writer import SnapshotWriter
 except ModuleNotFoundError:  # pragma: no cover - local package-style invocation
-    from scripts.common import daily_path, load_config, load_deepseek_settings, read_json, write_json
+    from scripts.common import daily_path, load_config, load_deepseek_settings, load_keywords, read_json, write_json
     from scripts.snapshot_writer import SnapshotWriter
 
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent / "src" / "prompts"
 DEFAULT_MAX_TOKENS = 1300
-DEFAULT_REDUCE_MAX_TOKENS = 1600
 MAX_SUMMARY_TOKENS = 1800
-FULLTEXT_CHAR_BUDGET = 0
 RETRYABLE_STATUS_CODES = {408, 409, 429, 500, 502, 503, 504}
 
 
@@ -72,61 +70,30 @@ def compact_text(value: str) -> str:
     return "\n".join(line.rstrip() for line in str(value).splitlines()).strip()
 
 
-def truncate_fulltext(fulltext: str, budget: int = FULLTEXT_CHAR_BUDGET) -> str:
-    normalized = compact_text(fulltext)
-    if budget <= 0 or len(normalized) <= budget:
-        return normalized
-
-    lines = normalized.splitlines()
-    kept: list[str] = []
-    total = 0
-    for line in lines:
-        extra = len(line) + 1
-        if total + extra > budget:
-            break
-        kept.append(line)
-        total += extra
-
-    if kept:
-        return "\n".join(kept).strip()
-    return normalized[:budget]
+def format_metadata_list(values: list[str] | tuple[str, ...]) -> str:
+    cleaned = [compact_text(value) for value in values if compact_text(value)]
+    return ", ".join(cleaned) if cleaned else ""
 
 
-def prepare_summary_context(paper: dict[str, Any]) -> str:
-    fulltext = compact_text(paper.get("fulltext_markdown", ""))
-    if fulltext:
-        return truncate_fulltext(fulltext)
+def prepare_metadata_context(paper: dict[str, Any]) -> str:
     return "\n".join(
         [
-            f"# {paper['title']}",
+            f"Title: {compact_text(paper.get('title', ''))}",
+            f"Authors: {format_metadata_list(paper.get('authors', []))}",
+            f"Matched categories: {format_metadata_list(paper.get('matched_categories', []))}",
+            f"All categories: {format_metadata_list(paper.get('categories', []))}",
+            f"Primary category: {compact_text(paper.get('primary_category', ''))}",
+            f"Published date: {compact_text(paper.get('published_date', ''))}",
+            f"Updated date: {compact_text(paper.get('updated_date', ''))}",
+            f"arXiv comment: {compact_text(paper.get('comment', ''))}",
+            f"Journal reference: {compact_text(paper.get('journal_ref', ''))}",
+            f"DOI: {compact_text(paper.get('doi', ''))}",
+            f"arXiv abstract URL: {compact_text(paper.get('abs_url', ''))}",
             "",
-            "## Abstract",
-            paper.get("abstract_en", "").strip(),
+            "Abstract:",
+            compact_text(paper.get("abstract_en", "")),
         ]
     ).strip()
-
-
-def split_text_into_chunks(text: str, chunk_size: int, overlap: int) -> list[str]:
-    normalized = compact_text(text)
-    if not normalized or chunk_size <= 0:
-        return [normalized] if normalized else []
-
-    chunks: list[str] = []
-    start = 0
-    text_length = len(normalized)
-    while start < text_length:
-        end = min(start + chunk_size, text_length)
-        if end < text_length:
-            newline_boundary = normalized.rfind("\n", start, end)
-            if newline_boundary > start + (chunk_size // 2):
-                end = newline_boundary
-        chunk = normalized[start:end].strip()
-        if chunk:
-            chunks.append(chunk)
-        if end >= text_length:
-            break
-        start = max(end - overlap, end)
-    return chunks
 
 
 def render_system(template_name: str, language: str) -> str:
@@ -149,12 +116,28 @@ def build_messages(
     system_prompt: str,
     user_prompt: str,
     paper: dict[str, Any],
+    keywords: list[str],
 ) -> list[dict[str, str]]:
     user_content = user_prompt.format(
         title=paper["title"],
+        authors=format_metadata_list(paper.get("authors", [])),
         categories=", ".join(paper["matched_categories"]),
+        all_categories=format_metadata_list(paper.get("categories", [])),
+        primary_category=paper.get("primary_category", ""),
+        published_date=paper.get("published_date", ""),
+        updated_date=paper.get("updated_date", ""),
+        comment=paper.get("comment", ""),
+        journal_ref=paper.get("journal_ref", ""),
+        doi=paper.get("doi", ""),
+        abs_url=paper.get("abs_url", ""),
         abstract_en=paper["abstract_en"],
-        fulltext_context=prepare_summary_context(paper),
+        metadata_context=prepare_metadata_context(paper),
+        keywords="\n".join(f"- {keyword}" for keyword in keywords),
+        relevance_instruction=(
+            "请根据上面的关键词给出 0-100 的 relevance_score，分数表示这篇论文是否值得我优先阅读。"
+            if keywords
+            else "关键词列表为空；不要计算 relevance_score，请把 relevance_score 设为英文空字符串 \"\"。"
+        ),
     )
     return [
         {"role": "system", "content": system_prompt},
@@ -162,15 +145,11 @@ def build_messages(
     ]
 
 
-def build_prompt_content(template_name: str, **kwargs: Any) -> str:
-    template = load_prompt(template_name)
-    return template.format(**kwargs)
-
-
 def build_request_payload(
     llm_settings: dict[str, Any],
     paper: dict[str, Any],
     max_tokens: int,
+    keywords: list[str] | None = None,
 ) -> dict[str, Any]:
     system_prompt = render_system("summary_system.txt", llm_settings["language"])
     user_prompt = load_prompt("summary_user.txt")
@@ -179,25 +158,7 @@ def build_request_payload(
         "temperature": 0.15,
         "max_tokens": max_tokens,
         "response_format": {"type": "json_object"},
-        "messages": build_messages(system_prompt, user_prompt, paper),
-    }
-
-
-def build_custom_payload(
-    llm_settings: dict[str, Any],
-    system_prompt: str,
-    user_content: str,
-    max_tokens: int,
-) -> dict[str, Any]:
-    return {
-        "model": llm_settings["model"],
-        "temperature": 0.15,
-        "max_tokens": max_tokens,
-        "response_format": {"type": "json_object"},
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_content},
-        ],
+        "messages": build_messages(system_prompt, user_prompt, paper, keywords or []),
     }
 
 
@@ -219,8 +180,9 @@ def normalize_sections(parsed: dict[str, Any]) -> dict[str, str]:
         "method": str(parsed.get("method", "")).strip(),
         "result": str(parsed.get("result", "")).strip(),
         "conclusion": str(parsed.get("conclusion", "")).strip(),
+        "relevance_score": str(parsed.get("relevance_score", "")).strip(),
     }
-    if not any(sections.values()):
+    if not any(value for key, value in sections.items() if key != "relevance_score"):
         raise JsonOutputError("json_fields_empty")
     return sections
 
@@ -267,9 +229,10 @@ def request_summary(
     llm_settings: dict[str, Any],
     paper: dict[str, Any] | None,
     max_tokens: int,
+    keywords: list[str] | None = None,
     payload_override: dict[str, Any] | None = None,
 ) -> tuple[dict[str, str], dict[str, Any]]:
-    payload = payload_override or build_request_payload(llm_settings, paper or {}, max_tokens)
+    payload = payload_override or build_request_payload(llm_settings, paper or {}, max_tokens, keywords or [])
     response = client.post(
         f"{llm_settings['base_url'].rstrip('/')}/chat/completions",
         headers={
@@ -300,14 +263,16 @@ def summarize_text(
     paper: dict[str, Any],
     retries: int,
     initial_max_tokens: int,
+    keywords: list[str] | None = None,
 ) -> tuple[dict[str, str], dict[str, Any]]:
     max_tokens = initial_max_tokens
     last_error: Exception | None = None
 
     for attempt in range(retries + 1):
         try:
-            sections, telemetry = request_summary(client, llm_settings, paper, max_tokens)
+            sections, telemetry = request_summary(client, llm_settings, paper, max_tokens, keywords or [])
             telemetry["attempt"] = attempt + 1
+            telemetry["summary_mode"] = "metadata"
             return sections, telemetry
         except LengthLimitError as exc:
             last_error = exc
@@ -390,169 +355,6 @@ def summarize_text(
     raise last_error
 
 
-def summarize_custom_payload(
-    client: httpx.Client,
-    llm_settings: dict[str, Any],
-    payload: dict[str, Any],
-    retries: int,
-    initial_max_tokens: int,
-    paper_id: str,
-) -> tuple[dict[str, str], dict[str, Any]]:
-    max_tokens = initial_max_tokens
-    last_error: Exception | None = None
-
-    for attempt in range(retries + 1):
-        try:
-            sections, telemetry = request_summary(
-                client=client,
-                llm_settings=llm_settings,
-                paper=None,
-                max_tokens=max_tokens,
-                payload_override={**payload, "max_tokens": max_tokens},
-            )
-            telemetry["attempt"] = attempt + 1
-            return sections, telemetry
-        except LengthLimitError as exc:
-            last_error = exc
-            max_tokens = min(max_tokens + 320, MAX_SUMMARY_TOKENS)
-            if attempt >= retries:
-                break
-            print({"paper_id": paper_id, "status": "retrying", "attempt": attempt + 1, "error": exc.__class__.__name__, "next_max_tokens": max_tokens})
-            time.sleep(compute_backoff_seconds(attempt, exc=exc))
-        except JsonOutputError as exc:
-            last_error = exc
-            if attempt >= retries:
-                break
-            print({"paper_id": paper_id, "status": "retrying", "attempt": attempt + 1, "error": exc.__class__.__name__, "next_max_tokens": max_tokens})
-            time.sleep(compute_backoff_seconds(attempt, exc=exc))
-        except httpx.HTTPStatusError as exc:
-            last_error = exc
-            if not is_retryable_http_error(exc) or attempt >= retries:
-                break
-            print({"paper_id": paper_id, "status": "retrying", "attempt": attempt + 1, "error": exc.__class__.__name__, "status_code": exc.response.status_code, "next_max_tokens": max_tokens})
-            time.sleep(compute_backoff_seconds(attempt, exc=exc))
-        except httpx.TimeoutException as exc:
-            last_error = exc
-            if attempt >= retries:
-                break
-            print({"paper_id": paper_id, "status": "retrying", "attempt": attempt + 1, "error": exc.__class__.__name__, "next_max_tokens": max_tokens})
-            time.sleep(compute_backoff_seconds(attempt, exc=exc))
-        except httpx.TransportError as exc:
-            last_error = exc
-            if attempt >= retries:
-                break
-            print({"paper_id": paper_id, "status": "retrying", "attempt": attempt + 1, "error": exc.__class__.__name__, "next_max_tokens": max_tokens})
-            time.sleep(compute_backoff_seconds(attempt, exc=exc))
-        except Exception as exc:  # noqa: BLE001
-            last_error = exc
-            break
-
-    if last_error is None:
-        raise SummaryError("unknown_summary_error")
-    raise last_error
-
-
-def summarize_via_chunks(
-    client: httpx.Client,
-    llm_settings: dict[str, Any],
-    paper: dict[str, Any],
-    retries: int,
-    initial_max_tokens: int,
-    chunk_size: int,
-    overlap: int,
-    reduce_max_tokens: int | None = None,
-) -> tuple[dict[str, str], dict[str, Any]]:
-    fulltext = prepare_summary_context(paper)
-    chunks = split_text_into_chunks(fulltext, chunk_size=chunk_size, overlap=overlap)
-    if len(chunks) <= 1:
-        return summarize_text(client, llm_settings, paper, retries, initial_max_tokens)
-
-    chunk_system_prompt = render_system("summary_chunk_system.txt", llm_settings["language"])
-    reduce_system_prompt = render_system("summary_reduce_system.txt", llm_settings["language"])
-    chunk_results: list[dict[str, str]] = []
-    total_prompt_tokens = 0
-    total_completion_tokens = 0
-    total_cache_hit_tokens = 0
-    total_cache_miss_tokens = 0
-    attempts = 0
-
-    for chunk_index, chunk_content in enumerate(chunks, start=1):
-        user_content = build_prompt_content(
-            "summary_chunk_user.txt",
-            title=paper["title"],
-            categories=", ".join(paper["matched_categories"]),
-            chunk_index=chunk_index,
-            chunk_total=len(chunks),
-            chunk_content=chunk_content,
-        )
-        payload = build_custom_payload(llm_settings, chunk_system_prompt, user_content, initial_max_tokens)
-        sections, telemetry = summarize_custom_payload(
-            client=client,
-            llm_settings=llm_settings,
-            payload=payload,
-            retries=retries,
-            initial_max_tokens=initial_max_tokens,
-            paper_id=f"{paper['id']}:chunk:{chunk_index}",
-        )
-        chunk_results.append(sections)
-        total_prompt_tokens += telemetry.get("prompt_tokens") or 0
-        total_completion_tokens += telemetry.get("completion_tokens") or 0
-        total_cache_hit_tokens += telemetry.get("prompt_cache_hit_tokens") or 0
-        total_cache_miss_tokens += telemetry.get("prompt_cache_miss_tokens") or 0
-        attempts += telemetry.get("attempt", 1)
-
-    chunk_summaries = []
-    for index, sections in enumerate(chunk_results, start=1):
-        chunk_summaries.append(
-            "\n".join(
-                [
-                    f"### Chunk {index}",
-                    f"TL;DR: {sections.get('tldr', '').strip()}",
-                    f"Motivation: {sections.get('motivation', '').strip()}",
-                    f"Method: {sections.get('method', '').strip()}",
-                    f"Result: {sections.get('result', '').strip()}",
-                    f"Conclusion: {sections.get('conclusion', '').strip()}",
-                ]
-            ).strip()
-        )
-
-    reduce_user_content = build_prompt_content(
-        "summary_reduce_user.txt",
-        title=paper["title"],
-        categories=", ".join(paper["matched_categories"]),
-        chunk_summaries="\n\n".join(chunk_summaries),
-    )
-    effective_reduce_max_tokens = reduce_max_tokens if reduce_max_tokens is not None else DEFAULT_REDUCE_MAX_TOKENS
-    reduce_payload = build_custom_payload(llm_settings, reduce_system_prompt, reduce_user_content, effective_reduce_max_tokens)
-    final_sections, reduce_telemetry = summarize_custom_payload(
-        client=client,
-        llm_settings=llm_settings,
-        payload=reduce_payload,
-        retries=retries,
-        initial_max_tokens=effective_reduce_max_tokens,
-        paper_id=f"{paper['id']}:reduce",
-    )
-    total_prompt_tokens += reduce_telemetry.get("prompt_tokens") or 0
-    total_completion_tokens += reduce_telemetry.get("completion_tokens") or 0
-    total_cache_hit_tokens += reduce_telemetry.get("prompt_cache_hit_tokens") or 0
-    total_cache_miss_tokens += reduce_telemetry.get("prompt_cache_miss_tokens") or 0
-    attempts += reduce_telemetry.get("attempt", 1)
-
-    telemetry = {
-        "attempt": attempts,
-        "prompt_tokens": total_prompt_tokens,
-        "completion_tokens": total_completion_tokens,
-        "total_tokens": total_prompt_tokens + total_completion_tokens,
-        "prompt_cache_hit_tokens": total_cache_hit_tokens,
-        "prompt_cache_miss_tokens": total_cache_miss_tokens,
-        "max_tokens": reduce_telemetry.get("max_tokens", initial_max_tokens),
-        "finish_reason": reduce_telemetry.get("finish_reason", ""),
-        "chunk_count": len(chunks),
-        "summary_mode": "chunk_reduce",
-    }
-    return final_sections, telemetry
-
-
 def apply_fallback(config: dict[str, Any], paper: dict[str, Any], error_message: str) -> None:
     if config["output"].get("fallback_to_english_abstract", True):
         paper["summary_zh"] = f"摘要生成失败，保留英文摘要：{paper['abstract_en']}"
@@ -564,8 +366,10 @@ def apply_fallback(config: dict[str, Any], paper: dict[str, Any], error_message:
         "method": "",
         "result": "",
         "conclusion": "",
+        "relevance_score": "",
     }
     paper["summary_status"] = f"fallback:{error_message}"
+    paper["summary_input_source"] = "metadata"
 
 
 def reset_fallback_summary(paper: dict[str, Any]) -> None:
@@ -578,11 +382,19 @@ def reset_fallback_summary(paper: dict[str, Any]) -> None:
         "method": "",
         "result": "",
         "conclusion": "",
+        "relevance_score": "",
     }
 
 
-def should_skip(paper: dict[str, Any]) -> bool:
-    return paper.get("summary_status") == "ok" and bool(paper.get("summary_zh"))
+def should_skip(
+    paper: dict[str, Any],
+    keywords: list[str] | None = None,
+) -> bool:
+    if paper.get("summary_status") != "ok" or not paper.get("summary_zh"):
+        return False
+    if keywords and not paper.get("summary_sections", {}).get("relevance_score"):
+        return False
+    return True
 
 
 def flatten_sections(sections: dict[str, str]) -> str:
@@ -592,6 +404,7 @@ def flatten_sections(sections: dict[str, str]) -> str:
         ("Method", sections.get("method", "").strip()),
         ("Result", sections.get("result", "").strip()),
         ("Conclusion", sections.get("conclusion", "").strip()),
+        ("Relevance", sections.get("relevance_score", "").strip()),
     ]
     return "\n".join(f"{label}: {value}" for label, value in ordered if value)
 
@@ -614,29 +427,16 @@ def summarize_one_paper(
     llm_settings: dict[str, Any],
     retries: int,
     initial_max_tokens: int,
-    chunk_trigger_chars: int,
-    chunk_size: int,
-    chunk_overlap: int,
     client: httpx.Client,
-    reduce_max_tokens: int | None = None,
+    keywords: list[str] | None = None,
 ) -> tuple[dict[str, str], dict[str, Any]]:
-    if len(paper.get("fulltext_markdown", "")) >= chunk_trigger_chars:
-        return summarize_via_chunks(
-            client=client,
-            llm_settings=llm_settings,
-            paper=paper,
-            retries=retries,
-            initial_max_tokens=initial_max_tokens,
-            chunk_size=chunk_size,
-            overlap=chunk_overlap,
-            reduce_max_tokens=reduce_max_tokens,
-        )
     return summarize_text(
         client=client,
         llm_settings=llm_settings,
         paper=paper,
         retries=retries,
         initial_max_tokens=initial_max_tokens,
+        keywords=keywords or [],
     )
 
 
@@ -658,6 +458,7 @@ def main() -> None:
     target = daily_path(date.fromisoformat(args.date))
     payload = read_json(target)
     limit = args.limit if args.limit and args.limit > 0 else None
+    keywords = load_keywords()
 
     if not llm_settings["enabled"]:
         for index, paper in enumerate(payload["papers"]):
@@ -674,10 +475,6 @@ def main() -> None:
         raise RuntimeError("Missing OPENAI_API_KEY")
 
     retries = int(llm_settings["retry_times"])
-    arxiv_config = config.get("arxiv", {})
-    chunk_trigger_chars = int(arxiv_config.get("summary_chunk_trigger_chars", 18000))
-    chunk_size = int(arxiv_config.get("summary_chunk_char_budget", 12000))
-    chunk_overlap = int(arxiv_config.get("summary_chunk_overlap_chars", 1200))
     success_count = 0
     fallback_count = 0
 
@@ -691,7 +488,7 @@ def main() -> None:
             reset_fallback_summary(paper)
         if limit is not None and paper.get("summary_status", "").startswith("fallback"):
             reset_fallback_summary(paper)
-        if should_skip(paper):
+        if should_skip(paper, keywords):
             success_count += 1
             print(
                 {
@@ -728,10 +525,8 @@ def main() -> None:
                 llm_settings,
                 retries,
                 args.max_tokens,
-                chunk_trigger_chars,
-                chunk_size,
-                chunk_overlap,
                 client,
+                keywords,
             ): index
             for index, paper in work_items
         }
@@ -745,9 +540,7 @@ def main() -> None:
                 paper["summary_sections"] = sections
                 paper["summary_zh"] = flatten_sections(sections)
                 paper["summary_status"] = "ok"
-                paper["summary_input_source"] = (
-                    "pdf_fulltext" if paper.get("fulltext_markdown") else "abstract_only"
-                )
+                paper["summary_input_source"] = "metadata"
                 success_count += 1
                 print(
                     {
@@ -755,7 +548,7 @@ def main() -> None:
                         "paper_id": paper["id"],
                         "status": "ok",
                         "summary_input_source": paper["summary_input_source"],
-                        "fulltext_chars": len(paper.get("fulltext_markdown", "")),
+                        "relevance_enabled": bool(keywords),
                         **telemetry,
                     }
                 )

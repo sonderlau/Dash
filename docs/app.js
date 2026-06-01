@@ -36,6 +36,8 @@ const elements = {
   modalTitle: document.querySelector("#modal-title"),
   modalAuthors: document.querySelector("#modal-authors"),
   modalTags: document.querySelector("#modal-tags"),
+  modalRelevanceCard: document.querySelector("#modal-relevance-card"),
+  modalRelevance: document.querySelector("#modal-relevance"),
   modalTldr: document.querySelector("#modal-tldr"),
   modalMotivation: document.querySelector("#modal-motivation"),
   modalMethod: document.querySelector("#modal-method"),
@@ -80,7 +82,20 @@ function getSections(paper) {
     method: sections.method || "",
     result: sections.result || "",
     conclusion: sections.conclusion || "",
+    relevanceScore: sections.relevance_score || paper.relevance_score || "",
   };
+}
+
+function formatRelevanceScore(rawScore) {
+  const score = String(rawScore || "").trim();
+  if (!score) {
+    return "";
+  }
+  const value = Number(score);
+  if (!Number.isInteger(value)) {
+    return "";
+  }
+  return String(Math.max(0, Math.min(100, value)));
 }
 
 function setSiteMeta(indexPayload) {
@@ -162,6 +177,7 @@ function buildPaperSearchIndex(paper) {
       sections.method,
       sections.result,
       sections.conclusion,
+      sections.relevanceScore,
       paper.abstract_en,
     ].join(" ")
   );
@@ -257,6 +273,9 @@ function openPaperModal(paper) {
   elements.modalMethod.textContent = sections.method || "暂无。";
   elements.modalResult.textContent = sections.result || "暂无。";
   elements.modalConclusion.textContent = sections.conclusion || "暂无。";
+  const relevanceScore = formatRelevanceScore(sections.relevanceScore);
+  elements.modalRelevanceCard.hidden = !relevanceScore;
+  elements.modalRelevance.textContent = relevanceScore;
   elements.modalAbstract.textContent = paper.abstract_en || "No abstract available.";
   elements.modalAbs.href = paper.abs_url;
   elements.modalPdf.href = paper.pdf_url;
@@ -285,7 +304,11 @@ function renderPapers() {
   papers.forEach((paper) => {
     const node = elements.paperTemplate.content.firstElementChild.cloneNode(true);
     const sections = getSections(paper);
+    const relevanceScore = formatRelevanceScore(sections.relevanceScore);
     node.querySelector(".category-badge").textContent = paper.display_category;
+    const relevanceBadge = node.querySelector(".relevance-badge");
+    relevanceBadge.hidden = !relevanceScore;
+    relevanceBadge.textContent = relevanceScore ? `Relevance ${relevanceScore}` : "";
     node.querySelector(".paper-title").textContent = paper.title;
     node.querySelector(".paper-authors").textContent = paper.authors.join(", ");
     node.querySelector(".paper-tldr").textContent =

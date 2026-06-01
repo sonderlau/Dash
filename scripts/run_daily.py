@@ -16,6 +16,8 @@ from common import (
 )
 from fetch_arxiv import fetch_papers
 
+FULLTEXT_FIELDS = ("fulltext_markdown", "fulltext_source", "fulltext_status")
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run the full daily pipeline.")
@@ -79,6 +81,8 @@ def merge_papers(existing_papers: list[dict], fetched_papers: list[dict]) -> tup
             continue
 
         merged = existing | fetched
+        for field in FULLTEXT_FIELDS:
+            merged.pop(field, None)
         if existing.get("summary_status") == "ok" and fetched.get("summary_status") == "pending":
             merged["summary_status"] = existing["summary_status"]
             merged["summary_zh"] = existing.get("summary_zh", "")
@@ -90,17 +94,12 @@ def merge_papers(existing_papers: list[dict], fetched_papers: list[dict]) -> tup
             merged["summary_sections"] = existing.get("summary_sections", fetched.get("summary_sections", {}))
             merged["summary_input_source"] = existing.get("summary_input_source", "")
 
-        if existing.get("fulltext_markdown") and not fetched.get("fulltext_markdown"):
-            merged["fulltext_markdown"] = existing.get("fulltext_markdown", "")
-            merged["fulltext_source"] = existing.get("fulltext_source", "")
-            merged["fulltext_status"] = existing.get("fulltext_status", "ok")
-
         if merged != existing:
             updated += 1
         by_id[fetched["id"]] = merged
 
     merged_papers = sorted(
-        by_id.values(),
+        ({key: value for key, value in paper.items() if key not in FULLTEXT_FIELDS} for paper in by_id.values()),
         key=lambda item: (item["updated_date"], item["published_date"], item["id"]),
         reverse=True,
     )
