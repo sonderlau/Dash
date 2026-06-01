@@ -23,7 +23,10 @@ ARXIV_LIST_URL = "https://arxiv.org/list/{category}/new"
 USER_AGENT = "Dash/0.1 (+https://github.com/sonderlau/Dash)"
 ID_PATTERN = re.compile(r"^([0-9]{4}\.[0-9]{4,5})(v\d+)?$")
 RETRYABLE_HTTP_CODES = {408, 425, 429, 500, 502, 503, 504}
-DEFAULT_FETCH_RETRIES = 4
+DEFAULT_FETCH_RETRIES = 6
+DEFAULT_API_REQUEST_DELAY_SECONDS = 10.0
+RATE_LIMIT_BASE_DELAY_SECONDS = 30.0
+RATE_LIMIT_MAX_DELAY_SECONDS = 180.0
 
 
 @dataclass
@@ -99,7 +102,7 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def _retry_after_seconds(headers, attempt: int) -> float:
+def _retry_after_seconds(headers, attempt: int, status_code: int | None = None) -> float:
     """Honor Retry-After when present, else exponential backoff with cap."""
     raw = ""
     if headers is not None:
@@ -108,7 +111,10 @@ def _retry_after_seconds(headers, attempt: int) -> float:
         except AttributeError:
             raw = ""
     if raw.isdigit():
-        return max(1.0, min(float(raw), 90.0))
+        cap = RATE_LIMIT_MAX_DELAY_SECONDS if status_code == 429 else 90.0
+        return max(1.0, min(float(raw), cap))
+    if status_code == 429:
+        return min(RATE_LIMIT_BASE_DELAY_SECONDS * (2.0**attempt), RATE_LIMIT_MAX_DELAY_SECONDS)
     return min(2.0 ** attempt, 30.0)
 
 
@@ -130,7 +136,7 @@ def fetch_url(url: str, timeout: int = 60, retries: int = DEFAULT_FETCH_RETRIES)
             last_exc = exc
             if exc.code not in RETRYABLE_HTTP_CODES or attempt >= retries:
                 raise
-            wait = _retry_after_seconds(exc.headers, attempt)
+            wait = _retry_after_seconds(exc.headers, attempt, exc.code)
             print(
                 {
                     "stage": "fetch_url",
@@ -178,14 +184,15 @@ def fetch_new_category_ids(category: str) -> dict[str, list[str]]:
 def fetch_feed_entries_by_ids(
     arxiv_ids: list[str],
     max_workers: int = 1,
-    request_delay_seconds: float = 3.0,
+    request_delay_seconds: float = DEFAULT_API_REQUEST_DELAY_SECONDS,
 ) -> list[feedparser.FeedParserDict]:
     """Fetch arXiv API metadata in 50-id chunks.
 
-    Defaults to serial calls with a 3-second pause between chunks, matching
-    arXiv's published API guidance. The CI runner shares egress IPs with many
-    other tenants, so even a 4-way burst gets 429'd. Bumping `max_workers`
-    above 1 only makes sense from a private network.
+    Defaults to serial calls with a conservative pause between chunks. arXiv's
+    published minimum is 3 seconds, but GitHub-hosted CI runners share egress
+    IPs with many tenants, so a longer gap avoids inheriting a hot IP's rate
+    limit. Bumping `max_workers` above 1 only makes sense from a private
+    network.
     """
     if not arxiv_ids:
         return []
@@ -293,6 +300,10 @@ def fetch_papers(config: dict) -> tuple[list[dict], FetchStats]:
     categories = list(config["arxiv"]["categories"])
     list_workers = max(1, int(os.getenv("ARXIV_LIST_WORKERS", str(min(8, max(1, len(categories)))))))
     api_workers = max(1, int(os.getenv("ARXIV_API_WORKERS", "1")))
+    api_request_delay = max(
+        0.0,
+        float(os.getenv("ARXIV_API_REQUEST_DELAY_SECONDS", str(DEFAULT_API_REQUEST_DELAY_SECONDS))),
+    )
 
     by_id: OrderedDict[str, dict] = OrderedDict()
     matched_categories_by_id: dict[str, set[str]] = {}
@@ -313,7 +324,11 @@ def fetch_papers(config: dict) -> tuple[list[dict], FetchStats]:
             if previous_size != 0:
                 stats.duplicates += 1
 
-    entries = fetch_feed_entries_by_ids(list(matched_categories_by_id.keys()), max_workers=api_workers)
+    entries = fetch_feed_entries_by_ids(
+        list(matched_categories_by_id.keys()),
+        max_workers=api_workers,
+        request_delay_seconds=api_request_delay,
+    )
     entry_by_id: dict[str, feedparser.FeedParserDict] = {}
     for entry in entries:
         raw_id = entry.id.rsplit("/", 1)[-1]

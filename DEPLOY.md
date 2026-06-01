@@ -106,7 +106,8 @@ schedule:
 | 阶段 | env | 默认 | 调整建议 |
 |---|---|---|---|
 | arXiv list 页抓取 | `ARXIV_LIST_WORKERS` | 5 | category 多就上调，arXiv 列表页是普通 HTML 没强限流 |
-| arXiv API chunk | `ARXIV_API_WORKERS` | 1 | 一般不动；共享 CI IP 容易被限流，默认串行并带 3s gap |
+| arXiv API chunk | `ARXIV_API_WORKERS` | 1 | 一般不动；共享 CI IP 容易被限流 |
+| arXiv API chunk 间隔 | `ARXIV_API_REQUEST_DELAY_SECONDS` | 10 | 遇到 429 可临时升到 30–60；不要低于 arXiv 建议的 3 秒 |
 | DeepSeek 摘要 | `SUMMARY_MAX_WORKERS` | 4 | 触发 429 就降到 2，DeepSeek 没公开严格 rate limit |
 
 如果某天看到 `summary_fallback` 比例升高，先看日志里的具体 error name（`HTTPStatusError` / `TimeoutException`），再决定是降并发还是涨 `LLM_TIMEOUT_SECONDS`。

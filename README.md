@@ -112,7 +112,7 @@ The standalone summarizer is still available if you only want to refresh summari
 
 Stage-level parallelism:
 
-- `fetch_arxiv` 抓取 category `/list/<cat>/new` 是并发的（默认上限 8 路，由 `ARXIV_LIST_WORKERS` 控制）；arXiv `/api/query` 的 50-id chunked 调用默认串行（`ARXIV_API_WORKERS=1`）以符合 arXiv API 节流建议
+- `fetch_arxiv` 抓取 category `/list/<cat>/new` 是并发的（默认上限 8 路，由 `ARXIV_LIST_WORKERS` 控制）；arXiv `/api/query` 的 50-id chunked 调用默认串行（`ARXIV_API_WORKERS=1`），chunk 间隔默认 10 秒（`ARXIV_API_REQUEST_DELAY_SECONDS`）以避开 GitHub runner 共享 IP 的 429
 - `enrich` 只有 summary worker pool；默认 4 个 summary worker，可用 `--summary-workers` 或 `SUMMARY_MAX_WORKERS` 覆盖
 - `scripts/summarize.py` 也保留 `--max-workers`，用于单独刷新 metadata/abstract summaries
 - 每日 snapshot 文件由 debounced 线程安全 writer 落盘，并发 worker 只 mark dirty，不竞争磁盘
