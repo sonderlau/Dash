@@ -174,16 +174,41 @@ jobs:
           python scripts/check_regression.py "$ref_dir/docs/data" docs/data
           git worktree remove --force "$ref_dir"
 
+      - name: Collect run snapshot (debug artifact)
+        if: always()
+        run: |
+          set -euo pipefail
+          run_date='${{ steps.vars.outputs.run_date }}'
+          mkdir -p tmp/artifact
+
+          {
+            echo "run_date=$run_date"
+            echo ""
+            echo "tmp/state:"
+            ls -la tmp/state 2>/dev/null || true
+            echo ""
+            echo "docs/data:"
+            ls -la docs/data 2>/dev/null || true
+          } > tmp/artifact/diagnostics.txt
+
+          for path in \
+            "tmp/state/${run_date}.json" \
+            "docs/data/${run_date}.json" \
+            "docs/data/index.json"
+          do
+            if [[ -f "$path" ]]; then
+              mkdir -p "tmp/artifact/$(dirname "$path")"
+              cp "$path" "tmp/artifact/$path"
+            fi
+          done
+
       - name: Upload run snapshot (debug artifact)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: snapshot-${{ steps.vars.outputs.run_date }}
-          path: |
-            tmp/state/${{ steps.vars.outputs.run_date }}.json
-            docs/data/${{ steps.vars.outputs.run_date }}.json
-            docs/data/index.json
-          if-no-files-found: warn
+          path: tmp/artifact
+          if-no-files-found: error
           retention-days: 14
 
       - name: Stage 5 / Commit data to `data` branch

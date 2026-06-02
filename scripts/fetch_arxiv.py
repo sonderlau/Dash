@@ -163,6 +163,22 @@ def fetch_url(url: str, timeout: int = 60, retries: int = DEFAULT_FETCH_RETRIES)
                 }
             )
             time.sleep(wait)
+        except TimeoutError as exc:
+            last_exc = exc
+            if attempt >= retries:
+                raise
+            wait = _retry_after_seconds(None, attempt)
+            print(
+                {
+                    "stage": "fetch_url",
+                    "url": url,
+                    "error": exc.__class__.__name__,
+                    "detail": str(exc)[:120],
+                    "attempt": attempt + 1,
+                    "retry_in_s": round(wait, 1),
+                }
+            )
+            time.sleep(wait)
     if last_exc is not None:
         raise last_exc
     raise RuntimeError("fetch_url exhausted retries without recording an error")
