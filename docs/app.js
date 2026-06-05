@@ -13,6 +13,9 @@ const state = {
   selectedCategories: null,
   searchQuery: "",
   keywordFilter: "",
+  sortField: "default",
+  sortDirection: "desc",
+  calendarMonth: null,
   pendingRenderToken: 0,
 };
 
@@ -24,9 +27,12 @@ const elements = {
   currentDateMeta: document.querySelector("#current-date-meta"),
   toolbarCategoryCounts: document.querySelector("#toolbar-category-counts"),
   dateInput: document.querySelector("#date-input"),
+  dateCalendar: document.querySelector("#date-calendar"),
   dateHint: document.querySelector("#date-hint"),
   searchInput: document.querySelector("#search-input"),
   filterInput: document.querySelector("#filter-input"),
+  sortField: document.querySelector("#sort-field"),
+  sortDirection: document.querySelector("#sort-direction"),
   themeToggle: document.querySelector("#theme-toggle"),
   paperList: document.querySelector("#paper-list"),
   paperTemplate: document.querySelector("#paper-card-template"),
@@ -98,6 +104,14 @@ function formatRelevanceScore(rawScore) {
   return String(Math.max(0, Math.min(100, value)));
 }
 
+function parseRelevanceScore(rawScore) {
+  const formatted = formatRelevanceScore(rawScore);
+  if (!formatted) {
+    return null;
+  }
+  return Number(formatted);
+}
+
 function setSiteMeta(indexPayload) {
   const site = indexPayload.site || {};
   document.title = site.title || "Dash";
@@ -116,9 +130,17 @@ function loadUiState() {
     } else {
       state.selectedCategories = null;
     }
+    state.sortField = ["default", "relevance", "title"].includes(parsed.sortField)
+      ? parsed.sortField
+      : "default";
+    state.sortDirection = ["asc", "desc"].includes(parsed.sortDirection)
+      ? parsed.sortDirection
+      : "desc";
   } catch {
     state.searchQuery = "";
     state.keywordFilter = "";
+    state.sortField = "default";
+    state.sortDirection = "desc";
     state.selectedCategories = null;
   }
 
@@ -129,6 +151,8 @@ function persistUiState() {
   const payload = {
     searchQuery: state.searchQuery,
     selectedCategories: state.selectedCategories ? Array.from(state.selectedCategories) : null,
+    sortField: state.sortField,
+    sortDirection: state.sortDirection,
   };
   localStorage.setItem(UI_STATE_KEY, JSON.stringify(payload));
   setCookie(FILTER_COOKIE_KEY, state.keywordFilter, COOKIE_MAX_AGE);
@@ -137,10 +161,38 @@ function persistUiState() {
 function syncInputsFromState() {
   elements.searchInput.value = state.searchQuery;
   elements.filterInput.value = state.keywordFilter;
+  elements.sortField.value = state.sortField;
+  elements.sortDirection.value = state.sortDirection;
 }
 
 function normalizeText(value) {
   return String(value || "").trim().toLowerCase();
+}
+
+function parseDateParts(dateText) {
+  const [year, month, day] = String(dateText || "").split("-").map(Number);
+  if (!year || !month || !day) {
+    return null;
+  }
+  return { year, month, day };
+}
+
+function formatDate(year, month, day) {
+  return [year, month, day]
+    .map((part, index) => (index === 0 ? String(part) : String(part).padStart(2, "0")))
+    .join("-");
+}
+
+function monthKey(year, month) {
+  return `${year}-${String(month).padStart(2, "0")}`;
+}
+
+function shiftMonth(monthDate, delta) {
+  const shifted = new Date(monthDate.year, monthDate.month - 1 + delta, 1);
+  return {
+    year: shifted.getFullYear(),
+    month: shifted.getMonth() + 1,
+  };
 }
 
 function parseKeywordFilter(raw) {
@@ -240,7 +292,7 @@ function getVisiblePapers() {
   const keywords = parseKeywordFilter(state.keywordFilter);
   const selected = effectiveSelectedCategories();
 
-  return state.currentPapers.filter((paper) => {
+  const visible = state.currentPapers.filter((paper) => {
     if (!selected.has(paper.display_category)) {
       return false;
     }
@@ -251,6 +303,40 @@ function getVisiblePapers() {
       return false;
     }
     return true;
+  });
+  return sortPapers(visible);
+}
+
+function compareStrings(left, right) {
+  return left.localeCompare(right, undefined, { sensitivity: "base", numeric: true });
+}
+
+function sortPapers(papers) {
+  if (state.sortField === "default") {
+    return papers;
+  }
+
+  const direction = state.sortDirection === "asc" ? 1 : -1;
+  return [...papers].sort((left, right) => {
+    if (state.sortField === "title") {
+      return compareStrings(left.title || "", right.title || "") * direction;
+    }
+
+    const leftScore = parseRelevanceScore(getSections(left).relevanceScore);
+    const rightScore = parseRelevanceScore(getSections(right).relevanceScore);
+    if (leftScore === null && rightScore === null) {
+      return compareStrings(left.title || "", right.title || "");
+    }
+    if (leftScore === null) {
+      return 1;
+    }
+    if (rightScore === null) {
+      return -1;
+    }
+    if (leftScore === rightScore) {
+      return compareStrings(left.title || "", right.title || "");
+    }
+    return (leftScore - rightScore) * direction;
   });
 }
 
@@ -329,9 +415,7 @@ function updatePageMeta() {
   elements.currentDateTitle.textContent = state.currentDate || "No data";
   const visible = state.visiblePapers.length;
   const total = payload.paper_count || 0;
-  const paperDates = (payload.paper_dates || []).slice(0, 3).join(", ");
-  const datePart = paperDates ? ` · arXiv dates ${paperDates}` : "";
-  elements.currentDateMeta.textContent = `${visible} / ${total} papers${datePart}`;
+  elements.currentDateMeta.textContent = `${visible} / ${total} papers`;
 }
 
 function scheduleRender() {
@@ -376,20 +460,129 @@ function toggleAllCategories() {
   scheduleRender();
 }
 
+function availableSnapshotDates() {
+  return state.index?.available_dates || [];
+}
+
+function availableSnapshotSet() {
+  return new Set(availableSnapshotDates());
+}
+
+function calendarMonthForDate(dateText) {
+  const parts = parseDateParts(dateText);
+  if (!parts) {
+    return null;
+  }
+  return { year: parts.year, month: parts.month };
+}
+
+function setCalendarOpen(isOpen) {
+  elements.dateCalendar.hidden = !isOpen;
+  elements.dateInput.setAttribute("aria-expanded", isOpen ? "true" : "false");
+}
+
+function renderDateCalendar() {
+  const dates = availableSnapshotDates();
+  elements.dateCalendar.innerHTML = "";
+  if (dates.length === 0 || !state.calendarMonth) {
+    return;
+  }
+
+  const availableDates = availableSnapshotSet();
+  const { year, month } = state.calendarMonth;
+  const firstDay = new Date(year, month - 1, 1);
+  const daysInMonth = new Date(year, month, 0).getDate();
+  const monthLabel = `${year}-${String(month).padStart(2, "0")}`;
+
+  const header = document.createElement("div");
+  header.className = "date-calendar-head";
+
+  const previous = document.createElement("button");
+  previous.type = "button";
+  previous.className = "date-calendar-nav";
+  previous.textContent = "‹";
+  previous.setAttribute("aria-label", "上个月");
+  previous.addEventListener("click", (event) => {
+    event.stopPropagation();
+    state.calendarMonth = shiftMonth(state.calendarMonth, -1);
+    renderDateCalendar();
+  });
+
+  const title = document.createElement("span");
+  title.className = "date-calendar-title";
+  title.textContent = monthLabel;
+
+  const next = document.createElement("button");
+  next.type = "button";
+  next.className = "date-calendar-nav";
+  next.textContent = "›";
+  next.setAttribute("aria-label", "下个月");
+  next.addEventListener("click", (event) => {
+    event.stopPropagation();
+    state.calendarMonth = shiftMonth(state.calendarMonth, 1);
+    renderDateCalendar();
+  });
+
+  header.append(previous, title, next);
+  elements.dateCalendar.append(header);
+
+  const weekdays = document.createElement("div");
+  weekdays.className = "date-calendar-weekdays";
+  for (const weekday of ["S", "M", "T", "W", "T", "F", "S"]) {
+    const label = document.createElement("span");
+    label.textContent = weekday;
+    weekdays.append(label);
+  }
+  elements.dateCalendar.append(weekdays);
+
+  const grid = document.createElement("div");
+  grid.className = "date-calendar-grid";
+  for (let index = 0; index < firstDay.getDay(); index += 1) {
+    const empty = document.createElement("span");
+    empty.className = "date-calendar-empty";
+    grid.append(empty);
+  }
+
+  for (let day = 1; day <= daysInMonth; day += 1) {
+    const dateText = formatDate(year, month, day);
+    const isAvailable = availableDates.has(dateText);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "date-calendar-day";
+    button.textContent = String(day);
+    button.disabled = !isAvailable;
+    button.dataset.available = isAvailable ? "true" : "false";
+    button.dataset.current = dateText === state.currentDate ? "true" : "false";
+    if (isAvailable) {
+      const count = state.index?.counts_by_date?.[dateText];
+      button.setAttribute("aria-label", count === undefined ? dateText : `${dateText}, ${count} papers`);
+      button.addEventListener("click", async (event) => {
+        event.stopPropagation();
+        setCalendarOpen(false);
+        await loadDay(dateText);
+      });
+    }
+    grid.append(button);
+  }
+  elements.dateCalendar.append(grid);
+}
+
 function configureDateInput(indexPayload) {
   const dates = indexPayload.available_dates || [];
   if (dates.length === 0) {
-    elements.dateInput.value = "";
     elements.dateInput.disabled = true;
+    elements.dateInput.textContent = "No snapshots";
+    setCalendarOpen(false);
     elements.dateHint.textContent = "No local snapshots yet.";
     return;
   }
 
-  const ascendingDates = [...dates].sort();
   elements.dateInput.disabled = false;
-  elements.dateInput.min = ascendingDates[0];
-  elements.dateInput.max = ascendingDates[ascendingDates.length - 1];
-  elements.dateHint.textContent = `${dates.length} local snapshot${dates.length > 1 ? "s" : ""}`;
+  const latestDate = indexPayload.latest_date || dates[0];
+  state.calendarMonth = calendarMonthForDate(latestDate);
+  elements.dateInput.textContent = latestDate;
+  elements.dateHint.textContent = `${dates.length} captured day${dates.length > 1 ? "s" : ""}; black dates have no snapshot.`;
+  renderDateCalendar();
 }
 
 async function loadDay(day) {
@@ -401,7 +594,9 @@ async function loadDay(day) {
     return paper;
   });
   syncCategorySelectionToAvailable();
-  elements.dateInput.value = day;
+  elements.dateInput.textContent = day;
+  state.calendarMonth = calendarMonthForDate(day) || state.calendarMonth;
+  renderDateCalendar();
   scheduleRender();
 }
 
@@ -432,16 +627,18 @@ async function init() {
   }
 }
 
-elements.dateInput.addEventListener("change", async (event) => {
-  const nextDate = event.target.value;
-  if (!nextDate || nextDate === state.currentDate) {
+elements.dateInput.addEventListener("click", () => {
+  if (elements.dateInput.disabled) {
     return;
   }
-  if (!state.index?.available_dates?.includes(nextDate)) {
-    elements.dateInput.value = state.currentDate || "";
+  setCalendarOpen(elements.dateCalendar.hidden);
+});
+
+document.addEventListener("click", (event) => {
+  if (event.target === elements.dateInput || elements.dateCalendar.contains(event.target)) {
     return;
   }
-  await loadDay(nextDate);
+  setCalendarOpen(false);
 });
 
 elements.searchInput.addEventListener("input", (event) => {
@@ -452,6 +649,18 @@ elements.searchInput.addEventListener("input", (event) => {
 
 elements.filterInput.addEventListener("input", (event) => {
   state.keywordFilter = event.target.value;
+  persistUiState();
+  scheduleRender();
+});
+
+elements.sortField.addEventListener("change", (event) => {
+  state.sortField = event.target.value;
+  persistUiState();
+  scheduleRender();
+});
+
+elements.sortDirection.addEventListener("change", (event) => {
+  state.sortDirection = event.target.value;
   persistUiState();
   scheduleRender();
 });

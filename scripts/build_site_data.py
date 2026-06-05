@@ -16,6 +16,7 @@ HEAVY_PAPER_FIELDS = {
 
 def strip_heavy_fields_from_payload(payload: dict) -> dict:
     cloned = deepcopy(payload)
+    cloned.pop("paper_dates", None)
     cloned["papers"] = [
         {key: value for key, value in paper.items() if key not in HEAVY_PAPER_FIELDS}
         for paper in payload.get("papers", [])

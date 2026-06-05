@@ -63,8 +63,11 @@
       <section class="control-bar">
         <div class="control-grid">
           <div class="control-field control-field-date">
-            <label for="date-input">Date</label>
-            <input id="date-input" type="date" />
+            <label for="date-input">Snapshot</label>
+            <button class="date-picker-button" id="date-input" type="button" aria-expanded="false">
+              No snapshots
+            </button>
+            <div class="date-calendar" id="date-calendar" hidden></div>
             <div class="control-foot">
               <p class="control-note" id="date-hint"></p>
             </div>
@@ -91,6 +94,23 @@
             />
             <div class="control-foot">
               <p class="control-note">OR 逻辑，匹配 title 和 abstract，留空即关闭。</p>
+            </div>
+          </div>
+          <div class="control-field control-field-sort">
+            <label for="sort-field">Sort</label>
+            <div class="sort-row">
+              <select id="sort-field" aria-label="排序字段">
+                <option value="default">Default</option>
+                <option value="relevance">Relevance</option>
+                <option value="title">Title</option>
+              </select>
+              <select id="sort-direction" aria-label="排序方向">
+                <option value="desc">Desc</option>
+                <option value="asc">Asc</option>
+              </select>
+            </div>
+            <div class="control-foot">
+              <p class="control-note">对当前筛选结果排序。</p>
             </div>
           </div>
         </div>
