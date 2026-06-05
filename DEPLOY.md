@@ -105,12 +105,14 @@ schedule:
 
 | 阶段 | env | 默认 | 调整建议 |
 |---|---|---|---|
-| arXiv list 页抓取 | `ARXIV_LIST_WORKERS` | 5 | category 多就上调，arXiv 列表页是普通 HTML 没强限流 |
-| arXiv API chunk | `ARXIV_API_WORKERS` | 1 | 一般不动；共享 CI IP 容易被限流 |
-| arXiv API chunk 间隔 | `ARXIV_API_REQUEST_DELAY_SECONDS` | 10 | 遇到 429 可临时升到 30–60；不要低于 arXiv 建议的 3 秒 |
+| arXiv list 页抓取 | `ARXIV_LIST_WORKERS` | 5 | 主数据源；如果这里失败，workflow 必须失败，因为无法确认今日更新 |
+| arXiv API chunk | `ARXIV_API_WORKERS` | 1 | 只做 metadata 补充；共享 CI IP 容易被限流，失败后会降级继续 |
+| arXiv API chunk 间隔 | `ARXIV_API_REQUEST_DELAY_SECONDS` | 10 | 只影响可选补充；不要低于 arXiv 建议的 3 秒 |
 | DeepSeek 摘要 | `SUMMARY_MAX_WORKERS` | 4 | 触发 429 就降到 2，DeepSeek 没公开严格 rate limit |
 
 如果某天看到 `summary_fallback` 比例升高，先看日志里的具体 error name（`HTTPStatusError` / `TimeoutException`），再决定是降并发还是涨 `LLM_TIMEOUT_SECONDS`。
+
+如果某天看到 `fetch_status.api_backfill_status = "degraded"`，说明 list 页已经成功确认今日 paper，但 export API 补充 metadata 被 429/503/timeout 限制了。当日 snapshot 仍会产出，只是 `abstract_en`、DOI、journal ref、comment 等补充字段可能为空。
 
 ### relevance score
 

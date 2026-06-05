@@ -9,8 +9,9 @@ import urllib.parse
 import urllib.request
 from collections import OrderedDict
 from concurrent.futures import ThreadPoolExecutor
-from dataclasses import dataclass
-from datetime import datetime, timezone
+from dataclasses import dataclass, field
+from datetime import date, datetime, timezone
+from html import unescape
 from html.parser import HTMLParser
 
 import feedparser
@@ -34,14 +35,29 @@ class FetchStats:
     fetched: int = 0
     kept: int = 0
     duplicates: int = 0
+    api_backfill_status: str = "ok"
+    api_backfill_error: str = ""
+    api_backfill_entries: int = 0
+
+
+@dataclass
+class ArxivListPaper:
+    id: str
+    title: str = ""
+    authors: list[str] = field(default_factory=list)
+    categories: list[str] = field(default_factory=list)
+    primary_category: str = ""
+    abs_url: str = ""
+    pdf_url: str = ""
 
 
 class ArxivNewListParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.target_categories: set[str] = set()
-        self.paper_categories: dict[str, set[str]] = {}
+        self.papers: OrderedDict[str, ArxivListPaper] = OrderedDict()
         self._current_id: str | None = None
+        self._capture_field: str | None = None
         self._capture_primary_subject = False
         self._capture_subject_text = False
         self._current_text_parts: list[str] = []
@@ -50,51 +66,96 @@ class ArxivNewListParser(HTMLParser):
         attrs_map = dict(attrs)
         if tag == "a":
             href = attrs_map.get("href") or ""
-            title = attrs_map.get("title") or ""
-            if title == "Abstract" and href.startswith("/abs/"):
+            if href.startswith("/abs/"):
                 paper_id = href.rsplit("/", 1)[-1]
                 match = ID_PATTERN.match(paper_id)
                 if match:
-                    self._current_id = match.group(1)
-                    self.paper_categories.setdefault(self._current_id, set())
+                    paper_id = match.group(1)
+                    self._current_id = paper_id
+                    paper = self.papers.setdefault(paper_id, ArxivListPaper(id=paper_id))
+                    paper.abs_url = f"https://arxiv.org/abs/{paper_id}"
                 else:
                     self._current_id = None
+            elif href.startswith("/pdf/") and self._current_id:
+                paper = self.papers.setdefault(self._current_id, ArxivListPaper(id=self._current_id))
+                paper.pdf_url = f"https://arxiv.org/pdf/{self._current_id}"
 
         class_attr = attrs_map.get("class") or ""
         class_names = set(class_attr.split())
+        if tag == "div" and self._current_id:
+            if "list-title" in class_names:
+                self._capture_field = "title"
+                self._current_text_parts = []
+            elif "list-authors" in class_names:
+                self._capture_field = "authors"
+                self._current_text_parts = []
+            elif "list-subjects" in class_names:
+                self._capture_subject_text = True
+                self._current_text_parts = []
+
         if tag == "span" and "primary-subject" in class_names:
             self._capture_primary_subject = True
             self._current_text_parts = []
-        elif tag == "div" and "list-subjects" in class_names and self._current_id:
-            self._capture_subject_text = True
-            self._current_text_parts = []
 
     def handle_data(self, data: str) -> None:
-        if self._capture_primary_subject or self._capture_subject_text:
+        if self._capture_field or self._capture_primary_subject or self._capture_subject_text:
             self._current_text_parts.append(data)
 
     def handle_endtag(self, tag: str) -> None:
+        if tag == "div" and self._capture_field:
+            self._flush_current_field_text()
+            self._capture_field = None
+            return
         if tag == "span" and self._capture_primary_subject:
             self._capture_primary_subject = False
-            self._flush_current_subject_text()
+            self._flush_current_subject_text(primary=True)
         elif tag == "div" and self._capture_subject_text:
             self._capture_subject_text = False
-            self._flush_current_subject_text()
+            self._flush_current_subject_text(primary=False)
             self._current_id = None
         elif tag == "dd" and not self._capture_subject_text:
             self._current_id = None
 
-    def _flush_current_subject_text(self) -> None:
+    def _flush_current_field_text(self) -> None:
         if not self._current_id:
             self._current_text_parts = []
             return
-        raw_text = " ".join(part.strip() for part in self._current_text_parts if part.strip())
+        raw_text = _clean_text(" ".join(self._current_text_parts))
+        self._current_text_parts = []
+        paper = self.papers.setdefault(self._current_id, ArxivListPaper(id=self._current_id))
+        if self._capture_field == "title":
+            paper.title = _strip_descriptor(raw_text, "Title:")
+        elif self._capture_field == "authors":
+            authors_text = _strip_descriptor(raw_text, "Authors:")
+            paper.authors = [author.strip() for author in authors_text.split(",") if author.strip()]
+
+    def _flush_current_subject_text(self, primary: bool) -> None:
+        if not self._current_id:
+            self._current_text_parts = []
+            return
+        raw_text = _clean_text(" ".join(self._current_text_parts))
         self._current_text_parts = []
         if not raw_text:
             return
+        paper = self.papers.setdefault(self._current_id, ArxivListPaper(id=self._current_id))
         categories = set(re.findall(r"\(([^)]+)\)", raw_text))
         if categories:
-            self.paper_categories.setdefault(self._current_id, set()).update(categories)
+            existing = set(paper.categories or [])
+            paper.categories = sorted(existing | categories)
+        if primary:
+            match = re.search(r"\(([^)]+)\)", raw_text)
+            if match:
+                paper.primary_category = match.group(1)
+
+
+def _clean_text(value: str) -> str:
+    return " ".join(unescape(value).split())
+
+
+def _strip_descriptor(value: str, descriptor: str) -> str:
+    if value.startswith(descriptor):
+        return value[len(descriptor) :].strip()
+    return value
 
 
 def parse_args() -> argparse.Namespace:
@@ -184,17 +245,21 @@ def fetch_url(url: str, timeout: int = 60, retries: int = DEFAULT_FETCH_RETRIES)
     raise RuntimeError("fetch_url exhausted retries without recording an error")
 
 
-def fetch_new_category_ids(category: str) -> dict[str, list[str]]:
+def fetch_new_category_papers(category: str) -> OrderedDict[str, ArxivListPaper]:
     html = fetch_url(ARXIV_LIST_URL.format(category=urllib.parse.quote(category)))
     parser = ArxivNewListParser()
     parser.feed(html.decode("utf-8", errors="ignore"))
 
-    matched: dict[str, list[str]] = {}
-    for paper_id, categories in parser.paper_categories.items():
-        normalized = sorted(categories)
-        if category in categories:
-            matched[paper_id] = normalized
+    matched: OrderedDict[str, ArxivListPaper] = OrderedDict()
+    for paper_id, paper in parser.papers.items():
+        if category in paper.categories:
+            matched[paper_id] = paper
     return matched
+
+
+def fetch_new_category_ids(category: str) -> dict[str, list[str]]:
+    papers = fetch_new_category_papers(category)
+    return {paper_id: sorted(paper.categories) for paper_id, paper in papers.items()}
 
 
 def fetch_feed_entries_by_ids(
@@ -244,6 +309,52 @@ def fetch_feed_entries_by_ids(
         for chunk_entries in executor.map(fetch_one, chunks):
             entries.extend(chunk_entries)
     return entries
+
+
+def summary_sections_template() -> dict[str, str]:
+    return {
+        "tldr": "",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": "",
+    }
+
+
+def normalize_list_paper(
+    paper: ArxivListPaper,
+    configured_categories: list[str],
+    snapshot_date: date | None = None,
+) -> dict:
+    raw_categories = list(paper.categories)
+    matched_categories = [cat for cat in configured_categories if cat in raw_categories]
+    display_category = matched_categories[0] if matched_categories else "other"
+    fallback_date = (snapshot_date or datetime.now(timezone.utc).date()).isoformat()
+
+    return {
+        "id": paper.id,
+        "title": paper.title,
+        "authors": list(paper.authors),
+        "categories": raw_categories,
+        "matched_categories": matched_categories,
+        "display_category": display_category,
+        "primary_category": paper.primary_category,
+        "abs_url": paper.abs_url or f"https://arxiv.org/abs/{paper.id}",
+        "pdf_url": paper.pdf_url or f"https://arxiv.org/pdf/{paper.id}",
+        "abstract_en": "",
+        "comment": "",
+        "journal_ref": "",
+        "doi": "",
+        "summary_zh": "",
+        "summary_input_source": "",
+        "summary_sections": summary_sections_template(),
+        "summary_status": "pending",
+        "published_date": fallback_date,
+        "updated_date": fallback_date,
+        "source": "arxiv_new",
+        "metadata_source": "arxiv_list",
+    }
 
 
 def normalize_paper(
@@ -297,18 +408,12 @@ def normalize_paper(
         "doi": " ".join(str(entry.get("arxiv_doi", "")).split()),
         "summary_zh": "",
         "summary_input_source": "",
-        "summary_sections": {
-            "tldr": "",
-            "motivation": "",
-            "method": "",
-            "result": "",
-            "conclusion": "",
-            "relevance_score": "",
-        },
+        "summary_sections": summary_sections_template(),
         "summary_status": "pending",
         "published_date": published_dt.date().isoformat(),
         "updated_date": updated_dt.date().isoformat(),
         "source": "arxiv_new",
+        "metadata_source": "arxiv_api",
     }
 
 
@@ -323,28 +428,53 @@ def fetch_papers(config: dict) -> tuple[list[dict], FetchStats]:
 
     by_id: OrderedDict[str, dict] = OrderedDict()
     matched_categories_by_id: dict[str, set[str]] = {}
+    list_papers_by_id: OrderedDict[str, ArxivListPaper] = OrderedDict()
     stats = FetchStats()
 
     if categories:
         with ThreadPoolExecutor(max_workers=min(list_workers, len(categories))) as executor:
-            results_in_order = list(executor.map(fetch_new_category_ids, categories))
+            results_in_order = list(executor.map(fetch_new_category_papers, categories))
     else:
         results_in_order = []
 
     for category_matches in results_in_order:
         stats.fetched += len(category_matches)
-        for paper_id, page_categories in category_matches.items():
+        for paper_id, list_paper in category_matches.items():
+            existing_list_paper = list_papers_by_id.get(paper_id)
+            if existing_list_paper is None:
+                list_papers_by_id[paper_id] = list_paper
+            else:
+                existing_categories = set(existing_list_paper.categories)
+                existing_list_paper.categories = sorted(existing_categories | set(list_paper.categories))
+                if not existing_list_paper.primary_category:
+                    existing_list_paper.primary_category = list_paper.primary_category
+
             bucket = matched_categories_by_id.setdefault(paper_id, set())
             previous_size = len(bucket)
-            bucket.update(page_categories)
+            bucket.update(list_paper.categories)
             if previous_size != 0:
                 stats.duplicates += 1
 
-    entries = fetch_feed_entries_by_ids(
-        list(matched_categories_by_id.keys()),
-        max_workers=api_workers,
-        request_delay_seconds=api_request_delay,
-    )
+    entries: list[feedparser.FeedParserDict] = []
+    try:
+        entries = fetch_feed_entries_by_ids(
+            list(matched_categories_by_id.keys()),
+            max_workers=api_workers,
+            request_delay_seconds=api_request_delay,
+        )
+    except (TimeoutError, urllib.error.HTTPError, urllib.error.URLError) as exc:
+        stats.api_backfill_status = "degraded"
+        stats.api_backfill_error = f"{exc.__class__.__name__}: {str(exc)[:180]}"
+        print(
+            {
+                "stage": "arxiv_api_backfill",
+                "status": stats.api_backfill_status,
+                "error": stats.api_backfill_error,
+                "fallback": "using arxiv list page metadata",
+            }
+        )
+
+    stats.api_backfill_entries = len(entries)
     entry_by_id: dict[str, feedparser.FeedParserDict] = {}
     for entry in entries:
         raw_id = entry.id.rsplit("/", 1)[-1]
@@ -353,9 +483,13 @@ def fetch_papers(config: dict) -> tuple[list[dict], FetchStats]:
 
     for paper_id, page_categories in matched_categories_by_id.items():
         entry = entry_by_id.get(paper_id)
-        if entry is None:
-            continue
-        paper = normalize_paper(entry, categories, sorted(page_categories))
+        if entry is not None:
+            paper = normalize_paper(entry, categories, sorted(page_categories))
+        else:
+            list_paper = list_papers_by_id.get(paper_id)
+            if list_paper is None:
+                continue
+            paper = normalize_list_paper(list_paper, categories)
         if not paper["matched_categories"]:
             continue
         by_id[paper_id] = paper

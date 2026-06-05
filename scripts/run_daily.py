@@ -14,9 +14,17 @@ from common import (
     read_json,
     write_json,
 )
-from fetch_arxiv import fetch_papers
+from fetch_arxiv import FetchStats, fetch_papers
 
 FULLTEXT_FIELDS = ("fulltext_markdown", "fulltext_source", "fulltext_status")
+RICH_METADATA_FIELDS = (
+    "abstract_en",
+    "comment",
+    "journal_ref",
+    "doi",
+    "published_date",
+    "updated_date",
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -25,14 +33,12 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def build_daily_payload(config: dict, target_date: date, papers: list[dict]) -> dict:
+def build_daily_payload(config: dict, target_date: date, papers: list[dict], stats: FetchStats) -> dict:
     category_counts: dict[str, int] = {}
     summary_status_counts: dict[str, int] = {}
     for paper in papers:
         category_counts[paper["display_category"]] = category_counts.get(paper["display_category"], 0) + 1
         summary_status_counts[paper["summary_status"]] = summary_status_counts.get(paper["summary_status"], 0) + 1
-
-    paper_dates = sorted({paper["published_date"] for paper in papers}, reverse=True)
 
     return {
         "date": target_date.isoformat(),
@@ -42,7 +48,11 @@ def build_daily_payload(config: dict, target_date: date, papers: list[dict]) -> 
         "paper_count": len(papers),
         "category_counts": category_counts,
         "summary_status_counts": summary_status_counts,
-        "paper_dates": paper_dates,
+        "fetch_status": {
+            "api_backfill_status": stats.api_backfill_status,
+            "api_backfill_error": stats.api_backfill_error,
+            "api_backfill_entries": stats.api_backfill_entries,
+        },
         "papers": papers,
     }
 
@@ -83,6 +93,11 @@ def merge_papers(existing_papers: list[dict], fetched_papers: list[dict]) -> tup
         merged = existing | fetched
         for field in FULLTEXT_FIELDS:
             merged.pop(field, None)
+        if fetched.get("metadata_source") == "arxiv_list" and existing.get("metadata_source") == "arxiv_api":
+            for field in RICH_METADATA_FIELDS:
+                if existing.get(field):
+                    merged[field] = existing[field]
+            merged["metadata_source"] = existing["metadata_source"]
         if existing.get("summary_status") == "ok" and fetched.get("summary_status") == "pending":
             merged["summary_status"] = existing["summary_status"]
             merged["summary_zh"] = existing.get("summary_zh", "")
@@ -139,7 +154,7 @@ def main() -> None:
     existing_papers = filter_papers_for_configured_categories(existing_papers, configured_categories)
     existing_papers = filter_papers_for_current_source(existing_papers, "arxiv_new")
     papers, added, updated = merge_papers(existing_papers, fetched_papers)
-    payload = build_daily_payload(config, target_date, papers)
+    payload = build_daily_payload(config, target_date, papers, stats)
     write_json(output_path, payload, pretty=config["output"].get("write_pretty_json", True))
 
     removed = prune_old_files(int(config["output"].get("keep_days", 90)), today=target_date)
@@ -150,10 +165,12 @@ def main() -> None:
             "fetched": stats.fetched,
             "kept": stats.kept,
             "duplicates": stats.duplicates,
+            "api_backfill_status": stats.api_backfill_status,
+            "api_backfill_error": stats.api_backfill_error,
+            "api_backfill_entries": stats.api_backfill_entries,
             "skipped_previous_day": skipped_previous_day,
             "added": added,
             "updated": updated,
-            "paper_dates": payload["paper_dates"][:5],
             "removed": [path.name for path in removed],
         }
     )
