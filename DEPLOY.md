@@ -106,7 +106,7 @@ schedule:
 | 阶段 | env | 默认 | 调整建议 |
 |---|---|---|---|
 | arXiv list 页抓取 | `ARXIV_LIST_WORKERS` | 5 | 主数据源；如果这里失败，workflow 必须失败，因为无法确认今日更新 |
-| arXiv API chunk | `ARXIV_API_WORKERS` | 1 | 只做 metadata 补充；共享 CI IP 容易被限流，失败后会降级继续 |
+| arXiv API chunk | `ARXIV_API_WORKERS` | 1 | 只补 abstract、DOI、comment 等字段；共享 CI IP 容易被限流，失败后会降级继续 |
 | arXiv API chunk 间隔 | `ARXIV_API_REQUEST_DELAY_SECONDS` | 10 | 只影响可选补充；不要低于 arXiv 建议的 3 秒 |
 | DeepSeek 摘要 | `SUMMARY_MAX_WORKERS` | 4 | 触发 429 就降到 2，DeepSeek 没公开严格 rate limit |
 

@@ -93,7 +93,10 @@ def merge_papers(existing_papers: list[dict], fetched_papers: list[dict]) -> tup
         merged = existing | fetched
         for field in FULLTEXT_FIELDS:
             merged.pop(field, None)
-        if fetched.get("metadata_source") == "arxiv_list" and existing.get("metadata_source") == "arxiv_api":
+        if fetched.get("metadata_source") == "arxiv_list" and existing.get("metadata_source") in {
+            "arxiv_api",
+            "arxiv_list_api",
+        }:
             for field in RICH_METADATA_FIELDS:
                 if existing.get(field):
                     merged[field] = existing[field]

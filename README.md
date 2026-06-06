@@ -112,7 +112,7 @@ The standalone summarizer is still available if you only want to refresh summari
 
 Stage-level parallelism:
 
-- `fetch_arxiv` 以 category `/list/<cat>/new` 为主数据源（默认上限 8 路，由 `ARXIV_LIST_WORKERS` 控制），因此只要 list 页可用就能确定今日新增 paper；arXiv `/api/query` 只做可选 metadata 补充，429/503 会标记 `fetch_status.api_backfill_status = "degraded"` 并继续产出当天 snapshot
+- `fetch_arxiv` 以 category `/list/<cat>/new` 为主数据源（默认上限 8 路，由 `ARXIV_LIST_WORKERS` 控制），因此只要 list 页可用就能确定今日新增 paper；arXiv `/api/query` 只做可选 metadata 补充，成功时只补 abstract、DOI、comment 等字段，429/503 会标记 `fetch_status.api_backfill_status = "degraded"` 并继续产出当天 snapshot
 - `enrich` 只有 summary worker pool；默认 4 个 summary worker，可用 `--summary-workers` 或 `SUMMARY_MAX_WORKERS` 覆盖
 - `scripts/summarize.py` 也保留 `--max-workers`，用于单独刷新 metadata/abstract summaries
 - 每日 snapshot 文件由 debounced 线程安全 writer 落盘，并发 worker 只 mark dirty，不竞争磁盘
@@ -133,7 +133,7 @@ Cleanup:
 ## Current stack decision
 
 - Backend/runtime: Python 3.12
-- Fetching: arXiv `/list/<cat>/new` pages plus optional arXiv API metadata backfill
+- Fetching: arXiv `/list/<cat>/new` pages, with optional arXiv API field enrichment
 - Storage: versioned JSON files in `docs/data/`
 - Frontend: vanilla HTML/CSS/JS
 - Hosting: GitHub Pages from `/docs`

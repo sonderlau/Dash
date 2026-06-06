@@ -357,64 +357,45 @@ def normalize_list_paper(
     }
 
 
-def normalize_paper(
-    entry: feedparser.FeedParserDict,
-    configured_categories: list[str],
-    categories_from_new_page: list[str] | None = None,
-) -> dict:
-    raw_id = entry.id.rsplit("/", 1)[-1]
-    if "v" in raw_id:
-        base_id = raw_id.split("v", 1)[0]
-    else:
-        base_id = raw_id
-
+def enrich_list_paper_with_api(paper: dict, entry: feedparser.FeedParserDict) -> dict:
+    enriched = paper.copy()
     raw_categories = [tag["term"] for tag in entry.get("tags", []) if "term" in tag]
-    if categories_from_new_page:
-        for category in categories_from_new_page:
-            if category not in raw_categories:
-                raw_categories.append(category)
-
-    matched_categories = [cat for cat in configured_categories if cat in raw_categories]
-    display_category = matched_categories[0] if matched_categories else "other"
     primary_category = ""
     if entry.get("arxiv_primary_category"):
         primary_category = entry.arxiv_primary_category.get("term", "")
 
     published_dt = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
     updated_dt = datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc)
-
     pdf_url = next(
         (
             link.href
             for link in entry.get("links", [])
             if getattr(link, "title", "") == "pdf" or link.get("type") == "application/pdf"
         ),
-        f"https://arxiv.org/pdf/{base_id}",
+        enriched.get("pdf_url") or f"https://arxiv.org/pdf/{enriched['id']}",
     )
 
-    return {
-        "id": base_id,
-        "title": " ".join(entry.title.split()),
-        "authors": [author.name for author in entry.get("authors", [])],
-        "categories": raw_categories,
-        "matched_categories": matched_categories,
-        "display_category": display_category,
-        "primary_category": primary_category,
-        "abs_url": entry.link,
-        "pdf_url": pdf_url,
-        "abstract_en": " ".join(entry.summary.split()),
-        "comment": " ".join(str(entry.get("arxiv_comment", "")).split()),
-        "journal_ref": " ".join(str(entry.get("arxiv_journal_ref", "")).split()),
-        "doi": " ".join(str(entry.get("arxiv_doi", "")).split()),
-        "summary_zh": "",
-        "summary_input_source": "",
-        "summary_sections": summary_sections_template(),
-        "summary_status": "pending",
-        "published_date": published_dt.date().isoformat(),
-        "updated_date": updated_dt.date().isoformat(),
-        "source": "arxiv_new",
-        "metadata_source": "arxiv_api",
-    }
+    if not enriched.get("title"):
+        enriched["title"] = " ".join(entry.title.split())
+    if not enriched.get("authors"):
+        enriched["authors"] = [author.name for author in entry.get("authors", [])]
+    if not enriched.get("primary_category"):
+        enriched["primary_category"] = primary_category
+    if not enriched.get("categories"):
+        enriched["categories"] = raw_categories
+    if not enriched.get("abs_url"):
+        enriched["abs_url"] = entry.link
+    if not enriched.get("pdf_url"):
+        enriched["pdf_url"] = pdf_url
+
+    enriched["abstract_en"] = " ".join(entry.summary.split())
+    enriched["comment"] = " ".join(str(entry.get("arxiv_comment", "")).split())
+    enriched["journal_ref"] = " ".join(str(entry.get("arxiv_journal_ref", "")).split())
+    enriched["doi"] = " ".join(str(entry.get("arxiv_doi", "")).split())
+    enriched["published_date"] = published_dt.date().isoformat()
+    enriched["updated_date"] = updated_dt.date().isoformat()
+    enriched["metadata_source"] = "arxiv_list_api"
+    return enriched
 
 
 def fetch_papers(config: dict) -> tuple[list[dict], FetchStats]:
@@ -481,15 +462,14 @@ def fetch_papers(config: dict) -> tuple[list[dict], FetchStats]:
         base_id = raw_id.split("v", 1)[0]
         entry_by_id[base_id] = entry
 
-    for paper_id, page_categories in matched_categories_by_id.items():
+    for paper_id in matched_categories_by_id:
+        list_paper = list_papers_by_id.get(paper_id)
+        if list_paper is None:
+            continue
+        paper = normalize_list_paper(list_paper, categories)
         entry = entry_by_id.get(paper_id)
         if entry is not None:
-            paper = normalize_paper(entry, categories, sorted(page_categories))
-        else:
-            list_paper = list_papers_by_id.get(paper_id)
-            if list_paper is None:
-                continue
-            paper = normalize_list_paper(list_paper, categories)
+            paper = enrich_list_paper_with_api(paper, entry)
         if not paper["matched_categories"]:
             continue
         by_id[paper_id] = paper
