@@ -1,0 +1,801 @@
+{
+  "date": "2026-06-07",
+  "snapshot_date": "2026-06-07",
+  "generated_at": "2026-06-07T00:20:05Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 18,
+  "category_counts": {
+    "cs.AI": 4,
+    "cs.CV": 5,
+    "cs.LG": 9
+  },
+  "summary_status_counts": {
+    "ok": 18
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 803
+  },
+  "papers": [
+    {
+      "id": "2606.05104",
+      "title": "Knowledge Index of Noah's Ark",
+      "authors": [
+        "Sheng Jin",
+        "Minghao Liu",
+        "Yunze Xiao",
+        "Zeqi Zhou",
+        "Heli Qi",
+        "Yifan Yao",
+        "Meishu Song",
+        "Kaijing Ma",
+        "Xuan Zhang",
+        "Sicong Jiang",
+        "Yizhe Li",
+        "Ningshan Ma",
+        "Jie Wei",
+        "Ziniu Li",
+        "Minglai Yang",
+        "Bangya Liu",
+        "Yiming Liang",
+        "Xiao Fang",
+        "Qingcheng Zeng",
+        "Jiarui Liu",
+        "Rui Yang",
+        "Shen Yan",
+        "Wenhao Huang",
+        "Jiaheng Liu",
+        "Zihan Wang",
+        "Weihao Xuan",
+        "Ge Zhang"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2606.05104",
+      "pdf_url": "https://arxiv.org/pdf/2606.05104",
+      "abstract_en": "Knowledge benchmarks for LLMs face three issues: scaling-driven designs that do not operationalize disciplinary representativeness; flat-payment annotation that permits lazy consensus; and unaudited ranking instability under bounded test budgets. We introduce KINA, an 899-item benchmark across 261 fine-grained disciplines, with two formal results. First, we cast representativeness as a coverage-style objective over expert-elicited anchors and operationalize disciplinary representativeness through a proxy, yielding a (1-1/e) greedy approximation (Proposition 1); the guarantee applies to the proxy, not to population representativeness. Second, we prove a bonus-on-bar tournament weakly FOSD-dominates flat payment in released-review quality, with incentive-compatibility threshold B > Delta C / Delta p_min (Theorem 1). Evaluating 42 models from 13 labs, the top model, Gemini-3.1-Pro-Preview, reaches 53.17%, followed by Claude-Opus-4.6 at 49.92% and GPT-5.4 at 48.55%, leaving substantial headroom below saturation. The full leaderboard shows a tiered structure rather than a smooth total order: a small frontier tier lies above 48%, a dense strong-model tier spans roughly 38-45%, and low-performing models remain only modestly above the 10% chance baseline. Tool augmentation adds up to 5.17 points across the five tool-use evaluations, with gains varying substantially across models. We report bootstrap ranking-stability statistics to make bounded-budget variance explicit and to discourage over-interpretation of adjacent ranks.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出KINA基准，包含899个条目覆盖261个细粒度学科，用于评估LLM的知识能力。通过形式化代表性目标和激励机制，解决了现有基准的三大问题。评估42个模型显示最佳模型Gemini-3.1-Pro-Preview准确率53.17%，远未饱和。\nMotivation: 现有知识基准存在三个问题：基于规模的设计未实现学科代表性、固定支付允许懒散共识、未审计的排序不稳定性。\nMethod: 提出KINA基准，包含899个条目和261个细粒度学科；将代表性建模为覆盖目标并通过专家锚点实现；设计奖金锦标赛机制激励评测质量。\nResult: 评估42个模型，最好模型Gemini-3.1-Pro-Preview准确率53.17%，Claude-Opus-4.6为49.92%，GPT-5.4为48.55%。工具增强最高提升5.17点。排行榜呈现分层结构。\nConclusion: KINA基准提供了更严格的知识评估，当前顶尖模型远未饱和，需要进一步研究。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出KINA基准，包含899个条目覆盖261个细粒度学科，用于评估LLM的知识能力。通过形式化代表性目标和激励机制，解决了现有基准的三大问题。评估42个模型显示最佳模型Gemini-3.1-Pro-Preview准确率53.17%，远未饱和。",
+        "motivation": "现有知识基准存在三个问题：基于规模的设计未实现学科代表性、固定支付允许懒散共识、未审计的排序不稳定性。",
+        "method": "提出KINA基准，包含899个条目和261个细粒度学科；将代表性建模为覆盖目标并通过专家锚点实现；设计奖金锦标赛机制激励评测质量。",
+        "result": "评估42个模型，最好模型Gemini-3.1-Pro-Preview准确率53.17%，Claude-Opus-4.6为49.92%，GPT-5.4为48.55%。工具增强最高提升5.17点。排行榜呈现分层结构。",
+        "conclusion": "KINA基准提供了更严格的知识评估，当前顶尖模型远未饱和，需要进一步研究。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-03",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.04811",
+      "title": "Dream.exe: Can Video Generation Models Dream Executable Robot Manipulation?",
+      "authors": [
+        "Rui Zhao",
+        "Kaiming Yang",
+        "Jifeng Zhu",
+        "Siyang Chen",
+        "Ziqi Wang",
+        "Weijia Wu",
+        "Kevin Qinghong Lin",
+        "Heng Wang",
+        "Mike Zheng Shou"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2606.04811",
+      "pdf_url": "https://arxiv.org/pdf/2606.04811",
+      "abstract_en": "Video generation models have made impressive strides in synthesizing visually compelling content, yet their outputs remain confined to the virtual domain. A natural question follows: how well do these models reflect the physical world when their generated videos leave the screen and enter reality? We propose robotic manipulation as a concrete, measurable window onto this question: if a model has truly internalized physical laws, the motion it depicts should translate into executable robot behavior. We introduce Dream$.$exe, an evaluation framework that operationalizes this criterion through a video-to-execution pipeline. Given a scene image and a task description, Dream$.$exe synthesizes a manipulation video, converts the generated motion into robot trajectories, and executes them in a physics simulator, yielding a grounding signal that purely visual metrics cannot offer. Using this pipeline, we evaluate 8 models spanning frontier closed-source generators, open-source generators, and robot-specific models. Our benchmark covers 101 manually curated manipulation tasks at three levels of physical complexity, measured across visual quality, trajectory fidelity, and execution success. Encouragingly, several models achieve measurable execution success, suggesting that generative priors learned from internet-scale data already encode meaningful physical knowledge. Yet visual quality proves a poor predictor of executability, exposing a dimension of model capability that standard visual evaluations do not capture. Dream$.$exe will be open-sourced at https://github.com/showlab/Dream.exe.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Dream.exe 框架，通过视频生成模型输出机器人操作视频，并将视频运动转化为可执行轨迹在物理仿真器中执行，以评估视频生成模型对物理世界的理解能力。实验表明，多个模型在 101 个操作任务上获得可衡量的执行成功率，但视觉质量与可执行性相关性弱。\nMotivation: 现有视频生成模型仅在虚拟域中评估，缺乏衡量其对物理世界理解的量化指标。机器人操作提供了一个可测量的窗口，可以检验模型是否真正内化了物理定律。\nMethod: Dream.exe 是一个视频到执行的评估框架：输入场景图像和任务描述，合成操作视频，提取运动轨迹，在物理仿真器中执行，从而获得基于物理的反馈信号。\nResult: 在 101 个精心设计的操作任务上测试了 8 个模型（包括闭源、开源和机器人专用模型），多个模型取得了可衡量的执行成功率，但视觉质量与可执行性相关性很差。\nConclusion: 互联网规模数据训练的生成模型已编码了有意义的物理知识，但标准视觉评估无法捕捉模型在可执行性维度的能力。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Dream.exe 框架，通过视频生成模型输出机器人操作视频，并将视频运动转化为可执行轨迹在物理仿真器中执行，以评估视频生成模型对物理世界的理解能力。实验表明，多个模型在 101 个操作任务上获得可衡量的执行成功率，但视觉质量与可执行性相关性弱。",
+        "motivation": "现有视频生成模型仅在虚拟域中评估，缺乏衡量其对物理世界理解的量化指标。机器人操作提供了一个可测量的窗口，可以检验模型是否真正内化了物理定律。",
+        "method": "Dream.exe 是一个视频到执行的评估框架：输入场景图像和任务描述，合成操作视频，提取运动轨迹，在物理仿真器中执行，从而获得基于物理的反馈信号。",
+        "result": "在 101 个精心设计的操作任务上测试了 8 个模型（包括闭源、开源和机器人专用模型），多个模型取得了可衡量的执行成功率，但视觉质量与可执行性相关性很差。",
+        "conclusion": "互联网规模数据训练的生成模型已编码了有意义的物理知识，但标准视觉评估无法捕捉模型在可执行性维度的能力。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-03",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.04804",
+      "title": "The Right Measure for Physics-Constrained Generation: A Co-Area Correction for Posterior-Consistent PDE Inverse Problems",
+      "authors": [
+        "Jian Xu",
+        "Delu Zeng",
+        "John Paisley",
+        "Qibin Zhao"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2606.04804",
+      "pdf_url": "https://arxiv.org/pdf/2606.04804",
+      "abstract_en": "Generative models -- diffusion and flow matching -- are increasingly used to solve partial differential equation (PDE) inverse problems, enforcing the governing physics as a \\emph{hard constraint} (via projection or guidance) and reporting the resulting samples as a Bayesian posterior with calibrated uncertainty. We show that this widely adopted recipe samples the wrong distribution. Conditioning a generative prior on a hard PDE constraint is conditioning on a measure-zero manifold -- an operation that is intrinsically ambiguous (the Borel--Kolmogorov paradox) and whose physically correct resolution, the small-residual-noise limit, carries a co-area (Fixman) Jacobian factor $[det(JJ^{\\top})]^{-1/2}$ that projection- and guidance-based methods silently omit. We make the bias precise, show that it grows with the heterogeneity of the constraint sensitivity, and validate it on controlled problems against an \\emph{i.i.d.} ground-truth arbiter. The omitted factor is not a second-order detail: removing it inflates the posterior error to $20\\times$ the sampling-noise floor; minimal-displacement projection (as in PCFM) is biased at $9\\times$ the floor; and a naive scalar reweighting does not fix it. We introduce \\textbf{CoCoS}, a measure-aware constrained sampler that targets the correct co-area posterior, and show that it matches the gold-standard posterior to within sampling noise. Our results imply that ``satisfying the physics'' is not the same as ``sampling the posterior,'' and give a principled correction for uncertainty-aware scientific inference.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文指出在偏微分方程（PDE）逆问题中，使用生成模型（扩散或流匹配）施加硬约束（投影或引导）来采样后验分布时，实际上采样的是错误分布。原因在于硬约束作用于测度零流形，导致Borel-Kolmogorov悖论，而正确的物理极限应包含co-area（Fixman）雅可比因子[det(JJ^T)]^{-1/2}，但现有投影和引导方法忽略了该因子。作者通过实验证明忽略该因子会使后验误差放大到采样噪声底的20倍，并提出了测度感知的约束采样器CoCoS，使后验与黄金标准匹配至采样噪声水平。\nMotivation: 现有生成模型解决PDE逆问题时，通过硬约束（投影或引导）施加物理规律并声称得到校准的不确定性后验，但这种方法实际上采样了错误分布，因为约束条件定义在测度零流形上，存在固有的歧义（Borel-Kolmogorov悖论），而正确的极限形式包含被忽略的co-area因子。\nMethod: 本文方法称为CoCoS（Co-area Corrected Sampler），是一种测度感知的约束采样器，通过引入co-area（Fixman）雅可比因子[det(JJ^T)]^{-1/2}来修正后验分布，使得在硬约束条件下采样得到正确的后验。该修正因子与约束敏感性的异质性相关。\nResult: 在受控实验中，忽略co-area因子会使后验误差放大到采样噪声底的20倍；最小位移投影（如PCFM）的偏差为噪声底的9倍；简单的标量重加权无法修复该偏差。CoCoS能够匹配黄金标准后验至采样噪声水平。\nConclusion: 满足物理规律不等同于采样后验分布，本文为不确定性感知的科学推理提供了原则性的修正方法。\nRelevance: 40",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文指出在偏微分方程（PDE）逆问题中，使用生成模型（扩散或流匹配）施加硬约束（投影或引导）来采样后验分布时，实际上采样的是错误分布。原因在于硬约束作用于测度零流形，导致Borel-Kolmogorov悖论，而正确的物理极限应包含co-area（Fixman）雅可比因子[det(JJ^T)]^{-1/2}，但现有投影和引导方法忽略了该因子。作者通过实验证明忽略该因子会使后验误差放大到采样噪声底的20倍，并提出了测度感知的约束采样器CoCoS，使后验与黄金标准匹配至采样噪声水平。",
+        "motivation": "现有生成模型解决PDE逆问题时，通过硬约束（投影或引导）施加物理规律并声称得到校准的不确定性后验，但这种方法实际上采样了错误分布，因为约束条件定义在测度零流形上，存在固有的歧义（Borel-Kolmogorov悖论），而正确的极限形式包含被忽略的co-area因子。",
+        "method": "本文方法称为CoCoS（Co-area Corrected Sampler），是一种测度感知的约束采样器，通过引入co-area（Fixman）雅可比因子[det(JJ^T)]^{-1/2}来修正后验分布，使得在硬约束条件下采样得到正确的后验。该修正因子与约束敏感性的异质性相关。",
+        "result": "在受控实验中，忽略co-area因子会使后验误差放大到采样噪声底的20倍；最小位移投影（如PCFM）的偏差为噪声底的9倍；简单的标量重加权无法修复该偏差。CoCoS能够匹配黄金标准后验至采样噪声水平。",
+        "conclusion": "满足物理规律不等同于采样后验分布，本文为不确定性感知的科学推理提供了原则性的修正方法。",
+        "relevance_score": "40"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-03",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.04777",
+      "title": "UniFair: A unified fair clustering approach based on separation and compactness",
+      "authors": [
+        "Antonia Karra",
+        "Vasiliki Papanikou",
+        "Georgios Vardakas",
+        "Evaggelia Pitoura",
+        "Aristidis Likas"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2606.04777",
+      "pdf_url": "https://arxiv.org/pdf/2606.04777",
+      "abstract_en": "Clustering is increasingly used to support high-impact decisions, yet standard objectives such as k-means can produce clusterings that treat demographic groups unequally. Existing fair clustering methods typically optimize a single notion of fairness and often overlook how clustering costs interact with the geometry of the induced decision boundaries. We propose UniFair, a unified framework that jointly optimizes separation fairness and social fairness. Separation fairness encourages protected groups to lie farther from the induced decision boundaries, while social fairness reduces disparities in within-cluster distortion by penalizing group-wise clustering costs. We develop gradient-based optimization procedures for separation-fair and unified k-means objectives, and extend them to deep clustering by enforcing the same criteria in the latent space of an autoencoder. Experiments on tabular and image datasets show that UniFair reduces both boundary-related and cost-based group disparities with only a modest increase in clustering loss.",
+      "comment": "17 pages, 6 Figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 UniFair，一个统一的公平聚类框架，联合优化分离公平性（separation fairness）和社会公平性（social fairness），前者使保护群体远离决策边界，后者通过惩罚组内聚类成本减少扭曲差异。在表格和图像数据集上的实验表明，UniFair 能显著降低边界相关和成本相关的群体差异，而聚类损失仅有少量增加。\nMotivation: 标准聚类目标（如 k-means）可能对不同人口统计群体产生不平等结果，现有公平聚类方法通常优化单一公平概念，忽略了聚类成本与决策边界几何的交互。\nMethod: 提出 UniFair 框架，联合优化分离公平性（鼓励保护群体远离决策边界）和社会公平性（通过加权惩罚组内聚类成本）。开发基于梯度的优化程序用于 k-means 目标，并扩展到深度聚类中，在自动编码器的潜在空间强制满足相同准则。\nResult: 在多个表格和图像数据集上，UniFair 减少了边界相关和成本相关的群体差异，同时聚类损失仅适度增加。\nConclusion: 通过联合优化两种公平性度量，UniFair 能在不显著牺牲聚类质量的前提下提升公平性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 UniFair，一个统一的公平聚类框架，联合优化分离公平性（separation fairness）和社会公平性（social fairness），前者使保护群体远离决策边界，后者通过惩罚组内聚类成本减少扭曲差异。在表格和图像数据集上的实验表明，UniFair 能显著降低边界相关和成本相关的群体差异，而聚类损失仅有少量增加。",
+        "motivation": "标准聚类目标（如 k-means）可能对不同人口统计群体产生不平等结果，现有公平聚类方法通常优化单一公平概念，忽略了聚类成本与决策边界几何的交互。",
+        "method": "提出 UniFair 框架，联合优化分离公平性（鼓励保护群体远离决策边界）和社会公平性（通过加权惩罚组内聚类成本）。开发基于梯度的优化程序用于 k-means 目标，并扩展到深度聚类中，在自动编码器的潜在空间强制满足相同准则。",
+        "result": "在多个表格和图像数据集上，UniFair 减少了边界相关和成本相关的群体差异，同时聚类损失仅适度增加。",
+        "conclusion": "通过联合优化两种公平性度量，UniFair 能在不显著牺牲聚类质量的前提下提升公平性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-03",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.04708",
+      "title": "VISTA: Vision-Grounded and Physics-Validated Adaptation of UMI data for VLA Training",
+      "authors": [
+        "Siyuan Yang",
+        "Linzheng Guo",
+        "Ouyang Lu",
+        "Zhaxizhuoma",
+        "Daoran Zhang",
+        "Xinmiao Wang",
+        "Ting Xiao",
+        "Fangzheng Yan",
+        "Zhijun Chen",
+        "Yan Ding",
+        "Chao Yu",
+        "Chenjia Bai",
+        "Xuelong Li"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2606.04708",
+      "pdf_url": "https://arxiv.org/pdf/2606.04708",
+      "abstract_en": "Universal Manipulation Interface (UMI) enables scalable real-world robot data collection without hardware-specific teleoperation, yet leveraging UMI data to train large-scale Vision-Language-Action (VLA) models remains fundamentally challenging. We identify two critical mismatches: wrist-mounted fisheye views, with severe radial distortion and local gripper-centric perspectives, are out-of-distribution for pretrained VLMs; and human-collected trajectories frequently violate kinematic limits, incur collisions, or exceed controller bandwidth, teaching VLA policies physically infeasible actions. To address the challenges, we present VISTA, a framework that bridges this dual gap through three synergistic components. (i)~UMI-VQA, the first large-scale VQA dataset tailored to wrist-mounted fisheye observations, aligns VLM representations to the distorted visual regime via auxiliary vision-language supervision. (ii)~A systematic physical-validation pipeline performs a data-completeness pre-check and scores each valid trajectory for trajectory continuity, self-collision risk, and execution fidelity before it enters training. (iii)~A two-stage co-training recipe jointly learns vision-language grounding on UMI-VQA and action prediction on validated trajectories. Our experiments empirically show that incorporating UMI-VQA consistently improves downstream policy performance, and that physical-validation scores are strongly predictive of deployment success. On diverse simulation and real-world manipulation tasks, VISTA significantly outperforms strong baselines including $π_{0.5}$, LingBot-VLA, and Wall-X. We release the physical-validation pipeline, UMI-VQA, validated trajectory data, and the pre-trained model for the community.",
+      "comment": "Corrected the typing error",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对UMI数据训练VLA模型时存在的两个关键不匹配问题（腕装鱼眼视图分布外、人类轨迹物理不可行），提出VISTA框架，包含UMI-VQA视觉问答数据集、物理验证管道和两阶段联合训练策略。实验表明该方法在模拟和真实操作任务上显著优于π0.5等基线。\nMotivation: UMI数据存在两大问题：腕装鱼眼视图与预训练VLM分布不匹配，以及人类采集轨迹常违反运动学约束导致动作不可行，直接训练VLA效果差。\nMethod: 提出三部分框架：1) 构建UMI-VQA数据集对齐VLM与鱼眼视觉表征；2) 物理验证管道对轨迹进行完整性预检、连续性、自碰撞风险和执行保真度评分；3) 两阶段联合训练，先学习视觉-语言基础后学习动作预测。\nResult: 摘要报告：UMI-VQA可提升下游策略性能，物理验证分数与部署成功率高度相关；在多种模拟和真实任务上，VISTA显著优于π0.5、LingBot-VLA、Wall-X等基线。\nConclusion: 本文表明通过对齐视觉表征和物理验证数据可以桥接UMI数据与VLA训练之间的双重鸿沟，并开源了相关数据集、管道和模型。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对UMI数据训练VLA模型时存在的两个关键不匹配问题（腕装鱼眼视图分布外、人类轨迹物理不可行），提出VISTA框架，包含UMI-VQA视觉问答数据集、物理验证管道和两阶段联合训练策略。实验表明该方法在模拟和真实操作任务上显著优于π0.5等基线。",
+        "motivation": "UMI数据存在两大问题：腕装鱼眼视图与预训练VLM分布不匹配，以及人类采集轨迹常违反运动学约束导致动作不可行，直接训练VLA效果差。",
+        "method": "提出三部分框架：1) 构建UMI-VQA数据集对齐VLM与鱼眼视觉表征；2) 物理验证管道对轨迹进行完整性预检、连续性、自碰撞风险和执行保真度评分；3) 两阶段联合训练，先学习视觉-语言基础后学习动作预测。",
+        "result": "摘要报告：UMI-VQA可提升下游策略性能，物理验证分数与部署成功率高度相关；在多种模拟和真实任务上，VISTA显著优于π0.5、LingBot-VLA、Wall-X等基线。",
+        "conclusion": "本文表明通过对齐视觉表征和物理验证数据可以桥接UMI数据与VLA训练之间的双重鸿沟，并开源了相关数据集、管道和模型。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-03",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.04672",
+      "title": "Learning Long Range Spatio-Temporal Representations over Continuous Time Dynamic Graphs with State Space Models",
+      "authors": [
+        "Ayushman Raghuvanshi",
+        "Thummaluru Siddartha Reddy",
+        "Sundeep Prabhakar Chepuri",
+        "Mahesh Chandran"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2606.04672",
+      "pdf_url": "https://arxiv.org/pdf/2606.04672",
+      "abstract_en": "Continuous-time dynamic graphs (CTDGs) provide a richer framework to capture fine-grained temporal patterns in evolving relational data. Long-range information propagation is a key challenge while learning representations, wherein it is important to retain and update information over long temporal horizons. Existing approaches restrict models to capture one-hop or local temporal neighborhoods and fail to capture multi-hop or global structural patterns. To mitigate this, we derive a parameter-efficient state-space modeling framework for continuous-time dynamic graphs (CTDG-SSM) from first principles. We first introduce continuous-time Topology-Aware higher order polynomial projection operator (CTT-HiPPO), a novel memory-based reformulation of HiPPO to jointly encode temporal dynamics and graph structure. The solution from CTT-HiPPO is obtained by projecting the classical HiPPO solution through a polynomial of the Laplacian matrix, yielding topology-aware memory updates that admit an equivalent state-space formulation for CTDGs (CTDG-SSM). Then a computationally efficient discrete formulation is obtained using the zero-order hold approach for model implementation. Across benchmarks on dynamic link prediction, dynamic node classification, and sequence classification, CTDG-SSM achieves state-of-the-art performance. Notably, it achieves large performance gains on datasets that require long range temporal (LRT) and spatial reasoning.",
+      "comment": "Accepted at ICML 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 CTDG-SSM，一种基于状态空间模型的连续时间动态图表示学习方法，通过引入 CTT-HiPPO 算子将 HiPPO 与图拉普拉斯多项式结合，实现拓扑感知的长期记忆更新。在动态链接预测、节点分类和序列分类任务上取得最优结果，尤其擅长长程时空推理。\nMotivation: 现有连续时间动态图方法只能捕获局部时间邻域，无法处理多跳或全局结构信息，限制了长程信息传播。\nMethod: 从第一性原理推导出参数高效的状态空间模型 CTDG-SSM，核心是连续时间拓扑感知高阶多项式投影算子 (CTT-HiPPO)，通过拉普拉斯矩阵多项式投影经典 HiPPO 解，得到拓扑感知的记忆更新，再采用零阶保持法进行离散化实现。\nResult: 在动态链接预测、动态节点分类和序列分类基准上达到最先进性能，在需要长程时空推理的数据集上取得较大提升。\nConclusion: CTDG-SSM 为连续时间动态图的长程时空表示提供了统一框架，未来可探索更高效的离散化方法。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 CTDG-SSM，一种基于状态空间模型的连续时间动态图表示学习方法，通过引入 CTT-HiPPO 算子将 HiPPO 与图拉普拉斯多项式结合，实现拓扑感知的长期记忆更新。在动态链接预测、节点分类和序列分类任务上取得最优结果，尤其擅长长程时空推理。",
+        "motivation": "现有连续时间动态图方法只能捕获局部时间邻域，无法处理多跳或全局结构信息，限制了长程信息传播。",
+        "method": "从第一性原理推导出参数高效的状态空间模型 CTDG-SSM，核心是连续时间拓扑感知高阶多项式投影算子 (CTT-HiPPO)，通过拉普拉斯矩阵多项式投影经典 HiPPO 解，得到拓扑感知的记忆更新，再采用零阶保持法进行离散化实现。",
+        "result": "在动态链接预测、动态节点分类和序列分类基准上达到最先进性能，在需要长程时空推理的数据集上取得较大提升。",
+        "conclusion": "CTDG-SSM 为连续时间动态图的长程时空表示提供了统一框架，未来可探索更高效的离散化方法。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-03",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.04560",
+      "title": "Rollout-Level Advantage-Prioritized Experience Replay for GRPO",
+      "authors": [
+        "Gyeongtae Yoo",
+        "Sanghyeok Park",
+        "Soohyuk Jang",
+        "Ik-hwan Kim",
+        "Sungroh Yoon"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2606.04560",
+      "pdf_url": "https://arxiv.org/pdf/2606.04560",
+      "abstract_en": "Reinforcement learning from verifiable rewards with GRPO is a standard approach for post-training reasoning LLMs. It remains sample inefficient. Each rollout is used for a single gradient update and then discarded. Naive replay is not well suited in this setting because LLM policies drift quickly per gradient step. Stored rollouts therefore become stale and can destabilize training. We propose a rollout-level replay buffer for GRPO that stores and samples individual rollouts rather than whole groups. The buffer bounds staleness through age eviction. Any rollout older than tau_max training steps is removed. The buffer also preserves on-policy data via fresh-anchored composition. Each batch keeps its fresh on-policy rollouts and then concatenates replay rollouts drawn separately from the buffer. We prioritize replay by per-rollout advantage magnitude and recycle individual rollouts whose advantages are large. Across three Qwen3-Base scales on five math benchmarks, our method outperforms GRPO and naive replay baselines. Gains are positive at every scale and grow with model size. The largest gain is +4.35 pp on the five-benchmark average at 4B. Under an AES metric that jointly measures accuracy and token efficiency, the efficiency margin over GRPO is again largest at 4B, at +0.579.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对GRPO（基于可验证奖励的强化学习）在推理大型语言模型后训练中样本效率低的问题，提出了一种rollout级别的经验回放缓冲区。该缓冲区通过按rollout存储、年龄淘汰保证新鲜度、新鲜锚定组成保持在线数据、并依据优势幅度优先采样单个rollout。在Qwen3-Base的三个规模、五个数学基准上，该方法优于GRPO和朴素回放基线，最大提升为4B规模下平均+4.35个百分点。\nMotivation: GRPO中每个rollout仅用于一次梯度更新后被丢弃，导致样本效率低下；LLM策略每步快速漂移使得朴素回放不适用，存储的rollouts过时且会破坏训练稳定性。\nMethod: 提出rollout级别的经验回放缓冲区，存储单个rollout而非整组；通过年龄驱逐（超过τ_max步删除）限制过时性；通过新鲜锚定组成保持在线数据：每个batch保留新鲜在线rollout，并从缓冲区中独立抽取回放rollout；根据每个rollout的优势绝对值进行优先级采样，回收优势大的rollout。\nResult: 在Qwen3-Base（三个规模）上的五个数学基准测试中，该方法在所有规模上均优于GRPO和朴素回放基线，且增益随模型规模增大而增长；最大增益为4B规模下五个基准平均+4.35个百分点；在AES指标（联合衡量准确率和令牌效率）上，4B规模下效率提升最大，为+0.579。\nConclusion: 作者认为所提rollout级别优势优先级回放方法能有效提升GRPO的样本效率，且随模型规模增大优势更明显。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对GRPO（基于可验证奖励的强化学习）在推理大型语言模型后训练中样本效率低的问题，提出了一种rollout级别的经验回放缓冲区。该缓冲区通过按rollout存储、年龄淘汰保证新鲜度、新鲜锚定组成保持在线数据、并依据优势幅度优先采样单个rollout。在Qwen3-Base的三个规模、五个数学基准上，该方法优于GRPO和朴素回放基线，最大提升为4B规模下平均+4.35个百分点。",
+        "motivation": "GRPO中每个rollout仅用于一次梯度更新后被丢弃，导致样本效率低下；LLM策略每步快速漂移使得朴素回放不适用，存储的rollouts过时且会破坏训练稳定性。",
+        "method": "提出rollout级别的经验回放缓冲区，存储单个rollout而非整组；通过年龄驱逐（超过τ_max步删除）限制过时性；通过新鲜锚定组成保持在线数据：每个batch保留新鲜在线rollout，并从缓冲区中独立抽取回放rollout；根据每个rollout的优势绝对值进行优先级采样，回收优势大的rollout。",
+        "result": "在Qwen3-Base（三个规模）上的五个数学基准测试中，该方法在所有规模上均优于GRPO和朴素回放基线，且增益随模型规模增大而增长；最大增益为4B规模下五个基准平均+4.35个百分点；在AES指标（联合衡量准确率和令牌效率）上，4B规模下效率提升最大，为+0.579。",
+        "conclusion": "作者认为所提rollout级别优势优先级回放方法能有效提升GRPO的样本效率，且随模型规模增大优势更明显。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-03",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.04485",
+      "title": "LimiX-2M: Mitigating Low-Rank Collapse and Attention Bottlenecks in Tabular Foundation Models",
+      "authors": [
+        "Yuanrui Wang",
+        "Xingxuan Zhang",
+        "Han Yu",
+        "Mingchao Hao",
+        "Gang Ren",
+        "Hao Yuan",
+        "Li Mao",
+        "Yunjia Zhang",
+        "Chun Yuan",
+        "Peng Cui"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2606.04485",
+      "pdf_url": "https://arxiv.org/pdf/2606.04485",
+      "abstract_en": "Tabular foundation models (TFMs) increasingly rival tree ensembles, but their performance is often compute-inefficient: with standard affine scalar tokenization, each feature injects value variation through an essentially one-dimensional channel, and feature IDs/positional signals cannot increase within-feature value degrees of freedom, yielding weak early-layer value sensitivity and redundant hidden states. We present a unified tokenize-and-route framework for strong TFMs: RaBEL expands each scalar into compact localized RBF features (optionally exponent-gated) to improve conditioning and shallow-layer effective rank, while a reordered bidirectional block S->N->F aligns computation with the readout by aggregating cross-sample context before feature mixing and using attention pooling. Together, these changes yield LimiX-2M, a 2M-parameter model that outperforms larger TabPFN-v2 and TabICL baselines on widely used tabular benchmarks while reducing training and inference costs. These results highlight value-aware tokenization and readout-aligned routing as key levers for improving the accuracy--efficiency trade-off in TFMs. Model checkpoints and inference code are available at https://github.com/limix-ldm-ai/LimiX.",
+      "comment": "Accepted to ICML 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出LimiX-2M，一个2M参数的表格基础模型，通过RaBEL（将标量扩展为紧凑局部RBF特征）和重新排序的双向块S->N->F（先聚合跨样本上下文再进行特征混合）来缓解低秩坍塌和注意力瓶颈。在广泛使用的表格基准上，该模型以更低的训练和推理成本超越了更大的TabPFN-v2和TabICL基线。\nMotivation: 现有表格基础模型（TFM）在使用标准仿射标量分词时，每个特征通过一维通道注入值变化，特征ID/位置信号无法增加值自由度，导致早期层值敏感度弱和隐藏状态冗余，计算效率低下。\nMethod: 提出统一的分词-路由框架：RaBEL将每个标量扩展为紧凑局部RBF特征（可选指数门控），改善条件和浅层有效秩；同时采用重排序的双向块S->N->F，先聚合跨样本上下文再进行特征混合，并使用注意力池化。\nResult: 2M参数的LimiX-2M在广泛使用的表格基准上优于更大的TabPFN-v2和TabICL基线，并降低了训练和推理成本。\nConclusion: 实验表明，值感知分词和读对齐路由是改善表格基础模型准确率-效率权衡的关键杠杆。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出LimiX-2M，一个2M参数的表格基础模型，通过RaBEL（将标量扩展为紧凑局部RBF特征）和重新排序的双向块S->N->F（先聚合跨样本上下文再进行特征混合）来缓解低秩坍塌和注意力瓶颈。在广泛使用的表格基准上，该模型以更低的训练和推理成本超越了更大的TabPFN-v2和TabICL基线。",
+        "motivation": "现有表格基础模型（TFM）在使用标准仿射标量分词时，每个特征通过一维通道注入值变化，特征ID/位置信号无法增加值自由度，导致早期层值敏感度弱和隐藏状态冗余，计算效率低下。",
+        "method": "提出统一的分词-路由框架：RaBEL将每个标量扩展为紧凑局部RBF特征（可选指数门控），改善条件和浅层有效秩；同时采用重排序的双向块S->N->F，先聚合跨样本上下文再进行特征混合，并使用注意力池化。",
+        "result": "2M参数的LimiX-2M在广泛使用的表格基准上优于更大的TabPFN-v2和TabICL基线，并降低了训练和推理成本。",
+        "conclusion": "实验表明，值感知分词和读对齐路由是改善表格基础模型准确率-效率权衡的关键杠杆。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-03",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.04335",
+      "title": "Policy Gradient for Continuous-Time Robust Markov Decision Processes",
+      "authors": [
+        "Tanya Veeravalli",
+        "David M. Bossens",
+        "Atsushi Nitanda"
+      ],
+      "categories": [
+        "cs.LG",
+        "eess.SY"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2606.04335",
+      "pdf_url": "https://arxiv.org/pdf/2606.04335",
+      "abstract_en": "The framework of robust Markov decision processes (RMDPs) allows the design of reinforcement learning agents that satisfy performance guarantees under worst-case transition dynamics. Traditional RMDPs consider discrete-time dynamics and recently, sample-efficient policy gradient algorithms have been considered in this context. This paper investigates policy gradient algorithms within a continuous-time RMDP framework. Policy gradients and adversarial gradients are derived using pathwise and adjoint-based formulas for stochastic and ordinary differential equations. We propose double-loop optimisers to obtain linear convergence in the oracle-based setting and an $\\tilde{\\mathcal{O}}(\\frac{1}{ε^2})$ sample complexity in the sample-based setting in an analysis which also derives novel tools for the framework of undiscounted total cost MDPs. Additionally, we propose mean-field optimisers as distributional optimisers with an $\\tilde{\\mathcal{O}}(\\frac{1}{K})$ oracle-based convergence rate and an $\\tilde{\\mathcal{O}}(\\frac{N^2}ε)$ sample complexity under $N$-particle approximation. The effectiveness of continuous-time policy gradient algorithms is confirmed for both optimisers on continuous-time RMDPs with neural ordinary differential equation dynamics.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究了连续时间鲁棒马尔可夫决策过程（RMDP）中的策略梯度算法。推导了基于随机和常微分方程路径依赖和伴随公式的策略梯度与对抗梯度，提出了双层优化器在基于oracle的设置中获得线性收敛，在基于样本的设置中获得𝒪̃(1/ε²)样本复杂度，并提出了均值场优化器在N粒子近似下获得𝒪̃(1/K)oracle收敛率和𝒪̃(N²/ε)样本复杂度。实验在连续时间RMDP上用神经ODE动力学验证了算法有效性。\nMotivation: 现有RMDP工作多考虑离散时间动态，且近期有样本高效的策略梯度算法，但连续时间RMDP的策略梯度尚未被充分研究。\nMethod: 提出两种优化器：双层优化器（利用策略梯度和对抗梯度）和均值场优化器（分布优化）；推导中使用了路径依赖和伴随公式，并引入了未折扣总成本MDP的新分析工具。\nResult: 双层优化器在oracle设置下达到线性收敛，样本复杂度𝒪̃(1/ε²)；均值场优化器在oracle设置下收敛率𝒪̃(1/K)，样本复杂度𝒪̃(N²/ε)。实验在连续时间RMDP上确认了有效性。\nConclusion: 该工作为连续时间RMDP提供了理论保证的策略梯度算法，并引入了适用于未折扣总成本MDP的新分析工具。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究了连续时间鲁棒马尔可夫决策过程（RMDP）中的策略梯度算法。推导了基于随机和常微分方程路径依赖和伴随公式的策略梯度与对抗梯度，提出了双层优化器在基于oracle的设置中获得线性收敛，在基于样本的设置中获得𝒪̃(1/ε²)样本复杂度，并提出了均值场优化器在N粒子近似下获得𝒪̃(1/K)oracle收敛率和𝒪̃(N²/ε)样本复杂度。实验在连续时间RMDP上用神经ODE动力学验证了算法有效性。",
+        "motivation": "现有RMDP工作多考虑离散时间动态，且近期有样本高效的策略梯度算法，但连续时间RMDP的策略梯度尚未被充分研究。",
+        "method": "提出两种优化器：双层优化器（利用策略梯度和对抗梯度）和均值场优化器（分布优化）；推导中使用了路径依赖和伴随公式，并引入了未折扣总成本MDP的新分析工具。",
+        "result": "双层优化器在oracle设置下达到线性收敛，样本复杂度𝒪̃(1/ε²)；均值场优化器在oracle设置下收敛率𝒪̃(1/K)，样本复杂度𝒪̃(N²/ε)。实验在连续时间RMDP上确认了有效性。",
+        "conclusion": "该工作为连续时间RMDP提供了理论保证的策略梯度算法，并引入了适用于未折扣总成本MDP的新分析工具。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-03",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.04037",
+      "title": "Toward Pre-Deployment Assurance for Enterprise AI Agents: Ontology-Grounded Simulation and Trust Certification",
+      "authors": [
+        "Thanh Luong Tuan",
+        "Abhijit Sanyal"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.SE"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2606.04037",
+      "pdf_url": "https://arxiv.org/pdf/2606.04037",
+      "abstract_en": "Pre-deployment verification of enterprise artificial intelligence (AI) agents remains a critical gap between large language model (LLM) capability benchmarking and production deployment. Post-deployment monitoring, human-in-the-loop controls, and prompt-level guardrails offer limited assurance once an agent is operating in production. We present an ontology-grounded verification framework -- to our knowledge the first to combine three components: an Agent Operational Envelope formalizing the certification space across permissions, domain constraints, safety properties, governance rules, and autonomy levels; an ontology-to-scenario generation pipeline that derives regulatory, operational, and adversarial test scenarios automatically; and a machine-verifiable Trust Certificate with graduated deployment verdicts. A controlled pilot across four regulated industries (Fintech, Banking, Insurance, Healthcare), instantiated as five industry-by-regulatory-regime cells across the United States and Vietnam (where Vietnam's 2025 AI Law makes such verification legally mandated for financial services), generated 1,800 scenarios evaluated against 125 primary-source regulatory requirements and 25 injected faults. Ontology-grounded generation significantly outperformed the dominant persona-based baseline on regulatory coverage (48.3% versus 33.1%; corrected p_c = .0006) and attained the highest domain specificity (4.77/5.0; p = 2e-6); transparently, its advantage over plain and retrieval-augmented prompting did not survive Bonferroni correction. Cross-validation across three LLM families (Claude Sonnet 4, Qwen 2.5 72B, Gemma 4 26B; 5,400 total scenarios) replicated the persona-versus-ontology pattern. The framework offers a reproducible, regulation-grounded route to pre-deployment assurance for enterprise AI agents, complementing runtime governance with an auditable deployment gate.",
+      "comment": "26 pages, 3 figures. Companion to arXiv:2604.00555. Code and data: https://github.com/frank-luongt/faos-research/tree/main/RA-6",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种基于本体论的预部署验证框架，用于企业AI Agent的信任认证。框架包含三个组件：Agent操作包络、本体到场景的自动生成管道和机器可验证的信任证书。在四个受监管行业的试点中，该方法在监管覆盖率和领域特异性上优于基于角色扮演的基线，为预部署保证提供了可重复的途径。\nMotivation: 企业AI Agent在实际部署前缺乏系统化的验证方法，现有部署后监控和人机回环控制等手段提供的保证有限。\nMethod: 提出一个结合Agent操作包络、本体驱动场景生成和信任证书的验证框架，自动从本体推导监管、操作和对抗性测试场景，并生成可机器验证的证书。\nResult: 在四个受监管行业（金融科技、银行、保险、医疗）的试点中，生成了1,800个场景，本体驱动方法在监管覆盖率上显著优于基于角色扮演的基线（48.3% vs 33.1%），领域特异性得分最高（4.77/5.0）。跨三个LLM家族的交叉验证复现了该模式。\nConclusion: 该框架提供了一个可重复、基于监管的预部署保证途径，补充了运行时治理，并提供了可审计的部署门控。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种基于本体论的预部署验证框架，用于企业AI Agent的信任认证。框架包含三个组件：Agent操作包络、本体到场景的自动生成管道和机器可验证的信任证书。在四个受监管行业的试点中，该方法在监管覆盖率和领域特异性上优于基于角色扮演的基线，为预部署保证提供了可重复的途径。",
+        "motivation": "企业AI Agent在实际部署前缺乏系统化的验证方法，现有部署后监控和人机回环控制等手段提供的保证有限。",
+        "method": "提出一个结合Agent操作包络、本体驱动场景生成和信任证书的验证框架，自动从本体推导监管、操作和对抗性测试场景，并生成可机器验证的证书。",
+        "result": "在四个受监管行业（金融科技、银行、保险、医疗）的试点中，生成了1,800个场景，本体驱动方法在监管覆盖率上显著优于基于角色扮演的基线（48.3% vs 33.1%），领域特异性得分最高（4.77/5.0）。跨三个LLM家族的交叉验证复现了该模式。",
+        "conclusion": "该框架提供了一个可重复、基于监管的预部署保证途径，补充了运行时治理，并提供了可审计的部署门控。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-02",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.04032",
+      "title": "Do Transformers Need Three Projections? Systematic Study of QKV Variants",
+      "authors": [
+        "Ali Kayyam",
+        "Anusha Madan Gopal",
+        "M Anthony Lewis"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG",
+        "cs.PF"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2606.04032",
+      "pdf_url": "https://arxiv.org/pdf/2606.04032",
+      "abstract_en": "Transformers have become the standard solution for various AI tasks, with the query, key, and value (QKV) attention formulation playing a central role. However, the individual contribution of these three projections and the impact of omitting some remain poorly understood. We systematically evaluate three projection sharing constraints: a) Q-K=V (shared key-value), b) Q=K-V (shared query-key), and c) Q=K=V (single projection). The last two variants produce symmetric attention maps; to address this, we also explore asymmetric attention via 2D positional encodings. Through experiments spanning synthetic tasks, vision (MNIST, CIFAR, TinyImageNet, anomaly), and language modeling (300M and 1.2B parameter models on 10B tokens), we discovered that our transformers perform on par or occasionally better than the QKV transformer. In language modeling, Q-K=V projection sharing achieves 50% KV cache reduction with only 3.1% perplexity degradation. Crucially, projection sharing is complementary to head sharing (GQA/MQA): combining Q-K=V with GQA-4 yields 87.5% cache reduction, while Q-K=V + MQA achieves 96.9%, enabling practical on-device inference. We show that Q-K=V preserves quality because keys and values can occupy similar representational spaces and attention operates in a low-rank regime, whereas Q=K-V breaks attention directionality. Our results systematically characterize projection sharing as an underexplored instance of weight tying in attention, with direct, quantifiable inference memory benefits, particularly valuable for edge deployment. The code is publicly available at https://github.com/Brainchip-Inc/Do-Transformers-Need-3-Projections",
+      "comment": "Accepted at ICML 2026 (PMLR vol. 306). 26 pages, 12 figures, 16 tables. Code: https://github.com/Brainchip-Inc/Do-Transformers-Need-3-Projections",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文系统研究Transformer注意力机制中QKV三个投影矩阵的共享变体（Q-K=V, Q=K-V, Q=K=V），发现Q-K=V（共享键值投影）在语言建模中仅以3.1%困惑度退化换取50% KV缓存缩减，与GQA/MQA结合可实现87.5%-96.9%缓存缩减，且保持下游性能。实验覆盖合成任务、视觉分类和语言建模（300M/1.2B参数量，训练10B token），表明投影共享是一种被低估的权重绑定策略，对边缘部署有直接内存收益。\nMotivation: 标准Transformer的QKV三投影各自贡献不明，移除部分投影的影响缺乏系统理解，而投影共享能为资源受限场景（如边缘设备）提供推理内存优化。\nMethod: 提出三种投影共享约束：Q-K=V（共享键值）、Q=K-V（共享查询键）、Q=K=V（单投影）。针对后两种产生对称注意力图的问题，引入二维位置编码实现非对称注意力。在合成、视觉和语言模型上全面评估。\nResult: Q-K=V共享在300M和1.2B参数语言模型上仅引起3.1%困惑度下降，但将KV缓存减半；与GQA-4组合实现87.5%缓存缩减，与MQA组合实现96.9%缩减。视觉任务中性能与原始QKV相当或略优。\nConclusion: 投影共享是注意力中权重绑定的有效实例，尤其Q-K=V因键值表示空间相似且注意力处于低秩区域而保持质量；Q=K-V则破坏方向性。该方法为边缘部署提供可量化的推理内存收益。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文系统研究Transformer注意力机制中QKV三个投影矩阵的共享变体（Q-K=V, Q=K-V, Q=K=V），发现Q-K=V（共享键值投影）在语言建模中仅以3.1%困惑度退化换取50% KV缓存缩减，与GQA/MQA结合可实现87.5%-96.9%缓存缩减，且保持下游性能。实验覆盖合成任务、视觉分类和语言建模（300M/1.2B参数量，训练10B token），表明投影共享是一种被低估的权重绑定策略，对边缘部署有直接内存收益。",
+        "motivation": "标准Transformer的QKV三投影各自贡献不明，移除部分投影的影响缺乏系统理解，而投影共享能为资源受限场景（如边缘设备）提供推理内存优化。",
+        "method": "提出三种投影共享约束：Q-K=V（共享键值）、Q=K-V（共享查询键）、Q=K=V（单投影）。针对后两种产生对称注意力图的问题，引入二维位置编码实现非对称注意力。在合成、视觉和语言模型上全面评估。",
+        "result": "Q-K=V共享在300M和1.2B参数语言模型上仅引起3.1%困惑度下降，但将KV缓存减半；与GQA-4组合实现87.5%缓存缩减，与MQA组合实现96.9%缩减。视觉任务中性能与原始QKV相当或略优。",
+        "conclusion": "投影共享是注意力中权重绑定的有效实例，尤其Q-K=V因键值表示空间相似且注意力处于低秩区域而保持质量；Q=K-V则破坏方向性。该方法为边缘部署提供可量化的推理内存收益。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-01",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.03998",
+      "title": "TGSD: Topology-Guided State-Space Diffusion Framework for EEG Spatial Super-Resolution",
+      "authors": [
+        "Zijian Kang",
+        "Weiming Zeng",
+        "Yueyang Li",
+        "Shengyu Gong",
+        "Hongjie Yan",
+        "Wai Ting Siok",
+        "Nizhuan Wang"
+      ],
+      "categories": [
+        "cs.CV",
+        "eess.SP"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "eess.SP",
+      "abs_url": "https://arxiv.org/abs/2606.03998",
+      "pdf_url": "https://arxiv.org/pdf/2606.03998",
+      "abstract_en": "Low-density EEG is more suitable for wearable and IoT-based brain sensing, but sparse electrode sampling often lacks sufficient spatial information to characterize cross-regional neural activity. EEG spatial super-resolution aims to recover dense-channel EEG from sparse recordings, yet remains challenging because channel missingness typically occurs at the whole-channel level, spatiotemporal dependencies over the full electrode layout are often underexplored, and the mapping from sparse to dense signals is inherently ambiguous. To address these issues, we propose TGSD, a topology-guided state-space diffusion framework for EEG spatial super-resolution. TGSD first employs a Hierarchical Spatial Prior Encoder to learn topology-aware priors over the complete electrode layout by integrating local geometric relationships with region-level contextual information. Based on these priors and sparse observations, a Conditional State-Space Diffusion Reconstructor progressively generates missing-channel signals through reverse diffusion, while alternating temporal and channel-wise state-space modeling captures long-range temporal dynamics and inter-channel dependencies in a unified framework. Experiments on the SEED and PhysioNet MM/I datasets show that TGSD consistently outperforms representative baselines under different super-resolution factors in both reconstruction fidelity and downstream classification performance. These results demonstrate the effectiveness of combining topology-aware spatial priors with conditional diffusion for enhancing practical low-density EEG sensing in wearable and IoT scenarios. The official implementation code is available at https://github.com/jtggz/TGSD.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对低密度EEG传感器空间分辨率不足的问题，提出TGSD框架，结合拓扑感知空间先验与条件状态空间扩散模型，实现从稀疏通道到密集通道的脑电信号超分辨率重建。实验在SEED和PhysioNet MM/I数据集上验证了其重构保真度和下游分类性能优于现有基线。\nMotivation: 低密度EEG更适合可穿戴和物联网脑感测，但稀疏电极采样缺乏足够空间信息，而现有超分辨率方法未充分利用全电极布局的时空依赖关系，且稀疏到密集的映射具有歧义性。\nMethod: TGSD包含两个模块：层次化空间先验编码器（利用局部几何和区域上下文学习拓扑感知先验），以及条件状态空间扩散重建器（通过交替时域和通道域状态空间建模，在反向扩散中生成缺失通道信号）。\nResult: 在SEED和PhysioNet MM/I数据集上，不同超分辨率因子下，TGSD在重构保真度和下游分类性能上均一致优于代表性基线。\nConclusion: 结合拓扑感知先验与条件扩散可有效提升低密度EEG传感性能，适用于可穿戴和物联网场景。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对低密度EEG传感器空间分辨率不足的问题，提出TGSD框架，结合拓扑感知空间先验与条件状态空间扩散模型，实现从稀疏通道到密集通道的脑电信号超分辨率重建。实验在SEED和PhysioNet MM/I数据集上验证了其重构保真度和下游分类性能优于现有基线。",
+        "motivation": "低密度EEG更适合可穿戴和物联网脑感测，但稀疏电极采样缺乏足够空间信息，而现有超分辨率方法未充分利用全电极布局的时空依赖关系，且稀疏到密集的映射具有歧义性。",
+        "method": "TGSD包含两个模块：层次化空间先验编码器（利用局部几何和区域上下文学习拓扑感知先验），以及条件状态空间扩散重建器（通过交替时域和通道域状态空间建模，在反向扩散中生成缺失通道信号）。",
+        "result": "在SEED和PhysioNet MM/I数据集上，不同超分辨率因子下，TGSD在重构保真度和下游分类性能上均一致优于代表性基线。",
+        "conclusion": "结合拓扑感知先验与条件扩散可有效提升低密度EEG传感性能，适用于可穿戴和物联网场景。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-05-22",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2604.22583",
+      "title": "Adaptive Head Budgeting for Efficient Multi-Head Attention",
+      "authors": [
+        "Bilal Faye",
+        "Abdoulaye Mbaye",
+        "Hanane Azzag",
+        "Mustapha Lebbah"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2604.22583",
+      "pdf_url": "https://arxiv.org/pdf/2604.22583",
+      "abstract_en": "Multi-head attention enables Transformers to capture diverse representations, but all attention heads are typically activated for every input, regardless of task complexity. For coarse-grained tasks such as text classification, where relevant information is often global, this fixed allocation can introduce unnecessary computation. We propose BudgetFormer, a Transformer architecture that dynamically allocates attention heads on a per-input basis. The model learns both a head budget and a relevance distribution to select the most informative heads. To support effective head selection, we introduce a training strategy that balances exploration and exploitation. Experiments on text classification tasks show that BudgetFormer reduces FLOPs and memory usage while matching or surpassing the performance of standard multi-head attention. These results highlight adaptive head allocation as an effective approach to improving Transformer efficiency and performance.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出BudgetFormer，一种动态按输入分配注意力头数量的Transformer架构，通过学习头预算和相关性分布选择最信息量的头，并在训练中平衡探索与利用。在文本分类任务上，该方法在减少FLOPs和内存使用的同时，匹配或超越标准多头注意力的性能。\nMotivation: 标准多头注意力对所有输入固定使用全部头，对于粗粒度任务（如文本分类）存在计算浪费，亟需自适应分配策略提升效率。\nMethod: 提出BudgetFormer，包含可学习的头预算模块和注意力头相关性分布，通过平衡探索与利用的训练策略优化头选择。\nResult: 在文本分类任务上，BudgetFormer相比标准多头注意力降低FLOPs和内存使用，性能持平或更优。\nConclusion: 自适应头分配是提升Transformer效率与性能的有效途径，尤其在粗粒度任务中可显著减少冗余计算。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出BudgetFormer，一种动态按输入分配注意力头数量的Transformer架构，通过学习头预算和相关性分布选择最信息量的头，并在训练中平衡探索与利用。在文本分类任务上，该方法在减少FLOPs和内存使用的同时，匹配或超越标准多头注意力的性能。",
+        "motivation": "标准多头注意力对所有输入固定使用全部头，对于粗粒度任务（如文本分类）存在计算浪费，亟需自适应分配策略提升效率。",
+        "method": "提出BudgetFormer，包含可学习的头预算模块和注意力头相关性分布，通过平衡探索与利用的训练策略优化头选择。",
+        "result": "在文本分类任务上，BudgetFormer相比标准多头注意力降低FLOPs和内存使用，性能持平或更优。",
+        "conclusion": "自适应头分配是提升Transformer效率与性能的有效途径，尤其在粗粒度任务中可显著减少冗余计算。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-04-24",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2603.16652",
+      "title": "Efficient Brood Cell Detection in Layer Trap Nests for Bees and Wasps: Balancing Labeling Effort and Species Coverage",
+      "authors": [
+        "Chenchang Liu",
+        "Felix Fornoff",
+        "Annika Grasreiner",
+        "Patrick Maeder",
+        "Henri Greil",
+        "Marco Seeland"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2603.16652",
+      "pdf_url": "https://arxiv.org/pdf/2603.16652",
+      "abstract_en": "Monitoring cavity-nesting wild bees and wasps is vital for biodiversity research and conservation. Layer trap nests (LTNs) are emerging as a valuable tool to study the abundance and species richness of these insects, offering insights into their nesting activities and ecological needs. However, manually evaluating LTNs to detect and classify brood cells is labor-intensive and time-consuming. To address this, we propose a deep learning based approach for efficient brood cell detection and classification in LTNs. LTNs present additional challenges due to densely packed brood cells, leading to a high labeling effort per image. Moreover, we observe a significant imbalance in class distribution, with common species having notably more occurrences than rare species. Comprehensive labeling of common species is time-consuming and exacerbates data imbalance, while partial labeling introduces data incompleteness which degrades model performance. To reduce labeling effort and mitigate the impact of unlabeled data, we introduce a novel Constrained False Positive Loss (CFPL) strategy. CFPL dynamically masks predictions from unlabeled data, preventing them from interfering with the classification loss during training. Experimental results demonstrate that our method improves detection performance, balances model accuracy and labeling effort, while also mitigating class imbalance.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种基于深度学习的层状陷阱巢（LTN）中巢室检测与分类方法，针对巢室密集、类别分布不平衡以及部分标注数据带来的挑战，引入受限假阳性损失（CFPL）策略，通过动态掩码未标注数据的预测来减少标注工作量并缓解数据不平衡问题。实验表明该方法在提升检测性能的同时平衡了标注效率。\nMotivation: 手动评估层状陷阱巢（LTN）中的巢室既费时又费力，且存在密集巢室导致的高标注成本、常见物种与稀有物种的类别不平衡以及部分标注带来的数据不完整问题，亟需一种高效的自动化检测方法。\nMethod: 提出深度学习方法，并引入新型受限假阳性损失（CFPL）策略，在训练过程中动态掩码来自未标注数据的预测，防止其干扰分类损失。\nResult: 实验结果表明，该方法在检测性能上有所提升，能够平衡模型准确性与标注工作量，并缓解类别不平衡问题。\nConclusion: 该方法有效降低了标注努力，同时保持了检测精度，适用于生态监测中的巢室检测任务。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种基于深度学习的层状陷阱巢（LTN）中巢室检测与分类方法，针对巢室密集、类别分布不平衡以及部分标注数据带来的挑战，引入受限假阳性损失（CFPL）策略，通过动态掩码未标注数据的预测来减少标注工作量并缓解数据不平衡问题。实验表明该方法在提升检测性能的同时平衡了标注效率。",
+        "motivation": "手动评估层状陷阱巢（LTN）中的巢室既费时又费力，且存在密集巢室导致的高标注成本、常见物种与稀有物种的类别不平衡以及部分标注带来的数据不完整问题，亟需一种高效的自动化检测方法。",
+        "method": "提出深度学习方法，并引入新型受限假阳性损失（CFPL）策略，在训练过程中动态掩码来自未标注数据的预测，防止其干扰分类损失。",
+        "result": "实验结果表明，该方法在检测性能上有所提升，能够平衡模型准确性与标注工作量，并缓解类别不平衡问题。",
+        "conclusion": "该方法有效降低了标注努力，同时保持了检测精度，适用于生态监测中的巢室检测任务。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-03-17",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2603.10971",
+      "title": "ContactExplorer: Contact Coverage-Guided Exploration for General-Purpose Dexterous Manipulation",
+      "authors": [
+        "Zixuan Liu",
+        "Ruoyi Qiao",
+        "Chenrui Tie",
+        "Xuanwei Liu",
+        "Yunfan Lou",
+        "Chongkai Gao",
+        "Zhixuan Xu",
+        "Lin Shao"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2603.10971",
+      "pdf_url": "https://arxiv.org/pdf/2603.10971",
+      "abstract_en": "Reinforcement learning has achieved remarkable success in domains such as Atari games, navigation, and locomotion, where exploration can often be guided by novelty over states or dynamics. In contrast, dexterous manipulation requires rich physical hand--object interactions, but existing methods often suffer from unstable contact-based novelty signals, inefficient distance novelty signals, or reliance on task-specific priors. We propose ContactExplorer, a general exploration method for dexterous manipulation tasks. ContactExplorer represents contact as the intersection between object surface points and hand keypoints, encouraging dexterous hands to discover diverse and novel contact patterns, namely which fingers contact which object regions. It maintains a contact counter conditioned on discretized object states obtained via learned hash codes, capturing how frequently each finger interacts with different object regions. This counter is leveraged in two complementary ways: (1) to assign a count-based contact coverage reward that promotes exploration of novel contact patterns, and (2) an energy-based reaching reward that guides the agent toward under-explored contact regions. We evaluate ContactExplorer on a diverse set of dexterous manipulation tasks. Experimental results show that ContactExplorer substantially improves sample efficiency and success rates over existing exploration methods, and that the contact patterns learned with ContactExplorer transfer robustly to the real world. Project page is https://contact-explorer.github.io.",
+      "comment": "24 pages",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: ContactExplorer 提出了一种基于接触覆盖的通用探索方法，用于灵巧操作任务。它通过将接触表示为物体表面点与手部关键点的交集，并维护基于离散化对象状态的接触计数器，设计两种互补奖励（计数型接触覆盖奖励和能量型接近奖励）来促进探索。在多种灵巧操作任务上，该方法显著提升了样本效率和成功率，且接触模式能鲁棒地迁移到真实世界。\nMotivation: 现有探索方法在灵巧操作中面临挑战：接触新颖性信号不稳定、距离新颖性信号低效，或依赖任务特定先验。需要一种通用且不依赖任务先验的探索方法。\nMethod: ContactExplorer 将接触表示为物体表面点与手部关键点的交集，通过学习哈希码离散化对象状态，并维护接触计数器记录每个手指与不同物体区域的交互频率。基于此，设计两种奖励：计数型接触覆盖奖励鼓励探索新颖接触模式；能量型接近奖励引导智能体向未充分探索的接触区域移动。\nResult: 在多种灵巧操作任务上，ContactExplorer 显著提高了样本效率和成功率，优于现有探索方法，且习得的接触模式可鲁棒迁移到真实世界。\nConclusion: ContactExplorer 是一种通用、不依赖任务先验的探索方法，有效解决了灵巧操作中的接触探索难题，并展示了真实世界的迁移能力。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "ContactExplorer 提出了一种基于接触覆盖的通用探索方法，用于灵巧操作任务。它通过将接触表示为物体表面点与手部关键点的交集，并维护基于离散化对象状态的接触计数器，设计两种互补奖励（计数型接触覆盖奖励和能量型接近奖励）来促进探索。在多种灵巧操作任务上，该方法显著提升了样本效率和成功率，且接触模式能鲁棒地迁移到真实世界。",
+        "motivation": "现有探索方法在灵巧操作中面临挑战：接触新颖性信号不稳定、距离新颖性信号低效，或依赖任务特定先验。需要一种通用且不依赖任务先验的探索方法。",
+        "method": "ContactExplorer 将接触表示为物体表面点与手部关键点的交集，通过学习哈希码离散化对象状态，并维护接触计数器记录每个手指与不同物体区域的交互频率。基于此，设计两种奖励：计数型接触覆盖奖励鼓励探索新颖接触模式；能量型接近奖励引导智能体向未充分探索的接触区域移动。",
+        "result": "在多种灵巧操作任务上，ContactExplorer 显著提高了样本效率和成功率，优于现有探索方法，且习得的接触模式可鲁棒迁移到真实世界。",
+        "conclusion": "ContactExplorer 是一种通用、不依赖任务先验的探索方法，有效解决了灵巧操作中的接触探索难题，并展示了真实世界的迁移能力。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-03-11",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2602.16149",
+      "title": "Toward Trustworthy Portrait Editing: Evaluation of Demographic Misrepresentation in I2I Models",
+      "authors": [
+        "Huichan Seo",
+        "Minki Hong",
+        "Sieun Choi",
+        "Jihie Kim",
+        "Jean Oh"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2602.16149",
+      "pdf_url": "https://arxiv.org/pdf/2602.16149",
+      "abstract_en": "Instruction-guided image-to-image (I2I) editors are increasingly used in consumer and professional visual workflows, where trustworthiness depends not only on prompt compliance but also on equitable preservation of identity-relevant attributes. We formalize two failure modes: Soft Erasure, where requested edits are weakly realized or silently suppressed, and Stereotype Replacement, where edits introduce unrequested, stereotype-consistent demographic attributes. Using a controlled benchmark of 5,040 edited portraits, we evaluate these failures across three recent open-weight editors with vision-language model scoring and human evaluation. Our results show that identity-preservation failures are pervasive and demographically uneven. In particular, 62--71% of outputs exhibit skin lightening, with Indian and Black source portraits affected at 72--75%, compared with 44% for White source portraits, indicating output-level drift toward lighter or more White-presenting appearances when identity constraints are underspecified. In a mitigation case study, prompt-level appearance constraints reduce race-change scores for non-White source portraits by up to 1.48 points, while leaving White source portraits largely unchanged, without modifying model weights. These findings show that identity preservation is not a uniform property of I2I portrait editing systems, but an unevenly distributed trustworthiness failure with direct social consequences. At deployment scale, such silent distortions can shape AI-mediated self-representation and reinforce representational disparities. We introduce a controlled audit protocol for fairness-aware evaluation and governance of generative editing systems. Project page: https://seochan99.github.io/i2i-demographic-bias",
+      "comment": "22 pages, 10 figures. Huichan Seo, Minki Hong and Sieun Choi contributed equally",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文系统评估了指令引导的图像编辑（I2I）模型在肖像编辑中的种族偏见问题，发现存在软擦除（弱化或压制编辑请求）和刻板印象替换（引入未请求的刻板印象属性）两种失败模式。通过对5040张编辑肖像的评估，表明身份保持失败普遍存在且人口统计分布不均，例如62-71%的输出出现肤色变亮，印度和黑人源肖像受影响比例高达72-75%，而白人源肖像仅为44%。引入提示级外观约束可在不修改模型权重的情况下降低非白人源肖像的种族变更评分。研究强调身份保持并非统一属性，而是分布不均的可信度失败，具有直接社会影响。\nMotivation: 现有的I2I编辑模型在肖像编辑中可能无意中改变种族、肤色等身份相关属性，导致代表性不平等，但缺乏系统性评估和审计方法。\nMethod: 构建包含5040张编辑肖像的受控基准，使用视觉-语言模型评分和人工评估，检测软擦除和刻板印象替换两种失败模式，并测试提示级外观约束作为缓解措施。\nResult: 62-71%的输出存在肤色变亮，印度和黑人源肖像受影响比例（72-75%）远高于白人源肖像（44%）。提示级约束可将非白人源肖像的种族变更评分降低最多1.48分，而对白人源肖像影响极小。\nConclusion: 身份保持失败在I2I肖像编辑中是分布不均的可信度问题，需要在部署层面进行公平性审计，以改善AI介导的自我表征与代表性差异。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文系统评估了指令引导的图像编辑（I2I）模型在肖像编辑中的种族偏见问题，发现存在软擦除（弱化或压制编辑请求）和刻板印象替换（引入未请求的刻板印象属性）两种失败模式。通过对5040张编辑肖像的评估，表明身份保持失败普遍存在且人口统计分布不均，例如62-71%的输出出现肤色变亮，印度和黑人源肖像受影响比例高达72-75%，而白人源肖像仅为44%。引入提示级外观约束可在不修改模型权重的情况下降低非白人源肖像的种族变更评分。研究强调身份保持并非统一属性，而是分布不均的可信度失败，具有直接社会影响。",
+        "motivation": "现有的I2I编辑模型在肖像编辑中可能无意中改变种族、肤色等身份相关属性，导致代表性不平等，但缺乏系统性评估和审计方法。",
+        "method": "构建包含5040张编辑肖像的受控基准，使用视觉-语言模型评分和人工评估，检测软擦除和刻板印象替换两种失败模式，并测试提示级外观约束作为缓解措施。",
+        "result": "62-71%的输出存在肤色变亮，印度和黑人源肖像受影响比例（72-75%）远高于白人源肖像（44%）。提示级约束可将非白人源肖像的种族变更评分降低最多1.48分，而对白人源肖像影响极小。",
+        "conclusion": "身份保持失败在I2I肖像编辑中是分布不均的可信度问题，需要在部署层面进行公平性审计，以改善AI介导的自我表征与代表性差异。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-02-18",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2602.08749",
+      "title": "Shifting the Breaking Point of Flow Matching for Multi-Instance Editing",
+      "authors": [
+        "Carmine Zaccagnino",
+        "Fabio Quattrini",
+        "Enis Simsar",
+        "Marta Tintoré Gazulla",
+        "Rita Cucchiara",
+        "Alessio Tonioni",
+        "Silvia Cascianelli"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2602.08749",
+      "pdf_url": "https://arxiv.org/pdf/2602.08749",
+      "abstract_en": "Flow matching models have recently emerged as an efficient alternative to diffusion, especially for text-guided image generation and editing, offering faster inference through continuous-time dynamics. However, existing flow-based editors predominantly support global or single-instruction edits and struggle with multi-instance scenarios, where multiple parts of a reference input must be edited independently without semantic interference. We identify this limitation as a consequence of globally conditioned velocity fields and joint attention mechanisms, which entangle concurrent edits. To address this issue, we introduce Instance-Disentangled Attention, a mechanism that partitions joint attention operations, enforcing binding between instance-specific textual instructions and spatial regions during velocity field estimation. We evaluate our approach on both natural image editing and a newly introduced benchmark of text-dense infographics with region-level editing instructions. Experimental results demonstrate that our approach promotes edit disentanglement and locality while preserving global output coherence, enabling single-pass, instance-level editing.",
+      "comment": "Accepted at ICML 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 流匹配模型在文本引导的图像生成和编辑中表现出高效性，但在多实例编辑场景中，由于全局条件速度场和联合注意力机制导致编辑纠缠，无法独立编辑多个区域。本文提出实例解缠注意力（Instance-Disentangled Attention），通过分割联合注意力操作，将实例特定的文本指令与空间区域绑定，实现单次传递的实例级编辑。在自然图像和文本密集型信息图基准上，该方法在保持全局一致性的同时提升了编辑解缠性和局部性。\nMotivation: 现有基于流的图像编辑器主要支持全局或单指令编辑，在多实例场景中，多个部分需要独立编辑时，由于语义干扰而表现不佳。\nMethod: 提出实例解缠注意力（Instance-Disentangled Attention），将联合注意力操作分割，强制在速度场估计中绑定实例特定文本指令与空间区域。\nResult: 在自然图像编辑和新增的文本密集型信息图基准上，该方法实现了编辑解缠和局部性，同时保持全局输出一致性，支持单次通过的多实例编辑。\nConclusion: 该工作通过解缠注意力机制解决了流匹配在多实例编辑中的瓶颈，未来可探索更复杂的编辑场景。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "流匹配模型在文本引导的图像生成和编辑中表现出高效性，但在多实例编辑场景中，由于全局条件速度场和联合注意力机制导致编辑纠缠，无法独立编辑多个区域。本文提出实例解缠注意力（Instance-Disentangled Attention），通过分割联合注意力操作，将实例特定的文本指令与空间区域绑定，实现单次传递的实例级编辑。在自然图像和文本密集型信息图基准上，该方法在保持全局一致性的同时提升了编辑解缠性和局部性。",
+        "motivation": "现有基于流的图像编辑器主要支持全局或单指令编辑，在多实例场景中，多个部分需要独立编辑时，由于语义干扰而表现不佳。",
+        "method": "提出实例解缠注意力（Instance-Disentangled Attention），将联合注意力操作分割，强制在速度场估计中绑定实例特定文本指令与空间区域。",
+        "result": "在自然图像编辑和新增的文本密集型信息图基准上，该方法实现了编辑解缠和局部性，同时保持全局输出一致性，支持单次通过的多实例编辑。",
+        "conclusion": "该工作通过解缠注意力机制解决了流匹配在多实例编辑中的瓶颈，未来可探索更复杂的编辑场景。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-02-09",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2602.07253",
+      "title": "From Out-of-Distribution Detection to Hallucination Detection: A Geometric View",
+      "authors": [
+        "Litian Liu",
+        "Reza Pourreza",
+        "Yubing Jian",
+        "Yao Qin",
+        "Roland Memisevic"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2602.07253",
+      "pdf_url": "https://arxiv.org/pdf/2602.07253",
+      "abstract_en": "Detecting hallucinations in large language models is a critical open problem with significant implications for safety and reliability. While existing hallucination detection methods achieve strong performance in question-answering tasks, they remain less effective on tasks requiring reasoning. In this work, we revisit hallucination detection through the lens of out-of-distribution (OOD) detection, a well-studied problem in areas like computer vision. Treating next-token prediction in language models as a classification task allows us to apply OOD techniques, provided appropriate modifications are made to account for the structural differences in large language models. We show that OOD-based approaches yield training-free, single-sample-based detectors, achieving strong accuracy in hallucination detection for reasoning tasks. Overall, our work suggests that reframing hallucination detection as OOD detection provides a promising and scalable pathway toward language model safety.",
+      "comment": "ICML 2026 main conference paper",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文从分布外检测（OOD detection）的几何视角重新审视大语言模型中的幻觉检测问题。将下一个 token 预测视为分类任务，通过适当调整 OOD 技术，提出了无需训练、基于单样本的检测方法，在推理任务上实现了强准确的幻觉检测。研究表明，将幻觉检测重新框架为 OOD 检测为语言模型安全性提供了有前景且可扩展的途径。\nMotivation: 现有幻觉检测方法在问答任务中表现良好，但在推理任务上效果不佳，需要一种更通用的检测范式。\nMethod: 利用分布外检测（OOD detection）的思想，将语言模型的下一个 token 预测视为分类任务，通过几何视角调整 OOD 技术以适应大语言模型的结构差异。\nResult: 提出的无训练、单样本检测器在推理任务上实现了强准确的幻觉检测，展示了 OOD 方法的有效性。\nConclusion: 重新框架化为 OOD 检测提供了一种有前景且可扩展的路径，用于提升大语言模型的安全性和可靠性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文从分布外检测（OOD detection）的几何视角重新审视大语言模型中的幻觉检测问题。将下一个 token 预测视为分类任务，通过适当调整 OOD 技术，提出了无需训练、基于单样本的检测方法，在推理任务上实现了强准确的幻觉检测。研究表明，将幻觉检测重新框架为 OOD 检测为语言模型安全性提供了有前景且可扩展的途径。",
+        "motivation": "现有幻觉检测方法在问答任务中表现良好，但在推理任务上效果不佳，需要一种更通用的检测范式。",
+        "method": "利用分布外检测（OOD detection）的思想，将语言模型的下一个 token 预测视为分类任务，通过几何视角调整 OOD 技术以适应大语言模型的结构差异。",
+        "result": "提出的无训练、单样本检测器在推理任务上实现了强准确的幻觉检测，展示了 OOD 方法的有效性。",
+        "conclusion": "重新框架化为 OOD 检测提供了一种有前景且可扩展的路径，用于提升大语言模型的安全性和可靠性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-02-06",
+      "updated_date": "2026-06-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
