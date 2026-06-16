@@ -83,14 +83,14 @@
 
 ### 调度状态
 
-当前 `daily.yml` 保留 `workflow_dispatch` 手动触发，自动 `schedule` 仍注释关闭。需要恢复每日自动更新时，取消注释：
+当前 `daily.yml` 同时启用 `workflow_dispatch` 手动触发和自动 `schedule`：
 
 ```yaml
 schedule:
-  - cron: "20 23 * * *"
+  - cron: "40 2 * * *"
 ```
 
-这对应 UTC 23:20（北京时间 07:20）。**调度时区只通过 cron 控制**，不要去 Python 里加时区逻辑。改时间直接改 cron 表达式。
+这对应 UTC 02:40（北京时间 10:40）。arXiv 通常在美东 20:00 开始公告，夏令时约 UTC 00:00，冬令时约 UTC 01:00；02:40 给 list 页和 metadata 同步留出缓冲。**调度时区只通过 cron 控制**，不要去 Python 里加时区逻辑。改时间直接改 cron 表达式。
 
 ### 手动重跑
 
@@ -113,6 +113,8 @@ schedule:
 如果某天看到 `summary_fallback` 比例升高，先看日志里的具体 error name（`HTTPStatusError` / `TimeoutException`），再决定是降并发还是涨 `LLM_TIMEOUT_SECONDS`。
 
 如果某天看到 `fetch_status.api_backfill_status = "degraded"`，说明 list 页已经成功确认今日 paper，但 export API 补充 metadata 被 429/503/timeout 限制了。当日 snapshot 仍会产出，只是 `abstract_en`、DOI、journal ref、comment 等补充字段可能为空。
+
+如果 `run_daily.py` 打印 `run_status = "no_new_papers"`，说明 list 页可用，但本次抓到的 paper 全部已经存在于最近一次 snapshot，常见原因是跑得太早、arXiv 当天公告列表还没翻新，或者节假日/周末无公告。workflow 会成功结束并跳过摘要、validate 当前空日期、commit 和 deploy；旧数据继续在线。
 
 ### relevance score
 
@@ -154,9 +156,10 @@ push main 不会触发数据重建。**只有 daily.yml 会写 data 分支**，�
 
 ### 三层兜底
 
-1. **`validate_data.py`（Stage 4）：** 任何输出 JSON 为空 / paper_count ≤ 0 都直接 fail，commit 步骤被 `if: success()` 拦下来。
-2. **`check_regression.py`（Stage 4b）：** 把新 build 出来的 `docs/data/*.json` 与 `data` 分支上的旧版逐天比对 paper_count，**任何历史日期变少或缺失** 都 fail。这里是 schema 漂移和误删的最后一道防线。
-3. **`if: success()`（Stage 5）：** 上面任何一步失败都不 commit 到 data 分支，旧数据原封不动留在线上。
+1. **`run_daily.py`（Stage 1）：** list 页抓取失败直接 fail；如果 list 页成功但去重后没有新 paper，输出 `run_status = "no_new_papers"`，workflow 跳过摘要和发布。
+2. **`validate_data.py`（Stage 4）：** 正常发布路径里，任何输出 JSON 为空 / paper_count ≤ 0 都直接 fail，commit 步骤被 `if: success()` 拦下来。
+3. **`check_regression.py`（Stage 4b）：** 把新 build 出来的 `docs/data/*.json` 与 `data` 分支上的旧版逐天比对 paper_count，**任何历史日期变少或缺失** 都 fail。这里是 schema 漂移和误删的最后一道防线。
+4. **`if: success()`（Stage 5）：** 上面任何一步失败都不 commit 到 data 分支，旧数据原封不动留在线上。
 
 ### 改动 schema 时怎么做
 

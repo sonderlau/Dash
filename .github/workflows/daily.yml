@@ -27,7 +27,7 @@ on:
         default: "false"
         type: boolean
   schedule:
-    - cron: "20 23 * * *"
+    - cron: "40 2 * * *"
 
 permissions:
   contents: write
@@ -113,6 +113,7 @@ jobs:
           ls -la tmp/state || true
 
       - name: Stage 1 / Fetch arXiv listing & dedup
+        id: fetch
         env:
           # Sized for ubuntu-latest (4 vCPU / 16 GB).
           # ARXIV_LIST_WORKERS: 5 categories worth of HTML pages, low load.
@@ -125,6 +126,7 @@ jobs:
         run: python scripts/run_daily.py --date "${{ steps.vars.outputs.run_date }}"
 
       - name: Stage 2 / Summarize metadata
+        if: steps.fetch.outputs.no_new_papers != 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_BASE_URL: ${{ vars.OPENAI_BASE_URL }}
@@ -149,9 +151,11 @@ jobs:
           python scripts/enrich.py "${args[@]}"
 
       - name: Stage 3 / Rebuild site index
+        if: steps.fetch.outputs.no_new_papers != 'true'
         run: python scripts/build_site_data.py --latest-date "${{ steps.vars.outputs.run_date }}"
 
       - name: Stage 4 / Validate generated data
+        if: steps.fetch.outputs.no_new_papers != 'true'
         run: |
           python scripts/validate_data.py \
             "tmp/state/${{ steps.vars.outputs.run_date }}.json" \
@@ -159,6 +163,7 @@ jobs:
             "docs/data/${{ steps.vars.outputs.run_date }}.json"
 
       - name: Stage 4b / Regression guard against data branch
+        if: steps.fetch.outputs.no_new_papers != 'true'
         # Refuse to publish if any historical date now has fewer papers than
         # the version on the `data` branch. Protects against schema drift,
         # accidental wipes, or build bugs silently shrinking history.
@@ -213,7 +218,7 @@ jobs:
 
       - name: Stage 5 / Commit data to `data` branch
         id: commit
-        if: success()
+        if: success() && steps.fetch.outputs.no_new_papers != 'true'
         run: |
           set -euo pipefail
           run_date='${{ steps.vars.outputs.run_date }}'

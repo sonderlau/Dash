@@ -98,7 +98,7 @@ def main() -> None:
 
     if paper_count <= 0 and stage_enabled("fetch_dedup", args.from_stage, args.to_stage):
         run_stage("build_site", build_cmd)
-        run_stage("validate", validate_cmd)
+        run_stage("validate", [str(PYTHON), "scripts/validate_data.py", "docs/data/index.json"])
         print({"status": "ok", "message": "No new papers after dedup; summarize skipped."})
         return
 

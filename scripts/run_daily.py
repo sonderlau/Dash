@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 from json import load as load_json
 from datetime import date, datetime, timezone
 
@@ -33,7 +34,13 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def build_daily_payload(config: dict, target_date: date, papers: list[dict], stats: FetchStats) -> dict:
+def build_daily_payload(
+    config: dict,
+    target_date: date,
+    papers: list[dict],
+    stats: FetchStats,
+    run_status: str,
+) -> dict:
     category_counts: dict[str, int] = {}
     summary_status_counts: dict[str, int] = {}
     for paper in papers:
@@ -46,6 +53,7 @@ def build_daily_payload(config: dict, target_date: date, papers: list[dict], sta
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "categories": config["arxiv"]["categories"],
         "paper_count": len(papers),
+        "run_status": run_status,
         "category_counts": category_counts,
         "summary_status_counts": summary_status_counts,
         "fetch_status": {
@@ -131,6 +139,15 @@ def drop_previous_day_duplicates(fetched_papers: list[dict], previous_papers: li
     return filtered, skipped
 
 
+def write_github_output(values: dict[str, str]) -> None:
+    output_path = os.getenv("GITHUB_OUTPUT")
+    if not output_path:
+        return
+    with open(output_path, "a", encoding="utf-8") as handle:
+        for key, value in values.items():
+            handle.write(f"{key}={value}\n")
+
+
 def main() -> None:
     args = parse_args()
     config = load_config()
@@ -157,8 +174,16 @@ def main() -> None:
     existing_papers = filter_papers_for_configured_categories(existing_papers, configured_categories)
     existing_papers = filter_papers_for_current_source(existing_papers, "arxiv_new")
     papers, added, updated = merge_papers(existing_papers, fetched_papers)
-    payload = build_daily_payload(config, target_date, papers, stats)
+    run_status = "no_new_papers" if not papers else "ok"
+    payload = build_daily_payload(config, target_date, papers, stats, run_status)
     write_json(output_path, payload, pretty=config["output"].get("write_pretty_json", True))
+    write_github_output(
+        {
+            "paper_count": str(len(papers)),
+            "run_status": run_status,
+            "no_new_papers": "true" if run_status == "no_new_papers" else "false",
+        }
+    )
 
     removed = prune_old_files(int(config["output"].get("keep_days", 90)), today=target_date)
     print(
@@ -172,6 +197,7 @@ def main() -> None:
             "api_backfill_error": stats.api_backfill_error,
             "api_backfill_entries": stats.api_backfill_entries,
             "skipped_previous_day": skipped_previous_day,
+            "run_status": run_status,
             "added": added,
             "updated": updated,
             "removed": [path.name for path in removed],

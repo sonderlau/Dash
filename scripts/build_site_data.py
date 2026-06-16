@@ -36,14 +36,18 @@ def main() -> None:
     ensure_docs_data_dir()
 
     daily_files = iter_daily_files()
-    available_dates = [path.stem for path in daily_files]
     categories = list(config["arxiv"]["categories"])
 
     counts_by_date: dict[str, int] = {}
+    public_dates: list[str] = []
     for path in daily_files:
         try:
             payload = read_json(path)
-            counts_by_date[path.stem] = len(payload.get("papers", []))
+            paper_count = len(payload.get("papers", []))
+            if paper_count <= 0:
+                continue
+            public_dates.append(path.stem)
+            counts_by_date[path.stem] = paper_count
             sanitized = strip_heavy_fields_from_payload(payload)
             sanitized["categories"] = categories
             write_json(
@@ -54,7 +58,12 @@ def main() -> None:
         except Exception:  # noqa: BLE001
             counts_by_date[path.stem] = 0
 
-    latest_date = args.latest_date or (available_dates[0] if available_dates else date.today().isoformat())
+    if args.latest_date and args.latest_date in public_dates:
+        latest_date = args.latest_date
+    elif public_dates:
+        latest_date = public_dates[0]
+    else:
+        latest_date = date.today().isoformat()
 
     index_payload = {
         "site": {
@@ -64,7 +73,7 @@ def main() -> None:
             "base_url": config["site"]["base_url"],
             "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         },
-        "available_dates": available_dates,
+        "available_dates": public_dates,
         "categories": categories,
         "counts_by_date": counts_by_date,
         "latest_date": latest_date,
@@ -75,7 +84,7 @@ def main() -> None:
         index_payload,
         pretty=config["output"].get("write_pretty_json", True),
     )
-    print({"latest_date": latest_date, "days": len(available_dates)})
+    print({"latest_date": latest_date, "days": len(public_dates)})
 
 
 if __name__ == "__main__":
