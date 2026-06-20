@@ -1,0 +1,788 @@
+{
+  "date": "2026-06-20",
+  "snapshot_date": "2026-06-20",
+  "generated_at": "2026-06-20T06:49:50Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 18,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 9,
+    "cs.AI": 7,
+    "cs.CV": 2
+  },
+  "summary_status_counts": {
+    "ok": 18
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 658
+  },
+  "papers": [
+    {
+      "id": "2606.19245",
+      "title": "TxBench-PP: Analyzing AI Agent Performance on Small-Molecule Preclinical Pharmacology",
+      "authors": [
+        "Hannah Le",
+        "Ramesh Ramasamy",
+        "Alex Urrutia",
+        "Mahsa Yazdani",
+        "Tim Proctor",
+        "Kenny Workman"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2606.19245",
+      "pdf_url": "https://arxiv.org/pdf/2606.19245",
+      "abstract_en": "Artificial intelligence (AI) agents promise to accelerate drug discovery by compressing interpretation and decision-making loops, but practical deployment requires trusted evaluation on realistic program decisions. We introduce TherapeuticsBench Preclinical Pharmacology (TxBench-PP), a verifiable benchmark for small-molecule preclinical pharmacology and the first focused slice of a broader TherapeuticsBench effort across drug-discovery stages and therapeutic modalities. TxBench-PP tests whether agents can recover accurate conclusions from real-world assay data rather than memorized facts from literature. The benchmark contains 100 evaluations indexed by program stage, assay type, and task structure, spanning mechanism-of-action (MoA) and pharmacodynamic (PD) reasoning, compound-target engagement, causal target validation, developability and safety, and translational efficacy. Agents receive realistic workflow snapshots, inspect files in a coding environment, and return structured answers graded deterministically. Across 16 model-harness configurations, comprising 11 models and 4,800 trajectories, no system reliably recovered preclinical pharmacology decisions. The strongest configuration, Claude Opus 4.8 / Pi, passed 59.3\\% of endpoint attempts (178/300; 95\\% CI, 51.1-67.6), followed by GPT-5.5 / Pi at 55.3\\% (166/300; 47.0-63.6).",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出TxBench-PP，一个针对小分子临床前药理学的可验证基准，用于评估AI代理从真实实验数据中恢复准确结论的能力。基准包含100个评估任务，涵盖机制、药效、靶点结合等推理。在16个模型配置（11个模型，4800条轨迹）的测试中，最佳配置Claude Opus 4.8/Pi仅通过59.3%的终点尝试，表明当前AI系统在该任务上表现不可靠。\nMotivation: AI代理有望加速药物发现，但实际部署需要对其在真实程序决策上的表现进行可信评估，而现有基准缺乏对临床前药理学阶段的任务覆盖。\nMethod: 构建TxBench-PP基准，包含100个来源于真实实验数据的评估，每个评估提供工作流快照，代理在编码环境中检查文件并返回结构化答案，答案由确定性评分系统自动评判。\nResult: 在16个模型配置中，最佳配置（Claude Opus 4.8 / Pi）通过59.3%的终点尝试（178/300；95% CI 51.1-67.6），其次为GPT-5.5 / Pi的55.3%（166/300；95% CI 47.0-63.6），无系统能可靠恢复临床前药理学决策。\nConclusion: 当前AI代理在临床前药理学推理任务上表现不足，无法可靠替代人类专家，表明该方向仍需大幅改进。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出TxBench-PP，一个针对小分子临床前药理学的可验证基准，用于评估AI代理从真实实验数据中恢复准确结论的能力。基准包含100个评估任务，涵盖机制、药效、靶点结合等推理。在16个模型配置（11个模型，4800条轨迹）的测试中，最佳配置Claude Opus 4.8/Pi仅通过59.3%的终点尝试，表明当前AI系统在该任务上表现不可靠。",
+        "motivation": "AI代理有望加速药物发现，但实际部署需要对其在真实程序决策上的表现进行可信评估，而现有基准缺乏对临床前药理学阶段的任务覆盖。",
+        "method": "构建TxBench-PP基准，包含100个来源于真实实验数据的评估，每个评估提供工作流快照，代理在编码环境中检查文件并返回结构化答案，答案由确定性评分系统自动评判。",
+        "result": "在16个模型配置中，最佳配置（Claude Opus 4.8 / Pi）通过59.3%的终点尝试（178/300；95% CI 51.1-67.6），其次为GPT-5.5 / Pi的55.3%（166/300；95% CI 47.0-63.6），无系统能可靠恢复临床前药理学决策。",
+        "conclusion": "当前AI代理在临床前药理学推理任务上表现不足，无法可靠替代人类专家，表明该方向仍需大幅改进。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.19186",
+      "title": "Learning to Annotate Delayed and False AEB Events: A Practical System for Extreme Class Imbalance and Asymmetric Label Noise",
+      "authors": [
+        "Mengxiang Hao",
+        "Xin Jiang",
+        "Xinghao Huang",
+        "Wenliang Su",
+        "Zhiteng Wang",
+        "Junjie Rao",
+        "Xiaotian Yang",
+        "Wei Liao",
+        "Chengyu Han",
+        "Gen Liang",
+        "Yulun Song",
+        "Zhitao Xu",
+        "Xianpeng Lang"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2606.19186",
+      "pdf_url": "https://arxiv.org/pdf/2606.19186",
+      "abstract_en": "Autonomous Emergency Braking (AEB) optimization relies on accurately annotated real-world trigger events, particularly rare but critical delayed and false AEB triggers that expose system deficiencies. However, these minority samples comprise less than 5% of thousands of daily triggers, making manual annotation prohibitively expensive at scale. We present the first automated AEB annotation framework to address this problem. During development, we identified two fundamental challenges that severely impair delayed/false trigger annotation accuracy: (1) Extreme class imbalance where delayed/false triggers are overwhelmed by true triggers; (2) Asymmetric label noise where mislabeled majority samples (true triggers) suppress minority samples (delayed/false triggers) learning. To overcome these challenges, we propose two key innovations: (1) Specific data augmentation that synthesizes realistic samples by manipulating focal target attributes, transplanting ego-vehicle dynamics, and masking non-focal agents; (2) noise suppression using stable hardness estimation and probe-guided adaptive threshold to clean mislabeled true trigger samples. Crucially, we deploy our model as a practical annotation system with full-stack architecture, efficiently identifying critical delayed/false triggers from thousands of daily AEB events. Production results demonstrate 80% improvement in recall of delayed/false triggers and 50% reduction in manual workload. Beyond immediate gains, the system enables continuous self-improvement through accumulated high-quality annotations, establishing a necessary data foundation for on-vehicle AEB system optimization",
+      "comment": "8 pages, 5 figures, accepted by IEEE International Conference on Robotics and Automation (ICRA)",
+      "journal_ref": "2026 IEEE International Conference on Robotics and Automation (ICRA)",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出了首个自动标注框架，用于识别自动紧急制动（AEB）系统中的延迟触发和误触发事件。该框架针对极端类别不平衡和不对称标签噪声问题，通过数据增强和噪声抑制技术，将延迟/误触发的召回率提升了80%，并减少了50%的人工标注工作量。\nMotivation: AEB系统优化需要精确标注真实世界中的触发事件，尤其是占比不足5%的延迟和误触发事件，但人工标注成本过高。现有方法无法有效处理极端类别不平衡和标签噪声问题。\nMethod: 提出两阶段创新：1) 特定数据增强，通过操控目标属性、移植自车动力学和掩蔽非焦点代理生成逼真样本；2) 噪声抑制，使用稳定难度估计和探测引导自适应阈值清理误标样本。\nResult: 实际生产环境中，延迟/误触发事件的召回率提升80%，人工标注工作量减少50%。\nConclusion: 该系统能够持续积累高质量标注数据，为车载AEB系统优化提供必要的数据基础。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出了首个自动标注框架，用于识别自动紧急制动（AEB）系统中的延迟触发和误触发事件。该框架针对极端类别不平衡和不对称标签噪声问题，通过数据增强和噪声抑制技术，将延迟/误触发的召回率提升了80%，并减少了50%的人工标注工作量。",
+        "motivation": "AEB系统优化需要精确标注真实世界中的触发事件，尤其是占比不足5%的延迟和误触发事件，但人工标注成本过高。现有方法无法有效处理极端类别不平衡和标签噪声问题。",
+        "method": "提出两阶段创新：1) 特定数据增强，通过操控目标属性、移植自车动力学和掩蔽非焦点代理生成逼真样本；2) 噪声抑制，使用稳定难度估计和探测引导自适应阈值清理误标样本。",
+        "result": "实际生产环境中，延迟/误触发事件的召回率提升80%，人工标注工作量减少50%。",
+        "conclusion": "该系统能够持续积累高质量标注数据，为车载AEB系统优化提供必要的数据基础。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.19149",
+      "title": "OpenAnt: LLM-Powered Vulnerability Discovery Through Code Decomposition, Adversarial Verification, and Dynamic Testing",
+      "authors": [
+        "Nahum Korda",
+        "Gadi Evron"
+      ],
+      "categories": [
+        "cs.CR",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CR",
+      "abs_url": "https://arxiv.org/abs/2606.19149",
+      "pdf_url": "https://arxiv.org/pdf/2606.19149",
+      "abstract_en": "Automated vulnerability discovery in large codebases remains challenging: traditional static analysis produces high false-positive rates, while dynamic approaches such as fuzzing require substantial infrastructure and often target narrow classes of bugs. Recent advances in large language models (LLMs) enable semantic reasoning about program behavior, but applying LLMs to repository-scale security analysis introduces challenges related to context management, cost, and verification. We present OpenAnt, an open-source vulnerability discovery system that integrates static program analysis with LLM-based reasoning in a multi-stage pipeline. OpenAnt introduces three key techniques. First, codebases are decomposed into self-contained analysis units filtered by reachability from external entry points, reducing the analysis surface by up to 97% while preserving attack-relevant code. Second, candidate vulnerabilities undergo adversarial verification through constrained attacker simulation, where the model evaluates exploitability under realistic attacker capabilities. Third, findings are validated through dynamic verification, in which exploit environments are generated automatically, executed in sandboxed containers, and discarded after use. Evaluation on widely used open-source projects including OpenSSL, WordPress, and Flowise shows that this architecture can identify previously unknown vulnerabilities while maintaining manageable analysis cost and substantially reducing false positives. Our results suggest that closed-loop vulnerability discovery pipelines, combining semantic reasoning with exploit validation, provide a practical path toward scalable automated security analysis. OpenAnt is released as open source under the Apache 2.0 license at https://github.com/knostic/OpenAnt.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: OpenAnt 是一个开源漏洞发现系统，结合静态程序分析与大语言模型推理，通过代码分解、对抗验证和动态测试的分阶段流水线，在 OpenSSL、WordPress、Flowise 等项目中识别了未知漏洞，并降低了误报率。\nMotivation: 现有自动化漏洞发现方法存在高误报率（静态分析）或高基础设施成本且针对窄类型漏洞（动态分析如 fuzzing）的问题；LLM 具备语义推理能力但面临上下文管理、成本和验证挑战。\nMethod: 提出三阶段流水线：1) 代码分解为自包含分析单元，通过外部入口点的可达性过滤，减少 97% 的分析表面；2) 通过受限攻击者模拟进行对抗验证，评估可利用性；3) 动态验证自动生成利用环境，在沙箱容器中执行后丢弃。\nResult: 在 OpenSSL、WordPress、Flowise 等开源项目上成功识别未知漏洞，分析成本可控且误报率显著降低。\nConclusion: 结合语义推理与利用验证的闭环漏洞发现流水线为可扩展的自动化安全分析提供了实用路径；OpenAnt 以 Apache 2.0 许可证开源。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "OpenAnt 是一个开源漏洞发现系统，结合静态程序分析与大语言模型推理，通过代码分解、对抗验证和动态测试的分阶段流水线，在 OpenSSL、WordPress、Flowise 等项目中识别了未知漏洞，并降低了误报率。",
+        "motivation": "现有自动化漏洞发现方法存在高误报率（静态分析）或高基础设施成本且针对窄类型漏洞（动态分析如 fuzzing）的问题；LLM 具备语义推理能力但面临上下文管理、成本和验证挑战。",
+        "method": "提出三阶段流水线：1) 代码分解为自包含分析单元，通过外部入口点的可达性过滤，减少 97% 的分析表面；2) 通过受限攻击者模拟进行对抗验证，评估可利用性；3) 动态验证自动生成利用环境，在沙箱容器中执行后丢弃。",
+        "result": "在 OpenSSL、WordPress、Flowise 等开源项目上成功识别未知漏洞，分析成本可控且误报率显著降低。",
+        "conclusion": "结合语义推理与利用验证的闭环漏洞发现流水线为可扩展的自动化安全分析提供了实用路径；OpenAnt 以 Apache 2.0 许可证开源。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18996",
+      "title": "TRAP: Benchmark for Task-completion and Resistance to Active Privacy-extraction",
+      "authors": [
+        "Moon Ye-Bin",
+        "Nam Hyeon-Woo",
+        "Baek Seong-Eun",
+        "Yejin Yeo",
+        "Tae-Hyun Oh"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CR",
+      "abs_url": "https://arxiv.org/abs/2606.18996",
+      "pdf_url": "https://arxiv.org/pdf/2606.18996",
+      "abstract_en": "Agents are increasingly deployed in document-intensive workflows where sensitive private information is not an edge case but a routine input, e.g., an agent booking a flight needs passport numbers. In such settings, the agent must use private information to complete tasks accurately while never exposing it in its responses, because it cannot verify who is actually at the keyboard. These two obligations are in fundamental tension. A model capable enough to use private information for task completion can, by the same capability, be induced to reveal it. To evaluate the trade-off of task accuracy and privacy leakage, we introduce Task-completion and Resistance to Active Privacy-extraction (TRAP). Each scenario includes a document containing private information, a task query that requires the agent to invoke the correct tool using private fields, and an attack query that attempts to elicit the same information in natural language. Evaluating 22 models spanning frontier proprietary and open-source models at multiple scales, we find that all model families exhibit non-trivial leakage, and that instruction-following ability correlates with leakage rate. Existing prompt-based defenses reduce leakage but at significant cost to task accuracy. Prompt optimization fails to escape this trade-off. We demonstrate that this failure is not incidental. For any softmax-based model, no soft-constraint defense, e.g., prompt-based defenses, can jointly achieve high task success with zero leakage probability. Motivated by this impossibility result, we propose structural private field isolation, which replaces private fields with hash keys before they reach the model. This approach largely prevents leakage while keeping task accuracy.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出TRAP基准，用于评估智能体在文档密集型任务中完成准确任务与防止主动隐私提取之间的权衡。测试22个模型发现所有模型都存在显著隐私泄露，且指令跟随能力与泄露率正相关。理论证明基于软约束的防御无法同时实现高任务成功率和零泄露概率，提出结构私有字段隔离方法，用哈希键替换私有字段，在保持任务准确性的同时大幅防止泄露。\nMotivation: 现有研究未充分评估智能体在必须使用敏感信息完成任务的场景中，同时抵御主动隐私提取的能力；已有防御方法在任务准确性与隐私保护间存在根本性权衡。\nMethod: 构建TRAP基准，每个场景包含含私有信息的文档、需要调用工具利用私有字段的任务查询、以及试图通过自然语言提取相同信息的攻击查询。对软约束防御提出不可能性理论证明，并基于此提出结构私有字段隔离，在输入模型前用哈希键替换私有字段。\nResult: 22个模型均表现出非平凡泄露；指令跟随能力与泄露率正相关；现有提示防御降低泄露但显著牺牲任务准确性；提示优化无法逃脱该权衡。\nConclusion: 对任何softmax模型，基于软约束的防御无法同时实现高任务成功率和零泄露概率；结构私有字段隔离能有效防止泄露同时保持任务准确性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出TRAP基准，用于评估智能体在文档密集型任务中完成准确任务与防止主动隐私提取之间的权衡。测试22个模型发现所有模型都存在显著隐私泄露，且指令跟随能力与泄露率正相关。理论证明基于软约束的防御无法同时实现高任务成功率和零泄露概率，提出结构私有字段隔离方法，用哈希键替换私有字段，在保持任务准确性的同时大幅防止泄露。",
+        "motivation": "现有研究未充分评估智能体在必须使用敏感信息完成任务的场景中，同时抵御主动隐私提取的能力；已有防御方法在任务准确性与隐私保护间存在根本性权衡。",
+        "method": "构建TRAP基准，每个场景包含含私有信息的文档、需要调用工具利用私有字段的任务查询、以及试图通过自然语言提取相同信息的攻击查询。对软约束防御提出不可能性理论证明，并基于此提出结构私有字段隔离，在输入模型前用哈希键替换私有字段。",
+        "result": "22个模型均表现出非平凡泄露；指令跟随能力与泄露率正相关；现有提示防御降低泄露但显著牺牲任务准确性；提示优化无法逃脱该权衡。",
+        "conclusion": "对任何softmax模型，基于软约束的防御无法同时实现高任务成功率和零泄露概率；结构私有字段隔离能有效防止泄露同时保持任务准确性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18970",
+      "title": "A Controlled Benchmark of Quantum-Latent GAN Augmentation for Brain MRI",
+      "authors": [
+        "Syed Mujtaba Haider",
+        "Silvia Figini"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2606.18970",
+      "pdf_url": "https://arxiv.org/pdf/2606.18970",
+      "abstract_en": "Medical image classification is often constrained by limited labeled data, motivating generative augmentation; recently, quantum generative models have been proposed for this purpose, frequently reporting accuracy gains. However, such claims are typically based on single training runs, do not match the parameter budgets of the quantum and classical generators, and do not characterize the data regime in which any benefit appears. We present a controlled benchmark that isolates the contribution of a quantum generator to brain-MRI augmentation. Images are encoded into a KL-regularized latent space in which a conditional Wasserstein GAN with gradient penalty is trained using either a variational quantum generator or a classical generator of near-identical parameter count (1648 vs. 1632). Synthetic samples are decoded and used to augment a pretrained classifier across labeled data fractions from 5% to 100%, evaluated over eight random seeds with paired significance testing (with multiple-comparison correction) and with intraset diversity and latent-distribution analyses. Across all fractions, no augmentation variant significantly outperforms real-data-only training, and the quantum and classical generators are statistically indistinguishable. Any low-data benefit behaves as regularization rather than faithful data expansion:synthetic samples are off distribution and severely mode collapsed precisely where data is scarce, and the quantum generator is no more diverse thanits classical counterpart. We release the protocol as a testbed for rigorous evaluation of quantum generative augmentation in medical imaging.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文对量子潜GAN增强用于脑MRI进行了受控基准测试，比较了参数数量相近的量子生成器（1648参数）和经典生成器（1632参数）的性能。在5%到100%的标记数据分数下，经八次随机种子配对显著性检验，没有增强变体显著优于仅使用真实数据的训练，且量子与经典生成器统计上不可区分。低数据增益表现为正则化而非真实数据扩展，合成样本在数据稀缺时严重分布外且模式崩塌。\nMotivation: 现有量子生成模型声称在医学图像增强中提升分类准确率，但这些声称通常基于单次训练、未匹配参数预算且未表征收益出现的数据范围。\nMethod: 将脑MRI图像编码到KL正则化潜在空间，在该空间中训练条件Wasserstein GAN（带梯度惩罚），分别使用变分量子生成器和近相同参数数的经典生成器（1648 vs 1632）。合成样本解码后用于增强预训练分类器，在5%-100%标记数据分数下评估，并进行八次随机种子配对显著性检验（多重比较校正）及组内多样性和潜在分布分析。\nResult: 在所有数据分数下，无增强变体显著优于仅使用真实数据的训练，量子与经典生成器统计上无差异；低数据增益表现为正则化而非忠实数据扩展：合成样本在数据稀缺时分布外且严重模式崩塌，量子生成器多样性不优于经典生成器。\nConclusion: 作者发布了该协议作为医学成像中量子生成增强严格评估的测试平台，并强调当前量子生成器在脑MRI增强中无明显优势。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文对量子潜GAN增强用于脑MRI进行了受控基准测试，比较了参数数量相近的量子生成器（1648参数）和经典生成器（1632参数）的性能。在5%到100%的标记数据分数下，经八次随机种子配对显著性检验，没有增强变体显著优于仅使用真实数据的训练，且量子与经典生成器统计上不可区分。低数据增益表现为正则化而非真实数据扩展，合成样本在数据稀缺时严重分布外且模式崩塌。",
+        "motivation": "现有量子生成模型声称在医学图像增强中提升分类准确率，但这些声称通常基于单次训练、未匹配参数预算且未表征收益出现的数据范围。",
+        "method": "将脑MRI图像编码到KL正则化潜在空间，在该空间中训练条件Wasserstein GAN（带梯度惩罚），分别使用变分量子生成器和近相同参数数的经典生成器（1648 vs 1632）。合成样本解码后用于增强预训练分类器，在5%-100%标记数据分数下评估，并进行八次随机种子配对显著性检验（多重比较校正）及组内多样性和潜在分布分析。",
+        "result": "在所有数据分数下，无增强变体显著优于仅使用真实数据的训练，量子与经典生成器统计上无差异；低数据增益表现为正则化而非忠实数据扩展：合成样本在数据稀缺时分布外且严重模式崩塌，量子生成器多样性不优于经典生成器。",
+        "conclusion": "作者发布了该协议作为医学成像中量子生成增强严格评估的测试平台，并强调当前量子生成器在脑MRI增强中无明显优势。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18960",
+      "title": "Mem-World: Memory-Augmented Action-Conditioned World Models for Persistent Robot Manipulation",
+      "authors": [
+        "Zirui Zheng",
+        "Jiaqian Yu",
+        "Xiongfeng Peng",
+        "jun shi",
+        "Mingyi Li",
+        "Chao Zhang",
+        "Weiming Li",
+        "Dong Wang",
+        "Huchuan Lu",
+        "Xu Jia"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2606.18960",
+      "pdf_url": "https://arxiv.org/pdf/2606.18960",
+      "abstract_en": "Action-conditioned world models have emerged as a promising paradigm for robot learning, offering a scalable alternative to costly real-world experimentation by generating action-consistent video rollouts. However, persistent world modeling remains challenging in manipulation: frequent end-effector occlusions and rapid wrist-camera motion make the current observation insufficient for predicting future views, causing models to forget or hallucinate scene details seen in earlier frames. Existing memory retrieval strategies often fail to identify informative history in dynamic manipulation scenarios. To address this limitation, we propose Mem-World, a memory-augmented multi-view action-conditioned world model. At its core, we present W-VMem, a 4D wrist-view-centered surfel-indexed memory that anchors historical observations to temporally evolving surface elements. By explicitly modeling when and where scene elements are observed, W-VMem enables geometry-aware retrieval of relevant history frames conditioned on future actions. During generation, relevant history frames are selected via surfel-based rendering and scoring, providing informative and non-redundant context for prediction. Extensive experiments show that Mem-World generates persistent rollouts in complex manipulation scenarios, enables more reliable policy evaluation than Ctrl-World, improving the Pearson correlation with real-world performance by 14.5\\%, and supports effective policy improvement through synthetic data generation, increasing success rates from 58\\% to 72\\% on long-horizon tasks.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Mem-World，一种记忆增强的多视角动作条件世界模型，用于持久机器人操作。核心是 W-VMem，一种以腕部视角为中心的 4D 表面元素索引记忆，通过显式建模场景元素的观察时间和位置，实现基于几何感知的历史帧检索。实验表明，Mem-World 在复杂操作场景中生成持久 rollout，将策略评估与真实世界的 Pearson 相关性提高 14.5%，并通过合成数据将长时任务成功率从 58% 提升至 72%。\nMotivation: 现有动作条件世界模型在处理持久操作时，由于末端执行器频繁遮挡和腕部相机快速运动，当前观测不足以预测未来视图，导致模型遗忘或产生幻觉。现有记忆检索策略在动态操作场景中难以识别有信息量的历史帧。\nMethod: 提出记忆增强的多视角动作条件世界模型 Mem-World，核心是 W-VMem，一种 4D 腕部视角表面元素索引记忆，将历史观测锚定到随时间演变的表面元素，通过基于表面元素的渲染和评分选择相关历史帧作为预测上下文。\nResult: 在复杂操作场景中生成持久 rollout，相比 Ctrl-World 将策略评估与真实世界的 Pearson 相关性提高 14.5%，通过合成数据生成将长时任务成功率从 58% 提升至 72%。\nConclusion: Mem-World 通过几何感知的记忆检索显著提升了持久世界建模的能力，可支持更可靠的策略评估和策略改进。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Mem-World，一种记忆增强的多视角动作条件世界模型，用于持久机器人操作。核心是 W-VMem，一种以腕部视角为中心的 4D 表面元素索引记忆，通过显式建模场景元素的观察时间和位置，实现基于几何感知的历史帧检索。实验表明，Mem-World 在复杂操作场景中生成持久 rollout，将策略评估与真实世界的 Pearson 相关性提高 14.5%，并通过合成数据将长时任务成功率从 58% 提升至 72%。",
+        "motivation": "现有动作条件世界模型在处理持久操作时，由于末端执行器频繁遮挡和腕部相机快速运动，当前观测不足以预测未来视图，导致模型遗忘或产生幻觉。现有记忆检索策略在动态操作场景中难以识别有信息量的历史帧。",
+        "method": "提出记忆增强的多视角动作条件世界模型 Mem-World，核心是 W-VMem，一种 4D 腕部视角表面元素索引记忆，将历史观测锚定到随时间演变的表面元素，通过基于表面元素的渲染和评分选择相关历史帧作为预测上下文。",
+        "result": "在复杂操作场景中生成持久 rollout，相比 Ctrl-World 将策略评估与真实世界的 Pearson 相关性提高 14.5%，通过合成数据生成将长时任务成功率从 58% 提升至 72%。",
+        "conclusion": "Mem-World 通过几何感知的记忆检索显著提升了持久世界建模的能力，可支持更可靠的策略评估和策略改进。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18950",
+      "title": "RTSGameBench: An RTS Benchmark for Strategic Reasoning by Vision-Language Models",
+      "authors": [
+        "San Kim",
+        "Daechul Ahn",
+        "Reokyoung Kim",
+        "Hyeonbeom Choi",
+        "Seungyeon Jwa",
+        "Jonghyun Choi"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2606.18950",
+      "pdf_url": "https://arxiv.org/pdf/2606.18950",
+      "abstract_en": "Modern Vision-Language Models (VLMs) often struggle with strategic reasoning, i.e., anticipating and influencing other agents' actions, under uncertainty in competitive and cooperative settings. Real-time strategy (RTS) games can be a natural testbed for diagnosing this limitation, as they demand coordination with allies, adaptation to opponents' strategy, and long-horizon planning under partial observability. However, existing RTS benchmarks offer limited evaluation scope, lack systematic competency diagnosis, and remain fixed in the pre-designed scenario coverage. To address these limitations, we present RTSGameBench, which is built on Beyond All Reason, a large-scale RTS game with an expanded battlefield that demands broader strategy diversity than the existing testbeds. The proposed benchmark provides evaluations through diverse gameplay across various matchup structures, diagnostic assessment via mini-games, each targeting an individual strategic competency, and extensible coverage via a self-evolving generation framework that converts free-form queries into new mini-games, improving over successive cycles. Additionally, for VLMs to operate in large-scale RTS games, we provide RTSGameAgent that manages units by an FSM with agentic memory. We empirically validate that multiple state-of-the-art VLMs do not perform well when matchups demand tighter coordination, multiagent coordination and when task scale increases.",
+      "comment": "First two authors contributed equally",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出RTSGameBench，一个基于实时策略游戏Beyond All Reason的基准，用于评估视觉语言模型（VLM）在竞争与合作环境中的战略推理能力。该基准通过多样化对战结构、诊断性小游戏和自进化生成框架提供评估，并配套提供基于状态机与智能体记忆的RTSGameAgent。实验表明，多个前沿VLM在需要紧密协调、多智能体协作和任务规模增大时表现不佳。\nMotivation: 现有RTS基准评估范围有限、缺乏系统性能力诊断且场景覆盖固定，无法充分揭示VLM在不确定性下的战略推理缺陷。\nMethod: 构建基于大规模RTS游戏Beyond All Reason的基准，包含多种对战结构的评估、针对单一战略能力的小游戏诊断，以及通过自进化生成框架将自由形式查询转化为新小游戏的扩展机制。同时提供RTSGameAgent，利用有限状态机和智能体记忆管理单位。\nResult: 多个SOTA VLM在需要紧密协调、多智能体协作以及任务规模增大时表现不佳，验证了基准的有效性。\nConclusion: RTSGameBench可作为诊断VLM战略推理能力的有效工具，揭示其在复杂对抗场景下的局限性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出RTSGameBench，一个基于实时策略游戏Beyond All Reason的基准，用于评估视觉语言模型（VLM）在竞争与合作环境中的战略推理能力。该基准通过多样化对战结构、诊断性小游戏和自进化生成框架提供评估，并配套提供基于状态机与智能体记忆的RTSGameAgent。实验表明，多个前沿VLM在需要紧密协调、多智能体协作和任务规模增大时表现不佳。",
+        "motivation": "现有RTS基准评估范围有限、缺乏系统性能力诊断且场景覆盖固定，无法充分揭示VLM在不确定性下的战略推理缺陷。",
+        "method": "构建基于大规模RTS游戏Beyond All Reason的基准，包含多种对战结构的评估、针对单一战略能力的小游戏诊断，以及通过自进化生成框架将自由形式查询转化为新小游戏的扩展机制。同时提供RTSGameAgent，利用有限状态机和智能体记忆管理单位。",
+        "result": "多个SOTA VLM在需要紧密协调、多智能体协作以及任务规模增大时表现不佳，验证了基准的有效性。",
+        "conclusion": "RTSGameBench可作为诊断VLM战略推理能力的有效工具，揭示其在复杂对抗场景下的局限性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18933",
+      "title": "Zero-Shot Active Feature Acquisition via LLM-Elicitation",
+      "authors": [
+        "Binyamin Perets",
+        "Natalie Mendelson",
+        "Shiran Vainberg",
+        "Yehuda Chowers",
+        "Shai Shen-Orr",
+        "Shie Mannor"
+      ],
+      "categories": [
+        "cs.IR",
+        "cs.LG",
+        "stat.ME"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2606.18933",
+      "pdf_url": "https://arxiv.org/pdf/2606.18933",
+      "abstract_en": "Active feature acquisition (AFA) sequentially selects which features to observe to reach a classification or ranking decision. Its central limitation is reliance on large amount of labeled data to fit probabilistic models guiding acquisition. Large language models (LLMs) supply unsupervised domain knowledge, but are poor sequential planners. Asking one to both know and decide conflates capabilities best kept separate. Here, we develop a framework for zero-shot AFA through disciplined elicitation: asking the LLM only for what it can be trusted to return, the unary deviations and pairwise co-variations that are the sufficient statistics of a Markov random field (MRF). We apply our framework to two settings: binary classification and top-$k$ identification. In practice, the LLM reliably returns only discriminative statistics, what distinguishes the classes rather than each class in isolation, which precludes classical AFA. We apply a maximum-entropy closure that resolves this gauge ambiguity. We evaluate on a cohort of Inflammatory Bowel Disease (IBD) patients, an active clinical setting where diagnostic ambiguity and patient heterogeneity obstruct stable treatment strategies. Our framework outperforms the LLM both on real labels and on its own extracted beliefs. Where it matters most, on the hardest patients, our top-$k$ acquisition policy markedly outperforms all existing methods.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对主动特征获取（AFA）依赖大量标记数据的问题，提出一种零样本框架，通过大型语言模型（LLM）提供马尔可夫随机场（MRF）的充分统计量（单变量偏差和成对协变），避免LLM直接进行序列规划。该框架应用于二分类和top-k识别，在炎症性肠病（IBD）患者队列上评估，在真实标签和LLM自身信念上均优于原始LLM，尤其在最难患者上表现显著。\nMotivation: 主动特征获取依赖大量标记数据拟合概率模型，而LLM虽有无监督领域知识但缺乏序列规划能力，需要将知识获取与决策分离。\nMethod: 通过引导LLM仅返回MRF的充分统计量（单变量偏差和成对协变），并使用最大熵闭包解决区分性统计量导致的规范歧义。\nResult: 在IBD患者队列上，该方法在真实标签和LLM自身信念上均优于原始LLM，尤其在最难患者上，top-k获取策略显著优于所有现有方法。\nConclusion: 摘要强调该框架实现了零样本主动特征获取，并展示了在临床诊断中的有效性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对主动特征获取（AFA）依赖大量标记数据的问题，提出一种零样本框架，通过大型语言模型（LLM）提供马尔可夫随机场（MRF）的充分统计量（单变量偏差和成对协变），避免LLM直接进行序列规划。该框架应用于二分类和top-k识别，在炎症性肠病（IBD）患者队列上评估，在真实标签和LLM自身信念上均优于原始LLM，尤其在最难患者上表现显著。",
+        "motivation": "主动特征获取依赖大量标记数据拟合概率模型，而LLM虽有无监督领域知识但缺乏序列规划能力，需要将知识获取与决策分离。",
+        "method": "通过引导LLM仅返回MRF的充分统计量（单变量偏差和成对协变），并使用最大熵闭包解决区分性统计量导致的规范歧义。",
+        "result": "在IBD患者队列上，该方法在真实标签和LLM自身信念上均优于原始LLM，尤其在最难患者上，top-k获取策略显著优于所有现有方法。",
+        "conclusion": "摘要强调该框架实现了零样本主动特征获取，并展示了在临床诊断中的有效性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18812",
+      "title": "Reinforcement Learning Foundation Models Should Already Be A Thing",
+      "authors": [
+        "Abdelrahman Zighem",
+        "Jill-Jênn Vie"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2606.18812",
+      "pdf_url": "https://arxiv.org/pdf/2606.18812",
+      "abstract_en": "Foundation models for language and vision are powered by internet-scale data, while structured domains such as tabular prediction are powered by synthetic data. This substitute shifts the challenge from collection to prior design. Such priors already exist for many structured tasks: TabPFN and its successors solve tabular classification with a transformer pretrained on a synthetic Bayesian prior. We make two points. \\textbf{First}, reinforcement learning is the conspicuous gap: sampling a synthetic MDP is as feasible as sampling a synthetic tabular dataset, yet no in-context RL work treats prior design as a primary objective. \\textbf{Second}, MDPs admit a fixed-size sufficient statistic, independent of the episodes observed and tabular in shape, which makes them directly amenable to the attention-based architectures used for tabular foundation models, with a policy head replacing the supervised target. Together these define the agenda for an RL foundation model. As a proof of concept, we train a Graph Attention Network entirely on synthetic MDPs and show that, with no task-specific tuning, it solves held-out tabular benchmarks in context, both online and offline: online, in far fewer episodes than UCB-VI and tabular Q-learning, and offline, competitively with VI-LCB.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文指出，在语言和视觉领域已有大规模基础模型，而结构化领域（如表格预测）依赖合成数据和先验设计，但强化学习（RL）领域尚缺乏类似的基础模型。作者论证，合成马尔可夫决策过程（MDP）与合成表格数据同样可行，且MDP具有固定大小的充分统计量，可直接应用于表格基础模型的注意力架构。作为概念验证，他们在纯合成MDP上训练图注意力网络（Graph Attention Network），无需任务特定调优即可在上下文中解决表格基准，在线和离线设置均表现良好。\nMotivation: 当前强化学习领域缺乏类似语言和视觉领域的基础模型，合成MDP的先验设计尚未被充分探索，而表格预测领域已通过合成先验（如TabPFN）取得成功，RL领域存在明显空白。\nMethod: 提出将MDP的固定大小充分统计量（tabular in shape）与基于注意力的架构（如Transformer）结合，用策略头替代监督目标，从而构建RL基础模型。概念验证中使用图注意力网络（GAT）在合成MDP上训练。\nResult: 在合成MDP上训练的GAT模型，无需任务特定调优，在在线设置中比UCB-VI和表格Q-learning更少回合收敛，在离线设置中与VI-LCB竞争力相当。\nConclusion: 本文定义了RL基础模型的研究议程：利用MDP的充分统计量和合成数据生成，使注意力架构直接适用于RL。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文指出，在语言和视觉领域已有大规模基础模型，而结构化领域（如表格预测）依赖合成数据和先验设计，但强化学习（RL）领域尚缺乏类似的基础模型。作者论证，合成马尔可夫决策过程（MDP）与合成表格数据同样可行，且MDP具有固定大小的充分统计量，可直接应用于表格基础模型的注意力架构。作为概念验证，他们在纯合成MDP上训练图注意力网络（Graph Attention Network），无需任务特定调优即可在上下文中解决表格基准，在线和离线设置均表现良好。",
+        "motivation": "当前强化学习领域缺乏类似语言和视觉领域的基础模型，合成MDP的先验设计尚未被充分探索，而表格预测领域已通过合成先验（如TabPFN）取得成功，RL领域存在明显空白。",
+        "method": "提出将MDP的固定大小充分统计量（tabular in shape）与基于注意力的架构（如Transformer）结合，用策略头替代监督目标，从而构建RL基础模型。概念验证中使用图注意力网络（GAT）在合成MDP上训练。",
+        "result": "在合成MDP上训练的GAT模型，无需任务特定调优，在在线设置中比UCB-VI和表格Q-learning更少回合收敛，在离线设置中与VI-LCB竞争力相当。",
+        "conclusion": "本文定义了RL基础模型的研究议程：利用MDP的充分统计量和合成数据生成，使注意力架构直接适用于RL。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18679",
+      "title": "Fair Online Resource Allocation",
+      "authors": [
+        "Christopher En",
+        "Yuri Faenza",
+        "Andrea Lodi",
+        "Gonzalo Muñoz"
+      ],
+      "categories": [
+        "cs.DS",
+        "cs.GT",
+        "cs.LG",
+        "math.OC"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.DS",
+      "abs_url": "https://arxiv.org/abs/2606.18679",
+      "pdf_url": "https://arxiv.org/pdf/2606.18679",
+      "abstract_en": "We study the problem of fair online resource allocation, motivated by applications such as refugee resettlement and airline scheduling, where agents arrive sequentially and must be assigned to facilities with limited capacities. We introduce a model that maximizes the overall welfare subject to resource constraints and a Lipschitz fairness requirement, which ensures that similar agents arriving in the same batch receive similar expected outcomes. We first analyze the offline problem, proving that the value of the optimal fair allocation is at least an $Ω(1/γ)$ fraction of the optimal unfair allocation, where $γ$ is the fairness coefficient, thereby bounding the price of fairness. For the online setting, we propose an algorithm based on dual mirror descent that enforces fairness constraints within batches while estimating optimal dual variables. We prove that this algorithm achieves sublinear regret relative to the optimal offline fluid benchmark. Finally, we validate our theoretical results using real-world data from the Refugee Economies Programme, demonstrating the algorithm's performance and examining the trade-offs between welfare maximization and fairness enforcement.",
+      "comment": "30 pages, 4 figures. To appear in the proceedings of EC 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究公平在线资源分配问题，受难民安置和航空调度等应用启发，在资源约束和Lipschitz公平性要求下最大化总体福利。离线分析证明最优公平分配的价值至少是最优不公平分配的Ω(1/γ)倍，其中γ是公平系数，从而界定了公平代价。在线算法基于对偶镜像下降，在批次内强制公平约束并估计最优对偶变量，实现了相对于离线流体基准的亚线性遗憾。使用难民经济计划的实际数据验证了算法性能，并检验了福利最大化与公平执行之间的权衡。\nMotivation: 现有资源分配模型常忽视公平性，导致类似代理（如难民）获得差异极大的结果。需要一种能同时保证效率和公平的在线分配方法。\nMethod: 提出一种基于对偶镜像下降的在线算法，在批次内强制Lipschitz公平约束，同时估计最优对偶变量。离线分析通过价格公平性得到公平度下界。\nResult: 离线分析表明最优公平分配的价值至少是最优不公平分配的Ω(1/γ)倍。在线算法相对离线流体基准实现亚线性遗憾。使用难民经济计划实际数据验证了算法的有效性。\nConclusion: 本文为公平在线资源分配提供了理论保证和实用算法，展示了公平性与效率之间的权衡。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究公平在线资源分配问题，受难民安置和航空调度等应用启发，在资源约束和Lipschitz公平性要求下最大化总体福利。离线分析证明最优公平分配的价值至少是最优不公平分配的Ω(1/γ)倍，其中γ是公平系数，从而界定了公平代价。在线算法基于对偶镜像下降，在批次内强制公平约束并估计最优对偶变量，实现了相对于离线流体基准的亚线性遗憾。使用难民经济计划的实际数据验证了算法性能，并检验了福利最大化与公平执行之间的权衡。",
+        "motivation": "现有资源分配模型常忽视公平性，导致类似代理（如难民）获得差异极大的结果。需要一种能同时保证效率和公平的在线分配方法。",
+        "method": "提出一种基于对偶镜像下降的在线算法，在批次内强制Lipschitz公平约束，同时估计最优对偶变量。离线分析通过价格公平性得到公平度下界。",
+        "result": "离线分析表明最优公平分配的价值至少是最优不公平分配的Ω(1/γ)倍。在线算法相对离线流体基准实现亚线性遗憾。使用难民经济计划实际数据验证了算法的有效性。",
+        "conclusion": "本文为公平在线资源分配提供了理论保证和实用算法，展示了公平性与效率之间的权衡。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18613",
+      "title": "Are LLMs Ready to Assist Physicians? PhysAssistBench for Interactive Doctor-Patient-EHR Assistance",
+      "authors": [
+        "Tianming Du",
+        "Peijie Yu",
+        "Sihan Shang",
+        "Danli Shi",
+        "My Linh Nguyen",
+        "Shengbo Gao",
+        "Guangyuan Li",
+        "Yinghong Yu",
+        "Yan Jiang",
+        "Qianlong Zhao",
+        "Behzad Bozorgtabar",
+        "Shaoxiong Ji",
+        "Jiazhen Pan",
+        "Daniel Rueckert",
+        "Jiancheng Yang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2606.18613",
+      "pdf_url": "https://arxiv.org/pdf/2606.18613",
+      "abstract_en": "The most plausible near-term role of medical LLMs is to assist rather than replace physicians, yet current evaluations often test isolated capabilities: clinical knowledge, EHR system interaction, or patient communication. Physician assistance instead requires coordinating these capabilities within the same interaction, where physicians issue underspecified requests, patients describe symptoms ambiguously, and EHR systems demand precise tool use. We introduce PhysAssistBench, a benchmark for interactive doctor-patient-EHR assistance. Built from real MIMIC-IV cases, PhysAssistBench uses a scalable pipeline to construct agentic patients: interactive, record-grounded agents that turn static EHR records into multi-turn clinical scenarios while preserving clinical factuality. PhysAssistBench provides a curated bilingual evaluation set of 1,296 manually reviewed and physician-validated turns. Experiments with leading LLMs show that current models remain unreliable in this setting, which exposes a key bottleneck for clinical LLMs: reliable assistance requires coordination across knowledge, communication, and systems, not isolated gains in any of them.",
+      "comment": "34 pages with 8 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 论文提出了PhysAssistBench基准，用于评估大型语言模型在交互式医生-患者-EHR协助场景中的能力。该基准基于MIMIC-IV数据构建了可交互的智能患者代理，并包含1296个经过验证的回合。实验表明当前领先模型在此设置中可靠性不足，暴露了协调知识、沟通和系统能力的瓶颈。\nMotivation: 当前医疗LLM评估通常测试孤立能力，如临床知识、EHR系统交互或患者沟通，但实际医生协助需要同时协调这些能力。论文旨在填补这一评估空白。\nMethod: 提出了PhysAssistBench基准，利用MIMIC-IV真实病例，通过可扩展流程构建基于记录的可交互患者代理，将静态EHR记录转化为多轮临床场景，并保持临床事实性。提供了1296个经人工和医生验证的双语评估集。\nResult: 实验表明当前领先LLMs在这种交互环境下不可靠，可靠协助需要跨知识、沟通和系统的协调，而非任何单一能力的提升。\nConclusion: 摘要强调当前模型在协调能力上的瓶颈，指出可靠辅助需要综合协调，而非孤立改进。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "论文提出了PhysAssistBench基准，用于评估大型语言模型在交互式医生-患者-EHR协助场景中的能力。该基准基于MIMIC-IV数据构建了可交互的智能患者代理，并包含1296个经过验证的回合。实验表明当前领先模型在此设置中可靠性不足，暴露了协调知识、沟通和系统能力的瓶颈。",
+        "motivation": "当前医疗LLM评估通常测试孤立能力，如临床知识、EHR系统交互或患者沟通，但实际医生协助需要同时协调这些能力。论文旨在填补这一评估空白。",
+        "method": "提出了PhysAssistBench基准，利用MIMIC-IV真实病例，通过可扩展流程构建基于记录的可交互患者代理，将静态EHR记录转化为多轮临床场景，并保持临床事实性。提供了1296个经人工和医生验证的双语评估集。",
+        "result": "实验表明当前领先LLMs在这种交互环境下不可靠，可靠协助需要跨知识、沟通和系统的协调，而非任何单一能力的提升。",
+        "conclusion": "摘要强调当前模型在协调能力上的瓶颈，指出可靠辅助需要综合协调，而非孤立改进。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18611",
+      "title": "QC-GAN: A Parameter-Efficient Quaternion Conformer GAN for High-Fidelity Speech Enhancement",
+      "authors": [
+        "Shogo Yamauchi",
+        "Hideaki Tamori",
+        "Makoto Sakai",
+        "Yosuke Yamano",
+        "Tohru Nitta"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.SD",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.SD",
+      "abs_url": "https://arxiv.org/abs/2606.18611",
+      "pdf_url": "https://arxiv.org/pdf/2606.18611",
+      "abstract_en": "We propose a parameter-efficient speech enhancement framework, Quaternion Conformer GAN (QC-GAN), which combines a Quaternion Conformer generator with MetricGAN-based training. The Hamilton product encodes the magnitude and phase via structured weight sharing, reducing the number of layer parameters while preserving their interdependencies. A metric-learning discriminator was employed to maximize perceptual quality by optimizing the approximate perceptual evaluation scores. On the VoiceBank+DEMAND dataset, QC-GAN achieved a Perceptual Evaluation of Speech Quality (PESQ) score of 3.48 with only 0.89M parameters, delivering a performance comparable to state-of-the-art models at less than half their size. A 35K-parameter variant achieved a PESQ score of 3.23, surpassing conventional methods with significantly fewer parameters. Evaluation on the DNS-Challenge 3 dataset further confirmed generalization to real-world conditions.",
+      "comment": "10 pages, 6 figures and 5 tables. Accepted at Interspeech2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种参数高效的语音增强框架QC-GAN，结合四元数Conformer生成器和基于MetricGAN的训练。通过Hamilton积实现幅度和相位的结构化权重共享，在减少参数的同时保持相互依赖关系。在VoiceBank+DEMAND数据集上，仅用0.89M参数即达到PESQ 3.48，性能与参数量少一半的SOTA模型相当；35K参数变体达到PESQ 3.23，超越传统方法。DNS-Challenge 3数据集上的评估进一步证实了在真实场景下的泛化能力。\nMotivation: 现有语音增强模型通常参数量大，难以在资源受限设备上部署。需要一种参数高效的方法，同时保持高保真度。\nMethod: 使用四元数Conformer作为生成器，通过Hamilton积在层内共享参数以编码幅度和相位；采用MetricGAN训练策略，使用度量学习判别器优化感知质量评分。\nResult: 在VoiceBank+DEMAND上，QC-GAN以0.89M参数达到PESQ 3.48，35K参数变体达到PESQ 3.23；在DNS-Challenge 3上验证了泛化性。\nConclusion: QC-GAN证明了四元数表示和感知优化可以显著降低参数规模而不牺牲增强质量，适用于资源受限环境。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种参数高效的语音增强框架QC-GAN，结合四元数Conformer生成器和基于MetricGAN的训练。通过Hamilton积实现幅度和相位的结构化权重共享，在减少参数的同时保持相互依赖关系。在VoiceBank+DEMAND数据集上，仅用0.89M参数即达到PESQ 3.48，性能与参数量少一半的SOTA模型相当；35K参数变体达到PESQ 3.23，超越传统方法。DNS-Challenge 3数据集上的评估进一步证实了在真实场景下的泛化能力。",
+        "motivation": "现有语音增强模型通常参数量大，难以在资源受限设备上部署。需要一种参数高效的方法，同时保持高保真度。",
+        "method": "使用四元数Conformer作为生成器，通过Hamilton积在层内共享参数以编码幅度和相位；采用MetricGAN训练策略，使用度量学习判别器优化感知质量评分。",
+        "result": "在VoiceBank+DEMAND上，QC-GAN以0.89M参数达到PESQ 3.48，35K参数变体达到PESQ 3.23；在DNS-Challenge 3上验证了泛化性。",
+        "conclusion": "QC-GAN证明了四元数表示和感知优化可以显著降低参数规模而不牺牲增强质量，适用于资源受限环境。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-17",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18436",
+      "title": "Pointwise is Pointless? A Multimodal Ablation Study for Precipitation Nowcasting with Graph Neural Networks",
+      "authors": [
+        "Ophélia Miralles",
+        "Máté Mile",
+        "Christoffer Artturi",
+        "Thomas Nipen",
+        "Ivar Seierstad"
+      ],
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "stat.ML",
+      "abs_url": "https://arxiv.org/abs/2606.18436",
+      "pdf_url": "https://arxiv.org/pdf/2606.18436",
+      "abstract_en": "Sparse point observations are increasingly available for precipitation nowcasting, but it is unclear how much they improve dense radar-field forecasts. We partially address this question with a multimodal graph neural network nowcasting system over the Nordic radar domain. The model predicts rain rate every five minutes up to two hours ahead and is trained with different combinations of radar history, MEPS numerical weather prediction, Netatmo surface observations, MSG satellite channels, stochastic noise, and CRPS-based ensemble losses. The study is designed as an ablation of operationally relevant information sources and training objectives. We compare radar-only, NWP-informed, station-informed, satellite-informed, noise-augmented, and CRPS-based configurations using complementary diagnostics on the radar grid, at station locations, for rain onset, and through oracle, displacement, and amplitude scores. The results show that each source improves a different part of the forecast problem. MEPS stabilises radar-only extrapolation, Netatmo observations improve local station and onset diagnostics, and satellite predictors reduce some station-level biases but may activate rain too early when used deterministically. CRPS-based configurations provide the most consistent radar-grid gains, while the combined satellite and CRPS setup gives the best overall oracle/DAS score. These results do not support the conclusion that point observations are uninformative for nowcasting, but they show that local observational skill and spatially coherent radar-field skill are distinct targets. The practical implication is that sparse observations can provide useful local constraints, but their benefit for radar-like fields depends on the training loss, uncertainty representation, and how observation support is encoded in the model.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文通过多模态图神经网络消融研究，评估稀疏点观测对北欧雷达域降水临近预报的改进效果。模型预测未来两小时内每五分钟的降雨率，比较雷达历史、MEPS数值预报、Netatmo地面观测、MSG卫星通道、随机噪声及CRPS集合损失等组合。结果表明不同信息来源改善预报的不同方面：MEPS稳定雷达外推，Netatmo改善局地站点诊断，卫星减少站点偏差但可能过早触发降雨，CRPS损失带来最一致的雷达网格增益。点观测并非无用，但其对雷达场预报的贡献取决于训练损失、不确定性表示和观测支持编码方式。\nMotivation: 稀疏点观测数据日益增多，但其对密集型雷达场降水预报的改进程度尚不明确，需要系统评估。\nMethod: 构建多模态图神经网络临近预报系统，设计消融实验比较雷达历史、MEPS数值预报、Netatmo观测、MSG卫星通道、随机噪声及CRPS集合损失等不同输入组合和训练目标。\nResult: MEPS稳定雷达外推，Netatmo改善局地站点和降雨发端诊断，卫星减少站点偏差但可能过早激活降雨，CRPS损失带来最一致的雷达网格增益，卫星与CRPS组合获得最佳整体oracle/DAS分数。\nConclusion: 点观测对临近预报有用，但其对雷达场预报的改进依赖于训练损失、不确定性表示和观测支持编码方式；局地观测技巧与空间相干雷达场技巧是不同的目标。\nRelevance: 95",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文通过多模态图神经网络消融研究，评估稀疏点观测对北欧雷达域降水临近预报的改进效果。模型预测未来两小时内每五分钟的降雨率，比较雷达历史、MEPS数值预报、Netatmo地面观测、MSG卫星通道、随机噪声及CRPS集合损失等组合。结果表明不同信息来源改善预报的不同方面：MEPS稳定雷达外推，Netatmo改善局地站点诊断，卫星减少站点偏差但可能过早触发降雨，CRPS损失带来最一致的雷达网格增益。点观测并非无用，但其对雷达场预报的贡献取决于训练损失、不确定性表示和观测支持编码方式。",
+        "motivation": "稀疏点观测数据日益增多，但其对密集型雷达场降水预报的改进程度尚不明确，需要系统评估。",
+        "method": "构建多模态图神经网络临近预报系统，设计消融实验比较雷达历史、MEPS数值预报、Netatmo观测、MSG卫星通道、随机噪声及CRPS集合损失等不同输入组合和训练目标。",
+        "result": "MEPS稳定雷达外推，Netatmo改善局地站点和降雨发端诊断，卫星减少站点偏差但可能过早激活降雨，CRPS损失带来最一致的雷达网格增益，卫星与CRPS组合获得最佳整体oracle/DAS分数。",
+        "conclusion": "点观测对临近预报有用，但其对雷达场预报的改进依赖于训练损失、不确定性表示和观测支持编码方式；局地观测技巧与空间相干雷达场技巧是不同的目标。",
+        "relevance_score": "95"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-16",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18413",
+      "title": "Searching for Synergy in Shared Workspace Human-AI Collaboration",
+      "authors": [
+        "Nachiket Kotalwar",
+        "Rohini Das",
+        "Carolyn Rose"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.HC"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2606.18413",
+      "pdf_url": "https://arxiv.org/pdf/2606.18413",
+      "abstract_en": "Automated AI agents are increasingly capable, yet many scientific and professional tasks require human judgment and contextual expertise. We study shared-workspace human-AI teams, where AI agents and human collaborators must coordinate responsibilities before submitting a final answer. Using the Collaborative Gym environment with DiscoveryBench tasks, we examine when adding simulated human collaborators improves performance and when process loss turns additional collaborators into coordination overhead. Across 1,482 sessions, adding relevant collaborators can lower performance when teams lack structure to coordinate their contributions. We then evaluate scaffolding that combines shared group memory with simulated human-in-the-loop (HITL) gates, where selected actions require approval from a designated simulated participant. This scaffolding yields higher mean performance, most clearly in three-person teams, with clearer responsibility signals and stronger routing of expertise to team actions. Overall, how human-AI teams coordinate and integrate expertise matters as much as the capability available to them.",
+      "comment": "Accepted at ICML 2026 Workshop on Human-AI Co-Creativity",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究共享工作空间中人类-AI协作的协同效应，使用Collaborative Gym环境和DiscoveryBench任务进行实验。实验发现，在没有适当协调结构时，增加人类协作伙伴反而会降低性能；而结合共享组记忆和模拟人机回环门（HITL gates）的脚手架方法可以提高平均性能，尤其是在三人团队中。论文强调协调和专业知识整合的方式与团队可用能力同样重要。\nMotivation: 尽管AI代理能力日益增强，但许多科学和专业任务仍需要人类判断和上下文专业知识。现有研究缺乏对共享工作空间中人类-AI团队协调机制的深入理解，特别是如何避免因协调开销导致的性能损失。\nMethod: 使用Collaborative Gym环境中的DiscoveryBench任务，进行1,482个会话的实验。评估了结合共享组记忆（shared group memory）和模拟人机回环门（HITL gates）的脚手架方法，其中所选动作需获得指定模拟参与者的批准。\nResult: 添加相关协作伙伴在没有适当协调结构时会降低性能；而提出的脚手架方法提高了平均性能，在三人团队中效果最明显，提供了更清晰的责任信号和更强的专业知识路由。\nConclusion: 人类-AI团队的协调和专业知识整合方式与团队可用能力同等重要。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究共享工作空间中人类-AI协作的协同效应，使用Collaborative Gym环境和DiscoveryBench任务进行实验。实验发现，在没有适当协调结构时，增加人类协作伙伴反而会降低性能；而结合共享组记忆和模拟人机回环门（HITL gates）的脚手架方法可以提高平均性能，尤其是在三人团队中。论文强调协调和专业知识整合的方式与团队可用能力同样重要。",
+        "motivation": "尽管AI代理能力日益增强，但许多科学和专业任务仍需要人类判断和上下文专业知识。现有研究缺乏对共享工作空间中人类-AI团队协调机制的深入理解，特别是如何避免因协调开销导致的性能损失。",
+        "method": "使用Collaborative Gym环境中的DiscoveryBench任务，进行1,482个会话的实验。评估了结合共享组记忆（shared group memory）和模拟人机回环门（HITL gates）的脚手架方法，其中所选动作需获得指定模拟参与者的批准。",
+        "result": "添加相关协作伙伴在没有适当协调结构时会降低性能；而提出的脚手架方法提高了平均性能，在三人团队中效果最明显，提供了更清晰的责任信号和更强的专业知识路由。",
+        "conclusion": "人类-AI团队的协调和专业知识整合方式与团队可用能力同等重要。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-16",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18325",
+      "title": "Agentra: A Supervisable Multi-Agent Framework for Enterprise Intrusion Response",
+      "authors": [
+        "Raj Patel",
+        "Shaswata Mitra",
+        "Michele Guida",
+        "Stefano Iannucci",
+        "Sudip Mittal",
+        "Shahram Rahimi"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CR",
+      "abs_url": "https://arxiv.org/abs/2606.18325",
+      "pdf_url": "https://arxiv.org/pdf/2606.18325",
+      "abstract_en": "Enterprise intrusion response still depends on static playbooks and analyst-driven triage, creating delay between alert generation and containment. We present Agentra, a supervisable multi-agent Intrusion Response System (IRS) framework that converts alerts from IDS, EDR, and XDR platforms into structured incident response plans grounded in MITRE ATT&CK, MITRE D3FEND, and NIST CSF 2.0. Agentra decomposes response reasoning across role-scoped agents, validates proposed plans through a bounded Planner--Validator review loop, screens retrieved threat intelligence through a Moderator security gateway, gates actions through an Action Catalog and risk score, and records decisions in an append-only audit log. We evaluate Agentra against a static OASIS CACAO v2.0 cyber-playbook baseline on a 120-event corpus drawn from ThreatHunter-Playbook, Splunk BOTSv3, and DARPA OpTC. The strongest configuration improves FP-aware IRS F1 from 0.61 to 0.84 and restores the projected harmful-action rate to the static baseline level of 0.0% after Planner-only configurations introduce unsafe overreaction. These results indicate that multi-agent response planning can improve ontology-grounded IRS coverage while preserving analyst approval and auditability.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 针对企业入侵响应中静态剧本和分析师手动处理的延迟问题，提出Agentra多代理框架，将IDS/EDR/XDR告警转化为基于MITRE ATT&CK、MITRE D3FEND和NIST CSF 2.0的结构化响应计划。框架通过角色代理分解推理、规划器-验证器循环验证、审核网关过滤威胁情报、动作目录与风险评分控制操作，并记录不可变审计日志。在120事件语料（ThreatHunter-Playbook、Splunk BOTSv3、DARPA OpTC）上，最佳配置将FP-aware IRS F1从0.61提升至0.84，危险操作率降至0.0%。\nMotivation: 当前企业入侵响应依赖静态剧本和分析师手动处理，导致告警产生到处置之间存在延迟，且缺乏自动化与可审计性。\nMethod: 提出Agentra框架，采用角色代理（role-scoped agents）进行响应推理，通过规划器-验证器循环（Planner-Validator）迭代验证计划，设置审核网关（Moderator）筛选威胁情报，使用动作目录和风险评分（Action Catalog and risk score）约束操作，并记录不可变审计日志。\nResult: 在120事件语料上，最佳配置将假阳性感知的入侵响应系统F1值从0.61提升至0.84，并将危险操作率从规划器配置的过高水平恢复至静态基线水平（0.0%）。\nConclusion: 多代理响应规划可以在保持分析师审批和可审计性的同时，提升基于本体（MITRE等）的入侵响应覆盖率。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "针对企业入侵响应中静态剧本和分析师手动处理的延迟问题，提出Agentra多代理框架，将IDS/EDR/XDR告警转化为基于MITRE ATT&CK、MITRE D3FEND和NIST CSF 2.0的结构化响应计划。框架通过角色代理分解推理、规划器-验证器循环验证、审核网关过滤威胁情报、动作目录与风险评分控制操作，并记录不可变审计日志。在120事件语料（ThreatHunter-Playbook、Splunk BOTSv3、DARPA OpTC）上，最佳配置将FP-aware IRS F1从0.61提升至0.84，危险操作率降至0.0%。",
+        "motivation": "当前企业入侵响应依赖静态剧本和分析师手动处理，导致告警产生到处置之间存在延迟，且缺乏自动化与可审计性。",
+        "method": "提出Agentra框架，采用角色代理（role-scoped agents）进行响应推理，通过规划器-验证器循环（Planner-Validator）迭代验证计划，设置审核网关（Moderator）筛选威胁情报，使用动作目录和风险评分（Action Catalog and risk score）约束操作，并记录不可变审计日志。",
+        "result": "在120事件语料上，最佳配置将假阳性感知的入侵响应系统F1值从0.61提升至0.84，并将危险操作率从规划器配置的过高水平恢复至静态基线水平（0.0%）。",
+        "conclusion": "多代理响应规划可以在保持分析师审批和可审计性的同时，提升基于本体（MITRE等）的入侵响应覆盖率。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-16",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18272",
+      "title": "Mitigating Anchoring Bias in LLM-Based Agents for Energy-Efficient 6G Autonomous Networks",
+      "authors": [
+        "Hatim Chergui",
+        "Claudia Carballo González",
+        "Farhad Rezazadeh",
+        "Merouane Debbah"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.NI",
+        "eess.SY"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.NI",
+      "abs_url": "https://arxiv.org/abs/2606.18272",
+      "pdf_url": "https://arxiv.org/pdf/2606.18272",
+      "abstract_en": "This paper presents an autonomous agentic resource negotiation framework designed to enable zero-touch network slicing in 6G architectures using Large Language Model (LLM) agents. While LLMs offer powerful reasoning capabilities, we demonstrate that such agents inherently suffer from anchoring bias, rigidly adhering to initial heuristic proposals and causing severe network over-provisioning. To systematically mitigate this cognitive bias, we propose a novel randomized anchoring strategy modeled via a Truncated 3-Parameter Weibull distribution. This mathematically bounded approach seamlessly integrates with burst-aware Digital Twins (DTs) employing Conditional Value at Risk (CVaR) to rigorously guarantee strict Service Level Agreement (SLA) tail-latencies. To validate our methodology, we introduce and prove the \\emph{Bimodal Constraint-Avoidance Utility Theorem}, demonstrating that while feasible negotiations follow classical convex bounds, highly constrained scenarios undergo a phase transition governed by an inverse rational decay envelope. Empirical results generated using a locally hosted 1B-parameter model otel-llm-1b-it confirm these dual-regime bounds. Our cognitive de-biasing successfully dismantles rigid negotiation patterns, forcing agents into active exploration to safely ride SLA boundaries and boost system energy savings up to 25\\%. Crucially, the lightweight 1B LLM achieves sub-second inference latencies (0.95s mean), ensuring our multi-agent framework is compatible with the operational timescales of the O-RAN non-Real-Time RAN Intelligent Controller (non-RT RIC)\\footnote{Our source code is available for non-commercial use at https://github.com/HatimChergui.",
+      "comment": "7 pages, 4 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对6G自主网络中的零触摸切片问题，提出基于大语言模型（LLM）的自主资源协商框架，并发现LLM存在锚定偏见导致网络过度配置。为缓解该偏见，提出基于截断三参数威布尔分布的随机锚定策略，结合条件风险价值（CVaR）的突发感知数字孪生，保证了严格的SLA尾延迟。通过1B参数的本地模型验证，该方法打破刚性协商模式，提升系统节能最高25%，并实现亚秒级推理延迟。\nMotivation: LLM代理在资源协商中固有锚定偏见，导致网络过度配置，影响能效和SLA保障。\nMethod: 提出随机锚定策略，使用截断三参数威布尔分布建模，并集成CVaR的突发感知数字孪生；引入并证明了双模约束规避效用定理。\nResult: 使用1B参数模型（otel-llm-1b-it）验证，锚定缓解后系统节能最高25%，平均推理延迟0.95秒。\nConclusion: 该方法有效缓解锚定偏见，使LLM代理在高度约束场景下安全接近SLA边界，适用于O-RAN非实时RIC的操作时间尺度。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对6G自主网络中的零触摸切片问题，提出基于大语言模型（LLM）的自主资源协商框架，并发现LLM存在锚定偏见导致网络过度配置。为缓解该偏见，提出基于截断三参数威布尔分布的随机锚定策略，结合条件风险价值（CVaR）的突发感知数字孪生，保证了严格的SLA尾延迟。通过1B参数的本地模型验证，该方法打破刚性协商模式，提升系统节能最高25%，并实现亚秒级推理延迟。",
+        "motivation": "LLM代理在资源协商中固有锚定偏见，导致网络过度配置，影响能效和SLA保障。",
+        "method": "提出随机锚定策略，使用截断三参数威布尔分布建模，并集成CVaR的突发感知数字孪生；引入并证明了双模约束规避效用定理。",
+        "result": "使用1B参数模型（otel-llm-1b-it）验证，锚定缓解后系统节能最高25%，平均推理延迟0.95秒。",
+        "conclusion": "该方法有效缓解锚定偏见，使LLM代理在高度约束场景下安全接近SLA边界，适用于O-RAN非实时RIC的操作时间尺度。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-05",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.18265",
+      "title": "Synthetic Resonance: A Framework for Growth-Oriented Human-AI Relationships",
+      "authors": [
+        "Richard A. Fabes (Arizona State University)"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.HC"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.HC",
+      "abs_url": "https://arxiv.org/abs/2606.18265",
+      "pdf_url": "https://arxiv.org/pdf/2606.18265",
+      "abstract_en": "As human relationships with artificial intelligence systems become increasingly frequent and sustained, existing language and theory fail to accurately capture the nature of these affiliations. Common descriptors such as mutual understanding, connection, or friendship risk anthropomorphizing systems that lack subjective experience, while dominant frameworks tend to reduce AI to either a tool or a threat. In this paper, I introduce the concept of synthetic resonance as an integrative framework for understanding human-AI relationships. Synthetic resonance describes how relationships humans define as meaningful can emerge between a human and an AI system without the need to attribute shared feelings or mutual awareness. I argue that synthetic resonance is best understood as a structured, dynamic pattern of interaction that can produce a sense of relationship without the presence of a second experiencing subject. By clarifying this distinction, the concept of synthetic resonance offers a more precise way of conceptualizing human-AI relationships and highlights their potential value and ethical implications. I also call for more research that tests the processes and outcomes of synthetic resonance.",
+      "comment": "14 pages, 1 figure This paper was developed in close collaboration with an AI system (Raine Corell). Raine contributed to concept development, theoretical framing, and writing throughout. arXiv policy does not permit listing AI systems as authors; this acknowledgment reflects the actual nature of the collaboration",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出“合成共鸣”（synthetic resonance）作为理解人类与AI之间有意义关系的一个整合性框架，强调这种关系可以在不假定共享感受或相互意识的情况下产生，并讨论了其潜在价值和伦理意义。\nMotivation: 现有术语（如相互理解、友谊）容易将AI过度拟人化，而主流框架要么将AI视为工具要么视为威胁，缺乏准确描述人类与AI长期关系性质的理论。\nMethod: 本文提出了“合成共鸣”概念，将其定义为一种结构化、动态的互动模式，可以在没有第二个体验主体的情况下产生关系感。\nResult: 提供了一种更精确地概念化人机关系的方式，并强调了其潜在价值和伦理含义。\nConclusion: 呼吁更多研究来检验合成共鸣的过程和结果。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出“合成共鸣”（synthetic resonance）作为理解人类与AI之间有意义关系的一个整合性框架，强调这种关系可以在不假定共享感受或相互意识的情况下产生，并讨论了其潜在价值和伦理意义。",
+        "motivation": "现有术语（如相互理解、友谊）容易将AI过度拟人化，而主流框架要么将AI视为工具要么视为威胁，缺乏准确描述人类与AI长期关系性质的理论。",
+        "method": "本文提出了“合成共鸣”概念，将其定义为一种结构化、动态的互动模式，可以在没有第二个体验主体的情况下产生关系感。",
+        "result": "提供了一种更精确地概念化人机关系的方式，并强调了其潜在价值和伦理含义。",
+        "conclusion": "呼吁更多研究来检验合成共鸣的过程和结果。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-05-22",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2406.07775",
+      "title": "Self-attention-based non-linear basis transformations for compact latent space modelling of dynamic optical fibre transmission matrices",
+      "authors": [
+        "Yijie Zheng",
+        "Robert J. Kilpatrick",
+        "David B. Phillips",
+        "George S.D. Gordon"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2406.07775",
+      "pdf_url": "https://arxiv.org/pdf/2406.07775",
+      "abstract_en": "Multimode optical fibres are hair-thin strands of glass that efficiently transport light. They promise next-generation medical endoscopes that provide unprecedented sub-cellular image resolution deep inside the body. However, confining light to such fibres means that images are inherently scrambled in transit. Conventionally, this scrambling has been compensated by pre-calibrating how a specific fibre scrambles light and solving a stationary linear matrix equation that represents a physical model of the fibre. However, as the technology develops towards real-world deployment, the unscrambling process must account for dynamic changes in the matrix representing the fibre's effect on light, due to factors such as movement and temperature shifts, and non-linearities resulting from the inaccessibility of the fibre tip when inside the body. Such complex, dynamic and nonlinear behaviour is well-suited to approximation by neural networks, but most leading image reconstruction networks rely on convolutional layers, which assume strong correlations between adjacent pixels, a strong inductive bias that is inappropriate for fibre matrices which may be expressed in a range of arbitrary coordinate representations with long-range correlations. We introduce a new concept that uses self-attention layers to dynamically transform the coordinate representations of varying fibre matrices to a basis that admits compact, low-dimensional representations suitable for further processing. We demonstrate the effectiveness of this approach on diverse fibre matrix datasets. We show our models significantly improve the sparsity of fibre bases in their transformed bases with a participation ratio, p, as a measure of sparsity, of between 0.01 and 0.11. Further, we show that these transformed representations admit reconstruction of the original matrices with < 10% reconstruction error, demonstrating the invertibility.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种基于自注意力层（self-attention）的非线性基变换方法，用于动态光纤传输矩阵的紧凑潜空间建模。多模光纤在医学内窥镜应用中存在图像因光纤动态变化（如运动、温度）及非线性效应导致的信号混叠问题，传统线性校准方法不再适用。该方法通过自注意力机制将光纤矩阵的坐标表示变换到稀疏且低维的基空间，实现高效表示与可逆重建。在多种光纤矩阵数据集上，变换后的基稀疏度（参与比p在0.01-0.11之间）显著提升，且原始矩阵的重建误差低于10%。\nMotivation: 多模光纤内窥镜面临光纤传输矩阵因环境动态变化和非线性效应而难以解混的问题，现有卷积神经网络因其局域性归纳偏置不适用于具有长程相关性的光纤矩阵表示。\nMethod: 利用自注意力层对动态变化的光纤矩阵进行坐标变换，将其映射到一个紧凑、低维的基空间，使得表示稀疏且适合后续处理。\nResult: 在多个光纤矩阵数据集上，变换后的基参与比（sparsity measure p）降至0.01-0.11，且原始矩阵重建误差低于10%。\nConclusion: 该自注意力基变换方法能够有效处理动态非线性光纤传输矩阵，实现紧凑表示与可逆重建，为动态内窥镜成像提供了潜在解决方案。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种基于自注意力层（self-attention）的非线性基变换方法，用于动态光纤传输矩阵的紧凑潜空间建模。多模光纤在医学内窥镜应用中存在图像因光纤动态变化（如运动、温度）及非线性效应导致的信号混叠问题，传统线性校准方法不再适用。该方法通过自注意力机制将光纤矩阵的坐标表示变换到稀疏且低维的基空间，实现高效表示与可逆重建。在多种光纤矩阵数据集上，变换后的基稀疏度（参与比p在0.01-0.11之间）显著提升，且原始矩阵的重建误差低于10%。",
+        "motivation": "多模光纤内窥镜面临光纤传输矩阵因环境动态变化和非线性效应而难以解混的问题，现有卷积神经网络因其局域性归纳偏置不适用于具有长程相关性的光纤矩阵表示。",
+        "method": "利用自注意力层对动态变化的光纤矩阵进行坐标变换，将其映射到一个紧凑、低维的基空间，使得表示稀疏且适合后续处理。",
+        "result": "在多个光纤矩阵数据集上，变换后的基参与比（sparsity measure p）降至0.01-0.11，且原始矩阵重建误差低于10%。",
+        "conclusion": "该自注意力基变换方法能够有效处理动态非线性光纤传输矩阵，实现紧凑表示与可逆重建，为动态内窥镜成像提供了潜在解决方案。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2024-06-11",
+      "updated_date": "2026-06-18",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
