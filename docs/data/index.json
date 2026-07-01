@@ -4,9 +4,10 @@
     "subtitle": "Daily arXiv Summary Hub",
     "description": "Personal daily arXiv reader with Chinese summaries.",
     "base_url": "/Dash/",
-    "generated_at": "2026-06-30T07:25:10Z"
+    "generated_at": "2026-07-01T07:16:13Z"
   },
   "available_dates": [
+    "2026-07-01",
     "2026-06-30",
     "2026-06-29",
     "2026-06-26",
@@ -42,6 +43,7 @@
     "physics.ao-ph"
   ],
   "counts_by_date": {
+    "2026-07-01": 732,
     "2026-06-30": 1396,
     "2026-06-29": 489,
     "2026-06-26": 585,
@@ -69,6 +71,6 @@
     "2026-06-01": 921,
     "2026-05-25": 623
   },
-  "latest_date": "2026-06-30",
+  "latest_date": "2026-07-01",
   "mode": "daily_snapshot"
 }
