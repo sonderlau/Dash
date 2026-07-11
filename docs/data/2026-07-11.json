@@ -1,0 +1,396 @@
+{
+  "date": "2026-07-11",
+  "snapshot_date": "2026-07-11",
+  "generated_at": "2026-07-11T05:29:44Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 8,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 6,
+    "cs.CV": 2
+  },
+  "summary_status_counts": {
+    "ok": 8
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 525
+  },
+  "papers": [
+    {
+      "id": "2607.07370",
+      "title": "Behavior Foundations for Quadruped Robots: ABot-C0 Technical Report",
+      "authors": [
+        "Xufeng Zhao",
+        "Fuzhi Yang",
+        "Jianhui Chen",
+        "Li Gao",
+        "Zhang Meng",
+        "Jie Gao",
+        "Yao Zheng",
+        "Congyang Zhao",
+        "Tianxiong Lv",
+        "Menglin Yang",
+        "Minqi Gu",
+        "Yaru Zhao",
+        "Wenyu Liu",
+        "Honglin Han",
+        "Shihui Su",
+        "Zixiao Tang",
+        "Liu Liu",
+        "Mu Xu",
+        "Yang Cai",
+        "Wenbin Tang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.HC",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2607.07370",
+      "pdf_url": "https://arxiv.org/pdf/2607.07370",
+      "abstract_en": "The motion controller is one of the most fundamental modules in embodied intelligence systems. Driven by large-scale human motion-capture data and the motion-tracking paradigm, humanoid control has achieved remarkable progress in recent years. However, migrating this recipe to the quadrupedal setting is far less straightforward: animal motion data is scarcer and harder to capture at scale than human data, and cross-embodiment retargeting remains fragile. We present ABot-C0, a generalist motion-control system for quadruped robots that establishes three complementary behavior foundations: a scalable multi-source motion-data pipeline, robust policy learning across motion tracking, locomotion, and scene interaction, and a unified deployment stack for reliable real-world operation. Fundamentally, we construct a data pyramid through conditional video-generation synthesis, annotated motion capture, teleoperation, and human design, producing 16,074 physically feasible motion clips as the data foundation for diverse motion-learning demands. With large-scale motion data, a Flow-Matching generalist policy demonstrates, for the first time, a scaling law for quadruped motion tracking: performance improves consistently as training scales up, with zero-shot capability to track unseen motions. We then go a step further toward robust all-terrain locomotion by adopting a three-stage privileged-to-perceptive framework with temporal LiDAR memory and terrain-predictive supervision. Collectively, these components form a motion generalist that coordinates multi-policy execution, smooth behavior transitions, energy-efficient control, and safety mechanisms for real-world deployment. Extensive experiments on urban-terrain autonomous navigation and companion-style multimodal interaction demonstrate that quadruped robots can move beyond functional demos toward product-level behavioral intelligence.",
+      "comment": "Abot-C0 project page will be released soon",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: ABot-C0是一个面向四足机器人的通用运动控制系统，通过构建包含16,074个运动片段的数据金字塔（视频生成合成、动作捕捉、遥操作等），并采用Flow-Matching通用策略训练策略，首次展示了四足运动追踪的规模定律：性能随训练规模一致提升，且零样本追踪未见过的动作。系统还集成了三阶段特权到感知框架（时间LiDAR记忆+地形预测监督），实现全地形鲁棒运动。实验表明该系统能在城市自主导航和陪伴式多模态交互中达到产品级行为智能。\nMotivation: 动物运动数据比人类数据稀缺且难以大规模捕获，跨具身重定向脆弱，导致将人体运动追踪的成功配方迁移到四足场景面临挑战。\nMethod: 构建数据金字塔：条件视频生成合成、标注动作捕捉、遥操作和人工设计产生16,074个可行运动片段。使用Flow-Matching通用策略训练，并引入三阶段特权到感知框架（时间LiDAR记忆+地形预测监督）实现全地形运动。\nResult: 首次证实四足运动追踪的规模定律：训练规模增大时性能一致提升，零样本追踪未见过的动作；城市自主导航和陪伴式交互实验达到产品级行为智能。\nConclusion: ABot-C0通过多策略协调、平滑行为转换、节能控制和安全机制，使四足机器人超越功能演示，实现产品级行为智能。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "ABot-C0是一个面向四足机器人的通用运动控制系统，通过构建包含16,074个运动片段的数据金字塔（视频生成合成、动作捕捉、遥操作等），并采用Flow-Matching通用策略训练策略，首次展示了四足运动追踪的规模定律：性能随训练规模一致提升，且零样本追踪未见过的动作。系统还集成了三阶段特权到感知框架（时间LiDAR记忆+地形预测监督），实现全地形鲁棒运动。实验表明该系统能在城市自主导航和陪伴式多模态交互中达到产品级行为智能。",
+        "motivation": "动物运动数据比人类数据稀缺且难以大规模捕获，跨具身重定向脆弱，导致将人体运动追踪的成功配方迁移到四足场景面临挑战。",
+        "method": "构建数据金字塔：条件视频生成合成、标注动作捕捉、遥操作和人工设计产生16,074个可行运动片段。使用Flow-Matching通用策略训练，并引入三阶段特权到感知框架（时间LiDAR记忆+地形预测监督）实现全地形运动。",
+        "result": "首次证实四足运动追踪的规模定律：训练规模增大时性能一致提升，零样本追踪未见过的动作；城市自主导航和陪伴式交互实验达到产品级行为智能。",
+        "conclusion": "ABot-C0通过多策略协调、平滑行为转换、节能控制和安全机制，使四足机器人超越功能演示，实现产品级行为智能。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-08",
+      "updated_date": "2026-07-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.06772",
+      "title": "Efficient Long-Horizon Learning for Learned Optimization",
+      "authors": [
+        "Xiaolong Huang",
+        "Benjamin Thérien",
+        "James Harrison",
+        "Eugene Belilovsky"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.06772",
+      "pdf_url": "https://arxiv.org/pdf/2607.06772",
+      "abstract_en": "Learned optimization aims to improve upon hand-designed optimizers (e.g., Adam and Muon) by meta-learning small neural network optimizers over a distribution of tasks. While recent work has greatly advanced the architectural design and inductive biases of learned optimizers (LOs), current meta-training approaches still suffer from two main difficulties: (1) they cannot efficiently scale meta-training to long-horizon inner problems and (2) they often fail to compete with strong hand-designed optimizers. To address these limitations, we propose Efficient Long-hOrizon (ELO) learning, an efficient meta-training algorithm that (1) reallocates redundant meta-training compute to longer failure regimes, achieving efficient long-horizon learning, and (2) enforces decoupled progressive expert supervision, providing stable meta-learning signals that additionally improve the generalization of LOs. Our empirical study evaluates ELO for meta-training both element-wise and matrix-based LOs. Across downstream language modeling (GPT-2-124M/350M on FineWeb) and image classification (ViT-B/16, ResNet-50 on ImageNet-1K) tasks, ELO substantially improves the long-unroll performance and out-of-distribution generalization of the base LOs. In particular, ELO-Celo2 consistently outperforms well-tuned AdamW across all evaluated tasks, while remaining competitive with Muon on language modeling. \\textit{Notably, all ELO baselines require less than 7 H100 GPU-hours for meta-training.}",
+      "comment": "Meta-learning, learned optimization",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出高效长视野学习（ELO）算法，用于元训练学习优化器（learned optimizer），解决现有方法无法高效扩展至长内循环问题以及与手工优化器竞争不足的困难。通过重新分配冗余计算至长失败模式并采用解耦渐进专家监督，ELO在语言建模和图像分类任务上显著提升优化器性能，且元训练计算开销极小（<7 H100 GPU-hours）。\nMotivation: 当前学习优化器的元训练方法难以高效处理长内循环问题，且在性能上常不及AdamW等手工优化器，需要一种能稳定扩展至长视野并提升泛化能力的元训练算法。\nMethod: ELO算法包含两个关键组件：(1) 将元训练中冗余的计算重新分配至长失败模式，实现高效长视野学习；(2) 采用解耦渐进专家监督（decoupled progressive expert supervision），提供稳定元学习信号并改善泛化。\nResult: 在GPT-2-124M/350M语言建模（FineWeb）和ViT-B/16、ResNet-50图像分类（ImageNet-1K）任务中，ELO显著提升了基础优化器的长展开性能和分布外泛化。ELO-Celo2在所有任务上一致优于调优的AdamW，且在语言建模上与Muon竞争。\nConclusion: ELO提供了一种计算高效的元训练范式，使学习优化器在长视野任务中达到或超越强手工基线，但当前评估限于中等规模模型和基准。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出高效长视野学习（ELO）算法，用于元训练学习优化器（learned optimizer），解决现有方法无法高效扩展至长内循环问题以及与手工优化器竞争不足的困难。通过重新分配冗余计算至长失败模式并采用解耦渐进专家监督，ELO在语言建模和图像分类任务上显著提升优化器性能，且元训练计算开销极小（<7 H100 GPU-hours）。",
+        "motivation": "当前学习优化器的元训练方法难以高效处理长内循环问题，且在性能上常不及AdamW等手工优化器，需要一种能稳定扩展至长视野并提升泛化能力的元训练算法。",
+        "method": "ELO算法包含两个关键组件：(1) 将元训练中冗余的计算重新分配至长失败模式，实现高效长视野学习；(2) 采用解耦渐进专家监督（decoupled progressive expert supervision），提供稳定元学习信号并改善泛化。",
+        "result": "在GPT-2-124M/350M语言建模（FineWeb）和ViT-B/16、ResNet-50图像分类（ImageNet-1K）任务中，ELO显著提升了基础优化器的长展开性能和分布外泛化。ELO-Celo2在所有任务上一致优于调优的AdamW，且在语言建模上与Muon竞争。",
+        "conclusion": "ELO提供了一种计算高效的元训练范式，使学习优化器在长视野任务中达到或超越强手工基线，但当前评估限于中等规模模型和基准。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-07",
+      "updated_date": "2026-07-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.06655",
+      "title": "Pelican-VLA 0.5: Attending Before Acting Benefits Generalization",
+      "authors": [
+        "Zeyuan Ding",
+        "Wenhai Liu",
+        "Yang Xu",
+        "Jiayu Hu",
+        "Yinda Chen",
+        "Yi Zhang",
+        "Yong Dai",
+        "Jian Tang",
+        "Xiaozhu Ju"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2607.06655",
+      "pdf_url": "https://arxiv.org/pdf/2607.06655",
+      "abstract_en": "In this report, we present Pelican-VLA 0.5, a unified VLA model that integrates vision-language understanding, future-frame generation, and action prediction within a single architecture. Pelican-VLA 0.5 achieves attention-level generalization: without object annotations, segmentation masks, attention supervision, or task-specific fine-tuning, its action pathway already focuses on the manipulation-relevant object and contact region. This behavior persists across unseen scenes and unseen robot embodiments, and is substantially stronger than in other open-source VLA baselines. We verify that this ability originates from the learnable Bottleneck Token inserted between perception and action: by routing task-relevant visual information through a compact bottleneck, the tokens interface induces manipulation-centric attention during pre-training and remains effective across different policy structures, including a MoT-style architecture.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出Pelican-VLA 0.5，一个统一的视觉-语言-动作模型（VLA），融合视觉-语言理解、未来帧生成和动作预测。摘要显示，无需对象标注、注意力监督或任务特定微调，该模型的动作通路即可自动聚焦于操作相关对象和接触区域，且该泛化能力在未见场景和未见机器人形态上显著强于其他开源VLA基线。该能力源于感知与动作之间插入的可学习Bottleneck Token，通过紧凑瓶颈路由任务相关信息，在预训练期间诱导以操作为中心的注意力。\nMotivation: 现有VLA模型在动作预测时缺乏对操作相关对象的聚焦注意力，泛化能力有限，通常需要对象标注或注意力监督。\nMethod: 在感知与动作之间插入一个可学习的Bottleneck Token，通过紧凑瓶颈路由任务相关的视觉信息，使接口token在预训练期间诱导以操作为中心的注意力，并适用于不同策略结构（如MoT架构）。\nResult: 摘要报告在未见场景和未见机器人形态上，Pelican-VLA 0.5的注意力泛化能力显著强于其他开源VLA基线，且无需任何对象标注或注意力监督。\nConclusion: 摘要强调Bottleneck Token机制是注意力泛化能力的来源，且该机制在不同策略结构中均保持有效。论文为技术报告，可能缺乏全面的基准测试对比。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出Pelican-VLA 0.5，一个统一的视觉-语言-动作模型（VLA），融合视觉-语言理解、未来帧生成和动作预测。摘要显示，无需对象标注、注意力监督或任务特定微调，该模型的动作通路即可自动聚焦于操作相关对象和接触区域，且该泛化能力在未见场景和未见机器人形态上显著强于其他开源VLA基线。该能力源于感知与动作之间插入的可学习Bottleneck Token，通过紧凑瓶颈路由任务相关信息，在预训练期间诱导以操作为中心的注意力。",
+        "motivation": "现有VLA模型在动作预测时缺乏对操作相关对象的聚焦注意力，泛化能力有限，通常需要对象标注或注意力监督。",
+        "method": "在感知与动作之间插入一个可学习的Bottleneck Token，通过紧凑瓶颈路由任务相关的视觉信息，使接口token在预训练期间诱导以操作为中心的注意力，并适用于不同策略结构（如MoT架构）。",
+        "result": "摘要报告在未见场景和未见机器人形态上，Pelican-VLA 0.5的注意力泛化能力显著强于其他开源VLA基线，且无需任何对象标注或注意力监督。",
+        "conclusion": "摘要强调Bottleneck Token机制是注意力泛化能力的来源，且该机制在不同策略结构中均保持有效。论文为技术报告，可能缺乏全面的基准测试对比。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-07",
+      "updated_date": "2026-07-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.06629",
+      "title": "STST-JEPA: Shallow-Target Spatio-Temporal Joint Embedding Prediction Architecture For EEG Self-Supervised Learning",
+      "authors": [
+        "Roy Segal",
+        "Yoni Svechinsky",
+        "Tomer Fekete"
+      ],
+      "categories": [
+        "cs.LG",
+        "q-bio.NC"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.06629",
+      "pdf_url": "https://arxiv.org/pdf/2607.06629",
+      "abstract_en": "Brain age - the age inferred from a physiological recording - is an emerging biomarker whose deviation from chronological age tracks neurological and psychiatric burden, and EEG is an attractive substrate for it because it is cheap, portable, and temporally rich. Yet EEG brain-age models must contend with cross-site montage heterogeneity, small labelled cohorts, and dominant subject-level non-stationarity, and few EEG foundation models have been shown to deliver competitive age regression across the full pediatric to older adult range in which such a biomarker would actually be deployed. We introduce STST-JEPA, a self-supervised transformer for resting-state and task EEG, pretrained on 47,703 sessions spanning ages 5-81 from the brain.space and Healthy Brain Network (HBN) corpora. The model combines a latent-prediction objective - predicting masked-token representations against an EMA-of-tokenizer target - with an auxiliary signal-reconstruction term, applied to 30-second multi-channel windows under spatiotemporal block masks. A lightweight attentive probe trained on frozen pretrained embeddings achieves a best held-out-validation mean absolute error of 3.06 years (r = 0.924) for age regression on 3,367 sessions, against a predict-the-mean baseline of approximately 10 years MAE. With light task-specific finetuning of the model's final layers, the same pretrained encoder achieves rank-1 placements - with the model's native 30-second windows - on the public NeuralBench x brain.space EEG leaderboard for sex classification (balanced accuracy 0.911), age prediction (r = 0.749), and psychopathology composite regression (r = 0.215). We further show that the model's age-prediction residual is negatively correlated with cognitive efficiency over several tasks we examined.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 STST-JEPA，一种用于 EEG 的自监督 transformer 模型，在 47,703 次会话上预训练，年龄范围 5-81 岁。模型结合 masked-token 预测和信号重建目标，在年龄回归上达到 3.06 年 MAE（r=0.924），并在 NeuralBench 排行榜上获得多项第一。年龄预测残差与认知效率负相关。\nMotivation: EEG 脑年龄模型面临跨站点异构性、标注数据少和个体非平稳性挑战，且现有模型难以在儿科到老年全年龄段实现竞争性年龄回归。\nMethod: 提出基于 JEPA 的自监督框架，使用 EMA 目标网络预测掩码 token 表示，并附加信号重建损失；输入为 30 秒多通道窗口，采用时空块掩码。\nResult: 在 3,367 次验证会话上年龄回归 MAE 为 3.06 年（r=0.924），对比均值基线约 10 年；在 NeuralBench 排行榜上，性别分类平衡准确率 0.911，年龄预测 r=0.749，精神病理学复合回归 r=0.215。\nConclusion: STST-JEPA 能有效学习 EEG 表征，年龄预测残差与认知效率负相关，具有临床应用潜力。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 STST-JEPA，一种用于 EEG 的自监督 transformer 模型，在 47,703 次会话上预训练，年龄范围 5-81 岁。模型结合 masked-token 预测和信号重建目标，在年龄回归上达到 3.06 年 MAE（r=0.924），并在 NeuralBench 排行榜上获得多项第一。年龄预测残差与认知效率负相关。",
+        "motivation": "EEG 脑年龄模型面临跨站点异构性、标注数据少和个体非平稳性挑战，且现有模型难以在儿科到老年全年龄段实现竞争性年龄回归。",
+        "method": "提出基于 JEPA 的自监督框架，使用 EMA 目标网络预测掩码 token 表示，并附加信号重建损失；输入为 30 秒多通道窗口，采用时空块掩码。",
+        "result": "在 3,367 次验证会话上年龄回归 MAE 为 3.06 年（r=0.924），对比均值基线约 10 年；在 NeuralBench 排行榜上，性别分类平衡准确率 0.911，年龄预测 r=0.749，精神病理学复合回归 r=0.215。",
+        "conclusion": "STST-JEPA 能有效学习 EEG 表征，年龄预测残差与认知效率负相关，具有临床应用潜力。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-07",
+      "updated_date": "2026-07-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.05382",
+      "title": "Search Beyond What Can Be Taught: Evolving the Knowledge Boundary in Agentic Visual Generation",
+      "authors": [
+        "Haozhe Wang",
+        "Weijia Feng",
+        "Jinpeng Yu",
+        "Che Liu",
+        "Ping Nie",
+        "Fangzhen Lin",
+        "Jiaming Liu",
+        "Ruihua Huang",
+        "Jimmy Lin",
+        "Wenhu Chen",
+        "Cong Wei"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.05382",
+      "pdf_url": "https://arxiv.org/pdf/2607.05382",
+      "abstract_en": "Visual generators excel at rendering, but they confidently fabricate what they do not know. User requests are unbounded, evolving, and deeply long-tailed: new characters, trending entities, post-cutoff events, and more. This world-knowledge bottleneck is structural: generators are trained on fixed corpora, but the visual world is open-ended. We construct SearchGen-20K and SearchGen-Bench, with 20,839 prompts spanning twelve failure categories and twenty-two domains, paired with a pre-executed multimodal SearchGen-Corpus-1M to support offline, reproducible research. On SearchGen-Bench, frontier open generators score only 21 to 28 out of 100, a 40-point collapse invisible to existing benchmarks. The natural remedy is to employ search tools, enabling agentic visual generation. However, we find that naive search fails: it retrieves indiscriminately, injecting noise into prompts the generator already handles. We trace the root cause to a generator-specific, evolving knowledge boundary: the divide between what a generator can internalize through training and what must remain in external context. Although this boundary is hard to specify in advance, we show that it is discoverable through a teach-then-search co-training framework. Even a minimal version of this co-training recipe produces monotonic improvement, laying the foundation for recursive self-improvement in visual generation that can meet world-knowledge-grounded requests. We release the full dataset, co-training corpus, and search corpus as a replayable harness for tool-augmented, world-knowledge-grounded visual generation.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对视觉生成器（visual generators）在遇到未知实体、新事件等长尾请求时会出现“自信捏造”的问题，提出了一种通过搜索工具扩展知识边界的智能视觉生成（agentic visual generation）方法。论文构建了SearchGen-20K基准和SearchGen-Corpus-1M语料，发现现有开放生成器在该基准上得分仅21-28分（满分100），暴露出40分的性能崩塌。作者提出“先教学再搜索”（teach-then-search）的联合训练框架，即使最小化版本也能带来单调提升，为视觉生成的递归自我改进奠定基础。\nMotivation: 用户对视觉生成的需求是无界的、演化的且高度长尾（新角色、流行实体、事件后知识等），但生成器在固定语料上训练，面临结构化世界知识瓶颈。现有基准无法暴露这一问题，而简单引入搜索工具会引入噪声，反而干扰生成器已能处理的部分。\nMethod: 提出一个“教学-搜索”联合训练框架（teach-then-search co-training），通过发现生成器特有的、可演化的知识边界（internalize vs external context），在训练中交替进行内部知识教学和外部搜索增强，使生成器逐步学会区分何时需要借助搜索工具。\nResult: 在构造的SearchGen-Bench上，前沿开放生成器（如GPT-4V等）得分仅为21-28/100，较现有基准下降约40分。所提框架即使最小版本（minimal co-training recipe）也能带来单调性能改善。\nConclusion: 作者强调该工作为工具增强的、世界知识驱动的视觉生成提供了可复现的离线评估平台（SearchGen-20K、SearchGen-Corpus-1M），并表明通过教学-搜索框架可以递归地扩展生成器的知识边界，使其能处理长尾开放世界请求。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对视觉生成器（visual generators）在遇到未知实体、新事件等长尾请求时会出现“自信捏造”的问题，提出了一种通过搜索工具扩展知识边界的智能视觉生成（agentic visual generation）方法。论文构建了SearchGen-20K基准和SearchGen-Corpus-1M语料，发现现有开放生成器在该基准上得分仅21-28分（满分100），暴露出40分的性能崩塌。作者提出“先教学再搜索”（teach-then-search）的联合训练框架，即使最小化版本也能带来单调提升，为视觉生成的递归自我改进奠定基础。",
+        "motivation": "用户对视觉生成的需求是无界的、演化的且高度长尾（新角色、流行实体、事件后知识等），但生成器在固定语料上训练，面临结构化世界知识瓶颈。现有基准无法暴露这一问题，而简单引入搜索工具会引入噪声，反而干扰生成器已能处理的部分。",
+        "method": "提出一个“教学-搜索”联合训练框架（teach-then-search co-training），通过发现生成器特有的、可演化的知识边界（internalize vs external context），在训练中交替进行内部知识教学和外部搜索增强，使生成器逐步学会区分何时需要借助搜索工具。",
+        "result": "在构造的SearchGen-Bench上，前沿开放生成器（如GPT-4V等）得分仅为21-28/100，较现有基准下降约40分。所提框架即使最小版本（minimal co-training recipe）也能带来单调性能改善。",
+        "conclusion": "作者强调该工作为工具增强的、世界知识驱动的视觉生成提供了可复现的离线评估平台（SearchGen-20K、SearchGen-Corpus-1M），并表明通过教学-搜索框架可以递归地扩展生成器的知识边界，使其能处理长尾开放世界请求。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-06",
+      "updated_date": "2026-07-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.03663",
+      "title": "Phase-Preserving Trimodal Transformer for Tropical Forest Biomass Estimation Using Optical and PolInSAR Data",
+      "authors": [
+        "Luiz Felipe Parente Santiago (1 and 2)",
+        "Felipe Ferrari (3)",
+        "Daniel Rodrigues dos Santos (3)",
+        "Rosiane de Freitas (1) ((1) Instituto de Computação",
+        "Universidade Federal do Amazonas (IComp/UFAM)",
+        "Manaus-AM",
+        "Brazil",
+        "(2) Instituto de Pesquisas do Exército na Amazônia (IPEAM)",
+        "Manaus-AM",
+        "Brazil",
+        "(3) Instituto Militar de Engenharia (IME)",
+        "Rio de Janeiro-RJ",
+        "Brazil)"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.03663",
+      "pdf_url": "https://arxiv.org/pdf/2607.03663",
+      "abstract_en": "The accurate estimation of Above-Ground Biomass (AGB) in mature tropical forests remains a critical challenge in remote sensing, primarily due to the saturation of Synthetic Aperture Radar (SAR) signals in high-density areas and persistent cloud cover affecting optical imagery. To overcome these physical limitations, we propose the Trimodal Coherent Co-attention Transformer (TCCT), a physics-informed deep learning architecture. The TCCT natively fuses optical surface reflectance (Landsat-5) with complex-valued Polarimetric SAR Interferometry (PolInSAR) data from both P and L bands. Unlike traditional fusion methods, our architecture employs complex-valued encoders to preserve spatial phase coherence, coupled with a dynamic co-attention mechanism that acts as an adaptive gating module, reducing the weight of cloud-corrupted optical pixels and shifting reliance to microwave phase data. We also derived a localized spatial allometric calibration model via Levenberg-Marquardt optimization, tailored to the specific wood density of the Paracou region in the Amazon basin. Evaluated using a two-stage protocol, the TCCT first underwent a rigorous 5-fold cross-validation to establish robust global weights (achieving a global RMSE of 4.19 m). Subsequently, following a localized spatial fine-tuning phase over 200 epochs, the model attained an absolute RMSE of 3.78 m and an $R^2$ of 0.33 for Canopy Height Models (CHM), outperforming standard Random Forest, CNN, and Vision Transformer baselines. Our ablation study confirms that preserving phase coherence mitigates deep-canopy signal saturation. When converted to AGB, the fine-tuned TCCT map yielded a Relative RMSE (rRMSE) of 4.51% in dense forest areas above 50 Mg/ha. By meeting the European Space Agency (ESA) BIOMASS mission requirement of less than 20% error, the TCCT provides a robust framework for continuous carbon stock mapping in tropical biomes.",
+      "comment": "10 pages, 7 figures, one of which is a TikZ",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种物理信息驱动的深度学习架构TCCT（Trimodal Coherent Co-attention Transformer），用于融合光学（Landsat-5）与极化干涉SAR（PolInSAR）数据，实现热带成熟林地上生物量（AGB）的精确估计。该模型通过复数编码器保持空间相位相干，并采用动态协同注意力机制自适应降低云污染光学像素的权重，从而缓解SAR信号饱和与云遮挡问题。在亚马逊帕拉库地区验证，经局部空间微调后，冠层高度模型（CHM）的绝对RMSE为3.78米，R²为0.33；转换为AGB后，密林区相对RMSE为4.51%，满足ESA BIOMASS任务小于20%的误差要求。\nMotivation: 热带老龄林AGB估计面临雷达信号在高密度区域饱和以及光学影像受云覆盖的双重挑战，现有融合方法未能有效利用相位信息且缺乏对云污染的适应性。\nMethod: 提出TCCT：采用复数编码器提取PolInSAR相位特征，通过动态协同注意力机制作为自适应门控模块，降低云污染光学像素权重并增强对微波相位数据的依赖；此外结合Levenberg-Marquardt优化构建局部空间异速校正模型。\nResult: 5折交叉验证全局RMSE为4.19米；局部微调200轮后CHM的RMSE为3.78米，R²为0.33，优于随机森林、CNN和Vision Transformer基线。密林区AGB相对RMSE为4.51%，满足ESA BIOMASS任务指标。\nConclusion: 保留相位相干性可减轻深冠层信号饱和问题，TCCT为热带区域连续碳储量制图提供了稳健框架，并满足ESA BIOMASS任务精度要求。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种物理信息驱动的深度学习架构TCCT（Trimodal Coherent Co-attention Transformer），用于融合光学（Landsat-5）与极化干涉SAR（PolInSAR）数据，实现热带成熟林地上生物量（AGB）的精确估计。该模型通过复数编码器保持空间相位相干，并采用动态协同注意力机制自适应降低云污染光学像素的权重，从而缓解SAR信号饱和与云遮挡问题。在亚马逊帕拉库地区验证，经局部空间微调后，冠层高度模型（CHM）的绝对RMSE为3.78米，R²为0.33；转换为AGB后，密林区相对RMSE为4.51%，满足ESA BIOMASS任务小于20%的误差要求。",
+        "motivation": "热带老龄林AGB估计面临雷达信号在高密度区域饱和以及光学影像受云覆盖的双重挑战，现有融合方法未能有效利用相位信息且缺乏对云污染的适应性。",
+        "method": "提出TCCT：采用复数编码器提取PolInSAR相位特征，通过动态协同注意力机制作为自适应门控模块，降低云污染光学像素权重并增强对微波相位数据的依赖；此外结合Levenberg-Marquardt优化构建局部空间异速校正模型。",
+        "result": "5折交叉验证全局RMSE为4.19米；局部微调200轮后CHM的RMSE为3.78米，R²为0.33，优于随机森林、CNN和Vision Transformer基线。密林区AGB相对RMSE为4.51%，满足ESA BIOMASS任务指标。",
+        "conclusion": "保留相位相干性可减轻深冠层信号饱和问题，TCCT为热带区域连续碳储量制图提供了稳健框架，并满足ESA BIOMASS任务精度要求。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-04",
+      "updated_date": "2026-07-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2506.01260",
+      "title": "Subspace Networks: Scaling Decentralized Training with Communication-Efficient Model Parallelism",
+      "authors": [
+        "Sameera Ramasinghe",
+        "Thalaiyasingam Ajanthan",
+        "Gil Avraham",
+        "Yan Zuo",
+        "Alexander Long"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2506.01260",
+      "pdf_url": "https://arxiv.org/pdf/2506.01260",
+      "abstract_en": "Scaling models has led to significant advancements in deep learning, but training these models in decentralized settings remains challenging due to communication bottlenecks. While existing compression techniques are effective in data-parallel, they do not extend to model parallelism. Unlike data-parallel training, where weight gradients are exchanged, model-parallel requires compressing activations and activation gradients as they propagate through layers, accumulating compression errors. We propose a novel compression algorithm that compresses both forward and backward passes, enabling up to 99% compression with no convergence degradation with negligible memory/compute overhead. By leveraging a recursive structure in transformer networks, we predefine a low-dimensional subspace to confine the activations and gradients, allowing full reconstruction in subsequent layers. Our method achieves up to 100x improvement in communication efficiency and enables training billion-parameter-scale models over low-end GPUs connected via consumer-grade internet speeds as low as 80Mbps, matching the convergence of centralized datacenter systems with 100Gbps connections with model parallel.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出Subspace Networks，一种用于分布式训练的新型通信压缩算法，通过预定义低维子空间约束Transformer网络中的激活和梯度，实现前向和反向传播高达99%的压缩且不收敛退化。该方法在模型并行场景下将通信效率提升100倍，使得百亿参数模型能在消费级互联网带宽（如80Mbps）下训练，收敛性能媲美100Gbps数据中心。\nMotivation: 现有通信压缩技术主要针对数据并行，无法直接应用于模型并行；模型并行中激活和梯度的压缩会累积误差，导致收敛退化。\nMethod: 利用Transformer网络的递归结构，预定义一个低维子空间，将激活和梯度限制在该子空间内，从而实现前后向传播的高效压缩与后续层的完整重建。\nResult: 实现前向和后向传播99%压缩，通信效率提升100倍；支持在80Mbps消费级互联网上训练百亿参数模型，收敛速度与100Gbps数据中心持平。\nConclusion: 该方法通过子空间约束实现了模型并行中高效的激活/梯度压缩，显著降低分布式训练对网络带宽的要求，具有实际部署潜力。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出Subspace Networks，一种用于分布式训练的新型通信压缩算法，通过预定义低维子空间约束Transformer网络中的激活和梯度，实现前向和反向传播高达99%的压缩且不收敛退化。该方法在模型并行场景下将通信效率提升100倍，使得百亿参数模型能在消费级互联网带宽（如80Mbps）下训练，收敛性能媲美100Gbps数据中心。",
+        "motivation": "现有通信压缩技术主要针对数据并行，无法直接应用于模型并行；模型并行中激活和梯度的压缩会累积误差，导致收敛退化。",
+        "method": "利用Transformer网络的递归结构，预定义一个低维子空间，将激活和梯度限制在该子空间内，从而实现前后向传播的高效压缩与后续层的完整重建。",
+        "result": "实现前向和后向传播99%压缩，通信效率提升100倍；支持在80Mbps消费级互联网上训练百亿参数模型，收敛速度与100Gbps数据中心持平。",
+        "conclusion": "该方法通过子空间约束实现了模型并行中高效的激活/梯度压缩，显著降低分布式训练对网络带宽的要求，具有实际部署潜力。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2025-06-02",
+      "updated_date": "2026-07-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.06935",
+      "title": "Mathematical methods of reinforcement learning",
+      "authors": [
+        "Denis Belomestny",
+        "Alexander Gasnikov",
+        "Egor Gladin",
+        "Alexey Naumov",
+        "Artemy Rubtsov",
+        "Yuri Sapronov",
+        "Daniil Tiapkin",
+        "Nikita Yudin"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "math.OC",
+      "abs_url": "https://arxiv.org/abs/2607.06935",
+      "pdf_url": "https://arxiv.org/pdf/2607.06935",
+      "abstract_en": "Reinforcement learning (RL) is increasingly grounded in tools from probability, optimization, and operator theory. This survey organizes the mathematical structures that underpin the design and analysis of modern algorithms in RL. We begin from Markov decision processes (MDPs) and the Bellman operators, emphasizing contraction mappings, monotonicity, and fixed-point theory that yield convergence guarantees and rates for value and policy iteration, and temporal-difference schemes. We then develop the optimization perspective: stochastic approximation and martingale methods, convex duality and the role of regularization linking mirror/proximal methods. Function approximation is treated through linear and non-linear settings, covering stabilization, error decomposition, and sample-complexity via concentration inequalities for dependent data and mixing processes. We further cover off-policy evaluation/learning, constrained RL and constrained MDPs (CMDPs). Throughout we unify algorithmic templates under common operator and variational lenses, highlighting both finite-sample bounds and asymptotic results. Our presentation is intended to provide a unified mathematical entry point for researchers in probability, optimization, and statistics interested in reinforcement learning.",
+      "comment": "65 pages",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 这是一篇关于强化学习数学方法的综述，系统整理了概率论、优化和算子理论在RL算法设计与分析中的应用。从马尔可夫决策过程和贝尔曼算子出发，涵盖收缩映射、不动点理论、随机逼近、凸对偶、函数逼近、离策略评估和约束MDP等内容，统一在算子和变分视角下，提供有限样本界和渐近结果。\nMotivation: 强化学习日益依赖于概率、优化和算子理论等数学工具，但缺乏统一的数学入门视角。本文旨在为概率、优化和统计学领域的研究者提供一个进入RL的数学入口。\nMethod: 以Markov决策过程和Bellman算子为基础，系统阐述收缩映射、单调性、不动点理论、随机逼近、凸对偶、正则化、线性/非线性函数逼近、离策略学习、约束MDP等核心数学结构，并统一为算子和变分框架。\nConclusion: 本文是一篇综述，目标读者为概率、优化和统计学领域中对RL感兴趣的研究者，提供了一个统一的数学视角，但未提出新算法或实验。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "这是一篇关于强化学习数学方法的综述，系统整理了概率论、优化和算子理论在RL算法设计与分析中的应用。从马尔可夫决策过程和贝尔曼算子出发，涵盖收缩映射、不动点理论、随机逼近、凸对偶、函数逼近、离策略评估和约束MDP等内容，统一在算子和变分视角下，提供有限样本界和渐近结果。",
+        "motivation": "强化学习日益依赖于概率、优化和算子理论等数学工具，但缺乏统一的数学入门视角。本文旨在为概率、优化和统计学领域的研究者提供一个进入RL的数学入口。",
+        "method": "以Markov决策过程和Bellman算子为基础，系统阐述收缩映射、单调性、不动点理论、随机逼近、凸对偶、正则化、线性/非线性函数逼近、离策略学习、约束MDP等核心数学结构，并统一为算子和变分框架。",
+        "result": "",
+        "conclusion": "本文是一篇综述，目标读者为概率、优化和统计学领域中对RL感兴趣的研究者，提供了一个统一的数学视角，但未提出新算法或实验。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-08",
+      "updated_date": "2026-07-08",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
