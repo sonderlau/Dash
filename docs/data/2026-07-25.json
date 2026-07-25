@@ -1,0 +1,1027 @@
+{
+  "date": "2026-07-25",
+  "snapshot_date": "2026-07-25",
+  "generated_at": "2026-07-25T05:32:34Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 24,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 9,
+    "cs.AI": 9,
+    "cs.CV": 6
+  },
+  "summary_status_counts": {
+    "ok": 24
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 637
+  },
+  "papers": [
+    {
+      "id": "2607.20321",
+      "title": "Label-Free Finite-Volume-Residual Training of Attention Graph Neural Networks for Coupled Thermo-Fluid Fields",
+      "authors": [
+        "Tianyu Li",
+        "Zhiwei Cao",
+        "Qingang Zhang",
+        "Ruihang Wang",
+        "Binyang Song",
+        "Yonggang Wen"
+      ],
+      "categories": [
+        "cs.LG",
+        "physics.flu-dyn"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "physics.flu-dyn",
+      "abs_url": "https://arxiv.org/abs/2607.20321",
+      "pdf_url": "https://arxiv.org/pdf/2607.20321",
+      "abstract_en": "Neural surrogates are widely used in scientific machine learning for fast prediction of three-dimensional (3D) thermo-fluid fields. However, generating training data using conventional numerical solvers often incurs substantial computational and storage costs. We propose to train an attention graph neural network by minimizing the finite-volume method (FVM) residuals of the governing equations. These residuals are evaluated directly on the mesh, requiring no labeled data. We evaluate the trained surrogates against computational fluid dynamics (CFD) references and a data-supervised baseline across four scenarios. On the two steady-state benchmarks, the FVM-loss model achieves an all-field normalized root-mean-square error (nRMSE) of 2.3-2.8%. It demonstrates close agreement with the CFD references, including the buoyancy-energy coupling. On the two parametric transient cases, the FVM-loss model outperforms the supervised baseline in terms of accuracy, while avoiding the data-generation cost entirely. These results indicate that the FVM loss can provide a practical training signal for neural surrogates and reduce the model development cost.",
+      "comment": "51 pages, 27 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种无需标记数据的训练方法，通过最小化有限体积法（FVM）残差来训练注意力图神经网络，用于三维热流体场预测。该方法在稳态基准上达到2.3-2.8%的全场归一化均方根误差（nRMSE），在参数瞬态案例中优于传统监督基线，同时避免了数据生成成本。\nMotivation: 传统数值模拟生成训练数据需要大量计算和存储资源，限制了神经代理模型的实用性。\nMethod: 在网格上直接评估控制方程的FVM残差作为损失函数，训练注意力图神经网络（Attention Graph Neural Network），无需任何标记数据。\nResult: 在四个场景中评估：稳态基准（nRMSE 2.3-2.8%）与CFD参考高度一致，包括浮力-能量耦合；参数瞬态案例中精度优于有监督基线，且完全避免数据生成成本。\nConclusion: FVM残差可作为神经代理模型的有效训练信号，显著降低模型开发成本。\nRelevance: 10",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种无需标记数据的训练方法，通过最小化有限体积法（FVM）残差来训练注意力图神经网络，用于三维热流体场预测。该方法在稳态基准上达到2.3-2.8%的全场归一化均方根误差（nRMSE），在参数瞬态案例中优于传统监督基线，同时避免了数据生成成本。",
+        "motivation": "传统数值模拟生成训练数据需要大量计算和存储资源，限制了神经代理模型的实用性。",
+        "method": "在网格上直接评估控制方程的FVM残差作为损失函数，训练注意力图神经网络（Attention Graph Neural Network），无需任何标记数据。",
+        "result": "在四个场景中评估：稳态基准（nRMSE 2.3-2.8%）与CFD参考高度一致，包括浮力-能量耦合；参数瞬态案例中精度优于有监督基线，且完全避免数据生成成本。",
+        "conclusion": "FVM残差可作为神经代理模型的有效训练信号，显著降低模型开发成本。",
+        "relevance_score": "10"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.20253",
+      "title": "Pushing the Frontier of Full-Song Generation: Hierarchical Autoregressive Planning Meets Flow-Matching Rendering",
+      "authors": [
+        "Junyu Dai",
+        "Xinyue Fan",
+        "Weiqin Li",
+        "Xiangang Li",
+        "Yunjia Li",
+        "Bin Ma",
+        "Yukun Ma",
+        "Chongjia Ni",
+        "Yufei Shi",
+        "Biao Tian",
+        "Haoxu Wang",
+        "Menglin Wu",
+        "Jianwei Yu",
+        "Huaicheng Zhang",
+        "Han Zhao",
+        "Shengkui Zhao",
+        "Haina Zhu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.SD",
+        "eess.AS"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.SD",
+      "abs_url": "https://arxiv.org/abs/2607.20253",
+      "pdf_url": "https://arxiv.org/pdf/2607.20253",
+      "abstract_en": "In this report, we present a unified song generation framework capable of producing high-quality full-length music from lyrics, text descriptions, and musical attributes. The proposed framework supports three tasks: Lyrics-to-Song Generation, which generates complete songs from text descriptions, lyrics, and musical attributes; Instrumental Music Generation, which creates music without vocals; and Cover Song Generation, which reinterprets existing songs with different styles while preserving their melodic content. Architecturally, our system consists of four main components: a semantic-aware tokenizer, hybird-LM, FullDiT, and a two-level melody module. The tokenizer encodes audio into 8-codebook RVQ tokens for efficient discrete music representation. Based on these tokens, hybird-LM performs hierarchical autoregressive audio-token modeling for full-song generation. To improve audio fidelity, FullDiT performs full-song flow matching in a continuous VAE latent space conditioned on codec tokens, lyrics, and text captions. For cover song generation, the melody module extracts and discretizes melody cues from reference audio to guide generation while preserving the original melodic content. Finally, we investigate DPO, GRPO, and OPD as reward-based post-training strategies for hybird-LM and apply flow-based GRPO to FullDiT to improve musicality and rendering quality. Experimental results on a multilingual automatic benchmark, complemented by the Artificial Analysis Music with Vocals leaderboard, show that the proposed framework achieves competitive performance in the evaluated settings.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一个统一的歌曲生成框架，能够从歌词、文本描述和音乐属性生成高质量全长音乐。框架支持歌词到歌曲生成、器乐生成和翻唱生成三种任务。架构包括语义感知分词器、hybird-LM、FullDiT和两层旋律模块。通过层次化自回归音频令牌建模和流匹配（flow-matching）渲染，并结合DPO、GRPO等奖励后训练策略，在多语言自动基准和Artificial Analysis Music with Vocals排行榜上取得有竞争力的表现。\nMotivation: 现有全长度歌曲生成模型在长程依赖和音频保真度方面存在不足，需要统一框架同时处理歌词、文本和音乐属性，并支持多种生成任务。\nMethod: 提出结合层次自回归规划（hybird-LM）和流匹配渲染（FullDiT）的框架，利用8-codebook RVQ令牌进行离散音乐表示，并通过两层旋律模块提取和离散化旋律线索以保留翻唱中的原旋律。\nResult: 摘要报告该框架在多语言自动基准和Artificial Analysis Music with Vocals排行榜上取得有竞争力的表现，但未给出具体数值。\nConclusion: 框架在歌词到歌曲生成、器乐生成和翻唱生成任务上有效，且奖励后训练策略能提升音乐性和渲染质量。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一个统一的歌曲生成框架，能够从歌词、文本描述和音乐属性生成高质量全长音乐。框架支持歌词到歌曲生成、器乐生成和翻唱生成三种任务。架构包括语义感知分词器、hybird-LM、FullDiT和两层旋律模块。通过层次化自回归音频令牌建模和流匹配（flow-matching）渲染，并结合DPO、GRPO等奖励后训练策略，在多语言自动基准和Artificial Analysis Music with Vocals排行榜上取得有竞争力的表现。",
+        "motivation": "现有全长度歌曲生成模型在长程依赖和音频保真度方面存在不足，需要统一框架同时处理歌词、文本和音乐属性，并支持多种生成任务。",
+        "method": "提出结合层次自回归规划（hybird-LM）和流匹配渲染（FullDiT）的框架，利用8-codebook RVQ令牌进行离散音乐表示，并通过两层旋律模块提取和离散化旋律线索以保留翻唱中的原旋律。",
+        "result": "摘要报告该框架在多语言自动基准和Artificial Analysis Music with Vocals排行榜上取得有竞争力的表现，但未给出具体数值。",
+        "conclusion": "框架在歌词到歌曲生成、器乐生成和翻唱生成任务上有效，且奖励后训练策略能提升音乐性和渲染质量。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.20173",
+      "title": "Instance Hardness-Based Relevance for Imbalanced Regression",
+      "authors": [
+        "Vitor M. Leitao",
+        "Juscimara G. Avelino",
+        "George D. C. Cavalcanti",
+        "Rafael M. O. Cruz"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.20173",
+      "pdf_url": "https://arxiv.org/pdf/2607.20173",
+      "abstract_en": "Imbalanced regression problems arise when the target variable has an asymmetric distribution, resulting in underrepresented value ranges in the dataset. Traditional approaches for identifying rare instances rely on a relevance function that assigns higher importance to specific regions of the target distribution. However, the effectiveness of imbalance-aware learning methods depends strongly on how relevance is defined. In more complex scenarios, such as bimodal distributions, traditional relevance functions struggle to capture rarity, as they assign fixed relevance values based solely on target values, thereby compromising the distinction between truly rare and normal instances. To address these limitations, this study proposes an Instance Hardness-based relevance function (InHaR) for identifying rare instances in regression problems. Unlike traditional relevance functions, the proposed approach incorporates learning difficulty, allowing rarity to be inferred not only from the target distribution but also from the difficulty of instances for the learning algorithm. This property is particularly important in bimodal scenarios, where rarity cannot be accurately inferred from target values alone. Experimental results demonstrate that the InHaR correctly identifies rare regions under bimodal distributions and, when used to guide resampling strategies such as Random Oversampling (RO) and Gaussian Noise (GN), leads to significant improvements in predictive performance compared to traditional relevance-based approaches. The code, dataset, and further details about the proposed method are publicly available at https://github.com/VitorLeitao/instance-hardness-Imbalanced-regression.",
+      "comment": "Paper accepted to the 2026 International Joint Conference on Neural Networks",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对不平衡回归问题中传统相关函数在双峰分布下难以区分稀有实例与正常实例的局限，提出了一种基于实例硬度（Instance Hardness）的相关函数InHaR。该方法不仅考虑目标变量分布，还融入学习难度来识别稀有区域。实验表明，在双峰分布下InHaR能正确识别稀有区域，并用于引导重采样策略（如随机过采样和加性高斯噪声）时显著提升预测性能。\nMotivation: 传统的不平衡回归相关函数仅基于目标变量赋值，在双峰分布等复杂场景中无法准确区分真正稀有实例与正常实例，导致不平衡学习方法效果不佳。\nMethod: 提出基于实例硬度的相关函数InHaR，通过评估每个实例的学习难度来定义其稀有性，将难度信息融入相关函数，从而更准确地识别稀有区域。\nResult: 在双峰分布下，InHaR正确识别了稀有区域；结合随机过采样或加性高斯噪声重采样后，预测性能相比传统相关函数方法有显著提升。\nConclusion: InHaR为不平衡回归中的稀有实例识别提供了一种更鲁棒的方案，尤其在复杂分布场景下优于传统方法。\nRelevance: 35",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对不平衡回归问题中传统相关函数在双峰分布下难以区分稀有实例与正常实例的局限，提出了一种基于实例硬度（Instance Hardness）的相关函数InHaR。该方法不仅考虑目标变量分布，还融入学习难度来识别稀有区域。实验表明，在双峰分布下InHaR能正确识别稀有区域，并用于引导重采样策略（如随机过采样和加性高斯噪声）时显著提升预测性能。",
+        "motivation": "传统的不平衡回归相关函数仅基于目标变量赋值，在双峰分布等复杂场景中无法准确区分真正稀有实例与正常实例，导致不平衡学习方法效果不佳。",
+        "method": "提出基于实例硬度的相关函数InHaR，通过评估每个实例的学习难度来定义其稀有性，将难度信息融入相关函数，从而更准确地识别稀有区域。",
+        "result": "在双峰分布下，InHaR正确识别了稀有区域；结合随机过采样或加性高斯噪声重采样后，预测性能相比传统相关函数方法有显著提升。",
+        "conclusion": "InHaR为不平衡回归中的稀有实例识别提供了一种更鲁棒的方案，尤其在复杂分布场景下优于传统方法。",
+        "relevance_score": "35"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.20151",
+      "title": "Multi-stage Dynamic Selection for Cross-Project Defect Prediction",
+      "authors": [
+        "Juscimara G. Avelino",
+        "Juscelino S. A. Junior",
+        "George D. C. Cavalcanti",
+        "Rafael M. O. Cruz"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.SE"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.SE",
+      "abs_url": "https://arxiv.org/abs/2607.20151",
+      "pdf_url": "https://arxiv.org/pdf/2607.20151",
+      "abstract_en": "Cross-Project Defect Prediction (CPDP) involves building models using data from external projects, called training projects, to predict modules from the target project. However, traditional CPDP methods suffer from the distribution shift between training and target projects that affects the model's performance. This paper proposes a novel CPDP framework that addresses this issue by proposing a two-stage multiple classifier system (MCS) selection scheme: one working at the project level and another at the module level. In the first stage, the framework evaluates multiple possible MCS configurations to find one that covers and generalizes well across multiple training projects. Consequently, the proposal is likely to obtain a diverse set of classifiers, each specialized in tackling software modules with distinct characteristics. The second selection stage operates at test time, selecting the most competent classifiers to predict each new module in the target project. Unlike previous approaches that apply the same classifiers to the entire target project, the proposed framework performs module-level model selection. This way, the system is more robust to changes in distributions between training and target projects because the selected set of classifiers is module-dependent. Our experimental results using 82 projects from four different CPDP benchmark datasets demonstrate that the proposed approach outperforms the state-of-the-art CPDP methods in most scenarios. The code, dataset, and further details about the proposed method are publicly available at https://github.com/jsaj/Multi_DES.",
+      "comment": "Paper accepted to the 2026 International Joint Conference on Neural Networks",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种面向跨项目缺陷预测的两阶段多分类器系统选择框架，第一阶段在项目级评估多个MCS配置以获取覆盖多训练项目的多样化分类器集合，第二阶段在测试时针对目标项目的每个模块选择最胜任的分类器。实验基于4个基准数据集中的82个项目，表明该方法在多数场景下优于现有CPDP方法。\nMotivation: 传统CPDP方法因训练项目与目标项目之间的分布偏移导致性能下降，且现有方法对整个目标项目使用相同的分类器，无法应对模块级别的差异。\nMethod: 提出两阶段选择方案：项目级阶段选择泛化能力强的MCS配置；模块级阶段在测试时为每个目标模块选取最合适的分类器，实现模块级别的模型选择。\nResult: 在82个项目的4个CPDP基准数据集上，该方法在多数场景下优于当前最先进的CPDP方法。\nConclusion: 模块级模型选择增强了系统对跨项目分布变化的鲁棒性，且代码和数据集已公开。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种面向跨项目缺陷预测的两阶段多分类器系统选择框架，第一阶段在项目级评估多个MCS配置以获取覆盖多训练项目的多样化分类器集合，第二阶段在测试时针对目标项目的每个模块选择最胜任的分类器。实验基于4个基准数据集中的82个项目，表明该方法在多数场景下优于现有CPDP方法。",
+        "motivation": "传统CPDP方法因训练项目与目标项目之间的分布偏移导致性能下降，且现有方法对整个目标项目使用相同的分类器，无法应对模块级别的差异。",
+        "method": "提出两阶段选择方案：项目级阶段选择泛化能力强的MCS配置；模块级阶段在测试时为每个目标模块选取最合适的分类器，实现模块级别的模型选择。",
+        "result": "在82个项目的4个CPDP基准数据集上，该方法在多数场景下优于当前最先进的CPDP方法。",
+        "conclusion": "模块级模型选择增强了系统对跨项目分布变化的鲁棒性，且代码和数据集已公开。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.20083",
+      "title": "Co-Evolving LLM Evaluators and Policies via DynamicRubric",
+      "authors": [
+        "Beining Wang",
+        "Weihang Su",
+        "Hongtao Tian",
+        "Hao Kong",
+        "Tao Yang",
+        "Ting Yao",
+        "Qingyi Pan",
+        "Yueyue Wu",
+        "Qingyao Ai",
+        "Min Zhang",
+        "Yiqun Liu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.20083",
+      "pdf_url": "https://arxiv.org/pdf/2607.20083",
+      "abstract_en": "Post-training with evaluator feedback on policy-induced samples serves as a major mechanism for improving large language models. As policies improve, these sampled responses become close in quality. These close candidates create a bottleneck for policy optimization: collapsed relative evaluator score gaps yield weak or misleading policy supervision. We theoretically characterize why these gaps matter through a probability allocation view, showing that the directional gain of shifting probability mass from one response to another is exactly the evaluator score gap between them. This identifies relative score gaps as the policy optimization signals that guide updates. Motivated by this view, we propose DynamicRubric, a response-set-conditioned evaluator--policy co-evolution framework that generates weighted binary rubric items for each candidate set and aggregates the resulting judgments into response-level scores. In our experiments with 8B backbones, DynamicRubric improves evaluator performance and provides stronger policy supervision than baselines using a 70B reward model or a 235B static rubric generator. DynamicRubric-optimized policies also show gains on verifiable reasoning and coding tasks. A DynamicRubric-optimized model is fully deployed in WeChat Search's AI answering scenario, where it serves all online traffic across tens of millions of requests per day and improves key online metrics. These results suggest a principle for evaluator-guided post-training: evaluators should evolve with the policies they supervise.",
+      "comment": "add online model info (approved)",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出DynamicRubric框架，通过响应集条件化的评估器-策略协同进化，生成加权的二元评估项目来为每个候选集打分，解决策略优化中评估器分数差距collapse的问题。实验表明，使用8B基座模型时，DynamicRubric在评估器性能和策略监督上优于70B奖励模型或235B静态评估生成器基线，并在可验证推理和编码任务上取得提升，已部署于微信搜索的AI回答场景。\nMotivation: 后训练中，随着策略提升，采样响应质量接近，导致评估器分数差距collapse，产生弱化或误导性的策略监督信号，限制了策略优化。\nMethod: 提出DynamicRubric：响应集条件化的评估器-策略协同进化框架，为每个候选集生成加权的二元评估项目，并聚合为响应级分数。\nResult: 在8B基座模型实验中，DynamicRubric提升了评估器性能，提供了比70B奖励模型或235B静态评估生成器更强的策略监督，优化后的策略在可验证推理和编码任务上也表现更好。模型已部署于微信搜索AI回答场景，处理每天数千万请求，并改进了关键线上指标。\nConclusion: 评估器应随其监督的策略共同进化，这是评估器引导后训练的一个原则。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出DynamicRubric框架，通过响应集条件化的评估器-策略协同进化，生成加权的二元评估项目来为每个候选集打分，解决策略优化中评估器分数差距collapse的问题。实验表明，使用8B基座模型时，DynamicRubric在评估器性能和策略监督上优于70B奖励模型或235B静态评估生成器基线，并在可验证推理和编码任务上取得提升，已部署于微信搜索的AI回答场景。",
+        "motivation": "后训练中，随着策略提升，采样响应质量接近，导致评估器分数差距collapse，产生弱化或误导性的策略监督信号，限制了策略优化。",
+        "method": "提出DynamicRubric：响应集条件化的评估器-策略协同进化框架，为每个候选集生成加权的二元评估项目，并聚合为响应级分数。",
+        "result": "在8B基座模型实验中，DynamicRubric提升了评估器性能，提供了比70B奖励模型或235B静态评估生成器更强的策略监督，优化后的策略在可验证推理和编码任务上也表现更好。模型已部署于微信搜索AI回答场景，处理每天数千万请求，并改进了关键线上指标。",
+        "conclusion": "评估器应随其监督的策略共同进化，这是评估器引导后训练的一个原则。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.20064",
+      "title": "PRO-LONG: Programmatic Memory Enables Long-Horizon Reasoning",
+      "authors": [
+        "Alexis Fox",
+        "Junlin Wang",
+        "Paul Rosu",
+        "Bhuwan Dhingra"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2607.20064",
+      "pdf_url": "https://arxiv.org/pdf/2607.20064",
+      "abstract_en": "Long-horizon tasks require sustained perception, reasoning, and exploration, and are a persistent challenge for large language model (LLM) agents. This gap is reflected in their limited performance on continual learning benchmarks such as ARC-AGI-3, especially when models are evaluated out of the box. Various agent harnesses have been proposed to close this gap, and each commits to a strategy for handling long sequences of observations, i.e., what information to save from the environment and how to load it into model context, a choice we argue is particularly consequential. Existing methods for context management face a significant tradeoff, as preserving more information makes retrieving relevant details less tractable. We propose PRO-LONG, a minimal context management framework built around programmatic memory for LLM agents in long-horizon, exploratory settings. PRO-LONG addresses the tradeoff by keeping a complete, structured interaction log and capitalizing on recent progress in coding agents to search this history efficiently. On the full ARC-AGI-3 public game set, PRO-LONG improves over a base coding agent by an average of 18.0 percentage points across frontier models, and matches or exceeds state-of-the-art specialized harnesses (up to 76.1% pass@1) while using 4.2-5.8x fewer tokens. With Fable 5, PRO-LONG achieves 97.4% best@2 at a total cost of \\$1,750. Relevant code and logs are available at https://github.com/alexisfox7/PRO-LONG.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: PRO-LONG 是一个针对大语言模型（LLM）代理在长时域、探索性任务中的最小化上下文管理框架，核心是程序化记忆（programmatic memory）。它通过保留完整的结构化交互日志并利用代码代理高效搜索历史，解决了保存更多信息与检索相关细节之间的权衡。在 ARC-AGI-3 全集上，PRO-LONG 使基础代码代理平均提升 18.0 个百分点，匹配或超越最先进专用框架（最高 76.1% pass@1），同时节省 4.2-5.8 倍 token 数。在 Fable 5 上，best@2 达到 97.4%，总成本 1750 美元。\nMotivation: 长时域任务对 LLM 代理构成挑战，现有上下文管理方法在保存更多历史信息与高效检索之间面临显著权衡，限制了在持续学习基准上的性能。\nMethod: 提出 PRO-LONG 框架，利用程序化记忆：保持完整的结构化交互日志，并利用近期代码代理的进展高效搜索历史，从而在不过度增加上下文负担的情况下实现信息检索。\nResult: 在 ARC-AGI-3 全集上，PRO-LONG 使基础代码代理平均提升 18.0 个百分点，匹配或超越最先进专用框架（最高 76.1% pass@1），同时 token 消耗减少 4.2-5.8 倍；在 Fable 5 上 best@2 达 97.4%，成本 1750 美元。\nConclusion: 摘要强调程序化记忆是一种有效的上下文管理策略，能够在长期探索任务中平衡信息完整性与检索效率，并显著提升 LLM 代理的性能。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "PRO-LONG 是一个针对大语言模型（LLM）代理在长时域、探索性任务中的最小化上下文管理框架，核心是程序化记忆（programmatic memory）。它通过保留完整的结构化交互日志并利用代码代理高效搜索历史，解决了保存更多信息与检索相关细节之间的权衡。在 ARC-AGI-3 全集上，PRO-LONG 使基础代码代理平均提升 18.0 个百分点，匹配或超越最先进专用框架（最高 76.1% pass@1），同时节省 4.2-5.8 倍 token 数。在 Fable 5 上，best@2 达到 97.4%，总成本 1750 美元。",
+        "motivation": "长时域任务对 LLM 代理构成挑战，现有上下文管理方法在保存更多历史信息与高效检索之间面临显著权衡，限制了在持续学习基准上的性能。",
+        "method": "提出 PRO-LONG 框架，利用程序化记忆：保持完整的结构化交互日志，并利用近期代码代理的进展高效搜索历史，从而在不过度增加上下文负担的情况下实现信息检索。",
+        "result": "在 ARC-AGI-3 全集上，PRO-LONG 使基础代码代理平均提升 18.0 个百分点，匹配或超越最先进专用框架（最高 76.1% pass@1），同时 token 消耗减少 4.2-5.8 倍；在 Fable 5 上 best@2 达 97.4%，成本 1750 美元。",
+        "conclusion": "摘要强调程序化记忆是一种有效的上下文管理策略，能够在长期探索任务中平衡信息完整性与检索效率，并显著提升 LLM 代理的性能。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.20010",
+      "title": "Generalized Kalman filter based temporal difference reinforcement learning",
+      "authors": [
+        "Vasos Arnaoutis",
+        "Eric Lutters",
+        "Bojana Rosić"
+      ],
+      "categories": [
+        "cs.CE",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.20010",
+      "pdf_url": "https://arxiv.org/pdf/2607.20010",
+      "abstract_en": "In this paper, we present a generalized temporal-difference (TD) reinforcement learning framework based on the theory of conditional expectations. The value and action-value (Q-value) functions are treated as uncertain quantities, and their estimation is formulated as a stochastic inference problem. Unlike classical Kalman-based temporal-difference learning, which relies on linear-Gaussian assumptions, the proposed formulation is derived directly from the conditional expectation framework and naturally extends to nonlinear models and non-Gaussian probability distributions. The proposed method recursively estimates not only the conditional expectation of the value function but also its second probabilistic moment, thereby quantifying the uncertainty associated with the learned value function throughout the learning process. To obtain a computationally tractable algorithm, the stochastic problem is discretized using either polynomial chaos expansions or ensemble-based approximations, providing efficient representations of the underlying random variables. The proposed framework is demonstrated on two optimal control problems: a linear mass--spring--damper system and a nonlinear heat conduction problem in a closed cavity. The numerical examples illustrate the capability of the proposed method to accurately estimate both the value function and its associated uncertainty, while extending classical Kalman-based temporal-difference learning to a broader class of stochastic systems.",
+      "comment": "39 pages, 18 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种基于条件期望理论的广义时序差分（TD）强化学习框架，将值函数视为不确定量，通过随机推断进行估计。该方法不限于线性高斯假设，能处理非线性模型和非高斯分布，并递归估计值函数及其二阶矩以量化不确定性。通过多项式混沌展开或集成近似离散化，在质量-弹簧-阻尼系统和非线性热传导问题上验证了有效性。\nMotivation: 经典卡尔曼滤波TD学习依赖线性高斯假设，难以应用于非线性或非高斯环境，且缺乏对值函数不确定性的系统量化。\nMethod: 从条件期望框架推导广义TD学习，利用多项式混沌展开或集成近似对随机问题进行离散化，递归估计值函数条件期望及其二阶矩。\nResult: 在质量-弹簧-阻尼系统和封闭腔非线性热传导两个最优控制问题上，该方法能准确估计值函数及其不确定性，拓展了经典卡尔曼TD学习的适用范围。\nConclusion: 该框架将卡尔曼滤波TD学习推广到更一般的随机系统，但在大规模或高维问题上可能面临计算挑战。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种基于条件期望理论的广义时序差分（TD）强化学习框架，将值函数视为不确定量，通过随机推断进行估计。该方法不限于线性高斯假设，能处理非线性模型和非高斯分布，并递归估计值函数及其二阶矩以量化不确定性。通过多项式混沌展开或集成近似离散化，在质量-弹簧-阻尼系统和非线性热传导问题上验证了有效性。",
+        "motivation": "经典卡尔曼滤波TD学习依赖线性高斯假设，难以应用于非线性或非高斯环境，且缺乏对值函数不确定性的系统量化。",
+        "method": "从条件期望框架推导广义TD学习，利用多项式混沌展开或集成近似对随机问题进行离散化，递归估计值函数条件期望及其二阶矩。",
+        "result": "在质量-弹簧-阻尼系统和封闭腔非线性热传导两个最优控制问题上，该方法能准确估计值函数及其不确定性，拓展了经典卡尔曼TD学习的适用范围。",
+        "conclusion": "该框架将卡尔曼滤波TD学习推广到更一般的随机系统，但在大规模或高维问题上可能面临计算挑战。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.19994",
+      "title": "Toward Seasonal Guidelines for Robust Deep-Learning Sentinel-2 Building Detection in Different Area Types",
+      "authors": [
+        "Michał Romaszewski",
+        "Kamil Drejer",
+        "Katarzyna Kołodziej",
+        "Anna Zawadzka",
+        "Stanisław Lewiński",
+        "Przemysław Głomb",
+        "Marek Ruciński",
+        "Michal Krupiński",
+        "Krzysztof Gryguc Przemysław Sekuła",
+        "Szymon Sala"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.19994",
+      "pdf_url": "https://arxiv.org/pdf/2607.19994",
+      "abstract_en": "Sentinel-2 imagery offers open access, global coverage, and frequent revisit times, making it attractive for practical building mapping at scale; however, its native 10m resolution makes building vs non-building classification challenging, particularly for small or sub-pixel buildings, and performance can vary with both seasonality and the heterogeneity of built-up environments. This paper introduces a Sentinel-2 building-detection framework designed to systematically quantify these effects and to support more formalised, practice-oriented model selection. We construct a dedicated multi-temporal Sentinel-2 dataset over the Warsaw region and derive binary ground-truth masks by rasterising official Polish topographic database (BDOT10k) building footprints onto the Sentinel-2 pixel grid. Using two established convolutional segmentation backbones (U-Net and DeepLabV3+), we first perform scene-specific fine-tuning to select a robust architecture and identify the best monthly models for L1C and L2A products separately. We then conduct cross-temporal inference by applying each best monthly model to all scenes, enabling an assessment of (i) which months provide favourable training and inference conditions, (ii) how performance transfers between seasons, (iii) the impact of processing level, and (iv) how these effects differ across built-up typologies. Based on these results, we provide practical guidance for routine Sentinel-2 building classification under varying acquisition periods and settlement characteristics.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对Sentinel-2影像建筑检测面临的分辨率低、季节性变化和建成区异质性问题，提出一个系统量化这些影响的框架。通过构建华沙地区的多时相Sentinel-2数据集，利用U-Net和DeepLabV3+进行场景微调，评估不同月份的训练和推理效果、季节性迁移性能、处理级别影响及建成区类型差异，并为实际应用提供指南。\nMotivation: Sentinel-2影像的10米分辨率使得建筑检测具有挑战性，尤其对小建筑；同时季节性和建成区异质性影响检测性能，缺乏系统性量化指南。\nMethod: 构建华沙地区多时相Sentinel-2数据集，以波兰官方地形数据库BDOT10k的建筑足迹为基础生成二值真值掩膜；使用U-Net和DeepLabV3+骨干网络进行场景特定微调，选择最佳月模型；进行跨时相推理，评估月份、季节性迁移、处理级别(L1C/L2A)和建成区类型的影响。\nResult: 摘要未提供具体数值结果，但指出基于结果提供了实用指南。\nConclusion: 本文为不同采集时段和定居特征下的常规Sentinel-2建筑分类提供了实用指导。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对Sentinel-2影像建筑检测面临的分辨率低、季节性变化和建成区异质性问题，提出一个系统量化这些影响的框架。通过构建华沙地区的多时相Sentinel-2数据集，利用U-Net和DeepLabV3+进行场景微调，评估不同月份的训练和推理效果、季节性迁移性能、处理级别影响及建成区类型差异，并为实际应用提供指南。",
+        "motivation": "Sentinel-2影像的10米分辨率使得建筑检测具有挑战性，尤其对小建筑；同时季节性和建成区异质性影响检测性能，缺乏系统性量化指南。",
+        "method": "构建华沙地区多时相Sentinel-2数据集，以波兰官方地形数据库BDOT10k的建筑足迹为基础生成二值真值掩膜；使用U-Net和DeepLabV3+骨干网络进行场景特定微调，选择最佳月模型；进行跨时相推理，评估月份、季节性迁移、处理级别(L1C/L2A)和建成区类型的影响。",
+        "result": "摘要未提供具体数值结果，但指出基于结果提供了实用指南。",
+        "conclusion": "本文为不同采集时段和定居特征下的常规Sentinel-2建筑分类提供了实用指导。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.19949",
+      "title": "SenWorld: A Digital-Twin Simulation for Generating Context-Rich Evaluation Data",
+      "authors": [
+        "Zenghui Zhou",
+        "Xiaoyang Li",
+        "Xiaoxuan Qiao",
+        "Zhilang Wei",
+        "Tianming Lei"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CY"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2607.19949",
+      "pdf_url": "https://arxiv.org/pdf/2607.19949",
+      "abstract_en": "Smartphone personal assistants reason over longitudinal personal data, yet evaluating them requires context-rich evaluation data whose correct answers are known, and real device traces are too privacy-sensitive to share. To address this challenge, we present SenWorld, a physically grounded, deterministic, event-sourced digital-twin simulation that generates such data with ground truth fixed by construction. In SenWorld, personas live through a full day in a world built from real map, weather, holiday, and network data; every observable signal is archived in full-system snapshots; and each evaluation case is labeled by a pointer to an existing record rather than by post-hoc annotation or a large language model (LLM) judge. We evaluate this method with 16 personas in Beijing. The generated data closely matches the held-out real-user benchmark in category distribution (Jensen--Shannon divergence (JSD) 0.070) and in the daily rhythm of communication records (JSD below 0.1), though generated records remain shorter than real ones. Without scripted interaction, personas form a fully reciprocated dialogue subgraph and differentiated behavioral repertoires. Projected into 717 evaluation cases, the generated data exposes 78 failures in a production smartphone assistant, concentrating on call and Short Message Service (SMS) records while contacts, schedules, and alarms never fail. The snapshot pointer confirms each failure as an assistant-side retrieval error, with no LLM judge involved. Overall, SenWorld offers a privacy-safe, reproducible, and distribution-checked path to evaluation data whose labels are fixed by construction.",
+      "comment": "We are currently undergoing internal approval",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: SenWorld 是一种基于物理的数字孪生仿真系统，用于生成上下文丰富的智能手机个人助手评估数据。系统通过确定性事件溯源构建完整的一天模拟，所有数据记录都有固定的真实标签（通过快照指针）。在16个北京人物场景下，生成数据在类别分布和日常节奏上接近真实用户基准（JSD分别为0.070和<0.1），并揭示了生产级助手的78个失败案例。\nMotivation: 智能手机个人助手需要上下文丰富的评估数据，但真实设备轨迹因隐私问题难以分享，现有方法依赖事后标注或LLM裁判。\nMethod: 构建物理驱动的数字孪生仿真，集成真实地图、天气、节假日和网络数据；人物经历完整一天；每个评估用例通过指向已存在快照记录来固定标签，无需人工或LLM标注。\nResult: 生成数据在类别分布（JSD 0.070）和通信记录日常节奏（JSD <0.1）上接近真实基准；在717个评估用例中发现78个助手失败，集中在通话和短信记录上，且确认均为检索错误。\nConclusion: SenWorld 提供了一条隐私安全、可复现且分布匹配的评估数据生成路径，其标签由构造固定，避免了对LLM裁判的依赖。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "SenWorld 是一种基于物理的数字孪生仿真系统，用于生成上下文丰富的智能手机个人助手评估数据。系统通过确定性事件溯源构建完整的一天模拟，所有数据记录都有固定的真实标签（通过快照指针）。在16个北京人物场景下，生成数据在类别分布和日常节奏上接近真实用户基准（JSD分别为0.070和<0.1），并揭示了生产级助手的78个失败案例。",
+        "motivation": "智能手机个人助手需要上下文丰富的评估数据，但真实设备轨迹因隐私问题难以分享，现有方法依赖事后标注或LLM裁判。",
+        "method": "构建物理驱动的数字孪生仿真，集成真实地图、天气、节假日和网络数据；人物经历完整一天；每个评估用例通过指向已存在快照记录来固定标签，无需人工或LLM标注。",
+        "result": "生成数据在类别分布（JSD 0.070）和通信记录日常节奏（JSD <0.1）上接近真实基准；在717个评估用例中发现78个助手失败，集中在通话和短信记录上，且确认均为检索错误。",
+        "conclusion": "SenWorld 提供了一条隐私安全、可复现且分布匹配的评估数据生成路径，其标签由构造固定，避免了对LLM裁判的依赖。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.19806",
+      "title": "OPIUM: Mitigating Steering Externalities and Over-Refusal via Dual Objective Latent Optimization",
+      "authors": [
+        "Kavin Aravindan",
+        "Arihant Rastogi",
+        "Krishak Aneja",
+        "Aadi Prasad",
+        "Saiyam Jain",
+        "Vaishnavi Shivkumar",
+        "Ponnurangam Kumaraguru"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.19806",
+      "pdf_url": "https://arxiv.org/pdf/2607.19806",
+      "abstract_en": "Activation steering provides a lightweight mechanism for controlling large language models at inference time, but steering vectors can have unintended externalities: utility vectors may weaken safety behavior, while refusal vectors may induce over-refusal on benign prompts. We introduce OPIUM (Optimizing Protected Injections via Utility Manifolds), a training-free method for sanitizing steering vectors through representation matching. Given reference behaviors on two prompt sets, OPIUM optimizes a new steering vector that preserves the downstream representations induced by the desired intervention while matching a safer reference behavior on prompts where the original vector fails. Across steering-externality and over-refusal settings, OPIUM improves the safety--utility tradeoff relative to vanilla steering and directional ablation, suggesting that harmful side effects of activation steering can often be mitigated directly in activation space.",
+      "comment": "Accepted to the Mechanistic Interpretability Workshop at the 43rd International Conference on Machine Learning (ICML 2026)",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出OPIUM，一种免训练的方法，通过在表示空间中优化引导向量，缓解激活引导（activation steering）对大型语言模型的安全性和实用性产生的副作用。实验表明，OPIUM在保持期望干预效果的同时，改善了安全-效用权衡，优于普通引导和方向消融方法。\nMotivation: 激活引导在推理时控制语言模型，但可能带来副作用：效用向量削弱安全性，拒绝向量导致良性提示的过度拒绝。需要一种方法在不重新训练的情况下修复这些问题。\nMethod: OPIUM通过表示匹配，在两组提示上参考行为，优化新的引导向量，使其在原始向量失败的提示上匹配更安全的参考行为，同时保留期望干预的下游表示。\nResult: 在引导副作用和过度拒绝场景中，OPIUM相对于普通引导和方向消融改善了安全-效用权衡。\nConclusion: 激活引导的有害副作用通常可以在激活空间中直接缓解，无需训练。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出OPIUM，一种免训练的方法，通过在表示空间中优化引导向量，缓解激活引导（activation steering）对大型语言模型的安全性和实用性产生的副作用。实验表明，OPIUM在保持期望干预效果的同时，改善了安全-效用权衡，优于普通引导和方向消融方法。",
+        "motivation": "激活引导在推理时控制语言模型，但可能带来副作用：效用向量削弱安全性，拒绝向量导致良性提示的过度拒绝。需要一种方法在不重新训练的情况下修复这些问题。",
+        "method": "OPIUM通过表示匹配，在两组提示上参考行为，优化新的引导向量，使其在原始向量失败的提示上匹配更安全的参考行为，同时保留期望干预的下游表示。",
+        "result": "在引导副作用和过度拒绝场景中，OPIUM相对于普通引导和方向消融改善了安全-效用权衡。",
+        "conclusion": "激活引导的有害副作用通常可以在激活空间中直接缓解，无需训练。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.19745",
+      "title": "EgoRecovery: Acquiring Failure Recovery Ability Through Human Recovery Demonstration",
+      "authors": [
+        "Zuhao Ge",
+        "Yuchen Zhou",
+        "Weitao Zhou",
+        "Minglei Li",
+        "Xinyu Li",
+        "Chao Wu",
+        "Hanwen Zhao",
+        "Haotian Wang",
+        "Zuxuan Wu",
+        "Xiaosong Jia",
+        "Yu-Gang Jiang"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2607.19745",
+      "pdf_url": "https://arxiv.org/pdf/2607.19745",
+      "abstract_en": "Robust embodied robots should be able to recover from failures and retry tasks in order to operate reliably in unstructured and noisy real-world environments. Achieving this capability requires training policies on data that captures recovery behaviors. However, collecting such data through robot teleoperation is difficult to scale, as it is time-consuming to induce diverse failure states, perform corrective actions, and reset the environment. This challenge is further exacerbated by the high diversity of failure modes, which demands substantially more recovery data than success demonstrations. In this work, we show that egocentric human data capturing failure recovery processes provides a scalable alternative. By efficiently arranging task-level failure configurations and recording short recovery segments, human operators can generate more than 10x as much valid recovery data per hour compared to robot teleoperation under our protocol. To address the embodiment gap between human and robot, we propose EgoRecovery, a co-training framework for learning recovery behavior, where human recovery demonstrations are aligned to a compact corrective-intent space shared with robot data, which captures the timing and magnitude of correction. Only a small number of robot recovery demonstrations are required to connect this intent to executable robot actions. At deployment, a learned recovery gate predicts when correction is needed from robot observations and activates the corrective intent only in recovery states. Experiments on real-world recovery tasks show that EgoRecovery improves success from failure starts over robot-only recovery, direct co-training with human recovery data, and direct intent-transfer baselines.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出利用人类恢复演示数据训练机器人故障恢复能力。通过高效布置故障配置和记录短恢复片段，每小时可生成比遥操作多10倍的有效恢复数据。为解决人机形态差异，提出EgoRecovery协同训练框架，将人类演示对齐到共享的纠正意图空间，仅需少量机器人演示即可连接意图与可执行动作。在真实世界恢复任务中，EgoRecovery在故障起始点的成功率优于多个基线。\nMotivation: 机器人在非结构化和嘈杂环境中需要故障恢复能力，但通过遥操作收集恢复数据难以规模化，因为诱导不同故障状态和执行纠正动作耗时且环境重置困难。故障模式的高度多样性需要比成功演示多得多的恢复数据。\nMethod: 提出EgoRecovery协同训练框架：利用人类第一视角恢复演示数据，通过高效布置故障配置和记录短恢复片段获得大量数据；构建共享的纠正意图空间，将人类演示与少量机器人演示对齐；使用学习到的恢复门预测何时需要纠正，仅在恢复状态激活纠正意图。\nResult: 在真实世界恢复任务上，EgoRecovery在故障起始点的成功率优于仅机器人恢复、直接协同训练和直接意图迁移等基线。\nConclusion: 摘要强调人类恢复演示数据是机器人故障恢复学习的可扩展替代方案，且EgoRecovery框架通过纠正意图空间对齐有效解决了人机形态差异。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出利用人类恢复演示数据训练机器人故障恢复能力。通过高效布置故障配置和记录短恢复片段，每小时可生成比遥操作多10倍的有效恢复数据。为解决人机形态差异，提出EgoRecovery协同训练框架，将人类演示对齐到共享的纠正意图空间，仅需少量机器人演示即可连接意图与可执行动作。在真实世界恢复任务中，EgoRecovery在故障起始点的成功率优于多个基线。",
+        "motivation": "机器人在非结构化和嘈杂环境中需要故障恢复能力，但通过遥操作收集恢复数据难以规模化，因为诱导不同故障状态和执行纠正动作耗时且环境重置困难。故障模式的高度多样性需要比成功演示多得多的恢复数据。",
+        "method": "提出EgoRecovery协同训练框架：利用人类第一视角恢复演示数据，通过高效布置故障配置和记录短恢复片段获得大量数据；构建共享的纠正意图空间，将人类演示与少量机器人演示对齐；使用学习到的恢复门预测何时需要纠正，仅在恢复状态激活纠正意图。",
+        "result": "在真实世界恢复任务上，EgoRecovery在故障起始点的成功率优于仅机器人恢复、直接协同训练和直接意图迁移等基线。",
+        "conclusion": "摘要强调人类恢复演示数据是机器人故障恢复学习的可扩展替代方案，且EgoRecovery框架通过纠正意图空间对齐有效解决了人机形态差异。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.19535",
+      "title": "Synthetic and Derived Training Images for Campus Waste Detection: A Multi-Seed Evaluation with YOLOv8n",
+      "authors": [
+        "Ali Behbahani",
+        "Newsha Javanmardi",
+        "Shahriar Ahmed",
+        "Ling Chen",
+        "Phouvadeth Vathana"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.19535",
+      "pdf_url": "https://arxiv.org/pdf/2607.19535",
+      "abstract_en": "Incorrect disposal can contaminate campus recycling streams, and a bin-mounted camera could provide feedback as an item is discarded. We evaluated whether synthetic and derived images improve a YOLOv8n detector for this view. The real dataset contained 148 campus photographs: 86 for training, 31 for validation, and 31 for testing. Twelve joint-training configurations varied the amount and source of added images. We repeated seven principal settings with four matched seeds and computed bootstrap percentile intervals over those seeds. The real-only model reached a mean mAP@0.5 of 0.691 [0.665, 0.722]. Background replacement reduced the mean to 0.560 [0.499, 0.619], isolated-object images gave 0.680 [0.644, 0.724], and the full augmentation pool gave 0.487 [0.438, 0.537]. We also tested hand-and-forearm composites because every real photo showed a held object. Two cutouts in the initial composite set came from test photographs, so we discarded that experiment, rebuilt the set with training-split cutouts, and reran all four seeds. The corrected paired difference was +0.034 [-0.063, 0.199], which does not support a reliable hand-composite effect. Single-seed transfer experiments produced source-dependent rankings between joint mixing and sequential pretraining. None of the evaluated configurations exceeded the real-only baseline. The reported intervals quantify seed variation; the 31-photo test set remains too small for strong class-specific conclusions.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文使用YOLOv8n检测校园垃圾丢弃场景中的物品，评估合成和派生训练图像的效果。真实数据集仅148张照片，测试集31张。多种配置下，仅用真实数据训练的模型mAP@0.5为0.691，而添加合成图像未超过该基线。重复不同随机种子并计算置信区间以量化变异。\nMotivation: 校园垃圾错误丢弃会污染回收流，需要自动检测反馈。但真实训练数据有限，因此考虑使用合成和派生图像增强。\nMethod: 使用YOLOv8n模型，构建12种联合训练配置，包括背景替换、孤立物体图像、完整增强池等，并设置四种随机种子重复实验，计算自举百分位区间。\nResult: 仅用真实数据的基线mAP@0.5为0.691 [0.665,0.722]；背景替换降至0.560；孤立物体图像为0.680；完整增强池为0.487。手部-前臂复合图像的校正后配对差为+0.034 [-0.063,0.199]，不支持可靠效果。所有配置均未超过真实基线。\nConclusion: 合成和派生图像未能提升校园垃圾检测性能，且测试集较小限制了类别级结论的强度。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文使用YOLOv8n检测校园垃圾丢弃场景中的物品，评估合成和派生训练图像的效果。真实数据集仅148张照片，测试集31张。多种配置下，仅用真实数据训练的模型mAP@0.5为0.691，而添加合成图像未超过该基线。重复不同随机种子并计算置信区间以量化变异。",
+        "motivation": "校园垃圾错误丢弃会污染回收流，需要自动检测反馈。但真实训练数据有限，因此考虑使用合成和派生图像增强。",
+        "method": "使用YOLOv8n模型，构建12种联合训练配置，包括背景替换、孤立物体图像、完整增强池等，并设置四种随机种子重复实验，计算自举百分位区间。",
+        "result": "仅用真实数据的基线mAP@0.5为0.691 [0.665,0.722]；背景替换降至0.560；孤立物体图像为0.680；完整增强池为0.487。手部-前臂复合图像的校正后配对差为+0.034 [-0.063,0.199]，不支持可靠效果。所有配置均未超过真实基线。",
+        "conclusion": "合成和派生图像未能提升校园垃圾检测性能，且测试集较小限制了类别级结论的强度。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-21",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.19526",
+      "title": "The C-index illusion: discrimination without calibration in published survival models",
+      "authors": [
+        "Rafael da Silva",
+        "Danilo Alvares"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.19526",
+      "pdf_url": "https://arxiv.org/pdf/2607.19526",
+      "abstract_en": "Recent work has argued normatively, on synthetic data, that evaluating survival models by discrimination alone (concordance index) yields systematically misleading model comparisons, because the metric ignores calibration and time-dependent accuracy. Whether this matters for real, published, non-clinical models has not been tested. We reproduce three published survival-ML models across three structurally distinct domains -- hard-drive failure prediction, peer-to-peer credit default, and user disengagement on digital platforms -- validate our instrument against the anchor paper's own synthetic experiment, and test five pre-registered hypotheses under a Holm-corrected family-wise error rate. Three of five reject (though one pre-registered threshold clears by a narrow margin). A model reproducing the published literature's discrimination almost exactly (C = 0.9595 vs. 0.958 reported) fails a formal calibration test at p < 0.001; a broad feature-ablation search finds no single attribute responsible for its discrimination, so the calibration failure is not a trivial shortcut artifact. A lender's estimated default risk is biased upward by roughly two percentage points, growing to nearly four in the riskiest segment, when loan prepayment is treated as non-informative censoring rather than a competing risk. A platform's churn model shows probability estimates that degrade with the horizon even as global discrimination stays within the pre-registered C-index band. A direct test of whether metric choice inverts model preference does not reject, though with limited power given two to three models per domain; the failure mode we document is better characterized as misplaced confidence in a chosen model than as choosing the wrong one. We release a pre-registered evaluation harness with full code and an annotated notebook, so these results can be verified independently and the audit extended.",
+      "comment": "34 pages, 6 figures, 18 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文通过复现三篇已发表的非临床生存模型（硬盘故障、P2P信用违约、用户流失），检验了仅用C-index评估模型会导致误导性结论的观点。发现即使模型复现了原文的C-index，仍可能严重缺乏校准；不同领域的模型存在系统性偏差。结果表明，C-index高并不保证模型可靠，评估应结合校准和时序准确性。\nMotivation: 已有研究从理论上论证了仅用区分度（C-index）评估生存模型会产生误导，但缺乏对真实已发表模型的验证。本文旨在填补这一空白。\nMethod: 复现三个不同领域已发表的生存-机器学习模型（硬盘故障、P2P信用违约、数字平台用户流失），通过预注册的五个假设并采用Holm校正的族系错误率进行检验，同时发布完整评估工具供独立验证。\nResult: 五个假设中有三个被拒绝（一个边缘通过）；复现的模型C-index与原文几乎相同（0.9595 vs 0.958），但校准检验显著失败（p<0.001）；将贷款预付款视为非信息性删失而非竞争风险会导致违约风险估计偏高约2个百分点，高风险段达近4个百分点。\nConclusion: 仅依赖C-index会导致对模型准确性产生误信，而非错误地选择模型。评估生存模型时必须同时考虑校准和时变准确性，且这一结论在非临床领域同样成立。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文通过复现三篇已发表的非临床生存模型（硬盘故障、P2P信用违约、用户流失），检验了仅用C-index评估模型会导致误导性结论的观点。发现即使模型复现了原文的C-index，仍可能严重缺乏校准；不同领域的模型存在系统性偏差。结果表明，C-index高并不保证模型可靠，评估应结合校准和时序准确性。",
+        "motivation": "已有研究从理论上论证了仅用区分度（C-index）评估生存模型会产生误导，但缺乏对真实已发表模型的验证。本文旨在填补这一空白。",
+        "method": "复现三个不同领域已发表的生存-机器学习模型（硬盘故障、P2P信用违约、数字平台用户流失），通过预注册的五个假设并采用Holm校正的族系错误率进行检验，同时发布完整评估工具供独立验证。",
+        "result": "五个假设中有三个被拒绝（一个边缘通过）；复现的模型C-index与原文几乎相同（0.9595 vs 0.958），但校准检验显著失败（p<0.001）；将贷款预付款视为非信息性删失而非竞争风险会导致违约风险估计偏高约2个百分点，高风险段达近4个百分点。",
+        "conclusion": "仅依赖C-index会导致对模型准确性产生误信，而非错误地选择模型。评估生存模型时必须同时考虑校准和时变准确性，且这一结论在非临床领域同样成立。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-21",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.14749",
+      "title": "WanSong v1.0 Technical Report",
+      "authors": [
+        "Binghui Chen",
+        "Pandeng Li",
+        "Yu Liu",
+        "Jingren Zhou"
+      ],
+      "categories": [
+        "cs.CV",
+        "eess.AS"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "eess.AS",
+      "abs_url": "https://arxiv.org/abs/2607.14749",
+      "pdf_url": "https://arxiv.org/pdf/2607.14749",
+      "abstract_en": "Music generation foundation models have recently attracted significant industry attention. However, achieving efficient generation and high-fidelity long-form audio while supporting controllability remains challenging. To address these needs, we present \\textbf{WanSong}, a simple yet powerful approach for long-form, commercial-grade song generation. Unlike autoregressive (AR) and cascaded multi-stage pipelines (\\eg, AR followed by diffusion), \\textbf{WanSong} is a pure diffusion-based model that directly generates high-fidelity, multilingual songs up to 5 minutes and outputs dual stems (vocals and background music) in a single run. In addition, our diffusion framework enables faster inference through step-distillation, and offers an efficient pathway for fine-tuning and customization to support downstream editing tasks.",
+      "comment": "Wan Team, Alibaba Group",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出WanSong，一个纯扩散模型，用于生成长达5分钟的高保真多语言歌曲，并一次性输出人声和背景音乐双轨。该模型通过步蒸馏实现更快推理，并支持微调定制以适配下游编辑任务。摘要未提供与现有方法的定量对比。\nMotivation: 现有音乐生成模型在高效生成、长音频高保真和可控性之间难以兼顾，尤其是自回归或多阶段级联管道存在效率瓶颈。\nMethod: WanSong是一个纯扩散模型，直接生成高保真多语言歌曲（最长5分钟），输出人声和背景音乐双轨。通过步蒸馏加速推理，并设计微调路径支持下游编辑。\nResult: 摘要声称模型能生成5分钟高保真歌曲，支持步蒸馏加速，但未报告与基线对比的定量指标。\nConclusion: 纯扩散框架结合步蒸馏与微调能力，为长时歌曲生成提供了高效且可控的方案。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出WanSong，一个纯扩散模型，用于生成长达5分钟的高保真多语言歌曲，并一次性输出人声和背景音乐双轨。该模型通过步蒸馏实现更快推理，并支持微调定制以适配下游编辑任务。摘要未提供与现有方法的定量对比。",
+        "motivation": "现有音乐生成模型在高效生成、长音频高保真和可控性之间难以兼顾，尤其是自回归或多阶段级联管道存在效率瓶颈。",
+        "method": "WanSong是一个纯扩散模型，直接生成高保真多语言歌曲（最长5分钟），输出人声和背景音乐双轨。通过步蒸馏加速推理，并设计微调路径支持下游编辑。",
+        "result": "摘要声称模型能生成5分钟高保真歌曲，支持步蒸馏加速，但未报告与基线对比的定量指标。",
+        "conclusion": "纯扩散框架结合步蒸馏与微调能力，为长时歌曲生成提供了高效且可控的方案。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-16",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.14675",
+      "title": "An Intelligent-Cloud Edge Multimodal Interaction System for Robots",
+      "authors": [
+        "Zihan Guo",
+        "Xiaoqi Li"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2607.14675",
+      "pdf_url": "https://arxiv.org/pdf/2607.14675",
+      "abstract_en": "Robust human-robot interaction in complex environments requires accurate gesture perception, semantic scene understanding, and reliable task planning under limited onboard computing resources. This paper presents a cloud-edge multimodal interaction framework that integrates an enhanced YOLO-based gesture detector with coordinated large language model (LLM) and vision-language model (VLM) agents. The proposed detector, incorporates the Convolutional Block Attention Module (CBAM) into the neck and replaces the baseline bounding-box regression objective with Distance-IoU (DIoU) loss. These modifications improve feature discrimination and localization for small or partially occluded gestures in complex backgrounds. The cloud layer performs gesture detection, scene understanding, multimodal fusion, and action planning, whereas the TonyPi robot locally handles data acquisition, communication, action execution, and feedback. Experiments on a public gesture dataset and a custom dataset show that YOLO-DC achieves precision values of 98.9% and 95.0%, with mAP@0.5 values of 90.7% and 92.7%, respectively. System-level evaluation yields success rates of 95%, 88%, and 82% for single-action, composite-action, and vision-dependent tasks. A 30 participant evaluation yields an overall mean satisfaction score of 3.69 out of 5. These results demonstrate the feasibility of combining refined gesture detection with multimodal agents for resource-constrained robotic interaction.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种云边多模态交互系统，用于资源受限的机器人。该系统整合了增强型YOLO手势检测器（YOLO-DC，引入CBAM和DIoU损失）与大语言模型和视觉语言模型代理。云端负责手势检测、场景理解和任务规划，本地机器人负责数据采集和执行。在公共手势数据集和自定义数据集上，YOLO-DC达到98.9%和95.0%的精度，mAP@0.5分别为90.7%和92.7%。系统级测试显示单动作任务成功率95%，复合动作88%，视觉依赖任务82%。30人满意度平均3.69/5。\nMotivation: 复杂环境中机器人资源受限，需要准确的手势感知和场景理解，但已有方法在计算受限场景下精度不足。\nMethod: 提出云边协同框架，云端运行改进的YOLO检测器（YOLO-DC），在颈部引入CBAM注意力模块，并将边界框回归损失替换为DIoU损失；同时结合LLM和VLM代理进行场景理解和任务规划。\nResult: YOLO-DC在公共手势数据集上精度98.9%、mAP@0.5 90.7%；在自定义数据集上精度95.0%、mAP@0.5 92.7%。系统级测试中单动作任务成功率95%，复合动作88%，视觉依赖任务82%。30人满意度平均3.69/5。\nConclusion: 该工作展示了将精细手势检测与多模态代理结合用于资源受限机器人交互的可行性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种云边多模态交互系统，用于资源受限的机器人。该系统整合了增强型YOLO手势检测器（YOLO-DC，引入CBAM和DIoU损失）与大语言模型和视觉语言模型代理。云端负责手势检测、场景理解和任务规划，本地机器人负责数据采集和执行。在公共手势数据集和自定义数据集上，YOLO-DC达到98.9%和95.0%的精度，mAP@0.5分别为90.7%和92.7%。系统级测试显示单动作任务成功率95%，复合动作88%，视觉依赖任务82%。30人满意度平均3.69/5。",
+        "motivation": "复杂环境中机器人资源受限，需要准确的手势感知和场景理解，但已有方法在计算受限场景下精度不足。",
+        "method": "提出云边协同框架，云端运行改进的YOLO检测器（YOLO-DC），在颈部引入CBAM注意力模块，并将边界框回归损失替换为DIoU损失；同时结合LLM和VLM代理进行场景理解和任务规划。",
+        "result": "YOLO-DC在公共手势数据集上精度98.9%、mAP@0.5 90.7%；在自定义数据集上精度95.0%、mAP@0.5 92.7%。系统级测试中单动作任务成功率95%，复合动作88%，视觉依赖任务82%。30人满意度平均3.69/5。",
+        "conclusion": "该工作展示了将精细手势检测与多模态代理结合用于资源受限机器人交互的可行性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-16",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.13738",
+      "title": "Anatomically Faithful but Temporally Diffuse: Auditing Attribution for Left-Ventricular Ejection-Fraction Estimation from Echocardiography",
+      "authors": [
+        "Hyunkyung Han",
+        "Min Jung Kim"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.13738",
+      "pdf_url": "https://arxiv.org/pdf/2607.13738",
+      "abstract_en": "Deep video models estimate left-ventricular ejection fraction (EF) from echocardiography with near-expert accuracy, and post-hoc attribution is increasingly used to certify that such models look at the right place. Because EF is defined by the end-systolic (ES) and end-diastolic (ED) frames, a faithful explanation must localize not only the left ventricle in space but also the decisive frames in time. We audit attribution faithfulness along three axes -- spatial grounding, perturbation, and temporal reliance -- for two architecturally distinct regressors fine-tuned on EchoNet-Dynamic: a self-supervised VideoMAE transformer audited with Chefer relevance propagation, and a Kinetics-pretrained R(2+1)D convolutional network audited with Grad-CAM. All statistics are reported with bootstrap 95% confidence intervals over the full 1,276-study test split, against explicit chance baselines and attention-rollout and random-attribution controls. We find a pronounced asymmetry rather than a temporal null. Both models are strongly anatomically faithful (3.04x and 3.76x chance) but only weakly localized in time: tubelet occlusion places causal reliance on ES/ED at 1.05x chance for VideoMAE (95% CI [1.037, 1.068]) and 1.15x for R(2+1)D ([1.134, 1.166]) -- a threefold weaker concentration than in space -- and the attribution faithfully mirrors this weakness. Separating convergence from architecture shows that temporal reliance is architecture-determined and convergence-invariant: R(2+1)D attains 1.14x after a single training epoch and 1.15x at convergence, while both VideoMAE variants stay at 1.05x regardless of pretraining or accuracy. Spatial faithfulness therefore does not imply temporal faithfulness, and the shortfall is not remedied by further training.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文审计了基于深度视频模型的心脏超声左心室射血分数估计的归因忠实性，发现模型在空间上很忠实但在时间上弱很多，且时间依赖由架构决定而不受训练收敛影响。\nMotivation: 尽管视频模型对EF估计准确，但其后验归因是否真正定位到关键的收缩末期和舒张末期帧尚不明确。\nMethod: 沿着空间定位、扰动和时间依赖三个轴审计两种架构（VideoMAE和R(2+1)D）的归因，使用Chefer相关传播和Grad-CAM等方法，报告bootstrap95%置信区间。\nResult: 空间忠实性远高于时间忠实性（时间仅1.05-1.15倍机遇水平），且时间依赖由架构决定，不受训练收敛影响。\nConclusion: 空间忠实性不代表时间忠实性，进一步训练无法解决这一不足。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文审计了基于深度视频模型的心脏超声左心室射血分数估计的归因忠实性，发现模型在空间上很忠实但在时间上弱很多，且时间依赖由架构决定而不受训练收敛影响。",
+        "motivation": "尽管视频模型对EF估计准确，但其后验归因是否真正定位到关键的收缩末期和舒张末期帧尚不明确。",
+        "method": "沿着空间定位、扰动和时间依赖三个轴审计两种架构（VideoMAE和R(2+1)D）的归因，使用Chefer相关传播和Grad-CAM等方法，报告bootstrap95%置信区间。",
+        "result": "空间忠实性远高于时间忠实性（时间仅1.05-1.15倍机遇水平），且时间依赖由架构决定，不受训练收敛影响。",
+        "conclusion": "空间忠实性不代表时间忠实性，进一步训练无法解决这一不足。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-15",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.13093",
+      "title": "Efficient and Privacy Aware Edge Cloud Collaborative Inference for Large Language Models",
+      "authors": [
+        "Cheng Li",
+        "Jiexiong Liu",
+        "Yixuan Chen",
+        "Yi Li"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CR",
+      "abs_url": "https://arxiv.org/abs/2607.13093",
+      "pdf_url": "https://arxiv.org/pdf/2607.13093",
+      "abstract_en": "On-device LLM inference faces a trilemma of response latency, limited hardware resources and user privacy. Full cloud inference delivers strong computing power but exposes user prompts and dialogue data, while standalone on-device inference is unfeasible for most consumer and embedded edge devices. This paper presents a privacy-centric edge-cloud collaborative LLM inference framework built on endpoint-authenticated KV cache. Local endpoints handle input preprocessing, embedding computation, adaptive feature optimization, KV cache authentication, speculative decoding and low-dimensional model head calculation, while the cloud conducts authenticated decoder inference, KV cache management, token verification and high-dimensional vocabulary projection. Endpoints fuse partial outputs, apply language-adaptive masking and sample target tokens. All transmitted data and truncated logits are quantized and AES-GCM encrypted for privacy, with core lightweight modules, draft parameters and cache access policies kept local to avoid leakage. The framework supports heterogeneous devices including CPU-only, GPU-equipped and embedded devices via optimized streaming, batching and quantized ONNX deployment. Evaluations demonstrate that the framework reduces per-token latency by up to 46.1\\% and downlink payloads by up to 67.4\\% over baseline split inference, retaining comparable performance to full cloud inference.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对设备端LLM推理面临的延迟、资源、隐私三难问题，提出一种基于端点认证KV缓存的隐私中心边缘-云协同推理框架。本地端点处理预处理、嵌入、自适应特征优化、KV缓存认证、推测解码和低维模型头计算，云端进行认证解码器推理、KV缓存管理、令牌验证和高维词汇投影。所有传输数据和截断logits均经量化和AES-GCM加密，核心轻量模块和草稿参数保留本地。评估显示，与基线分割推理相比，每令牌延迟降低46.1%，下行负载降低67.4%，性能接近全云推理。\nMotivation: 设备端LLM推理面临延迟、硬件资源和用户隐私的三难困境；全云推理暴露用户提示和对话数据，而纯设备端推理对大多数消费和嵌入式设备不可行。\nMethod: 提出基于端点认证KV缓存的隐私中心边缘-云协同推理框架：本地端点处理输入预处理、嵌入计算、自适应特征优化、KV缓存认证、推测解码和低维模型头计算；云端进行认证解码器推理、KV缓存管理、令牌验证和高维词汇投影。所有传输数据和截断logits经量化和AES-GCM加密，核心轻量模块、草稿参数和缓存访问策略保留在本地。\nResult: 评估表明，该框架与基线分割推理相比，每令牌延迟降低高达46.1%，下行负载降低高达67.4%，同时保持与全云推理相当的性能。\nConclusion: 该框架通过隐私保护机制和异构设备支持，实现了延迟和通信开销的显著降低，同时保持接近全云推理的性能。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对设备端LLM推理面临的延迟、资源、隐私三难问题，提出一种基于端点认证KV缓存的隐私中心边缘-云协同推理框架。本地端点处理预处理、嵌入、自适应特征优化、KV缓存认证、推测解码和低维模型头计算，云端进行认证解码器推理、KV缓存管理、令牌验证和高维词汇投影。所有传输数据和截断logits均经量化和AES-GCM加密，核心轻量模块和草稿参数保留本地。评估显示，与基线分割推理相比，每令牌延迟降低46.1%，下行负载降低67.4%，性能接近全云推理。",
+        "motivation": "设备端LLM推理面临延迟、硬件资源和用户隐私的三难困境；全云推理暴露用户提示和对话数据，而纯设备端推理对大多数消费和嵌入式设备不可行。",
+        "method": "提出基于端点认证KV缓存的隐私中心边缘-云协同推理框架：本地端点处理输入预处理、嵌入计算、自适应特征优化、KV缓存认证、推测解码和低维模型头计算；云端进行认证解码器推理、KV缓存管理、令牌验证和高维词汇投影。所有传输数据和截断logits经量化和AES-GCM加密，核心轻量模块、草稿参数和缓存访问策略保留在本地。",
+        "result": "评估表明，该框架与基线分割推理相比，每令牌延迟降低高达46.1%，下行负载降低高达67.4%，同时保持与全云推理相当的性能。",
+        "conclusion": "该框架通过隐私保护机制和异构设备支持，实现了延迟和通信开销的显著降低，同时保持接近全云推理的性能。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-14",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.19390",
+      "title": "The Orthogonalized Read Is a Removable Training Scaffold for Recurrent Memory",
+      "authors": [
+        "Keston Aquino-Michaels"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.19390",
+      "pdf_url": "https://arxiv.org/pdf/2607.19390",
+      "abstract_en": "A recent report finds that orthogonalizing the mLSTM memory matrix at read time (five Newton-Schulz iterations, trained through) substantially improves noisy associative recall. The effect replicates, but it is not a memory improvement. Training on this task is a long chance plateau followed by a sharp escape, and the orthogonalized read acts by re-conditioning the learning problem during the plateau. Three properties establish this. It must be self-consistent: an exact recursive least-squares read (the Mesa layer) reproduces it, while straight-through halves, delta-rule writes, frozen random keys, and plain normalization all fail. It is uniform: across a learning-rate x hardness grid it multiplies the escape hazard roughly six-fold with no detectable hardness dependence, widening the workable learning-rate corridor that narrows for the baseline. And it is removable: applied to failed models at inference it rescues none, and annealed away on an escape-triggered schedule it leaves numerically stock mLSTMs at full accuracy. Much of the published gain needs no architecture at all: solved-rate at a fixed budget measures escape hazard, which follows a heat/noise law (learning-rate elasticity +3.0, gradient-noise elasticity -1.65) under which the original vocab-96 result is a large-batch noise condition rather than a capacity one. Decoding the memory state directly shows failed models carry roughly half their associations in linearly recoverable form: the plateau is a readout failure over half-written storage. Two conclusions travel beyond the intervention: recall benchmarks used for architecture selection partly measure trainability, and the system is a fully instrumented model organism of \"emergence,\" in which a sharp behavioral threshold demonstrably arises from a censored metric over gradually accumulating structure.",
+      "comment": "18 pages, 8 figures. Code, per-seed results, and checkpoints: https://github.com/no-way-labs/recurrent-memory-scaffold",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究对mLSTM记忆矩阵在读取时进行正交化（orthogonalized read）的效果，发现其并非改善记忆，而是通过重新调节训练过程中的学习问题来提升训练效果。作者通过实验表明正交化读取是可移除的训练支架，并揭示了失败模型在学习高原期的读出失败现象。\nMotivation: 最近有报告称正交化mLSTM记忆矩阵能显著改善噪声联想回忆，但本文旨在探究其真正机制：是记忆改进还是训练动态的调节。\nMethod: 通过多个对照实验（如精确递归最小二乘读出、直通估计、delta规则写入、冻结随机键、纯归一化等）和热-噪声定律分析，验证正交化读取的自洽性、均匀性和可移除性。\nResult: 正交化读取将逃离学习高原的速率提高约六倍，且与任务难度无关；在推理时对已失败模型无效，而逐步退火后模型仍能达到完整精度。失败模型在线性恢复形式中携带约一半关联信息，表明高原期是读出失败而非存储失败。\nConclusion: 召回基准部分衡量的是可训练性，而非记忆能力；该系统可作为“涌现”现象的完整仪器化模型。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究对mLSTM记忆矩阵在读取时进行正交化（orthogonalized read）的效果，发现其并非改善记忆，而是通过重新调节训练过程中的学习问题来提升训练效果。作者通过实验表明正交化读取是可移除的训练支架，并揭示了失败模型在学习高原期的读出失败现象。",
+        "motivation": "最近有报告称正交化mLSTM记忆矩阵能显著改善噪声联想回忆，但本文旨在探究其真正机制：是记忆改进还是训练动态的调节。",
+        "method": "通过多个对照实验（如精确递归最小二乘读出、直通估计、delta规则写入、冻结随机键、纯归一化等）和热-噪声定律分析，验证正交化读取的自洽性、均匀性和可移除性。",
+        "result": "正交化读取将逃离学习高原的速率提高约六倍，且与任务难度无关；在推理时对已失败模型无效，而逐步退火后模型仍能达到完整精度。失败模型在线性恢复形式中携带约一半关联信息，表明高原期是读出失败而非存储失败。",
+        "conclusion": "召回基准部分衡量的是可训练性，而非记忆能力；该系统可作为“涌现”现象的完整仪器化模型。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-02",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.19388",
+      "title": "Neural Operator Surrogates for Two-Dimensional Neutron Flux Estimation",
+      "authors": [
+        "Japan K. Patel",
+        "Barry D. Ganapol",
+        "Anthony Magliari",
+        "Matthew C. Schmidt",
+        "Todd A. Wareing"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.19388",
+      "pdf_url": "https://arxiv.org/pdf/2607.19388",
+      "abstract_en": "This work extends our one-dimensional single-sweep neural-operator studies to two dimensions. We consider one-group transport with isotropic scattering. As in the one-dimensional work, we use Fourier neural operators (FNOs) to approximate the high-fidelity scalar flux. Additionally, we also investigate U-shaped neural operators (UNOs) in this study. We consider three surrogates. The first two map the material and source fields directly to the flux, one using an FNO and one using a UNO. The third is an FNO that additionally takes the scalar flux after one source iteration, the single-sweep approximation, as an input. Each case is solved to high fidelity with a verified discrete-ordinates solver, and an average relative L_2 error norm is used to characterize the quality of the inferred maps. We train every surrogate over three random seeds so that differences between them can be assessed against run-to-run variability. Two questions guide the study: whether the single-sweep input improves accuracy over the direct maps, and whether training on the logarithm of the flux improves accuracy in the strongly attenuated regions relevant to shielding.",
+      "comment": "to be submitted to ANS Winter 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文将一维神经算子研究扩展到二维中子通量估计，使用傅里叶神经算子（FNO）和U形神经算子（UNO）构建替代模型，映射材料场和源场到标量通量。还测试了以单扫近似（single-sweep approximation）为额外输入的FNO。所有模型基于离散纵坐标求解器的高保真解训练，采用平均相对L2误差评估。研究关注单扫输入和对数通量训练能否提升精度。\nMotivation: 为高效模拟二维中子输运问题，探索神经算子替代高保真求解器的可行性，并评估单扫近似输入和对数变换对精度的影响。\nMethod: 构建三种替代模型：FNO直接映射、UNO直接映射、以及以单扫近似为额外输入的FNO。每个模型使用三个随机种子训练，训练数据来自离散纵坐标求解器的高保真解，评估指标为平均相对L2误差。\nResult: 摘要仅提及使用平均相对L2误差表征映射质量，未报告具体数值。\nConclusion: 本文提出两个研究问题：单扫输入是否提升精度，以及对数通量训练是否能改善强衰减区域（如屏蔽）的精度。摘要未给出明确结论。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文将一维神经算子研究扩展到二维中子通量估计，使用傅里叶神经算子（FNO）和U形神经算子（UNO）构建替代模型，映射材料场和源场到标量通量。还测试了以单扫近似（single-sweep approximation）为额外输入的FNO。所有模型基于离散纵坐标求解器的高保真解训练，采用平均相对L2误差评估。研究关注单扫输入和对数通量训练能否提升精度。",
+        "motivation": "为高效模拟二维中子输运问题，探索神经算子替代高保真求解器的可行性，并评估单扫近似输入和对数变换对精度的影响。",
+        "method": "构建三种替代模型：FNO直接映射、UNO直接映射、以及以单扫近似为额外输入的FNO。每个模型使用三个随机种子训练，训练数据来自离散纵坐标求解器的高保真解，评估指标为平均相对L2误差。",
+        "result": "摘要仅提及使用平均相对L2误差表征映射质量，未报告具体数值。",
+        "conclusion": "本文提出两个研究问题：单扫输入是否提升精度，以及对数通量训练是否能改善强衰减区域（如屏蔽）的精度。摘要未给出明确结论。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-02",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.01043",
+      "title": "DART-VLN: Test-Time Memory Decay and Anti-Loop Regularization for Discrete Vision-Language Navigation",
+      "authors": [
+        "Shaoheng Zhang",
+        "Zhichen Li",
+        "Jie Mei"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2607.01043",
+      "pdf_url": "https://arxiv.org/pdf/2607.01043",
+      "abstract_en": "Memory-based agents for discrete vision-language navigation (VLN) operate under partial observability and can exhibit systematic inference-time failures even with strong pretrained backbones. We focus on two recurring problems: stale historical evidence during memory readout and inefficient local backtracking during action selection. We present DART-VLN, a training-free inference-time framework that combines Test-Time Memory Decay, which reweights stale and redundant memory slots without modifying their stored content, with Anti-Loop Regularization, a lightweight next-hop penalty that discourages immediate reversals. DART-VLN introduces no learnable parameters and leaves the navigation backbone unchanged. Experiments on R2R and REVERIE show that memory decay consistently preserves or improves task performance while reducing runtime. Adding anti-loop regularization further shortens trajectories, reduces local backtracking, and achieves the best overall balance between navigation quality and efficiency among the evaluated GridMM variants. These results indicate that lightweight inference-time control can improve the reliability and efficiency of memory-based discrete VLN without retraining.",
+      "comment": "Accepted by the 2026 IEEE International Conference on Systems, Man, and Cybernetics (IEEE SMC 2026)",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 DART-VLN，一种无需训练、仅在推理时进行干预的框架，用于解决离散视觉语言导航（VLN）中记忆读取时的历史证据陈旧和动作选择时的低效局部回溯问题。方法包含测试时记忆衰减（Test-Time Memory Decay）和反循环正则化（Anti-Loop Regularization），不引入可学习参数。在 R2R 和 REVERIE 基准上的实验表明，该方法在保持或提升任务性能的同时缩短了轨迹长度并减少了回溯，实现了导航质量与效率的最佳平衡。\nMotivation: 基于记忆的离散 VLN 代理在部分可观测环境下即使使用强预训练骨干网络，仍会出现系统性推理失败，主要问题包括记忆读取时利用陈旧历史证据以及动作选择时低效的局部回溯。\nMethod: 提出无训练推理时框架 DART-VLN，包含两部分：测试时记忆衰减，通过重新加权陈旧和冗余记忆槽而不修改其存储内容；反循环正则化，一种轻量级下一跳惩罚机制，阻止立即回退。\nResult: 在 R2R 和 REVERIE 基准上，记忆衰减一致地保持或提升任务性能并减少运行时；添加反循环正则化进一步缩短轨迹、减少局部回溯，在 GridMM 变体中实现导航质量与效率的最佳平衡。\nConclusion: 轻量级推理时控制可以在不重新训练的情况下提高基于记忆的离散 VLN 的可靠性和效率。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 DART-VLN，一种无需训练、仅在推理时进行干预的框架，用于解决离散视觉语言导航（VLN）中记忆读取时的历史证据陈旧和动作选择时的低效局部回溯问题。方法包含测试时记忆衰减（Test-Time Memory Decay）和反循环正则化（Anti-Loop Regularization），不引入可学习参数。在 R2R 和 REVERIE 基准上的实验表明，该方法在保持或提升任务性能的同时缩短了轨迹长度并减少了回溯，实现了导航质量与效率的最佳平衡。",
+        "motivation": "基于记忆的离散 VLN 代理在部分可观测环境下即使使用强预训练骨干网络，仍会出现系统性推理失败，主要问题包括记忆读取时利用陈旧历史证据以及动作选择时低效的局部回溯。",
+        "method": "提出无训练推理时框架 DART-VLN，包含两部分：测试时记忆衰减，通过重新加权陈旧和冗余记忆槽而不修改其存储内容；反循环正则化，一种轻量级下一跳惩罚机制，阻止立即回退。",
+        "result": "在 R2R 和 REVERIE 基准上，记忆衰减一致地保持或提升任务性能并减少运行时；添加反循环正则化进一步缩短轨迹、减少局部回溯，在 GridMM 变体中实现导航质量与效率的最佳平衡。",
+        "conclusion": "轻量级推理时控制可以在不重新训练的情况下提高基于记忆的离散 VLN 的可靠性和效率。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2604.01363",
+      "title": "Crashing Waves vs. Rising Tides: Findings on AI Automation from Thousands of Worker Evaluations of Labor Market Tasks",
+      "authors": [
+        "Matthias Mertens",
+        "Adam Kuzee",
+        "Brittany S. Harris",
+        "Harry Lyu",
+        "Wensu Li",
+        "Jonathan Rosenfeld",
+        "Meiri Anto",
+        "Martin Fleming",
+        "Neil Thompson"
+      ],
+      "categories": [
+        "cs.AI",
+        "econ.GN"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2604.01363",
+      "pdf_url": "https://arxiv.org/pdf/2604.01363",
+      "abstract_en": "We characterize AI automation as a continuum between crashing waves, in which capabilities jump abruptly across narrow task sets, and rising tides, in which capabilities improve continuously and broadly. Using evidence from more than 6,000 text-based, LLM-addressable tasks derived from the U.S. Department of Labor's O*NET taxonomy and over 60,000 evaluations by experienced workers, we find little evidence of crashing waves (contrary to existing views). Instead, rising tides are the primary form of AI progress. AI performance is high and improving rapidly across many tasks. In 2024-Q2, models completed text-based tasks that take humans about 1.5 hours to complete with roughly 60% success, rising above 70% by 2025-Q3. If recent trends in AI capability growth persist, frontier LLMs will be able to complete most text-based tasks at minimally sufficient quality with 88%-97% success by 2030.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文通过分析美国劳工部O*NET分类中超过6000个文本任务和超过60000名工人的评估，挑战了AI能力会突然跳跃（crashing waves）的现有观点，发现AI进步主要表现为平稳广泛的上升潮（rising tides）。模型在2024年第二季度完成人工约1.5小时的任务成功率为60%，到2025年第三季度升至70%以上，若趋势持续，到2030年前沿LLM能以最低合格质量完成大多数文本任务，成功率达88%-97%。\nMotivation: 现有研究常将AI自动化视为能力在狭窄任务集上的突然跃升（crashing waves），但缺乏大规模工人评估数据来验证这一观点，因此本文利用大量实际任务和工人评估来刻画AI进步的真实形态。\nMethod: 基于美国劳工部O*NET taxonomy提取6000多个LLM可处理的文本任务，由超过60000名有经验的工人进行任务完成质量评估，分析2024年第二季度至2025年第三季度AI模型表现的变化趋势。\nResult: 2024年第二季度，模型完成人类需约1.5小时的任务成功率为60%，到2025年第三季度上升至70%以上；线性外推显示，若当前趋势延续，2030年前沿LLM能以88%-97%成功率完成大多数文本任务。\nConclusion: AI进步主要体现为连续广泛的提升（rising tides）而非间断性跳跃，这一发现对理解自动化的经济影响和政策制定具有重要启示。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文通过分析美国劳工部O*NET分类中超过6000个文本任务和超过60000名工人的评估，挑战了AI能力会突然跳跃（crashing waves）的现有观点，发现AI进步主要表现为平稳广泛的上升潮（rising tides）。模型在2024年第二季度完成人工约1.5小时的任务成功率为60%，到2025年第三季度升至70%以上，若趋势持续，到2030年前沿LLM能以最低合格质量完成大多数文本任务，成功率达88%-97%。",
+        "motivation": "现有研究常将AI自动化视为能力在狭窄任务集上的突然跃升（crashing waves），但缺乏大规模工人评估数据来验证这一观点，因此本文利用大量实际任务和工人评估来刻画AI进步的真实形态。",
+        "method": "基于美国劳工部O*NET taxonomy提取6000多个LLM可处理的文本任务，由超过60000名有经验的工人进行任务完成质量评估，分析2024年第二季度至2025年第三季度AI模型表现的变化趋势。",
+        "result": "2024年第二季度，模型完成人类需约1.5小时的任务成功率为60%，到2025年第三季度上升至70%以上；线性外推显示，若当前趋势延续，2030年前沿LLM能以88%-97%成功率完成大多数文本任务。",
+        "conclusion": "AI进步主要体现为连续广泛的提升（rising tides）而非间断性跳跃，这一发现对理解自动化的经济影响和政策制定具有重要启示。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-04-01",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2604.14180",
+      "title": "Internal Knowledge Without External Expression: Probing the Generalization Boundary of a Classical Chinese Language Model",
+      "authors": [
+        "Jiuting Chen",
+        "Yuan Lian",
+        "Hao Wu",
+        "Tianqi Huang",
+        "Hiroshi Sasaki",
+        "Makoto Kouno",
+        "Jongil Choi"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2604.14180",
+      "pdf_url": "https://arxiv.org/pdf/2604.14180",
+      "abstract_en": "We train a 318M-parameter Transformer language model from scratch on a curated corpus of 1.56 billion tokens of pure Classical Chinese, with zero English characters or Arabic numerals. Through systematic out-of-distribution (OOD) testing, we ask whether the model distinguishes known from unknown inputs, and whether it expresses that distinction in its generated text. We find a clear dissociation between internal and external uncertainty. Internally, the model exhibits a perplexity jump ratio of 2.39x between real and fabricated historical events (p = 8.9e-11, n = 92 per group), with semi-fabricated events (real figures + fictional actions) showing the highest perplexity (4.24x, p = 1.1e-16), demonstrating genuine factual encoding beyond syntactic pattern matching. Externally, however, the model never learns to express uncertainty: classical Chinese epistemic markers appear at lower rates for OOD questions (3.5%) than in-distribution ones (8.3%, p = 0.023), reflecting rhetorical conventions in the training data rather than genuine metacognition. We test both findings across three languages (Classical Chinese, English, Japanese), three writing systems, and eight models from 110M to 1.56B. The internal factual-encoding effect replicates in six of the eight models, emerging with scale (the two smallest Japanese models do not yet separate real from fabricated history), while the external absence of uncertainty expression holds across all eight. We further show that uncertainty expression frequency is determined entirely by training data conventions -- not epistemic states -- with Classical Chinese models showing a \"humility paradox\" (more hedging for known topics), while Japanese models almost never hedge. We argue that metacognitive expression -- the ability to say \"I don't know\" -- does not emerge from language modeling alone and requires explicit training signals such as RLHF.",
+      "comment": "27 pages, 4 figures, supplementary material included",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文训练了一个3.18亿参数的Transformer模型，在纯古典中文语料（15.6亿token）上，通过系统性的分布外测试，发现模型内部能够区分真实与虚构历史事件（困惑度跳跃比2.39x），但外部从未学会表达不确定性（古典中文认知标记词在OOD问题上出现率更低）。该现象在三种语言和八个模型上复现，作者认为元认知表达不会仅从语言建模中涌现，需要RLHF等显式训练信号。\nMotivation: 探索语言模型是否能够区分已知与未知输入，以及这种区分是否在生成文本中表达，特别是在古典中文这类低资源语言上。\nMethod: 从头训练一个3.18亿参数的Transformer，使用古典中文语料，设计OOD测试包括真实、半虚构和完全虚构的历史事件，测量内部困惑度差和外部不确定性标记词频率，并跨语言（古典中文、英语、日语）和跨模型规模（110M至1.56B）验证。\nResult: 内部困惑度跳跃比：真实vs虚构2.39x（p=8.9e-11），半虚构4.24x（p=1.1e-16）；外部不确定性表达方面，OOD问题中认知标记词出现率（3.5%）反而低于ID问题（8.3%），且不确定性表达频率完全由训练数据惯例决定，与内在知识无关。\nConclusion: 语言模型仅通过语言建模训练无法学会表达“我不知道”，需要引入如RLHF的显式训练信号；内部事实编码和外部不确定性表达之间存在根本性脱节。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文训练了一个3.18亿参数的Transformer模型，在纯古典中文语料（15.6亿token）上，通过系统性的分布外测试，发现模型内部能够区分真实与虚构历史事件（困惑度跳跃比2.39x），但外部从未学会表达不确定性（古典中文认知标记词在OOD问题上出现率更低）。该现象在三种语言和八个模型上复现，作者认为元认知表达不会仅从语言建模中涌现，需要RLHF等显式训练信号。",
+        "motivation": "探索语言模型是否能够区分已知与未知输入，以及这种区分是否在生成文本中表达，特别是在古典中文这类低资源语言上。",
+        "method": "从头训练一个3.18亿参数的Transformer，使用古典中文语料，设计OOD测试包括真实、半虚构和完全虚构的历史事件，测量内部困惑度差和外部不确定性标记词频率，并跨语言（古典中文、英语、日语）和跨模型规模（110M至1.56B）验证。",
+        "result": "内部困惑度跳跃比：真实vs虚构2.39x（p=8.9e-11），半虚构4.24x（p=1.1e-16）；外部不确定性表达方面，OOD问题中认知标记词出现率（3.5%）反而低于ID问题（8.3%），且不确定性表达频率完全由训练数据惯例决定，与内在知识无关。",
+        "conclusion": "语言模型仅通过语言建模训练无法学会表达“我不知道”，需要引入如RLHF的显式训练信号；内部事实编码和外部不确定性表达之间存在根本性脱节。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-03-31",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2603.12144",
+      "title": "O3N: Omnidirectional Open-Vocabulary Occupancy Prediction for Urban Autonomous Agents",
+      "authors": [
+        "Mengfei Duan",
+        "Hao Shi",
+        "Fei Teng",
+        "Guoqiang Zhao",
+        "Yuheng Zhang",
+        "Zhiyong Li",
+        "Kailun Yang"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO",
+        "eess.IV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2603.12144",
+      "pdf_url": "https://arxiv.org/pdf/2603.12144",
+      "abstract_en": "Understanding and reconstructing the 3D world through omnidirectional perception is becoming increasingly important for intelligent transportation and urban autonomous agents operating in shared spaces. However, existing vision-based 3D occupancy prediction methods are constrained by limited perspective inputs and a predefined training distribution, making them difficult to apply to embodied agents that require comprehensive and safe perception of scenes in open-world exploration. To address this, we present O3N, the first framework for open-vocabulary occupancy prediction from a single omnidirectional RGB image. O3N embeds omnidirectional voxels in a polar-spiral topology via the Polar-spiral Mamba (PsM) module, enabling continuous spatial representation and long-range context modeling across 360°. The Occupancy Cost Aggregation (OCA) module introduces a principled mechanism for unifying geometric and semantic supervision within the voxel space, ensuring consistency between the reconstructed geometry and the underlying semantic structure. Moreover, Natural Modality Alignment (NMA) establishes a gradient-free alignment pathway that harmonizes visual features, voxel embeddings, and text semantics, forming a consistent ``pixel-voxel-text'' representation triad. Extensive experiments on multiple models demonstrate that our method not only achieves state-of-the-art performance on QuadOcc and Human360Occ benchmarks but also exhibits remarkable cross-scene generalization and semantic scalability, highlighting the potential of O3N for scalable open-world 3D scene understanding. The source code will be made publicly available at https://github.com/MengfeiD/O3N",
+      "comment": "The source code will be made publicly available at https://github.com/MengfeiD/O3N",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: O3N是首个从单张全向RGB图像进行开放词汇占用预测的框架。它通过极坐标螺旋Mamba模块实现360°连续空间表示，利用占用成本聚合模块统一几何与语义监督，并通过自然模态对齐建立像素-体素-文本一致的三元组。在QuadOcc和Human360Occ基准上达到最先进性能，并展示了跨场景泛化能力。\nMotivation: 现有3D占用预测方法受限于有限的视角输入和预定义训练分布，难以应用于需要在开放世界中全面感知场景的具身智能体。\nMethod: 提出O3N框架，包含三个关键模块：极坐标螺旋Mamba (PsM) 模块用于全向体素嵌入；占用成本聚合 (OCA) 模块统一几何与语义监督；自然模态对齐 (NMA) 模块对齐视觉、体素和文本特征。\nResult: 在QuadOcc和Human360Occ基准上达到最先进性能，并展现出显著的跨场景泛化能力和语义可扩展性。\nConclusion: O3N展示了全向开放词汇占用预测在可扩展开放世界3D场景理解中的潜力，代码已开源。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "O3N是首个从单张全向RGB图像进行开放词汇占用预测的框架。它通过极坐标螺旋Mamba模块实现360°连续空间表示，利用占用成本聚合模块统一几何与语义监督，并通过自然模态对齐建立像素-体素-文本一致的三元组。在QuadOcc和Human360Occ基准上达到最先进性能，并展示了跨场景泛化能力。",
+        "motivation": "现有3D占用预测方法受限于有限的视角输入和预定义训练分布，难以应用于需要在开放世界中全面感知场景的具身智能体。",
+        "method": "提出O3N框架，包含三个关键模块：极坐标螺旋Mamba (PsM) 模块用于全向体素嵌入；占用成本聚合 (OCA) 模块统一几何与语义监督；自然模态对齐 (NMA) 模块对齐视觉、体素和文本特征。",
+        "result": "在QuadOcc和Human360Occ基准上达到最先进性能，并展现出显著的跨场景泛化能力和语义可扩展性。",
+        "conclusion": "O3N展示了全向开放词汇占用预测在可扩展开放世界3D场景理解中的潜力，代码已开源。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-03-12",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2509.21028",
+      "title": "SciTrek: Evaluating and Improving Long-Context Numerical Reasoning over Scientific Articles",
+      "authors": [
+        "Miao Li",
+        "Alexander Gurung",
+        "Irina Saparina",
+        "Mirella Lapata"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2509.21028",
+      "pdf_url": "https://arxiv.org/pdf/2509.21028",
+      "abstract_en": "We introduce SciTrek, a synthetic question-answering dataset for assessing and improving long-context numerical reasoning in large language models (LLMs). Existing long-context datasets with inputs beyond 64K tokens either target simple information retrieval or, when they do involve reasoning, rely on artificial contexts, while numerical reasoning remains largely overlooked in both cases. SciTrek addresses these limitations with questions that require numerical operations (e.g., counting, sorting, aggregation, and comparison) over collections of full-text scientific articles. Questions are generated automatically by formulating them as SQL queries over a database of article metadata (titles, authors, and references), and ground-truth answers are obtained by executing these queries. The underlying SQL provides a transparent, verifiable specification of the reasoning each question requires, enabling fine-grained error analysis. Furthermore, the proposed fully automated pipeline scales to arbitrary context lengths and dataset sizes with minimal human supervision, mitigating data contamination and supplying abundant data for post-training. Extensive experiments show that frontier open-weight and proprietary LLMs struggle even with ostensibly simple questions: the best-performing model achieves only 46.5% exact match at 128K tokens, and performance degrades steadily as contexts grow. Fine-grained analysis reveals systematic weaknesses on citation-related questions and on compound logical conditions, particularly those involving negation. Finally, post-training open-weight models on SciTrek improves their numerical reasoning in ways that generalise to out-of-domain long-context tasks.",
+      "comment": "26 pages",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文介绍 SciTrek，一个合成问答数据集，用于评估和改进大语言模型在长上下文（超过64K token）下对科学文章的数值推理能力。数据集通过 SQL 查询从文章元数据自动生成问题，涉及计数、排序、聚合等操作。实验表明最佳模型在128K上下文下精确匹配仅46.5%，性能随上下文增长下降，后训练可提升泛化能力。\nMotivation: 现有长上下文数据集要么只关注简单信息检索，要么使用人为上下文，数值推理被忽视。\nMethod: 通过 SQL 查询从文章元数据（标题、作者、参考文献）数据库自动生成问题，答案通过执行 SQL 获得，支持任意长度和规模，减少数据污染。\nResult: 最佳模型在128K上下文下精确匹配46.5%，性能随上下文增长稳步下降；后训练开放权重模型可提升数值推理，并泛化到域外长上下文任务。\nConclusion: SciTrek 揭示了当前 LLM 在长上下文数值推理上的弱点，特别是引用问题和复合逻辑条件，后训练可缓解这些不足。\nRelevance: 10",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文介绍 SciTrek，一个合成问答数据集，用于评估和改进大语言模型在长上下文（超过64K token）下对科学文章的数值推理能力。数据集通过 SQL 查询从文章元数据自动生成问题，涉及计数、排序、聚合等操作。实验表明最佳模型在128K上下文下精确匹配仅46.5%，性能随上下文增长下降，后训练可提升泛化能力。",
+        "motivation": "现有长上下文数据集要么只关注简单信息检索，要么使用人为上下文，数值推理被忽视。",
+        "method": "通过 SQL 查询从文章元数据（标题、作者、参考文献）数据库自动生成问题，答案通过执行 SQL 获得，支持任意长度和规模，减少数据污染。",
+        "result": "最佳模型在128K上下文下精确匹配46.5%，性能随上下文增长稳步下降；后训练开放权重模型可提升数值推理，并泛化到域外长上下文任务。",
+        "conclusion": "SciTrek 揭示了当前 LLM 在长上下文数值推理上的弱点，特别是引用问题和复合逻辑条件，后训练可缓解这些不足。",
+        "relevance_score": "10"
+      },
+      "summary_status": "ok",
+      "published_date": "2025-09-25",
+      "updated_date": "2026-07-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
