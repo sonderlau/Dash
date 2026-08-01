@@ -1,0 +1,787 @@
+{
+  "date": "2026-08-01",
+  "snapshot_date": "2026-08-01",
+  "generated_at": "2026-08-01T05:44:05Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 18,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.AI": 7,
+    "cs.LG": 6,
+    "cs.CV": 5
+  },
+  "summary_status_counts": {
+    "ok": 18
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 688
+  },
+  "papers": [
+    {
+      "id": "2607.27189",
+      "title": "APEX-Accounting",
+      "authors": [
+        "Julien Benchek",
+        "Austin Bennett",
+        "Jasmin Kern",
+        "Ryan Stevens",
+        "Rene Sultan",
+        "Charis Ching",
+        "Hayley Popiel",
+        "Vaibhav Mittal",
+        "Felix Mercier",
+        "Brendan Foody",
+        "Bertie Vidgen"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.HC"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2607.27189",
+      "pdf_url": "https://arxiv.org/pdf/2607.27189",
+      "abstract_en": "We introduce APEX-Accounting, a benchmark built by Mercor in partnership with Ramp, to assess whether frontier models can do the real work of accountants. Tasks include reconciling accounts, accruing expenses, posting transactions, and producing reports. The private eval set comprises 160 tasks, split across 10 worlds. Each world contains an accounting system, as well as spreadsheets, PDFs, and other files. Every task was authored and solved by experts in accounting and bookkeeping, who also wrote grading rubrics. Across nine frontier models, Claude-Fable-5 (Max) leads with 56.4% Mean Criteria@3, ahead of Muse-Spark-1.1 (xHigh) at 52.6%. No model scores more than 2.6% Pass^8 (GPT-5.6-Sol (Max+Pro)) and the highest Pass@8 is 21.5% (Muse-Spark-1.1 (xHigh)). We experiment with increasing the token budget from $1 to $50 and observe an instance of Simpson's paradox: scores increase as the token budget increases but within a given budget-constrained harness, scores are lower on tasks where the model spends more tokens. As APEX-Accounting is a closed benchmark, leaderboard evals can be run for any frontier model on request.",
+      "comment": "Public dev set: https://huggingface.co/datasets/mercor/apex-accounting",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文介绍 APEX-Accounting，一个由 Mercor 与 Ramp 合作构建的会计基准，用于评估前沿模型能否完成真实会计师的工作，包括对账、费用计提、过账和编制报告。私有评测集包含 160 个任务，分布在 10 个世界（world）中，每个世界包含一套会计系统以及电子表格、PDF 和其他文件；所有任务由会计和簿记专家编写、求解并撰写评分标准。在九个前沿模型上，Claude-Fable-5 (Max) 以 56.4% 的 Mean Criteria@3 领先，Muse-Spark-1.1 (xHigh) 为 52.6%；Pass^8 最高仅 2.6%（GPT-5.6-Sol (Max+Pro)），Pass@8 最高为 21.5%（Muse-Spark-1.1 (xHigh)）。\nMotivation: 现有评测难以评估前沿模型在真实会计工作中能否完成端到端的实际任务，而会计工作涉及多种文件格式、系统交互和专家级判断，需要一个由领域专家构建、带评分标准的封闭基准来度量模型能力。\nMethod: 构建 APEX-Accounting 基准：私有评测集含 160 个任务，分属 10 个世界，每个世界配备会计系统及电子表格、PDF 等文件；任务由会计和簿记专家编写并配评分标准（grading rubrics）。作者还实验性地将 token 预算从 $1 增加到 $50，观察预算与得分的关系。\nResult: 在九个前沿模型中，Claude-Fable-5 (Max) 取得 56.4% 的 Mean Criteria@3，优于 Muse-Spark-1.1 (xHigh) 的 52.6%；所有模型的 Pass^8 均不高于 2.6%（GPT-5.6-Sol (Max+Pro)），最高 Pass@8 为 21.5%（Muse-Spark-1.1 (xHigh)）。增大 token 预算时观察到 Simpson 悖论：总分随预算增加而上升，但在固定预算的测试环境中，模型在花费更多 token 的任务上得分更低。\nConclusion: 基准为封闭评测集，可按请求对任意前沿模型运行排行榜评测；作者强调会计任务仍然极具挑战，且 token 预算与任务难度之间存在反直觉的 Simpson 悖论现象。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文介绍 APEX-Accounting，一个由 Mercor 与 Ramp 合作构建的会计基准，用于评估前沿模型能否完成真实会计师的工作，包括对账、费用计提、过账和编制报告。私有评测集包含 160 个任务，分布在 10 个世界（world）中，每个世界包含一套会计系统以及电子表格、PDF 和其他文件；所有任务由会计和簿记专家编写、求解并撰写评分标准。在九个前沿模型上，Claude-Fable-5 (Max) 以 56.4% 的 Mean Criteria@3 领先，Muse-Spark-1.1 (xHigh) 为 52.6%；Pass^8 最高仅 2.6%（GPT-5.6-Sol (Max+Pro)），Pass@8 最高为 21.5%（Muse-Spark-1.1 (xHigh)）。",
+        "motivation": "现有评测难以评估前沿模型在真实会计工作中能否完成端到端的实际任务，而会计工作涉及多种文件格式、系统交互和专家级判断，需要一个由领域专家构建、带评分标准的封闭基准来度量模型能力。",
+        "method": "构建 APEX-Accounting 基准：私有评测集含 160 个任务，分属 10 个世界，每个世界配备会计系统及电子表格、PDF 等文件；任务由会计和簿记专家编写并配评分标准（grading rubrics）。作者还实验性地将 token 预算从 $1 增加到 $50，观察预算与得分的关系。",
+        "result": "在九个前沿模型中，Claude-Fable-5 (Max) 取得 56.4% 的 Mean Criteria@3，优于 Muse-Spark-1.1 (xHigh) 的 52.6%；所有模型的 Pass^8 均不高于 2.6%（GPT-5.6-Sol (Max+Pro)），最高 Pass@8 为 21.5%（Muse-Spark-1.1 (xHigh)）。增大 token 预算时观察到 Simpson 悖论：总分随预算增加而上升，但在固定预算的测试环境中，模型在花费更多 token 的任务上得分更低。",
+        "conclusion": "基准为封闭评测集，可按请求对任意前沿模型运行排行榜评测；作者强调会计任务仍然极具挑战，且 token 预算与任务难度之间存在反直觉的 Simpson 悖论现象。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.27109",
+      "title": "MMAC: A Massive Multi-dimensional Benchmark for Audio Captioning",
+      "authors": [
+        "Weijie Wu",
+        "Junbo Li",
+        "Lin Li",
+        "Jun Fang",
+        "Qingyang Hong"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.SD"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.SD",
+      "abs_url": "https://arxiv.org/abs/2607.27109",
+      "pdf_url": "https://arxiv.org/pdf/2607.27109",
+      "abstract_en": "With the development of audio large language models (AudioLLMs), audio captioning needs to move from brief descriptions toward open-ended and fine-grained free-form descriptions. Existing evaluations often focus on generation quality or task performance, making it difficult to diagnose information coverage and description reliability. We propose MMAC, a \\textbf{M}assive \\textbf{M}ulti-dimensional benchmark for \\textbf{A}udio \\textbf{C}aptioning. MMAC contains 5,638 audio clips from more than 20 data sources, covering 6 capability categories and 15 evaluation dimensions. Given a model-generated caption, MMAC checks whether it mentions relevant information in the target dimension and whether the mentioned content is consistent with the reference label. We evaluate representative open-source and proprietary AudioLLMs. Results show clear differences across evaluation dimensions, information coverage, and description reliability. We will release the MMAC benchmark and evaluation code.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 MMAC，一个大规模多维音频字幕基准，包含 5,638 个音频片段，覆盖 6 个能力类别和 15 个评估维度，用于诊断生成字幕的信息覆盖与描述可靠性。作者评估了代表性开源和专有 AudioLLM，结果显示不同评估维度、信息覆盖和描述可靠性之间存在明显差异。\nMotivation: 现有音频字幕评估多关注生成质量或任务性能，难以诊断信息覆盖和描述可靠性；随着音频大语言模型的发展，字幕评估需要转向开放式、细粒度的自由描述。\nMethod: 构建一个包含来自 20 多个数据源的 5,638 个音频片段的基准，定义 6 个能力类别和 15 个评估维度；对模型生成的字幕，检查其是否提及目标维度相关信息以及提及内容是否与参考标签一致。\nResult: 对代表性开源和专有 AudioLLM 的评估显示，不同评估维度、信息覆盖和描述可靠性之间存在明显差异。\nConclusion: 作者将发布 MMAC 基准和评估代码，以支持后续研究。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 MMAC，一个大规模多维音频字幕基准，包含 5,638 个音频片段，覆盖 6 个能力类别和 15 个评估维度，用于诊断生成字幕的信息覆盖与描述可靠性。作者评估了代表性开源和专有 AudioLLM，结果显示不同评估维度、信息覆盖和描述可靠性之间存在明显差异。",
+        "motivation": "现有音频字幕评估多关注生成质量或任务性能，难以诊断信息覆盖和描述可靠性；随着音频大语言模型的发展，字幕评估需要转向开放式、细粒度的自由描述。",
+        "method": "构建一个包含来自 20 多个数据源的 5,638 个音频片段的基准，定义 6 个能力类别和 15 个评估维度；对模型生成的字幕，检查其是否提及目标维度相关信息以及提及内容是否与参考标签一致。",
+        "result": "对代表性开源和专有 AudioLLM 的评估显示，不同评估维度、信息覆盖和描述可靠性之间存在明显差异。",
+        "conclusion": "作者将发布 MMAC 基准和评估代码，以支持后续研究。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.27078",
+      "title": "Field Codes for Distributed Coupling Samplers and Certified Empirical Transport",
+      "authors": [
+        "Hung Mai",
+        "Hai Nguyen",
+        "Luong Doan",
+        "Ngoc Vu",
+        "Khanh Nguyen",
+        "Nhung Duong",
+        "Tuan Do"
+      ],
+      "categories": [
+        "cs.CC",
+        "cs.IT",
+        "cs.LG",
+        "math.OC"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CC",
+      "abs_url": "https://arxiv.org/abs/2607.27078",
+      "pdf_url": "https://arxiv.org/pdf/2607.27078",
+      "abstract_en": "In this paper, we formulate three communication tasks for empirical optimal transport: distributed coupling sampling, cost-evaluable coupling output, and scalar value-certified sampling. Our main result is a field-code compiler: any communicated transport field approximating an optimal empirical Monge map to error $η$ can be completed by sparse target-cell residuals into an exact-marginal value-certified sampler with scalar certificate $W_1(μ,ν)\\leq U\\leq W_1(μ,ν)+2Δ$, where $Δ$ is the public target-partition diameter. The certificate accuracy is controlled by $Δ$ alone. The field error $η$ controls residual communication under a cell-margin condition; without a margin, $η$ alone does not bound residuals. We instantiate the compiler via adaptive local-affine and tensor-product spline codes with $d(m+1)^db$ field bits in the spline case, plus residual lists charged separately. For lower bounds, exact Gap-Hamming embeddings prove certified output is hard, including a smooth cell-packing diffeomorphism family requiring $Ω(\\varepsilon^{-2d/(d+4)})$ communication for any cost-evaluable, cost-certified, or value-certified protocol. The same gadgets admit zero-communication samplers, formally separating the sampler and certificate-bearing output models. These results identify the transport field as the right communicated object whenever a field code is available, primarily as a residual-sparsity tool.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文在经验最优传输（empirical optimal transport）中形式化了三个通信任务：分布式耦合采样、可评估代价的耦合输出、以及标量值认证采样。核心结果是一个 field-code 编译器：任何以误差 η 逼近最优经验 Monge 映射的传输场，都能用稀疏目标单元残差补全为精确边际的值认证采样器，并给出标量证书 W1(μ,ν)≤U≤W1(μ,ν)+2Δ。作者用自适应局部仿射和张量积样条码实例化该编译器，并借助 exact Gap-Hamming 嵌入证明认证输出具有通信下界。\nMotivation: 分布式场景下输出最优传输耦合或带认证的采样结果需要通信，但现有工作缺少对采样器、可评估代价输出和带证书输出这些不同通信模型之间代价差距的系统刻画。\nMethod: 提出 field-code 编译器：任意逼近最优经验 Monge 映射的传输场，配合稀疏目标单元残差，可被补全为精确边际且带标量证书的采样器；证书精度仅由公共目标划分直径 Δ 控制，而字段误差 η 在单元边距条件下控制残差通信。编译器用自适应局部仿射码与张量积样条码实例化，样条情形下字段开销为 d(m+1)^d b 比特，残差列表单独计费。\nResult: 摘要给出的证书满足 W1(μ,ν)≤U≤W1(μ,ν)+2Δ；没有边距条件时，η 本身不足以约束残差。下界方面，exact Gap-Hamming 嵌入证明存在光滑单元填充微分同胚族，使任何可评估代价、可认证代价或可认证值的协议都需要 Ω(ε^{-2d/(d+4)}) 通信；同一构造却允许零通信的采样器，从而在形式上分离了采样器模型与带证书输出模型。\nConclusion: 作者总结认为，在存在字段码可用的条件下，传输场是应当被通信的正确对象，其作用主要是作为残差稀疏性工具；该结论只针对通信模型的理论刻画，未涉及具体应用场景。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文在经验最优传输（empirical optimal transport）中形式化了三个通信任务：分布式耦合采样、可评估代价的耦合输出、以及标量值认证采样。核心结果是一个 field-code 编译器：任何以误差 η 逼近最优经验 Monge 映射的传输场，都能用稀疏目标单元残差补全为精确边际的值认证采样器，并给出标量证书 W1(μ,ν)≤U≤W1(μ,ν)+2Δ。作者用自适应局部仿射和张量积样条码实例化该编译器，并借助 exact Gap-Hamming 嵌入证明认证输出具有通信下界。",
+        "motivation": "分布式场景下输出最优传输耦合或带认证的采样结果需要通信，但现有工作缺少对采样器、可评估代价输出和带证书输出这些不同通信模型之间代价差距的系统刻画。",
+        "method": "提出 field-code 编译器：任意逼近最优经验 Monge 映射的传输场，配合稀疏目标单元残差，可被补全为精确边际且带标量证书的采样器；证书精度仅由公共目标划分直径 Δ 控制，而字段误差 η 在单元边距条件下控制残差通信。编译器用自适应局部仿射码与张量积样条码实例化，样条情形下字段开销为 d(m+1)^d b 比特，残差列表单独计费。",
+        "result": "摘要给出的证书满足 W1(μ,ν)≤U≤W1(μ,ν)+2Δ；没有边距条件时，η 本身不足以约束残差。下界方面，exact Gap-Hamming 嵌入证明存在光滑单元填充微分同胚族，使任何可评估代价、可认证代价或可认证值的协议都需要 Ω(ε^{-2d/(d+4)}) 通信；同一构造却允许零通信的采样器，从而在形式上分离了采样器模型与带证书输出模型。",
+        "conclusion": "作者总结认为，在存在字段码可用的条件下，传输场是应当被通信的正确对象，其作用主要是作为残差稀疏性工具；该结论只针对通信模型的理论刻画，未涉及具体应用场景。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.27069",
+      "title": "Visual Credit Audit for Multimodal Spatial Reasoning",
+      "authors": [
+        "Feixiang Liu",
+        "Qiang Qiu",
+        "Lanbo Sun",
+        "Nan Wei",
+        "Huawei Shen",
+        "Xueqi Cheng"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.27069",
+      "pdf_url": "https://arxiv.org/pdf/2607.27069",
+      "abstract_en": "Closed yes/no spatial benchmarks can reward a correct answer even when the image adds little support beyond no-image contexts. Under a fixed forced-choice interface, Visual Credit Audit (VCA) separates two estimands: whether the benchmark image gives the model's declared decision more support than text-only and blank controls, and whether the model responds to relation-specific visual evidence. The first audit is training- and label-free and does not require an answer flip. Applying labels yields dependence-credited correctness (D-CC); on correct items, it equals same-control gold-aligned positive gain, while prediction alignment extends the audit to errors. Across four open MLLMs and two spatial benchmarks, 12.73-26.25% of decisions are correct yet uncredited. Matched same-split image permutation reduces D-CC by 21.25-47.80 points, with every paired 95% interval above zero. Fixed-pixel relation contrasts and a 3x3 evidence-source factorial show why null controls cannot identify relation response. Among controlled correct-but-uncredited agreement decisions, response to relation reversal spans 81.57-100.00%, while 32.11% pooled change answer. Independently audited outcomes on 108 geometry-compatible edits provide a bounded natural-image correspondence check. VCA thereby decomposes benchmark success into correctness, additional image support, and relation-consistent response.",
+      "comment": "20 pages, 2 figures. Code: https://github.com/SouthWinter/VCA",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Visual Credit Audit (VCA)，用于在固定二选一接口下分解多模态空间推理基准的成功来源，分别度量图像相对纯文本与空白对照是否给模型的判定提供额外支持，以及模型是否对关系特异的视觉证据作出响应。在四个开源 MLLM 和两个空间推理基准上，VCA 发现 12.73–26.25% 的正确答案并未获得图像支持，并通过图像置换、固定像素关系对比和 3x3 证据来源因子设计揭示零对照无法识别关系响应。\nMotivation: 封闭式是非空间推理基准即使图像对答案几乎没有贡献，也可能因为模型从无图语境中就能答对而给出奖励，导致基准分数无法反映真实的视觉推理能力。\nMethod: VCA 在固定强制选择接口下分离两个估计目标：一是基准图像相对文本和空白对照是否给模型的判定提供更多支持，该审计无需训练和标签且不要求答案翻转；二是模型是否对关系特异的视觉证据作出响应。引入标签后可得到依赖计分的正确率 (D-CC)，预测对齐将审计扩展到错误项；并采用同划分图像置换、固定像素关系对比、3x3 证据来源因子设计以及 108 个几何兼容编辑作自然图像对应性检查。\nResult: 在四个开源 MLLM 和两个空间基准上，12.73–26.25% 的判定正确但未获图像支持；匹配的同划分图像置换使 D-CC 下降 21.25–47.80 个百分点，且所有配对 95% 区间均高于零。在受控的“正确但无信用”的一致判定中，模型对关系反转的响应覆盖 81.57–100.00%，但合并后仍有 32.11% 的答案被改变。\nConclusion: VCA 把基准成功分解为正确性、额外图像支持与关系一致响应三个可独立审计的成分，能够揭示基准分数中未被图像证据支持的部分。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Visual Credit Audit (VCA)，用于在固定二选一接口下分解多模态空间推理基准的成功来源，分别度量图像相对纯文本与空白对照是否给模型的判定提供额外支持，以及模型是否对关系特异的视觉证据作出响应。在四个开源 MLLM 和两个空间推理基准上，VCA 发现 12.73–26.25% 的正确答案并未获得图像支持，并通过图像置换、固定像素关系对比和 3x3 证据来源因子设计揭示零对照无法识别关系响应。",
+        "motivation": "封闭式是非空间推理基准即使图像对答案几乎没有贡献，也可能因为模型从无图语境中就能答对而给出奖励，导致基准分数无法反映真实的视觉推理能力。",
+        "method": "VCA 在固定强制选择接口下分离两个估计目标：一是基准图像相对文本和空白对照是否给模型的判定提供更多支持，该审计无需训练和标签且不要求答案翻转；二是模型是否对关系特异的视觉证据作出响应。引入标签后可得到依赖计分的正确率 (D-CC)，预测对齐将审计扩展到错误项；并采用同划分图像置换、固定像素关系对比、3x3 证据来源因子设计以及 108 个几何兼容编辑作自然图像对应性检查。",
+        "result": "在四个开源 MLLM 和两个空间基准上，12.73–26.25% 的判定正确但未获图像支持；匹配的同划分图像置换使 D-CC 下降 21.25–47.80 个百分点，且所有配对 95% 区间均高于零。在受控的“正确但无信用”的一致判定中，模型对关系反转的响应覆盖 81.57–100.00%，但合并后仍有 32.11% 的答案被改变。",
+        "conclusion": "VCA 把基准成功分解为正确性、额外图像支持与关系一致响应三个可独立审计的成分，能够揭示基准分数中未被图像证据支持的部分。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.27065",
+      "title": "ScratchSim: A Procedural Synthetic Data Pipeline for Surface Scratch Detection",
+      "authors": [
+        "Paul Julius Kühn",
+        "Saptarshi Neil Sinha",
+        "Tiago Kleist",
+        "Richard Hoffmann",
+        "Arjan kuijper",
+        "Michael Weinmann"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.27065",
+      "pdf_url": "https://arxiv.org/pdf/2607.27065",
+      "abstract_en": "While automated defect detection such as the detection of surface scratched is an important aspect in industrial quality control, the scarcity of annotated defect data make this task challenging. This paper presents a procedural rendering pipeline that generates large-scale annotated synthetic training data using BlenderProc, with configurable material appearance, camera modes, and domain randomization, producing automatic COCO-format annotations. To show the potential of our approach, we evaluate four training strategies, namely synthetic-only, real-only, mixed, and fine-tuning from synthetic weights, across two objects with different material properties and three lightweight edge-deployable detectors, YOLOX, YOLO26, and LW-DETR. Our evaluation show that fine-tuning from synthetic weights consistently outperforms real-only training, and that mixed training effectively recovers performance under scarce real-data conditions, with findings validated across both convolutional and transformer-based architectures. The proposed approach enables scalable defect detection without the burden of large real annotated datasets, making it practical for on-device industrial inspection. The pipeline scripts, 3D model, and both synthetic and real annotated scratch datasets for a glossy toy Ferrari car will be made available through the project website upon acceptance.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 ScratchSim，一个基于 BlenderProc 的过程式渲染数据管线，用于生成大规模带 COCO 格式标注的表面划痕合成训练数据。作者在两种不同材质物体上用 YOLOX、YOLO26 和 LW-DETR 三种轻量边缘部署检测器评估了四种训练策略（纯合成、纯真实、混合、从合成权重微调）。结果显示从合成权重微调一致优于纯真实训练，混合训练能在真实数据稀缺时有效恢复性能，且结论在卷积和 Transformer 架构上均成立。\nMotivation: 工业质量控制中的自动缺陷检测（如表面划痕）至关重要，但标注缺陷数据稀缺，使得该类任务难以训练可靠的检测模型。\nMethod: 利用 BlenderProc 搭建过程式渲染管线，支持可配置的材料外观、相机模式和域随机化（domain randomization），并自动生成 COCO 格式的标注。\nResult: 在两种不同材质物体和三种轻量级检测器上的评估表明，从合成权重微调始终优于仅用真实数据训练，混合训练在真实数据稀缺情况下能有效恢复性能，该发现同时适用于卷积和 Transformer 架构。\nConclusion: 该方法可实现可扩展的缺陷检测，无需大规模真实标注数据集，适合端侧（on-device）工业检测场景。摘要称脚本、3D 模型以及合成和真实标注的划痕数据集将在论文被接收后通过项目网站公开。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 ScratchSim，一个基于 BlenderProc 的过程式渲染数据管线，用于生成大规模带 COCO 格式标注的表面划痕合成训练数据。作者在两种不同材质物体上用 YOLOX、YOLO26 和 LW-DETR 三种轻量边缘部署检测器评估了四种训练策略（纯合成、纯真实、混合、从合成权重微调）。结果显示从合成权重微调一致优于纯真实训练，混合训练能在真实数据稀缺时有效恢复性能，且结论在卷积和 Transformer 架构上均成立。",
+        "motivation": "工业质量控制中的自动缺陷检测（如表面划痕）至关重要，但标注缺陷数据稀缺，使得该类任务难以训练可靠的检测模型。",
+        "method": "利用 BlenderProc 搭建过程式渲染管线，支持可配置的材料外观、相机模式和域随机化（domain randomization），并自动生成 COCO 格式的标注。",
+        "result": "在两种不同材质物体和三种轻量级检测器上的评估表明，从合成权重微调始终优于仅用真实数据训练，混合训练在真实数据稀缺情况下能有效恢复性能，该发现同时适用于卷积和 Transformer 架构。",
+        "conclusion": "该方法可实现可扩展的缺陷检测，无需大规模真实标注数据集，适合端侧（on-device）工业检测场景。摘要称脚本、3D 模型以及合成和真实标注的划痕数据集将在论文被接收后通过项目网站公开。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.27017",
+      "title": "What Can Latent World Models Know? Physical Parameter Identifiability in Multimodal Predictive Representations",
+      "authors": [
+        "Kaizhen Tan",
+        "Xin Xu",
+        "Siru Tao",
+        "Hanzhe Hong",
+        "Yang Feng",
+        "Heqing Du"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.27017",
+      "pdf_url": "https://arxiv.org/pdf/2607.27017",
+      "abstract_en": "A central premise of latent world models is that predicting the future forces a representation to internalize the physics of its environment. Which physical quantities does a trained latent actually contain, and what decides this? We answer with controlled interventions in POKEWORLD, an interactive environment whose visually identical objects hide mass, drag, and contact stiffness. A certificate-gated protocol first certifies each parameter as recoverable from raw observations, then measures whether it enters the latent, so a null result can be attributed to the objective rather than to the environment. The resulting identifiability map has two organizing mechanisms and one frontier. Inputs limit what can be known, while prediction targets decide what is retained. Stiffness enters the latent only when touch is forecast ($R^2=0.50$, compared with $-0.02$ when the same signal is merely fused into the input), and under single-step prediction a vision-only latent discards even perfectly visible object state. Drag marks the frontier. It carries a recoverability certificate of 0.89 yet plateaus near 0.13 under every deterministic prediction objective we test, while a supervised head on the same trunk reaches 0.45. Parameters whose readout is slow and ratio-type under the sensed coordinates fall outside what these objectives acquire. On RH20T, an input-target factorial across scaling curves reproduces both mechanisms across two robots and 4,258 episodes. Every arm missing information or prediction pressure stays flat over a fivefold data range, and only the full multimodal objective forecasts force beyond a persistence baseline, with held-out gains that grow with scale. Objective structure determines which physical parameters a latent acquires, and additional data improves only the parameters it already acquires.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究潜在世界模型（latent world model）中究竟编码了哪些物理量，以及是什么决定了这些量的可辨识性。作者在 POKEWORLD 交互环境中通过受控干预，配合证书门控协议（certificate-gated protocol），逐一验证质量、阻力、接触刚度等参数能否从原始观测中恢复并进入潜表示。摘要得出的核心结论是：输入决定潜变量可知的边界，预测目标决定哪些信息被保留，且目标结构决定了模型能习得哪些物理参数。\nMotivation: 潜在世界模型的核心假设是预测未来会迫使表示内化环境物理规律，但此前并不清楚训练得到的潜变量具体包含哪些物理量、由什么因素决定。作者希望区分一个参数未能进入潜表示是来自目标函数而非环境本身，从而建立一个可辨识性图谱。\nMethod: 提出证书门控协议：先认证每个物理参数能否从原始观测中恢复，再测量它是否进入潜表示，使空结果可归因于目标函数。在 POKEWORLD 中对质量、拖拽力和接触刚度做受控干预，并在 RH20T 上跨两个机器人、4,258 个 episode 做输入-目标因子化实验。\nResult: 刚度仅在预测触觉时进入潜表示（R²=0.50，输入融合同信号时为 -0.02）；单步预测下纯视觉潜变量会丢弃完全可见的对象状态。拖拽力是一个前沿：其可恢复性证书为 0.89，但在所有确定性预测目标下 R² 仅约 0.13，而同主干监督头可达 0.45。RH20T 上只有完整多模态目标在持久性基线之上预测力，且留出集收益随数据规模增长。\nConclusion: 目标结构决定潜在世界模型习得哪些物理参数，而更多数据只能改善已经习得的参数，不能补足缺失的参数。摘要未明确讨论方法局限，但适用范围限定在 POKEWORLD 与 RH20T 这两类物理参数与机器人场景。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究潜在世界模型（latent world model）中究竟编码了哪些物理量，以及是什么决定了这些量的可辨识性。作者在 POKEWORLD 交互环境中通过受控干预，配合证书门控协议（certificate-gated protocol），逐一验证质量、阻力、接触刚度等参数能否从原始观测中恢复并进入潜表示。摘要得出的核心结论是：输入决定潜变量可知的边界，预测目标决定哪些信息被保留，且目标结构决定了模型能习得哪些物理参数。",
+        "motivation": "潜在世界模型的核心假设是预测未来会迫使表示内化环境物理规律，但此前并不清楚训练得到的潜变量具体包含哪些物理量、由什么因素决定。作者希望区分一个参数未能进入潜表示是来自目标函数而非环境本身，从而建立一个可辨识性图谱。",
+        "method": "提出证书门控协议：先认证每个物理参数能否从原始观测中恢复，再测量它是否进入潜表示，使空结果可归因于目标函数。在 POKEWORLD 中对质量、拖拽力和接触刚度做受控干预，并在 RH20T 上跨两个机器人、4,258 个 episode 做输入-目标因子化实验。",
+        "result": "刚度仅在预测触觉时进入潜表示（R²=0.50，输入融合同信号时为 -0.02）；单步预测下纯视觉潜变量会丢弃完全可见的对象状态。拖拽力是一个前沿：其可恢复性证书为 0.89，但在所有确定性预测目标下 R² 仅约 0.13，而同主干监督头可达 0.45。RH20T 上只有完整多模态目标在持久性基线之上预测力，且留出集收益随数据规模增长。",
+        "conclusion": "目标结构决定潜在世界模型习得哪些物理参数，而更多数据只能改善已经习得的参数，不能补足缺失的参数。摘要未明确讨论方法局限，但适用范围限定在 POKEWORLD 与 RH20T 这两类物理参数与机器人场景。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.26993",
+      "title": "Foundation Models for Face Presentation Attack Detection: A Unified Linear-Probing Benchmark",
+      "authors": [
+        "Peter Lorenz",
+        "Anjith George",
+        "Sébastien Marcel"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.26993",
+      "pdf_url": "https://arxiv.org/pdf/2607.26993",
+      "abstract_en": "Face presentation attack detection (PAD) remains challenging under cross-dataset evaluation, where domain shift degrades models trained on a single dataset. The scarcity of large-scale labeled data motivates adapting pretrained vision models rather than training task-specific architectures from scratch, raising a fundamental question: do general-purpose vision foundation models encode PAD-relevant information accessible with minimal task-specific training? To investigate, we systematically evaluate 24 frozen encoders, including self-supervised vision transformers, vision-language encoders, and supervised CNNs, using a unified linear-probing protocol on the MCIO benchmark (MSU-MFSD, CASIA-FASD, Replay-Attack, OULU-NPU). The backbone remains fixed, and only a lightweight linear head is trained to isolate the PAD information already present in the pretrained representation. Results show that frozen foundation-model representations can support strong intra-dataset PAD performance with only a linear classifier, but this performance does not reliably transfer across datasets. Model scale is beneficial within several families, although the effect is not monotonic and is strongly mediated by architecture and pretraining. InternViT-6B achieves the lowest mean intra-dataset error, whereas CLIP ViT-B/32 offers the most favorable cross-dataset transfer-compute trade-off among the evaluated probes. These findings suggest that while pretrained representations contain PAD-relevant information, explicit adaptation remains necessary to address domain shift.",
+      "comment": "accepted at IJCB 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文系统性评估24个冻结编码器在面部呈现攻击检测（PAD）任务上的线性探测表现，统一协议在MCIO基准（MSU-MFSD、CASIA-FASD、Replay-Attack、OULU-NPU）上进行。骨干固定，仅训练线性头以隔离预训练表征中已有的PAD信息。结果显示冻结基础模型表征在数据集内能支撑强PAD性能，但跨数据集迁移不可靠；InternViT-6B在平均数据集内错误上最低，CLIP ViT-B/32在跨数据集迁移-计算权衡上最优。\nMotivation: 跨数据集评估中领域偏移使PAD性能下降，大规模标注数据稀缺，因此需要适配预训练视觉模型。核心问题是通用视觉基础模型是否编码了可通过最小任务特定训练获取的PAD相关信息。\nMethod: 采用统一线性探测协议，评估24种冻结编码器，包括自监督视觉Transformer、视觉-语言编码器和监督CNN；骨干固定，仅训练轻量线性头以隔离预训练表征中的PAD信息。\nResult: 摘要报告冻结基础模型表征配合线性分类器即可支持强数据集内PAD性能，但跨数据集迁移不可靠；模型规模在若干家族中有益但非单调，受架构和预训练影响；InternViT-6B平均数据集内误差最低，CLIP ViT-B/32跨数据集迁移-计算权衡最佳。\nConclusion: 摘要指出预训练表征包含PAD相关信息，但显式适配仍是应对领域偏移所必需的。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文系统性评估24个冻结编码器在面部呈现攻击检测（PAD）任务上的线性探测表现，统一协议在MCIO基准（MSU-MFSD、CASIA-FASD、Replay-Attack、OULU-NPU）上进行。骨干固定，仅训练线性头以隔离预训练表征中已有的PAD信息。结果显示冻结基础模型表征在数据集内能支撑强PAD性能，但跨数据集迁移不可靠；InternViT-6B在平均数据集内错误上最低，CLIP ViT-B/32在跨数据集迁移-计算权衡上最优。",
+        "motivation": "跨数据集评估中领域偏移使PAD性能下降，大规模标注数据稀缺，因此需要适配预训练视觉模型。核心问题是通用视觉基础模型是否编码了可通过最小任务特定训练获取的PAD相关信息。",
+        "method": "采用统一线性探测协议，评估24种冻结编码器，包括自监督视觉Transformer、视觉-语言编码器和监督CNN；骨干固定，仅训练轻量线性头以隔离预训练表征中的PAD信息。",
+        "result": "摘要报告冻结基础模型表征配合线性分类器即可支持强数据集内PAD性能，但跨数据集迁移不可靠；模型规模在若干家族中有益但非单调，受架构和预训练影响；InternViT-6B平均数据集内误差最低，CLIP ViT-B/32跨数据集迁移-计算权衡最佳。",
+        "conclusion": "摘要指出预训练表征包含PAD相关信息，但显式适配仍是应对领域偏移所必需的。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.26832",
+      "title": "Kairos: Numerically Robust News Recommendation under Item Cold-Start via Cholesky-based LinUCB",
+      "authors": [
+        "Finn Hertsch"
+      ],
+      "categories": [
+        "cs.IR",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.26832",
+      "pdf_url": "https://arxiv.org/pdf/2607.26832",
+      "abstract_en": "Algorithmic news personalization in regional markets often fails because modern deep learning models require massive interaction data while real-world news has a short Time-to-Live (TTL < 48 h) and shallow article pools. This structural item cold-start deprives collaborative filtering of the data needed for robust modeling. This paper presents Project Kairos, a framework that bridges this data scarcity through a contextual online learning approach (LinUCB). To ensure numerical integrity for continuous operation, Kairos replaces error-prone Sherman-Morrison inversions with direct rank-1 updates of Cholesky factors. This preserves the positive definiteness of the covariance matrix even under ill-conditioned data scenarios. Simultaneously, Matryoshka Representation Learning (MRL) integration addresses inference latency. Empirical evaluations based on the Tagesschau API demonstrate that exploiting semantic redundancy in the feature space achieves a 4.85-fold efficiency gain without significantly compromising ranking precision. Kairos thus provides a blueprint for high-performance recommendation systems in resource- and data-constrained environments.",
+      "comment": "English preprint. The German version was peer-reviewed and accepted at SKILL 2026 (Gesellschaft für Informatik). (v2: updated Figure 3 asset)",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Project Kairos，一个面向区域性新闻推荐的上下文在线学习框架，专门应对文章时效短（TTL<48 小时）和条目池浅导致的 item cold-start 问题。框架采用 LinUCB 作为核心算法，并用 Cholesky 因子的 rank-1 更新替代 Sherman-Morrison 矩阵求逆以维持数值稳定性；同时引入 Matryoshka Representation Learning 降低推理延迟。基于 Tagesschau API 的评估显示，利用特征空间的语义冗余可获得 4.85 倍的效率提升，且排序精度无明显下降。\nMotivation: 现代深度学习推荐模型依赖海量交互数据，而真实新闻的时效短、候选文章池浅，导致协同过滤在 item cold-start 场景下缺乏足够数据进行稳健建模，区域市场的新闻个性化因此常失效。\nMethod: Kairos 采用 LinUCB 的上下文在线学习方式来缓解数据稀缺；为保障长期运行的数值完整性，用对协方差矩阵进行 Cholesky 因子的直接 rank-1 更新替代易出错的 Sherman-Morrison 求逆，从而在病态数据下保持正定性；并通过 Matryoshka Representation Learning 解决推理延迟问题。\nResult: 基于 Tagesschau API 的实证评估表明，利用特征空间的语义冗余可实现 4.85 倍的效率增益，同时没有显著牺牲排序精度。\nConclusion: Kairos 为资源和数据受限环境下的高性能推荐系统提供了一个蓝本。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Project Kairos，一个面向区域性新闻推荐的上下文在线学习框架，专门应对文章时效短（TTL<48 小时）和条目池浅导致的 item cold-start 问题。框架采用 LinUCB 作为核心算法，并用 Cholesky 因子的 rank-1 更新替代 Sherman-Morrison 矩阵求逆以维持数值稳定性；同时引入 Matryoshka Representation Learning 降低推理延迟。基于 Tagesschau API 的评估显示，利用特征空间的语义冗余可获得 4.85 倍的效率提升，且排序精度无明显下降。",
+        "motivation": "现代深度学习推荐模型依赖海量交互数据，而真实新闻的时效短、候选文章池浅，导致协同过滤在 item cold-start 场景下缺乏足够数据进行稳健建模，区域市场的新闻个性化因此常失效。",
+        "method": "Kairos 采用 LinUCB 的上下文在线学习方式来缓解数据稀缺；为保障长期运行的数值完整性，用对协方差矩阵进行 Cholesky 因子的直接 rank-1 更新替代易出错的 Sherman-Morrison 求逆，从而在病态数据下保持正定性；并通过 Matryoshka Representation Learning 解决推理延迟问题。",
+        "result": "基于 Tagesschau API 的实证评估表明，利用特征空间的语义冗余可实现 4.85 倍的效率增益，同时没有显著牺牲排序精度。",
+        "conclusion": "Kairos 为资源和数据受限环境下的高性能推荐系统提供了一个蓝本。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.26828",
+      "title": "Budget-Aware LLM Discovery via Cost-Calibrated Frontier Utility",
+      "authors": [
+        "Yansen Zhang",
+        "Yilu Liu",
+        "Tianyu Liu",
+        "Jiamin Chen",
+        "Xiaokun Zhang",
+        "Kai Xie",
+        "Xue Liu",
+        "Chen Ma",
+        "Yiyan Qi"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.26828",
+      "pdf_url": "https://arxiv.org/pdf/2607.26828",
+      "abstract_en": "Large language models increasingly support scientific and algorithmic discovery through inference-time search over evaluated candidates. Existing adaptive discovery controllers assign credit based only on score progress, even though prompt length, retries, and guidance calls cause search actions to incur different token costs. We prove that cost-blind credit can forfeit all but a vanishing fraction of attainable quality as frontiers multiply and costs diverge. Under a fixed search-side token budget, the controller must decide which frontier is improving and whether its gain justifies the realized cost before the budget is exhausted. We introduce \\textbf{CostAda}, a cost-calibrated adaptive controller built around \\emph{cost-calibrated frontier utility}. The utility values frontier progress relative to realized action cost and conditions that credit on the remaining budget. CostAda uses this signal to control local exploration intensity, frontier allocation, and budgeted tactic intervention. Cost and remaining budget therefore shape the search rather than serving only as accounting variables or a stopping rule. CostAda reaches the strongest baseline's full-budget quality with at most half the budget on twelve of sixteen benchmark--backbone pairs while achieving the strongest mean final quality on all eight benchmarks under GLM-5 and GPT-5.4.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 CostAda，一种面向大规模语言模型推理时搜索的成本校准自适应控制器 (cost-calibrated adaptive controller)。作者证明在固定搜索侧 token 预算下，仅基于分数进展分配信用的成本盲策略会在 frontier 数量增多且成本发散时丢失几乎全部可达质量。CostAda 用成本校准的 frontier 效用 (cost-calibrated frontier utility) 衡量 frontier 进展相对实现成本的价值，并依据剩余预算调节探索强度、frontier 分配和预算化策略干预。实验显示，在十六个 benchmark–backbone 组合中的十二个上，它以至多一半预算达到最强基线在完整预算下的质量，并在 GLM-5 与 GPT-5.4 下于全部八个 benchmark 上取得最强平均最终质量。\nMotivation: 现有自适应发现控制器只根据分数进展分配信用，而忽略提示长度、重试和 guidance 调用导致的 token 成本差异。在固定搜索预算下，控制器需要在预算耗尽前判断哪个 frontier 在改进、其增益是否值得已产生的成本，因此成本盲信用会造成严重的质量损失。\nMethod: CostAda 围绕成本校准的 frontier 效用构建：该效用将 frontier 进展相对已实现动作成本进行归一化，并把信用条件化在剩余预算上。控制器据此信号控制局部探索强度、frontier 分配以及预算化的策略干预，使成本和剩余预算参与塑造搜索过程。\nResult: 在十六个 benchmark–backbone 组合中的十二个上，CostAda 以不超过一半的预算达到最强基线在完整预算下的质量；在 GLM-5 和 GPT-5.4 上，它在全部八个 benchmark 中取得最强的平均最终质量。\nConclusion: 作者认为成本和剩余预算不应当只作为记账变量或停止规则，而应直接塑造搜索决策；论文从理论上证明成本盲信用在 frontier 增多且成本发散时会丢失几乎全部可达质量。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 CostAda，一种面向大规模语言模型推理时搜索的成本校准自适应控制器 (cost-calibrated adaptive controller)。作者证明在固定搜索侧 token 预算下，仅基于分数进展分配信用的成本盲策略会在 frontier 数量增多且成本发散时丢失几乎全部可达质量。CostAda 用成本校准的 frontier 效用 (cost-calibrated frontier utility) 衡量 frontier 进展相对实现成本的价值，并依据剩余预算调节探索强度、frontier 分配和预算化策略干预。实验显示，在十六个 benchmark–backbone 组合中的十二个上，它以至多一半预算达到最强基线在完整预算下的质量，并在 GLM-5 与 GPT-5.4 下于全部八个 benchmark 上取得最强平均最终质量。",
+        "motivation": "现有自适应发现控制器只根据分数进展分配信用，而忽略提示长度、重试和 guidance 调用导致的 token 成本差异。在固定搜索预算下，控制器需要在预算耗尽前判断哪个 frontier 在改进、其增益是否值得已产生的成本，因此成本盲信用会造成严重的质量损失。",
+        "method": "CostAda 围绕成本校准的 frontier 效用构建：该效用将 frontier 进展相对已实现动作成本进行归一化，并把信用条件化在剩余预算上。控制器据此信号控制局部探索强度、frontier 分配以及预算化的策略干预，使成本和剩余预算参与塑造搜索过程。",
+        "result": "在十六个 benchmark–backbone 组合中的十二个上，CostAda 以不超过一半的预算达到最强基线在完整预算下的质量；在 GLM-5 和 GPT-5.4 上，它在全部八个 benchmark 中取得最强的平均最终质量。",
+        "conclusion": "作者认为成本和剩余预算不应当只作为记账变量或停止规则，而应直接塑造搜索决策；论文从理论上证明成本盲信用在 frontier 增多且成本发散时会丢失几乎全部可达质量。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.26654",
+      "title": "Constitutional Midtraining: Content Presence Drives Alignment Gains",
+      "authors": [
+        "Desiree Cho",
+        "Cameron Tice",
+        "Bernie Hogan",
+        "Hunar Batra",
+        "Puria Radmard",
+        "Jun Zhao",
+        "Nigel Shadbolt"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CY",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2607.26654",
+      "pdf_url": "https://arxiv.org/pdf/2607.26654",
+      "abstract_en": "Post-training alignment is often shallow, eroding under fine-tuning. It remains untested as to whether constitutional midtraining interventions can produce durable alignment when cleanly isolated from post-training. We build a 394M-token constitutional corpus from Anthropic's Constitution and apply constitutional midtraining at 120B scale, where principled, values-based content is inserted into midtraining. A 2x2 design (curriculum ordering x deliberative reasoning) was used to produce four constitutionally midtrained conditions, plus a control, which were evaluated on self-generated and established benchmarks including alignment under pressure, value conflict resolution, blackmail, and emergent misalignment. All models were evaluated across three stages: post-midtraining, post-SFT, and post-benign fine-tuning. Constitutionally midtrained models outperformed the control on alignment generalization and durability, notably on blackmail: SFT instilled a blackmail propensity in all models, but constitutional midtraining blunted it, with the advantage surviving benign fine-tuning (-17.5pp). This durability did not extend to settings that required active resistance to in-context pressure or conflict, where the advantage attenuates after SFT. The presence of constitutional content at midtraining also mattered more than its structure, and constitutional midtraining incurred no capability cost, on average, at any stage (MMLU, ARC-Easy, piqa, GSM8K). A modest amount of constitutional content at midtraining could therefore yield broad, persistent alignment gains, offering a cheap, complementary addition to SFT-centered pipelines. Code, data, and models are available.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究宪法中训练（constitutional midtraining）能否在完全隔离后训练的情况下带来持久的对齐收益。作者从 Anthropic 的宪法构建 394M-token 语料，并在 120B 规模模型中实施宪法中训练，用 2x2 设计（课程顺序 × 深思熟虑推理）产生四个条件加一个对照，在三个阶段（中训练后、SFT 后、良性微调后）评估对齐泛化与持久性。结果显示，宪法中训练模型在对齐泛化和持久性上优于对照，尤其缓解了 SFT 引发的黑mail 倾向（优势在良性微调后仍保持 -17.5pp），但该优势在需要主动抵抗上下文压力或冲突的场景中在 SFT 后减弱。\nMotivation: 现有后训练对齐往往较浅，在后续微调下会退化；宪法中训练能否在干净隔离后训练的情况下产生持久对齐，此前尚未被测试。\nMethod: 从 Anthropic 的 Constitution 构建 394M-token 的宪法语料，在 120B 规模模型的中训练阶段插入基于价值观的内容。采用课程顺序与深思熟虑推理的 2x2 设计生成四个宪法中训练条件加一个对照，并使用自生成和既有基准（如压力下对齐、价值冲突解决、blackmail、emergent misalignment）在三个训练阶段进行评估。\nResult: 宪法中训练模型在对齐泛化和持久性上优于对照，尤其是在 blackmail 任务上：SFT 向所有模型灌输了 blackmail 倾向，但宪法中训练削弱了该倾向，且优势在良性微调后仍存在（-17.5pp）。但该持久性未扩展到需要主动抵抗上下文压力或冲突的设置，优势在 SFT 后减弱；宪法内容的存在比其结构更重要，且在中训练任一步骤平均无能力代价（MMLU、ARC-Easy、piqa、GSM8K）。\nConclusion: 中训练阶段适量的宪法内容可以带来广泛而持久的对齐增益，为以 SFT 为中心的管道提供廉价补充；但持久性不覆盖需要主动抵抗上下文压力或冲突的场景。作者公开了代码、数据和模型。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究宪法中训练（constitutional midtraining）能否在完全隔离后训练的情况下带来持久的对齐收益。作者从 Anthropic 的宪法构建 394M-token 语料，并在 120B 规模模型中实施宪法中训练，用 2x2 设计（课程顺序 × 深思熟虑推理）产生四个条件加一个对照，在三个阶段（中训练后、SFT 后、良性微调后）评估对齐泛化与持久性。结果显示，宪法中训练模型在对齐泛化和持久性上优于对照，尤其缓解了 SFT 引发的黑mail 倾向（优势在良性微调后仍保持 -17.5pp），但该优势在需要主动抵抗上下文压力或冲突的场景中在 SFT 后减弱。",
+        "motivation": "现有后训练对齐往往较浅，在后续微调下会退化；宪法中训练能否在干净隔离后训练的情况下产生持久对齐，此前尚未被测试。",
+        "method": "从 Anthropic 的 Constitution 构建 394M-token 的宪法语料，在 120B 规模模型的中训练阶段插入基于价值观的内容。采用课程顺序与深思熟虑推理的 2x2 设计生成四个宪法中训练条件加一个对照，并使用自生成和既有基准（如压力下对齐、价值冲突解决、blackmail、emergent misalignment）在三个训练阶段进行评估。",
+        "result": "宪法中训练模型在对齐泛化和持久性上优于对照，尤其是在 blackmail 任务上：SFT 向所有模型灌输了 blackmail 倾向，但宪法中训练削弱了该倾向，且优势在良性微调后仍存在（-17.5pp）。但该持久性未扩展到需要主动抵抗上下文压力或冲突的设置，优势在 SFT 后减弱；宪法内容的存在比其结构更重要，且在中训练任一步骤平均无能力代价（MMLU、ARC-Easy、piqa、GSM8K）。",
+        "conclusion": "中训练阶段适量的宪法内容可以带来广泛而持久的对齐增益，为以 SFT 为中心的管道提供廉价补充；但持久性不覆盖需要主动抵抗上下文压力或冲突的场景。作者公开了代码、数据和模型。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.26621",
+      "title": "WhisperRec: Latent Reasoning for Efficient Foundation Recommendation Models",
+      "authors": [
+        "Hao Jiang",
+        "Peiru Du",
+        "Pengfei Yao",
+        "Mengting Li",
+        "Siyuan Lou",
+        "Kuo Cai",
+        "Sheng Yu",
+        "Qiang Luo",
+        "Jian Liang",
+        "Ruiming Tang",
+        "Fei Pan",
+        "Peng Jiang",
+        "Wenwu Ou"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.IR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.IR",
+      "abs_url": "https://arxiv.org/abs/2607.26621",
+      "pdf_url": "https://arxiv.org/pdf/2607.26621",
+      "abstract_en": "Large language models (LLMs) have demonstrated strong reasoning capabilities, motivating their adoption as backbones for foundation recommendation models (FRMs). Existing approaches typically enhance recommendation with explicit Chain-of-Thought (CoT) under the Think-then-Answer paradigm. However, generating lengthy rationales introduces substantial inference overhead, while fixed CoT templates struggle to model diverse, dynamic, and context-dependent user interests. We propose WhisperRec, an efficient latent reasoning framework for FRMs. WhisperRec compresses teacher-generated CoT into learnable latent reasoning tokens, enabling a Latent-Reason-then-Answer paradigm that performs reasoning in latent space without producing verbose rationales. This design retains decision-relevant reasoning information while avoiding the latency bottleneck of autoregressive rationale generation. Specifically, it first introduces Multi-View Adaptive CoT (MV-ACoT) to construct diverse, high-quality supervision from complementary perspectives on user interests. MV-ACoT also adapts reasoning complexity to each instance, applying lightweight analysis to clear cases and targeted multi-factor reasoning to challenging ones. Building on a pre-trained FRM, WhisperRec then employs a three-stage Latent Reasoning Alignment procedure to progressively internalize teacher CoT into latent representations. Finally, curriculum-based post-training activates latent-token reasoning for downstream recommendation while preserving standard recommendation capability. Experiments on an industrial-scale Kuaishou dataset and the public Kuaishou LLM-Rec benchmark show that WhisperRec consistently outperforms explicit-CoT methods and conventional baselines. Compared with explicit CoT Think and No-Think variants, WhisperRec improves SID@64 by 17.44% and 9.33%, respectively, and achieves over 10x higher online inference throughput.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 WhisperRec，一种面向基础推荐模型 (FRM) 的高效隐式推理框架。它将教师模型生成的 Chain-of-Thought (CoT) 压缩为可学习的隐式推理 token，采用 Latent-Reason-then-Answer 范式，在潜空间完成推理而无需生成冗长理由。在工业级快手数据集和公开的 Kuaishou LLM-Rec 基准上，WhisperRec 一致优于显式 CoT 方法和传统基线，并显著提升在线推理吞吐。\nMotivation: LLM 具备强推理能力，但将其作为 FRM 骨干时，显式思维链 (explicit CoT) 的 Think-then-Answer 范式会引入大量推理开销；同时固定 CoT 模板难以刻画多样、动态且依赖上下文的用户兴趣。\nMethod: WhisperRec 首先提出 Multi-View Adaptive CoT (MV-ACoT)，从互补视角构建高质量监督，并根据实例动态调整推理复杂度；随后在预训练 FRM 上采用三阶段 Latent Reasoning Alignment，将教师 CoT 逐步内化到隐式表示；最后通过基于课程学习的后训练激活下游推荐的隐式 token 推理，同时保持标准推荐能力。\nResult: 在工业级快手数据集和 Kuaishou LLM-Rec 基准上，相比显式 CoT 的 Think 和 No-Think 变体，WhisperRec 的 SID@64 分别提升 17.44% 和 9.33%，在线推理吞吐量提升超过 10 倍。\nConclusion: 摘要强调 WhoisperRec 通过将推理转移到潜空间，在保留决策相关信息的同时避免了自回归理由生成的延迟瓶颈，为 FRM 提供了一种高效的推理范式。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 WhisperRec，一种面向基础推荐模型 (FRM) 的高效隐式推理框架。它将教师模型生成的 Chain-of-Thought (CoT) 压缩为可学习的隐式推理 token，采用 Latent-Reason-then-Answer 范式，在潜空间完成推理而无需生成冗长理由。在工业级快手数据集和公开的 Kuaishou LLM-Rec 基准上，WhisperRec 一致优于显式 CoT 方法和传统基线，并显著提升在线推理吞吐。",
+        "motivation": "LLM 具备强推理能力，但将其作为 FRM 骨干时，显式思维链 (explicit CoT) 的 Think-then-Answer 范式会引入大量推理开销；同时固定 CoT 模板难以刻画多样、动态且依赖上下文的用户兴趣。",
+        "method": "WhisperRec 首先提出 Multi-View Adaptive CoT (MV-ACoT)，从互补视角构建高质量监督，并根据实例动态调整推理复杂度；随后在预训练 FRM 上采用三阶段 Latent Reasoning Alignment，将教师 CoT 逐步内化到隐式表示；最后通过基于课程学习的后训练激活下游推荐的隐式 token 推理，同时保持标准推荐能力。",
+        "result": "在工业级快手数据集和 Kuaishou LLM-Rec 基准上，相比显式 CoT 的 Think 和 No-Think 变体，WhisperRec 的 SID@64 分别提升 17.44% 和 9.33%，在线推理吞吐量提升超过 10 倍。",
+        "conclusion": "摘要强调 WhoisperRec 通过将推理转移到潜空间，在保留决策相关信息的同时避免了自回归理由生成的延迟瓶颈，为 FRM 提供了一种高效的推理范式。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.26565",
+      "title": "Representation Trajectories Matters: Complementary Evidence for OOD Detection and Image Classification",
+      "authors": [
+        "Ignacio M. De la Jara",
+        "Cristian Rodriguez-Opazo",
+        "Hamed Damirchi",
+        "Stephen Gould",
+        "Damith Ranasinghe"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.26565",
+      "pdf_url": "https://arxiv.org/pdf/2607.26565",
+      "abstract_en": "Vision models do not form a representation at once; each block revises it. We ask whether the resulting computation path contains evidence that the final representation discards, and whether that evidence improves OOD detection and image classification on clean and shifted data. Unlike approaches that treat intermediate layers as separate snapshots, we retain sample identity across depth and study the transformations connecting successive states. We separate class-coherent transport from input-specific innovation, and coordinate movement from relational reorganization. Across supervised, self-supervised, vision--language, hierarchical, and convolutional encoders, these paths show strong sample-specific continuity and architecture-specific depth profiles that recur across datasets. They are also practically useful. An ID-only transition-surprise score complements strong final-state detectors, reducing FPR95 in 131/152 non-saturated comparisons on a balanced OpenOOD grid; gains are largest for visually disruptive and semantically far shifts, and remain positive on near-OOD for most detectors. Frozen update probes improve 71/72 clean model--dataset cases, while shifted-data gains vary with architecture and corruption type. Computation paths therefore provide a broadly useful reliability signal whose value is determined jointly by model organization and the shift encountered.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究视觉模型逐块更新表征的计算路径（representation trajectory）是否携带最终表征丢弃的证据，并评估其对 OOD 检测和图像分类的价值。作者保留样本在不同深度处的身份，分析相邻层表征之间的变换，并将类一致传输与输入特异创新、协调运动与关系重组分开处理。在监督、自监督、视觉-语言、分层和卷积等编码器上，这些路径表现出样本特异连续性和可跨数据集复现的架构特异深度轮廓；一个仅用 ID 数据的 transition-surprise 分数在 OpenOOD 网格上降低了 131/152 个非饱和比较中的 FPR95，冻结 update probes 在 71/72 个干净模型-数据集组合上提升了分类。\nMotivation: 视觉模型并非一次形成最终表征，而是逐块修正，最终层表征可能丢弃了中间计算过程的证据。现有方法把中间层当作独立快照来使用，作者想验证连接相邻状态的变换是否包含对 OOD 检测和图像分类有用的可靠性信号。\nMethod: 保留样本跨深度的一致性，建模连接相邻表征状态的变换，区分 class-coherent transport 与 input-specific innovation、coordinate movement 与 relational reorganization。在此基础上提出仅需 ID 数据的 transition-surprise 分数，以及冻结的 update probes 用于分类。\nResult: 在平衡 OpenOOD 网格的 131/152 个非饱和比较中，transition-surprise 分数降低了 FPR95；对视觉破坏大和语义远的 shift 收益最大，在近 OOD 上对多数检测器仍保持正收益。冻结 update probes 在 71/72 个干净模型-数据集组合上改进分类，而 shifted-data 上的收益随架构和损坏类型变化。\nConclusion: 计算路径（computation path）提供了一种广泛可用的可靠性信号，其价值由模型组织方式与所遇数据偏移共同决定；该信号对图像分类和 OOD 检测的增益依赖架构与偏移类型，作者将其定位为对最终状态表征的互补证据。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究视觉模型逐块更新表征的计算路径（representation trajectory）是否携带最终表征丢弃的证据，并评估其对 OOD 检测和图像分类的价值。作者保留样本在不同深度处的身份，分析相邻层表征之间的变换，并将类一致传输与输入特异创新、协调运动与关系重组分开处理。在监督、自监督、视觉-语言、分层和卷积等编码器上，这些路径表现出样本特异连续性和可跨数据集复现的架构特异深度轮廓；一个仅用 ID 数据的 transition-surprise 分数在 OpenOOD 网格上降低了 131/152 个非饱和比较中的 FPR95，冻结 update probes 在 71/72 个干净模型-数据集组合上提升了分类。",
+        "motivation": "视觉模型并非一次形成最终表征，而是逐块修正，最终层表征可能丢弃了中间计算过程的证据。现有方法把中间层当作独立快照来使用，作者想验证连接相邻状态的变换是否包含对 OOD 检测和图像分类有用的可靠性信号。",
+        "method": "保留样本跨深度的一致性，建模连接相邻表征状态的变换，区分 class-coherent transport 与 input-specific innovation、coordinate movement 与 relational reorganization。在此基础上提出仅需 ID 数据的 transition-surprise 分数，以及冻结的 update probes 用于分类。",
+        "result": "在平衡 OpenOOD 网格的 131/152 个非饱和比较中，transition-surprise 分数降低了 FPR95；对视觉破坏大和语义远的 shift 收益最大，在近 OOD 上对多数检测器仍保持正收益。冻结 update probes 在 71/72 个干净模型-数据集组合上改进分类，而 shifted-data 上的收益随架构和损坏类型变化。",
+        "conclusion": "计算路径（computation path）提供了一种广泛可用的可靠性信号，其价值由模型组织方式与所遇数据偏移共同决定；该信号对图像分类和 OOD 检测的增益依赖架构与偏移类型，作者将其定位为对最终状态表征的互补证据。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.26518",
+      "title": "EgoSafe: A First-Person Mobile-Captured Benchmark for Visual Safety Understanding",
+      "authors": [
+        "Yuyun Chen",
+        "Tianao Li",
+        "TianQuan Feng",
+        "Cen Chen",
+        "Huiping Zhuang",
+        "Hao Peng",
+        "Ziqian Zeng"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.26518",
+      "pdf_url": "https://arxiv.org/pdf/2607.26518",
+      "abstract_en": "Reliable visual safety understanding in real-world scenarios demands more than just object recognition; it requires causal reasoning under epistemic uncertainty. While Large Vision-Language Models (LVLMs) demonstrate impressive semantic alignment on standard benchmarks, they often struggle to distinguish between superficial correlation and genuine forensic logic when grounded in the dynamic, partially observable nature of first-person experiences. Existing evaluations, dominated by third-person surveillance footage and binary classification metrics, fail to expose this cognitive gap. To address this, we introduce EgoSafe-Bench, a benchmark specifically designed to probe forensic reasoning in egocentric safety scenarios. It comprises 12,000 unique evaluation samples, generated by pairing each of the 3,000 video clips with a QA chain governed by our proposed Hierarchical Reasoning Evaluation (HRE) protocol. Unlike standard benchmarks, HRE mandates a rigorous reasoning trajectory from initial feature anchoring to blind-spot deduction and intent inference, thereby enforcing logical consistency and penalizing shortcut-based predictions. Extensive evaluations of state-of-the-art LVLMs (e.g., Qwen3-VL, Gemini, VideoLLaMA 3) reveal a significant perception-reasoning decoupling: models often achieve high descriptive scores but exhibit notable fragility in causal reasoning and logical closure. Our work provides both a challenging dataset and a systematic evaluation framework to foster the development of logically robust video understanding systems.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 EgoSafe-Bench，一个用于评估第一人称（egocentric）视频安全理解能力的基准，包含 12,000 个评测样本，由 3,000 个视频片段按所提出的分层推理评测（Hierarchical Reasoning Evaluation, HRE）协议生成问答链。作者对 Qwen3-VL、Gemini、VideoLLaMA 3 等 LVLM 的评测显示，模型在描述性得分上很高，但在因果推理与逻辑闭合上表现脆弱，即存在感知与推理解耦现象。\nMotivation: 现有安全视觉评测主要依赖第三人称监控画面和二元分类指标，无法暴露模型在动态、部分可观测的第一人称场景中区分表面相关性与真实取证逻辑的认知差距。\nMethod: 构建 EgoSafe-Bench：将每个视频片段与一条 HRE 协议驱动的 QA 链配对，强制模型经历从初始特征锚定到盲区推导再到意图推理的完整推理轨迹，以惩罚捷径式预测并保证逻辑一致性。\nResult: 对多个 SOTA LVLM 的广泛评测表明，模型在描述任务上表现良好，但在因果推理和逻辑闭合上明显脆弱，呈现出感知-推理解耦。\nConclusion: 作者认为该工作同时提供了挑战性数据集和系统化评测框架，旨在推动逻辑稳健的视频理解系统的发展。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 EgoSafe-Bench，一个用于评估第一人称（egocentric）视频安全理解能力的基准，包含 12,000 个评测样本，由 3,000 个视频片段按所提出的分层推理评测（Hierarchical Reasoning Evaluation, HRE）协议生成问答链。作者对 Qwen3-VL、Gemini、VideoLLaMA 3 等 LVLM 的评测显示，模型在描述性得分上很高，但在因果推理与逻辑闭合上表现脆弱，即存在感知与推理解耦现象。",
+        "motivation": "现有安全视觉评测主要依赖第三人称监控画面和二元分类指标，无法暴露模型在动态、部分可观测的第一人称场景中区分表面相关性与真实取证逻辑的认知差距。",
+        "method": "构建 EgoSafe-Bench：将每个视频片段与一条 HRE 协议驱动的 QA 链配对，强制模型经历从初始特征锚定到盲区推导再到意图推理的完整推理轨迹，以惩罚捷径式预测并保证逻辑一致性。",
+        "result": "对多个 SOTA LVLM 的广泛评测表明，模型在描述任务上表现良好，但在因果推理和逻辑闭合上明显脆弱，呈现出感知-推理解耦。",
+        "conclusion": "作者认为该工作同时提供了挑战性数据集和系统化评测框架，旨在推动逻辑稳健的视频理解系统的发展。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.26434",
+      "title": "Reinforcement Learning on Cost-Constrained Quadrupedal Hardware",
+      "authors": [
+        "Javier C. Weddington",
+        "Bence P. Ölveczky",
+        "Stephen A. Baccus"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2607.26434",
+      "pdf_url": "https://arxiv.org/pdf/2607.26434",
+      "abstract_en": "Deploying learned control policies on low-cost robotic platforms introduces transport latencies and noisy motor feedback that systematically widens the sim-to-real gap. The chasm of simulation to deployment in hardware lies in the delay of the actuator reaching the commanded position. On platforms such as the Mini Pupper 2, a measured >50 ms transport delay transforms the locomotion task from a standard Markov decision process into a partially observable one. In this paper, we take a biologically inspired approach of handling noisy and delayed feedback to close the sim-to-real gap, thereby expanding the capability of reinforcement learning on cost-constrained hardware. Using a low-cost quadrupedal hardware platform, we find that using a forward model of the average actuator delay, paired with a time-aware neural network results in robust locomotion. Additionally, our time-aware neural network learned a central pattern generator (CPG): a self-sustaining rhythmic gait that is robust to +320 ms latency perturbations, mirroring the CPGs found in the spinal cords of vertebrates. We posit that temporal self-organization may be a general strategy for cost-constrained locomotion.",
+      "comment": "Sim-to-real transfer, locomotion, reinforcement learning, central pattern generator",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究低成本四足机器人硬件上强化学习（RL）策略的 sim-to-real 差距问题，指出 Mini Pupper 2 上实测超过 50 ms 的传输延迟会把运动任务从标准 MDP 变成部分可观测的 POMDP。作者采用生物学启发的方法，将平均执行器延迟的前向模型与时间感知神经网络（time-aware neural network）结合，在低成本硬件上实现了鲁棒运动。该网络还自发学习出类似脊椎动物脊髓中的中央模式发生器（CPG），对 +320 ms 的延迟扰动保持鲁棒。\nMotivation: 低成本机器人平台上的传输延迟和噪声电机反馈会系统性拉大 sim-to-real 差距，其中执行器到达指令位置的延迟是仿真到硬件部署的主要鸿沟；Mini Pupper 2 上实测 >50 ms 的延迟使运动任务变为部分可观测，给低成本硬件上的强化学习部署带来挑战。\nMethod: 采用处理噪声与延迟反馈的生物学启发方法：构建平均执行器延迟的前向模型，并搭配时间感知神经网络进行运动控制，从而在不依赖精确观测的前提下弥合 sim-to-real 差距。\nResult: 摘要报告该方法在低成本四足硬件平台上实现了鲁棒运动；时间感知神经网络学习出自持续的节律步态（CPG），并对 +320 ms 的延迟扰动表现鲁棒。\nConclusion: 作者认为时间自组织（temporal self-organization）可能是成本受限运动控制的一种通用策略，能够扩大强化学习在低成本硬件上的能力范围。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究低成本四足机器人硬件上强化学习（RL）策略的 sim-to-real 差距问题，指出 Mini Pupper 2 上实测超过 50 ms 的传输延迟会把运动任务从标准 MDP 变成部分可观测的 POMDP。作者采用生物学启发的方法，将平均执行器延迟的前向模型与时间感知神经网络（time-aware neural network）结合，在低成本硬件上实现了鲁棒运动。该网络还自发学习出类似脊椎动物脊髓中的中央模式发生器（CPG），对 +320 ms 的延迟扰动保持鲁棒。",
+        "motivation": "低成本机器人平台上的传输延迟和噪声电机反馈会系统性拉大 sim-to-real 差距，其中执行器到达指令位置的延迟是仿真到硬件部署的主要鸿沟；Mini Pupper 2 上实测 >50 ms 的延迟使运动任务变为部分可观测，给低成本硬件上的强化学习部署带来挑战。",
+        "method": "采用处理噪声与延迟反馈的生物学启发方法：构建平均执行器延迟的前向模型，并搭配时间感知神经网络进行运动控制，从而在不依赖精确观测的前提下弥合 sim-to-real 差距。",
+        "result": "摘要报告该方法在低成本四足硬件平台上实现了鲁棒运动；时间感知神经网络学习出自持续的节律步态（CPG），并对 +320 ms 的延迟扰动表现鲁棒。",
+        "conclusion": "作者认为时间自组织（temporal self-organization）可能是成本受限运动控制的一种通用策略，能够扩大强化学习在低成本硬件上的能力范围。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-29",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.27814",
+      "title": "ATOD: Annealed Turn-Aware On-Policy Distillation for Multi-Turn Agentic Tasks",
+      "authors": [
+        "Qitai Tan",
+        "Zefang Zong",
+        "Mo Li",
+        "Yipeng Shi",
+        "Yang Li",
+        "Peng Chen"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2606.27814",
+      "pdf_url": "https://arxiv.org/pdf/2606.27814",
+      "abstract_en": "Training small language-model agents for long-horizon interactive tasks requires both fast imitation and reward-driven improvement. On-policy distillation (OPD) provides dense teacher guidance and typically improves rapidly in the early stage, but its gains saturate once the student approaches the teacher, limiting the final performance ceiling. Reinforcement learning (RL) directly optimizes environment rewards and encourages exploratory improvement toward a higher reward-defined ceiling, but sparse and delayed feedback makes early-stage learning much less efficient than OPD. In this paper, we propose ATOD (Annealed Turn-aware On-policy Distillation), a hybrid online distillation algorithm that explicitly exploits this complementarity. (1) ATOD uses an annealed OPD-RL schedule: OPD dominates early training to approach teacher-level behavior, while RL is gradually strengthened to drive reward-based exploration. (2) ATOD introduces Turn-level Disagreement-Uncertainty Reweighting (T-DUR), which softly amplifies high-utility turns and improves dense supervision in long trajectories. Experiments on ALFWorld, WebShop, and Search-QA show that ATOD consistently outperforms competing post-training baselines: across the three student sizes, ATOD improves average success rate by 4.16 points over OPD and 23.62 points over GRPO, while surpassing the corresponding teacher models by 2.16 points.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 ATOD（Annealed Turn-aware On-policy Distillation），一种面向多轮智能体任务（multi-turn agentic tasks）的混合在线蒸馏算法，用于训练小规模语言模型智能体。算法结合退火的 OPD-RL 调度与回合级分歧-不确定性重加权（T-DUR），在 ALFWorld、WebShop 和 Search-QA 上相比 OPD 和 GRPO 等后训练基线提升平均成功率，并超过对应教师模型。\nMotivation: 小模型智能体在长视野交互任务中面临两难：在线策略蒸馏（OPD）早期提升快但接近教师后收益饱和，强化学习（RL）能朝更高奖励上限探索但稀疏延迟反馈导致早期学习低效。作者试图显式利用两者的互补性来突破性能天花板。\nMethod: 提出 ATOD，包含两个组件：(1) 退火的 OPD-RL 调度，早期以 OPD 为主接近教师行为，随后逐步增强 RL 以驱动基于奖励的探索；(2) 回合级分歧-不确定性重加权（Turn-level Disagreement-Uncertainty Reweighting, T-DUR），软性放大高价值回合并提供长轨迹中的密集监督。\nResult: 在 ALFWorld、WebShop 和 Search-QA 上，三种学生规模下 ATOD 平均成功率比 OPD 提高 4.16 个百分点、比 GRPO 提高 23.62 个百分点，并超过相应教师模型 2.16 个百分点。\nConclusion: 摘要强调 OPD 与 RL 的互补性可以显式利用，混合在线蒸馏配合回合级重加权能稳定超越教师模型；作者未在摘要中讨论局限性。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 ATOD（Annealed Turn-aware On-policy Distillation），一种面向多轮智能体任务（multi-turn agentic tasks）的混合在线蒸馏算法，用于训练小规模语言模型智能体。算法结合退火的 OPD-RL 调度与回合级分歧-不确定性重加权（T-DUR），在 ALFWorld、WebShop 和 Search-QA 上相比 OPD 和 GRPO 等后训练基线提升平均成功率，并超过对应教师模型。",
+        "motivation": "小模型智能体在长视野交互任务中面临两难：在线策略蒸馏（OPD）早期提升快但接近教师后收益饱和，强化学习（RL）能朝更高奖励上限探索但稀疏延迟反馈导致早期学习低效。作者试图显式利用两者的互补性来突破性能天花板。",
+        "method": "提出 ATOD，包含两个组件：(1) 退火的 OPD-RL 调度，早期以 OPD 为主接近教师行为，随后逐步增强 RL 以驱动基于奖励的探索；(2) 回合级分歧-不确定性重加权（Turn-level Disagreement-Uncertainty Reweighting, T-DUR），软性放大高价值回合并提供长轨迹中的密集监督。",
+        "result": "在 ALFWorld、WebShop 和 Search-QA 上，三种学生规模下 ATOD 平均成功率比 OPD 提高 4.16 个百分点、比 GRPO 提高 23.62 个百分点，并超过相应教师模型 2.16 个百分点。",
+        "conclusion": "摘要强调 OPD 与 RL 的互补性可以显式利用，混合在线蒸馏配合回合级重加权能稳定超越教师模型；作者未在摘要中讨论局限性。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-26",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2601.06599",
+      "title": "How Context Shapes Truth: Geometric Transformations of Statement-level Truth Representations in LLMs",
+      "authors": [
+        "Shivam Adarsh",
+        "Maria Maistro",
+        "Christina Lioma"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2601.06599",
+      "pdf_url": "https://arxiv.org/pdf/2601.06599",
+      "abstract_en": "Large Language Models (LLMs) often encode whether a statement is true as a vector in their residual stream activations. These vectors, also known as truth vectors, have been studied in prior work, however how they change when context is introduced remains unexplored. We study this question by measuring (1) the directional change ($θ$) between the truth vectors with and without context and (2) the relative magnitude of the truth vectors upon adding context. Across four LLMs and four datasets, we find that (1) truth vectors are roughly orthogonal in early layers, converge in middle layers, and may stabilize or continue increasing in later layers; (2) adding context generally increases the truth vector magnitude, i.e., the separation between true and false representations in the activation space is amplified; (3) larger models distinguish relevant from irrelevant context mainly through directional change ($θ$), while smaller models show this distinction through magnitude differences. We also find that context conflicting with parametric knowledge produces larger geometric changes than parametrically aligned context. Collectively, these findings provide a geometric characterization of how context transforms the truth vector in the activation space of LLMs.",
+      "comment": "ACL 2026 (Main)",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究大规模语言模型（LLM）中语句级真值向量（truth vector）如何随上下文改变。作者在四个LLM和四个数据集上测量了加上下文前后真值向量的方向变化与相对幅度，发现真值向量在浅层近似正交、中层收敛、深层趋于稳定或继续增长，且加入上下文通常放大真假表示的分离度。研究发现模型规模影响区分相关与不相关上下文的方式：大模型主要靠方向变化，小模型主要靠幅度差异，且与参数知识冲突的上下文产生更大的几何变化。\nMotivation: 已有工作表明LLM在残差流激活中将语句真假编码为向量，但上下文如何改变这些真值表示尚未被探索，该问题对理解LLM的上下文感知与事实性表现具有重要意义。\nMethod: 通过测量两类量来刻画上下文的影响：(1) 有/无上下文时真值向量之间的方向变化角度 θ；(2) 加入上下文后真值向量的相对幅度。实验覆盖四个LLM与四个数据集，并区分与参数知识一致或冲突的上下文。\nResult: 真值向量在早期层近似正交、中层收敛、后期可能稳定或继续增加；加入上下文通常增大真值向量幅度；较大模型通过方向变化 θ 区分相关与不相关上下文，较小模型则通过幅度差异区分；与参数知识冲突的上下文比一致的上下文产生更大的几何变化。\nConclusion: 这些发现为上下文如何在LLM激活空间中变换真值向量提供了一种几何刻画，并揭示了模型规模与知识一致性对真值表示几何行为的影响。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究大规模语言模型（LLM）中语句级真值向量（truth vector）如何随上下文改变。作者在四个LLM和四个数据集上测量了加上下文前后真值向量的方向变化与相对幅度，发现真值向量在浅层近似正交、中层收敛、深层趋于稳定或继续增长，且加入上下文通常放大真假表示的分离度。研究发现模型规模影响区分相关与不相关上下文的方式：大模型主要靠方向变化，小模型主要靠幅度差异，且与参数知识冲突的上下文产生更大的几何变化。",
+        "motivation": "已有工作表明LLM在残差流激活中将语句真假编码为向量，但上下文如何改变这些真值表示尚未被探索，该问题对理解LLM的上下文感知与事实性表现具有重要意义。",
+        "method": "通过测量两类量来刻画上下文的影响：(1) 有/无上下文时真值向量之间的方向变化角度 θ；(2) 加入上下文后真值向量的相对幅度。实验覆盖四个LLM与四个数据集，并区分与参数知识一致或冲突的上下文。",
+        "result": "真值向量在早期层近似正交、中层收敛、后期可能稳定或继续增加；加入上下文通常增大真值向量幅度；较大模型通过方向变化 θ 区分相关与不相关上下文，较小模型则通过幅度差异区分；与参数知识冲突的上下文比一致的上下文产生更大的几何变化。",
+        "conclusion": "这些发现为上下文如何在LLM激活空间中变换真值向量提供了一种几何刻画，并揭示了模型规模与知识一致性对真值表示几何行为的影响。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-01-10",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2512.07076",
+      "title": "Context-measure: Contextualizing Metric for Camouflage",
+      "authors": [
+        "Chen-Yang Wang",
+        "Ge-Peng Ji",
+        "Song Shao",
+        "Ming-Ming Cheng",
+        "Deng-Ping Fan"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2512.07076",
+      "pdf_url": "https://arxiv.org/pdf/2512.07076",
+      "abstract_en": "Camouflage relies heavily on context, but current metrics used in camouflaged object segmentation ignore contextual cues. We identify two major drawbacks of these metrics: first, the Dimension Flaw - a predicted foreground map usually contains both pixel labels and probability scores, whereas ground truth provides only one-dimensional binary labels; second, the Range Flaw - these metrics struggle to capture full-range pixel dependencies. Thus, we propose Context-measure, a novel context-aware evaluation paradigm built on a probabilistic pixel correlation framework. It augments the ground truth with pixel-level contextual affinity and builds a perception cycle, achieving greater consistency with human perception. Extensive experiments using four meta-measures show that our Context-measure comprehensively outperforms all widely adopted metrics for camouflaged object segmentation. To our knowledge, this is the first metric designed for camouflaged scenarios. Code is available at https://github.com/pursuitxi/Context-measure.",
+      "comment": "Technical Report",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Context-measure，一种面向伪装目标分割 (camouflaged object segmentation) 的上下文感知评估度量。作者指出现有度量忽略上下文线索，存在维度缺陷 (Dimension Flaw) 和范围缺陷 (Range Flaw)，并基于概率像素相关性框架构建新评估范式，对真值进行像素级上下文亲和度增强并建立感知循环。摘要报告在四种 meta-measures 的实验中，该方法全面优于广泛采用的既有度量，并称这是首个为伪装场景设计的度量。\nMotivation: 伪装高度依赖上下文，但现有伪装目标分割度量忽略了上下文线索，导致评估与人类感知不一致。作者识别出两个主要缺陷：预测前景图同时包含类别标签和概率分数，而真值仅提供一维的二值标签；同时这些度量难以捕获全范围的像素依赖关系。\nMethod: 提出 Context-measure，一种基于概率像素相关性框架的上下文感知评估范式。该方法对真值进行像素级上下文亲和度增强，并构建感知循环 (perception cycle) 以更符合人类感知一致性。\nResult: 摘要报告使用四种 meta-measures 的广泛实验表明，Context-measure 在所有常用伪装目标分割度量上取得全面更优的表现；文中未给出具体数值。\nConclusion: 作者强调这是首个针对伪装场景设计的评估度量，并认为上下文化评估范式可以提高伪装目标分割评估与人类感知的一致性；代码已开源。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Context-measure，一种面向伪装目标分割 (camouflaged object segmentation) 的上下文感知评估度量。作者指出现有度量忽略上下文线索，存在维度缺陷 (Dimension Flaw) 和范围缺陷 (Range Flaw)，并基于概率像素相关性框架构建新评估范式，对真值进行像素级上下文亲和度增强并建立感知循环。摘要报告在四种 meta-measures 的实验中，该方法全面优于广泛采用的既有度量，并称这是首个为伪装场景设计的度量。",
+        "motivation": "伪装高度依赖上下文，但现有伪装目标分割度量忽略了上下文线索，导致评估与人类感知不一致。作者识别出两个主要缺陷：预测前景图同时包含类别标签和概率分数，而真值仅提供一维的二值标签；同时这些度量难以捕获全范围的像素依赖关系。",
+        "method": "提出 Context-measure，一种基于概率像素相关性框架的上下文感知评估范式。该方法对真值进行像素级上下文亲和度增强，并构建感知循环 (perception cycle) 以更符合人类感知一致性。",
+        "result": "摘要报告使用四种 meta-measures 的广泛实验表明，Context-measure 在所有常用伪装目标分割度量上取得全面更优的表现；文中未给出具体数值。",
+        "conclusion": "作者强调这是首个针对伪装场景设计的评估度量，并认为上下文化评估范式可以提高伪装目标分割评估与人类感知的一致性；代码已开源。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2025-12-08",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2504.04128",
+      "title": "Decision-oriented joint optimization of evidence fusion based on event-conditioned credibility",
+      "authors": [
+        "Chaoxiong Ma",
+        "Yan Liang",
+        "Huixia Zhang",
+        "Hao Sun"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2504.04128",
+      "pdf_url": "https://arxiv.org/pdf/2504.04128",
+      "abstract_en": "In decision-level fusion tasks involving heterogeneous sources with unequal precision and potential anomalies, evidence deviating from the majority may be either critical evidence supporting the correct decision or anomalous evidence supporting an incorrect event. Existing credible evidence fusion methods primarily assess credibility through inter-evidence comparisons and may consequently underestimate critical evidence. This paper proposes event-conditioned credibility to characterize the relative credibility of evidence under different candidate-event hypotheses. A decision-oriented joint optimization model then couples credibility calculation, evidence fusion, and event decision through candidate-event probabilities. The model is expressed as a continuous self-mapping on the probability simplex. A direct fixed-point iteration provides the default fast solver, while a Kuhn simplicial search supplies a mesh-dependent approximate fixed point if the direct iteration forms a periodic orbit. A plausibility--belief arithmetic--geometric divergence is further proposed to calculate event-conditioned credibility. Numerical experiments show that the proposed method gives credibility rankings that better reflect the contribution of evidence to the ground truth and provides greater support for the correct event than representative credible evidence fusion methods. Monte Carlo tests additionally demonstrate a high empirical fixed-point attainment rate over the tested settings.",
+      "comment": "27 pages, 16 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对决策级证据融合中异构信源精度不齐且可能存在异常的问题，提出事件条件可信度 (event-conditioned credibility) 来刻画证据在不同候选事件假设下的相对可信度，并将可信度计算、证据融合与事件决策通过候选事件概率耦合为一个联合优化模型。模型被表示为概率单纯形上的连续自映射，直接不动点迭代作为默认快速求解器，若形成周期轨道则使用 Kuhn 单纯形搜索。数值实验表明该方法比代表性可信证据融合方法更能反映证据对真实事件的贡献并更好支持正确事件。\nMotivation: 现有可信证据融合方法主要通过证据间比较来评估可信度，可能低估那些偏离多数却支持正确决策的关键证据，也难以区分关键证据与异常证据。\nMethod: 提出事件条件可信度，并建立面向决策的联合优化模型，将可信度计算、证据融合与事件决策经候选事件概率耦合；构造概率单纯形上的连续自映射，采用直接不动点迭代作为默认求解器，必要时用 Kuhn 单纯形搜索获得网格依赖的近似不动点，并提出 plausibility–belief 算术几何散度来计算事件条件可信度。\nResult: 数值实验显示所提方法给出的可信度排序能更好反映证据对真实事件的贡献，并比代表性可信证据融合方法为正确事件提供更大支持；Monte Carlo 测试表明在测试设置下经验不动点达成率较高。\nConclusion: 作者强调将可信度评估与决策目标联合优化、以事件条件可信度替代单纯证据间比较，能够改善决策级融合对正确事件的支持；摘要未明确讨论局限性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对决策级证据融合中异构信源精度不齐且可能存在异常的问题，提出事件条件可信度 (event-conditioned credibility) 来刻画证据在不同候选事件假设下的相对可信度，并将可信度计算、证据融合与事件决策通过候选事件概率耦合为一个联合优化模型。模型被表示为概率单纯形上的连续自映射，直接不动点迭代作为默认快速求解器，若形成周期轨道则使用 Kuhn 单纯形搜索。数值实验表明该方法比代表性可信证据融合方法更能反映证据对真实事件的贡献并更好支持正确事件。",
+        "motivation": "现有可信证据融合方法主要通过证据间比较来评估可信度，可能低估那些偏离多数却支持正确决策的关键证据，也难以区分关键证据与异常证据。",
+        "method": "提出事件条件可信度，并建立面向决策的联合优化模型，将可信度计算、证据融合与事件决策经候选事件概率耦合；构造概率单纯形上的连续自映射，采用直接不动点迭代作为默认求解器，必要时用 Kuhn 单纯形搜索获得网格依赖的近似不动点，并提出 plausibility–belief 算术几何散度来计算事件条件可信度。",
+        "result": "数值实验显示所提方法给出的可信度排序能更好反映证据对真实事件的贡献，并比代表性可信证据融合方法为正确事件提供更大支持；Monte Carlo 测试表明在测试设置下经验不动点达成率较高。",
+        "conclusion": "作者强调将可信度评估与决策目标联合优化、以事件条件可信度替代单纯证据间比较，能够改善决策级融合对正确事件的支持；摘要未明确讨论局限性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2025-04-05",
+      "updated_date": "2026-07-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
