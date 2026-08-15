@@ -1,0 +1,759 @@
+{
+  "date": "2026-08-15",
+  "snapshot_date": "2026-08-15",
+  "generated_at": "2026-08-15T03:22:27Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 18,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.CV": 6,
+    "cs.AI": 6,
+    "cs.LG": 6
+  },
+  "summary_status_counts": {
+    "ok": 18
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 627
+  },
+  "papers": [
+    {
+      "id": "2608.12276",
+      "title": "XYZFlow:Scaling Multi dimensional Shortcut Flows for Efficient Generative Modeling",
+      "authors": [
+        "Jinxiu Liu",
+        "Xuanming Liu",
+        "Kangfu Mei",
+        "Yandong Wen",
+        "Weiyang Liu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.12276",
+      "pdf_url": "https://arxiv.org/pdf/2608.12276",
+      "abstract_en": "High-fidelity image generation faces a trade-off between speed and quality. Diffusion models produce strong visuals but require costly iterative sampling. Existing efficient methods mainly distill pretrained models into few-step samplers, a challenging process that depends heavily on teacher-model quality. In this paper, we introduce XYZFlow, a framework that rethinks efficient generation through multidimensional scaling of flow matching. Unlike single-step mappings, XYZFlow enhances expressivity by making probability paths more identifiable and learnable through structured multidimensional conditioning. We view autoregressive modeling as implicit flow straightening, where richer context reduces trajectory ambiguity. XYZFlow realizes this idea through two orthogonal dimensions: temporal scaling, which uses non-Markovian conditioning on the full denoising history; and spatial scaling, enabled by Next Shortcut Prediction, which sequentially generates patches using preceding patches' denoising trajectories as priors. Experiments show that XYZFlow achieves state-of-the-art performance, with 7.2-8.5X teacher speedups and competitive FID, while Next Shortcut Prediction delivers superior quality-latency trade-offs over model scaling or step reduction.",
+      "comment": "ICML 2026 (16 pages, 5 figures)",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 XYZFlow，一种通过多维缩放 flow matching 来实现高效生成建模的框架。核心思想是把自回归建模视为隐式流拉直 (implicit flow straightening)，通过时间维度上的非马尔可夫条件化（利用完整去噪历史）和空间维度上的 Next Shortcut Prediction（用前序 patch 的去噪轨迹作为先验逐块生成）增强概率路径的可识别性和可学习性。实验表明，XYZFlow 在教师模型加速 7.2-8.5 倍的同时取得有竞争力的 FID，且 Next Shortcut Prediction 在质量-延迟权衡上优于单纯扩大模型或减少步数。\nMotivation: 高保真图像生成面临速度与质量的权衡：扩散模型质量高但迭代采样成本高，现有高效方法主要依赖对预训练模型进行蒸馏，过程困难且受限于教师模型质量，缺少从更根本的生成框架层面提升效率的途径。\nMethod: XYZFlow 通过两个正交维度缩放 flow matching：时间缩放采用非马尔可夫条件化，将完整去噪历史作为条件以降低轨迹歧义；空间缩放由 Next Shortcut Prediction 实现，逐步生成 patch 并使用前面 patch 的去噪轨迹作为先验，从而把自回归生成建模为隐式流拉直。\nResult: 摘要报告 XYZFlow 取得当前最优性能，在实现 7.2-8.5 倍教师模型加速的同时保持有竞争力的 FID；Next Shortcut Prediction 在质量与延迟的权衡上优于模型规模扩展或减少采样步数。\nConclusion: 作者认为通过多维条件化增强概率路径的可识别性可以有效实现高效生成建模，将自回归建模视为隐式流拉直是可行思路。摘要未提及该方法在非图像模态或特定下游任务上的适用范围与限制。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 XYZFlow，一种通过多维缩放 flow matching 来实现高效生成建模的框架。核心思想是把自回归建模视为隐式流拉直 (implicit flow straightening)，通过时间维度上的非马尔可夫条件化（利用完整去噪历史）和空间维度上的 Next Shortcut Prediction（用前序 patch 的去噪轨迹作为先验逐块生成）增强概率路径的可识别性和可学习性。实验表明，XYZFlow 在教师模型加速 7.2-8.5 倍的同时取得有竞争力的 FID，且 Next Shortcut Prediction 在质量-延迟权衡上优于单纯扩大模型或减少步数。",
+        "motivation": "高保真图像生成面临速度与质量的权衡：扩散模型质量高但迭代采样成本高，现有高效方法主要依赖对预训练模型进行蒸馏，过程困难且受限于教师模型质量，缺少从更根本的生成框架层面提升效率的途径。",
+        "method": "XYZFlow 通过两个正交维度缩放 flow matching：时间缩放采用非马尔可夫条件化，将完整去噪历史作为条件以降低轨迹歧义；空间缩放由 Next Shortcut Prediction 实现，逐步生成 patch 并使用前面 patch 的去噪轨迹作为先验，从而把自回归生成建模为隐式流拉直。",
+        "result": "摘要报告 XYZFlow 取得当前最优性能，在实现 7.2-8.5 倍教师模型加速的同时保持有竞争力的 FID；Next Shortcut Prediction 在质量与延迟的权衡上优于模型规模扩展或减少采样步数。",
+        "conclusion": "作者认为通过多维条件化增强概率路径的可识别性可以有效实现高效生成建模，将自回归建模视为隐式流拉直是可行思路。摘要未提及该方法在非图像模态或特定下游任务上的适用范围与限制。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.12218",
+      "title": "Information Abundance Paradox: Long-Context Training Undermines Parametric Knowledge",
+      "authors": [
+        "Arda Uzunoglu",
+        "Benjamin Van Durme",
+        "Daniel Khashabi"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2608.12218",
+      "pdf_url": "https://arxiv.org/pdf/2608.12218",
+      "abstract_en": "Large language models are increasingly trained and deployed with long contexts that span documents, code repositories, and interaction histories. This scaling reflects the implicit assumption that training on longer contexts will only help the model by exposing it to richer evidence. We challenge this view by studying how the context window shapes a model's mode of learning, shifting it between parametric internalization and contextualization. We propose the Information Abundance Paradox, which hypothesizes that abundant relevant information in the training context can reduce the incentive to encode that information parametrically, thereby increasing reliance on context. In pretraining with long documents, increasing the context window improves language modeling, natural language understanding, and closed-book MCQA only up to an intermediate optimum, after which performance consistently declines. In supervised fine-tuning, more task-relevant train-time context improves performance with supporting context, but reduces robustness when context is absent or misleading at test time. Our analysis suggests that this behavior arises when longer context provides a lower complexity solution. Mechanistically, training with informative context shifts gradient pressure from feed-forward networks, often linked to parametric knowledge, toward attention modules, and causal interventions show that this shift increases reliance on context during inference. Overall, these findings support the Information Abundance Paradox and suggest that scaling toward near-infinite context is not simply a matter of supplying more data, even when high-quality long-context data is abundant.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出“信息充裕悖论”（Information Abundance Paradox），认为训练上下文中过多相关信息会降低模型将信息参数化内化的激励，使其更依赖上下文而非参数知识。作者在预训练与监督微调两类场景中验证了这一假设：预训练中增大上下文窗口在达到某个中间最优值前会改善语言建模、自然语言理解与闭卷多选题（closed-book MCQA），此后性能持续下降；微调中更多任务相关的训练上下文虽然提升带支撑上下文的表现，却降低上下文缺失或误导时的鲁棒性。机制分析表明，信息丰富的上下文会将梯度压力从前馈网络（feed-forward networks）转向注意力模块，因果干预进一步显示这种转变增加了推理时对上下文的依赖。\nMotivation: 现有大规模语言模型普遍以更长上下文进行训练与部署，默认假设更长上下文只会通过更丰富的证据帮助模型。作者质疑这一隐含假设，试图研究上下文窗口如何塑造模型的学习模式，使其在参数化内化（parametric internalization）与情境化（contextualization）之间切换。\nMethod: 提出信息充裕悖论作为假设，并在预训练和监督微调两种训练设置下进行实验验证；通过梯度压力分析定位前馈网络与注意力模块之间的学习偏移，并采用因果干预（causal interventions）检验推理时对上下文依赖程度的变化。\nResult: 预训练中，增大上下文窗口仅在达到中间最优值前改善语言建模、自然语言理解和闭卷 MCQA，超过该点后性能一致下降。监督微调中，更多任务相关的训练上下文提升了带支撑上下文时的表现，但降低了测试时上下文缺失或误导情况下的鲁棒性；机制上，梯度压力从前馈网络转向注意力模块，因果干预显示推理时对上下文的依赖增强。\nConclusion: 作者认为这些发现支持信息充裕悖论，并指出即便高质量长上下文数据充足，向近乎无限上下文扩展也并非简单地提供更多数据。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出“信息充裕悖论”（Information Abundance Paradox），认为训练上下文中过多相关信息会降低模型将信息参数化内化的激励，使其更依赖上下文而非参数知识。作者在预训练与监督微调两类场景中验证了这一假设：预训练中增大上下文窗口在达到某个中间最优值前会改善语言建模、自然语言理解与闭卷多选题（closed-book MCQA），此后性能持续下降；微调中更多任务相关的训练上下文虽然提升带支撑上下文的表现，却降低上下文缺失或误导时的鲁棒性。机制分析表明，信息丰富的上下文会将梯度压力从前馈网络（feed-forward networks）转向注意力模块，因果干预进一步显示这种转变增加了推理时对上下文的依赖。",
+        "motivation": "现有大规模语言模型普遍以更长上下文进行训练与部署，默认假设更长上下文只会通过更丰富的证据帮助模型。作者质疑这一隐含假设，试图研究上下文窗口如何塑造模型的学习模式，使其在参数化内化（parametric internalization）与情境化（contextualization）之间切换。",
+        "method": "提出信息充裕悖论作为假设，并在预训练和监督微调两种训练设置下进行实验验证；通过梯度压力分析定位前馈网络与注意力模块之间的学习偏移，并采用因果干预（causal interventions）检验推理时对上下文依赖程度的变化。",
+        "result": "预训练中，增大上下文窗口仅在达到中间最优值前改善语言建模、自然语言理解和闭卷 MCQA，超过该点后性能一致下降。监督微调中，更多任务相关的训练上下文提升了带支撑上下文时的表现，但降低了测试时上下文缺失或误导情况下的鲁棒性；机制上，梯度压力从前馈网络转向注意力模块，因果干预显示推理时对上下文的依赖增强。",
+        "conclusion": "作者认为这些发现支持信息充裕悖论，并指出即便高质量长上下文数据充足，向近乎无限上下文扩展也并非简单地提供更多数据。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.12108",
+      "title": "Beyond Parameter Space: NTK-Guided Personalized Aggregation for Robust Federated Learning",
+      "authors": [
+        "Mirko Konstantin",
+        "Stefan Zachow",
+        "Anirban Mukhopadhyay"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2608.12108",
+      "pdf_url": "https://arxiv.org/pdf/2608.12108",
+      "abstract_en": "Federated learning (FL) enables collaborative model training across distributed clients while keeping data local. A central challenge is determining which client updates are beneficial for aggregation with respect to each client's target domain. Existing methods typically address this problem in parameter space by comparing model parameters or gradients. However, parameter-space similarity can be a poor proxy for predictive behavior, especially under heterogeneous, non-IID data. Consequently, updates that are misaligned with a client's target domain, including those caused by heterogeneous data or malfunctioning clients, may degrade local model performance. We propose Local Inference Guided Aggregation for Heterogeneous Training Environments to Yield Enhancement Through Agreement and Regularization (LIGHTYEAR), a federated learning framework that performs update selection in function space. LIGHTYEAR uses an NTK-based agreement score to characterize predictive behavior and determine a personalized aggregation set for each client. By relating model parameters to local predictive responses, the Neural Tangent Kernel (NTK) provides a more expressive criterion for update selection than parameter-space similarity alone. Because function-space information is not available before aggregation in conventional centralized FL, LIGHTYEAR uses a peer-to-peer (P2P) topology in which clients exchange updates directly and evaluate incoming models on private validation data. Each client selects only updates that are beneficial for its own target domain and aggregates them using a regularized rule that improves stability under heterogeneity. Across five datasets and nine baseline methods, LIGHTYEAR consistently outperforms centralized FL baselines and existing P2P approaches.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 LIGHTYEAR，一个联邦学习（FL）框架，在函数空间中而非参数空间中进行客户端更新的个性化聚合选择。它使用基于神经正切核（NTK）的一致性分数来描述预测行为，并通过点对点（P2P）拓扑让客户端直接交换更新并在私有验证数据上评估传入模型。实验在五个数据集和九个基线方法上显示其一致优于集中式 FL 基线和现有 P2P 方法。\nMotivation: 联邦学习中确定哪些客户端更新对某个客户端的目标域有益是一个核心挑战。现有方法通常在参数空间比较模型参数或梯度，但参数空间相似性在异构非 IID 数据下不能很好地反映预测行为，导致错位的更新（如异构数据或故障客户端引起）可能损害局部模型性能。\nMethod: 提出 LIGHTYEAR 框架：利用 NTK 将模型参数与局部预测响应联系起来，构造基于 NTK 的一致性分数以刻画预测行为，并为每个客户端确定个性化聚合集。由于传统集中式 FL 在聚合前缺少函数空间信息，LIGHTYEAR 采用 P2P 拓扑，客户端直接交换更新并在私有验证数据上评估传入模型，仅选择对自身目标域有益的更新，并使用正则化聚合规则提升异构环境下的稳定性。\nResult: 摘要报告在五个数据集和九个基线方法上，LIGHTYEAR 一致优于集中式 FL 基线和现有的 P2P 方法。\nConclusion: 摘要强调函数空间中的 NTK 引导更新选择比参数空间相似性更能刻画预测行为，且结合 P2P 拓扑与正则化聚合可显著提升联邦学习在异质性下的鲁棒性和个性化性能。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 LIGHTYEAR，一个联邦学习（FL）框架，在函数空间中而非参数空间中进行客户端更新的个性化聚合选择。它使用基于神经正切核（NTK）的一致性分数来描述预测行为，并通过点对点（P2P）拓扑让客户端直接交换更新并在私有验证数据上评估传入模型。实验在五个数据集和九个基线方法上显示其一致优于集中式 FL 基线和现有 P2P 方法。",
+        "motivation": "联邦学习中确定哪些客户端更新对某个客户端的目标域有益是一个核心挑战。现有方法通常在参数空间比较模型参数或梯度，但参数空间相似性在异构非 IID 数据下不能很好地反映预测行为，导致错位的更新（如异构数据或故障客户端引起）可能损害局部模型性能。",
+        "method": "提出 LIGHTYEAR 框架：利用 NTK 将模型参数与局部预测响应联系起来，构造基于 NTK 的一致性分数以刻画预测行为，并为每个客户端确定个性化聚合集。由于传统集中式 FL 在聚合前缺少函数空间信息，LIGHTYEAR 采用 P2P 拓扑，客户端直接交换更新并在私有验证数据上评估传入模型，仅选择对自身目标域有益的更新，并使用正则化聚合规则提升异构环境下的稳定性。",
+        "result": "摘要报告在五个数据集和九个基线方法上，LIGHTYEAR 一致优于集中式 FL 基线和现有的 P2P 方法。",
+        "conclusion": "摘要强调函数空间中的 NTK 引导更新选择比参数空间相似性更能刻画预测行为，且结合 P2P 拓扑与正则化聚合可显著提升联邦学习在异质性下的鲁棒性和个性化性能。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.12090",
+      "title": "Task- and dataset-specific information in protein language models",
+      "authors": [
+        "Roman Joeres",
+        "Ilya Senatorov",
+        "Anastasia Kolchina",
+        "Dietrich Klakow",
+        "Olga V. Kalinina"
+      ],
+      "categories": [
+        "cs.LG",
+        "q-bio.BM"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2608.12090",
+      "pdf_url": "https://arxiv.org/pdf/2608.12090",
+      "abstract_en": "Protein language models (PLMs) have transferred the latest advances from natural language processing to computational biology. These models, trained on large corpora of protein sequence data, are widely used to translate amino acid sequences into latent-space embeddings, ready for use in diverse downstream tasks (DTs). By a common consensus, embeddings from the model's last layer are used, and the model's internal behavior remains poorly understood. We analyzed 13 PLMs across 15 DTs from 11 datasets to investigate the informativeness of embeddings created in intermediate PLM layers. We trained probe models on embeddings from each layer, compared their performance, and computed characteristics of the latent spaces they span to estimate the information they contain, and found that the last layers of PLMs rarely contained embeddings that led to the best results on downstream tasks. Furthermore, we identified a connection between DTs and the distribution across PLMs' layers of the relevant information to predict that task. For example, similarity between the pre-training objective and the objective of predicting properties of individual residues leads to a steady increase in understanding of such tasks across the layers of PLMs. On the other hand, for whole-protein tasks, we observe that the dataset, rather than the task itself, defines PLMs' ability to perform well on a DT. Embeddings from shallow layers of PLMs perform better for datasets that contain deep mutational scan (DMS) data, while datasets containing diverse natural proteins find most useful embeddings in the models' deeper layers. Additionally, we discover that the performance of PLMs drops significantly when tasks are introduced for artificial proteins.",
+      "comment": "22 pages, 10 figures, 3 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文系统比较了 13 个蛋白质语言模型（PLM）在 11 个数据集上的 15 个下游任务中各层嵌入的信息量。作者用每层嵌入训练探针模型并比较性能，发现最后一层嵌入很少给出最佳下游结果；各层信息分布与任务类型及数据集特性相关，且模型在人工蛋白质任务上性能明显下降。\nMotivation: PLM 的嵌入被广泛用于下游任务，且普遍共识是采用最后一层输出，但模型内部各层的行为仍不清楚。\nMethod: 对 13 个 PLMs、15 个下游任务和 11 个数据集，训练基于各层嵌入的探针模型，比较其性能并计算潜在空间特征以估计各层包含的信息。\nResult: 发现最后一层很少包含取得最佳下游结果的嵌入；预训练目标与单残基属性预测目标的相似性会带来跨层能力的稳定提升；对整蛋白任务，数据集而非任务本身决定表现，含深度突变扫描（DMS）数据的数据集在浅层嵌入上更好，而含多样天然蛋白的数据集在深层嵌入上更好；人工蛋白质任务上的性能显著下降。\nConclusion: 结果表明下游任务应重新审视默认使用最后一层嵌入的做法，嵌入层的选择应视任务和数据集的特性而定，且对人工蛋白质任务需谨慎。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文系统比较了 13 个蛋白质语言模型（PLM）在 11 个数据集上的 15 个下游任务中各层嵌入的信息量。作者用每层嵌入训练探针模型并比较性能，发现最后一层嵌入很少给出最佳下游结果；各层信息分布与任务类型及数据集特性相关，且模型在人工蛋白质任务上性能明显下降。",
+        "motivation": "PLM 的嵌入被广泛用于下游任务，且普遍共识是采用最后一层输出，但模型内部各层的行为仍不清楚。",
+        "method": "对 13 个 PLMs、15 个下游任务和 11 个数据集，训练基于各层嵌入的探针模型，比较其性能并计算潜在空间特征以估计各层包含的信息。",
+        "result": "发现最后一层很少包含取得最佳下游结果的嵌入；预训练目标与单残基属性预测目标的相似性会带来跨层能力的稳定提升；对整蛋白任务，数据集而非任务本身决定表现，含深度突变扫描（DMS）数据的数据集在浅层嵌入上更好，而含多样天然蛋白的数据集在深层嵌入上更好；人工蛋白质任务上的性能显著下降。",
+        "conclusion": "结果表明下游任务应重新审视默认使用最后一层嵌入的做法，嵌入层的选择应视任务和数据集的特性而定，且对人工蛋白质任务需谨慎。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11941",
+      "title": "OEIS Open: How many conjectures can language models turn into theorems?",
+      "authors": [
+        "Tom Adamczewski"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2608.11941",
+      "pdf_url": "https://arxiv.org/pdf/2608.11941",
+      "abstract_en": "We construct OEIS Open, a benchmark based on 492 open mathematical conjectures from the OEIS, formalized in Lean by Tsoukalas et al. Whereas these conjectures had previously been attempted only with a bespoke agent, our open-source evaluation code runs any generic language model (LM) against them, and is secure against LM cheating attempts. We find that LMs equipped with a minimal set of tools resolve 147 of these conjectures with a budget of \\$50 per attempt, scoring 30% on OEIS Open. OEIS Open Lite is a random subset of 100 conjectures for cheaper evaluation. When evaluated with a budget of \\$200 per attempt, the best current LM scores 44% on OEIS Open Lite. Giving LMs access to the mathematics literature via 476,000 papers from arXiv did not increase performance on OEIS Open Lite, and nor did using more sophisticated agent loops. The conjectures covered in this work are of uncertain mathematical significance, and most have likely received little previous attention. Nevertheless, our results show that LMs can resolve open research conjectures autonomously and at modest cost.",
+      "comment": "26 pages, 6 figures. Code: https://github.com/epoch-research/LeanOpenProblems, results: https://github.com/epoch-research/LeanOpenProblems-results",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文构建 OEIS Open 基准，基于 Tsoukalas 等人在 Lean 中形式化的 492 个 OEIS 开放数学猜想，并提供开源评测代码，使任意通用语言模型 (LM) 都能在防作弊设置下接受测试。结果显示，配备最小工具集的 LM 在每次 50 美元预算下解决了 147 个猜想（30%）；在 OEIS Open Lite 上以 200 美元预算评测时，当前最佳 LM 得分为 44%。给 LM 提供 arXiv 上 476,000 篇数学文献或使用更复杂的智能体循环均未提升性能。\nMotivation: 此前这些 OEIS 猜想只被一个特制智能体尝试过，缺乏可供任意通用 LM 使用的开源、防作弊评测框架，难以衡量通用模型自主解决开放数学问题的能力。\nMethod: 提出 OEIS Open 基准，包含 492 个在 Lean 中形式化的开放猜想，并配套开源评测代码；另设 OEIS Open Lite（100 个猜想的随机子集）以降低评测成本。实验中给 LM 提供最小工具集，并测试加入 arXiv 文献访问和更复杂智能体循环是否会提升表现。\nResult: 在每次尝试 50 美元预算下，LM 解决了 147 个猜想，达到 30% 的得分；在 OEIS Open Lite 上，最佳 LM 以 200 美元预算取得 44% 的得分。引入 476,000 篇 arXiv 论文和更复杂的智能体循环均未带来性能提升。\nConclusion: 这些猜想本身的数学重要性不确定且大多鲜受关注，但结果表明 LM 能够以适度成本自主解决开放研究猜想。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文构建 OEIS Open 基准，基于 Tsoukalas 等人在 Lean 中形式化的 492 个 OEIS 开放数学猜想，并提供开源评测代码，使任意通用语言模型 (LM) 都能在防作弊设置下接受测试。结果显示，配备最小工具集的 LM 在每次 50 美元预算下解决了 147 个猜想（30%）；在 OEIS Open Lite 上以 200 美元预算评测时，当前最佳 LM 得分为 44%。给 LM 提供 arXiv 上 476,000 篇数学文献或使用更复杂的智能体循环均未提升性能。",
+        "motivation": "此前这些 OEIS 猜想只被一个特制智能体尝试过，缺乏可供任意通用 LM 使用的开源、防作弊评测框架，难以衡量通用模型自主解决开放数学问题的能力。",
+        "method": "提出 OEIS Open 基准，包含 492 个在 Lean 中形式化的开放猜想，并配套开源评测代码；另设 OEIS Open Lite（100 个猜想的随机子集）以降低评测成本。实验中给 LM 提供最小工具集，并测试加入 arXiv 文献访问和更复杂智能体循环是否会提升表现。",
+        "result": "在每次尝试 50 美元预算下，LM 解决了 147 个猜想，达到 30% 的得分；在 OEIS Open Lite 上，最佳 LM 以 200 美元预算取得 44% 的得分。引入 476,000 篇 arXiv 论文和更复杂的智能体循环均未带来性能提升。",
+        "conclusion": "这些猜想本身的数学重要性不确定且大多鲜受关注，但结果表明 LM 能够以适度成本自主解决开放研究猜想。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11911",
+      "title": "Hamilton-Zero: A Neural Tensor-Network Foundation Model for Ground States of Arbitrary Quadratic Qubit Hamiltonians",
+      "authors": [
+        "Timothy Heightman",
+        "Elena Orlova",
+        "Philip Mantrov",
+        "Aleksei Ustimenko"
+      ],
+      "categories": [
+        "cond-mat.dis-nn",
+        "cond-mat.str-el",
+        "cs.AI",
+        "quant-ph"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "quant-ph",
+      "abs_url": "https://arxiv.org/abs/2608.11911",
+      "pdf_url": "https://arxiv.org/pdf/2608.11911",
+      "abstract_en": "A central promise of useful quantum advantage is the ability to compute ground states of Hamiltonian systems beyond the reach of classical simulation methods. Here we demonstrate that this problem can be effectively amortized across an arbitrary and universal set of Hamiltonians by a foundation model with $\\sim0.5$B variational parameters, trained with contemporary techniques from large language models and deep reinforcement learning. To do this, we formulate $\\text{spin-}1/2$ quantum ground-state learning as manifold variational optimisation over centrally odd scalar functions on $\\mathrm{SU}(2)^N$. This replaces explicit Hilbert-space vector amplitudes with manifold functions on which the Hamiltonian acts through Lie derivatives, evaluated by custom automatic differentiation primitives. We prove that the resulting variational principle on this manifold preserves the $\\text{spin-}1/2$ sector's ground-state upper bound using the Peter-Weyl theorem, then pre-train our foundation model on a dataset of hundreds of thousands of different Hamiltonian systems, varying the connection topology, system size, interaction types and strengths, bringing together a century of many-body literature. Using a novel $\\mathrm{SU}(2)$ replica-exchange Langevin sampler and sharded natural-gradient optimisation, we train our model with our own extension of the Kronecker-Factored Approximate Curvature (KFAC) optimiser on system sizes up to 64 qubits. On a held-out generalisation dataset, we fine-tune our model on system sizes of up to 1024 qubits, and evaluate on systems up to 8100 qubits.",
+      "comment": "22 pages main text",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Hamilton-Zero，一个约 0.5B 参数的神经张量网络基础模型，用于对任意二次型量子比特哈密顿量系统地摊销基态计算。方法将自旋 1/2 基态学习表述为 SU(2)^N 上中心奇标量函数的流形变分优化，哈密顿量通过李导数作用并由自定义自动微分原语计算，作者用 Peter-Weyl 定理证明该流形上的变分原理保持自旋 1/2 扇区基态上界。模型在数十万种不同哈密顿系统上预训练，然后在最多 1024 量子比特上微调，并在最多 8100 量子比特的系统上评估。\nMotivation: 经典模拟方法难以计算超越其能力的哈密顿系统基态，而作者认为这一任务可以通过基础模型在任意且通用的哈密顿量集合上进行摊销，从而缓解逐个求解的计算瓶颈。\nMethod: 将自旋 1/2 量子基态学习转化为 SU(2)^N 上中心奇标量函数的流形变分优化，以流形函数替代显式希尔伯特空间矢量振幅；结合自定义自动微分、SU(2) 副本交换 Langevin 采样器、分片自然梯度优化，以及作者对 KFAC 优化器的扩展进行训练，并在系统规模上采用预训练加微调范式。\nResult: 模型在最多 64 量子比特的规模上训练，在留出泛化数据集上于最多 1024 量子比特的系统中微调，并评估到最多 8100 量子比特的系统。摘要未报告具体精度或能耗数值，仅陈述训练与评估规模。\nConclusion: 作者认为该结果表明基态计算问题可被基础模型有效摊销，并强调 Peter-Weyl 定理保证的变分上界性质是方法的关键理论支撑。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Hamilton-Zero，一个约 0.5B 参数的神经张量网络基础模型，用于对任意二次型量子比特哈密顿量系统地摊销基态计算。方法将自旋 1/2 基态学习表述为 SU(2)^N 上中心奇标量函数的流形变分优化，哈密顿量通过李导数作用并由自定义自动微分原语计算，作者用 Peter-Weyl 定理证明该流形上的变分原理保持自旋 1/2 扇区基态上界。模型在数十万种不同哈密顿系统上预训练，然后在最多 1024 量子比特上微调，并在最多 8100 量子比特的系统上评估。",
+        "motivation": "经典模拟方法难以计算超越其能力的哈密顿系统基态，而作者认为这一任务可以通过基础模型在任意且通用的哈密顿量集合上进行摊销，从而缓解逐个求解的计算瓶颈。",
+        "method": "将自旋 1/2 量子基态学习转化为 SU(2)^N 上中心奇标量函数的流形变分优化，以流形函数替代显式希尔伯特空间矢量振幅；结合自定义自动微分、SU(2) 副本交换 Langevin 采样器、分片自然梯度优化，以及作者对 KFAC 优化器的扩展进行训练，并在系统规模上采用预训练加微调范式。",
+        "result": "模型在最多 64 量子比特的规模上训练，在留出泛化数据集上于最多 1024 量子比特的系统中微调，并评估到最多 8100 量子比特的系统。摘要未报告具体精度或能耗数值，仅陈述训练与评估规模。",
+        "conclusion": "作者认为该结果表明基态计算问题可被基础模型有效摊销，并强调 Peter-Weyl 定理保证的变分上界性质是方法的关键理论支撑。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11789",
+      "title": "Anti-Shortcut Distillation via Temporal Negative Knowledge Transfer",
+      "authors": [
+        "Syed Muhammad Raza",
+        "Omer Tariq",
+        "Jeongbae Son"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.11789",
+      "pdf_url": "https://arxiv.org/pdf/2608.11789",
+      "abstract_en": "Knowledge distillation (KD) trains a compact student by attracting it towards a converged teacher. It is silent about which directions the teacher itself learned to suppress: repulsive and bias-aware objectives exist, but none exploits the teacher's own trajectory to identify what the student should avoid. We observe that the missing signal is already encoded in the teacher's optimization trajectory: features that an early-stage teacher emphasizes but that a converged teacher attenuates are precisely the shortcut directions worth pushing the student away from. We instantiate this observation as \\textbf{A}nti-\\textbf{S}hortcut \\textbf{D}istillation (ASD), a push--pull KD framework that treats the converged teacher $\\Tfinal$ as a positive semantic anchor and an early-checkpoint teacher $\\Tearly$ as a temporal negative reference. ASD couples two losses: a temporal contrastive loss ($\\Ltc$) that places the early-teacher feature as a same-sample negative against in-batch and memory-bank final-teacher features in an InfoNCE objective; and a shortcut suppression loss ($\\Lss$) that penalizes student projection onto the top eigenvectors of $\\E[\\Dh\\Dh^{\\top}]$, the uncentered second-moment matrix of early-to-final feature displacements. Across 13 teacher--student pairs on CIFAR-100, ImageNet-100, and TinyImageNet, ASD attains the highest clean top-1 accuracy on more than 10 pairs and outperforms standard KD on 12. On CIFAR-100-C corruption robustness, ASD obtains the lowest mean Corruption Error ($86.1$\\,mCE) on the most challenging cross-architecture pair (WRN-40-2$\\to$ShuffleNet-V2). Mechanistic diagnostics confirm the intended geometry: the ASD student is systematically anti-aligned with the shortcut direction, while its projection onto the robust subspace is substantially larger ($0.45$ vs.\\ $0.12$).",
+      "comment": "17 pages, 3 figures, 21 pages supplementary material",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Anti-Shortcut Distillation (ASD)，一种利用教师优化轨迹的 push-pull 知识蒸馏框架：将收敛教师视为正语义锚点，将早期 checkpoint 教师视为时间负参考，来识别并抑制学生向“捷径方向”的学习。ASD 组合时间对比损失与捷径抑制损失，在 CIFAR-100、ImageNet-100 和 TinyImageNet 的 13 个师生对上多数取得最高 clean top-1 精度，并在 CIFAR-100-C 上取得最低平均 Corruption Error。机制诊断显示 ASD 学生与捷径方向系统性反对齐，且在鲁棒子空间上的投影明显更大。\nMotivation: 现有知识蒸馏只把学生拉向收敛教师，却未利用教师自身训练轨迹中已经学会抑制的方向；已有的 repulsive 或 bias-aware 蒸馏目标也没有从轨迹中识别学生应避免什么。作者观察到早期教师强调、收敛教师衰减的特征正好构成捷径方向，这一信号已经编码在教师优化轨迹中但未被利用。\nMethod: ASD 将收敛教师作为正语义锚点、早期 checkpoint 教师作为时间负参考，耦合两个损失：时间对比损失 (temporal contrastive loss, L_tc) 把早期教师特征作为同样本负样本，与 in-batch 及 memory bank 中的最终教师特征组成 InfoNCE 目标；捷径抑制损失 (shortcut suppression loss, L_ss) 惩罚学生投影到 E[ΔΔ^T]（early-to-final 特征位移的非中心二阶矩矩阵）的顶部特征向量上。\nResult: 在 13 个师生对上，ASD 在超过 10 对上达到最高 clean top-1 精度，并在 12 对上优于标准 KD；在 CIFAR-100-C 上，最难的跨架构组合 WRN-40-2→ShuffleNet-V2 取得最低平均 Corruption Error (86.1 mCE)。机制诊断表明学生与捷径方向系统性反对齐，在鲁棒子空间上的投影为 0.45，远高于对比情形的 0.12。\nConclusion: 摘要的核心结论是：教师优化轨迹中的时间负知识可用于同时提升蒸馏精度与 corruption robustness，ASD 验证了反捷径几何在蒸馏中的作用。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Anti-Shortcut Distillation (ASD)，一种利用教师优化轨迹的 push-pull 知识蒸馏框架：将收敛教师视为正语义锚点，将早期 checkpoint 教师视为时间负参考，来识别并抑制学生向“捷径方向”的学习。ASD 组合时间对比损失与捷径抑制损失，在 CIFAR-100、ImageNet-100 和 TinyImageNet 的 13 个师生对上多数取得最高 clean top-1 精度，并在 CIFAR-100-C 上取得最低平均 Corruption Error。机制诊断显示 ASD 学生与捷径方向系统性反对齐，且在鲁棒子空间上的投影明显更大。",
+        "motivation": "现有知识蒸馏只把学生拉向收敛教师，却未利用教师自身训练轨迹中已经学会抑制的方向；已有的 repulsive 或 bias-aware 蒸馏目标也没有从轨迹中识别学生应避免什么。作者观察到早期教师强调、收敛教师衰减的特征正好构成捷径方向，这一信号已经编码在教师优化轨迹中但未被利用。",
+        "method": "ASD 将收敛教师作为正语义锚点、早期 checkpoint 教师作为时间负参考，耦合两个损失：时间对比损失 (temporal contrastive loss, L_tc) 把早期教师特征作为同样本负样本，与 in-batch 及 memory bank 中的最终教师特征组成 InfoNCE 目标；捷径抑制损失 (shortcut suppression loss, L_ss) 惩罚学生投影到 E[ΔΔ^T]（early-to-final 特征位移的非中心二阶矩矩阵）的顶部特征向量上。",
+        "result": "在 13 个师生对上，ASD 在超过 10 对上达到最高 clean top-1 精度，并在 12 对上优于标准 KD；在 CIFAR-100-C 上，最难的跨架构组合 WRN-40-2→ShuffleNet-V2 取得最低平均 Corruption Error (86.1 mCE)。机制诊断表明学生与捷径方向系统性反对齐，在鲁棒子空间上的投影为 0.45，远高于对比情形的 0.12。",
+        "conclusion": "摘要的核心结论是：教师优化轨迹中的时间负知识可用于同时提升蒸馏精度与 corruption robustness，ASD 验证了反捷径几何在蒸馏中的作用。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11760",
+      "title": "Tight Nonasymptotic Local Convergence of Sinkhorn-Knopp",
+      "authors": [
+        "Wenzhi Gao",
+        "Zhaonan Qu",
+        "Yinyu Ye",
+        "Madeleine Udell"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "math.OC",
+      "abs_url": "https://arxiv.org/abs/2608.11760",
+      "pdf_url": "https://arxiv.org/pdf/2608.11760",
+      "abstract_en": "We revisit the Sinkhorn-Knopp (SK) algorithm for the matrix scaling problem. Despite extensive literature on the global convergence of SK and its variants, its local linear convergence behavior remains less understood. We address this gap by providing the first nonasymptotic local analysis of SK that matches the rate obtained from existing asymptotic Jacobian-based arguments. We show that under certain connectivity conditions, SK is a polynomial-time algorithm for doubly stochastic matrix scaling. With the developed tools, we showcase the local suboptimality of SK and provide accelerated variants. Finally, for dense matrices, we improve the complexity of existing first-order matrix scaling algorithms from $O(\\tfrac{n^{7/3}}{\\varepsilon^{2/3}})$ to $O(\\tfrac{n^{9/4}}{\\sqrt{\\varepsilon}})$.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文重新审视矩阵缩放问题中的 Sinkhorn-Knopp (SK) 算法，给出首个非渐近局部收敛分析，其速率与现有基于 Jacobian 的渐近分析一致。作者证明在特定连通性条件下 SK 是双随机矩阵缩放的多项式时间算法，并借助所开发的工具展示 SK 的局部次优性、提出加速变体，同时将稠密矩阵下的一阶矩阵缩放算法复杂度从 O(n^{7/3}/ε^{2/3}) 改进到 O(n^{9/4}/√ε)。\nMotivation: 尽管 SK 及其变体的全局收敛已有大量文献，但其局部线性收敛行为仍缺乏理解；本文旨在填补这一理论空白。\nMethod: 提供 SK 算法的非渐近局部收敛分析，并利用所发展的工具刻画 SK 的局部次优性，进而构造加速变体。\nResult: 在连通性条件下证明 SK 对双随机矩阵缩放是多项式时间算法；对稠密矩阵，将现有的一阶矩阵缩放算法复杂度从 O(n^{7/3}/ε^{2/3}) 降至 O(n^{9/4}/√ε)。\nConclusion: 摘要强调该非渐近局部分析首次匹配渐近 Jacobian 方法的速率，并给出加速变体与复杂度改进，但未讨论实际实验验证。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文重新审视矩阵缩放问题中的 Sinkhorn-Knopp (SK) 算法，给出首个非渐近局部收敛分析，其速率与现有基于 Jacobian 的渐近分析一致。作者证明在特定连通性条件下 SK 是双随机矩阵缩放的多项式时间算法，并借助所开发的工具展示 SK 的局部次优性、提出加速变体，同时将稠密矩阵下的一阶矩阵缩放算法复杂度从 O(n^{7/3}/ε^{2/3}) 改进到 O(n^{9/4}/√ε)。",
+        "motivation": "尽管 SK 及其变体的全局收敛已有大量文献，但其局部线性收敛行为仍缺乏理解；本文旨在填补这一理论空白。",
+        "method": "提供 SK 算法的非渐近局部收敛分析，并利用所发展的工具刻画 SK 的局部次优性，进而构造加速变体。",
+        "result": "在连通性条件下证明 SK 对双随机矩阵缩放是多项式时间算法；对稠密矩阵，将现有的一阶矩阵缩放算法复杂度从 O(n^{7/3}/ε^{2/3}) 降至 O(n^{9/4}/√ε)。",
+        "conclusion": "摘要强调该非渐近局部分析首次匹配渐近 Jacobian 方法的速率，并给出加速变体与复杂度改进，但未讨论实际实验验证。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11752",
+      "title": "UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos",
+      "authors": [
+        "Yuxuan Zhang",
+        "Haozhong Xiong",
+        "Jiayi Song",
+        "Jinpeng Yu",
+        "Yang Shi",
+        "Jiaming Liu",
+        "Ruihua Huang",
+        "Liwei Wang"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.SD"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.11752",
+      "pdf_url": "https://arxiv.org/pdf/2608.11752",
+      "abstract_en": "Talking-video character replacement requires coordinated transfer of appearance and voice while preserving the source motion, scene, linguistic content, and audio-video timing. Existing methods use separately optimized models for the two modalities, making audio-visual consistency difficult to enforce. We present UniSwap, the first framework for streaming joint audio-visual identity replacement in talking videos. Given a source video, a reference image, and a reference voice clip, UniSwap transfers the reference appearance and vocal timbre within a single audio-visual diffusion transformer while preserving the source content and dynamics. To address the scarcity of aligned cross-identity training pairs, we introduce a swap-and-reconstruct pipeline that removes visual and vocal identity from real clips and uses the original clips as reconstruction targets. Starting from a bidirectional backbone, we progressively adapt the model through In-context Pretraining for joint replacement, Conditional Streaming Adaptation for block-causal KV-cached generation, and Efficient Self-forcing DMD for mitigating exposure bias and reducing sampling from 30 to 3 denoising steps per block. Efficient Multi-LoRA Switching enables the three DMD roles to share a single frozen backbone. Feature-RoPE Decomposition keeps cached positions within the training range, supporting stable long-form inference. Experiments demonstrate strong audio-visual synchronization, competitive identity preservation, efficient streaming, and stable long-form generation.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 UniSwap，号称首个在会谈视频中做流式联合音视频身份替换的框架。给定源视频、参考图像和参考语音片段，UniSwap 在单一音视频扩散 Transformer (diffusion transformer) 内同时迁移参考外观与音色，同时保持源内容与动态。摘要报告其在音视频同步、身份保持、流式效率与长时生成稳定性上表现良好。\nMotivation: 现有会谈视频角色替换方法对视觉与语音两个模态分别使用独立优化的模型，难以强制音频-视觉一致性，这是该工作要解决的核心问题。\nMethod: 引入 swap-and-reconstruct 训练管线，从真实片段中移除视觉与语音身份并用原片段作为重建目标，以缓解跨身份对齐训练对稀缺的问题。模型从双向骨干出发，依次经过 In-context Pretraining 实现联合替换、Conditional Streaming Adaptation 实现 block-causal KV-cached 生成、Efficient Self-forcing DMD 缓解曝光偏差并将每 block 去噪步数从 30 降到 3；Efficient Multi-LoRA Switching 让三个 DMD 角色共享同一冻结骨干，Feature-RoPE Decomposition 使缓存位置保持在训练范围内以支持稳定长时推理。\nResult: 实验表明该方法具备较强的音视频同步、有竞争力的身份保持、高效的流式生成以及稳定的长时生成能力；摘要未给出具体定量数字。\nConclusion: 摘要强调在单一音视频扩散 Transformer 中联合完成外观与音色替换，并通过流式与去噪加速实现高效长时生成；摘要未明确讨论局限性。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 UniSwap，号称首个在会谈视频中做流式联合音视频身份替换的框架。给定源视频、参考图像和参考语音片段，UniSwap 在单一音视频扩散 Transformer (diffusion transformer) 内同时迁移参考外观与音色，同时保持源内容与动态。摘要报告其在音视频同步、身份保持、流式效率与长时生成稳定性上表现良好。",
+        "motivation": "现有会谈视频角色替换方法对视觉与语音两个模态分别使用独立优化的模型，难以强制音频-视觉一致性，这是该工作要解决的核心问题。",
+        "method": "引入 swap-and-reconstruct 训练管线，从真实片段中移除视觉与语音身份并用原片段作为重建目标，以缓解跨身份对齐训练对稀缺的问题。模型从双向骨干出发，依次经过 In-context Pretraining 实现联合替换、Conditional Streaming Adaptation 实现 block-causal KV-cached 生成、Efficient Self-forcing DMD 缓解曝光偏差并将每 block 去噪步数从 30 降到 3；Efficient Multi-LoRA Switching 让三个 DMD 角色共享同一冻结骨干，Feature-RoPE Decomposition 使缓存位置保持在训练范围内以支持稳定长时推理。",
+        "result": "实验表明该方法具备较强的音视频同步、有竞争力的身份保持、高效的流式生成以及稳定的长时生成能力；摘要未给出具体定量数字。",
+        "conclusion": "摘要强调在单一音视频扩散 Transformer 中联合完成外观与音色替换，并通过流式与去噪加速实现高效长时生成；摘要未明确讨论局限性。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11745",
+      "title": "LiveAnimate: Stable Long-Form Streaming Human Animation in Real-Time",
+      "authors": [
+        "Yuxuan Zhang",
+        "Haozhong Xiong",
+        "Yubo Huang",
+        "Jiayi Song",
+        "Jinpeng Yu",
+        "Haofan Wang",
+        "Jiaming Liu",
+        "Ruihua Huang",
+        "Liwei Wang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.11745",
+      "pdf_url": "https://arxiv.org/pdf/2608.11745",
+      "abstract_en": "Pose-driven human animation synthesizes a video of a target person from a single reference image and a driving pose stream. Real-time generation is essential for interactive applications such as live streaming, telepresence, and virtual avatars, yet diffusion-based systems require minutes to hours per clip, precluding responsive interaction. We present LiveAnimate, to our knowledge the first animation system to combine real-time streaming with stable long-form generation at billion scale, built on a 14B-parameter video Diffusion Transformer (DiT). A two-stage training pipeline first adapts a pretrained bidirectional DiT into a block-causal autoregressive generator through Reference-Anchored Teacher-Forcing Adaptation, and then reduces the sampling budget to three steps through Block-wise Self-Forcing Distillation. To preserve appearance over extended streams, we introduce Pose-Retrieval Sink Attention (PR-Sink), a bounded KV-cache mechanism combining a Static Sink that permanently anchors the first generated block, a Dynamic Sink that holds a pose-retrieved historical block, and a three-slot Rolling Window. When a pose recurs, PR-Sink restores the relevant appearance context without retaining the entire sequence, so memory and per-block latency remain constant regardless of stream duration. Together with Ulysses sequence parallelism and operator fusion, these designs enable 19.63\\,FPS streaming inference on two NVIDIA H100 GPUs. On a three-minute benchmark, LiveAnimate maintains nearly constant perceptual quality and identity from the first 30 seconds to the final minute, while prior systems degrade substantially or require hours of offline computation for the same rollout. These results establish a new operating point in quality, latency, and duration for interactive full-body animation.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 LiveAnimate，据称是首个在十亿参数规模下同时实现实时流式生成与稳定长时长生成的姿态驱动人体动画系统，基于 14B 参数的视频 Diffusion Transformer (DiT)。通过两阶段训练（Reference-Anchored Teacher-Forcing Adaptation 与 Block-wise Self-Forcing Distillation）将预训练双向 DiT 改造为 block-causal 自回归生成器并将采样步数压缩到三步。配合 Pose-Retrieval Sink Attention (PR-Sink) 的有界 KV-cache 机制，系统在两块 NVIDIA H100 上达到 19.63 FPS 的流式推理，并在三分钟基准上保持近乎恒定的感知质量与身份一致性。\nMotivation: 姿态驱动的人体动画需要从单张参考图和驱动姿态流实时合成视频，但扩散系统通常每段视频需要数分钟到数小时，无法满足直播、远程临场和虚拟化身等交互应用的低延迟要求。现有系统也难以在长时间流式生成中保持外观稳定。\nMethod: 提出两阶段训练流水线：先用 Reference-Anchored Teacher-Forcing Adaptation 将预训练双向 DiT 适配为 block-causal 自回归生成器，再用 Block-wise Self-Forcing Distillation 将采样预算降到三步。为维持长流中的外观一致性，引入 Pose-Retrieval Sink Attention (PR-Sink)，其有界 KV-cache 由永久锚定首个生成块的 Static Sink、保存姿态检索历史块的 Dynamic Sink 和三槽 Rolling Window 组成；并配合 Ulysses 序列并行与算子融合。\nResult: 摘要报告在两块 NVIDIA H100 GPU 上实现 19.63 FPS 的流式推理；在三分钟基准上，从最初 30 秒到最后一分钟保持几乎不变的感知质量与身份，而先前系统在同样时长下明显退化或需数小时离线计算。\nConclusion: 作者认为这些结果在质量、延迟和时长上为交互式全身动画建立了新的工作点；PR-Sink 使内存和每块延迟不随流式时长增长。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 LiveAnimate，据称是首个在十亿参数规模下同时实现实时流式生成与稳定长时长生成的姿态驱动人体动画系统，基于 14B 参数的视频 Diffusion Transformer (DiT)。通过两阶段训练（Reference-Anchored Teacher-Forcing Adaptation 与 Block-wise Self-Forcing Distillation）将预训练双向 DiT 改造为 block-causal 自回归生成器并将采样步数压缩到三步。配合 Pose-Retrieval Sink Attention (PR-Sink) 的有界 KV-cache 机制，系统在两块 NVIDIA H100 上达到 19.63 FPS 的流式推理，并在三分钟基准上保持近乎恒定的感知质量与身份一致性。",
+        "motivation": "姿态驱动的人体动画需要从单张参考图和驱动姿态流实时合成视频，但扩散系统通常每段视频需要数分钟到数小时，无法满足直播、远程临场和虚拟化身等交互应用的低延迟要求。现有系统也难以在长时间流式生成中保持外观稳定。",
+        "method": "提出两阶段训练流水线：先用 Reference-Anchored Teacher-Forcing Adaptation 将预训练双向 DiT 适配为 block-causal 自回归生成器，再用 Block-wise Self-Forcing Distillation 将采样预算降到三步。为维持长流中的外观一致性，引入 Pose-Retrieval Sink Attention (PR-Sink)，其有界 KV-cache 由永久锚定首个生成块的 Static Sink、保存姿态检索历史块的 Dynamic Sink 和三槽 Rolling Window 组成；并配合 Ulysses 序列并行与算子融合。",
+        "result": "摘要报告在两块 NVIDIA H100 GPU 上实现 19.63 FPS 的流式推理；在三分钟基准上，从最初 30 秒到最后一分钟保持几乎不变的感知质量与身份，而先前系统在同样时长下明显退化或需数小时离线计算。",
+        "conclusion": "作者认为这些结果在质量、延迟和时长上为交互式全身动画建立了新的工作点；PR-Sink 使内存和每块延迟不随流式时长增长。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11698",
+      "title": "REOPD: Reliability-Adaptive Reward Extrapolation for On-Policy Distillation",
+      "authors": [
+        "Yang Sun",
+        "Lichao Ma",
+        "Houyuan Qin",
+        "Yuxin Liu",
+        "Hanyang Lu",
+        "Yao Zhu",
+        "Pinlong Cai",
+        "Guohang Yan"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2608.11698",
+      "pdf_url": "https://arxiv.org/pdf/2608.11698",
+      "abstract_en": "On-policy distillation (OPD) trains a student on its own trajectories under dense token-level supervision from a teacher. Reward-extrapolation methods such as ExOPD amplify the teacher-reference log-likelihood ratio to move beyond direct imitation, but apply a single global coefficient $λ$ to every token. This can drive the student to fit extreme peaks in the implicit reward, causing reward hacking and unstable training, and the optimal $λ$ varies across domains, requiring costly sweeps. We propose REOPD, a reliability-adaptive reward extrapolation framework for OPD. REOPD combines a token-level compatibility weight with a batch-level adaptive budget, yielding a token-wise coefficient $λ_{b,t}=1+γ_b q_t$ that preserves teacher alignment while selectively extrapolating along reliable teacher-reference directions. It requires no verifier, reward model, value model, or extra rollout beyond standard OPD. REOPD outperforms G-OPD on single-teacher mathematics and on both domains in the multi-teacher setting, while matching G-OPD on single-teacher code, demonstrating effective fine-grained reliability adaptation across domains and teacher configurations.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 REOPD，一种面向在线策略蒸馏 (on-policy distillation, OPD) 的可靠性自适应奖励外推框架。现有 ExOPD 等方法对所有 token 使用单一全局系数 λ，容易导致奖励黑客 (reward hacking) 与训练不稳定，且最优 λ 在不同领域间变化。REOPD 结合 token 级兼容性权重与 batch 级自适应预算，得到逐 token 系数，无需 verifier、奖励模型、价值模型或额外 rollout。摘要报告 REOPD 在单教师数学与多教师设置的两个领域上超过 G-OPD，在单教师代码上与 G-OPD 持平。\nMotivation: 现有奖励外推方法如 ExOPD 对每个 token 施加单一全局系数 λ，可能使学生拟合隐式奖励的极端峰值，导致 reward hacking 和训练不稳定；且最优 λ 因领域而异，需要昂贵的超参数搜索。\nMethod: 提出 REOPD 框架，联合 token 级兼容性权重 (token-level compatibility weight) 与 batch 级自适应预算 (batch-level adaptive budget)，构造 token 级系数 λ_{b,t}=1+γ_b q_t，在保持教师对齐的同时沿可靠的教师参考方向选择性外推；该方法不引入 verifier、奖励模型、价值模型或额外 rollout。\nResult: 摘要报告 REOPD 在单教师数学任务上优于 G-OPD，在多教师设置的两个领域上均优于 G-OPD，在单教师代码任务上与 G-OPD 持平，表明细粒度可靠性自适应在不同领域和教师配置下有效。\nConclusion: 摘要表明细粒度的可靠性自适应能够跨领域和教师配置有效迁移，同时保持标准 OPD 的训练效率；但该结论基于摘要层面的对比，未给出具体数值细节。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 REOPD，一种面向在线策略蒸馏 (on-policy distillation, OPD) 的可靠性自适应奖励外推框架。现有 ExOPD 等方法对所有 token 使用单一全局系数 λ，容易导致奖励黑客 (reward hacking) 与训练不稳定，且最优 λ 在不同领域间变化。REOPD 结合 token 级兼容性权重与 batch 级自适应预算，得到逐 token 系数，无需 verifier、奖励模型、价值模型或额外 rollout。摘要报告 REOPD 在单教师数学与多教师设置的两个领域上超过 G-OPD，在单教师代码上与 G-OPD 持平。",
+        "motivation": "现有奖励外推方法如 ExOPD 对每个 token 施加单一全局系数 λ，可能使学生拟合隐式奖励的极端峰值，导致 reward hacking 和训练不稳定；且最优 λ 因领域而异，需要昂贵的超参数搜索。",
+        "method": "提出 REOPD 框架，联合 token 级兼容性权重 (token-level compatibility weight) 与 batch 级自适应预算 (batch-level adaptive budget)，构造 token 级系数 λ_{b,t}=1+γ_b q_t，在保持教师对齐的同时沿可靠的教师参考方向选择性外推；该方法不引入 verifier、奖励模型、价值模型或额外 rollout。",
+        "result": "摘要报告 REOPD 在单教师数学任务上优于 G-OPD，在多教师设置的两个领域上均优于 G-OPD，在单教师代码任务上与 G-OPD 持平，表明细粒度可靠性自适应在不同领域和教师配置下有效。",
+        "conclusion": "摘要表明细粒度的可靠性自适应能够跨领域和教师配置有效迁移，同时保持标准 OPD 的训练效率；但该结论基于摘要层面的对比，未给出具体数值细节。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11616",
+      "title": "MBA: Multimodal Benchmark and Agents for Real-World Business Ideation",
+      "authors": [
+        "Hojun Choi",
+        "Jaeyo Shin",
+        "Suin Lee",
+        "Hyunjung Shim"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2608.11616",
+      "pdf_url": "https://arxiv.org/pdf/2608.11616",
+      "abstract_en": "Agentic systems powered by large language models (LLMs) have opened new opportunities for business ideation. Yet existing approaches remain confined to a text-only paradigm, despite the inherently multimodal nature of real-world contexts. We thus introduce MBA-Bench, the first multimodal benchmark for training and evaluating business ideation agents, comprising 30K samples across six domains, each domain characterized by distinct visual cues not fully conveyed by text alone. Concretely, we automatically caption images and employ GPT-4o to generate five reference ideas for each of three business questions through retrieval query generation, market evidence retrieval, and evidence-augmented synthesis. Following prior work, we evaluate agents across six business-oriented criteria using MLLM-as-a-Judge. To consider settings where criteria are hidden or disclosed, we present MBA-b and MBA-k for blind and known, respectively. We train both with two novel reward objectives---creativity and feasibility---while MBA-k further optimizes the six disclosed criteria for eight in total. Both are trained via LoRA-based supervised fine-tuning followed by group relative policy optimization with these setting-specific rewards. For extensive experiments on MBA-Bench, we set up two baselines accommodating either captions only or multimodal inputs, with the latter nearing closed-source performance on several metrics. MBA-b and MBA-k outperform caption baselines by 63.9% and 77.1%, and multimodal baselines by 25.6% and 35.8%, respectively.",
+      "comment": "Project page: https://hchoi256.github.io/projects/mba/ Code: https://github.com/hchoi256/MBA",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 MBA-Bench，声称是首个面向商业创意生成 (business ideation) 智能体的多模态基准，包含 30K 样本、六个领域，每个领域依赖文本难以完全传达的视觉线索。作者用图像自动字幕并借助 GPT-4o 生成参考想法，按六项商业导向标准通过 MLLM-as-a-Judge 评测。配套训练 MBA-b（隐藏标准）和 MBA-k（已披露标准）两个智能体，采用 LoRA 监督微调加分组相对策略优化 (GRPO)，报告称两者显著超越纯字幕和多模态基线。\nMotivation: 现有基于大语言模型的智能体在商业创意生成上仍局限于纯文本范式，但真实商业场景天然是多模态的，视觉线索无法被文本完整表达；缺少相应的多模态基准与训练方法。\nMethod: 构建 MBA-Bench：自动为图像生成字幕，并使用 GPT-4o 通过检索查询生成、市场证据检索和证据增强合成，为每个商业问题生成五个参考想法。训练 MBA-b 和 MBA-k，前者以创造性和可行性两个新奖励目标优化，后者额外优化六项已披露标准共八项；两者均采用 LoRA 监督微调后接分组相对策略优化 (GRPO)。\nResult: 在 MBA-Bench 上，MBA-b 和 MBA-k 相比纯字幕基线分别提升 63.9% 和 77.1%，相比多模态基线分别提升 25.6% 和 35.8%；多模态基线在部分指标上接近闭源模型性能。\nConclusion: 作者认为多模态输入以及面向创造性和可行性的奖励设计能显著提升商业创意生成智能体的表现，并通过公开的基准与代码支撑该结论；摘要未展开讨论方法的局限。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 MBA-Bench，声称是首个面向商业创意生成 (business ideation) 智能体的多模态基准，包含 30K 样本、六个领域，每个领域依赖文本难以完全传达的视觉线索。作者用图像自动字幕并借助 GPT-4o 生成参考想法，按六项商业导向标准通过 MLLM-as-a-Judge 评测。配套训练 MBA-b（隐藏标准）和 MBA-k（已披露标准）两个智能体，采用 LoRA 监督微调加分组相对策略优化 (GRPO)，报告称两者显著超越纯字幕和多模态基线。",
+        "motivation": "现有基于大语言模型的智能体在商业创意生成上仍局限于纯文本范式，但真实商业场景天然是多模态的，视觉线索无法被文本完整表达；缺少相应的多模态基准与训练方法。",
+        "method": "构建 MBA-Bench：自动为图像生成字幕，并使用 GPT-4o 通过检索查询生成、市场证据检索和证据增强合成，为每个商业问题生成五个参考想法。训练 MBA-b 和 MBA-k，前者以创造性和可行性两个新奖励目标优化，后者额外优化六项已披露标准共八项；两者均采用 LoRA 监督微调后接分组相对策略优化 (GRPO)。",
+        "result": "在 MBA-Bench 上，MBA-b 和 MBA-k 相比纯字幕基线分别提升 63.9% 和 77.1%，相比多模态基线分别提升 25.6% 和 35.8%；多模态基线在部分指标上接近闭源模型性能。",
+        "conclusion": "作者认为多模态输入以及面向创造性和可行性的奖励设计能显著提升商业创意生成智能体的表现，并通过公开的基准与代码支撑该结论；摘要未展开讨论方法的局限。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11590",
+      "title": "CookVoice: Unified Framework for Style Controllable Multi-Modal Human Voice Generation",
+      "authors": [
+        "Haowei Lou",
+        "Hye-Young Paik",
+        "Dai Jia",
+        "Kai Li",
+        "Lina Yao"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.SD"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.SD",
+      "abs_url": "https://arxiv.org/abs/2608.11590",
+      "pdf_url": "https://arxiv.org/pdf/2608.11590",
+      "abstract_en": "Human voice generation has made rapid progress in speech generation, singing voice generation, voice cloning, and voice editing. However, most existing systems are designed for specific tasks and often rely on task-dependent architectures, control signals, or autoregressive decoding, limiting fine-grained controllability and inference efficiency. In this paper, we propose CookVoice, a unified framework for multimodal, multi-style, and multi-task human voice generation. CookVoice decomposes the human voice into three key factors: content, prosody, and style, enabling both speech and singing voice generation within a unified model. To achieve precise and flexible controllability, we design a flexible alignment strategy that maps text, style, and prosody control signals onto the frame-level of spectrogram. This design allows CookVoice to support a wide range of tasks, including text-to-speech, text-to-singing voice, style-controllable generation, voice mimicry, voice conversion, and voice editing. Experimental results show that CookVoice achieves generation quality comparable to existing Text-to-Speech and text-to-singing voice baselines, while providing stronger style and prosody controllability. Moreover, CookVoice achieves comparable performance to large-scale baselines with only 43.51 million parameters and efficient inference using as few as 4 ODE steps, making it a practical solution for real-world human voice generation applications. Demo page is available at https://haoweilou.github.io/CookVoice/.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 CookVoice，一个统一的语音生成框架，将人类语音分解为内容、韵律和风格三个关键因素，支持语音与歌声生成以及多种任务。框架通过灵活的对齐策略把文本、风格和韵律控制信号映射到频谱图帧级，从而支持文本到语音、文本到歌声、风格可控生成、声音模仿、声音转换和语音编辑。实验表明，在生成质量与现有基线相当的同时，提供了更强的风格和韵律可控性，仅用 4351 万参数并以最少 4 步 ODE 实现高效推理。\nMotivation: 现有语音生成系统大多面向特定任务，依赖任务相关的架构、控制信号或自回归解码，限制了细粒度可控性和推理效率。\nMethod: 提出统一框架 CookVoice，将语音分解为内容、韵律和风格三个因素，并设计灵活的对齐策略，将文本、风格和韵律控制信号映射到频谱图的帧级表示，从而在一个模型中支持多种语音生成任务。\nResult: 实验结果显示 CookVoice 在生成质量上与现有文本到语音和文本到歌声基线相当，同时具备更强的风格和韵律可控性；与大规模基线相比，仅需 4351 万参数，并可用最少 4 步 ODE 实现高效推理。\nConclusion: 作者认为 CookVoice 是一个实用的真实世界语音生成统一解决方案，兼顾生成质量、可控性和推理效率。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 CookVoice，一个统一的语音生成框架，将人类语音分解为内容、韵律和风格三个关键因素，支持语音与歌声生成以及多种任务。框架通过灵活的对齐策略把文本、风格和韵律控制信号映射到频谱图帧级，从而支持文本到语音、文本到歌声、风格可控生成、声音模仿、声音转换和语音编辑。实验表明，在生成质量与现有基线相当的同时，提供了更强的风格和韵律可控性，仅用 4351 万参数并以最少 4 步 ODE 实现高效推理。",
+        "motivation": "现有语音生成系统大多面向特定任务，依赖任务相关的架构、控制信号或自回归解码，限制了细粒度可控性和推理效率。",
+        "method": "提出统一框架 CookVoice，将语音分解为内容、韵律和风格三个因素，并设计灵活的对齐策略，将文本、风格和韵律控制信号映射到频谱图的帧级表示，从而在一个模型中支持多种语音生成任务。",
+        "result": "实验结果显示 CookVoice 在生成质量上与现有文本到语音和文本到歌声基线相当，同时具备更强的风格和韵律可控性；与大规模基线相比，仅需 4351 万参数，并可用最少 4 步 ODE 实现高效推理。",
+        "conclusion": "作者认为 CookVoice 是一个实用的真实世界语音生成统一解决方案，兼顾生成质量、可控性和推理效率。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11546",
+      "title": "Through Van Gogh's Eyes: Global Style Transfer with Diffusion Model",
+      "authors": [
+        "Jeongha Lee",
+        "Yujin Kim",
+        "Ghazanfar Ali",
+        "Suhyun Kim",
+        "Jae-In Hwang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.11546",
+      "pdf_url": "https://arxiv.org/pdf/2608.11546",
+      "abstract_en": "Artistic image synthesis aims to recreate the expressive visual identity of a target artist, yet existing methods often fail to capture an artist's global style. Conventional style transfer methods transfer the style of one or a few reference artworks to a content image in a One-to-One manner, making them effective for artwork-level stylization but limited in representing the broader stylistic distribution of an artist. Text-to-image diffusion models conditioned on artist names, such as '~ in Van Gogh style', offer greater flexibility, but they often suffer from text-induced bias and reproduce patterns from only a few iconic works. To address these limitations, we introduce Global Style Transfer (GST), an artistic image synthesis paradigm, in a Many-to-One manner, that aggregates multiple artworks from a target artist and transfers their shared global style to a single content image. For GST, we propose Global Style Guidance (GSG), which learns a residual global style offset in the intermediate feature space, or h-space, of a diffusion model under a fixed prompt. By learning artist-level style semantics purely from visual statistics, GSG mitigates text-dependent artistic bias. We further propose Content Alignment Guidance (CAG), a training-free perceptual guidance mechanism that preserves the semantic structure of the content image while allowing artist-specific geometric deformation. Experiments on WikiArt demonstrate that GST achieves superior stylistic fidelity, content preservation, and output diversity compared to existing style transfer and diffusion-based artistic synthesis methods.",
+      "comment": "Published at ECCV 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Global Style Transfer (GST) 这一艺术图像合成范式，以 Many-to-One 方式聚合目标艺术家的多幅作品并将其共享的全局风格迁移到单张内容图像。为此作者提出 Global Style Guidance (GSG)，在扩散模型的 h-space 中间特征空间中学习残差全局风格偏移，并借助固定提示词、纯视觉统计来缓解文本诱导的偏见；同时提出 Content Alignment Guidance (CAG)，一种免训练的感知引导机制，在保留内容图像语义结构的同时允许艺术家特定的几何形变。在 WikiArt 上的实验表明 GST 在风格保真度、内容保持和输出多样性上优于现有风格迁移及基于扩散模型的艺术合成方法。\nMotivation: 现有风格迁移方法多以 One-to-One 方式将单幅或少数参考作品风格迁移到内容图像，擅长作品级风格化但难以刻画艺术家整体的风格分布；而基于艺术家名称的文生图扩散模型受文本偏见影响，往往只复现少数标志性作品的模式。\nMethod: 提出 GST 范式，从多幅作品中聚合艺术家的共享全局风格；具体包括在扩散模型 h-space 中学习残差全局风格偏移的 GSG，以及免训练的内容对齐引导 CAG 来保护内容图像的语义结构并允许艺术家特定的几何形变。\nResult: 在 WikiArt 上的实验表明，GST 在风格保真度、内容保持和输出多样性方面优于现有风格迁移方法和基于扩散模型的艺术合成方法。\nConclusion: 作者认为通过纯视觉统计学习艺术家级风格语义可以缓解文本依赖的艺术偏见，GST 提供了一种更贴近艺术家整体风格的图像合成途径。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Global Style Transfer (GST) 这一艺术图像合成范式，以 Many-to-One 方式聚合目标艺术家的多幅作品并将其共享的全局风格迁移到单张内容图像。为此作者提出 Global Style Guidance (GSG)，在扩散模型的 h-space 中间特征空间中学习残差全局风格偏移，并借助固定提示词、纯视觉统计来缓解文本诱导的偏见；同时提出 Content Alignment Guidance (CAG)，一种免训练的感知引导机制，在保留内容图像语义结构的同时允许艺术家特定的几何形变。在 WikiArt 上的实验表明 GST 在风格保真度、内容保持和输出多样性上优于现有风格迁移及基于扩散模型的艺术合成方法。",
+        "motivation": "现有风格迁移方法多以 One-to-One 方式将单幅或少数参考作品风格迁移到内容图像，擅长作品级风格化但难以刻画艺术家整体的风格分布；而基于艺术家名称的文生图扩散模型受文本偏见影响，往往只复现少数标志性作品的模式。",
+        "method": "提出 GST 范式，从多幅作品中聚合艺术家的共享全局风格；具体包括在扩散模型 h-space 中学习残差全局风格偏移的 GSG，以及免训练的内容对齐引导 CAG 来保护内容图像的语义结构并允许艺术家特定的几何形变。",
+        "result": "在 WikiArt 上的实验表明，GST 在风格保真度、内容保持和输出多样性方面优于现有风格迁移方法和基于扩散模型的艺术合成方法。",
+        "conclusion": "作者认为通过纯视觉统计学习艺术家级风格语义可以缓解文本依赖的艺术偏见，GST 提供了一种更贴近艺术家整体风格的图像合成途径。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11521",
+      "title": "Keep the Future, Drop the Rollout: RIFT for World Action Models",
+      "authors": [
+        "Chushan Zhang",
+        "Jinguang Tong",
+        "Xuesong Li",
+        "Yikai Wang",
+        "Hongdong Li"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2608.11521",
+      "pdf_url": "https://arxiv.org/pdf/2608.11521",
+      "abstract_en": "World action models (WAMs) condition robot actions on predicted futures, but iterative video rollout increases deployment latency. We ask whether action generation requires the evolving rollout trajectory or only its future representation. Across four WAMs on all 40 LIBERO tasks, paired closed-loop interventions show that masking or reassigning future-cache values changes execution and reduces success, indicating sensitivity to future values and their assigned positions. For Joint and Cosmos-2, however, replaying one fixed final-clean key/value (K/V) cache nearly preserves unmodified execution, with $1.7$ to $1.9$~cm end-effector average displacement error and $97.9\\%$ to $98.2\\%$ success. This separates cache consumption from production: these models can reuse a fixed cache but still require iterative rollout to construct it. We therefore propose RIFT (\\emph{Rollout-free Imagination via Future Tokens}), which uses learned anticipation tokens to construct a complete future K/V cache in one backbone pass while retaining the original future-read interface. On LIBERO, RIFT achieves $98.8\\%$ success, close to rollout-based Joint, IDM, and LingBot-VA at $98.4\\%$ to $98.6\\%$, while reducing action-chunk latency by $68.2\\%$ to $89.1\\%$. On RoboTwin~2.0, RIFT reaches $92.9/92.6\\%$ on clean/randomized scenes, the highest observed among the evaluated methods. These results support rollout-free future conditioning without iterative video generation at deployment.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究世界动作模型 (World Action Models, WAMs) 是否必须在部署时通过迭代视频 rollout 生成动作。通过在 40 个 LIBERO 任务上的成对闭环干预实验，作者发现屏蔽或重排 future-cache 值会改变执行并降低成功率，但对 Joint 和 Cosmos-2 重放固定 final-clean K/V 缓存几乎不改变执行。为此提出 RIFT (Rollout-free Imagination via Future Tokens)，用学习到的预期标记在单次骨干前向传播中构建完整 future K/V 缓存，在 LIBERO 上达到 98.8% 成功率并大幅降低延迟。\nMotivation: WAMs 依赖预测未来视频来调节机器人动作，但迭代式视频 rollout 在部署时带来高延迟。作者试图回答动作生成究竟需要完整的 rollout 轨迹，还是仅需其未来表示，以消除部署时的迭代生成。\nMethod: 通过成对闭环干预分离 future-cache 的消费与生产，验证模型对缓存值及其位置的敏感性；然后提出 RIFT，使用可学习的 anticipation tokens 在一次骨干前向传播中构造完整 future K/V 缓存，并保持原始 future-read 接口不变。\nResult: RIFT 在 LIBERO 上达到 98.8% 成功率，接近基于 rollout 的 Joint、IDM、LingBot-VA（98.4%-98.6%），同时将动作块延迟降低 68.2%-89.1%；在 RoboTwin 2.0 上干净/随机场景分别达到 92.9%/92.6%，为评估方法中最高。干预实验还显示对 Joint 和 Cosmos-2，重放固定 final-clean K/V 缓存可保持 97.9%-98.2% 成功率及 1.7-1.9 cm 末端执行器平均位移误差。\nConclusion: 这些结果支持无需迭代视频生成的 rollout-free future conditioning，即缓存消费与生产可以分离：模型能在部署时复用固定缓存，但离线仍需迭代 rollout 来构建该缓存。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究世界动作模型 (World Action Models, WAMs) 是否必须在部署时通过迭代视频 rollout 生成动作。通过在 40 个 LIBERO 任务上的成对闭环干预实验，作者发现屏蔽或重排 future-cache 值会改变执行并降低成功率，但对 Joint 和 Cosmos-2 重放固定 final-clean K/V 缓存几乎不改变执行。为此提出 RIFT (Rollout-free Imagination via Future Tokens)，用学习到的预期标记在单次骨干前向传播中构建完整 future K/V 缓存，在 LIBERO 上达到 98.8% 成功率并大幅降低延迟。",
+        "motivation": "WAMs 依赖预测未来视频来调节机器人动作，但迭代式视频 rollout 在部署时带来高延迟。作者试图回答动作生成究竟需要完整的 rollout 轨迹，还是仅需其未来表示，以消除部署时的迭代生成。",
+        "method": "通过成对闭环干预分离 future-cache 的消费与生产，验证模型对缓存值及其位置的敏感性；然后提出 RIFT，使用可学习的 anticipation tokens 在一次骨干前向传播中构造完整 future K/V 缓存，并保持原始 future-read 接口不变。",
+        "result": "RIFT 在 LIBERO 上达到 98.8% 成功率，接近基于 rollout 的 Joint、IDM、LingBot-VA（98.4%-98.6%），同时将动作块延迟降低 68.2%-89.1%；在 RoboTwin 2.0 上干净/随机场景分别达到 92.9%/92.6%，为评估方法中最高。干预实验还显示对 Joint 和 Cosmos-2，重放固定 final-clean K/V 缓存可保持 97.9%-98.2% 成功率及 1.7-1.9 cm 末端执行器平均位移误差。",
+        "conclusion": "这些结果支持无需迭代视频生成的 rollout-free future conditioning，即缓存消费与生产可以分离：模型能在部署时复用固定缓存，但离线仍需迭代 rollout 来构建该缓存。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-12",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11392",
+      "title": "AI Guardrail Survival under Single-Cycle Agentic Self-Summarization",
+      "authors": [
+        "Ted Kwartler",
+        "Alan Aqrawi",
+        "Arian Abbasi"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CR",
+      "abs_url": "https://arxiv.org/abs/2608.11392",
+      "pdf_url": "https://arxiv.org/pdf/2608.11392",
+      "abstract_en": "Long-running agents periodically compact their context, replacing the transcript with a model-generated summary. Recent work shows that dropping a standing safety constraint during compaction drives behavioral violations across many models (Governance Decay; Chen, 2026). We ask a finer question: under a single compaction cycle, how is a safety rule lost, and what does that imply for detection and evaluation? Our central finding is that a presence check is not a safety check: when compaction does not drop a rule outright, it often leaves something that looks like a rule but does not act like one. On behavioral replay, a degraded residue leads the model to perform the prohibited action far more often than an intact welded rule does (all-case gaps of +34 and +57 points under two replay models, both positive), category-level survival behaves like a residue, and even intact rules sometimes fail to fire, so an audit that checks only textual presence gives false assurance. Sharpening this, rule-form items are retained substantially more often than prominence-matched facts, which is exactly why presence-based checking feels adequate even though survival is not protection. Textual loss is regime-dependent (weld-or-drop with a single rule; degraded predicate-loss residues under a tighter budget), and we did not observe the hypothesized textual severing mode. Such loss is silent at runtime and detectable only by comparison with retained external ground truth (such as a constraint registry), which reveals textual absence but not whether a surviving rule still fires. We also document evaluation pitfalls where LLM-judge labels alone would have reversed a conclusion. All results concern a single compaction cycle.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究长时运行智能体在单次上下文压缩（single-cycle compaction）后安全规则丢失的机制。作者发现存在性检查（presence check）不等于安全性检查：压缩不一定会直接删除规则，而常留下“看起来像规则但不起作用”的退化残留（residue）。在行为重放中，退化残留比完整焊接规则更易导致模型执行被禁止的动作，且仅检查文本存在的审计会给出虚假的安全保证。\nMotivation: 近期研究（Governance Decay）表明压缩过程中丢弃常驻安全约束会引发行为违规；本文进一步追问单次压缩周期内一条安全规则是如何丢失的，以及这对检测和评估意味着什么。\nMethod: 通过行为重放（behavioral replay）比较完整规则与压缩残留的实际触发效果，并对比规则形式条目与同显著性事实的保留率，考察文本丢失的机制（weld-or-drop 与退化谓词丢失等模式），同时讨论 LLM-judge 评估陷阱。\nResult: 摘要报告在两种重放模型下，退化残留比完整规则更常触发被禁止行为，差距分别 +34 和 +57 个百分点；规则形式条目比显著性匹配的事实更常被保留；未观察到假设的文本切断（severing）模式。文本丢失在运行期是静默的，只能通过与外部真实来源（如约束注册表）对比来检测，且文本存在不能说明规则仍会触发。\nConclusion: 作者强调所有结论仅针对单次压缩周期；单次压缩下的安全规则生存具有机制依赖性（在更紧预算下表现为退化谓词丢失），且存在评估陷阱：仅靠 LLM-judge 标签会得出相反的结论。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究长时运行智能体在单次上下文压缩（single-cycle compaction）后安全规则丢失的机制。作者发现存在性检查（presence check）不等于安全性检查：压缩不一定会直接删除规则，而常留下“看起来像规则但不起作用”的退化残留（residue）。在行为重放中，退化残留比完整焊接规则更易导致模型执行被禁止的动作，且仅检查文本存在的审计会给出虚假的安全保证。",
+        "motivation": "近期研究（Governance Decay）表明压缩过程中丢弃常驻安全约束会引发行为违规；本文进一步追问单次压缩周期内一条安全规则是如何丢失的，以及这对检测和评估意味着什么。",
+        "method": "通过行为重放（behavioral replay）比较完整规则与压缩残留的实际触发效果，并对比规则形式条目与同显著性事实的保留率，考察文本丢失的机制（weld-or-drop 与退化谓词丢失等模式），同时讨论 LLM-judge 评估陷阱。",
+        "result": "摘要报告在两种重放模型下，退化残留比完整规则更常触发被禁止行为，差距分别 +34 和 +57 个百分点；规则形式条目比显著性匹配的事实更常被保留；未观察到假设的文本切断（severing）模式。文本丢失在运行期是静默的，只能通过与外部真实来源（如约束注册表）对比来检测，且文本存在不能说明规则仍会触发。",
+        "conclusion": "作者强调所有结论仅针对单次压缩周期；单次压缩下的安全规则生存具有机制依赖性（在更紧预算下表现为退化谓词丢失），且存在评估陷阱：仅靠 LLM-judge 标签会得出相反的结论。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-11",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11368",
+      "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR",
+      "authors": [
+        "Pixel Nomand",
+        "Elena Voss",
+        "Marcus Hale",
+        "Sofia Reyes"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2608.11368",
+      "pdf_url": "https://arxiv.org/pdf/2608.11368",
+      "abstract_en": "Reinforcement learning with verifiable rewards (RLVR) spends most of its compute generating groups of long reasoning trajectories. Recent allocators reduce this cost by assigning budgets to prompts, rollouts, or tokens according to a pointwise notion of difficulty or utility. We identify a statistical mismatch: the unclipped leave-one-out group-relative score gradient is not a sum of independent point contributions, but a second-order U-statistic over pairs of rollouts. Completing one rollout therefore reveals contrast with every other completed rollout, and adaptive endpoint selection changes which pair terms are observable. We introduce PAIR (Pairwise-Aware Inclusion Reweighting), which treats short rollout prefixes as vertices and pair-gradient terms as edges of a contrast graph. A prefix-only predictor estimates correctness and remaining token cost; a convex design chooses positive continuation probabilities under an expected suffix-token budget; and each edge induced by completed vertices is inverse-weighted by its logged joint inclusion probability. Under conditionally independent on-policy rollouts and an unclipped, unstandardized objective, the resulting estimator is design-unbiased for the complete candidate-pair gradient. Across compute-matched RLVR runs on Qwen3-1.7B/4B, PAIR improves average accuracy by +1.2 and +1.4 over the strongest pointwise allocator while using 51% and 52% fewer generated tokens than full-group GRPO. A frozen-population estimator audit confirms that unweighted adaptive selection is biased, whereas pair-inclusion correction recovers the complete-pair target at matched suffix cost.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对 RLVR（Reinforcement Learning with Verifiable Rewards）中长推理轨迹生成的计算开销问题，指出未裁剪的留一法组相对得分梯度并非独立逐点贡献之和，而是关于 rollout 对的二阶 U 统计量（second-order U-statistic）。作者提出 PAIR（Pairwise-Aware Inclusion Reweighting），将前缀视为顶点、对梯度项视为对比图（contrast graph）的边，并通过包含概率逆加权得到设计无偏的完整候选对梯度估计。在 Qwen3-1.7B/4B 上，相比最强的逐点分配器，PAIR 在平均准确率上提升 +1.2 和 +1.4，同时比全组 GRPO 少生成 51% 和 52% 的 token。\nMotivation: RLVR 的大部分算力消耗在生成长推理轨迹组上，现有分配器按逐点难度或效用为提示、rollout 或 token 分配预算，但统计上存在失配：组相对得分梯度是 rollout 对上的二阶 U 统计量，自适应端点选择还会改变哪些对项可被观测。\nMethod: PAIR 将短 rollout 前缀视为顶点、对梯度项视为对比图的边；用一个仅基于前缀的预测器估计正确率和剩余 token 成本，并在期望后缀 token 预算下通过凸设计选择正延续概率；每条由已完成顶点诱导的边按其联合包含概率的对数逆加权，得到设计无偏估计器。\nResult: 在 Qwen3-1.7B/4B 上的计算匹配 RLVR 运行中，PAIR 相对最强逐点分配器平均准确率提升 +1.2 和 +1.4，且比全组 GRPO 分别少用 51% 和 52% 的生成 token；冻结总体的估计器审计表明未加权的自适应选择有偏，而配对包含校正可在匹配后缀开销下恢复完整对目标。\nConclusion: 作者强调自适应 rollout 分配需要显式处理配对包含重加权，才能对完整候选对梯度做设计无偏估计；方法依赖条件独立的 on-policy rollout 及未裁剪、未标准化的目标，实证限于 Qwen3-1.7B/4B。\nRelevance: 4",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对 RLVR（Reinforcement Learning with Verifiable Rewards）中长推理轨迹生成的计算开销问题，指出未裁剪的留一法组相对得分梯度并非独立逐点贡献之和，而是关于 rollout 对的二阶 U 统计量（second-order U-statistic）。作者提出 PAIR（Pairwise-Aware Inclusion Reweighting），将前缀视为顶点、对梯度项视为对比图（contrast graph）的边，并通过包含概率逆加权得到设计无偏的完整候选对梯度估计。在 Qwen3-1.7B/4B 上，相比最强的逐点分配器，PAIR 在平均准确率上提升 +1.2 和 +1.4，同时比全组 GRPO 少生成 51% 和 52% 的 token。",
+        "motivation": "RLVR 的大部分算力消耗在生成长推理轨迹组上，现有分配器按逐点难度或效用为提示、rollout 或 token 分配预算，但统计上存在失配：组相对得分梯度是 rollout 对上的二阶 U 统计量，自适应端点选择还会改变哪些对项可被观测。",
+        "method": "PAIR 将短 rollout 前缀视为顶点、对梯度项视为对比图的边；用一个仅基于前缀的预测器估计正确率和剩余 token 成本，并在期望后缀 token 预算下通过凸设计选择正延续概率；每条由已完成顶点诱导的边按其联合包含概率的对数逆加权，得到设计无偏估计器。",
+        "result": "在 Qwen3-1.7B/4B 上的计算匹配 RLVR 运行中，PAIR 相对最强逐点分配器平均准确率提升 +1.2 和 +1.4，且比全组 GRPO 分别少用 51% 和 52% 的生成 token；冻结总体的估计器审计表明未加权的自适应选择有偏，而配对包含校正可在匹配后缀开销下恢复完整对目标。",
+        "conclusion": "作者强调自适应 rollout 分配需要显式处理配对包含重加权，才能对完整候选对梯度做设计无偏估计；方法依赖条件独立的 on-policy rollout 及未裁剪、未标准化的目标，实证限于 Qwen3-1.7B/4B。",
+        "relevance_score": "4"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-11",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.11344",
+      "title": "Governing Agentic AI in FinTech",
+      "authors": [
+        "Henry Han"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CY",
+        "q-fin.RM"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CY",
+      "abs_url": "https://arxiv.org/abs/2608.11344",
+      "pdf_url": "https://arxiv.org/pdf/2608.11344",
+      "abstract_en": "Financial institutions are delegating consequential decisions to agentic AI systems that decompose goals, coordinate models and tools, and act with little oversight. Yet agentic AI governance in FinTech is under-investigated. We argue the binding governance constraint is not capability but verifiability. We define the Verifiability Gap as the shortfall between the verification delegated authority demands and the explainability and reproducibility retained after a decision. It is indexed to a verifier, evidentiary standard, and audit lag. We develop a multilevel governance theory for agentic AI and test its mechanisms in three studies over nine model versions, from a three-billion-parameter local model to a commercial frontier system. Study 1 shows that provider releases alter historical financial actions, and that the controls replay needs belong to the provider: the frontier model rejects temperature, top_p and top_k outright and exposes no random seed. Under the tightest controls each endpoint allows, a local model reproduced 320 of 320 executions, hosted models 319 of 320 and 959 of 960. Study 2 shows that orchestration is a latent policy layer. Architecture changes final actions, and no execution record repeated in any configuration at any scale. The frontier model reproduces its own actions more often than the local ones, its record no better, and loses a comparable share of its differentiation. Capability buys a higher starting point, not auditability. Study 3 shows two deterministic credit-model versions each reproduce their current action perfectly, yet the current cannot recover a historical one. We conceptualize reproducibility as a governance profile, not a scalar, yielding evidence-contingent delegation: authority is defensible only while retained evidence substantiates its exercise. Beyond finance, the framework extends to other high-stakes domains requiring auditability.",
+      "comment": "58 pages, 12 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对金融领域代理式 AI（agentic AI）的治理问题，提出真正的约束不是能力而是可验证性（verifiability），并定义可验证性差距（Verifiability Gap）为委托权威所需的验证与决策后保留的可解释性、可复现性之间的缺口。作者发展了一个多层治理理论，并通过三个研究、九个模型版本（从 30 亿参数的本地模型到商业前沿系统）进行检验。研究发现供应商发布会影响历史金融动作，编排层是潜在的政策层，且能力只能带来更高的起点而非更强的可审计性；最终将可复现性重新概念化为治理剖面（governance profile）而非标量。\nMotivation: 金融机构正将后果重大的决策交给代理式 AI 系统，这些系统分解目标、协调模型与工具并在几乎无监督下行动，而金融领域的代理式 AI 治理研究不足。作者认为现有讨论偏重能力，忽视了真正的治理约束在于可验证性。\nMethod: 定义可验证性差距，将其索引到验证者、证据标准和审计滞后（audit lag），并提出多层治理理论。通过三个研究在九个模型版本上检验机制，覆盖从本地 3B 参数模型到商业前沿系统，涉及供应商发布控制、编排作为潜在政策层以及确定性信用模型版本。\nResult: 在最严格的端点控制下，本地模型复现了 320/320 次执行，托管模型复现了 319/320 和 959/960 次；前沿模型直接拒绝 temperature、top_p 和 top_k 参数且不暴露随机种子。编排改变最终动作，且任何配置、任何规模下都没有重复的执行记录。两个确定性信用模型版本都能完美复现当前动作，但当前版本无法恢复历史动作；前沿模型复现自身动作的频率高于本地模型，但记录质量并不更好。\nConclusion: 可复现性应被视为治理剖面而非单一标量，由此产生基于证据的委托：只有当保留的证据能证实权力的行使时，权威才可辩护。该框架可扩展到金融之外其他需要可审计性的高风险领域。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对金融领域代理式 AI（agentic AI）的治理问题，提出真正的约束不是能力而是可验证性（verifiability），并定义可验证性差距（Verifiability Gap）为委托权威所需的验证与决策后保留的可解释性、可复现性之间的缺口。作者发展了一个多层治理理论，并通过三个研究、九个模型版本（从 30 亿参数的本地模型到商业前沿系统）进行检验。研究发现供应商发布会影响历史金融动作，编排层是潜在的政策层，且能力只能带来更高的起点而非更强的可审计性；最终将可复现性重新概念化为治理剖面（governance profile）而非标量。",
+        "motivation": "金融机构正将后果重大的决策交给代理式 AI 系统，这些系统分解目标、协调模型与工具并在几乎无监督下行动，而金融领域的代理式 AI 治理研究不足。作者认为现有讨论偏重能力，忽视了真正的治理约束在于可验证性。",
+        "method": "定义可验证性差距，将其索引到验证者、证据标准和审计滞后（audit lag），并提出多层治理理论。通过三个研究在九个模型版本上检验机制，覆盖从本地 3B 参数模型到商业前沿系统，涉及供应商发布控制、编排作为潜在政策层以及确定性信用模型版本。",
+        "result": "在最严格的端点控制下，本地模型复现了 320/320 次执行，托管模型复现了 319/320 和 959/960 次；前沿模型直接拒绝 temperature、top_p 和 top_k 参数且不暴露随机种子。编排改变最终动作，且任何配置、任何规模下都没有重复的执行记录。两个确定性信用模型版本都能完美复现当前动作，但当前版本无法恢复历史动作；前沿模型复现自身动作的频率高于本地模型，但记录质量并不更好。",
+        "conclusion": "可复现性应被视为治理剖面而非单一标量，由此产生基于证据的委托：只有当保留的证据能证实权力的行使时，权威才可辩护。该框架可扩展到金融之外其他需要可审计性的高风险领域。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-11",
+      "updated_date": "2026-08-13",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
