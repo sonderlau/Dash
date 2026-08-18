@@ -140,7 +140,7 @@ Cleanup:
 - Hosting: GitHub Pages from `/docs`
 - Automation: GitHub Actions workflow with scheduled and manual dispatch
 
-Scheduled runs use UTC 02:40, leaving buffer after arXiv's usual 20:00 ET announcement window so the `/list/<cat>/new` pages are less likely to still show the previous announcement.
+Scheduled runs use UTC 10:10 (Beijing 18:10), avoiding DeepSeek's Beijing 09:00-12:00 and 14:00-18:00 peak windows while still leaving buffer after arXiv's usual 20:00 ET announcement window.
 
 DeepSeek requests currently use:
 
