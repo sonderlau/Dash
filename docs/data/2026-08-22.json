@@ -1,0 +1,393 @@
+{
+  "date": "2026-08-22",
+  "snapshot_date": "2026-08-22",
+  "generated_at": "2026-08-22T10:38:57Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 9,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.AI": 2,
+    "cs.LG": 4,
+    "cs.CV": 2,
+    "stat.ML": 1
+  },
+  "summary_status_counts": {
+    "ok": 9
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 460
+  },
+  "papers": [
+    {
+      "id": "2608.19085",
+      "title": "DA-WAM: Decision-Aligned Future Latents for Driving World Models",
+      "authors": [
+        "Ruiguo Zhong",
+        "Benshan Ma",
+        "Xiaolong Chen",
+        "Lang Zhang",
+        "Mingyue Feng",
+        "Yaonong Wang",
+        "Pei Liu",
+        "Jun Ma"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2608.19085",
+      "pdf_url": "https://arxiv.org/pdf/2608.19085",
+      "abstract_en": "Anticipating how scenes evolve under ego actions is fundamental to safe autonomous driving, yet the full potential of world models for decision-making remains unrealized. The critical challenge lies in ensuring that future modeling is not merely predictive, but decision-informative: the predicted future must directly shape which trajectory is selected. Existing approaches decouple future representation learning from planning optimization, or share predicted states across trajectory candidates, thereby diluting the action-specific consequences that ought to guide selection. To bridge this gap, we propose DA-WAM, a framework that unifies predictive representation learning, action-conditioned future modeling, and trajectory scoring under a single decision-making objective. DA-WAM maintains predictive supervision throughout planner optimization via an online encoder and a stable momentum target, allowing future representations to co-evolve with the driving task. An action-conditioned predictor generates a distinct future latent state per trajectory candidate, which is then evaluated by a future-latent-conditioned factorized scorer. For the expert-matched trajectory, the predicted future latent is supervised by the observed future representation, while safety-critical hard negatives provide additional supervision near planning boundaries. Extensive experiments on NAVSIM-v1 and NAVSIM-v2 demonstrate state-of-the-art performance, while ablations and diagnostic analyses validate the key components.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 DA-WAM，一个面向自动驾驶决策的世界模型框架，将预测表征学习、动作条件未来建模和轨迹评分统一到单一决策目标下。框架通过在线编码器与动量目标在规划优化中维持预测监督，并为每条轨迹候选生成独立的未来潜状态，再交由未来潜状态条件化的因子化评分器评估；专家匹配轨迹用观测未来表征监督，规划边界附近的硬负样本提供额外监督。在 NAVSIM-v1 和 NAVSIM-v2 上取得最优性能。\nMotivation: 现有驾驶世界模型预测的未来不一定具备决策信息性：未来建模与规划优化被解耦，或预测状态在候选轨迹间共享，稀释了动作特有的后果，难以直接指导轨迹选择。\nMethod: DA-WAM 结合三个组成部分：在线编码器和稳定的动量目标在规划优化过程中持续提供预测监督；动作条件预测器为每条轨迹候选生成不同的未来潜状态；未来潜状态条件化的因子化评分器评估候选轨迹。同时用观测未来表征监督专家匹配轨迹，并用安全关键的硬负样本增强规划边界附近的监督。\nResult: 在 NAVSIM-v1 和 NAVSIM-v2 上的广泛实验取得 state-of-the-art 性能，消融实验和诊断分析验证了关键组件的有效性。\nConclusion: 作者认为将预测表征与驾驶任务共同演化、并按轨迹区分未来建模，可以弥合预测与决策之间的鸿沟，使未来建模直接服务轨迹选择。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 DA-WAM，一个面向自动驾驶决策的世界模型框架，将预测表征学习、动作条件未来建模和轨迹评分统一到单一决策目标下。框架通过在线编码器与动量目标在规划优化中维持预测监督，并为每条轨迹候选生成独立的未来潜状态，再交由未来潜状态条件化的因子化评分器评估；专家匹配轨迹用观测未来表征监督，规划边界附近的硬负样本提供额外监督。在 NAVSIM-v1 和 NAVSIM-v2 上取得最优性能。",
+        "motivation": "现有驾驶世界模型预测的未来不一定具备决策信息性：未来建模与规划优化被解耦，或预测状态在候选轨迹间共享，稀释了动作特有的后果，难以直接指导轨迹选择。",
+        "method": "DA-WAM 结合三个组成部分：在线编码器和稳定的动量目标在规划优化过程中持续提供预测监督；动作条件预测器为每条轨迹候选生成不同的未来潜状态；未来潜状态条件化的因子化评分器评估候选轨迹。同时用观测未来表征监督专家匹配轨迹，并用安全关键的硬负样本增强规划边界附近的监督。",
+        "result": "在 NAVSIM-v1 和 NAVSIM-v2 上的广泛实验取得 state-of-the-art 性能，消融实验和诊断分析验证了关键组件的有效性。",
+        "conclusion": "作者认为将预测表征与驾驶任务共同演化、并按轨迹区分未来建模，可以弥合预测与决策之间的鸿沟，使未来建模直接服务轨迹选择。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-19",
+      "updated_date": "2026-08-20",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.18936",
+      "title": "Graphical Design of Interpretable Architectures",
+      "authors": [
+        "Pietro Barbiero"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.NE"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2608.18936",
+      "pdf_url": "https://arxiv.org/pdf/2608.18936",
+      "abstract_en": "Designing, implementing, and comparing interpretable architectures requires a formal language to represent them. The most common representations fall short in one of two ways. Symbolic equations give no global view of an architecture at a glance. Probabilistic graphical models and flowcharts do not describe actual tensor manipulations, thus hiding key insights and limiting reproducibility. To close this gap, we introduce a graphical notation for designing interpretable AI architectures, adapted from Penrose tensor notation. This graphical notation gives a global view of an architecture and maps one to one onto PyTorch einsum code. We first use this notation to describe architectures that are interpretable by construction, including concept bottlenecks, sparse probes, prototype networks, neural additive models, and mixtures of linear models. We then diagram the key architectural components of Steerling-8B, a frontier interpretable language model. The diagram yields global insights into the architecture (e.g., showing that Steerling is a residual model), a geometric interpretation of each individual operation, and a direct translation into 33 lines of PyTorch code.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种用于可解释 AI 架构设计的图形记号，改编自 Penrose 张量记号 (Penrose tensor notation)，旨在同时提供架构的全局视图，并与 PyTorch einsum 代码一一对应。作者用该记号刻画概念瓶颈 (concept bottleneck)、稀疏探针 (sparse probe)、原型网络 (prototype network)、神经加性模型 (neural additive model) 和线性模型混合等内在可解释架构，并对可解释语言模型 Steerling-8B 的关键组件进行图示。摘要称该图揭示了 Steerling 是残差模型 (residual model) 等全局结构，并可直接翻译为 33 行 PyTorch 代码。\nMotivation: 现有可解释架构的表示各有缺陷：符号方程难以一眼获得架构的全局视图，概率图模型和流程图又不描述实际张量操作，从而隐藏关键信息并限制可复现性。\nMethod: 引入一种从 Penrose 张量记号改编的图形化记号，以图的形式表示可解释 AI 架构，并与 PyTorch einsum 代码保持一一映射；随后将该记号用于描述多种内在可解释架构，以及 Steerling-8B 的关键架构组件。\nResult: 该记号被应用于概念瓶颈、稀疏探针、原型网络、神经加性模型和线性模型混合等架构；对 Steerling-8B 的图示带来全局洞见（例如显示其为残差模型），给出每个操作的几何解释，并直接翻译成 33 行 PyTorch 代码。\nConclusion: 作者认为该图形记号弥补了既有表示在全局视图与张量操作描述之间的空白，可同时服务可解释架构的设计、实现与比较。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种用于可解释 AI 架构设计的图形记号，改编自 Penrose 张量记号 (Penrose tensor notation)，旨在同时提供架构的全局视图，并与 PyTorch einsum 代码一一对应。作者用该记号刻画概念瓶颈 (concept bottleneck)、稀疏探针 (sparse probe)、原型网络 (prototype network)、神经加性模型 (neural additive model) 和线性模型混合等内在可解释架构，并对可解释语言模型 Steerling-8B 的关键组件进行图示。摘要称该图揭示了 Steerling 是残差模型 (residual model) 等全局结构，并可直接翻译为 33 行 PyTorch 代码。",
+        "motivation": "现有可解释架构的表示各有缺陷：符号方程难以一眼获得架构的全局视图，概率图模型和流程图又不描述实际张量操作，从而隐藏关键信息并限制可复现性。",
+        "method": "引入一种从 Penrose 张量记号改编的图形化记号，以图的形式表示可解释 AI 架构，并与 PyTorch einsum 代码保持一一映射；随后将该记号用于描述多种内在可解释架构，以及 Steerling-8B 的关键架构组件。",
+        "result": "该记号被应用于概念瓶颈、稀疏探针、原型网络、神经加性模型和线性模型混合等架构；对 Steerling-8B 的图示带来全局洞见（例如显示其为残差模型），给出每个操作的几何解释，并直接翻译成 33 行 PyTorch 代码。",
+        "conclusion": "作者认为该图形记号弥补了既有表示在全局视图与张量操作描述之间的空白，可同时服务可解释架构的设计、实现与比较。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-19",
+      "updated_date": "2026-08-20",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.18900",
+      "title": "TestifAI: Tomography-Based Testing for Deep Learning Systems",
+      "authors": [
+        "Arooj Arif",
+        "Tobias Hartung",
+        "Elena Botoeva",
+        "Alexandros Koliousis"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2608.18900",
+      "pdf_url": "https://arxiv.org/pdf/2608.18900",
+      "abstract_en": "As AI systems are increasingly deployed in safety-critical application domains (e.g., autonomous driving), associated risks increase too. Deep learning models underlying modern AI systems, therefore, must undergo thorough testing to ensure their correct behaviour. A single robustness test involves thousands of inferences to empirically verify if a model's outputs remain stable under a bounded perturbation of its inputs. However, existing testing frameworks lack the means to systematically explore and summarise robustness across a combinatorial space of perturbations. We propose TestifAI, a deep learning testing framework for efficient and accurate estimation of robustness against combinations of perturbations. TestifAI enables users to specify operational conditions as structured spaces of semantic input perturbations (e.g., image blur, brightness and zoom) and discrete severity levels (e.g., low, medium and high). Users can query model robustness for any combination (e.g., \"low blur, high brightness, and medium zoom\"). To achieve efficiency and accuracy, TestifAI introduces partial model tomography, a novel approach to reconstructing model behaviour in a multi-perturbation space from tests that apply only a small number of perturbations (lower-order projections). To estimate robustness against at least three perturbations, TestifAI trains an auxiliary model on the results of tests involving up to two perturbations only, avoiding execution of an exponential number of tests. Our experiments on five image and language classification tasks show that TestifAI can predict higher-order (3 and 4 perturbations) test outcomes from low-order (1 and 2 perturbations) observations with an aggregate robustness estimation error of less than 7%, while reducing the number of inferences by 60-80%.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 TestifAI，一个用于高效且准确估计深度学习模型在组合扰动下鲁棒性的测试框架。用户可以将运行条件指定为语义输入扰动（如图像模糊、亮度、缩放）及离散严重级别的结构化空间，并查询任意组合下的鲁棒性。框架引入部分模型断层扫描 (partial model tomography)，仅基于低阶（1-2 个扰动）的测试结果训练辅助模型来预测高阶（3-4 个扰动）测试结果。在五个图像和语言分类任务上的实验显示，聚合鲁棒性估计误差低于 7%，同时推理次数减少 60-80%。\nMotivation: 深度学习模型被部署在安全关键领域，必须经过充分测试以保证正确行为，而单个鲁棒性测试就涉及数千次推理。现有测试框架缺乏系统地探索和总结组合扰动空间内鲁棒性的手段。\nMethod: TestifAI 允许用户以结构化扰动空间和离散严重级别描述运行条件，并针对任意组合查询鲁棒性。其核心是 partial model tomography：从只涉及少量扰动的低阶投影重构多扰动空间中的模型行为，并仅基于最多两个扰动的测试结果训练辅助模型来估计至少三个扰动的鲁棒性，从而避免执行指数数量的测试。\nResult: 在五个图像和语言分类任务上，TestifAI 能由低阶（1 和 2 个扰动）观察预测高阶（3 和 4 个扰动）测试结果，聚合鲁棒性估计误差小于 7%，并将推理次数减少 60-80%。\nConclusion: 摘要强调 TestifAI 在组合扰动空间下能以较低推理成本获得高精度的鲁棒性估计，适用于需要系统性测试深度学习模型鲁棒性的场景。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 TestifAI，一个用于高效且准确估计深度学习模型在组合扰动下鲁棒性的测试框架。用户可以将运行条件指定为语义输入扰动（如图像模糊、亮度、缩放）及离散严重级别的结构化空间，并查询任意组合下的鲁棒性。框架引入部分模型断层扫描 (partial model tomography)，仅基于低阶（1-2 个扰动）的测试结果训练辅助模型来预测高阶（3-4 个扰动）测试结果。在五个图像和语言分类任务上的实验显示，聚合鲁棒性估计误差低于 7%，同时推理次数减少 60-80%。",
+        "motivation": "深度学习模型被部署在安全关键领域，必须经过充分测试以保证正确行为，而单个鲁棒性测试就涉及数千次推理。现有测试框架缺乏系统地探索和总结组合扰动空间内鲁棒性的手段。",
+        "method": "TestifAI 允许用户以结构化扰动空间和离散严重级别描述运行条件，并针对任意组合查询鲁棒性。其核心是 partial model tomography：从只涉及少量扰动的低阶投影重构多扰动空间中的模型行为，并仅基于最多两个扰动的测试结果训练辅助模型来估计至少三个扰动的鲁棒性，从而避免执行指数数量的测试。",
+        "result": "在五个图像和语言分类任务上，TestifAI 能由低阶（1 和 2 个扰动）观察预测高阶（3 和 4 个扰动）测试结果，聚合鲁棒性估计误差小于 7%，并将推理次数减少 60-80%。",
+        "conclusion": "摘要强调 TestifAI 在组合扰动空间下能以较低推理成本获得高精度的鲁棒性估计，适用于需要系统性测试深度学习模型鲁棒性的场景。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-19",
+      "updated_date": "2026-08-20",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.18607",
+      "title": "VA-Judger: Reward Modeling from Human Preference Feedback for Joint Video-Audio Generation",
+      "authors": [
+        "Yinming Huang",
+        "Shuyuan Tu",
+        "Xi Yan",
+        "Zihan Yang",
+        "Jianhua Han",
+        "Xu Hang",
+        "Yu-Gang Jiang",
+        "Zuxuan Wu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.18607",
+      "pdf_url": "https://arxiv.org/pdf/2608.18607",
+      "abstract_en": "Using reinforcement learning to post-train joint video-audio generation models requires a reward signal. Existing methods construct this reward by combining metrics for individual quality dimensions, including audio quality, visual fidelity, and synchronization. However, these metrics evaluate perceptual dimensions separately and fail to capture the overall semantic and temporal coherence among the text prompt, video, and audio that shapes human preferences. Optimizing models against these metrics encourages reward hacking, generating video-audio content that achieves high scores on these metrics yet appears incoherent or unfaithful to human viewers. To address this problem, we first construct a large-scale human-preference dataset VAPref-10K for joint video-audio generation, comprising 9K prompts and 10.3K fine-grained paired comparisons from open-source generation models. We also introduce the VA-Judger-Bench benchmark with both in-domain and out-of-domain model comparisons to evaluate whether reward models truly align with human preferences. We further propose VA-Judger, a chain-of-thought omni-reward model for joint video-audio generation. In particular, VA-Judger first learns from pairs with clear quality gaps to establish structured output and coarse preference discrimination, then distills reliable preference explanations for harder near-quality comparisons via rejection sampling verified against human annotations, and finally performs dimension-wise reinforcement learning that decomposes human feedback into individual quality dimensions for denser reward signals than a single binary preference label. Experiments show that VA-Judger outperforms metric baselines in predicting human preferences on both in-domain and out-of-domain evaluations. Using its human-aligned rewards for post-training audio-video generation model also yields significant improvements in generation quality.",
+      "comment": "19 pages, 7 figures, 8 tables. Code: https://github.com/ShareLab-SII/VA-Judger",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 VA-Judger，一个面向联合视频-音频生成的 chain-of-thought omni-reward 模型，用于从人类偏好反馈中学习奖励信号。作者构建了大规模人类偏好数据集 VAPref-10K 和评测基准 VA-Judger-Bench，并设计三阶段训练：先学清晰质量差距的成对比较，再通过拒绝采样蒸馏困难近质量比较的偏好解释，最后进行分维度的强化学习。实验表明 VA-Judger 在域内和域外评测中都优于基于指标的基线，且用它做奖励后训练能显著提升音视频生成质量。\nMotivation: 现有方法把视频-音频生成模型的奖励拆成音频质量、视觉保真度和同步性等独立指标，这些指标分别衡量感知维度，无法捕获文本提示、视频和音频之间的整体语义与时间一致性，导致奖励黑客（reward hacking），模型得分高但内容不连贯或不符合人类观感。\nMethod: 提出 VA-Judger，一个 chain-of-thought omni-reward 模型；先构建含 9K 提示和 10.3K 细粒度成对比较的 VAPref-10K 数据集，以及含域内和域外对比的 VA-Judger-Bench 基准；训练上先学习质量差距明显的样本以建立结构化输出，再用经过人工标注验证的拒绝采样蒸馏困难比较的可靠偏好解释，最后做维度级强化学习把人类反馈分解到各个质量维度以获得比单一二值偏好标签更密的奖励信号。\nResult: 摘要报告 VA-Judger 在预测人类偏好的域内和域外评测上均优于指标基线；将该奖励用于音视频生成模型的后训练也在生成质量上带来显著提升。\nConclusion: 摘要强调以人类对齐的奖励替代独立质量指标，可以缓解奖励黑客并改善联合视频-音频生成的一致性与质量。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 VA-Judger，一个面向联合视频-音频生成的 chain-of-thought omni-reward 模型，用于从人类偏好反馈中学习奖励信号。作者构建了大规模人类偏好数据集 VAPref-10K 和评测基准 VA-Judger-Bench，并设计三阶段训练：先学清晰质量差距的成对比较，再通过拒绝采样蒸馏困难近质量比较的偏好解释，最后进行分维度的强化学习。实验表明 VA-Judger 在域内和域外评测中都优于基于指标的基线，且用它做奖励后训练能显著提升音视频生成质量。",
+        "motivation": "现有方法把视频-音频生成模型的奖励拆成音频质量、视觉保真度和同步性等独立指标，这些指标分别衡量感知维度，无法捕获文本提示、视频和音频之间的整体语义与时间一致性，导致奖励黑客（reward hacking），模型得分高但内容不连贯或不符合人类观感。",
+        "method": "提出 VA-Judger，一个 chain-of-thought omni-reward 模型；先构建含 9K 提示和 10.3K 细粒度成对比较的 VAPref-10K 数据集，以及含域内和域外对比的 VA-Judger-Bench 基准；训练上先学习质量差距明显的样本以建立结构化输出，再用经过人工标注验证的拒绝采样蒸馏困难比较的可靠偏好解释，最后做维度级强化学习把人类反馈分解到各个质量维度以获得比单一二值偏好标签更密的奖励信号。",
+        "result": "摘要报告 VA-Judger 在预测人类偏好的域内和域外评测上均优于指标基线；将该奖励用于音视频生成模型的后训练也在生成质量上带来显著提升。",
+        "conclusion": "摘要强调以人类对齐的奖励替代独立质量指标，可以缓解奖励黑客并改善联合视频-音频生成的一致性与质量。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-19",
+      "updated_date": "2026-08-20",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.18578",
+      "title": "Compress and Forget: bitsandbytes Quantization Amplifies Proactive Interference in LLMs",
+      "authors": [
+        "Shayan Shahrabi-Farahani",
+        "Dara Rahmati"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2608.18578",
+      "pdf_url": "https://arxiv.org/pdf/2608.18578",
+      "abstract_en": "Proactive interference (PI) is a documented failure mode in large language models in which retrieval of a repeatedly overwritten value degrades as prior overwrites accumulate, mirroring a classical phenomenon in human working memory. Post-training quantization (PTQ) is now the default deployment path for open-weight models, yet its effect on this failure mode has not been tested. We evaluate three precision levels (FP16, INT8, INT4/NF4, via bitsandbytes) across three architecturally distinct instruction-tuned models (Qwen2.5-7B-Instruct, Mistral-7B-Instruct-v0.3, Phi-3.5-mini-instruct), holding the retrieval task fixed. INT4 quantization significantly reduces accuracy under high interference in every model (e.g., from 81.0% to 68.3% for Qwen), confirmed by paired McNemar's tests ($p \\le 2.6 \\times 10^{-6}$) and a mixed-effects regression spanning all interference levels; INT8, often assumed safe, also carries a smaller but real penalty in two of three models. The effect is specific to semantically similar (word-type) distractors and reverses sign under a numeric control condition, and is mechanistically linked to a rise in same-key intrusion errors under INT4 (from 21.5% to 24.6% of trials, $p = 4.8 \\times 10^{-7}$). A follow-up ablation shows the effect originates in the quantized transformer backbone rather than the output projection layer. These results suggest that bitsandbytes 4-bit quantization can impose an additional cost on applications relying on long, updatable, semantically dense contexts, even when aggregate benchmark accuracy appears largely unaffected. We release our code and tokenizer-verified vocabulary construction method at https://github.com/ShayanShahrabi/compress-and-forget",
+      "comment": "21 pages, 6 figures, 11 tables. Author list formatting simplified. Code and data released at https://github.com/ShayanShahrabi/compress-and-forget",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究后训练量化 (PTQ) 对大型语言模型中主动干扰 (proactive interference) 这一失败模式的影响。作者通过 bitsandbytes 在三种架构不同的指令微调模型（Qwen2.5-7B-Instruct、Mistral-7B-Instruct-v0.3、Phi-3.5-mini-instruct）上比较 FP16、INT8、INT4/NF4 三种精度，发现 INT4 量化在高干扰条件下显著降低检索准确率，并将该效应机制性地关联到同键 intrusion 错误的增加。\nMotivation: 主动干扰是 LLM 中已被记录的一种失败模式，表现为对反复覆写值的检索会随先前覆写累积而退化；后训练量化已成为开源权重模型的默认部署路径，但其对该失败模式的影响此前未被测试。\nMethod: 固定检索任务不变，跨三种架构指令微调模型评估 FP16、INT8、INT4/NF4（经 bitsandbytes）三种精度；使用配对 McNemar 检验和覆盖所有干扰水平的混合效应回归确认效应，并通过消融实验区分效应来自量化的 transformer 主干还是输出投影层。\nResult: INT4 量化在高干扰下显著降低每个模型的准确率（例如 Qwen 从 81.0% 降至 68.3%），配对 McNemar 检验 p ≤ 2.6×10^-6；INT8 在三个模型中的两个也有较小但真实的损失。效应仅出现在语义相似（词类）干扰物上，在数值控制条件下符号反转；同键 intrusion 错误从 21.5% 升至 24.6%（p=4.8×10^-7），消融表明效应源于量化的 transformer 主干。\nConclusion: 摘要认为 bitsandbytes 4-bit 量化可能对依赖长、可更新、语义密集上下文的应用施加额外成本，即使聚合基准准确率看起来基本不受影响。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究后训练量化 (PTQ) 对大型语言模型中主动干扰 (proactive interference) 这一失败模式的影响。作者通过 bitsandbytes 在三种架构不同的指令微调模型（Qwen2.5-7B-Instruct、Mistral-7B-Instruct-v0.3、Phi-3.5-mini-instruct）上比较 FP16、INT8、INT4/NF4 三种精度，发现 INT4 量化在高干扰条件下显著降低检索准确率，并将该效应机制性地关联到同键 intrusion 错误的增加。",
+        "motivation": "主动干扰是 LLM 中已被记录的一种失败模式，表现为对反复覆写值的检索会随先前覆写累积而退化；后训练量化已成为开源权重模型的默认部署路径，但其对该失败模式的影响此前未被测试。",
+        "method": "固定检索任务不变，跨三种架构指令微调模型评估 FP16、INT8、INT4/NF4（经 bitsandbytes）三种精度；使用配对 McNemar 检验和覆盖所有干扰水平的混合效应回归确认效应，并通过消融实验区分效应来自量化的 transformer 主干还是输出投影层。",
+        "result": "INT4 量化在高干扰下显著降低每个模型的准确率（例如 Qwen 从 81.0% 降至 68.3%），配对 McNemar 检验 p ≤ 2.6×10^-6；INT8 在三个模型中的两个也有较小但真实的损失。效应仅出现在语义相似（词类）干扰物上，在数值控制条件下符号反转；同键 intrusion 错误从 21.5% 升至 24.6%（p=4.8×10^-7），消融表明效应源于量化的 transformer 主干。",
+        "conclusion": "摘要认为 bitsandbytes 4-bit 量化可能对依赖长、可更新、语义密集上下文的应用施加额外成本，即使聚合基准准确率看起来基本不受影响。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-19",
+      "updated_date": "2026-08-20",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.18574",
+      "title": "Continual Reasoning Gym: Diagnosing and Harnessing Shared Reasoning in Continual RLVR",
+      "authors": [
+        "Lirui Luo",
+        "Guoxi Zhang",
+        "Hongming Xu",
+        "Rongqing Li",
+        "Cong Fang",
+        "Lifeng Fan"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2608.18574",
+      "pdf_url": "https://arxiv.org/pdf/2608.18574",
+      "abstract_en": "Reinforcement learning with verifiable rewards (RLVR) commonly post-trains reasoning models on multiple tasks, while rerunning multitask RLVR (MTRL) as new tasks are added makes capability expansion costly. We therefore study continual RLVR, which updates the existing model as each task arrives. The central question is whether a model updated this way can perform as well as a jointly trained model. To answer this question, we introduce Continual Reasoning Gym, a continual-RLVR environment that organizes text and visual reasoning tasks into five task sequences. In this setting, we identify two key observations: Sequential RLVR exhibits modest forgetting, yet its final performance remains below that of MTRL. To understand the latter, we decompose final performance and show that forgetting accounts for only part of the gap. To explain the former, we identify shared reasoning: transferable reasoning structure allows training on one task to support others on average. We therefore introduce Continual Prompt Replay (CPR), which harnesses shared reasoning to improve learning on the arriving and future tasks by replaying previous-task prompts and regenerating their responses with the current policy. On average, only CPR reaches MTRL-level performance.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究持续强化学习与可验证奖励（continual RLVR），即任务顺序到达时在新任务上更新现有模型。作者引入 Continual Reasoning Gym，一个包含文本与视觉推理任务、组织成五个任务序列的持续 RLVR 环境。在该环境中发现顺序 RLVR 仅表现出适度遗忘，但最终性能仍低于联合多任务 RLVR（MTRL），且遗忘只解释了部分性能差距。作者将剩余现象归因于共享推理结构，并提出 Continual Prompt Replay (CPR)，通过重放先前任务提示并让当前策略重新生成响应来利用这种共享推理；平均而言只有 CPR 达到了 MTRL 级性能。\nMotivation: 多任务 RLVR 后训练在新任务加入时需要从头重跑多任务训练，能力扩展成本高。作者因此研究持续 RLVR，核心问题是顺序更新得到的模型能否达到联合训练模型的性能。\nMethod: 提出 Continual Reasoning Gym，一个把文本与视觉推理任务组织成五个任务序列的持续 RLVR 环境。在此基础上提出 Continual Prompt Replay (CPR)，重放先前任务的提示，并用当前策略重新生成这些提示对应的响应，以利用任务间可迁移的共享推理结构来改善当前及未来任务的学习。\nResult: 摘要报告两个关键观察：顺序 RLVR 遗忘程度适中，但其最终性能仍低于 MTRL；对最终性能进行分解后，遗忘只解释了部分差距。作者将剩余差距解释为共享推理，并平均而言仅 CPR 达到了 MTRL 级性能。\nConclusion: 摘要强调共享推理结构可以被主动利用，CPR 通过提示重放与响应再生成使持续 RLVR 平均达到联合训练水平；其结论限定在该环境与任务序列的范围内。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究持续强化学习与可验证奖励（continual RLVR），即任务顺序到达时在新任务上更新现有模型。作者引入 Continual Reasoning Gym，一个包含文本与视觉推理任务、组织成五个任务序列的持续 RLVR 环境。在该环境中发现顺序 RLVR 仅表现出适度遗忘，但最终性能仍低于联合多任务 RLVR（MTRL），且遗忘只解释了部分性能差距。作者将剩余现象归因于共享推理结构，并提出 Continual Prompt Replay (CPR)，通过重放先前任务提示并让当前策略重新生成响应来利用这种共享推理；平均而言只有 CPR 达到了 MTRL 级性能。",
+        "motivation": "多任务 RLVR 后训练在新任务加入时需要从头重跑多任务训练，能力扩展成本高。作者因此研究持续 RLVR，核心问题是顺序更新得到的模型能否达到联合训练模型的性能。",
+        "method": "提出 Continual Reasoning Gym，一个把文本与视觉推理任务组织成五个任务序列的持续 RLVR 环境。在此基础上提出 Continual Prompt Replay (CPR)，重放先前任务的提示，并用当前策略重新生成这些提示对应的响应，以利用任务间可迁移的共享推理结构来改善当前及未来任务的学习。",
+        "result": "摘要报告两个关键观察：顺序 RLVR 遗忘程度适中，但其最终性能仍低于 MTRL；对最终性能进行分解后，遗忘只解释了部分差距。作者将剩余差距解释为共享推理，并平均而言仅 CPR 达到了 MTRL 级性能。",
+        "conclusion": "摘要强调共享推理结构可以被主动利用，CPR 通过提示重放与响应再生成使持续 RLVR 平均达到联合训练水平；其结论限定在该环境与任务序列的范围内。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-19",
+      "updated_date": "2026-08-20",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.18521",
+      "title": "Which Negatives Matter? Ask Your Text Encoder: Adaptive Similarity Margins for Dense-Caption Retrieval",
+      "authors": [
+        "Haoyue Liu",
+        "Ye Chen",
+        "Zhichao Wang",
+        "Xiaoying Tang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2608.18521",
+      "pdf_url": "https://arxiv.org/pdf/2608.18521",
+      "abstract_en": "Dense-caption retrieval has recently been improved by introducing segmentation, edge maps, LLM-filtered captions, and cross-modal modules into contrastive fine-tuning. However, these methods largely inherit the same InfoNCE objective, whose optimization can prematurely saturate under a strong pre-trained initialization: on dense captions, the loss falls below 10^-3 on 80% of batches within the first epoch, while its gradient becomes numerically zero in 47% of measurements. We find that this behavior is closely related to the large number of near-duplicate captions in dense-caption benchmarks, where a few highly similar negatives remain unresolved after the easy majority has already been separated. As a remedy, we introduce HN-CLIP, which uses the text encoder's own text-text geometry to construct per-negative adaptive similarity margins. Specifically, a detached caption-similarity matrix is added to the negative logits, assigning larger margins to more similar captions without mining, synthesizing, or resampling negatives. The resulting objective requires only one caption-similarity matrix and a masked logit addition during training, with no auxiliary data, additional parameters, offline preprocessing, or inference-time overhead. Extensive experiments on four dense-caption retrieval benchmarks show that HN-CLIP improves over the strongest competitors by +2.5 to +4.0 R@1 while training 2.4x faster than GOAL and 5.4x faster than StructXLIP. Moreover, the proposed objective improves all six tested fine-tuning frameworks on the in-domain benchmarks and reaches the strongest full-data baseline with only 20% of the training data.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对稠密字幕检索 (dense-caption retrieval) 中对比微调目标过早饱和的问题，提出 HN-CLIP。作者观察到在强预训练初始化下 InfoNCE 损失在第一轮内于 80% 的批次降至 10^-3 以下，且 47% 的梯度测量值数值为零，这与稠密字幕基准中大量近重复负样本有关。HN-CLIP 利用文本编码器自身的文本-文本几何构造逐负样本自适应相似度边际 (per-negative adaptive similarity margins)，将分离的 caption 相似度矩阵加到负 logits 上，无需挖掘、合成或重采样负样本。实验表明方法在四个稠密字幕检索基准上超过最强基线 +2.5 到 +4.0 R@1，并显著加速训练。\nMotivation: 现有稠密字幕检索的对比微调沿用 InfoNCE 目标，在强预训练初始化下会过早饱和：易分的大多数负样本被分离后，少数高度相似的近重复负样本仍未被解决，导致梯度消失与训练停滞。\nMethod: 提出 HN-CLIP，使用文本编码器自身的 text-text 几何构造逐负样本的自适应相似度边际；具体地，将一个 detached 的 caption 相似度矩阵加到负 logits 上，为更相似的 caption 分配更大的边际，整个目标只需一个 caption 相似度矩阵和一次掩码 logit 加法，不引入辅助数据、额外参数、离线预处理或推理开销。\nResult: 在四个稠密字幕检索基准上，HN-CLIP 比最强竞争对手提升 +2.5 到 +4.0 R@1，训练速度比 GOAL 快 2.4 倍、比 StructXLIP 快 5.4 倍；该目标在域内基准上改进了全部六个测试的微调框架，并且仅用 20% 训练数据即可达到最强全量数据基线。\nConclusion: 摘要强调，通过利用文本编码器自身的相似度结构来构造自适应边际，可以解决稠密字幕检索中 InfoNCE 的饱和问题，且该方法在训练效率和数据效率上都有明显收益。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对稠密字幕检索 (dense-caption retrieval) 中对比微调目标过早饱和的问题，提出 HN-CLIP。作者观察到在强预训练初始化下 InfoNCE 损失在第一轮内于 80% 的批次降至 10^-3 以下，且 47% 的梯度测量值数值为零，这与稠密字幕基准中大量近重复负样本有关。HN-CLIP 利用文本编码器自身的文本-文本几何构造逐负样本自适应相似度边际 (per-negative adaptive similarity margins)，将分离的 caption 相似度矩阵加到负 logits 上，无需挖掘、合成或重采样负样本。实验表明方法在四个稠密字幕检索基准上超过最强基线 +2.5 到 +4.0 R@1，并显著加速训练。",
+        "motivation": "现有稠密字幕检索的对比微调沿用 InfoNCE 目标，在强预训练初始化下会过早饱和：易分的大多数负样本被分离后，少数高度相似的近重复负样本仍未被解决，导致梯度消失与训练停滞。",
+        "method": "提出 HN-CLIP，使用文本编码器自身的 text-text 几何构造逐负样本的自适应相似度边际；具体地，将一个 detached 的 caption 相似度矩阵加到负 logits 上，为更相似的 caption 分配更大的边际，整个目标只需一个 caption 相似度矩阵和一次掩码 logit 加法，不引入辅助数据、额外参数、离线预处理或推理开销。",
+        "result": "在四个稠密字幕检索基准上，HN-CLIP 比最强竞争对手提升 +2.5 到 +4.0 R@1，训练速度比 GOAL 快 2.4 倍、比 StructXLIP 快 5.4 倍；该目标在域内基准上改进了全部六个测试的微调框架，并且仅用 20% 训练数据即可达到最强全量数据基线。",
+        "conclusion": "摘要强调，通过利用文本编码器自身的相似度结构来构造自适应边际，可以解决稠密字幕检索中 InfoNCE 的饱和问题，且该方法在训练效率和数据效率上都有明显收益。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-19",
+      "updated_date": "2026-08-20",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.18388",
+      "title": "Depth Anything V4: Dynamic 4D Scene Reconstruction via Riemannian Flow Matching on 4D Gaussian Splatting",
+      "authors": [
+        "Jiaming Fan",
+        "Jian Lu",
+        "Jinling Jia",
+        "Chenbin Zhang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.18388",
+      "pdf_url": "https://arxiv.org/pdf/2608.18388",
+      "abstract_en": "We present Depth Anything V4 (DAV4), a framework for dynamic 4D scene reconstruction from monocular video. Our key contribution is the application of Riemannian Flow Matching (RFM) to 4D Gaussian Splatting parameters, defining probability paths directly on non-Euclidean manifolds (scale, rotation, opacity), ensuring all intermediate states are valid. Through controlled experiments, we isolate RFM's contribution from test-time optimization (TTO) and pre-training. A deterministic MLP baseline with the same data, architecture, and TTO achieves F-score 0.762; RFM achieves 0.806 - the +0.044 gain is RFM's isolated contribution. We provide corrected computational cost analysis: pre-training is 360 GPU-hours, amortizing for large-scale deployment (over 10,000 scenes). Uncertainty is quantified via Negative Gaussian Log-Likelihood and Expected Calibration Error. DAV4 outperforms prior Depth Anything models and per-scene 4D-GS on dynamic reconstruction and novel-view synthesis, while using no human-annotated depth labels as training losses.",
+      "comment": "Major errors in research",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Depth Anything V4 (DAV4)，一个从单目视频进行动态 4D 场景重建的框架。核心贡献是将 Riemannian Flow Matching (RFM) 应用于 4D Gaussian Splatting 参数，直接在非欧几里得流形（scale、rotation、opacity）上定义概率路径，保证中间状态有效。受控实验显示 RFM 相对确定性 MLP 基线带来 +0.044 的 F-score 提升，且 DAV4 在动态重建和新视角合成上优于先前 Depth Anything 模型与逐场景 4D-GS。\nMotivation: 动态 4D 场景重建通常涉及在非欧几里得空间中定义参数演化，直接使用欧氏空间的概率路径或流匹配可能产生无效的中间状态，影响重建质量。\nMethod: 将 Riemannian Flow Matching (RFM) 应用于 4D Gaussian Splatting 参数，在 scale、rotation、opacity 等非欧几里得流形上定义概率路径；通过受控实验将 RFM 的贡献与 test-time optimization (TTO) 和预训练分离开来，并使用 Negative Gaussian Log-Likelihood 与 Expected Calibration Error 量化不确定性。\nResult: 在相同数据、架构和 TTO 条件下，确定性 MLP 基线 F-score 为 0.762，RFM 达到 0.806，+0.044 被归因于 RFM 的独立贡献。预训练成本为 360 GPU-hours，并声称在超过 10,000 个场景的大规模部署中可摊销；DAV4 不使用人工标注的深度标签作为训练损失。\nConclusion: 摘要强调 RFM 在非欧几里得参数空间中的有效性，以及预训练成本在大规模部署中的可摊销性。需要指出的是，arXiv 评论标注为 \"Major errors in research\"，读者应对论文中的计算与实验结论保持谨慎。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Depth Anything V4 (DAV4)，一个从单目视频进行动态 4D 场景重建的框架。核心贡献是将 Riemannian Flow Matching (RFM) 应用于 4D Gaussian Splatting 参数，直接在非欧几里得流形（scale、rotation、opacity）上定义概率路径，保证中间状态有效。受控实验显示 RFM 相对确定性 MLP 基线带来 +0.044 的 F-score 提升，且 DAV4 在动态重建和新视角合成上优于先前 Depth Anything 模型与逐场景 4D-GS。",
+        "motivation": "动态 4D 场景重建通常涉及在非欧几里得空间中定义参数演化，直接使用欧氏空间的概率路径或流匹配可能产生无效的中间状态，影响重建质量。",
+        "method": "将 Riemannian Flow Matching (RFM) 应用于 4D Gaussian Splatting 参数，在 scale、rotation、opacity 等非欧几里得流形上定义概率路径；通过受控实验将 RFM 的贡献与 test-time optimization (TTO) 和预训练分离开来，并使用 Negative Gaussian Log-Likelihood 与 Expected Calibration Error 量化不确定性。",
+        "result": "在相同数据、架构和 TTO 条件下，确定性 MLP 基线 F-score 为 0.762，RFM 达到 0.806，+0.044 被归因于 RFM 的独立贡献。预训练成本为 360 GPU-hours，并声称在超过 10,000 个场景的大规模部署中可摊销；DAV4 不使用人工标注的深度标签作为训练损失。",
+        "conclusion": "摘要强调 RFM 在非欧几里得参数空间中的有效性，以及预训练成本在大规模部署中的可摊销性。需要指出的是，arXiv 评论标注为 \"Major errors in research\"，读者应对论文中的计算与实验结论保持谨慎。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-18",
+      "updated_date": "2026-08-20",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2512.03322",
+      "title": "SSLfmm: An R Package for Semi-Supervised Learning with Mixed Missingness",
+      "authors": [
+        "Geoffrey J. McLachlan",
+        "Jinran Wu"
+      ],
+      "categories": [
+        "stat.CO",
+        "stat.ME",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "stat.ML"
+      ],
+      "display_category": "stat.ML",
+      "primary_category": "stat.CO",
+      "abs_url": "https://arxiv.org/abs/2512.03322",
+      "pdf_url": "https://arxiv.org/pdf/2512.03322",
+      "abstract_en": "Partially labelled samples arise when features are observed for all data, but class labels are available for only a subset. In such settings, the mechanism governing label availability may itself contain information relevant to classification, yet it is typically left unmodelled in standard semi-supervised learning procedures. The SSLfmm package implements likelihood-based Gaussian finite-mixture classification in which the label-missingness process is modelled jointly with the class distribution. It supports complete-case, missing completely at random (MCAR), entropy-based missing at random (MAR), and mixed MCAR/MAR analyses. For the mixed mechanism, the source of a missing label may be observed or latent, allowing the same modelling framework to accommodate different forms of information about label availability. A common R interface is provided for model fitting, prediction, performance assessment, simulation, and entropy-based diagnostics. We describe the statistical formulation and software implementation, position SSLfmm relative to existing finite-mixture and semi-supervised learning software, and demonstrate its use through a reproducible simulation comparing observed- and latent-source analyses. A semi-synthetic application to the Blood Transfusion data further illustrates how alternative assumptions about label missingness can be fitted, compared, and diagnosed in practice.",
+      "comment": "20 pages, 2 figure",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文介绍 R 包 SSLfmm，用于半监督学习 (semi-supervised learning) 中基于似然的高斯有限混合分类，并将标签缺失机制与类别分布联合建模。该包支持完整观测、完全随机缺失 (MCAR)、基于熵的随机缺失 (MAR) 以及混合 MCAR/MAR 分析；在混合机制下，缺失标签的来源可以是可观测的或潜在的，从而在同一框架中容纳不同形式的标签可得性信息。文章给出统计公式、软件实现，并用可复现模拟和 Blood Transfusion 半合成数据演示了用法。\nMotivation: 在仅有部分样本有类别标签的场景中，标签是否可得这一机制本身可能包含与分类相关的信息，但标准半监督学习流程通常不对此建模。作者针对这一缺口开发软件包，将标签缺失过程与类别分布联合纳入似然框架。\nMethod: 实现基于似然的高斯有限混合分类，联合刻画类别分布与标签缺失过程。支持 complete-case、MCAR、基于熵的 MAR 和混合 MCAR/MAR 机制；混合机制下可通过可观测或潜在来源的设定来统一建模。提供统一的 R 接口，覆盖模型拟合、预测、性能评估、模拟和基于熵的诊断。\nResult: 摘要报告了可复现的模拟，比较了可观测来源与潜在来源两种分析方式，并通过 Blood Transfusion 数据的半合成应用展示不同标签缺失假设的拟合、比较与诊断。摘要未给出具体数值结果。\nConclusion: SSLfmm 将标签缺失机制纳入建模框架，使实践者可以在 MCAR、MAR 和混合机制等不同假设下拟合、比较和诊断半监督模型，并作为现有有限混合与半监督学习软件之外的现成 R 工具。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文介绍 R 包 SSLfmm，用于半监督学习 (semi-supervised learning) 中基于似然的高斯有限混合分类，并将标签缺失机制与类别分布联合建模。该包支持完整观测、完全随机缺失 (MCAR)、基于熵的随机缺失 (MAR) 以及混合 MCAR/MAR 分析；在混合机制下，缺失标签的来源可以是可观测的或潜在的，从而在同一框架中容纳不同形式的标签可得性信息。文章给出统计公式、软件实现，并用可复现模拟和 Blood Transfusion 半合成数据演示了用法。",
+        "motivation": "在仅有部分样本有类别标签的场景中，标签是否可得这一机制本身可能包含与分类相关的信息，但标准半监督学习流程通常不对此建模。作者针对这一缺口开发软件包，将标签缺失过程与类别分布联合纳入似然框架。",
+        "method": "实现基于似然的高斯有限混合分类，联合刻画类别分布与标签缺失过程。支持 complete-case、MCAR、基于熵的 MAR 和混合 MCAR/MAR 机制；混合机制下可通过可观测或潜在来源的设定来统一建模。提供统一的 R 接口，覆盖模型拟合、预测、性能评估、模拟和基于熵的诊断。",
+        "result": "摘要报告了可复现的模拟，比较了可观测来源与潜在来源两种分析方式，并通过 Blood Transfusion 数据的半合成应用展示不同标签缺失假设的拟合、比较与诊断。摘要未给出具体数值结果。",
+        "conclusion": "SSLfmm 将标签缺失机制纳入建模框架，使实践者可以在 MCAR、MAR 和混合机制等不同假设下拟合、比较和诊断半监督模型，并作为现有有限混合与半监督学习软件之外的现成 R 工具。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2025-12-03",
+      "updated_date": "2026-08-20",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
