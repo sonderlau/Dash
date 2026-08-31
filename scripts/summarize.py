@@ -75,27 +75,6 @@ def format_metadata_list(values: list[str] | tuple[str, ...]) -> str:
     return ", ".join(cleaned) if cleaned else ""
 
 
-def prepare_metadata_context(paper: dict[str, Any]) -> str:
-    return "\n".join(
-        [
-            f"Title: {compact_text(paper.get('title', ''))}",
-            f"Authors: {format_metadata_list(paper.get('authors', []))}",
-            f"Matched categories: {format_metadata_list(paper.get('matched_categories', []))}",
-            f"All categories: {format_metadata_list(paper.get('categories', []))}",
-            f"Primary category: {compact_text(paper.get('primary_category', ''))}",
-            f"Published date: {compact_text(paper.get('published_date', ''))}",
-            f"Updated date: {compact_text(paper.get('updated_date', ''))}",
-            f"arXiv comment: {compact_text(paper.get('comment', ''))}",
-            f"Journal reference: {compact_text(paper.get('journal_ref', ''))}",
-            f"DOI: {compact_text(paper.get('doi', ''))}",
-            f"arXiv abstract URL: {compact_text(paper.get('abs_url', ''))}",
-            "",
-            "Abstract:",
-            compact_text(paper.get("abstract_en", "")),
-        ]
-    ).strip()
-
-
 def render_system(template_name: str, language: str) -> str:
     """Render a system prompt with language baked in.
 
@@ -131,7 +110,6 @@ def build_messages(
         doi=paper.get("doi", ""),
         abs_url=paper.get("abs_url", ""),
         abstract_en=paper["abstract_en"],
-        metadata_context=prepare_metadata_context(paper),
         keywords="\n".join(f"- {keyword}" for keyword in keywords),
         relevance_instruction=(
             "请根据上面的关键词给出 0-100 的 relevance_score，分数表示这篇论文是否值得我优先阅读。"
@@ -157,6 +135,7 @@ def build_request_payload(
         "model": llm_settings["model"],
         "temperature": 0.15,
         "max_tokens": max_tokens,
+        "thinking": {"type": "disabled"},
         "response_format": {"type": "json_object"},
         "messages": build_messages(system_prompt, user_prompt, paper, keywords or []),
     }

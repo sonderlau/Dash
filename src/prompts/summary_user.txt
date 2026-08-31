@@ -1,3 +1,10 @@
+个人阅读关键词（可能为空）：
+{keywords}
+
+{relevance_instruction}
+
+请只基于下面的 metadata 和 abstract 输出 JSON。不要假设你读过 PDF 全文。
+
 标题：{title}
 作者：{authors}
 匹配分类：{categories}
@@ -12,10 +19,3 @@ arXiv abstract URL：{abs_url}
 
 英文摘要：
 {abstract_en}
-
-个人阅读关键词（可能为空）：
-{keywords}
-
-{relevance_instruction}
-
-请只基于上面的 metadata 和 abstract 输出 JSON。不要假设你读过 PDF 全文。
