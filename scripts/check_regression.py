@@ -1,16 +1,27 @@
-"""Refuse to publish a build that shrinks any historical day's paper_count.
+"""Refuse to publish a build that shrinks any still-retained day's paper_count.
 
 Compares the freshly-built docs/data/*.json (excluding index.json) against the
-copy on the `data` branch (passed as ref_dir). Exits non-zero if any day has
-fewer papers in the new build than the previous version, or if a previously
-published day is missing entirely. Schema/build bugs that silently zero out
-history get caught here before Stage 5 commits the bad data.
+copy on the `data` branch (passed as previous_dir). Exits non-zero if any day
+inside the keep_days window has fewer papers than before, or is missing.
+Dates older than the window are allowed to expire — that is keep_days working,
+not a regression.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import sys
+from datetime import date, datetime, timedelta
 from pathlib import Path
+
+
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Guard against shrinking published daily snapshots.")
+    parser.add_argument("previous_dir", help="docs/data from the data branch.")
+    parser.add_argument("new_dir", help="Freshly built docs/data.")
+    parser.add_argument("--as-of", default=None, help="Run date YYYY-MM-DD (default: today UTC).")
+    parser.add_argument("--keep-days", type=int, default=90, help="Retention window; must match output.keep_days.")
+    return parser.parse_args(argv)
 
 
 def collect_counts(directory: Path) -> dict[str, int]:
@@ -29,13 +40,19 @@ def collect_counts(directory: Path) -> dict[str, int]:
     return counts
 
 
-def main(argv: list[str]) -> int:
-    if len(argv) != 3:
-        print("usage: check_regression.py <previous_dir> <new_dir>", file=sys.stderr)
-        return 2
+def snapshot_date(name: str) -> date | None:
+    try:
+        return datetime.strptime(Path(name).stem, "%Y-%m-%d").date()
+    except ValueError:
+        return None
 
-    previous = Path(argv[1])
-    new = Path(argv[2])
+
+def main(argv: list[str]) -> int:
+    args = parse_args(argv[1:])
+    previous = Path(args.previous_dir)
+    new = Path(args.new_dir)
+    as_of = date.fromisoformat(args.as_of) if args.as_of else date.today()
+    cutoff = as_of - timedelta(days=args.keep_days - 1)
 
     if not previous.exists():
         print("No previous data directory; skipping regression guard.")
@@ -45,7 +62,13 @@ def main(argv: list[str]) -> int:
     new_counts = collect_counts(new)
 
     regressions: list[str] = []
+    expired: list[str] = []
     for name, old_count in prev_counts.items():
+        day = snapshot_date(name)
+        if day is not None and day < cutoff:
+            if name not in new_counts:
+                expired.append(f"{name}: expired before {cutoff.isoformat()} (was {old_count})")
+            continue
         if name not in new_counts:
             regressions.append(f"{name}: missing in new build (was {old_count})")
             continue
@@ -53,13 +76,21 @@ def main(argv: list[str]) -> int:
         if new_count < old_count:
             regressions.append(f"{name}: {old_count} -> {new_count}")
 
+    if expired:
+        print("Expired dates dropped by keep_days:")
+        for entry in expired:
+            print(f"  - {entry}")
+
     if regressions:
         print("REGRESSIONS DETECTED:")
         for entry in regressions:
             print(f"  - {entry}")
         return 1
 
-    print(f"Regression guard: OK ({len(prev_counts)} historical days verified)")
+    print(
+        f"Regression guard: OK ({len(prev_counts)} historical days checked, "
+        f"{len(expired)} expired, window {cutoff.isoformat()}..{as_of.isoformat()})"
+    )
     return 0
 
 
