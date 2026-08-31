@@ -8,6 +8,13 @@ on:
         required: false
         type: string
         default: ""
+  workflow_dispatch:
+    inputs:
+      run_date:
+        description: "Optional run date for log clarity (YYYY-MM-DD)."
+        required: false
+        type: string
+        default: ""
 
 permissions:
   contents: read
