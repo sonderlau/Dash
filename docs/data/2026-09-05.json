@@ -1,0 +1,521 @@
+{
+  "date": "2026-09-05",
+  "snapshot_date": "2026-09-05",
+  "generated_at": "2026-09-05T13:28:40Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 12,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 4,
+    "cs.CV": 3,
+    "cs.AI": 4,
+    "physics.ao-ph": 1
+  },
+  "summary_status_counts": {
+    "ok": 12
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 610
+  },
+  "papers": [
+    {
+      "id": "2609.02855",
+      "title": "Improved Gradient Descent Lower Bounds Beyond Nesterov",
+      "authors": [
+        "Yuhan Ye",
+        "Kaizhao Liu"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "math.OC",
+      "abs_url": "https://arxiv.org/abs/2609.02855",
+      "pdf_url": "https://arxiv.org/pdf/2609.02855",
+      "abstract_en": "We study how far gradient descent (GD) can be accelerated by predetermined stepsizes in smooth convex optimization. Going beyond the classical $Ω(n^{-2})$ first-order oracle lower bound of Nemirovsky and Yudin (1983), we prove an $Ω(n^{-1.6342})$ non-anytime lower bound and an $Ω(n^{-1.2408})$ anytime lower bound. These improve the recent $Ω(n^{-1.932})$ non-anytime lower bound of Ma and Chen (2026) and the $Ω(n^{-4/3})$ anytime lower bound of Tsai et al. (2026), respectively. Both results continue to hold when the stepsizes may be negative. Our anytime lower bound also shows that the $O(n^{-\\log_2(1+\\sqrt{2})})$ rate of non-anytime silver schedules (Altschuler and Parrilo, 2025; Grimmer et al., 2025) is unattainable in the anytime setting. This establishes a strict separation between the two settings.",
+      "comment": "34 pages, 6 figures. This version extends the lower bounds to stepsize schedules that may include negative stepsizes",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 研究光滑凸优化中梯度下降的预定步长下界，证明非任意时刻 Ω(n^{-1.6342}) 和任意时刻 Ω(n^{-1.2408}) 的下界，改进现有结果。\nMotivation: 经典 Ω(n^{-2}) 下界之外，预定步长能否加速 GD 尚不明确，现有下界不够紧。\nMethod: 构造新的下界证明，允许步长可为负，并区分任意时刻与非任意时刻设置。\nResult: 非任意时刻下界改进至 Ω(n^{-1.6342})，任意时刻下界改进至 Ω(n^{-1.2408})。\nConclusion: 任意时刻下界排除 silver 调度的速率，严格区分两种设置。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "研究光滑凸优化中梯度下降的预定步长下界，证明非任意时刻 Ω(n^{-1.6342}) 和任意时刻 Ω(n^{-1.2408}) 的下界，改进现有结果。",
+        "motivation": "经典 Ω(n^{-2}) 下界之外，预定步长能否加速 GD 尚不明确，现有下界不够紧。",
+        "method": "构造新的下界证明，允许步长可为负，并区分任意时刻与非任意时刻设置。",
+        "result": "非任意时刻下界改进至 Ω(n^{-1.6342})，任意时刻下界改进至 Ω(n^{-1.2408})。",
+        "conclusion": "任意时刻下界排除 silver 调度的速率，严格区分两种设置。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-02",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.02486",
+      "title": "ViSAR: Training-Free Adaptive-$k$ Retrieval for Visual Document Question Answering",
+      "authors": [
+        "Adrien Mialland",
+        "Marc Plantevit",
+        "Julien Gallois",
+        "Céline Robardet"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CV",
+        "cs.IR"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.IR",
+      "abs_url": "https://arxiv.org/abs/2609.02486",
+      "pdf_url": "https://arxiv.org/pdf/2609.02486",
+      "abstract_en": "Document Visual Question Answering (DocVQA) often leverages Retrieval-Augmented Generation (RAG), where late-interaction encoders are commonly used to identify document pages relevant to a user query, before answer generation by a Large Vision-Language Model (LVLM). Existing approaches typically retrieve a fixed top-$k$ number of pages regardless of query complexity, which increases LVLM latency and may degrade answer accuracy. We introduce ViSAR (Visual Semantic Activation Retrieval), a training-free adaptive-$k$ retrieval method for late-interaction visual document retrieval. ViSAR operates directly in the embedding space to construct a query-conditioned page-level similarity matrix that highlights query-relevant semantics and dynamically determines the number of pages to retrieve. Across multiple encoders and LVLMs, ViSAR retrieves compact, query-adapted page sets that reduce RAG latency by up to 58.7\\%, while maintaining or improving answer accuracy compared with fixed top-$k$ and adaptive retrieval heuristics. Furthermore, we show that the similarity matrix structure correlates with answer accuracy, suggesting future directions for retrieval quality-aware document understanding.",
+      "comment": "13 pages, 5 figures, 4 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出训练无关的自适应-k检索方法ViSAR，用于视觉文档问答，通过查询条件相似度矩阵动态决定检索页数，降低RAG延迟并保持或提升准确率。\nMotivation: 现有DocVQA的RAG固定检索top-k页，忽略查询复杂度，导致延迟高且可能降低答案准确率。\nMethod: ViSAR在嵌入空间构建查询条件的页级相似度矩阵，突出查询相关语义并动态确定检索页数。\nResult: 在多种编码器和LVLM上，ViSAR将RAG延迟降低最多58.7%，同时保持或提升答案准确率。\nConclusion: 相似度矩阵结构与答案准确率相关，提示未来可发展检索质量感知的文档理解。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出训练无关的自适应-k检索方法ViSAR，用于视觉文档问答，通过查询条件相似度矩阵动态决定检索页数，降低RAG延迟并保持或提升准确率。",
+        "motivation": "现有DocVQA的RAG固定检索top-k页，忽略查询复杂度，导致延迟高且可能降低答案准确率。",
+        "method": "ViSAR在嵌入空间构建查询条件的页级相似度矩阵，突出查询相关语义并动态确定检索页数。",
+        "result": "在多种编码器和LVLM上，ViSAR将RAG延迟降低最多58.7%，同时保持或提升答案准确率。",
+        "conclusion": "相似度矩阵结构与答案准确率相关，提示未来可发展检索质量感知的文档理解。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-02",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.02364",
+      "title": "Towards a Foundational Ontology for Identifying and Resolving Contradictions in Dialogue-based Human-Robot Interactions",
+      "authors": [
+        "Maitreyee Tewari",
+        "Michele Persiani"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.HC"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.HC",
+      "abs_url": "https://arxiv.org/abs/2609.02364",
+      "pdf_url": "https://arxiv.org/pdf/2609.02364",
+      "abstract_en": "Existing Human-Robot Interaction (HRI) literature has focused on identifying and structuring errors, failures, conflicts, and knowledge issues (called in this work as contradictions) in domain-specific dialogue-based interactions. However, there is still lack of a formal computational framework to represent and define these contradictions, interoperable and usable across HRI and human-agent interaction (HAI) domains. Thus, this research project aims to capture, represent, and evaluate the notion of (1) dialogue-based collaborative interaction and (2) related contradictions in a foundational ontology. METHONTOLOGY, a systematic approach to build domain-independent ontologies was applied. In the conceptualisation stage of the presented ontology, concepts and models from Activity Theory were used. Preliminary results presented in this short article are: (i) Natural language definitions of dialogues and related contradictions in HRI, (ii) Set Theoretic definitions of dialogues and contradictions, and (iii) First Order Logic (FoL) formulation of the contradiction concepts and three novel principles guiding dialogue-based interactions between humans and robots. In summary, we report on ongoing work to develop a foundational ontology based on Activity Theory called Activity Theory-based foundational ontology (ATFOt) to capture and represent the notion of contradictions in HRI.",
+      "comment": "5 pages, 1 figure, Accepted at the 2nd edition of the Joint Workshop on Ontologies, Semantic Maps and Autonomous Robotics Standardization (J-WOSMARS 2026) collocated with ICRA 2026, Austria",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出基于活动理论的基础本体ATFOt，用于形式化表示对话式人机交互中的矛盾概念，并给出自然语言、集合论和一阶逻辑定义。\nMotivation: HRI文献缺乏跨领域可互操作的形式化框架来定义对话交互中的矛盾。\nMethod: 应用METHONTOLOGY方法，在概念化阶段引入活动理论构建基础本体。\nResult: 初步成果包括对话与矛盾的自然语言、集合论及一阶逻辑定义，并提出三条交互原则。\nConclusion: 该工作为对话式HRI矛盾的形式化表示提供基础，但尚属进行中研究。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出基于活动理论的基础本体ATFOt，用于形式化表示对话式人机交互中的矛盾概念，并给出自然语言、集合论和一阶逻辑定义。",
+        "motivation": "HRI文献缺乏跨领域可互操作的形式化框架来定义对话交互中的矛盾。",
+        "method": "应用METHONTOLOGY方法，在概念化阶段引入活动理论构建基础本体。",
+        "result": "初步成果包括对话与矛盾的自然语言、集合论及一阶逻辑定义，并提出三条交互原则。",
+        "conclusion": "该工作为对话式HRI矛盾的形式化表示提供基础，但尚属进行中研究。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-02",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.02291",
+      "title": "VoRTeC: Taming Foundation Flow for One-step Real time Video Compression",
+      "authors": [
+        "Yichong Xia",
+        "Qinhong Wu",
+        "Bin Chen",
+        "Jinpeng Wang",
+        "Zeyuan Chen",
+        "Haoqian Wang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.02291",
+      "pdf_url": "https://arxiv.org/pdf/2609.02291",
+      "abstract_en": "Ultra-low bitrate video compression still faces critical challenges: traditional neural video compression inevitably introduces blurring artifacts, while diffusion-based generative video compression suffers from excessive decoding latency and poor temporal consistency. To address these issues, we propose $\\mathtt{VoRTeC}$, a Video Compression framework built upon a foundational flow model (Wan2.1). By compactly encoding latent video representations, predicting the positions of compressed representations along flow trajectories, and integrating multi-scale priors, $\\mathtt{VoRTeC}$ enables the compressor to harness generative video flow priors effectively. Without accessing the parameters or gradients of flow matching networks, our framework achieves one-step decoding and reconstructions with high perceptual fidelity. Meanwhile, we maintain consistency across frame groups via tail-frame reuse and prior caching. Extensive experiments demonstrate that our method reduces bit consumption by 58\\% compared to prior diffusion-based approaches, with decoding speed boosted by 3 to 197 times: $\\mathtt{VoRTeC}$ achieves a decoding speed of 13 FPS at 720p and 32 FPS at 480p.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出基于基础流模型 Wan2.1 的视频压缩框架 VoRTeC，实现单步解码与高感知保真度，比特消耗较扩散方法降低 58%，解码速度提升 3 至 197 倍。\nMotivation: 超低码率视频压缩中，传统神经压缩易模糊，扩散式生成压缩延迟高且时间一致性差。\nMethod: 紧凑编码潜在表示，预测压缩表示在流轨迹上的位置，集成多尺度先验，并复用尾帧与缓存先验保持一致性。\nResult: 比特消耗降低 58%，解码速度提升 3 至 197 倍，720p 下 13 FPS，480p 下 32 FPS。\nConclusion: 无需访问流匹配网络参数即可利用生成先验实现高效单步解码，但摘要未提及对降水等天气任务的适用性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出基于基础流模型 Wan2.1 的视频压缩框架 VoRTeC，实现单步解码与高感知保真度，比特消耗较扩散方法降低 58%，解码速度提升 3 至 197 倍。",
+        "motivation": "超低码率视频压缩中，传统神经压缩易模糊，扩散式生成压缩延迟高且时间一致性差。",
+        "method": "紧凑编码潜在表示，预测压缩表示在流轨迹上的位置，集成多尺度先验，并复用尾帧与缓存先验保持一致性。",
+        "result": "比特消耗降低 58%，解码速度提升 3 至 197 倍，720p 下 13 FPS，480p 下 32 FPS。",
+        "conclusion": "无需访问流匹配网络参数即可利用生成先验实现高效单步解码，但摘要未提及对降水等天气任务的适用性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-02",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.02149",
+      "title": "OmegaUse-SOP: SOP Engineering for Professional Computer Use from Human Demonstrations",
+      "authors": [
+        "Yixiong Xiao",
+        "Lang An",
+        "Hucheng Yang",
+        "Pinxue Ma",
+        "Yongquan Chen",
+        "Jingjia Cao",
+        "Yusai Zhao",
+        "Ting Wang",
+        "Ting Liu",
+        "Siqi Bao",
+        "Jingbo Zhou",
+        "Hua Wu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.HC"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.HC",
+      "abs_url": "https://arxiv.org/abs/2609.02149",
+      "pdf_url": "https://arxiv.org/pdf/2609.02149",
+      "abstract_en": "Large language models (LLMs) are increasingly evolving from conversational assistants into agents capable of operating external digital environments. Graphical user interface (GUI) agents play an important role in this transition, as many real-world workflows remain accessible only through user-facing software interfaces. However, despite recent progress on general computer-use benchmarks, domain-specific professional standard operating procedures (SOPs) remain challenging for GUI agents because they often involve implicit domain knowledge, software-specific conventions, and task-level verification requirements. We introduce OmegaUse-SOP, a human-in-the-loop SOP Engineering system for transforming human demonstrations of professional computer use into reusable SOP skills for GUI agents. Analogous to prompt engineering, SOP Engineering iteratively refines demonstrations, execution rules, and domain knowledge to convert professional SOPs into reusable GUI-agent skills. OmegaUse-SOP consists of four modules: Observe, Reason, Configure, and Execute. Together, these modules record expert operations as multimodal GUI traces, abstract low-level events into semantic step-level instructions, incorporate domain rules and task-specific parameters, and execute the resulting skills in live GUI environments through step-wise grounding, action generation, and verification. To demonstrate its effectiveness, we collaborate with a power-sector client and test OmegaUse-SOP on photovoltaic simulation workflows in PVsyst 7.2. The results suggest that OmegaUse-SOP can improve GUI-agent reliability on professional SOP tasks, highlighting a practical path toward deploying GUI agents in domain-specific professional software environments.",
+      "comment": "Accpeted by EMNLP 2026 demo track",
+      "journal_ref": "",
+      "doi": "10.21203/rs.3.rs-10741604/v1",
+      "summary_zh": "TL;DR: 提出 OmegaUse-SOP，一个将人类专业软件操作演示转化为 GUI 代理可复用 SOP 技能的人机协同系统，并在光伏仿真软件 PVsyst 7.2 上验证其提升可靠性。\nMotivation: 专业领域标准操作流程（SOP）隐含领域知识、软件约定和任务级验证要求，GUI 代理难以处理。\nMethod: 系统含 Observe、Reason、Configure、Execute 四模块，将专家操作记录为多模态轨迹，抽象为语义步骤，融入领域规则并逐步执行验证。\nResult: 在电力行业光伏仿真工作流上测试，表明能提升 GUI 代理在专业 SOP 任务上的可靠性。\nConclusion: 为在专业软件环境中部署 GUI 代理提供了可行路径，但摘要未给出定量指标。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 OmegaUse-SOP，一个将人类专业软件操作演示转化为 GUI 代理可复用 SOP 技能的人机协同系统，并在光伏仿真软件 PVsyst 7.2 上验证其提升可靠性。",
+        "motivation": "专业领域标准操作流程（SOP）隐含领域知识、软件约定和任务级验证要求，GUI 代理难以处理。",
+        "method": "系统含 Observe、Reason、Configure、Execute 四模块，将专家操作记录为多模态轨迹，抽象为语义步骤，融入领域规则并逐步执行验证。",
+        "result": "在电力行业光伏仿真工作流上测试，表明能提升 GUI 代理在专业 SOP 任务上的可靠性。",
+        "conclusion": "为在专业软件环境中部署 GUI 代理提供了可行路径，但摘要未给出定量指标。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-02",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.02082",
+      "title": "Transfer Safety Awareness for Cross-Modal Safety Drift in Multimodal Large Language Models",
+      "authors": [
+        "Tianqi Xiao",
+        "Shiyao Cui",
+        "Minghao Zhang",
+        "Junxiao Yang",
+        "Renmiao Chen"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CR",
+        "cs.MM"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.MM",
+      "abs_url": "https://arxiv.org/abs/2609.02082",
+      "pdf_url": "https://arxiv.org/pdf/2609.02082",
+      "abstract_en": "Visual modality enhances the capabilities of multimodal large language models (MLLMs) but also introduces a safety concern: a benign textual query may convey harmful intent when grounded in a visual image. We term this cross-modal safety drift and our pilot studies show that the safety response rate for such requests is substantially lower than that for requests containing explicitly unsafe text. This paper aims to systematically study this issue. First, we conduct an empirical analysis to identify representative unsafe response patterns. Building on these, we interpret model representations and attentions, revealing that visually risky cues receive limited attention and weakly trigger refusal. Motivated by the observation that safety signals from unsafe text processing can be transferred, we propose safety-awareness representation transfer (SRT), a lightweight direction-refinement method that mitigates cross-modal safety drift with a frozen MLLM backbone. Experiments across multiple benchmarks and models show that SRT effectively improves safety in diverse cross-modal settings while preserving utility. Code is available at https://github.com/cucu220123/safety-awareness.",
+      "comment": "Accepted to Findings of EMNLP 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出跨模态安全漂移问题，即良性文本在图像语境下可能表达恶意意图，并给出轻量级安全感知表示迁移（SRT）方法，在冻结MLLM骨干下提升安全性并保持效用。\nMotivation: 多模态大模型中，视觉输入可使良性文本查询隐含恶意，而模型对此类请求的安全响应率显著低于显式不安全文本。\nMethod: 通过经验分析识别不安全响应模式，并基于安全信号可迁移的观察，提出方向细化的表示迁移方法SRT。\nResult: 在多个基准和模型上，SRT有效提升跨模态安全性，同时保持效用。\nConclusion: SRT以冻结骨干实现安全增强，但摘要未报告具体数值或局限性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出跨模态安全漂移问题，即良性文本在图像语境下可能表达恶意意图，并给出轻量级安全感知表示迁移（SRT）方法，在冻结MLLM骨干下提升安全性并保持效用。",
+        "motivation": "多模态大模型中，视觉输入可使良性文本查询隐含恶意，而模型对此类请求的安全响应率显著低于显式不安全文本。",
+        "method": "通过经验分析识别不安全响应模式，并基于安全信号可迁移的观察，提出方向细化的表示迁移方法SRT。",
+        "result": "在多个基准和模型上，SRT有效提升跨模态安全性，同时保持效用。",
+        "conclusion": "SRT以冻结骨干实现安全增强，但摘要未报告具体数值或局限性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-02",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.01956",
+      "title": "InKAN: B-Spline KANs via Truncated Power Form",
+      "authors": [
+        "Naveen Mysore"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.NA"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.01956",
+      "pdf_url": "https://arxiv.org/pdf/2609.01956",
+      "abstract_en": "Kolmogorov-Arnold Networks (KANs) place learnable B-spline activations on network edges rather than fixed activations on nodes. The standard Cox-de Boor recursion evaluates these activations through $k$ sequential passes for degree-$k$ splines, consuming over 90% of forward-pass time. InKAN replaces this recursion with the truncated power form, a classical result from approximation theory that expresses each uniform cubic B-spline as five $(x)_+^3$ terms at shifted knot positions. This paper makes three contributions: (1) a torch.compile-fused implementation that collapses these operations into a single GPU kernel, eliminating all recursion, span lookup, and scatter-gather operations; (2) a bounded-coordinate stabilization that clamps the normalized input to $[0, k{+}1]$, preventing the catastrophic cancellation that historically motivated the Cox-de Boor recursion; and (3) a production-ready, open-source package (pip install inkan) that serves as a drop-in replacement for existing KAN layers.",
+      "comment": "7 pages, 1 table, under review at ICLR 2027",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 InKAN，用截断幂形式替代 Cox-de Boor 递归计算均匀三次 B 样条激活，并融合为单一 GPU 核，显著加速 KAN 前向传播。\nMotivation: 标准 KAN 的 Cox-de Boor 递归耗时占前向 90% 以上，成为性能瓶颈。\nMethod: 用截断幂形式表达均匀三次 B 样条，配合 torch.compile 融合与坐标裁剪稳定化。\nResult: 消除递归、查找与散射-聚集操作，前向时间大幅降低（摘要未给具体数值）。\nConclusion: InKAN 作为即插即用替代层，提供开源包，兼顾速度与数值稳定性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 InKAN，用截断幂形式替代 Cox-de Boor 递归计算均匀三次 B 样条激活，并融合为单一 GPU 核，显著加速 KAN 前向传播。",
+        "motivation": "标准 KAN 的 Cox-de Boor 递归耗时占前向 90% 以上，成为性能瓶颈。",
+        "method": "用截断幂形式表达均匀三次 B 样条，配合 torch.compile 融合与坐标裁剪稳定化。",
+        "result": "消除递归、查找与散射-聚集操作，前向时间大幅降低（摘要未给具体数值）。",
+        "conclusion": "InKAN 作为即插即用替代层，提供开源包，兼顾速度与数值稳定性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-02",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.01692",
+      "title": "Baseline Climatology of Tornadoes and Waterspouts in the Philippine Archipelago",
+      "authors": [
+        "Generich H. Capuli"
+      ],
+      "categories": [
+        "physics.ao-ph"
+      ],
+      "matched_categories": [
+        "physics.ao-ph"
+      ],
+      "display_category": "physics.ao-ph",
+      "primary_category": "physics.ao-ph",
+      "abs_url": "https://arxiv.org/abs/2609.01692",
+      "pdf_url": "https://arxiv.org/pdf/2609.01692",
+      "abstract_en": "Tornadoes are documented on every inhabited continent, yet the environmental conditions used to anticipate them were developed and validated overwhelmingly on mid-latitude records, leaving tropical regimes largely unexamined. Here, we collected 1,186 combined tornado and waterspout reports in the Philippines spanning the early 1900s to 2025 and paired each with an ERA5 proximity sounding to construct the first baseline climatology and environmental characterization of these events in the archipelago. Activity concentrates in three corridors, mostly flanked by mountain ranges, one in each major island group, and is sharply phased within a May-October window that closely tracks the annual cycle of thunderstorm frequency, peaking in August and lagging into October for waterspouts alongside the tropical cyclone season. These events cluster in the mid-to-late afternoon, consistent with daytime heating regime rather than nocturnal convection. The environments are thermodynamically permissive but kinematically shallow with Convective Available Potential Energy (CAPE) exceeds typical Great Plains values while 0-6 km bulk wind difference (BWD) stays below 10 kt, diverging the mid-latitude covariance in which instability and shear increase together. Although streamwise vorticity is modest in magnitude, nearly all discriminating variance resides in the lowest kilometer, where 68-79\\% of near-surface horizontal vorticity is streamwise, reaching > 0.005 s$^{-1}$ and 96\\% streamwiseness in the most organized profiles, and the hodographs retain low-level curvature. Consequently, composite indices underestimate even as tornadoes and waterspout recur. Thus, mid-latitude calibrated parameters can therefore misdiagnose tropical-maritime regimes and recalibration toward shallow-layer, orientation-aware kinematic discriminators may recover the diagnostic signal.",
+      "comment": "19 pages, 6 figures, 1 table. Submitted to a journal. Final part of Project Severe Weather Archive of the Philippines (SWAP)",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 基于1900s至2025年菲律宾1,186次龙卷与水龙卷报告及ERA5探空，构建首个热带群岛基线气候学与环境特征。活动集中于三大走廊，5-10月高峰，环境热力学宽松但运动学浅层，CAPE高而0-6km风切变低，与中纬度协变不同。\nMotivation: 龙卷环境条件主要基于中纬度记录开发，热带地区未被充分检验，导致诊断可能失效。\nMethod: 收集菲律宾历史龙卷与水龙卷报告，配对ERA5邻近探空，分析时空分布与环境参数。\nResult: 活动集中于三大走廊，5-10月高峰，CAPE超美国大平原而0-6km BWD低于10kt，低层水平涡度68-79%为顺风。\nConclusion: 中纬度校准参数会误诊热带海洋性环境，需重新校准至浅层、方向敏感的判别器。\nRelevance: 15",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "基于1900s至2025年菲律宾1,186次龙卷与水龙卷报告及ERA5探空，构建首个热带群岛基线气候学与环境特征。活动集中于三大走廊，5-10月高峰，环境热力学宽松但运动学浅层，CAPE高而0-6km风切变低，与中纬度协变不同。",
+        "motivation": "龙卷环境条件主要基于中纬度记录开发，热带地区未被充分检验，导致诊断可能失效。",
+        "method": "收集菲律宾历史龙卷与水龙卷报告，配对ERA5邻近探空，分析时空分布与环境参数。",
+        "result": "活动集中于三大走廊，5-10月高峰，CAPE超美国大平原而0-6km BWD低于10kt，低层水平涡度68-79%为顺风。",
+        "conclusion": "中纬度校准参数会误诊热带海洋性环境，需重新校准至浅层、方向敏感的判别器。",
+        "relevance_score": "15"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-01",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.27141",
+      "title": "Safety Does Not Compose: Non-Decaying Loop State for Autonomous LLM Agents",
+      "authors": [
+        "Chenhao Wu",
+        "Haoxuan Jia",
+        "Yang Liu",
+        "Yingguang Yang",
+        "Yuhan Lin",
+        "Chongyang Zhang",
+        "Hao Zheng",
+        "Yulin Huang",
+        "Jianshen Zhang",
+        "Yongzhi Qi",
+        "Shang Luo",
+        "Kefu Xu",
+        "Jifeng Zhu",
+        "Bin Chong"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CR",
+      "abs_url": "https://arxiv.org/abs/2608.27141",
+      "pdf_url": "https://arxiv.org/pdf/2608.27141",
+      "abstract_en": "Large language model agents are increasingly deployed as autonomous loops. Starting from one human goal, such a system repeatedly discovers work, plans, executes tool calls, verifies outcomes and persists state across many unattended iterations. The agent safeguards in wide use, however, are defined over a single trajectory, and their safety state is re-initialized when the next trajectory begins. We show that this is a failure of composition rather than an implementation detail. Our central result is a separation: against an attack whose evidence is fragmented across several iterations, every trajectory-scoped monitor has a true-positive rate equal to its false-positive rate, however expressive it is, because the evidence it would need never appears in the window it sees, whereas a monitor retaining cross-iteration state separates the two perfectly. We further show that the obvious repair of carrying a geometrically decaying risk score is insufficient, because the cooling-off period a patient adversary must wait is a constant that does not grow with the horizon $N$. We then present LoopHarness, which restores a persistent, non-decaying safety state at the loop level. Under mediated commits and an arbiter detection floor $δ_M$, it bounds the expected number of unauthorized irreversible actions by $B+m-1+m/δ_M$, a constant in $N$, of which the $B+m-1$ term is decided by a model-free rule and therefore survives a fully colluding verifier. We give a complete evaluation protocol on native Agent-SafetyBench tasks with paired clean and attacked episodes, an outer-state attack suite whose decisive evidence exists only across iterations, per-module ablations, and an adaptive white-box red team.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 证明轨迹级安全监控在跨迭代攻击下无法组合，提出保留非衰减循环状态的 LoopHarness 以恢复循环级安全。\nMotivation: 自主 LLM 智能体以循环方式运行，但现有安全监控仅覆盖单条轨迹，状态在轨迹间重置，导致跨迭代攻击无法被检测。\nMethod: 形式化分离轨迹级与循环级监控，提出 LoopHarness 保留持久非衰减安全状态，并采用仲裁检测下限。\nResult: LoopHarness 将未授权不可逆操作期望数限制为 B+m-1+m/δ_M，与迭代数 N 无关。\nConclusion: 安全状态必须跨迭代持久化，几何衰减风险分数不足；LoopHarness 提供常数界，但依赖仲裁检测下限。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "证明轨迹级安全监控在跨迭代攻击下无法组合，提出保留非衰减循环状态的 LoopHarness 以恢复循环级安全。",
+        "motivation": "自主 LLM 智能体以循环方式运行，但现有安全监控仅覆盖单条轨迹，状态在轨迹间重置，导致跨迭代攻击无法被检测。",
+        "method": "形式化分离轨迹级与循环级监控，提出 LoopHarness 保留持久非衰减安全状态，并采用仲裁检测下限。",
+        "result": "LoopHarness 将未授权不可逆操作期望数限制为 B+m-1+m/δ_M，与迭代数 N 无关。",
+        "conclusion": "安全状态必须跨迭代持久化，几何衰减风险分数不足；LoopHarness 提供常数界，但依赖仲裁检测下限。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-27",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.04726",
+      "title": "What You See Is What You Get: Observation-Aligned Supervision for Chart-to-Code Generation",
+      "authors": [
+        "Tianhao Niu",
+        "Qingfu Zhu",
+        "Wanxiang Che"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2607.04726",
+      "pdf_url": "https://arxiv.org/pdf/2607.04726",
+      "abstract_en": "Chart-to-code generation is commonly trained through supervised fine-tuning on reference plotting scripts, implicitly treating the gold code as a fully observable target. However, many chart programs contain latent variables that cannot be uniquely recovered from the rendered image. We identify this latent-observation mismatch in four forms across five chart types: aggregation-induced mismatch, where raw samples are reduced to box statistics or histogram bin masses; normalization-induced mismatch, where absolute scale is removed in pie charts; projection-induced mismatch, where 3D information is lost through 2D rendering; and level-set-induced mismatch, where a scalar field is observable only through selected contour lines. These mismatches introduce target ambiguity and require models to generate information unsupported by the image. We propose Observation-Aligned Supervision, which replaces latent variables with visually constrained quantities. We instantiate it using box statistics, bin weights, and wedge proportions, and study 3D scatter and contour charts through controlled experiments. Across multiple VLMs, observation-aligned supervision generally improves observable-value recovery in both-executable evaluations and mostly improves end-to-end recovery, while the contour study reveals a trade off between observation alignment and representational compactness.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出观察对齐监督（Observation-Aligned Supervision）用于图表到代码生成，通过用视觉可约束量替换潜在变量，缓解图像与代码间的潜在观测不匹配。\nMotivation: 图表代码训练中，参考代码含无法从渲染图像唯一恢复的潜在变量，导致目标歧义。\nMethod: 用盒统计、箱权重和楔形比例等视觉约束量替换潜在变量，并在3D散点与等高线图上做受控实验。\nResult: 多个VLM上，观察对齐监督普遍提升可观测值恢复，端到端恢复大多改善；等高线研究显示对齐与紧凑性存在权衡。\nConclusion: 观察对齐监督能改善图表到代码生成，但等高线场景需权衡表示紧凑性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出观察对齐监督（Observation-Aligned Supervision）用于图表到代码生成，通过用视觉可约束量替换潜在变量，缓解图像与代码间的潜在观测不匹配。",
+        "motivation": "图表代码训练中，参考代码含无法从渲染图像唯一恢复的潜在变量，导致目标歧义。",
+        "method": "用盒统计、箱权重和楔形比例等视觉约束量替换潜在变量，并在3D散点与等高线图上做受控实验。",
+        "result": "多个VLM上，观察对齐监督普遍提升可观测值恢复，端到端恢复大多改善；等高线研究显示对齐与紧凑性存在权衡。",
+        "conclusion": "观察对齐监督能改善图表到代码生成，但等高线场景需权衡表示紧凑性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-06",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2604.25304",
+      "title": "RCProb: Probabilistic rule extraction from classification tree ensembles",
+      "authors": [
+        "Josue Obregon"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2604.25304",
+      "pdf_url": "https://arxiv.org/pdf/2604.25304",
+      "abstract_en": "Tree ensembles provide strong classification performance but usually behave as black-box models. Post-hoc interpretability techniques such as RuleCOSI+ extract a small ruleset that approximates the ensemble, but this simplification can leave the probabilities attached to the extracted rules unreliable. In particular, RuleCOSI+ assigns empirical class probabilities to the extracted rules and repeatedly uses those rule statistics during its greedy combination and simplification procedure. We present RCProb, a probabilistic extension that uses smoothed atomic class-conditional evidence for the expensive search stages and a support-adaptive mixture with an ensemble-informed m-estimate for the final rule probabilities. The method is evaluated on 18 binary and 5 multiclass datasets using random forest (RF) and gradient boosting machine (GBM) ensembles. Relative to RuleCOSI+, the median paired log-loss reduction is 71.9% for RF and 62.5% for GBM, with both differences remaining significant after Holm correction. The number of rules decreases by 38.7% for RF and 38.5% for GBM, while the primary tests do not detect a macro-F1 difference. Confidence-ECE also decreases for both ensembles, with statistical support for RF after correction. A separate controlled experiment with dedicated calibration data shows that native RCProb probabilities are competitive with RuleCOSI+ followed by temperature scaling, although additional post-hoc calibration can still improve RCProb. The results show that probability estimation is an important part of rule extraction and not only a post-processing step.",
+      "comment": "Figure 1 improved; supersedes v2. 52 pages, 4 figures. Submitted to ESWA",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出概率化规则提取方法 RCProb，改进树集成分类器的可解释规则集，使规则概率更可靠。\nMotivation: 树集成后处理规则提取如 RuleCOSI+ 得到的规则概率不可靠，影响可解释性。\nMethod: 用平滑原子类条件证据用于搜索，支持自适应混合与集成感知 m-估计计算最终规则概率。\nResult: 相对 RuleCOSI+，RF 和 GBM 的中位对数损失分别降低 71.9% 和 62.5%，规则数减少约 38%，宏 F1 无显著差异。\nConclusion: 概率估计是规则提取的重要部分，而非仅后处理步骤。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出概率化规则提取方法 RCProb，改进树集成分类器的可解释规则集，使规则概率更可靠。",
+        "motivation": "树集成后处理规则提取如 RuleCOSI+ 得到的规则概率不可靠，影响可解释性。",
+        "method": "用平滑原子类条件证据用于搜索，支持自适应混合与集成感知 m-估计计算最终规则概率。",
+        "result": "相对 RuleCOSI+，RF 和 GBM 的中位对数损失分别降低 71.9% 和 62.5%，规则数减少约 38%，宏 F1 无显著差异。",
+        "conclusion": "概率估计是规则提取的重要部分，而非仅后处理步骤。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-04-28",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2604.13112",
+      "title": "A Lightweight Multi-Metric No-Reference Image Quality Assessment Framework for UAV Imaging",
+      "authors": [
+        "Koffi Titus Sergio Aglin",
+        "Anthony K. Muchiri",
+        "Celestin Nkundineza"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2604.13112",
+      "pdf_url": "https://arxiv.org/pdf/2604.13112",
+      "abstract_en": "Reliable image quality assessment is essential in applications where large volumes of images are acquired automatically and must be filtered before further analysis. In many practical scenarios, a pristine reference image is unavailable, making no reference image quality assessment (NR-IQA) particularly important. This paper introduces Multi-Metric Image Quality Assessment (MM-IQA), a lightweight multi-metric framework for NR-IQA. It combines interpretable cues related to blur, edge structure, low resolution artifacts, exposure imbalance, noise, haze, and frequency content to produce a single quality score in the range [0,100].MM-IQA was evaluated on five benchmark datasets (KonIQ-10k, LIVE Challenge, KADID-10k, TID2013, and BIQ2021) and achieved SRCC values ranging from 0.647 to 0.830. Additional experiments on a synthetic agricultural dataset showed consistent behavior of the designed cues. The Python/OpenCV implementation required about 1.97 s per image. This method also has modest memory requirements because it stores only a limited number of intermediate grayscale, filtered, and frequency-domain representations, resulting in memory usage that scales linearly with image size. The results show that MM-IQA can be used for fast image quality screening with explicit distortion aware cues and modest computational cost.",
+      "comment": "A new methodologie has been used and new title too",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出轻量级无参考图像质量评估框架 MM-IQA，融合模糊、边缘、噪声等多重可解释线索，在五个基准数据集上 SRCC 达 0.647–0.830，单图耗时约 1.97 秒。\nMotivation: 实际应用中大量自动采集图像缺乏参考图，需要快速、可解释的无参考质量筛选方法。\nMethod: 结合模糊、边缘结构、低分辨率伪影、曝光失衡、噪声、雾和频率内容等多重线索，输出 0–100 质量分。\nResult: 在 KonIQ-10k 等五个数据集上 SRCC 为 0.647–0.830，单图处理约 1.97 秒，内存随图像大小线性增长。\nConclusion: MM-IQA 适合快速图像质量筛查，具有显式失真感知线索和适度计算成本。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出轻量级无参考图像质量评估框架 MM-IQA，融合模糊、边缘、噪声等多重可解释线索，在五个基准数据集上 SRCC 达 0.647–0.830，单图耗时约 1.97 秒。",
+        "motivation": "实际应用中大量自动采集图像缺乏参考图，需要快速、可解释的无参考质量筛选方法。",
+        "method": "结合模糊、边缘结构、低分辨率伪影、曝光失衡、噪声、雾和频率内容等多重线索，输出 0–100 质量分。",
+        "result": "在 KonIQ-10k 等五个数据集上 SRCC 为 0.647–0.830，单图处理约 1.97 秒，内存随图像大小线性增长。",
+        "conclusion": "MM-IQA 适合快速图像质量筛查，具有显式失真感知线索和适度计算成本。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-04-12",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
