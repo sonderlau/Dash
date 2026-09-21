@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 import os
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from copy import deepcopy
 from datetime import date
 from typing import Any
@@ -14,10 +13,10 @@ from summarize import (
     apply_fallback,
     build_summary_http_client,
     flatten_sections,
+    iter_seeded_summaries,
     refresh_summary_counts,
     reset_fallback_summary,
     should_skip as summary_should_skip,
-    summarize_one_paper,
 )
 
 
@@ -106,16 +105,12 @@ def main() -> None:
         "prompt_cache_miss_tokens": 0,
     }
 
-    with build_summary_http_client(llm_settings, summary_workers) as client, ThreadPoolExecutor(
-        max_workers=summary_workers
-    ) as summary_pool, SnapshotWriter(
+    with build_summary_http_client(llm_settings, summary_workers) as client, SnapshotWriter(
         target,
         payload,
         pretty=pretty,
         on_flush=refresh_summary_counts,
     ) as writer:
-
-        future_to_index = {}
         for index, paper_copy in work_items:
             print(
                 {
@@ -125,32 +120,43 @@ def main() -> None:
                     "status": "queued",
                 }
             )
-            paper = payload["papers"][index]
             print(
                 {
                     "stage": "summary",
                     "paper_index": index + 1,
-                    "paper_id": paper["id"],
+                    "paper_id": paper_copy["id"],
                     "status": "started",
                     "model": llm_settings["model"],
                 }
             )
-            future = summary_pool.submit(
-                summarize_one_paper,
-                deepcopy(paper),
-                llm_settings,
-                retries,
-                args.max_tokens,
-                client,
-                keywords,
-            )
-            future_to_index[future] = index
 
-        for future in as_completed(future_to_index):
-            index = future_to_index[future]
+        for index, outcome in iter_seeded_summaries(
+            work_items,
+            llm_settings=llm_settings,
+            retries=retries,
+            max_tokens=args.max_tokens,
+            client=client,
+            keywords=keywords,
+            max_workers=summary_workers,
+        ):
             paper = payload["papers"][index]
-            try:
-                sections, telemetry = future.result()
+            if isinstance(outcome, Exception):
+                error_name = outcome.__class__.__name__
+                error_detail = str(outcome).strip() or error_name
+                apply_fallback(config, paper, error_name)
+                stats["summary_fallback"] += 1
+                print(
+                    {
+                        "stage": "summary",
+                        "paper_index": index + 1,
+                        "paper_id": paper["id"],
+                        "status": "fallback",
+                        "error": error_name,
+                        "detail": error_detail[:200],
+                    }
+                )
+            else:
+                sections, telemetry = outcome
                 paper["summary_sections"] = sections
                 paper["summary_zh"] = flatten_sections(sections)
                 paper["summary_status"] = "ok"
@@ -169,21 +175,6 @@ def main() -> None:
                         "summary_input_source": paper["summary_input_source"],
                         "relevance_enabled": bool(keywords),
                         **telemetry,
-                    }
-                )
-            except Exception as exc:  # noqa: BLE001
-                error_name = exc.__class__.__name__
-                error_detail = str(exc).strip() or error_name
-                apply_fallback(config, paper, error_name)
-                stats["summary_fallback"] += 1
-                print(
-                    {
-                        "stage": "summary",
-                        "paper_index": index + 1,
-                        "paper_id": paper["id"],
-                        "status": "fallback",
-                        "error": error_name,
-                        "detail": error_detail[:200],
                     }
                 )
             writer.mark_dirty()

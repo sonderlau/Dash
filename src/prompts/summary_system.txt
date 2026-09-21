@@ -70,21 +70,9 @@ Anchors (use the interior of the scale; do not snap to 0, 5, 10, 15, 85, or 95):
 - 1–14: coincidental wording only.
 - 0: no overlap.
 
-Prefer unrounded integers (12, 38, 61, 77, 91) when you have a reason. Never write 85 just because the paper looks "scientific" or "physical".
+Prefer unrounded integers (12, 38, 61, 77, 91) when you have a reason. Never write 85 just because the paper looks "scientific" or "physical". Numeric worked examples for the current keyword list, if any, are in the user message.
 
-Worked scores when the user keywords are Precipitation, Nowcasting, Weather Forecasting, Assimilation, Data Assimilation, Neural Data Assimilation, Rainfall — copy the discrimination, not the numbers:
-- 0–2 h radar precipitation nowcast → 94
-- GOES full-disk cloud nowcast → 89
-- Neural or 4D-Var / EnKF data assimilation for atmosphere or ocean → 86
-- Generative DA used to map ocean submesoscale energy cascade → 82
-- Global ML weather ensemble / NWP → 91
-- Paleoclimate 4D-Var (is DA, not NWP) → 74
-- IASI clear-sky retrieval that only uses an NWP radiance database → 42
-- Landfill-emission "nowcast" (the word nowcast, not weather) → 28
-- Traffic-incident or medical ultrasound / clinical QA → 4
-- Robot hand, code MoE, sign-language pose → 2
-
-Length is a density target, not a reason to drop names or numbers. Prefer keeping a dataset name or a metric over staying short. Do not pad, do not repeat the tldr inside the other fields, do not add caveats the abstract did not state.
+Length is a density target, not a quota. Prefer keeping a dataset name or a metric over staying short. Do not pad to the typical length, do not repeat the tldr inside the other fields, do not add caveats the abstract did not state.
 
 Use "" only when that individual field has literally nothing in the source (rare). A qualitative finding is content, not a missing field. An empty `result` is almost always wrong.
 

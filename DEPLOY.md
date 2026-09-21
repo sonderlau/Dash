@@ -216,15 +216,18 @@ prompt 在 `src/prompts/*.txt`。改完 push main 不会自动重做摘要，因
 - **默认开启，不需要客户端配置。** 系统按 prefix 匹配，识别到固定前缀就落盘缓存。
 - **缓存按账号分级**，由 `user_id` 隔离（如果传了的话）。我们 **不传 `user_id`**，所有请求共享同一个 cache 池，命中率最大化。
 - **完整匹配才算命中。** 我们的 system prompt 每次渲染都是 byte-identical，前提是 `LANGUAGE` 不变。**LANGUAGE 一旦设了 `zh-CN` 就不要改**；改了之后所有 cache 失效，要重新预热几篇 paper 才能恢复命中率。
+- **user 前缀也要固定。** `summary_user.txt` 把关键词和静态说明放在 `标题：` 之前，同一天所有 paper 共用这一段；per-paper 的 title/abstract 从 `标题：` 才分叉。
+- **先串行一篇再并发。** `iter_seeded_summaries` 会先打完第一篇，等 DeepSeek 把前缀写入 cache，再按 `SUMMARY_MAX_WORKERS` 跑剩下的。否则 4 路同时发出去，前几篇会一起 miss。
 - **TTL 几小时到几天，不可配。** 如果一段时间没跑流水线，第一篇会 miss 重新落盘，后续命中。
 - **`prompt_cache_hit_rate` 是关键 metric。** `enrich.py` 的末尾日志会打印这一行；正常应该 > 0.4。如果某天 daily.yml 跑完看到 `prompt_cache_hit_rate` 显著低于平时（比如 < 0.1），先怀疑：(a) 改了 `LANGUAGE`；(b) 改了 system prompts；(c) 切换了 `MODEL_NAME`。
 - 命中部分按缓存价格（约 1/10）计费。预算敏感时这是核心杠杆。
+- **`max_tokens` 是输出上限，不是账单。** DeepSeek 按实际 `completion_tokens` 计费，不是按 cap。实测一篇摘要大约 300–500 completion tokens；默认 cap 1000、截断重试上限 1800。把 cap 调到 2000 不会让每篇自动按 2000 收费。
 
 ### JSON mode（`response_format`）
 
 - **强制要求**：system 或 user prompt 含 `json` 字样 + 给出 JSON 输出示例。我们的 system prompt 有 EXAMPLE OUTPUT 段，对齐文档要求。
 - **空 content 是已知坑。** 文档明确说"API 有概率会返回空的 content"，建议靠改 prompt 缓解。我们 system prompt 里写了 "Never return an empty response or an object missing keys" 显式禁止；如果再看到空 content，先改 system prompt 而不是怪重试逻辑。
-- **截断（finish_reason=length）需要更多 max_tokens。** `summarize.py` 已实现 LengthLimitError → 增大 max_tokens 重试的策略：2000 起步、上限 2800（`MAX_SUMMARY_TOKENS`）。
+- **截断（finish_reason=length）需要更多 max_tokens。** `summarize.py` 已实现 LengthLimitError → 增大 max_tokens 重试的策略：1000 起步、上限 1800（`MAX_SUMMARY_TOKENS`）。
 - **content 是字符串不是对象，必须自己 `json.loads`。** `extract_json_object()` 已处理；不要替换为别的解析。
 
 ### 并发与速率

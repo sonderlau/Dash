@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 import time
+from collections.abc import Iterator
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from copy import deepcopy
 from datetime import date
@@ -22,8 +23,8 @@ except ModuleNotFoundError:  # pragma: no cover - local package-style invocation
 
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent / "src" / "prompts"
-DEFAULT_MAX_TOKENS = 2000
-MAX_SUMMARY_TOKENS = 2800
+DEFAULT_MAX_TOKENS = 1000
+MAX_SUMMARY_TOKENS = 1800
 RETRYABLE_STATUS_CODES = {408, 409, 429, 500, 502, 503, 504}
 
 
@@ -116,6 +117,10 @@ def build_messages(
             "按命中程度最高的那一条关键词打分，不要求同时命中全部。"
             "只做意义匹配：training 不是 rainfall，cloud computing 不是云，token/sales/traffic forecast 在关键词是天气预报时不算。"
             "用完整量表，不要扎堆在 0、5、10、15、85、95。"
+            "判别参考（抄区分度，不要抄分数）：雷达 0–2h 降水临近预报 94；"
+            "GOES 全圆盘云临近预报 89；大气或海洋的 EnKF/4D-Var/生成式 DA 86；"
+            "全球 ML 天气集合 91；古气候 4D-Var 74；只用了 NWP 辐射库的 IASI 反演 42；"
+            "垃圾填埋气体 nowcast 28；交通或医学影像/临床 QA 4；机器人手或代码 MoE 2。"
             if keywords
             else "关键词列表为空；不要计算 relevance_score，请把 relevance_score 设为英文空字符串 \"\"。"
         ),
@@ -422,6 +427,66 @@ def summarize_one_paper(
     )
 
 
+def iter_seeded_summaries(
+    work_items: list[tuple[int, dict[str, Any]]],
+    *,
+    llm_settings: dict[str, Any],
+    retries: int,
+    max_tokens: int,
+    client: httpx.Client,
+    keywords: list[str],
+    max_workers: int,
+) -> Iterator[tuple[int, tuple[dict[str, str], dict[str, Any]] | Exception]]:
+    """Run the first paper inline so DeepSeek can write the prefix cache, then map the rest."""
+    if not work_items:
+        return
+
+    first_index, first_paper = work_items[0]
+    print(
+        {
+            "status": "cache_seed",
+            "paper_id": first_paper["id"],
+            "paper_index": first_index + 1,
+        }
+    )
+    try:
+        yield first_index, summarize_one_paper(
+            first_paper,
+            llm_settings,
+            retries,
+            max_tokens,
+            client,
+            keywords,
+        )
+    except Exception as exc:
+        yield first_index, exc
+
+    rest = work_items[1:]
+    if not rest:
+        return
+
+    workers = max(1, min(max_workers, len(rest)))
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        future_to_index = {
+            executor.submit(
+                summarize_one_paper,
+                paper,
+                llm_settings,
+                retries,
+                max_tokens,
+                client,
+                keywords,
+            ): index
+            for index, paper in rest
+        }
+        for future in as_completed(future_to_index):
+            index = future_to_index[future]
+            try:
+                yield index, future.result()
+            except Exception as exc:
+                yield index, exc
+
+
 def build_summary_http_client(llm_settings: dict[str, Any], max_workers: int) -> httpx.Client:
     timeout = httpx.Timeout(llm_settings["timeout_seconds"])
     pool = max(max_workers, 1) * 2
@@ -492,33 +557,39 @@ def main() -> None:
         work_items.append((index, deepcopy(paper)))
 
     pretty = config["output"].get("write_pretty_json", True)
-    with build_summary_http_client(llm_settings, max_workers) as client, ThreadPoolExecutor(
-        max_workers=max_workers
-    ) as executor, SnapshotWriter(
+    with build_summary_http_client(llm_settings, max_workers) as client, SnapshotWriter(
         target,
         payload,
         pretty=pretty,
         on_flush=refresh_summary_counts,
     ) as writer:
-        future_to_index = {
-            executor.submit(
-                summarize_one_paper,
-                paper,
-                llm_settings,
-                retries,
-                args.max_tokens,
-                client,
-                keywords,
-            ): index
-            for index, paper in work_items
-        }
-
         progress = tqdm(total=len(work_items), desc="Summarize papers", unit="paper")
-        for future in as_completed(future_to_index):
-            index = future_to_index[future]
+        for index, outcome in iter_seeded_summaries(
+            work_items,
+            llm_settings=llm_settings,
+            retries=retries,
+            max_tokens=args.max_tokens,
+            client=client,
+            keywords=keywords,
+            max_workers=max_workers,
+        ):
             paper = payload["papers"][index]
-            try:
-                sections, telemetry = future.result()
+            if isinstance(outcome, Exception):
+                error_name = outcome.__class__.__name__
+                error_detail = str(outcome).strip() or error_name
+                apply_fallback(config, paper, error_name)
+                fallback_count += 1
+                print(
+                    {
+                        "paper_index": index + 1,
+                        "paper_id": paper["id"],
+                        "status": "fallback",
+                        "error": error_name,
+                        "detail": error_detail[:200],
+                    }
+                )
+            else:
+                sections, telemetry = outcome
                 paper["summary_sections"] = sections
                 paper["summary_zh"] = flatten_sections(sections)
                 paper["summary_status"] = "ok"
@@ -532,20 +603,6 @@ def main() -> None:
                         "summary_input_source": paper["summary_input_source"],
                         "relevance_enabled": bool(keywords),
                         **telemetry,
-                    }
-                )
-            except Exception as exc:  # noqa: BLE001
-                error_name = exc.__class__.__name__
-                error_detail = str(exc).strip() or error_name
-                apply_fallback(config, paper, error_name)
-                fallback_count += 1
-                print(
-                    {
-                        "paper_index": index + 1,
-                        "paper_id": paper["id"],
-                        "status": "fallback",
-                        "error": error_name,
-                        "detail": error_detail[:200],
                     }
                 )
             writer.mark_dirty()
