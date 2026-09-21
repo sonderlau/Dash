@@ -22,8 +22,8 @@ except ModuleNotFoundError:  # pragma: no cover - local package-style invocation
 
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent / "src" / "prompts"
-DEFAULT_MAX_TOKENS = 1300
-MAX_SUMMARY_TOKENS = 1800
+DEFAULT_MAX_TOKENS = 2000
+MAX_SUMMARY_TOKENS = 2800
 RETRYABLE_STATUS_CODES = {408, 409, 429, 500, 502, 503, 504}
 
 
@@ -112,7 +112,10 @@ def build_messages(
         abstract_en=paper["abstract_en"],
         keywords="\n".join(f"- {keyword}" for keyword in keywords),
         relevance_instruction=(
-            "请根据上面的关键词给出 0-100 的 relevance_score，分数表示这篇论文是否值得我优先阅读。"
+            "请按上面的关键词给出 0-100 的 relevance_score：这是个人阅读优先级，不是论文质量。"
+            "按命中程度最高的那一条关键词打分，不要求同时命中全部。"
+            "只做意义匹配：training 不是 rainfall，cloud computing 不是云，token/sales/traffic forecast 在关键词是天气预报时不算。"
+            "用完整量表，不要扎堆在 0、5、10、15、85、95。"
             if keywords
             else "关键词列表为空；不要计算 relevance_score，请把 relevance_score 设为英文空字符串 \"\"。"
         ),

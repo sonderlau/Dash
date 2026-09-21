@@ -224,7 +224,7 @@ prompt 在 `src/prompts/*.txt`。改完 push main 不会自动重做摘要，因
 
 - **强制要求**：system 或 user prompt 含 `json` 字样 + 给出 JSON 输出示例。我们的 system prompt 有 EXAMPLE OUTPUT 段，对齐文档要求。
 - **空 content 是已知坑。** 文档明确说"API 有概率会返回空的 content"，建议靠改 prompt 缓解。我们 system prompt 里写了 "Never return an empty response or an object missing keys" 显式禁止；如果再看到空 content，先改 system prompt 而不是怪重试逻辑。
-- **截断（finish_reason=length）需要更多 max_tokens。** `summarize.py` 已实现 LengthLimitError → 增大 max_tokens 重试的策略：1300 起步、上限 1800（`MAX_SUMMARY_TOKENS`）。
+- **截断（finish_reason=length）需要更多 max_tokens。** `summarize.py` 已实现 LengthLimitError → 增大 max_tokens 重试的策略：2000 起步、上限 2800（`MAX_SUMMARY_TOKENS`）。
 - **content 是字符串不是对象，必须自己 `json.loads`。** `extract_json_object()` 已处理；不要替换为别的解析。
 
 ### 并发与速率

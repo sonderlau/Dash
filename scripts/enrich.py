@@ -10,6 +10,7 @@ from typing import Any
 from common import daily_path, load_config, load_deepseek_settings, load_keywords, read_json, write_json
 from snapshot_writer import SnapshotWriter
 from summarize import (
+    DEFAULT_MAX_TOKENS,
     apply_fallback,
     build_summary_http_client,
     flatten_sections,
@@ -35,7 +36,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--max-tokens",
         type=int,
-        default=1300,
+        default=DEFAULT_MAX_TOKENS,
         help="Initial max_tokens for one summary request.",
     )
     parser.add_argument(
