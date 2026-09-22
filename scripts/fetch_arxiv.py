@@ -15,6 +15,7 @@ from html import unescape
 from html.parser import HTMLParser
 
 import feedparser
+import httpx
 
 from common import load_config
 
@@ -187,59 +188,50 @@ def fetch_url(url: str, timeout: int = 60, retries: int = DEFAULT_FETCH_RETRIES)
     `retries` times with exponential backoff, honoring `Retry-After` when the
     server provides it.
     """
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    headers = {"User-Agent": USER_AGENT}
+    if "export.arxiv.org/api/" in url:
+        # export.arxiv.org returns 406 for urllib's Accept-Encoding: identity
+        # and for an Accept value that includes */*.
+        headers["Accept"] = "application/atom+xml, application/xml, text/xml"
     last_exc: Exception | None = None
-    for attempt in range(retries + 1):
-        try:
-            with urllib.request.urlopen(request, timeout=timeout) as response:
-                return response.read()
-        except urllib.error.HTTPError as exc:
-            last_exc = exc
-            if exc.code not in RETRYABLE_HTTP_CODES or attempt >= retries:
-                raise
-            wait = _retry_after_seconds(exc.headers, attempt, exc.code)
-            print(
-                {
-                    "stage": "fetch_url",
-                    "url": url,
-                    "status": exc.code,
-                    "attempt": attempt + 1,
-                    "retry_in_s": round(wait, 1),
-                }
-            )
-            time.sleep(wait)
-        except urllib.error.URLError as exc:
-            last_exc = exc
-            if attempt >= retries:
-                raise
-            wait = _retry_after_seconds(None, attempt)
-            print(
-                {
-                    "stage": "fetch_url",
-                    "url": url,
-                    "error": exc.__class__.__name__,
-                    "detail": str(exc.reason)[:120] if hasattr(exc, "reason") else str(exc)[:120],
-                    "attempt": attempt + 1,
-                    "retry_in_s": round(wait, 1),
-                }
-            )
-            time.sleep(wait)
-        except TimeoutError as exc:
-            last_exc = exc
-            if attempt >= retries:
-                raise
-            wait = _retry_after_seconds(None, attempt)
-            print(
-                {
-                    "stage": "fetch_url",
-                    "url": url,
-                    "error": exc.__class__.__name__,
-                    "detail": str(exc)[:120],
-                    "attempt": attempt + 1,
-                    "retry_in_s": round(wait, 1),
-                }
-            )
-            time.sleep(wait)
+    with httpx.Client(timeout=timeout, trust_env=False, follow_redirects=True, headers=headers) as client:
+        for attempt in range(retries + 1):
+            try:
+                response = client.get(url)
+                response.raise_for_status()
+                return response.content
+            except httpx.HTTPStatusError as exc:
+                last_exc = exc
+                status_code = exc.response.status_code
+                if status_code not in RETRYABLE_HTTP_CODES or attempt >= retries:
+                    raise
+                wait = _retry_after_seconds(exc.response.headers, attempt, status_code)
+                print(
+                    {
+                        "stage": "fetch_url",
+                        "url": url,
+                        "status": status_code,
+                        "attempt": attempt + 1,
+                        "retry_in_s": round(wait, 1),
+                    }
+                )
+                time.sleep(wait)
+            except httpx.TransportError as exc:
+                last_exc = exc
+                if attempt >= retries:
+                    raise
+                wait = _retry_after_seconds(None, attempt)
+                print(
+                    {
+                        "stage": "fetch_url",
+                        "url": url,
+                        "error": exc.__class__.__name__,
+                        "detail": str(exc)[:120],
+                        "attempt": attempt + 1,
+                        "retry_in_s": round(wait, 1),
+                    }
+                )
+                time.sleep(wait)
     if last_exc is not None:
         raise last_exc
     raise RuntimeError("fetch_url exhausted retries without recording an error")
@@ -443,7 +435,7 @@ def fetch_papers(config: dict) -> tuple[list[dict], FetchStats]:
             max_workers=api_workers,
             request_delay_seconds=api_request_delay,
         )
-    except (TimeoutError, urllib.error.HTTPError, urllib.error.URLError) as exc:
+    except (TimeoutError, urllib.error.HTTPError, urllib.error.URLError, httpx.HTTPError) as exc:
         stats.api_backfill_status = "degraded"
         stats.api_backfill_error = f"{exc.__class__.__name__}: {str(exc)[:180]}"
         print(

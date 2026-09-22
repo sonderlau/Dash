@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 from dataclasses import dataclass
 from datetime import date
@@ -37,7 +38,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--skip-summarize", action="store_true", help="Skip the summarize stage.")
     parser.add_argument("--summarize-limit", type=int, default=None, help="Only summarize the first N papers.")
     parser.add_argument("--refresh-ok", action="store_true", help="Re-summarize papers already marked ok.")
-    parser.add_argument("--summary-max-workers", type=int, default=None, help="Override summary worker count.")
+    parser.add_argument("--summary-max-workers", type=int, default=None, help="How many papers to summarize at once.")
     return parser.parse_args()
 
 
@@ -103,13 +104,13 @@ def main() -> None:
         return
 
     if not args.skip_summarize and stage_enabled("summarize", args.from_stage, args.to_stage):
-        summarize_cmd = [str(PYTHON), "scripts/summarize.py", "--date", run_date.isoformat()]
+        summarize_cmd = [str(PYTHON), "scripts/enrich.py", "--date", run_date.isoformat()]
         if args.summarize_limit and args.summarize_limit > 0:
             summarize_cmd.extend(["--limit", str(args.summarize_limit)])
         if args.refresh_ok:
             summarize_cmd.append("--refresh-ok")
-        if args.summary_max_workers and args.summary_max_workers > 0:
-            summarize_cmd.extend(["--max-workers", str(args.summary_max_workers)])
+        if args.summary_max_workers:
+            summarize_cmd.extend(["--summary-workers", str(args.summary_max_workers)])
         run_stage("summarize", summarize_cmd)
 
     if stage_enabled("build_site", args.from_stage, args.to_stage):

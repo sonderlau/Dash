@@ -106,6 +106,9 @@ jobs:
               find "$wt/docs/data" -maxdepth 1 -name "*.json" ! -name "index.json" \
                 -exec cp {} tmp/state/ \;
             fi
+            if [[ -d "$wt/state" ]]; then
+              find "$wt/state" -maxdepth 1 -name "*.json" -exec cp {} tmp/state/ \;
+            fi
             git worktree remove --force "$wt"
           else
             echo "data branch does not exist yet; starting clean."
@@ -125,7 +128,8 @@ jobs:
           ARXIV_API_REQUEST_DELAY_SECONDS: "10"
         run: python scripts/run_daily.py --date "${{ steps.vars.outputs.run_date }}"
 
-      - name: Stage 2 / Summarize metadata
+      - name: Stage 2 / Summarize papers
+        id: enrich
         if: steps.fetch.outputs.no_new_papers != 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -133,8 +137,6 @@ jobs:
           MODEL_NAME: ${{ vars.MODEL_NAME }}
           LANGUAGE: ${{ vars.LANGUAGE }}
           LLM_ENABLED: ${{ vars.LLM_ENABLED }}
-          # Abstract/metadata-only summaries: no PDF download/extract stage.
-          SUMMARY_MAX_WORKERS: "4"
         run: |
           set -euo pipefail
           args=(--date "${{ steps.vars.outputs.run_date }}")
@@ -150,12 +152,83 @@ jobs:
           fi
           python scripts/enrich.py "${args[@]}"
 
+      - name: Stage 2b / Commit pipeline state
+        if: steps.fetch.outputs.no_new_papers != 'true' && steps.enrich.outputs.state_changed == 'true'
+        run: |
+          set -euo pipefail
+          run_date='${{ steps.vars.outputs.run_date }}'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          staging="$RUNNER_TEMP/state-archive"
+          rm -rf "$staging"
+          mkdir -p "$staging"
+          find tmp/state -maxdepth 1 -type f -name '*.json' ! -name 'index.json' -exec cp {} "$staging/" \;
+          RUN_DATE="$run_date" STAGING="$staging" python - <<'PY'
+          import os
+          from datetime import date, datetime, timedelta
+          from pathlib import Path
+
+          import yaml
+
+          config = yaml.safe_load(Path("config.yaml").read_text(encoding="utf-8")) or {}
+          keep_days = int(config.get("output", {}).get("keep_days", 90))
+          run_date = date.fromisoformat(os.environ["RUN_DATE"])
+          cutoff = run_date - timedelta(days=keep_days - 1)
+          for path in Path(os.environ["STAGING"]).glob("*.json"):
+              try:
+                  file_date = datetime.strptime(path.stem, "%Y-%m-%d").date()
+              except ValueError:
+                  path.unlink()
+                  continue
+              if file_date < cutoff:
+                  path.unlink()
+          PY
+
+          wt="$RUNNER_TEMP/state-wt"
+          rm -rf "$wt"
+          if git fetch --no-tags origin data 2>/dev/null && \
+             git show-ref --verify --quiet refs/remotes/origin/data; then
+            git worktree add -B data "$wt" origin/data
+          else
+            git worktree add --detach "$wt"
+            (
+              cd "$wt"
+              git checkout --orphan data
+              git rm -rf . >/dev/null 2>&1 || true
+            )
+          fi
+          (
+            cd "$wt"
+            rm -rf state
+            mkdir -p state
+            find "$staging" -maxdepth 1 -type f -name '*.json' -exec cp {} state/ \;
+            git add state
+            if git diff --cached --quiet; then
+              echo "No state changes to commit."
+              exit 0
+            fi
+            git commit -m "state: arxiv digest ${run_date}"
+            git push origin data
+          )
+          git worktree remove --force "$wt"
+
+      - name: Seed published docs/data
+        if: steps.fetch.outputs.no_new_papers != 'true' && steps.enrich.outputs.batch_pending != 'true'
+        run: |
+          set -euo pipefail
+          mkdir -p docs/data
+          if git fetch --no-tags origin data 2>/dev/null && \
+             git cat-file -e origin/data:docs/data 2>/dev/null; then
+            git archive origin/data docs/data | tar -x
+          fi
+
       - name: Stage 3 / Rebuild site index
-        if: steps.fetch.outputs.no_new_papers != 'true'
+        if: steps.fetch.outputs.no_new_papers != 'true' && steps.enrich.outputs.batch_pending != 'true'
         run: python scripts/build_site_data.py --latest-date "${{ steps.vars.outputs.run_date }}"
 
       - name: Stage 4 / Validate generated data
-        if: steps.fetch.outputs.no_new_papers != 'true'
+        if: steps.fetch.outputs.no_new_papers != 'true' && steps.enrich.outputs.batch_pending != 'true'
         run: |
           python scripts/validate_data.py \
             "tmp/state/${{ steps.vars.outputs.run_date }}.json" \
@@ -163,7 +236,7 @@ jobs:
             "docs/data/${{ steps.vars.outputs.run_date }}.json"
 
       - name: Stage 4b / Regression guard against data branch
-        if: steps.fetch.outputs.no_new_papers != 'true'
+        if: steps.fetch.outputs.no_new_papers != 'true' && steps.enrich.outputs.batch_pending != 'true'
         # Refuse to publish if any historical date now has fewer papers than
         # the version on the `data` branch. Protects against schema drift,
         # accidental wipes, or build bugs silently shrinking history.
@@ -219,7 +292,7 @@ jobs:
 
       - name: Stage 5 / Commit data to `data` branch
         id: commit
-        if: success() && steps.fetch.outputs.no_new_papers != 'true'
+        if: success() && steps.fetch.outputs.no_new_papers != 'true' && steps.enrich.outputs.batch_pending != 'true'
         run: |
           set -euo pipefail
           run_date='${{ steps.vars.outputs.run_date }}'

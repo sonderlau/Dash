@@ -109,12 +109,11 @@ def merge_papers(existing_papers: list[dict], fetched_papers: list[dict]) -> tup
                 if existing.get(field):
                     merged[field] = existing[field]
             merged["metadata_source"] = existing["metadata_source"]
-        if existing.get("summary_status") == "ok" and fetched.get("summary_status") == "pending":
-            merged["summary_status"] = existing["summary_status"]
-            merged["summary_zh"] = existing.get("summary_zh", "")
-            merged["summary_sections"] = existing.get("summary_sections", fetched.get("summary_sections", {}))
-            merged["summary_input_source"] = existing.get("summary_input_source", "")
-        elif existing.get("summary_status", "").startswith("fallback") and fetched.get("summary_status") == "pending":
+        keep_summary = (
+            existing.get("summary_status") == "ok"
+            or str(existing.get("summary_status") or "").startswith("fallback")
+        )
+        if keep_summary and fetched.get("summary_status") == "pending":
             merged["summary_status"] = existing["summary_status"]
             merged["summary_zh"] = existing.get("summary_zh", "")
             merged["summary_sections"] = existing.get("summary_sections", fetched.get("summary_sections", {}))
@@ -166,6 +165,7 @@ def main() -> None:
     fetched_papers, skipped_previous_day = drop_previous_day_duplicates(fetched_papers, previous_papers)
     output_path = daily_path(target_date)
     existing_papers: list[dict] = []
+    existing_payload = None
     if output_path.exists():
         with output_path.open("r", encoding="utf-8") as handle:
             existing_payload = load_json(handle)

@@ -415,7 +415,14 @@ function updatePageMeta() {
   elements.currentDateTitle.textContent = state.currentDate || "No data";
   const visible = state.visiblePapers.length;
   const total = payload.paper_count || 0;
-  elements.currentDateMeta.textContent = `${visible} / ${total} papers`;
+  const progress = payload.summary_progress;
+  let progressLabel = "";
+  if (progress) {
+    const done = Number(progress.completed || 0) + Number(progress.failed || 0);
+    const submitted = Number(progress.total || 0);
+    progressLabel = submitted > 0 ? ` · 摘要 ${done}/${submitted}` : " · 摘要处理中";
+  }
+  elements.currentDateMeta.textContent = `${visible} / ${total} papers${progressLabel}`;
 }
 
 function scheduleRender() {

@@ -25,9 +25,9 @@
 
 | 类型 | 名称 | 值 | 备注 |
 |---|---|---|---|
-| Secret | `OPENAI_API_KEY` | DeepSeek API key | 命名沿用 OpenAI-compatible，不是真用 OpenAI |
-| Variable | `OPENAI_BASE_URL` | `https://api.deepseek.com` | |
-| Variable | `MODEL_NAME` | `deepseek-v4-flash` | 或你想用的其他 DeepSeek 型号 |
+| Secret | `OPENAI_API_KEY` | 小米按量付费 API key（`sk-`） | 命名沿用 OpenAI-compatible，不是真用 OpenAI。Batch 不扣 Token Plan |
+| Variable | `OPENAI_BASE_URL` | `https://api.xiaomimimo.com/v1` | 结构化输出文档里的对话地址 |
+| Variable | `MODEL_NAME` | `mimo-v2.6-flash` | 必须小写 |
 | Variable | `LANGUAGE` | `zh-CN` | 摘要输出语言 |
 | Variable | `LLM_ENABLED` | `true` | 设 `false` 则跳过 LLM，全部走 fallback |
 
@@ -36,8 +36,8 @@
 | 名称 | 默认 | 用途 |
 |---|---|---|
 | `CATEGORIES` | 用 `config.yaml` 的 `arxiv.categories` | 逗号/空格/分号分隔，覆盖运行时的 category 列表 |
-| `LLM_TIMEOUT_SECONDS` | `600` | 单次 DeepSeek 请求超时 |
-| `LLM_RETRY_TIMES` | `3` | DeepSeek 失败重试次数 |
+| `LLM_TIMEOUT_SECONDS` | `600` | 上传 batch 文件和查询状态的 HTTP 超时 |
+| `LLM_RETRY_TIMES` | `3` | 保留的配置项。Batch 任务内部不能重试，失败行直接记 fallback |
 
 ### 3. 校准 base_url
 
@@ -61,9 +61,9 @@
      - 其它保持默认
    - 跑一次完整流程；预期：
      - `Stage 1` 抓 arXiv 列表
-     - `Stage 2` 用 metadata / abstract 调 LLM 摘要
-     - `Stage 5` 创建 `data` 分支并 push 一个 commit
-     - 触发 `Deploy Pages`，Pages 上线
+     - `Stage 2` 用流式接口给当天论文写摘要
+     - `Stage 2b` 把 `state/` 推到 `data` 分支
+     - 摘要写完后，同一轮构建公开 JSON 并部署 Pages
 
 3. **验证**
 
@@ -90,7 +90,7 @@ schedule:
   - cron: "10 10 * * *"
 ```
 
-这对应 UTC 10:10（北京时间 18:10），避开 DeepSeek 北京时间 09:00～12:00 和 14:00～18:00 高峰计费窗口。arXiv 通常在美东 20:00 开始公告，夏令时约 UTC 00:00，冬令时约 UTC 01:00；10:10 仍给 list 页和 metadata 同步留出充足缓冲。**调度时区只通过 cron 控制**，不要去 Python 里加时区逻辑。改时间直接改 cron 表达式。
+这对应 UTC 10:10。摘要和页面更新都在这一轮完成。arXiv 通常在美东 20:00 开始公告，夏令时约 UTC 00:00，冬令时约 UTC 01:00；10:10 仍给 list 页和 metadata 同步留出充足缓冲。**调度时区只通过 cron 控制**，不要去 Python 里加时区逻辑。改时间直接改 cron 表达式。
 
 ### 手动重跑
 
@@ -108,9 +108,9 @@ schedule:
 | arXiv list 页抓取 | `ARXIV_LIST_WORKERS` | 5 | 主数据源；如果这里失败，workflow 必须失败，因为无法确认今日更新 |
 | arXiv API chunk | `ARXIV_API_WORKERS` | 1 | 只补 abstract、DOI、comment 等字段；共享 CI IP 容易被限流，失败后会降级继续 |
 | arXiv API chunk 间隔 | `ARXIV_API_REQUEST_DELAY_SECONDS` | 10 | 只影响可选补充；不要低于 arXiv 建议的 3 秒 |
-| DeepSeek 摘要 | `SUMMARY_MAX_WORKERS` | 4 | 触发 429 就降到 2，DeepSeek 没公开严格 rate limit |
+| MiMo 摘要 | 无 worker 数 | 一天一个 batch | 失败行记 fallback，不在同一个任务里重试 |
 
-如果某天看到 `summary_fallback` 比例升高，先看日志里的具体 error name（`HTTPStatusError` / `TimeoutException`），再决定是降并发还是涨 `LLM_TIMEOUT_SECONDS`。
+如果某天看到 `summary_fallback` 比例升高，先看 collect 日志里的 `batch_error` / `JsonOutputError` / `batch_missing`。Batch 不会自动重跑失败行。
 
 如果某天看到 `fetch_status.api_backfill_status = "degraded"`，说明 list 页已经成功确认今日 paper，但 export API 补充 metadata 被 429/503/timeout 限制了。当日 snapshot 仍会产出，只是 `abstract_en`、DOI、journal ref、comment 等补充字段可能为空。
 
@@ -201,63 +201,27 @@ prompt 在 `src/prompts/*.txt`。改完 push main 不会自动重做摘要，因
 
 ### 杂项注意
 
-- **DeepSeek API 费用是唯一变量成本。** 当前每篇只用 metadata / abstract 做一个短请求；`LLM_ENABLED=false` 是紧急关阀。
+- **MiMo Batch API 费用是唯一变量成本。** 当前每篇只用 metadata / abstract，打进当天的一个 JSONL；`LLM_ENABLED=false` 是紧急关阀。Batch 按成功请求计费，价格是实时接口的一半。需要按量付费余额，不能用 Token Plan。
 - **arXiv 列表抓取并发了 5 个 category。** 如果哪天看到 503/429，把 `ARXIV_LIST_WORKERS` 降到 1 临时回退到顺序。
 - **不要把 `.env.local` commit 到 main。** secrets 走 GitHub Actions secrets，本地走 `.env.local`，两条路完全分开。
 - **`docs/data/` 在 main 分支被 gitignore。** 数据只活在 `data` 分支，pages.yml 把两边合并到 `_site` 后部署。
 - **前端字体引用 SJTU 镜像。** `docs/index.html` 里 Google Fonts 走 `google-fonts.mirrors.sjtug.sjtu.edu.cn`。国外用户访问可能慢；如需更稳，换回 `fonts.googleapis.com` 或自托管 woff2。字体加载失败有 system fallback，不会渲染崩。
 
-## DeepSeek 适配要点
+## MiMo 结构化输出
 
-我们项目针对 DeepSeek 做了若干强假设，照官方文档对齐。以下事实变了就要回来调代码。
+摘要走小米对话接口的流式输出，模型 `mimo-v2.6-flash`。`response_format` 是 `json_object`。客户端把 `delta.content` 拼完再 `json.loads`，并检查六个字符串字段。
 
-### Prompt cache（KV cache）
-
-- **默认开启，不需要客户端配置。** 系统按 prefix 匹配，识别到固定前缀就落盘缓存。
-- **缓存按账号分级**，由 `user_id` 隔离（如果传了的话）。我们 **不传 `user_id`**，所有请求共享同一个 cache 池，命中率最大化。
-- **完整匹配才算命中。** 我们的 system prompt 每次渲染都是 byte-identical，前提是 `LANGUAGE` 不变。**LANGUAGE 一旦设了 `zh-CN` 就不要改**；改了之后所有 cache 失效，要重新预热几篇 paper 才能恢复命中率。
-- **user 前缀也要固定。** `summary_user.txt` 把关键词和静态说明放在 `标题：` 之前，同一天所有 paper 共用这一段；per-paper 的 title/abstract 从 `标题：` 才分叉。
-- **先串行一篇再并发。** `iter_seeded_summaries` 会先打完第一篇，等 DeepSeek 把前缀写入 cache，再按 `SUMMARY_MAX_WORKERS` 跑剩下的。否则 4 路同时发出去，前几篇会一起 miss。
-- **TTL 几小时到几天，不可配。** 如果一段时间没跑流水线，第一篇会 miss 重新落盘，后续命中。
-- **`prompt_cache_hit_rate` 是关键 metric。** `enrich.py` 的末尾日志会打印这一行；正常应该 > 0.4。如果某天 daily.yml 跑完看到 `prompt_cache_hit_rate` 显著低于平时（比如 < 0.1），先怀疑：(a) 改了 `LANGUAGE`；(b) 改了 system prompts；(c) 切换了 `MODEL_NAME`。
-- 命中部分按缓存价格（约 1/10）计费。预算敏感时这是核心杠杆。
-- **`max_tokens` 是输出上限，不是账单。** DeepSeek 按实际 `completion_tokens` 计费，不是按 cap。实测一篇摘要大约 300–500 completion tokens；默认 cap 1000、截断重试上限 1800。把 cap 调到 2000 不会让每篇自动按 2000 收费。
-
-### JSON mode（`response_format`）
-
-- **强制要求**：system 或 user prompt 含 `json` 字样 + 给出 JSON 输出示例。我们的 system prompt 有 EXAMPLE OUTPUT 段，对齐文档要求。
-- **空 content 是已知坑。** 文档明确说"API 有概率会返回空的 content"，建议靠改 prompt 缓解。我们 system prompt 里写了 "Never return an empty response or an object missing keys" 显式禁止；如果再看到空 content，先改 system prompt 而不是怪重试逻辑。
-- **截断（finish_reason=length）需要更多 max_tokens。** `summarize.py` 已实现 LengthLimitError → 增大 max_tokens 重试的策略：1000 起步、上限 1800（`MAX_SUMMARY_TOKENS`）。
-- **content 是字符串不是对象，必须自己 `json.loads`。** `extract_json_object()` 已处理；不要替换为别的解析。
-
-### 并发与速率
-
-- **没有 RPM/TPM 限制，只有并发上限。** `deepseek-v4-flash` 单账号 **2500 并发**。我们 `SUMMARY_MAX_WORKERS=4`，远低于上限，**永远不会撞墙**。
-- **超出并发返 HTTP 429**，没有 `Retry-After` header。`summarize.py` 的 `compute_backoff_seconds` 会回退到 `5 × attempt` 的指数退避，没问题。
-- **没有 ack 机制；服务器忙时会用空行/SSE keep-alive 保持连接**。我们 httpx 非流式调用会等到完整响应；服务器 10 分钟内必须开始推理否则断连。`LLM_TIMEOUT_SECONDS=600` 正好是这个上限，匹配。
-- **不要传 `user_id`。** 文档里这是细粒度调度隔离参数，会同时把不同 `user_id` 的 KV cache 隔开。我们要 cache 共享。
-
-### 模型选择
-
-- 当前 `deepseek-v4-flash`：单价低 + 并发高（2500）+ 适合摘要任务。
-- 如果切到 `deepseek-v4-pro`：质量更好但单价高，并发上限 500（仍远高于我们 4 路）。**切换前考虑：cache 是按模型隔离的吗？** 文档没明说，保守假设是隔离的——切模型当于一次"清空 cache"，第一天命中率会跌。
-
-### 不要做的事
-
-| 操作 | 后果 |
-|---|---|
-| 改 `LANGUAGE` | 所有 system prompt 渲染结果变了，cache 全 miss |
-| 改 `src/prompts/*_system.txt` 任一字符 | 同上 |
-| 给请求加 `user_id` 参数 | cache 按 user_id 隔离，不共享 |
-| 把 `temperature` 调高 | 不影响 cache 命中（cache 只看输入前缀），但输出 JSON 稳定性下降，更容易触发 JsonOutputError 重试 |
-| 切换 `MODEL_NAME` | 大概率清空 cache 池 |
+- 请求体用 `max_completion_tokens`（默认 1800）、`thinking.type=disabled`、`response_format.type=json_object`。思考模式默认开着，不关掉会忽略 `temperature`，并把思考 token 算进输出。
+- 每个日期同时只挂一个 batch。`custom_id` 是 arXiv id。Batch 不能在任务里重试；坏 JSON、缺行和单行错误记 `fallback:`，不另外再提交一轮。
+- 创建参数 `completion_window` 用文档示例里的 `24h`。
+- 用量日志同时认 `prompt_cache_hit_tokens` 和 `prompt_tokens_details.cached_tokens`。
 
 ## 首次部署 checklist
 
 提交 main 分支前请确认：
 
 - [ ] `OPENAI_API_KEY` 已设为 secret，**没有**写进任何 commit 文件
-- [ ] `OPENAI_BASE_URL` / `MODEL_NAME` / `LANGUAGE` / `LLM_ENABLED` 已设为 vars
+- [ ] `OPENAI_BASE_URL` 是 batch 地址，`MODEL_NAME=mimo-v2.6-flash`，`LANGUAGE` / `LLM_ENABLED` 已设为 vars
 - [ ] Settings → Pages → Source 选 **GitHub Actions**
 - [ ] Settings → Actions → Workflow permissions 是 **Read and write**
 - [ ] `config.yaml` 的 `arxiv.categories` 是你想抓的列表（或者用 `CATEGORIES` var 覆盖）

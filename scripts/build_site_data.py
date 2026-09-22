@@ -17,11 +17,19 @@ HEAVY_PAPER_FIELDS = {
 def strip_heavy_fields_from_payload(payload: dict) -> dict:
     cloned = deepcopy(payload)
     cloned.pop("paper_dates", None)
+    cloned.pop("summary_batch", None)
+    cloned.pop("summary_followup", None)
     cloned["papers"] = [
         {key: value for key, value in paper.items() if key not in HEAVY_PAPER_FIELDS}
         for paper in payload.get("papers", [])
     ]
     return cloned
+
+
+def prepare_public_payload(payload: dict, categories: list[str]) -> dict | None:
+    sanitized = strip_heavy_fields_from_payload(payload)
+    sanitized["categories"] = categories
+    return sanitized
 
 
 def parse_args() -> argparse.Namespace:
@@ -46,10 +54,16 @@ def main() -> None:
             paper_count = len(payload.get("papers", []))
             if paper_count <= 0:
                 continue
+            public_path = public_daily_path(date.fromisoformat(path.stem))
+            sanitized = prepare_public_payload(payload, categories)
+            if sanitized is None:
+                if public_path.exists():
+                    existing = read_json(public_path)
+                    public_dates.append(path.stem)
+                    counts_by_date[path.stem] = int(existing.get("paper_count") or len(existing.get("papers") or []))
+                continue
             public_dates.append(path.stem)
             counts_by_date[path.stem] = paper_count
-            sanitized = strip_heavy_fields_from_payload(payload)
-            sanitized["categories"] = categories
             write_json(
                 public_daily_path(date.fromisoformat(path.stem)),
                 sanitized,

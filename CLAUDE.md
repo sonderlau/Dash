@@ -4,18 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-Dash is a personal arXiv daily reader. A pipeline of Python scripts fetches papers from configured arXiv categories, generates Chinese summaries from arXiv metadata and abstracts via DeepSeek, optionally scores papers against personal keywords, and writes a lightweight static site under `docs/` that GitHub Pages serves.
+Dash is a personal arXiv daily reader. A pipeline of Python scripts fetches papers from configured arXiv categories, generates Chinese summaries from arXiv metadata and abstracts via Xiaomi MiMo streaming chat, optionally scores papers against personal keywords, and writes a lightweight static site under `docs/` that GitHub Pages serves.
 
 ## Non-negotiable preferences (treat as ADRs)
 
 These come from `HANDOFF.md` and `REFACTOR_PLAN.md`. Do not relitigate them without asking.
 
 - **No timezone logic in application code.** Scheduling is controlled by GitHub Actions cron, not Python.
-- **DeepSeek-only.** Do not introduce a generic LLM-provider abstraction. The `OPENAI_*` env names are leftover OpenAI-compatible naming, not a contract.
+- **MiMo chat only.** Summaries go to Xiaomi `mimo-v2.6-flash` through streaming chat completions. Do not introduce a generic LLM-provider abstraction. The `OPENAI_*` env names are leftover OpenAI-compatible naming, not a contract.
 - **Summaries are metadata/abstract-only.** The production path must not download PDFs or claim to read full text.
 - **`docs/data/*.json` must stay lightweight.** Do not add heavy fields to the public snapshot.
 - **The online workflow (`.github/workflows/daily.yml`) calls stage scripts directly** (`run_daily.py`, `enrich.py`, `build_site_data.py`, `validate_data.py`). It does not call `pipeline.py`. `pipeline.py` is a local convenience wrapper only.
-- **Pipeline is explicitly staged; stages may parallelize internally.** Per-paper concurrency lives inside `enrich.py`/`summarize.py`, not across stages.
+- **Pipeline is explicitly staged.** `daily.yml` summarizes in the same job, then publishes. Per-paper streaming lives inside `enrich.py` / `summarize.py`. Do not add a provider abstraction or a batch workflow.
 - **`.env.local` is local-only; never commit it.** `.env.local.example` is the template.
 
 ## Snapshot date semantics
@@ -39,7 +39,7 @@ Stage-by-stage (matches what GitHub Actions runs):
 
 ```bash
 .venv/bin/python scripts/run_daily.py        --date 2026-05-16
-.venv/bin/python scripts/enrich.py           --date 2026-05-16        # metadata/abstract summaries
+.venv/bin/python scripts/enrich.py           --date 2026-05-16        # stream JSON summaries
 .venv/bin/python scripts/build_site_data.py  --latest-date 2026-05-16
 .venv/bin/python scripts/validate_data.py tmp/state/2026-05-16.json docs/data/index.json docs/data/2026-05-16.json
 ```
@@ -64,7 +64,7 @@ There is no test suite, no linter config, and no build step beyond running these
 
 ```
 arXiv /list + /api  →  run_daily.py     →  tmp/state/YYYY-MM-DD.json
-                       enrich.py        ↻  (DeepSeek metadata/abstract summary)
+                       enrich.py        →  stream one JSON summary per paper
                        build_site_data  →  docs/data/YYYY-MM-DD.json   (lightweight public)
                                         →  docs/data/index.json
                        validate_data    →  fail loud if anything is empty/missing
@@ -74,23 +74,23 @@ arXiv /list + /api  →  run_daily.py     →  tmp/state/YYYY-MM-DD.json
 - `docs/data/YYYY-MM-DD.json` — public copy served by GitHub Pages.
 - `docs/data/index.json` — frontend index of available dates and metadata.
 
-### `enrich.py` — the per-paper pipeline
+### `enrich.py` — submit, then collect later
 
-`enrich.py` is the production stage. It runs a summary worker pool over papers that still need summaries. It uses arXiv metadata and abstracts only, so a paper costs one short DeepSeek request instead of PDF download, JVM extraction, and chunk/reduce calls.
+`enrich.py` is the production summary stage. It uses arXiv metadata and abstracts only. Each paper is one streaming `POST /v1/chat/completions` with `response_format.type=json_object`. The client concatenates `delta.content` and parses the finished string into the six summary fields. Failed papers become fallback summaries.
 
-Default: 4 summary workers. Override with `--summary-workers` or `SUMMARY_MAX_WORKERS`.
+The working copy committed on the `data` branch is `state/YYYY-MM-DD.json`. `daily.yml` rebuilds public `docs/data` in the same job after summaries finish.
 
-`enrich.py` reuses helpers from `summarize.py` (`should_skip`, `summarize_one_paper`, etc.) — keep those importable.
+`enrich.py` reuses helpers from `summarize.py` (`needs_new_summary`, `stream_summary`, `normalize_sections`, etc.) — keep those importable.
 
 ### `snapshot_writer.SnapshotWriter`
 
-Debounced, thread-safe writer for `tmp/state/YYYY-MM-DD.json`. Concurrent summary workers call `mark_dirty()`; the writer flushes at most every `min_interval_seconds` or every `every_n` marks, with a forced flush at close. Never write the daily state JSON directly from a worker — go through this writer or you will fight the disk on every paper.
+Debounced writer for concurrent summary workers. Workers call `mark_dirty()`; do not write the daily state JSON from a worker directly.
 
 ### Configuration layering
 
 `scripts/common.py:load_config` reads `config.yaml` then applies env overrides. Notable: setting `CATEGORIES` in env (comma/space/semicolon separated) overrides `arxiv.categories` from `config.yaml` at runtime. Local dev auto-loads `.env.local` via `load_local_env()`; `os.environ.setdefault` is used so already-set env vars win.
 
-DeepSeek settings come from `load_deepseek_settings()` reading `LLM_ENABLED`, `OPENAI_API_KEY`, `OPENAI_BASE_URL`, `MODEL_NAME`, `LANGUAGE`, `LLM_TIMEOUT_SECONDS`, `LLM_RETRY_TIMES`. Requests use `httpx.Client(..., trust_env=False)` to bypass any local HTTP proxy and `response_format={"type": "json_object"}`. Retry covers rate-limit, timeout, transport, and malformed/truncated JSON.
+MiMo settings come from `load_llm_settings()` reading `LLM_ENABLED`, `OPENAI_API_KEY`, `OPENAI_BASE_URL`, `MODEL_NAME`, `LANGUAGE`, `LLM_TIMEOUT_SECONDS`, `LLM_RETRY_TIMES`. Defaults are `https://api.xiaomimimo.com/v1` and `mimo-v2.6-flash`. Requests use `httpx.Client(..., trust_env=False)` and stream `response_format={"type": "json_object"}` with `thinking.type=disabled` and `max_completion_tokens`.
 
 `scripts/common.py:load_keywords` reads `keywords.yaml`. Empty or missing keywords disable relevance scoring; non-empty keywords ask the model for a string integer `relevance_score` from 0 to 100.
 

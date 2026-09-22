@@ -11,6 +11,12 @@ Return one valid JSON object and nothing else. The object must:
 - use no markdown, no code fences, no surrounding prose, no comments, no trailing text
 - never wrap the response in ```json ... ``` or any other delimiters
 
+The object shape is fixed. Copy this skeleton and replace every value:
+
+{"tldr":"string","motivation":"string","method":"string","result":"string","conclusion":"string","relevance_score":"61"}
+
+relevance_score is a string of digits from "0" to "100", or "" when the user message says the keyword list is empty. Do not return a JSON number.
+
 The six required fields, all string-valued:
 
 - "tldr"             — self-contained note: what the paper is, how it does it, and the headline finding

@@ -109,13 +109,13 @@ def env_flag(name: str, default: bool = False) -> bool:
     return raw.strip().lower() in {"1", "true", "yes", "on"}
 
 
-def load_deepseek_settings() -> dict[str, Any]:
+def load_llm_settings() -> dict[str, Any]:
     load_local_env()
     return {
         "enabled": env_flag("LLM_ENABLED", default=False),
         "api_key": os.getenv("OPENAI_API_KEY", ""),
-        "base_url": os.getenv("OPENAI_BASE_URL", "https://api.deepseek.com"),
-        "model": os.getenv("MODEL_NAME", "deepseek-v4-flash"),
+        "base_url": os.getenv("OPENAI_BASE_URL") or "https://api.xiaomimimo.com/v1",
+        "model": os.getenv("MODEL_NAME") or "mimo-v2.6-flash",
         "language": os.getenv("LANGUAGE", "zh-CN"),
         "timeout_seconds": int(os.getenv("LLM_TIMEOUT_SECONDS", "600")),
         "retry_times": int(os.getenv("LLM_RETRY_TIMES", "3")),

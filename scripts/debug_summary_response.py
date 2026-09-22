@@ -5,13 +5,13 @@ from pathlib import Path
 
 import httpx
 
-from common import load_config, load_deepseek_settings, read_json
+from common import load_config, load_llm_settings, read_json
 from summarize import build_request_payload, daily_path
 
 
 def main() -> None:
     config = load_config()
-    llm_settings = load_deepseek_settings()
+    llm_settings = load_llm_settings()
     payload = read_json(daily_path(__import__("datetime").date.fromisoformat("2026-05-16")))
     paper = payload["papers"][0]
     request_payload = build_request_payload(llm_settings, paper, max_tokens=420)

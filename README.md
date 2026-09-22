@@ -3,7 +3,7 @@
 Dash is a personal arXiv daily reader that:
 
 - fetches papers from selected arXiv categories,
-- generates Chinese summaries from arXiv metadata and abstracts with DeepSeek,
+- generates Chinese summaries from arXiv metadata and abstracts with Xiaomi MiMo streaming chat,
 - optionally scores each paper against personal reading keywords,
 - writes stable daily JSON snapshots,
 - publishes a static reading site from `docs/`.
@@ -58,10 +58,10 @@ Required env vars for summarization:
 - `MODEL_NAME`
 - `LANGUAGE`
 
-Recommended DeepSeek local setup:
+Recommended MiMo local setup:
 
-- `OPENAI_BASE_URL=https://api.deepseek.com`
-- `MODEL_NAME=deepseek-v4-flash`
+- `OPENAI_BASE_URL=https://api.xiaomimimo.com/v1`
+- `MODEL_NAME=mimo-v2.6-flash`
 - `LLM_TIMEOUT_SECONDS=600`
 - `LLM_RETRY_TIMES=3`
 
@@ -82,7 +82,7 @@ keywords:
 ```
 
 Leave `keywords: []` empty to disable `relevance_score` generation. When
-enabled, the summary prompt asks DeepSeek to return an integer string from 0 to
+enabled, the summary prompt asks MiMo to return an integer string from 0 to
 100 for personal reading priority, not paper quality.
 
 ## Pipeline stages
@@ -102,22 +102,21 @@ Useful variants:
 For scheduled / online execution, each stage should run as its own script:
 
 1. `python scripts/run_daily.py --date 2026-05-16`
-2. `python scripts/enrich.py --date 2026-05-16` — summarizes papers concurrently from metadata and abstracts.
+2. `python scripts/enrich.py --date 2026-05-16` — streams a JSON summary for each paper that still needs one.
 3. `python scripts/build_site_data.py --latest-date 2026-05-16`
 4. `python scripts/validate_data.py tmp/state/2026-05-16.json docs/data/index.json docs/data/2026-05-16.json`
 
-The standalone summarizer is still available if you only want to refresh summaries:
+`python scripts/pipeline.py` runs those stages and then builds the site.
+
+The standalone submitter is still available if you only want to refresh summaries:
 
 - `python scripts/summarize.py --date 2026-05-16`
 
-Stage-level parallelism:
+Stage notes:
 
 - `fetch_arxiv` 以 category `/list/<cat>/new` 为主数据源（默认上限 8 路，由 `ARXIV_LIST_WORKERS` 控制），因此只要 list 页可用就能确定今日新增 paper；arXiv `/api/query` 只做可选 metadata 补充，成功时只补 abstract、DOI、comment 等字段，429/503 会标记 `fetch_status.api_backfill_status = "degraded"` 并继续产出当天 snapshot
 - 如果 list 页成功但去重后没有新 paper，`run_daily.py` 会标记 `run_status = "no_new_papers"`；GitHub Actions 会跳过摘要、validate 当前空日期、commit 和 deploy，不发布空 snapshot
-- `enrich` 只有 summary worker pool；默认 4 个 summary worker，可用 `--summary-workers` 或 `SUMMARY_MAX_WORKERS` 覆盖
-- `scripts/summarize.py` 也保留 `--max-workers`，用于单独刷新 metadata/abstract summaries
-- 每日 snapshot 文件由 debounced 线程安全 writer 落盘，并发 worker 只 mark dirty，不竞争磁盘
-- 进度通过 `tqdm`（拆分 stage）或 `enrich` 的逐篇日志可见
+- `enrich` 按论文流式请求。并发由 `--summary-workers` 或 `SUMMARY_MAX_WORKERS` 控制，默认 4
 - pipeline stage 之间仍显式分开
 - 本地与线上入口仍分开：本地用 wrapper，线上直接调 stage 脚本
 
@@ -140,11 +139,12 @@ Cleanup:
 - Hosting: GitHub Pages from `/docs`
 - Automation: GitHub Actions workflow with scheduled and manual dispatch
 
-Scheduled runs use UTC 10:10 (Beijing 18:10), avoiding DeepSeek's Beijing 09:00-12:00 and 14:00-18:00 peak windows while still leaving buffer after arXiv's usual 20:00 ET announcement window.
+`daily.yml` runs at UTC 10:10. It summarizes and publishes in the same job.
 
-DeepSeek requests currently use:
+MiMo summary requests currently use:
 
-- `/chat/completions`
-- `response_format: {"type":"json_object"}`
+- streaming `POST /v1/chat/completions` on `https://api.xiaomimimo.com/v1`
+- `response_format: {"type":"json_object"}` and `thinking.type=disabled`
+- the client joins `delta.content` and parses that string as the six-field summary
 - `httpx.Client(..., trust_env=False)` to avoid local proxy interference
-- retry on rate-limit, timeout, transport, and malformed/truncated JSON cases
+- malformed JSON is retried; a paper that still fails is stored as a fallback summary

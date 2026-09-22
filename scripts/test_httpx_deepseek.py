@@ -28,18 +28,19 @@ def load_env_file(path: Path) -> dict[str, str]:
 
 def main() -> None:
     env = load_env_file(Path(".env.local"))
-    base_url = env.get("OPENAI_BASE_URL", "https://api.deepseek.com").rstrip("/") + "/chat/completions"
+    base_url = env.get("OPENAI_BASE_URL", "https://api.xiaomimimo.com/v1").rstrip("/") + "/chat/completions"
     api_key = env.get("OPENAI_API_KEY", "")
-    model_name = env.get("MODEL_NAME", "deepseek-v4-flash")
+    model_name = env.get("MODEL_NAME", "mimo-v2.6-flash")
 
     payload = {
         "model": model_name,
         "temperature": 0.1,
-        "max_tokens": 64,
+        "max_completion_tokens": 64,
+        "thinking": {"type": "disabled"},
         "response_format": {"type": "json_object"},
         "messages": [
             {"role": "system", "content": "Reply with a compact JSON object only."},
-            {"role": "user", "content": 'Return {"ok":true,"provider":"deepseek"}'},
+            {"role": "user", "content": 'Return {"ok":true,"provider":"mimo"}'},
         ],
     }
 
