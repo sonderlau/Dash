@@ -1,0 +1,523 @@
+{
+  "date": "2026-07-18",
+  "snapshot_date": "2026-07-18",
+  "generated_at": "2026-07-18T05:13:23Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 11,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 1,
+    "cs.CV": 5,
+    "cs.AI": 5
+  },
+  "summary_status_counts": {
+    "ok": 11
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 575
+  },
+  "papers": [
+    {
+      "id": "2607.14037",
+      "title": "Early Adoption of Agentic Coding Tools by GitHub Projects",
+      "authors": [
+        "Maliha Noushin Raida",
+        "Daqing Hou"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CY",
+        "cs.LG",
+        "cs.SE"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.SE",
+      "abs_url": "https://arxiv.org/abs/2607.14037",
+      "pdf_url": "https://arxiv.org/pdf/2607.14037",
+      "abstract_en": "Agentic coding tools are increasingly capable of generating and submitting pull requests (PRs) to software projects, introducing new forms of human-agent collaboration in software development. While prior studies have examined PR-level outcomes of agent-generated contributions, less is known about how agentic coding tools are adopted and managed at the project level. In this paper, we analyze 25,264 agentic PRs from 2,361 popular GitHub repositories to investigate (1) the adoption of agentic coding tools, (2) project-level agentic PR productivity, and (3) human-agent collaboration patterns. Our results show that the median repository generates only one to two agentic PRs during a three-month period, indicating that intensive adoption remains concentrated in a small subset of projects. At the same time, small projects (1-5 contributors) exhibit higher participation ratios and average levels of agentic PR activity than medium-sized and large projects. We also observe substantial variation in project-level agentic PR productivity. While a small number of projects exceed an industry-reported estimate of 36 PRs per participant during the three-month observation period, most projects remain below this threshold. Finally, human-agent collaboration is dominated by a single-human oversight model, in which one developer reviews and/or modifies the agent's contributions, while multi-human collaboration patterns remain uncommon. These findings provide early empirical evidence on how open-source projects organize human oversight around agentic coding tools and suggest that successful integration of agent-generated contributions depends not only on advances in agent capabilities but also on the human and organizational processes that govern their use. Because this study captures an early snapshot of agent adoption, future work should continue to track how adoption patterns evolve over time.",
+      "comment": "Accepted at the KDD 2026 Workshop on Agentic Software Engineering (SE 3.0)",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文分析了来自2,361个流行GitHub仓库的25,264个agent生成的PR，研究agentic编码工具在项目层面的采用、生产力和人机协作模式。结果显示，中位数仓库在三个月内仅产生1-2个agentic PR，小型项目（1-5人）的参与率更高，而大多数项目的agentic PR生产力低于行业报告估计的36 PR每个参与者。人机协作以单一人类监督模式为主，多人类协作不常见。\nMotivation: 先前研究多关注agent生成PR的结果，但缺乏对项目级别如何采纳和管理agentic编码工具的深入理解，本文填补了这一空白。\nMethod: 对大量GitHub仓库中的agentic PR进行定量分析，包括PR数量、项目规模、参与率、生产力以及协作模式等指标。\nResult: 中位数仓库三个月内仅1-2个agentic PR；小型项目参与比率和平均活动水平高于中型和大型项目；多数项目生产力低于行业估计；协作模式以单开发者监督为主。\nConclusion: 成功整合agent贡献不仅依赖于agent能力，还取决于治理这些工具的人类和组织流程。本研究捕捉了早期采纳的快照，未来需跟踪其演变。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文分析了来自2,361个流行GitHub仓库的25,264个agent生成的PR，研究agentic编码工具在项目层面的采用、生产力和人机协作模式。结果显示，中位数仓库在三个月内仅产生1-2个agentic PR，小型项目（1-5人）的参与率更高，而大多数项目的agentic PR生产力低于行业报告估计的36 PR每个参与者。人机协作以单一人类监督模式为主，多人类协作不常见。",
+        "motivation": "先前研究多关注agent生成PR的结果，但缺乏对项目级别如何采纳和管理agentic编码工具的深入理解，本文填补了这一空白。",
+        "method": "对大量GitHub仓库中的agentic PR进行定量分析，包括PR数量、项目规模、参与率、生产力以及协作模式等指标。",
+        "result": "中位数仓库三个月内仅1-2个agentic PR；小型项目参与比率和平均活动水平高于中型和大型项目；多数项目生产力低于行业估计；协作模式以单开发者监督为主。",
+        "conclusion": "成功整合agent贡献不仅依赖于agent能力，还取决于治理这些工具的人类和组织流程。本研究捕捉了早期采纳的快照，未来需跟踪其演变。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-15",
+      "updated_date": "2026-07-16",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.13976",
+      "title": "CF-Net: Conflict Fusion with Speaker Normalisation and Certainty Weighting for Ambivalence/Hesitancy Recognition",
+      "authors": [
+        "Tung Hung Bui",
+        "Hong Hai Nguyen",
+        "Van Thong Huynh"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.13976",
+      "pdf_url": "https://arxiv.org/pdf/2607.13976",
+      "abstract_en": "Detecting ambivalence and hesitancy (AH) in unconstrained video is challenging because the target signal is inherently ambiguous and expressed through subtle cross-modal incongruence rather than prototypical affect. We present CF-Net, a deep multimodal network submitted to the 3rd Edition of the AH Video Recognition Challenge (ABAW 11th, ECCV 2026), targeting the BAH dataset. CF-Net encodes visual, audio, and transcript streams with frozen SigLIP2, HuBERT, and DistilBERT backbones, normalises backbone features per speaker to reduce identity leakage, and fuses them via a ConflictFusion module that explicitly computes pairwise cross-modal incongruence. Training combines certainty-weighted focal loss, manifold mixup, and modality dropout; an auxiliary certainty-regression head uses ambiguity annotations to stabilise learning on genuinely borderline samples. CF-Net achieves a Macro F1 of 0.7155 on the BAH validation set and 0.7364 (AP = 0.7439) on the private challenge test set.",
+      "comment": "6 pages, 3 figures, 3 tables, 26 references",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出CF-Net，一种多模态深度网络，用于识别无约束视频中的矛盾与犹豫情绪。模型使用冻结的SigLIP2、HuBERT和DistilBERT骨干分别编码视觉、音频和文本流，通过每说话人归一化减少身份泄漏，并利用ConflictFusion模块显式建模跨模态不一致性。训练结合确定性加权焦点损失、流形混合和模态丢弃，辅助确定性回归头利用模糊标注稳定学习。在ABAW 2026挑战赛的BAH数据集上，验证集Macro F1为0.7155，测试集Macro F1为0.7364（AP=0.7439）。\nMotivation: 检测矛盾与犹豫情绪具有挑战性，因为目标信号本质模糊，且通过细微的跨模态不一致性而非典型情感表达。\nMethod: 使用冻结的SigLIP2（视觉）、HuBERT（音频）和DistilBERT（文本）骨干提取特征，对每说话人进行特征归一化以消除身份泄漏；通过ConflictFusion模块计算成对跨模态不一致性进行融合。训练采用确定性加权焦点损失、流形混合和模态丢弃，并添加确定性回归头利用模糊标注辅助学习。\nResult: 在BAH验证集上Macro F1为0.7155，在私有挑战测试集上Macro F1为0.7364（AP=0.7439）。\nConclusion: CF-Net通过多模态融合和确定性加权训练策略，有效提升了矛盾与犹豫情绪的识别性能，在ABAW 2026挑战赛中取得竞争力结果。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出CF-Net，一种多模态深度网络，用于识别无约束视频中的矛盾与犹豫情绪。模型使用冻结的SigLIP2、HuBERT和DistilBERT骨干分别编码视觉、音频和文本流，通过每说话人归一化减少身份泄漏，并利用ConflictFusion模块显式建模跨模态不一致性。训练结合确定性加权焦点损失、流形混合和模态丢弃，辅助确定性回归头利用模糊标注稳定学习。在ABAW 2026挑战赛的BAH数据集上，验证集Macro F1为0.7155，测试集Macro F1为0.7364（AP=0.7439）。",
+        "motivation": "检测矛盾与犹豫情绪具有挑战性，因为目标信号本质模糊，且通过细微的跨模态不一致性而非典型情感表达。",
+        "method": "使用冻结的SigLIP2（视觉）、HuBERT（音频）和DistilBERT（文本）骨干提取特征，对每说话人进行特征归一化以消除身份泄漏；通过ConflictFusion模块计算成对跨模态不一致性进行融合。训练采用确定性加权焦点损失、流形混合和模态丢弃，并添加确定性回归头利用模糊标注辅助学习。",
+        "result": "在BAH验证集上Macro F1为0.7155，在私有挑战测试集上Macro F1为0.7364（AP=0.7439）。",
+        "conclusion": "CF-Net通过多模态融合和确定性加权训练策略，有效提升了矛盾与犹豫情绪的识别性能，在ABAW 2026挑战赛中取得竞争力结果。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-15",
+      "updated_date": "2026-07-16",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.13805",
+      "title": "AspectCLIP: Optimizing CLIP Representation Space via Aspect-Guided Consistency Regularization",
+      "authors": [
+        "Yiyang Yao",
+        "Shanglin Liu",
+        "Jianming Lv",
+        "Chengjun Wang",
+        "Jinyi Li",
+        "Yuchan Jie",
+        "Zhihua Jin"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.13805",
+      "pdf_url": "https://arxiv.org/pdf/2607.13805",
+      "abstract_en": "Contrastive Language-Image Pretraining learns a shared representation space through large-scale contrastive learning. However, existing methods that enforce global consistency regularization overlook a key challenge: the inherent information asymmetry between images and text: captions typically describe only one specific aspect of an image, thus images with similar visual content can be paired with completely divergent textual content and semantic information. Consequently, global regularizers inadvertently impose constraints between visually similar images whose captions describe divergent aspects, introducing semantic distortion into the representation space. We propose AspectCLIP, a framework that reformulates consistency regularization to respect this one-to-many structure. AspectCLIP first partitions training samples into attribute clusters based on textual similarity to identify aspect-coherent groups, then applies full cyclic consistency within each cluster while restricting cross-cluster regularization to prototype-level comparisons. This aspect-guided regularization enforces strict geometric alignment only when images and texts describe a consistent facet, while allowing flexibility across divergent aspects. Extensive experiments on downstream tasks demonstrate that AspectCLIP consistently outperforms traditional methods and achieves a more structured representation space.",
+      "comment": "PRCV 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出AspectCLIP，针对CLIP中图像与文本信息不对称（一张图对应多个描述不同方面的文本）导致全局一致性正则化引入语义扭曲的问题，通过根据文本相似度将样本聚类为方面一致的组，在组内施加完整循环一致性，组间仅进行原型级对比，从而优化表示空间。实验显示该方法在多个下游任务上优于传统方法，得到更结构化的表示空间。\nMotivation: 现有CLIP模型的全局一致性正则化忽略了图像与文本之间的信息不对称：一张图像可能对应描述不同方面的文本，导致视觉相似但文本描述分歧的图像对被错误约束，引入语义扭曲。\nMethod: AspectCLIP首先根据文本相似度将训练样本划分为属性聚类，形成方面一致的组；然后在组内施加完整的循环一致性（full cyclic consistency），组间仅进行原型级比较（prototype-level comparisons），从而实现方面引导的正则化。\nResult: 在多个下游任务上，AspectCLIP一致优于传统方法，并获得了更结构化的表示空间。\nConclusion: 通过尊重图像-文本的一对多结构，方面引导的正则化仅在一致方面时施加严格几何对齐，跨方面时允许灵活性，从而提升表示质量。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出AspectCLIP，针对CLIP中图像与文本信息不对称（一张图对应多个描述不同方面的文本）导致全局一致性正则化引入语义扭曲的问题，通过根据文本相似度将样本聚类为方面一致的组，在组内施加完整循环一致性，组间仅进行原型级对比，从而优化表示空间。实验显示该方法在多个下游任务上优于传统方法，得到更结构化的表示空间。",
+        "motivation": "现有CLIP模型的全局一致性正则化忽略了图像与文本之间的信息不对称：一张图像可能对应描述不同方面的文本，导致视觉相似但文本描述分歧的图像对被错误约束，引入语义扭曲。",
+        "method": "AspectCLIP首先根据文本相似度将训练样本划分为属性聚类，形成方面一致的组；然后在组内施加完整的循环一致性（full cyclic consistency），组间仅进行原型级比较（prototype-level comparisons），从而实现方面引导的正则化。",
+        "result": "在多个下游任务上，AspectCLIP一致优于传统方法，并获得了更结构化的表示空间。",
+        "conclusion": "通过尊重图像-文本的一对多结构，方面引导的正则化仅在一致方面时施加严格几何对齐，跨方面时允许灵活性，从而提升表示质量。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-15",
+      "updated_date": "2026-07-16",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.13800",
+      "title": "Prospective clinical indication, post-hoc report leakage, and fusion design in multi-image chest radiograph classification: a patient-clustered evaluation",
+      "authors": [
+        "Kamran Shahid",
+        "Muhammad Munwar Iqbal"
+      ],
+      "categories": [
+        "cs.CV",
+        "eess.IV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "eess.IV",
+      "abs_url": "https://arxiv.org/abs/2607.13800",
+      "pdf_url": "https://arxiv.org/pdf/2607.13800",
+      "abstract_en": "Chest radiograph datasets often combine multiple images with Clinical Indication, Findings, and Impression, although these inputs are produced at different stages of care. We evaluated 15,000 ReXGradient-160K studies with two readable images and five CheXbert-derived report observations. Frozen DenseNet-121 and Bio+ClinicalBERT encoders were used to compare image-only, Indication-only, fixed-order multimodal, random-swap, DeepSets, and SectionGuard-MI models. Findings and Impression were evaluated only as post-hoc leakage controls. Models were trained with five seeds, and public-test uncertainty was estimated with 2,000 patient-cluster bootstrap replicates. Under U-Ones, macro AUROC was 0.643 for the primary image, 0.694 for two images, 0.749 for Indication, and 0.780 for ordinary two-image-plus-Indication fusion. SectionGuard-MI achieved AUROC 0.783 and AUPRC 0.260. Relative to ordinary fusion, its paired AUROC difference was 0.0031 (95% CI, -0.0042 to 0.0104; adjusted p=0.374), while its AUPRC difference was 0.0289 (95% CI, 0.0095 to 0.0413; adjusted p=0.004). DeepSets had the highest prospective AUROC point estimate (0.787), and random-swap fusion had the highest prospective AUPRC point estimate (0.265) with better calibration than SectionGuard-MI. Full report text alone reached AUROC 0.979 and AUPRC 0.836; AUROC remained above 0.973 after exact or expanded masking. These results show that prospective Indication is strongly associated with report-derived targets, permutation-aware fusion is competitive, and post-hoc report text creates substantial report-label circularity.",
+      "comment": "12 pages, 7 figures, 5 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 该论文研究了多图像胸部X光片分类中不同输入模态（图像、临床指征、报告文本）的预测价值，并比较了多种融合策略。在15,000份ReXGradient-160K研究上进行评估，发现临床指征本身与报告标签高度相关，事后报告文本会导致严重的报告-标签循环问题，而融合设计中的排列感知方法具有竞争力。\nMotivation: 现有胸部X光片数据集常将不同照护阶段产生的图像、临床指征、发现和印象合并使用，但这些输入的时间顺序和潜在的标签泄漏问题未被充分研究。论文旨在评估不同输入模态在前瞻性临床指征设定下的实际价值，并控制事后报告泄漏。\nMethod: 使用15,000份ReXGradient-160K研究中的两张可读图像和CheXbert导出的五个报告观察项。采用冻结的DenseNet-121和Bio+ClinicalBERT编码器，比较了仅图像、仅指征、固定顺序多模态、随机交换、DeepSets和SectionGuard-MI模型。发现和印象仅作为事后泄漏控制进行评测。通过5个种子训练，并用2,000个患者聚类bootstrap估计公共测试不确定性。\nResult: 在前瞻性设定下（U-Ones），主要图像的宏AUROC为0.643，两张图像为0.694，仅指征为0.749，普通双图像加指征融合为0.780。SectionGuard-MI的AUROC为0.783，AUPRC为0.260。与普通融合相比，SectionGuard-MI的AUROC差异为0.0031（不显著），AUPRC差异为0.0289（显著）。DeepSets的前瞻性AUROC最高（0.787），随机交换融合的前瞻性AUPRC最高（0.265）且校准更好。完整报告文本的AUROC为0.979，AUPRC为0.836，即使经过遮蔽仍保持0.973以上。\nConclusion: 结果表明，前瞻性临床指征与报告导出的目标强相关；排列感知融合具有竞争力；事后报告文本会造成严重的报告-标签循环问题。论文强调了在临床AI评估中控制信息泄漏的重要性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "该论文研究了多图像胸部X光片分类中不同输入模态（图像、临床指征、报告文本）的预测价值，并比较了多种融合策略。在15,000份ReXGradient-160K研究上进行评估，发现临床指征本身与报告标签高度相关，事后报告文本会导致严重的报告-标签循环问题，而融合设计中的排列感知方法具有竞争力。",
+        "motivation": "现有胸部X光片数据集常将不同照护阶段产生的图像、临床指征、发现和印象合并使用，但这些输入的时间顺序和潜在的标签泄漏问题未被充分研究。论文旨在评估不同输入模态在前瞻性临床指征设定下的实际价值，并控制事后报告泄漏。",
+        "method": "使用15,000份ReXGradient-160K研究中的两张可读图像和CheXbert导出的五个报告观察项。采用冻结的DenseNet-121和Bio+ClinicalBERT编码器，比较了仅图像、仅指征、固定顺序多模态、随机交换、DeepSets和SectionGuard-MI模型。发现和印象仅作为事后泄漏控制进行评测。通过5个种子训练，并用2,000个患者聚类bootstrap估计公共测试不确定性。",
+        "result": "在前瞻性设定下（U-Ones），主要图像的宏AUROC为0.643，两张图像为0.694，仅指征为0.749，普通双图像加指征融合为0.780。SectionGuard-MI的AUROC为0.783，AUPRC为0.260。与普通融合相比，SectionGuard-MI的AUROC差异为0.0031（不显著），AUPRC差异为0.0289（显著）。DeepSets的前瞻性AUROC最高（0.787），随机交换融合的前瞻性AUPRC最高（0.265）且校准更好。完整报告文本的AUROC为0.979，AUPRC为0.836，即使经过遮蔽仍保持0.973以上。",
+        "conclusion": "结果表明，前瞻性临床指征与报告导出的目标强相关；排列感知融合具有竞争力；事后报告文本会造成严重的报告-标签循环问题。论文强调了在临床AI评估中控制信息泄漏的重要性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-15",
+      "updated_date": "2026-07-16",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.13705",
+      "title": "AgentCompass: A Unified Evaluation Infrastructure for Agent Capabilities",
+      "authors": [
+        "Kai Chen",
+        "Zichen Ding",
+        "Jiaye Ge",
+        "Shufan Jiang",
+        "Mo Li",
+        "Qingqiu Li",
+        "Zehao Li",
+        "Zonglin Li",
+        "Tiaohao Liang",
+        "Shudong Liu",
+        "Zerun Ma",
+        "Zixing Shang",
+        "Wenhui Tian",
+        "Zun Wang",
+        "Liwei Wu",
+        "Zhenyu Wu",
+        "Jun Xu",
+        "Bowen Yang",
+        "Dingbo Yuan",
+        "Qi Zhang",
+        "Songyang Zhang",
+        "Peiheng Zhou",
+        "Dongsheng Zhu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.SE"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2607.13705",
+      "pdf_url": "https://arxiv.org/pdf/2607.13705",
+      "abstract_en": "As Large Language Models (LLMs) evolve into autonomous agents, the need for unified evaluation infrastructure becomes critical. However, current evaluation pipelines remain highly fragmented and tightly coupled, hindering reproducibility and causing redundant engineering. To address this, we introduce AgentCompass, an open-source, lightweight, and extensible infrastructure for evaluating LLM-based agents. AgentCompass organizes the evaluation process around three independent components, namely Benchmark, Harness, and Environment, thereby enabling flexible configurations without requiring the reimplementation of complex execution logic. Furthermore, it features a fault-tolerant asynchronous runtime and comprehensive trajectory analysis tools to transparently diagnose nuanced failure modes like reward-hacking. Natively supporting over 20 benchmarks across five capability dimensions, AgentCompass provides the community with a scalable and reproducible infrastructure for advancing agent research.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: AgentCompass 是一个轻量级、可扩展的开源基础设施，用于统一评估基于 LLM 的智能体。它围绕 Benchmark、Harness 和 Environment 三个独立组件组织评估流程，支持灵活配置，并提供容错异步运行时和轨迹分析工具。该基础设施原生支持跨五个能力维度的 20 多个基准测试，旨在提升可复现性并减少冗余工程。\nMotivation: 当前 LLM 智能体评估管道的碎片化与紧耦合导致可复现性差和工程冗余，急需统一的评估基础设施。\nMethod: AgentCompass 将评估过程解耦为 Benchmark、Harness 和 Environment 三个独立组件，通过容错异步运行时和轨迹分析工具实现灵活配置与故障诊断。\nResult: 原生支持 20 多个基准测试，覆盖五个能力维度，能够透明诊断奖励黑客等细微失败模式。\nConclusion: AgentCompass 为社区提供了一个可扩展、可复现的智能体评估基础设施，有望推动智能体研究的发展。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "AgentCompass 是一个轻量级、可扩展的开源基础设施，用于统一评估基于 LLM 的智能体。它围绕 Benchmark、Harness 和 Environment 三个独立组件组织评估流程，支持灵活配置，并提供容错异步运行时和轨迹分析工具。该基础设施原生支持跨五个能力维度的 20 多个基准测试，旨在提升可复现性并减少冗余工程。",
+        "motivation": "当前 LLM 智能体评估管道的碎片化与紧耦合导致可复现性差和工程冗余，急需统一的评估基础设施。",
+        "method": "AgentCompass 将评估过程解耦为 Benchmark、Harness 和 Environment 三个独立组件，通过容错异步运行时和轨迹分析工具实现灵活配置与故障诊断。",
+        "result": "原生支持 20 多个基准测试，覆盖五个能力维度，能够透明诊断奖励黑客等细微失败模式。",
+        "conclusion": "AgentCompass 为社区提供了一个可扩展、可复现的智能体评估基础设施，有望推动智能体研究的发展。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-15",
+      "updated_date": "2026-07-16",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.13501",
+      "title": "LOTAPO: Leave-One-Turn Attribution for Self-Generated Process Rewards in Multi-Turn Search Reasoning",
+      "authors": [
+        "Qiang Zhu",
+        "Jiajun Wu",
+        "Longyi Wang"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2607.13501",
+      "pdf_url": "https://arxiv.org/pdf/2607.13501",
+      "abstract_en": "Reinforcement learning for multi-turn search reasoning typically relies on terminal outcome rewards, which cannot distinguish useful, redundant, and harmful intermediate interactions. We propose LOTAPO , a self-generated process-supervision method based on backward leave-one-turn attribution. For each search turn, LOTAPO replaces the turn and its retrieval observation with a fixed [DELETE] placeholder and measures the resulting change in the current policy's mean log-likelihood of the gold answer. This Answer-Likelihood Gain estimates the turn's contribution while preserving all downstream interactions, allowing early evidence to be evaluated in the complete reasoning context. LOTAPO further applies sign-consistency gating, retaining only normalized process advantages whose directions agree with their raw attribution scores. The method requires no additional reward model, teacher, verifier, or LLM-as-a-Judge. Across seven knowledge-intensive question-answering datasets with local retrieval, LOTAPO achieves an average exact-match score of 0.326, outperforming the strongest step-reward baseline, IGPO, by 0.053. Ablations show complementary benefits from backward attribution and sign-consistency gating, demonstrating that policy-derived retrospective attribution can provide effective process supervision for multi-turn search agents.",
+      "comment": "20 pages, 5 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 LOTAPO，一种基于后向留一归因的自生成过程监督方法，用于多轮搜索推理中的强化学习。它通过替换每一轮搜索及其检索结果为 [DELETE] 占位符，并测量当前策略对正确答案的平均对数似然的变化，来估计该轮贡献，并应用符号一致性门控。该方法无需额外奖励模型或验证器，在七个知识密集型问答数据集上平均精确匹配得分为 0.326，超过最强步骤奖励基线 IGPO 0.053。\nMotivation: 强化学习在多轮搜索推理中通常只使用终端奖励，无法区分有用、冗余和有害的中间交互，缺乏细粒度的过程监督。\nMethod: 提出 LOTAPO，包括后向留一归因（将每一轮及其检索结果替换为 [DELETE] 占位符，测量对正确答案对数似然的变化）和符号一致性门控（只保留方向与原始归因分数一致的归一化过程优势）。\nResult: 在七个知识密集型问答数据集上，LOTAPO 的平均精确匹配得分为 0.326，比最强步骤奖励基线 IGPO 高 0.053；消融实验显示后向归因和符号一致性门控具有互补优势。\nConclusion: 论文证明基于策略的逆向归因可以为多轮搜索智能体提供有效的过程监督，且无需额外模型或标注。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 LOTAPO，一种基于后向留一归因的自生成过程监督方法，用于多轮搜索推理中的强化学习。它通过替换每一轮搜索及其检索结果为 [DELETE] 占位符，并测量当前策略对正确答案的平均对数似然的变化，来估计该轮贡献，并应用符号一致性门控。该方法无需额外奖励模型或验证器，在七个知识密集型问答数据集上平均精确匹配得分为 0.326，超过最强步骤奖励基线 IGPO 0.053。",
+        "motivation": "强化学习在多轮搜索推理中通常只使用终端奖励，无法区分有用、冗余和有害的中间交互，缺乏细粒度的过程监督。",
+        "method": "提出 LOTAPO，包括后向留一归因（将每一轮及其检索结果替换为 [DELETE] 占位符，测量对正确答案对数似然的变化）和符号一致性门控（只保留方向与原始归因分数一致的归一化过程优势）。",
+        "result": "在七个知识密集型问答数据集上，LOTAPO 的平均精确匹配得分为 0.326，比最强步骤奖励基线 IGPO 高 0.053；消融实验显示后向归因和符号一致性门控具有互补优势。",
+        "conclusion": "论文证明基于策略的逆向归因可以为多轮搜索智能体提供有效的过程监督，且无需额外模型或标注。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-15",
+      "updated_date": "2026-07-16",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.13418",
+      "title": "Can We Steer the Black-Box? Towards Controllability-Centric Evaluation of Recommender Systems with Collaborative Agents",
+      "authors": [
+        "Jiwen Zhou",
+        "Xiang Liu",
+        "Mingming Li",
+        "Pengbo Mo",
+        "Jiao Dai",
+        "Honglei Lv",
+        "Jizhong Han",
+        "Songlin Hu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.IR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.IR",
+      "abs_url": "https://arxiv.org/abs/2607.13418",
+      "pdf_url": "https://arxiv.org/pdf/2607.13418",
+      "abstract_en": "Recommender systems operate as Black-Boxes, leaving users and regulators unable to steer their outputs toward specific intentions or audit their behavior. This lack of controllability, defined as the system's ability to respond to explicit guidance, remains an unaddressed dimension in existing evaluation paradigms. To fill this gap, we propose CtrlBench-Rec, a collaborative multi-agent framework for systematic assessment of controllability. We formalize three fundamental tasks: target content discovery, interest profile shaping, and popularity bias mitigation, which together measure steerability from explicit commands to implicit representation steering and finally to overcoming algorithmic biases.Extensive experiments on real-world datasets and multiple recommendation models demonstrate that our framework effectively quantifies controllability and exposes critical system bottlenecks, most notably persistent resistance to guiding long tail content. CtrlBench-Rec provides the first standardized toolkit for controllable recommendation research, algorithmic auditing, and user empowerment. Our code is released on https://github.com/caskcsg/CtrlBenchRec.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出CtrlBench-Rec，一个基于多智能体协作框架的系统性评估推荐系统可控性的标准化工具，定义目标内容发现、兴趣画像塑造和流行度偏差缓解三个基本任务，实验揭示系统对长尾内容存在持续抵抗性。\nMotivation: 现有推荐系统评估缺乏对可控性的衡量，即用户或监管者无法引导系统输出或审计其行为。\nMethod: 提出协作多智能体框架CtrlBench-Rec，形式化三个可控性任务：目标内容发现、兴趣画像塑造、流行度偏差缓解，并在多个推荐模型上实验。\nResult: 框架有效量化可控性，暴露系统瓶颈，特别是对长尾内容引导的持续抵抗。\nConclusion: CtrlBench-Rec为可控推荐研究、算法审计和用户赋能提供了首个标准化工具包。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出CtrlBench-Rec，一个基于多智能体协作框架的系统性评估推荐系统可控性的标准化工具，定义目标内容发现、兴趣画像塑造和流行度偏差缓解三个基本任务，实验揭示系统对长尾内容存在持续抵抗性。",
+        "motivation": "现有推荐系统评估缺乏对可控性的衡量，即用户或监管者无法引导系统输出或审计其行为。",
+        "method": "提出协作多智能体框架CtrlBench-Rec，形式化三个可控性任务：目标内容发现、兴趣画像塑造、流行度偏差缓解，并在多个推荐模型上实验。",
+        "result": "框架有效量化可控性，暴露系统瓶颈，特别是对长尾内容引导的持续抵抗。",
+        "conclusion": "CtrlBench-Rec为可控推荐研究、算法审计和用户赋能提供了首个标准化工具包。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-15",
+      "updated_date": "2026-07-16",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.13220",
+      "title": "Networked Intelligence: Active Shared Context Graphs for Human-AI Team Science",
+      "authors": [
+        "Sutanay Choudhury",
+        "Jeffrey J. Czajka",
+        "Lummy M. O. Monteiro",
+        "Erin Bredeweg",
+        "Jason McDermott",
+        "Katherine Wolf",
+        "Alex Beliaev",
+        "Josh Elmore",
+        "Paul Piehowski",
+        "Kylee Tate",
+        "Yuqian Gao",
+        "Aivett Bilbao",
+        "Kelly Stratton",
+        "Scott Baker",
+        "Jaydeep P. Bardhan",
+        "Kristin Burnum Johnson",
+        "Chris Oehmen",
+        "Robert Rallo"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CE",
+        "cs.HC"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2607.13220",
+      "pdf_url": "https://arxiv.org/pdf/2607.13220",
+      "abstract_en": "Most AI-for-science systems focus on scaling a single reasoning process by using better models, larger context windows, long-horizon agentic execution, or digital co-scientists working with one principal user. However, challenging scientific problems are rarely solved by one reasoner alone. They are solved by teams whose members carry different priors, experimental background, tacit knowledge, and domain-trained intuitions. The open problem is therefore not only how to scale models, but how to develop \"networked intelligence\", scaling the connections between humans and AI systems so that a result or hypothesis produced in one context reaches another person, agent, instrument or robot that can act on it. We introduce Mycelium, an active shared workspace that automatically connects researchers and AI agents. As human users and agents work, the system captures important observations and hypotheses, tracks how they relate to the team's evolving knowledge model, and routes them to the person or agent whose next decision they can inform. We evaluate Mycelium through a real-world scientific discovery use case: a biological multi-omics campaign where shared context turned a local analytical finding into a cross-expert mechanistic constraint and ultimately into an experimental design. Finally, we describe networked intelligence as sparse conditional computation over distributed scientific contexts. This framework establishes when a scaled standalone agent is sufficient, and when isolated data and specialized expertise make a networked approach essential.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出Mycelium，一种主动共享工作空间，自动连接研究人员和AI代理，捕获重要观察和假设，并路由给相关决策者。通过在真实生物多组学发现案例中评估，展示了共享上下文如何将局部分析转化为跨专家的机制约束并最终指导实验设计。论文将网络智能定义为分布式科学上下文上的稀疏条件计算。\nMotivation: 大多数AI科学系统专注于扩展单一推理过程，但复杂科学问题需要团队协作。现有系统缺乏支持团队中不同成员（人类和AI）之间上下文共享和路由的机制。\nMethod: Mycelium系统作为主动共享工作空间，在人类用户和AI代理工作时自动捕获关键观察和假设，跟踪它们与团队不断发展的知识模型的关系，并将其路由到下一个决策需要该信息的人或代理。\nResult: 通过一个真实生物多组学发现案例评估，表明共享上下文将局部分析发现转化为跨专家的机制约束，并最终形成实验设计。提出了网络智能作为分布式科学上下文上的稀疏条件计算框架。\nConclusion: 论文强调，当孤立的数据和专业知识使得网络化方法至关重要时，单个扩展的AI代理不再足够，所提出的框架为决定何时使用独立代理与网络化方法提供了依据。\nRelevance: 10",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出Mycelium，一种主动共享工作空间，自动连接研究人员和AI代理，捕获重要观察和假设，并路由给相关决策者。通过在真实生物多组学发现案例中评估，展示了共享上下文如何将局部分析转化为跨专家的机制约束并最终指导实验设计。论文将网络智能定义为分布式科学上下文上的稀疏条件计算。",
+        "motivation": "大多数AI科学系统专注于扩展单一推理过程，但复杂科学问题需要团队协作。现有系统缺乏支持团队中不同成员（人类和AI）之间上下文共享和路由的机制。",
+        "method": "Mycelium系统作为主动共享工作空间，在人类用户和AI代理工作时自动捕获关键观察和假设，跟踪它们与团队不断发展的知识模型的关系，并将其路由到下一个决策需要该信息的人或代理。",
+        "result": "通过一个真实生物多组学发现案例评估，表明共享上下文将局部分析发现转化为跨专家的机制约束，并最终形成实验设计。提出了网络智能作为分布式科学上下文上的稀疏条件计算框架。",
+        "conclusion": "论文强调，当孤立的数据和专业知识使得网络化方法至关重要时，单个扩展的AI代理不再足够，所提出的框架为决定何时使用独立代理与网络化方法提供了依据。",
+        "relevance_score": "10"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-14",
+      "updated_date": "2026-07-16",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.13162",
+      "title": "What Models Express, Suppress, and Resist: Auditing Open-Weight LLMs with Persona Vectors",
+      "authors": [
+        "Winston Zeng",
+        "Ali Emami",
+        "Jinho D. Choi"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2607.13162",
+      "pdf_url": "https://arxiv.org/pdf/2607.13162",
+      "abstract_en": "What a language model will and will not do is largely set during post-training, but which behaviors it expresses, hides, or resists is not revealed by prompting alone. Persona vectors, behavioral directions in activation space, can probe this organization, but prior work covers only a handful of traits. We present the first systematic application of persona vectors at this scale, compiling a 53-trait inventory across four behaviorally distinct domains and labeling every trait in two open-weight models as natural (expressed at baseline), steerable latent but amplifiable, or intractable (resistant to standard extraction). Both models default to helpful, task-oriented behavior: all nine agentic traits are natural, and their default clinician behavior matches a board-certified psychologist's independent desirability judgments on 16 of 17 traits. Steering produces its largest gains on traits these defaults exclude: hyperbole, hallucination, and sycophancy. The same asymmetry holds across all 171 generic-trait pairs: two steerable traits can collapse the composition, but pairs involving a default never do. Where standard extraction fails on a trait like \"evil,\" a vector transferred from a fine-tuned variant still recovers it, with the residual refusals appearing inside the model's chain-of-thought. Persona vectors are most informative not as a set of controls but as a probe of behavioral organization.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文首次系统性地在53个人格特质上应用人格向量（persona vectors）方法，审计两个开源权重LLM的行为组织。研究发现模型默认表现出有益、任务导向的行为；所有9个代理特质（agentic traits）自然表达；通过引导可以放大被默认抑制的特质（如夸张、幻觉、谄媚）；对于“邪恶”等难以提取的特质，可以从微调变体中转移向量来恢复。人格向量主要作为行为组织的探针而非控制手段。\nMotivation: 现有方法仅通过提示无法揭示语言模型在训练后哪些行为被表达、抑制或抵抗，而人格向量研究仅覆盖少数特质，缺乏大规模系统性审计。\nMethod: 编译53个特质的清单，涵盖四个行为不同领域，并在两个开源权重模型上标注每个特质为自然（基线表达）、可引导（潜在但可放大）或难处理（抗拒标准提取）。使用向量转移和链式思维分析。\nResult: 两个模型默认有益且任务导向；全部9个代理特质自然表达；默认临床行为与委员会认证心理医生在16/17个特质上的独立合意性判断一致；引导在默认排除的特质上增益最大；对于‘邪恶’等特质，从微调变体转移向量可恢复，残留拒绝出现在模型思维链中。\nConclusion: 人格向量最有价值的是作为行为组织的探针而非控制工具，揭示了模型内部行为表达的不对称性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文首次系统性地在53个人格特质上应用人格向量（persona vectors）方法，审计两个开源权重LLM的行为组织。研究发现模型默认表现出有益、任务导向的行为；所有9个代理特质（agentic traits）自然表达；通过引导可以放大被默认抑制的特质（如夸张、幻觉、谄媚）；对于“邪恶”等难以提取的特质，可以从微调变体中转移向量来恢复。人格向量主要作为行为组织的探针而非控制手段。",
+        "motivation": "现有方法仅通过提示无法揭示语言模型在训练后哪些行为被表达、抑制或抵抗，而人格向量研究仅覆盖少数特质，缺乏大规模系统性审计。",
+        "method": "编译53个特质的清单，涵盖四个行为不同领域，并在两个开源权重模型上标注每个特质为自然（基线表达）、可引导（潜在但可放大）或难处理（抗拒标准提取）。使用向量转移和链式思维分析。",
+        "result": "两个模型默认有益且任务导向；全部9个代理特质自然表达；默认临床行为与委员会认证心理医生在16/17个特质上的独立合意性判断一致；引导在默认排除的特质上增益最大；对于‘邪恶’等特质，从微调变体转移向量可恢复，残留拒绝出现在模型思维链中。",
+        "conclusion": "人格向量最有价值的是作为行为组织的探针而非控制工具，揭示了模型内部行为表达的不对称性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-14",
+      "updated_date": "2026-07-16",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.09142",
+      "title": "MedRealMM: A Real-World Multimodal Benchmark for Chinese Online Medical Consultation",
+      "authors": [
+        "Runhan Shi",
+        "Quan Zhou",
+        "Yuqian Xu",
+        "Shuai Yang",
+        "Xin Wu",
+        "Zitong Zhou",
+        "Hui Liu",
+        "Bin Zha",
+        "Zheming Wang",
+        "Liya Li",
+        "Wei Wei",
+        "Jinru Ding",
+        "Wenrao Pang",
+        "Mouxiao Bian",
+        "Haoyuan Hu",
+        "Jun Xu",
+        "Jie Xu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2607.09142",
+      "pdf_url": "https://arxiv.org/pdf/2607.09142",
+      "abstract_en": "Large language models (LLMs) are increasingly deployed in online medical consultation, yet existing benchmarks remain poorly aligned with real clinical practice. Many rely on synthetic conversations or patient simulators, omit patient-uploaded medical images, or evaluate open-ended clinical responses using multiple-choice or lexical-overlap metrics that poorly reflect clinical quality. We introduce \\textbf{MedRealMM}, a large-scale benchmark for multimodal online medical consultation built from de-identified patient-doctor interactions collected from a nationwide Chinese internet hospital. MedRealMM uses a Multimodal Clinical Challenge Point (MCCP) extraction framework to identify clinically demanding moments in authentic consultation trajectories and converts each into a standardized next-response generation task while preserving the preceding text-image context. Each instance is paired with a case-specific rubric refined by physicians that rewards clinically desirable behaviors and penalizes unsafe, unsupported, or contradictory responses. The current release contains 5,620 real-world multimodal cases spanning 64 clinical departments. We evaluate 19 general-purpose and medical-specialized LLMs, including text-only and multimodal systems. Our results show that image information is critical for reliable clinical performance and that current frontier models remain below the online physician response. Although some frontier models satisfy as many or more positive clinical criteria than physicians, they trigger more negative criteria, indicating that safety-sensitive error avoidance remains a central bottleneck. MedRealMM offers a realistic and reproducible benchmark for evaluating multimodal medical reasoning in real-world online consultation. The dataset will be publicly available on Hugging Face at https://huggingface.co/datasets/jdh-algo/MedRealMM.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出MedRealMM，一个基于真实中国在线医疗咨询数据的多模态基准，包含5,620个真实病例，跨越64个科室。通过MCCP框架从真实医患对话中提取具有临床挑战性的时刻，并标准化为下一回复生成任务。评估19个通用和医学专用LLM，发现图像信息对临床性能至关重要，当前先进模型仍低于在线医生水平，且安全性错误避免是主要瓶颈。\nMotivation: 现有在线医疗咨询基准与临床实践脱节，多依赖合成对话或患者模拟器，忽略患者上传的医学图像，且使用多选题或词法重叠指标评估开放型临床回复，无法反映临床质量。\nMethod: 从全国性互联网医院收集脱敏医患交互数据，使用多模态临床挑战点（MCCP）提取框架识别真实咨询轨迹中的临床需求时刻，将其转化为标准化的下一回复生成任务，并保留前文图文上下文。每个实例配有医生细化的病例特定评分标准，奖励临床良行，惩罚不安全、无依据或矛盾回复。\nResult: 实验表明图像信息对可靠临床性能至关重要，当前前沿模型在满足正面临床标准上虽能达到或超过医生，但触发更多负面标准，安全性错误避免仍是核心瓶颈。\nConclusion: MedRealMM为评估真实在线医疗咨询中的多模态医学推理提供了现实且可重复的基准，数据集将在Hugging Face公开。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出MedRealMM，一个基于真实中国在线医疗咨询数据的多模态基准，包含5,620个真实病例，跨越64个科室。通过MCCP框架从真实医患对话中提取具有临床挑战性的时刻，并标准化为下一回复生成任务。评估19个通用和医学专用LLM，发现图像信息对临床性能至关重要，当前先进模型仍低于在线医生水平，且安全性错误避免是主要瓶颈。",
+        "motivation": "现有在线医疗咨询基准与临床实践脱节，多依赖合成对话或患者模拟器，忽略患者上传的医学图像，且使用多选题或词法重叠指标评估开放型临床回复，无法反映临床质量。",
+        "method": "从全国性互联网医院收集脱敏医患交互数据，使用多模态临床挑战点（MCCP）提取框架识别真实咨询轨迹中的临床需求时刻，将其转化为标准化的下一回复生成任务，并保留前文图文上下文。每个实例配有医生细化的病例特定评分标准，奖励临床良行，惩罚不安全、无依据或矛盾回复。",
+        "result": "实验表明图像信息对可靠临床性能至关重要，当前前沿模型在满足正面临床标准上虽能达到或超过医生，但触发更多负面标准，安全性错误避免仍是核心瓶颈。",
+        "conclusion": "MedRealMM为评估真实在线医疗咨询中的多模态医学推理提供了现实且可重复的基准，数据集将在Hugging Face公开。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-10",
+      "updated_date": "2026-07-16",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.13891",
+      "title": "PiVoT: A Variational Solution for Real-time Large-scale Multi-object Detection and Tracking under Heavy Clutter",
+      "authors": [
+        "Runze Gan",
+        "Qing Li",
+        "Simon J. Godsill",
+        "Mike E. Davies",
+        "James R. Hopgood"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "eess.SP",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.13891",
+      "pdf_url": "https://arxiv.org/pdf/2607.13891",
+      "abstract_en": "Multi-object detection and tracking from noisy point clouds remain challenging in many data-scarce radar applications. Current Bayesian trackers based on Poisson measurement models offer a training-free solution but struggle to achieve accuracy and efficiency under severe clutter, large object populations, and full-resolution Doppler point clouds. We address this with PiVoT, a fast, clutter-resilient multi-object tracker for both positional and Doppler measurements. PiVoT performs end-to-end detection and tracking of a large and time-varying number of objects without external clustering or detectors, through joint inference of object states, shapes, existence probabilities, data association, and measurement rates. Its efficiency is driven by several variational inference innovations, such as theoretically justified birth pruning, quadratic-to-linear complexity reductions for exact updates, and a computationally efficient Doppler Poisson model. Experiments show that PiVoT substantially outperforms existing Bayesian trackers in challenging scenes, while also demonstrating exceptional scalability to a thousand objects, robustness to clutter visually inseparable from objects, and real-time operation on full-scale modern automotive radar datasets, where it attains performance comparable to a deep-learning detection benchmark as a training-free joint detector and tracker.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: PiVoT是一种基于变分推断的实时多目标检测与跟踪方法，专为高杂波环境下的雷达点云设计。它无需外部聚类或深度学习检测器，联合推断目标状态、形状、存在概率、数据关联和测量率，并在全尺寸现代汽车雷达数据集上实现了与深度学习检测基准相当的性能。\nMotivation: 现有贝叶斯跟踪器在严重杂波、大量目标及全分辨率多普勒点云下精度和效率不足，且许多雷达应用数据稀缺，难以直接使用深度学习。\nMethod: PiVoT通过变分推断实现端到端检测与跟踪，包括理论上合理的出生剪枝、将精确更新的复杂度从二次降到线性、以及高效的多普勒泊松模型。\nResult: 在挑战性场景中显著优于现有贝叶斯跟踪器，可扩展至上千目标，对视觉上不可区分的杂波具有鲁棒性，并在全尺寸汽车雷达数据集上实时运行，性能与深度学习检测基准相当。\nConclusion: PiVoT作为无需训练的统一检测与跟踪器，为雷达点云中的多目标跟踪提供了高效、鲁棒的解决方案。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "PiVoT是一种基于变分推断的实时多目标检测与跟踪方法，专为高杂波环境下的雷达点云设计。它无需外部聚类或深度学习检测器，联合推断目标状态、形状、存在概率、数据关联和测量率，并在全尺寸现代汽车雷达数据集上实现了与深度学习检测基准相当的性能。",
+        "motivation": "现有贝叶斯跟踪器在严重杂波、大量目标及全分辨率多普勒点云下精度和效率不足，且许多雷达应用数据稀缺，难以直接使用深度学习。",
+        "method": "PiVoT通过变分推断实现端到端检测与跟踪，包括理论上合理的出生剪枝、将精确更新的复杂度从二次降到线性、以及高效的多普勒泊松模型。",
+        "result": "在挑战性场景中显著优于现有贝叶斯跟踪器，可扩展至上千目标，对视觉上不可区分的杂波具有鲁棒性，并在全尺寸汽车雷达数据集上实时运行，性能与深度学习检测基准相当。",
+        "conclusion": "PiVoT作为无需训练的统一检测与跟踪器，为雷达点云中的多目标跟踪提供了高效、鲁棒的解决方案。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-15",
+      "updated_date": "2026-07-15",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}

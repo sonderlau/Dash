@@ -1,0 +1,1209 @@
+{
+  "date": "2026-08-08",
+  "snapshot_date": "2026-08-08",
+  "generated_at": "2026-08-08T03:55:35Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 28,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.CV": 9,
+    "cs.LG": 11,
+    "cs.AI": 7,
+    "stat.ML": 1
+  },
+  "summary_status_counts": {
+    "ok": 28
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 628
+  },
+  "papers": [
+    {
+      "id": "2608.05145",
+      "title": "Objects as Audio-Visual Modal Sound Fields",
+      "authors": [
+        "Zisen Shao",
+        "Zihao Wei",
+        "Derong Jin",
+        "Ruohan Gao"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.05145",
+      "pdf_url": "https://arxiv.org/pdf/2608.05145",
+      "abstract_en": "While modern 3D reconstruction excels at modeling object geometry and appearance, it largely ignores the rich acoustic cues revealed through physical interaction. Object impact sounds convey material, stiffness, and structural properties that complement vision, yet existing impact sound modeling approaches either rely on expensive physics-based simulation or require large datasets to generalize in a purely data-driven manner. We introduce Audio-Visual Modal Sound Field (AV-MSF), a novel object-level acoustic representation reconstructed from multi-view images and only a few impact sound recordings. AV-MSF builds on 3D Gaussian Splatting integrated with dense 3D visual feature to provide a strong geometry-aware prior, and represents the impact sound field using compact, physically meaningful modal parameters, enabling robust few-shot reconstruction. Experiments on two real-world datasets show that AV-MSF achieves state-of-the-art impact sound rendering, outperforming both physics-based and data-driven baselines. Furthermore, we demonstrate downstream applications enabled by our representation, including contact localization and object sound editing.",
+      "comment": "ECCV 2026, Project page: https://zisenshao.github.io/AV-MSF/",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 AV-MSF（Audio-Visual Modal Sound Field），一种从多视角图像和少量冲击声录音重建的物体级声学表示。该方法以 3D Gaussian Splatting 结合稠密 3D 视觉特征作为几何先验，用紧凑且有物理意义的模态参数（modal parameters）表示冲击声场，实现少样本重建。摘要报告在两个真实数据集上取得最先进的冲击声渲染效果，并展示接触定位和物体声音编辑等下游应用。\nMotivation: 现有 3D 重建主要建模几何与外观，忽略物体受物理交互时产生的丰富声学线索；物体冲击声蕴含材质、刚度与结构信息，可补充视觉。但既有的冲击声建模要么依赖昂贵的物理仿真，要么需要大数据集才能以纯数据驱动方式泛化。\nMethod: 提出 AV-MSF，基于 3D Gaussian Splatting 并集成稠密 3D 视觉特征以提供强几何先验；冲击声场用紧凑、有物理意义的模态参数表示，支持鲁棒的少样本重建。\nResult: 在两个真实世界数据集上，AV-MSF 取得最先进的冲击声渲染效果，优于基于物理的和数据驱动的基线；还展示了接触定位（contact localization）与物体声音编辑（object sound editing）等下游应用。\nConclusion: 摘要强调该表示在极少冲击声样本下即可实现高质量的物体级声学重建，并指出其可支持接触定位和声音编辑等下游任务。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 AV-MSF（Audio-Visual Modal Sound Field），一种从多视角图像和少量冲击声录音重建的物体级声学表示。该方法以 3D Gaussian Splatting 结合稠密 3D 视觉特征作为几何先验，用紧凑且有物理意义的模态参数（modal parameters）表示冲击声场，实现少样本重建。摘要报告在两个真实数据集上取得最先进的冲击声渲染效果，并展示接触定位和物体声音编辑等下游应用。",
+        "motivation": "现有 3D 重建主要建模几何与外观，忽略物体受物理交互时产生的丰富声学线索；物体冲击声蕴含材质、刚度与结构信息，可补充视觉。但既有的冲击声建模要么依赖昂贵的物理仿真，要么需要大数据集才能以纯数据驱动方式泛化。",
+        "method": "提出 AV-MSF，基于 3D Gaussian Splatting 并集成稠密 3D 视觉特征以提供强几何先验；冲击声场用紧凑、有物理意义的模态参数表示，支持鲁棒的少样本重建。",
+        "result": "在两个真实世界数据集上，AV-MSF 取得最先进的冲击声渲染效果，优于基于物理的和数据驱动的基线；还展示了接触定位（contact localization）与物体声音编辑（object sound editing）等下游应用。",
+        "conclusion": "摘要强调该表示在极少冲击声样本下即可实现高质量的物体级声学重建，并指出其可支持接触定位和声音编辑等下游任务。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.05131",
+      "title": "OPD-V: Visual On-Policy Self-Distillation with Modality Balance",
+      "authors": [
+        "Aniri",
+        "Jinhe Bi",
+        "Peng Liao",
+        "Zengjie Jin",
+        "Volker Tresp",
+        "Fei Shen",
+        "Yunpu Ma",
+        "Tat-Seng Chua"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.05131",
+      "pdf_url": "https://arxiv.org/pdf/2608.05131",
+      "abstract_en": "On-Policy Self-Distillation (OPSD) has become a standard post-training approach for improving visual reasoning in multimodal large language models (MLLMs). Existing methods draw privileged information from diverse input sources to guide self-distillation. Yet these designs overlook Modality Imbalance, a challenge inherent to MLLM reasoning. When textual information dominates generation, the model cannot fully integrate its multimodal input. Consequently, carefully designed privileged information remains underused, limiting the effectiveness of OPSD. To examine this limitation, we construct a Positive Teacher with the Zoom-In Image and a Negative Teacher with the Mask Image, which exhibit different degrees of Modality Imbalance. Changes in their reasoning correctness and token logits reveal that Modality Balance can itself serve as privileged information. Motivated by this finding, we introduce OPD-V, a visual OPSD paradigm that instantiates such information through the Positive Teacher and Negative Teacher. Positive Modality-Balance Logits Margins define a Modality-Balance Trust Region that selects the on-policy tokens used for self-distillation. Experiments across 6 benchmarks, 4 MLLM backbones, and 5 post-training methods show that OPD-V consistently improves reasoning performance while reducing training cost.",
+      "comment": "Corrected the uploaded manuscript. Project Page:https://github.com/aniri15/OPD-V",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文指出多模态大语言模型 (MLLM) 的后训练方法 On-Policy Self-Distillation (OPSD) 忽略了 Modality Imbalance 问题：当文本信息主导生成时，模型无法充分整合多模态输入，导致精心设计的特权信息未被充分利用。作者通过 Zoom-In Image 构造 Positive Teacher、Mask Image 构造 Negative Teacher，发现 Modality Balance 本身可作为特权信息，并提出 OPD-V，一种通过 Modality-Balance Trust Region 选择 on-policy token 进行自蒸馏的视觉 OPSD 范式。实验在 6 个基准、4 个 MLLM 主干和 5 种后训练方法上显示，OPD-V 持续提升推理性能并降低训练成本。\nMotivation: 现有 OPSD 方法从多种输入源提取特权信息来引导自蒸馏，但忽略了 MLLM 推理中固有的 Modality Imbalance 挑战；当文本信息主导时，多模态输入无法被完整整合，导致特权信息利用不足，限制了 OPSD 的效果。\nMethod: 构造 Positive Teacher（使用 Zoom-In Image）与 Negative Teacher（使用 Mask Image），二者表现出不同程度的 Modality Imbalance；通过推理正确性与 token logits 的变化验证 Modality Balance 可作特权信息，并据此提出 OPD-V：利用 Positive Modality-Balance Logits Margins 定义 Modality-Balance Trust Region，用于筛选参与自蒸馏的 on-policy tokens。\nResult: 在 6 个基准、4 个 MLLM 主干和 5 种后训练方法上的实验显示，OPD-V 一致地提升推理性能，同时降低训练成本。\nConclusion: 作者强调 Modality Balance 本身可以作为一种特权信息用于视觉 OPSD，且 OPD-V 在提升性能的同时减少了训练开销。摘要未提及超出上述范围的方法细节或局限性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文指出多模态大语言模型 (MLLM) 的后训练方法 On-Policy Self-Distillation (OPSD) 忽略了 Modality Imbalance 问题：当文本信息主导生成时，模型无法充分整合多模态输入，导致精心设计的特权信息未被充分利用。作者通过 Zoom-In Image 构造 Positive Teacher、Mask Image 构造 Negative Teacher，发现 Modality Balance 本身可作为特权信息，并提出 OPD-V，一种通过 Modality-Balance Trust Region 选择 on-policy token 进行自蒸馏的视觉 OPSD 范式。实验在 6 个基准、4 个 MLLM 主干和 5 种后训练方法上显示，OPD-V 持续提升推理性能并降低训练成本。",
+        "motivation": "现有 OPSD 方法从多种输入源提取特权信息来引导自蒸馏，但忽略了 MLLM 推理中固有的 Modality Imbalance 挑战；当文本信息主导时，多模态输入无法被完整整合，导致特权信息利用不足，限制了 OPSD 的效果。",
+        "method": "构造 Positive Teacher（使用 Zoom-In Image）与 Negative Teacher（使用 Mask Image），二者表现出不同程度的 Modality Imbalance；通过推理正确性与 token logits 的变化验证 Modality Balance 可作特权信息，并据此提出 OPD-V：利用 Positive Modality-Balance Logits Margins 定义 Modality-Balance Trust Region，用于筛选参与自蒸馏的 on-policy tokens。",
+        "result": "在 6 个基准、4 个 MLLM 主干和 5 种后训练方法上的实验显示，OPD-V 一致地提升推理性能，同时降低训练成本。",
+        "conclusion": "作者强调 Modality Balance 本身可以作为一种特权信息用于视觉 OPSD，且 OPD-V 在提升性能的同时减少了训练开销。摘要未提及超出上述范围的方法细节或局限性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.05122",
+      "title": "IRIS: A Visual Cortex-Inspired Framework for Analyzing Orientation Selectivity in Vision Transformers",
+      "authors": [
+        "Vaishnavi B Mohan",
+        "Vijayakrishna Naganoor",
+        "Yashas Annadani",
+        "Shashank Hegde"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.05122",
+      "pdf_url": "https://arxiv.org/pdf/2608.05122",
+      "abstract_en": "Vision transformers (ViTs) have become the de facto standard for image encoding across many perception tasks. Despite their empirical success, it remains mechanistically unclear how they encode low-level features, given their lack of inductive biases: ViTs process information globally rather than relying on local structure. Biological visual systems, in contrast, build low-level features, such as orientation selectivity in the primary visual cortex, by combining information from small, localized regions of the visual field. These features are general-purpose representations, shared and required across multiple specialized neural pathways, unlike higher-level, task-specific semantic features. This raises the question if such biologically-grounded features arise in ViTs. In this work, we systematically study how orientation selectivity emerges in ViTs by introducing a suite of neuroscience-inspired metrics: representational similarity score (RSS), orientation recruitment score (ORS), and orientation tuning bandwidth to quantify how orientation is encoded in representational geometry and as a function of model depth. Through extensive analysis, we find that: (1) the training paradigm is the strongest determinant of orientation selectivity, with models sharing an objective, peaking at comparable relative depths regardless of scale (2) many units are orientation-selective early in training, with early-to-middle layers recruiting more such units over time, while deeper layers lose selectivity and broaden their tuning toward semantic encoding and (3) our metrics offer a mechanistic heuristic for how many layers to unfreeze for best downstream generalization. Our framework presents a way to track biologically-grounded features during ViT training, probes how desired properties are encoded in transformer representations, and builds a systematic understanding of how ViTs generalize across tasks.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一套受视觉皮层启发的指标（representational similarity score、orientation recruitment score、orientation tuning bandwidth）来量化视觉Transformer（ViT）中方向选择性（orientation selectivity）的涌现。通过系统分析，作者发现训练范式是方向选择性的最强决定因素；早期至中层在训练中会招募更多方向选择性单元，而深层单元则转向语义编码；这些指标还可作为解冻层数的启发式依据。\nMotivation: ViT缺乏局部归纳偏置，却仍能像初级视觉皮层一样编码低层特征，其机制尚不清楚。作者希望检验这种生物学基础的特征是否在ViT中涌现，并建立可量化的追踪方法。\nMethod: 引入神经科学启发的三类指标（RSS、ORS、方向调谐带宽），在不同深度上分析ViT表示几何中方向信息的编码方式，并用于指导训练中的层解冻策略。\nResult: 研究发现训练目标比模型规模更决定方向选择性，共享目标的模型在相近的相对深度达到峰值；训练早期就有许多方向选择性单元，浅中层随时间招募更多，深层则丧失选择性并向语义编码拓宽。\nConclusion: 该框架可用于追踪ViT训练过程中与生物视觉一致的表示，为理解Transformer中期望属性的编码机制及跨任务泛化提供了系统视角。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一套受视觉皮层启发的指标（representational similarity score、orientation recruitment score、orientation tuning bandwidth）来量化视觉Transformer（ViT）中方向选择性（orientation selectivity）的涌现。通过系统分析，作者发现训练范式是方向选择性的最强决定因素；早期至中层在训练中会招募更多方向选择性单元，而深层单元则转向语义编码；这些指标还可作为解冻层数的启发式依据。",
+        "motivation": "ViT缺乏局部归纳偏置，却仍能像初级视觉皮层一样编码低层特征，其机制尚不清楚。作者希望检验这种生物学基础的特征是否在ViT中涌现，并建立可量化的追踪方法。",
+        "method": "引入神经科学启发的三类指标（RSS、ORS、方向调谐带宽），在不同深度上分析ViT表示几何中方向信息的编码方式，并用于指导训练中的层解冻策略。",
+        "result": "研究发现训练目标比模型规模更决定方向选择性，共享目标的模型在相近的相对深度达到峰值；训练早期就有许多方向选择性单元，浅中层随时间招募更多，深层则丧失选择性并向语义编码拓宽。",
+        "conclusion": "该框架可用于追踪ViT训练过程中与生物视觉一致的表示，为理解Transformer中期望属性的编码机制及跨任务泛化提供了系统视角。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.05103",
+      "title": "Multimodal Spatiotemporal Atmospheric Data Assimilation with Latent Video Flow-matching",
+      "authors": [
+        "Dibyajyoti Chakraborty",
+        "Romit Maulik"
+      ],
+      "categories": [
+        "cs.LG",
+        "math-ph",
+        "physics.ao-ph",
+        "physics.flu-dyn"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "physics.ao-ph"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2608.05103",
+      "pdf_url": "https://arxiv.org/pdf/2608.05103",
+      "abstract_en": "Data assimilation (DA) uses Bayesian inference to update the state of a numerical forecast model with observed data. In this study, we propose a fundamentally different, unified approach to atmospheric data assimilation. We use latent video flow-matching to sample temporally consistent trajectories from a prior trained using ERA5 reanalysis (69 variables over an 8-day window). We also use posterior sampling to assimilate real observation sources, such as those from the NOAA Integrated Global Radiosonde Archive and the Integrated Surface Database. Because the prior generates a continuous trajectory, it naturally propagates information between observed and unobserved frames. Therefore, we can perform various DA tasks, such as filtering and smoothing, simply by changing the observed frames. Moreover, we generate full-state ensemble forecasts directly from sparse observations, achieving performance competitive with state-of-the-art observation-to-forecast models.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种统一的大气数据同化（DA）框架，用隐空间视频流匹配（latent video flow-matching）从基于 ERA5 再分析训练的先验中采样时间一致的轨迹，并通过后验采样同化 NOAA Integrated Global Radiosonde Archive 与 Integrated Surface Database 等真实观测源。由于先验生成连续轨迹，信息自然在观测帧与非观测帧之间传播，因此仅通过改变观测帧即可完成滤波和平滑等不同 DA 任务。摘要还报告该方法能直接从稀疏观测生成全状态集合预报，性能与最先进的观测到预报模型相当。\nMotivation: 传统数据同化依赖贝叶斯推断更新数值预报模型状态，作者提出一个根本不同的统一数据驱动方案，希望用一个连续轨迹先验统一处理不同同化任务，并直接从观测生成预报。\nMethod: 使用 latent video flow-matching 学习 ERA5 再分析（8 天窗口、69 个变量）上的时间一致轨迹先验；通过后验采样同化真实观测源；通过选择哪些帧作为观测帧来切换滤波与平滑任务。\nResult: 摘要报告该方法能从稀疏观测直接生成全状态集合预报，性能与最先进的 observation-to-forecast 模型相当。\nConclusion: 摘要强调连续轨迹先验能自然传播观测与未观测帧之间的信息，从而以统一方式完成滤波、平滑及从稀疏观测的集合预报；摘要未提及明确局限。\nRelevance: 72",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种统一的大气数据同化（DA）框架，用隐空间视频流匹配（latent video flow-matching）从基于 ERA5 再分析训练的先验中采样时间一致的轨迹，并通过后验采样同化 NOAA Integrated Global Radiosonde Archive 与 Integrated Surface Database 等真实观测源。由于先验生成连续轨迹，信息自然在观测帧与非观测帧之间传播，因此仅通过改变观测帧即可完成滤波和平滑等不同 DA 任务。摘要还报告该方法能直接从稀疏观测生成全状态集合预报，性能与最先进的观测到预报模型相当。",
+        "motivation": "传统数据同化依赖贝叶斯推断更新数值预报模型状态，作者提出一个根本不同的统一数据驱动方案，希望用一个连续轨迹先验统一处理不同同化任务，并直接从观测生成预报。",
+        "method": "使用 latent video flow-matching 学习 ERA5 再分析（8 天窗口、69 个变量）上的时间一致轨迹先验；通过后验采样同化真实观测源；通过选择哪些帧作为观测帧来切换滤波与平滑任务。",
+        "result": "摘要报告该方法能从稀疏观测直接生成全状态集合预报，性能与最先进的 observation-to-forecast 模型相当。",
+        "conclusion": "摘要强调连续轨迹先验能自然传播观测与未观测帧之间的信息，从而以统一方式完成滤波、平滑及从稀疏观测的集合预报；摘要未提及明确局限。",
+        "relevance_score": "72"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.05000",
+      "title": "Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes",
+      "authors": [
+        "Junlin Han",
+        "Shengbang Tong",
+        "David Fan",
+        "Minghao Chen",
+        "Philip Torr",
+        "Filippos Kokkinos",
+        "Mike Lewis"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.MM"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.05000",
+      "pdf_url": "https://arxiv.org/pdf/2608.05000",
+      "abstract_en": "Vision offers a critical axis for advancing foundation models, driving a shift towards natively unified multimodal pretraining. Despite this momentum, the design space and the fundamental mechanisms of how modalities interact during unified training remain underexplored. We provide empirical clarity through a systematic exploration of multimodal pretraining. Our controlled experiments on both synthetic and large-scale real-world datasets yield four key insights into the physics of multimodal pretraining: (i) Knowledge Flow: We disentangle how language, visual understanding, and visual generation transfer knowledge across modalities, revealing distinct patterns of influence and asymmetry; (ii) Synergy vs. Competition: We show that data \"complexity\" largely determines whether modalities are synergistic, identify architectural choices that promote synergy: such as shared attention and normalization with modality-specific feed-forward layers, and find that these behaviors generalize across different visual tokenizer designs; (iii) Early Unification: Unifying modalities from the very early stages and training them jointly is shown to be more effective than late alignment or sequential training. This process uncovers a vision laziness phenomenon, where delayed integration leads models to rely on language priors; (iv) Recipes: We derive efficient pretraining recipes that achieve strong generative performance using only 5% of the compute budget. These core findings are subsequently validated at scale by training multiple 13.5B MoE models on 2T tokens. We hope this study provides a principled foundation for understanding and scaling multimodal pretraining.",
+      "comment": "Project page: https://junlinhan.github.io/projects/physics_of_mm_pretrain/",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文系统探索多模态预训练的设计空间与模态交互机制，通过合成数据和大规模真实数据上的受控实验提出四类洞见：知识流、协同与竞争、早期统一、以及高效预训练配方。摘要称该方法仅用 5% 的计算预算即可达到强生成性能，并通过在 2T tokens 上训练多个 13.5B MoE 模型验证结论。\nMotivation: 视觉是推进基础模型的重要方向，模型正转向原生统一的多模态预训练，但统一训练中模态如何交互的设计空间与基本机制仍未得到充分探索。\nMethod: 在合成与大规模真实数据集上开展系统受控实验，解耦语言、视觉理解与视觉生成之间的知识迁移，识别促进模态协同的架构选择（共享注意力与归一化配合模态特定前馈层），并比较早期统一、后期对齐和顺序训练三种策略。\nResult: 四个核心发现：模态间知识流呈不对称模式；数据复杂度决定模态是协同还是竞争；从极早期统一模态并联合训练优于后期对齐或顺序训练，且延迟整合会引发视觉懒惰现象；推导出的预训练配方仅用 5% 计算预算即获得强生成性能，并在 13.5B MoE 模型、2T tokens 规模上得到验证。\nConclusion: 作者希望为理解和扩展多模态预训练提供一个有原则的基础，强调早期统一、共享注意力等设计选择对模态协同与训练效率的重要性。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文系统探索多模态预训练的设计空间与模态交互机制，通过合成数据和大规模真实数据上的受控实验提出四类洞见：知识流、协同与竞争、早期统一、以及高效预训练配方。摘要称该方法仅用 5% 的计算预算即可达到强生成性能，并通过在 2T tokens 上训练多个 13.5B MoE 模型验证结论。",
+        "motivation": "视觉是推进基础模型的重要方向，模型正转向原生统一的多模态预训练，但统一训练中模态如何交互的设计空间与基本机制仍未得到充分探索。",
+        "method": "在合成与大规模真实数据集上开展系统受控实验，解耦语言、视觉理解与视觉生成之间的知识迁移，识别促进模态协同的架构选择（共享注意力与归一化配合模态特定前馈层），并比较早期统一、后期对齐和顺序训练三种策略。",
+        "result": "四个核心发现：模态间知识流呈不对称模式；数据复杂度决定模态是协同还是竞争；从极早期统一模态并联合训练优于后期对齐或顺序训练，且延迟整合会引发视觉懒惰现象；推导出的预训练配方仅用 5% 计算预算即获得强生成性能，并在 13.5B MoE 模型、2T tokens 规模上得到验证。",
+        "conclusion": "作者希望为理解和扩展多模态预训练提供一个有原则的基础，强调早期统一、共享注意力等设计选择对模态协同与训练效率的重要性。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04955",
+      "title": "Towards Valid B-Rep Generation: Training-Free Wireframe Anomaly Detection and Repair",
+      "authors": [
+        "Jingyu Wu",
+        "Youcheng Cai",
+        "Tengyu Luo",
+        "Ligang Liu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.04955",
+      "pdf_url": "https://arxiv.org/pdf/2608.04955",
+      "abstract_en": "Multi-stage boundary representation (B-Rep) generation leverages intermediate wireframes to synthesize CAD models. However, geometric and topological risks in these wireframes -- such as self-intersections, edge collapses, and disconnected vertices -- can propagate to invalid final B-Reps. Mitigating such failures by retraining large generative models is computationally prohibitive. We propose Wireframe Detection and Repair (WDR), a training-free framework that intervenes at the intermediate wireframe stage to improve downstream B-Rep validity. WDR features a Geometric-Topology Anomaly Detector (GTAD) that combines parallel VLM-based coarse screening with geometric and topological detectors to predict downstream invalidity risk and route generation to dedicated branches. An Energy-Guided Geometric-Topology Repair (EGGTR) module then performs detector-triggered guided regeneration through geometry and topology branches. By scaling test-time computation via Energy-Guided Resampling and training-free guidance for diffusion models, WDR can be integrated into autoregressive and diffusion pipelines without retraining. Extensive experiments demonstrate consistent improvements in kernel-checked validity while largely retaining the measured diversity and distributional quality of synthesized CAD models. The code will be made publicly available upon acceptance.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Wireframe Detection and Repair (WDR)，一种针对多阶段边界表示 (B-Rep) 生成的无训练 (training-free) 干预框架，在中介线框阶段检测并修复几何与拓扑异常，以避免其传播为无效的最终 B-Rep。WDR 包含几何-拓扑异常检测器 (GTAD) 和能量引导的几何-拓扑修复模块 (EGGTR)，可集成进自回归与扩散生成管线而无需重训练。实验显示其在核校验的有效性指标上获得一致提升，同时基本保持生成 CAD 模型的多样性与分布质量。\nMotivation: 多阶段 B-Rep 生成依赖中间线框合成 CAD 模型，而线框中的自相交、边坍缩和顶点失连等几何与拓扑风险会传播为最终无效 B-Rep；通过重训练大规模生成模型来缓解此类失败在计算上不可行。\nMethod: 提出无训练的 WDR 框架，在线框阶段介入：GTAD 结合并行的 VLM 粗筛与几何/拓扑检测器来预测下游无效风险并路由到专门分支；EGGTR 通过能量引导重采样 (Energy-Guided Resampling) 和无训练扩散模型引导执行检测触发的受控再生成，同时支持自回归与扩散管线。\nResult: 大量实验表明，该方法在核校验 (kernel-checked) 的有效性上取得一致改进，同时基本保留合成 CAD 模型的多样性与分布质量。\nConclusion: 作者认为 WDR 提供了一种不依赖重训练的生成后干预方式，可在多阶段 B-Rep 生成中提高下游有效性；代码将在论文接收后公开。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Wireframe Detection and Repair (WDR)，一种针对多阶段边界表示 (B-Rep) 生成的无训练 (training-free) 干预框架，在中介线框阶段检测并修复几何与拓扑异常，以避免其传播为无效的最终 B-Rep。WDR 包含几何-拓扑异常检测器 (GTAD) 和能量引导的几何-拓扑修复模块 (EGGTR)，可集成进自回归与扩散生成管线而无需重训练。实验显示其在核校验的有效性指标上获得一致提升，同时基本保持生成 CAD 模型的多样性与分布质量。",
+        "motivation": "多阶段 B-Rep 生成依赖中间线框合成 CAD 模型，而线框中的自相交、边坍缩和顶点失连等几何与拓扑风险会传播为最终无效 B-Rep；通过重训练大规模生成模型来缓解此类失败在计算上不可行。",
+        "method": "提出无训练的 WDR 框架，在线框阶段介入：GTAD 结合并行的 VLM 粗筛与几何/拓扑检测器来预测下游无效风险并路由到专门分支；EGGTR 通过能量引导重采样 (Energy-Guided Resampling) 和无训练扩散模型引导执行检测触发的受控再生成，同时支持自回归与扩散管线。",
+        "result": "大量实验表明，该方法在核校验 (kernel-checked) 的有效性上取得一致改进，同时基本保留合成 CAD 模型的多样性与分布质量。",
+        "conclusion": "作者认为 WDR 提供了一种不依赖重训练的生成后干预方式，可在多阶段 B-Rep 生成中提高下游有效性；代码将在论文接收后公开。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04927",
+      "title": "Optimal Training-Time Scaling in Gradual Adaptation",
+      "authors": [
+        "Zonghuan Xu",
+        "Krishna Harish"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2608.04927",
+      "pdf_url": "https://arxiv.org/pdf/2608.04927",
+      "abstract_en": "In gradual adaptation, how should the training time on each task change as the number of intermediate tasks increases? We study this question for overparameterized linear regression tasks that change smoothly and share a zero-loss solution. With $N$ tasks and training time $s_N$ on each, the final learning progress converges to a continuum curve when $Ns_N\\toτ$. The limiting progress is $Θ(τ)$ for small $τ$ and $Θ(τ^{-1})$ for large $τ$, so both very short and very long training produce little progress. It follows that optimal per-task training times scale as $s_N^\\star=Θ(N^{-1})$, equivalently $Ns_N^\\star=Θ(1)$. Experiments on gradually rotated MNIST and a natural Yearbook time shift are consistent with less per-task training as the path is divided more finely.",
+      "comment": "24 pages, 5 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究渐进适应（gradual adaptation）中训练时间应如何随中间任务数量变化。在过参数化线性回归设定下，作者证明当每个任务训练时间为 s_N、总任务数为 N 时，若 N s_N 趋于常数 τ，学习进度会收敛到一条连续曲线，且最优缩放为 s_N^* = Θ(N^{-1})。实验在逐渐旋转的 MNIST 和 Yearbook 时间偏移数据上与理论一致。\nMotivation: 渐进适应需要为一系列平滑变化的任务分配训练时间，但中间任务数量增加时每个任务应训练多久缺乏理论指导。\nMethod: 对共享零损失解且平滑变化的过参数化线性回归任务进行理论分析，在 N s_N → τ 的极限下将离散训练过程映射为连续曲线，并推导极限进度对 τ 的依赖关系。\nResult: 极限学习进度在小 τ 时为 Θ(τ)、大 τ 时为 Θ(τ^{-1})，因此最优每任务训练时间满足 s_N^* = Θ(N^{-1})；在 gradually rotated MNIST 和 Yearbook 时间偏移上的实验与该缩放预测一致。\nConclusion: 作者认为当路径被分割得更细时，每个任务应分配更少的训练时间；该结论在过参数化线性回归的理论框架下得出，并由两个图像任务实验佐证。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究渐进适应（gradual adaptation）中训练时间应如何随中间任务数量变化。在过参数化线性回归设定下，作者证明当每个任务训练时间为 s_N、总任务数为 N 时，若 N s_N 趋于常数 τ，学习进度会收敛到一条连续曲线，且最优缩放为 s_N^* = Θ(N^{-1})。实验在逐渐旋转的 MNIST 和 Yearbook 时间偏移数据上与理论一致。",
+        "motivation": "渐进适应需要为一系列平滑变化的任务分配训练时间，但中间任务数量增加时每个任务应训练多久缺乏理论指导。",
+        "method": "对共享零损失解且平滑变化的过参数化线性回归任务进行理论分析，在 N s_N → τ 的极限下将离散训练过程映射为连续曲线，并推导极限进度对 τ 的依赖关系。",
+        "result": "极限学习进度在小 τ 时为 Θ(τ)、大 τ 时为 Θ(τ^{-1})，因此最优每任务训练时间满足 s_N^* = Θ(N^{-1})；在 gradually rotated MNIST 和 Yearbook 时间偏移上的实验与该缩放预测一致。",
+        "conclusion": "作者认为当路径被分割得更细时，每个任务应分配更少的训练时间；该结论在过参数化线性回归的理论框架下得出，并由两个图像任务实验佐证。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04872",
+      "title": "A-SR: Self-Evolving Agentic LLMs for Symbolic Regression via Hierarchical Coordination",
+      "authors": [
+        "Wenxiao Zhao",
+        "Dong Liu",
+        "Kaiyi Xu",
+        "Feng Liu",
+        "Zhen Zhao",
+        "Fei Ben",
+        "Shu Wang",
+        "Wenhao Li",
+        "Ying Nian Wu",
+        "Fenghua Ling",
+        "Haobo Li",
+        "Lei Bai"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2608.04872",
+      "pdf_url": "https://arxiv.org/pdf/2608.04872",
+      "abstract_en": "Symbolic regression aims to discover closed-form equations from data, but existing LLM-guided methods often rely on a unified proposal loop that compresses heterogeneous search failures into a scalar score and a single prompt. We propose A-SR, a self-evolving agentic framework that shifts the control unit from expression edits to role-conditioned evidence views. A-SR coordinates formula discovery through routing among coordination protocols, an online evaluator-reward role policy, and state-routed process memory. During search, evaluator feedback characterizes reliability and productivity, updates role-level utilities, and routes elite motifs, failure traces, and validity diagnostics to different agents. The framework self-evolves at two timescales: within a run, it adapts the search process without updating LLM parameters; across runs, recorded trajectories can be distilled into open-source LLMs as role-conditioned proposal priors. Averaged over the four LSR-Synth scientific domains in LLM-SRBench, A-SR improves Acc@0.01 over baselines from 25.79% to 48.30% with Llama3.1-8B, while A-SR-LoRA improves the corresponding Qwen3-4B result from 24.58% to 38.29%. On four real-world scientific discovery tasks, A-SR obtains the best in-distribution or out-of-distribution normalized mean squared error on 7 of 8 reported metrics.",
+      "comment": "18 pages, 8 figures, including appendix",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 A-SR，一个自进化 (self-evolving) 的智能体框架，用于符号回归 (symbolic regression)，将控制单元从表达式编辑转变为角色条件的证据视角 (role-conditioned evidence views)。框架通过协调协议路由、在线评估器-奖励角色策略和状态路由的过程记忆来协调公式发现，并在运行内和跨运行两个时间尺度上自进化。摘要报告 A-SR 在 LLM-SRBench 的 LSR-Synth 科学领域上显著提升 Acc@0.01，并在真实世界科学发现任务的大多数指标上取得最佳结果。\nMotivation: 现有 LLM 引导的符号回归方法依赖统一的提案循环，把异构的搜索失败压缩成一个标量分数和单一提示，难以区分不同类型的失败原因，限制了搜索效率和泛化能力。\nMethod: A-SR 将控制单元从表达式编辑改为角色条件的证据视图，通过协调协议的路由、在线评估器-奖励角色策略以及状态路由的过程记忆来协调公式发现；评估器反馈刻画可靠性与生产力，更新角色级效用，并将精英基序、失败轨迹和有效性诊断路由给不同智能体。框架在单次运行内不更新 LLM 参数地自适应搜索过程，并在跨运行时将记录轨迹蒸馏为开放权重 LLM 的角色条件提案先验。\nResult: 在 LLM-SRBench 的四个 LSR-Synth 科学领域上，A-SR 使用 Llama3.1-8B 将 Acc@0.01 从基线 25.79% 提升到 48.30%；A-SR-LoRA 将 Qwen3-4B 的对应结果从 24.58% 提升到 38.29%。在四个真实世界科学发现任务上，A-SR 在 8 个报告指标中的 7 个上取得最佳分布内或分布外归一化均方误差。\nConclusion: 摘要强调把搜索失败分解为角色条件的证据视图并实现双时间尺度自进化，可以显著改善 LLM 引导的符号回归性能，同时无需在搜索过程中更新 LLM 参数。\nRelevance: 12",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 A-SR，一个自进化 (self-evolving) 的智能体框架，用于符号回归 (symbolic regression)，将控制单元从表达式编辑转变为角色条件的证据视角 (role-conditioned evidence views)。框架通过协调协议路由、在线评估器-奖励角色策略和状态路由的过程记忆来协调公式发现，并在运行内和跨运行两个时间尺度上自进化。摘要报告 A-SR 在 LLM-SRBench 的 LSR-Synth 科学领域上显著提升 Acc@0.01，并在真实世界科学发现任务的大多数指标上取得最佳结果。",
+        "motivation": "现有 LLM 引导的符号回归方法依赖统一的提案循环，把异构的搜索失败压缩成一个标量分数和单一提示，难以区分不同类型的失败原因，限制了搜索效率和泛化能力。",
+        "method": "A-SR 将控制单元从表达式编辑改为角色条件的证据视图，通过协调协议的路由、在线评估器-奖励角色策略以及状态路由的过程记忆来协调公式发现；评估器反馈刻画可靠性与生产力，更新角色级效用，并将精英基序、失败轨迹和有效性诊断路由给不同智能体。框架在单次运行内不更新 LLM 参数地自适应搜索过程，并在跨运行时将记录轨迹蒸馏为开放权重 LLM 的角色条件提案先验。",
+        "result": "在 LLM-SRBench 的四个 LSR-Synth 科学领域上，A-SR 使用 Llama3.1-8B 将 Acc@0.01 从基线 25.79% 提升到 48.30%；A-SR-LoRA 将 Qwen3-4B 的对应结果从 24.58% 提升到 38.29%。在四个真实世界科学发现任务上，A-SR 在 8 个报告指标中的 7 个上取得最佳分布内或分布外归一化均方误差。",
+        "conclusion": "摘要强调把搜索失败分解为角色条件的证据视图并实现双时间尺度自进化，可以显著改善 LLM 引导的符号回归性能，同时无需在搜索过程中更新 LLM 参数。",
+        "relevance_score": "12"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04860",
+      "title": "Nonparametric Goodness-of-fit Testing under Covariate Shift",
+      "authors": [
+        "Zhen Hou",
+        "Dong Xia"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.ST",
+        "stat.ME",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "stat.ME",
+      "abs_url": "https://arxiv.org/abs/2608.04860",
+      "pdf_url": "https://arxiv.org/pdf/2608.04860",
+      "abstract_en": "This paper develops procedures for nonparametric goodness-of-fit testing under covariate shift, where labelled data are drawn from a source population but goodness-of-fit is evaluated for a target population. The distribution mismatch is quantified by either a bounded moment condition or a sub-exponential tail condition on the target-to-source density ratio. Our method combines truncated importance-weighting kernel ridge regression with a multiplier bootstrap to construct confidence sets for the regression function. The truncation stabilizes the importance- weighting kernel ridge regression as well as the bootstrap calibration, making our approach applicable even when the density ratio has heavy tails. We prove nonasymptotic validity and sharpness of the resulting confidence sets under suitable operator compatibility conditions, and establish explicit error rates for coverage probability under specific conditions on the target- to-source density ratio and on the spectral decay of the kernel integral operator. Numerical experiments corroborate our theoretical findings.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究了协变量偏移 (covariate shift) 下的非参数拟合优度检验，即带标签数据来自源总体、但拟合优度需针对目标总体评估。方法将截断的重要性加权核岭回归 (truncated importance-weighting kernel ridge regression) 与 multiplier bootstrap 结合，用于构造回归函数的置信集，并在密度比只有重尾时仍适用。作者证明了所得置信集在适当的算子相容性条件下的非渐近有效性与最优性，并给出覆盖概率的显式误差率，数值实验验证了理论结果。\nMotivation: 在协变量偏移下，源总体与目标总体的分布不一致，导致基于源数据的统计推断不能直接用于目标总体的拟合优度评估；若目标-源密度比具有重尾，还会破坏标准的加权回归和 bootstrap 校准，需要更稳健的方法。\nMethod: 采用截断的重要性加权核岭回归，并配合 multiplier bootstrap 构造回归函数的置信集。截断步骤同时稳定加权回归估计和 bootstrap 校准；理论分析基于目标-源密度比的有界矩条件或亚指数尾条件，并结合核积分算子的谱衰减以及算子相容性条件建立非渐近保证。\nResult: 摘要声称在合适的算子相容性条件下，所构造的置信集具有非渐近有效性和最优性 (sharpness)，并在密度比和核积分算子谱衰减的特定条件下给出了覆盖概率的显式误差率；数值实验与理论结论一致。\nConclusion: 该方法的要点在于通过截断使程序在密度比具有重尾时仍然可行，并给出覆盖概率的显式速率；其适用范围取决于对目标-源密度比以及核积分算子谱行为的假设。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究了协变量偏移 (covariate shift) 下的非参数拟合优度检验，即带标签数据来自源总体、但拟合优度需针对目标总体评估。方法将截断的重要性加权核岭回归 (truncated importance-weighting kernel ridge regression) 与 multiplier bootstrap 结合，用于构造回归函数的置信集，并在密度比只有重尾时仍适用。作者证明了所得置信集在适当的算子相容性条件下的非渐近有效性与最优性，并给出覆盖概率的显式误差率，数值实验验证了理论结果。",
+        "motivation": "在协变量偏移下，源总体与目标总体的分布不一致，导致基于源数据的统计推断不能直接用于目标总体的拟合优度评估；若目标-源密度比具有重尾，还会破坏标准的加权回归和 bootstrap 校准，需要更稳健的方法。",
+        "method": "采用截断的重要性加权核岭回归，并配合 multiplier bootstrap 构造回归函数的置信集。截断步骤同时稳定加权回归估计和 bootstrap 校准；理论分析基于目标-源密度比的有界矩条件或亚指数尾条件，并结合核积分算子的谱衰减以及算子相容性条件建立非渐近保证。",
+        "result": "摘要声称在合适的算子相容性条件下，所构造的置信集具有非渐近有效性和最优性 (sharpness)，并在密度比和核积分算子谱衰减的特定条件下给出了覆盖概率的显式误差率；数值实验与理论结论一致。",
+        "conclusion": "该方法的要点在于通过截断使程序在密度比具有重尾时仍然可行，并给出覆盖概率的显式速率；其适用范围取决于对目标-源密度比以及核积分算子谱行为的假设。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04783",
+      "title": "RepoProbe: Benchmarking Architecture-Aware Repository Comprehension with Checklists",
+      "authors": [
+        "Yuexi Yang",
+        "Alyssa Wu",
+        "Ji Luo",
+        "Richeng Xuan",
+        "Zhichao Hu",
+        "Yuhong Liu",
+        "Zhen Qin"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.SE"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.SE",
+      "abs_url": "https://arxiv.org/abs/2608.04783",
+      "pdf_url": "https://arxiv.org/pdf/2608.04783",
+      "abstract_en": "The integration of Large Language Models (LLMs) into software engineering has shifted the focus from function-level generation to repository-scale assistance. However, existing benchmarks largely rely on bug reports from GitHub Issues, which often allow models to bypass genuine understanding via pattern matching on error logs. This misalignment under-measures Edit Bias, which refers to premature generation, where models prematurely propose code modifications instead of understanding the existing repository architecture. Furthermore, current LLM-as-a-Judge scalar scoring suffers from high variance and low interpretability. This work introduces RepoProbe, a novel benchmark for evaluating repository-level code understanding through open-ended Q&A using GitHub Discussions, which focuses on open-ended architectural inquiries rather than defect reporting. To ensure rigorous evaluation, we propose a Checklist-Based Verification Protocol that decomposes answers into atomic, verifiable facts, thereby replacing subjective ratings with objective verification. Our evaluation of state-of-the-art (SOTA) LLMs reveals a persistent gap between high clarity and evidencegrounded technical correctness. It also quantitatively confirms the prevalence of edit bias, in which models prioritize code generation instead of architectural analysis. Finally, we demonstrate that our verification protocol significantly improves evaluation reliability compared to traditional evaluations with scalar scoring.",
+      "comment": "Accepted to the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE 2026). Replication package: https://github.com/Tencent-Hunyuan/RepoProbe",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 RepoProbe，一个面向仓库级代码理解的基准，使用 GitHub Discussions 中的开放式架构问答而非缺陷报告来评测 LLM，并设计了基于清单的验证协议（Checklist-Based Verification Protocol），将回答分解为原子、可验证的事实，以客观验证取代主观标量评分。对 SOTA LLM 的评估显示清晰度与证据支撑的技术正确性之间存在持续差距，并定量确认了 Edit Bias（模型过早生成代码而非理解架构）的普遍性，同时该验证协议相比传统标量评分显著提升了评估可靠性。\nMotivation: 现有仓库级基准多依赖 GitHub Issues 的 bug 报告，模型可通过对错误日志的模式匹配绕开真正的架构理解，从而低估 Edit Bias；同时 LLM-as-a-Judge 的标量评分存在高方差和低可解释性的问题。\nMethod: 构建 RepoProbe 基准，基于 GitHub Discussions 的开放式架构问答来评测仓库理解；并提出 Checklist-Based Verification Protocol，把模型回答分解成原子、可验证的事实点，用客观核查替代主观打分。\nResult: 对 SOTA LLM 的评估发现，模型在回答清晰度（clarity）与证据支撑的技术正确性之间存在明显差距；实验定量确认 Edit Bias 普遍存在，即模型倾向于直接生成代码而不是进行架构分析；基于清单的验证协议相比传统标量评分显著提高了评估可靠性。\nConclusion: 摘要强调仓库级协助需要架构理解而非过早的代码修改，基于清单的事实验证能提供比标量评分更可靠的评测方式。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 RepoProbe，一个面向仓库级代码理解的基准，使用 GitHub Discussions 中的开放式架构问答而非缺陷报告来评测 LLM，并设计了基于清单的验证协议（Checklist-Based Verification Protocol），将回答分解为原子、可验证的事实，以客观验证取代主观标量评分。对 SOTA LLM 的评估显示清晰度与证据支撑的技术正确性之间存在持续差距，并定量确认了 Edit Bias（模型过早生成代码而非理解架构）的普遍性，同时该验证协议相比传统标量评分显著提升了评估可靠性。",
+        "motivation": "现有仓库级基准多依赖 GitHub Issues 的 bug 报告，模型可通过对错误日志的模式匹配绕开真正的架构理解，从而低估 Edit Bias；同时 LLM-as-a-Judge 的标量评分存在高方差和低可解释性的问题。",
+        "method": "构建 RepoProbe 基准，基于 GitHub Discussions 的开放式架构问答来评测仓库理解；并提出 Checklist-Based Verification Protocol，把模型回答分解成原子、可验证的事实点，用客观核查替代主观打分。",
+        "result": "对 SOTA LLM 的评估发现，模型在回答清晰度（clarity）与证据支撑的技术正确性之间存在明显差距；实验定量确认 Edit Bias 普遍存在，即模型倾向于直接生成代码而不是进行架构分析；基于清单的验证协议相比传统标量评分显著提高了评估可靠性。",
+        "conclusion": "摘要强调仓库级协助需要架构理解而非过早的代码修改，基于清单的事实验证能提供比标量评分更可靠的评测方式。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04761",
+      "title": "InsightEmb: Learning Action-Intent Embeddings for Agentic Insight Retrieval",
+      "authors": [
+        "Tsz Ting Chung",
+        "Jiangnan Li",
+        "Jie Zhou",
+        "Mo Yu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2608.04761",
+      "pdf_url": "https://arxiv.org/pdf/2608.04761",
+      "abstract_en": "Self-improving agents accumulate reusable insights from prior trajectories, making retrieval increasingly important for turning accumulated experience into actionable guidance. At each decision step, retrieving the right insight can help the agent progress toward its goal, a setting we refer to as agentic insight retrieval. However, existing retrieval methods primarily model semantic similarity, while overlooking whether a retrieved insight resolves the agent's current decision bottleneck. We propose InsightEmb, a contrastive embedding framework that learns transferable progress-oriented retrieval geometry using only mathematical reasoning data. InsightEmb jointly learns to align concrete situations with abstract heuristic rules and to cluster reasoning trajectories with similar progress structures. We evaluate InsightEmb on dynamic agent tasks and a static skill-retrieval benchmark. Without any environment-specific training, InsightEmb improves over all these evaluations, surpassing the performance of existing reasoning embedding models. These results suggest that the geometry of state-insight matching can transfer across domains, enabling effective training from publicly available reasoning data without expensive environment-specific supervision.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 InsightEmb，一个用于智能体洞察检索 (agentic insight retrieval) 的对比学习 (contrastive learning) 嵌入框架。该框架仅使用数学推理数据训练，联合学习将具体情境与抽象启发式规则对齐，并对具有相似进展结构的推理轨迹进行聚类。在动态智能体任务和静态技能检索基准上，无需任何环境特定训练即可超越现有推理嵌入模型，表明状态-洞察匹配的几何结构可以跨领域迁移。\nMotivation: 自我改进型智能体需要从既往轨迹中积累并检索可复用的洞察，但现有检索方法主要建模语义相似性，忽略了检索到的洞察是否能解决智能体当前的决策瓶颈，这正是本文所定义的 agentic insight retrieval 要补上的空缺。\nMethod: 提出 InsightEmb，一种仅使用数学推理数据训练的对比嵌入框架；它联合学习具体情境与抽象启发式规则之间的对齐，以及对相似进展结构的推理轨迹做聚类，从而学习可迁移的进展导向检索几何。\nResult: 在动态智能体任务和一个静态技能检索基准上的评估中，不经过任何环境特定训练，InsightEmb 在所有评估项上都超过现有推理嵌入模型的性能。\nConclusion: 摘要认为状态-洞察匹配的几何结构具有跨域可迁移性，因此可以从公开可得的推理数据有效训练，而无需昂贵的环境特定监督。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 InsightEmb，一个用于智能体洞察检索 (agentic insight retrieval) 的对比学习 (contrastive learning) 嵌入框架。该框架仅使用数学推理数据训练，联合学习将具体情境与抽象启发式规则对齐，并对具有相似进展结构的推理轨迹进行聚类。在动态智能体任务和静态技能检索基准上，无需任何环境特定训练即可超越现有推理嵌入模型，表明状态-洞察匹配的几何结构可以跨领域迁移。",
+        "motivation": "自我改进型智能体需要从既往轨迹中积累并检索可复用的洞察，但现有检索方法主要建模语义相似性，忽略了检索到的洞察是否能解决智能体当前的决策瓶颈，这正是本文所定义的 agentic insight retrieval 要补上的空缺。",
+        "method": "提出 InsightEmb，一种仅使用数学推理数据训练的对比嵌入框架；它联合学习具体情境与抽象启发式规则之间的对齐，以及对相似进展结构的推理轨迹做聚类，从而学习可迁移的进展导向检索几何。",
+        "result": "在动态智能体任务和一个静态技能检索基准上的评估中，不经过任何环境特定训练，InsightEmb 在所有评估项上都超过现有推理嵌入模型的性能。",
+        "conclusion": "摘要认为状态-洞察匹配的几何结构具有跨域可迁移性，因此可以从公开可得的推理数据有效训练，而无需昂贵的环境特定监督。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04738",
+      "title": "EviGraph: Evidence-Guided Autonomous Research Agents",
+      "authors": [
+        "Zhenjiang Ren",
+        "Ruiji Li",
+        "Xujing Zhang",
+        "Ziliang Pang",
+        "Shuo Ren",
+        "Jiajun Zhang"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2608.04738",
+      "pdf_url": "https://arxiv.org/pdf/2608.04738",
+      "abstract_en": "Autonomous research agents can generate hypotheses, execute experiments, and draft manuscripts, yet their outputs often contain unsupported claims and inconsistencies between research questions, experiments, results, and conclusions. We argue that this problem is partly architectural: existing systems organize research as sequential pipelines but do not explicitly maintain or validate the evolving claim-evidence structure across stages. In this paper, we introduce EviGraph, an autonomous research framework that represents the research process as a typed evidence graph containing Problem, Gap, Hypothesis, Experiment, Finding, and Claim nodes. The graph serves as the operational state of the agent rather than a post-hoc record. EviGraph inspects evidence chains for missing dependencies, semantic misalignment, and result-claim inconsistencies, localizes the earliest weak node, and regenerates its affected downstream subgraph. Graph checkpointing prevents unsuccessful repairs from corrupting previously validated evidence. Manuscripts are generated only after every retained claim is grounded in a validated evidence chain. Experiments on ARC-Bench-ML and NanoResearch-20 show that EviGraph outperforms the compared end-to-end research-agent baselines in overall research performance, improves Claim Support Rate by 40.19% over the strongest baseline, and achieves 87.73% Experimental Data Consistency. These results demonstrate the value of explicit evidence-state maintenance for reliable autonomous research.",
+      "comment": "23 pages,2 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 EviGraph，一个以类型化证据图为核心的自主科研框架。该图包含 Problem、Gap、Hypothesis、Experiment、Finding 和 Claim 节点，并作为智能体的运行状态而非事后记录。EviGraph 会检查证据链中的缺失依赖、语义错位和结果-结论不一致，定位最早的薄弱节点并重新生成受影响的后续子图，同时用图检查点防止失败的修复破坏已验证证据。在 ARC-Bench-ML 和 NanoResearch-20 上，该方法在整体科研性能上超过对比的端到端研究智能体基线，并将 Claim Support Rate 相对最强基线提升 40.19%，达到 87.73% 的 Experimental Data Consistency。\nMotivation: 现有自主研究智能体常输出无依据的论断，且研究问题、实验、结果与结论之间存在不一致。作者认为这部分是架构问题：现有系统把研究组织为顺序流水线，没有跨阶段显式维护和验证不断演化的论断-证据结构。\nMethod: 引入 EviGraph，将研究过程表示为类型化证据图，并让该图充当智能体的运行状态。系统检查证据链的缺失依赖、语义错位和结果-论断不一致，定位最早薄弱节点后重新生成受影响的下游子图；图检查点机制防止未成功的修复破坏已验证证据，且只有在每条保留论断都扎根于验证过的证据链后才生成稿件。\nResult: 在 ARC-Bench-ML 与 NanoResearch-20 基准上，EviGraph 在整体科研性能上优于对比的端到端研究智能体基线，Claim Support Rate 相对最强基线提升 40.19%，并取得 87.73% 的 Experimental Data Consistency。\nConclusion: 摘要强调显式的证据状态维护对可靠的自主科研有价值，结果表明基于证据图的状态管理能减少无依据论断并提升各阶段一致性；摘要未提及明显的适用范围或局限。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 EviGraph，一个以类型化证据图为核心的自主科研框架。该图包含 Problem、Gap、Hypothesis、Experiment、Finding 和 Claim 节点，并作为智能体的运行状态而非事后记录。EviGraph 会检查证据链中的缺失依赖、语义错位和结果-结论不一致，定位最早的薄弱节点并重新生成受影响的后续子图，同时用图检查点防止失败的修复破坏已验证证据。在 ARC-Bench-ML 和 NanoResearch-20 上，该方法在整体科研性能上超过对比的端到端研究智能体基线，并将 Claim Support Rate 相对最强基线提升 40.19%，达到 87.73% 的 Experimental Data Consistency。",
+        "motivation": "现有自主研究智能体常输出无依据的论断，且研究问题、实验、结果与结论之间存在不一致。作者认为这部分是架构问题：现有系统把研究组织为顺序流水线，没有跨阶段显式维护和验证不断演化的论断-证据结构。",
+        "method": "引入 EviGraph，将研究过程表示为类型化证据图，并让该图充当智能体的运行状态。系统检查证据链的缺失依赖、语义错位和结果-论断不一致，定位最早薄弱节点后重新生成受影响的下游子图；图检查点机制防止未成功的修复破坏已验证证据，且只有在每条保留论断都扎根于验证过的证据链后才生成稿件。",
+        "result": "在 ARC-Bench-ML 与 NanoResearch-20 基准上，EviGraph 在整体科研性能上优于对比的端到端研究智能体基线，Claim Support Rate 相对最强基线提升 40.19%，并取得 87.73% 的 Experimental Data Consistency。",
+        "conclusion": "摘要强调显式的证据状态维护对可靠的自主科研有价值，结果表明基于证据图的状态管理能减少无依据论断并提升各阶段一致性；摘要未提及明显的适用范围或局限。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04657",
+      "title": "MobileWAM: Bridging World Action Models to Mobile Manipulation with Chain-of-Foresight",
+      "authors": [
+        "Zehua Fan",
+        "Junjie He",
+        "Wenxuan Song",
+        "Xi Wang",
+        "Wenqi Lyu",
+        "Linge Zhao",
+        "Fuhao Li",
+        "Zihan You",
+        "Yifei Yang",
+        "Kaiming Xu",
+        "Qi Jiang",
+        "Yue Jiang",
+        "Haoang Li",
+        "Cheng Chi",
+        "Feng Gao",
+        "Bailin Li",
+        "Yan Wang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.04657",
+      "pdf_url": "https://arxiv.org/pdf/2608.04657",
+      "abstract_en": "World action models (WAMs) built on video generation backbones are a rising recipe for robot learning, yet remain confined to tabletop manipulation. Mobile manipulation demands simultaneous locomotion and whole-body manipulation amid scene-scale dynamics, yet is still dominated by dynamics-blind visual encoders with hand-crafted coordination. We bridge this gap with MobileWAM, a mixture-of-transformers architecture that fuses a pretrained video diffusion transformer with a lightweight action expert through layerwise joint attention, translating internet-scale motion priors into whole-body control. To reconcile the heterogeneous dynamics of moving and manipulating, each feed-forward layer of the action expert becomes a three-expert mixture of shared, locomotion, and manipulation experts, softly routed by the motion intent in the action tokens. To densify supervision, we further propose Chain-of-Foresight (CoF): intermediate representations sequentially predict a chain of future latent chunks, each step conditioned on its predecessor. CoF pairs naturally with our decoupled video--action denoising scheme. At deployment, the WAM serves as a pure current-frame encoder; foresight acts only through gradients, so at inference the foresight chain and video generation are discarded, leaving only policy-level cost. MobileWAM surpasses state-of-the-art mobile manipulation policies on ManiSkill-HAB and fine-tunes to a real ARX Lift2 mobile manipulator across diverse tasks with strong generalization. Code will be released soon.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 MobileWAM，一种将基于视频生成的 world action model (WAM) 从桌面操作扩展到移动操作 (mobile manipulation) 的架构，采用混合 Transformer，通过逐层联合注意力 (layerwise joint attention) 融合预训练视频扩散 Transformer 与轻量动作专家。作者还提出 Chain-of-Foresight (CoF) 用于稠密监督，使中间表示逐步预测未来潜变量块。摘要报告其在 ManiSkill-HAB 上超越现有移动操作策略，并在真实 ARX Lift2 移动机械臂上跨多样任务微调表现出强泛化能力。\nMotivation: 现有 WAM 局限于桌面操作，而移动操作需要同时进行移动和全身操作，并面对场景级动态；当前该领域仍以缺乏动力学感知的视觉编码器配合手工协调为主，缺乏将互联网规模运动先验转化为全身控制的手段。\nMethod: 构建 mixture-of-transformers 架构，将预训练视频扩散 Transformer 与轻量动作专家通过逐层联合注意力融合；动作专家的每个前馈层被设计为共享、移动 (locomotion) 和操作 (manipulation) 三专家混合，并由动作 token 中的运动意图软路由。提出 Chain-of-Foresight (CoF)，使中间表示顺序预测一系列未来潜变量块且每步以前一步为条件，并结合解耦的视频-动作去噪方案。部署时 WAM 仅作为纯当前帧编码器，foresight 只通过梯度发挥作用，推理时丢弃 foresight 链和视频生成，只保留策略级成本。\nResult: 摘要报告 MobileWAM 在 ManiSkill-HAB 基准上超越最先进的移动操作策略，并能微调到真实 ARX Lift2 移动机械臂，在多种任务上表现出强泛化能力。\nConclusion: 作者强调通过解码视频扩散先验到全身控制并用 CoF 稠密化监督，可以弥合 WAM 与移动操作之间的差距，且推理时丢弃生成链以保持低成本。摘要未明确讨论方法局限。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 MobileWAM，一种将基于视频生成的 world action model (WAM) 从桌面操作扩展到移动操作 (mobile manipulation) 的架构，采用混合 Transformer，通过逐层联合注意力 (layerwise joint attention) 融合预训练视频扩散 Transformer 与轻量动作专家。作者还提出 Chain-of-Foresight (CoF) 用于稠密监督，使中间表示逐步预测未来潜变量块。摘要报告其在 ManiSkill-HAB 上超越现有移动操作策略，并在真实 ARX Lift2 移动机械臂上跨多样任务微调表现出强泛化能力。",
+        "motivation": "现有 WAM 局限于桌面操作，而移动操作需要同时进行移动和全身操作，并面对场景级动态；当前该领域仍以缺乏动力学感知的视觉编码器配合手工协调为主，缺乏将互联网规模运动先验转化为全身控制的手段。",
+        "method": "构建 mixture-of-transformers 架构，将预训练视频扩散 Transformer 与轻量动作专家通过逐层联合注意力融合；动作专家的每个前馈层被设计为共享、移动 (locomotion) 和操作 (manipulation) 三专家混合，并由动作 token 中的运动意图软路由。提出 Chain-of-Foresight (CoF)，使中间表示顺序预测一系列未来潜变量块且每步以前一步为条件，并结合解耦的视频-动作去噪方案。部署时 WAM 仅作为纯当前帧编码器，foresight 只通过梯度发挥作用，推理时丢弃 foresight 链和视频生成，只保留策略级成本。",
+        "result": "摘要报告 MobileWAM 在 ManiSkill-HAB 基准上超越最先进的移动操作策略，并能微调到真实 ARX Lift2 移动机械臂，在多种任务上表现出强泛化能力。",
+        "conclusion": "作者强调通过解码视频扩散先验到全身控制并用 CoF 稠密化监督，可以弥合 WAM 与移动操作之间的差距，且推理时丢弃生成链以保持低成本。摘要未明确讨论方法局限。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04652",
+      "title": "DisMix: Order-Aware Mixup for Medical Imaging via Disentangling Ordinal and Non-Ordinal Features",
+      "authors": [
+        "Dileepa Pitawela",
+        "Gustavo Carneiro",
+        "Hsiang-Ting Chen"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.04652",
+      "pdf_url": "https://arxiv.org/pdf/2608.04652",
+      "abstract_en": "Image mixup is a widely adopted data augmentation strategy, yet it is ill-suited for ordinal classification tasks such as medical disease grading, where labels encode a progression of severity. By indiscriminately blending disease-severity cues (ordinal) with appearance-level variation (non-ordinal), standard mixup produces samples that distort the very ordinal structure that underpins clinical severity grading. We introduce DisMix, an order-aware mixup framework for ordinal classification. DisMix disentangles ordinal and non-ordinal features via a dual-codebook VQ-VAE, allowing each subspace to be mixed independently: ordinal codes are interpolated to produce meaningful intermediate ranks, while non-ordinal codes are varied to introduce appearance diversity without corrupting the ordinal signal. Across four medical imaging datasets, DisMix shows the best aggregate performance among six image mixup baselines paired with six ordinal classifiers and remains effective under data scarcity and clinical grading variability.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 DisMix，一种面向序数分类 (ordinal classification) 的保序 mixup 框架，用于医学影像疾病分级。它通过双码本 VQ-VAE 将序数特征与非序数特征解耦，分别对两类编码进行插值或变化，从而在不破坏疾病严重程度顺序的前提下引入外观多样性。在四个医学影像数据集上，DisMix 在六种图像 mixup 基线搭配六种序数分类器的组合中取得最佳总体性能。\nMotivation: 标准 mixup 会不加区分地混合疾病严重程度线索与外观级变化，从而扭曲医学疾病分级所依赖的序数结构，因此不适合序数分类任务。\nMethod: 引入 DisMix，利用双码本 VQ-VAE 解耦序数与非序数特征；序数码通过插值生成有意义的中间等级，非序数码则被变化以引入外观多样性而不破坏序数信号。\nResult: 在四个医学影像数据集上，DisMix 在六种图像 mixup 基线与六种序数分类器的配对比较中取得最佳总体性能，并在数据稀缺和临床分级变异性条件下保持有效。\nConclusion: DisMix 表明将 mixup 与特征解耦结合可以实现保序的数据增强，适用于医学影像序数分级任务，且对数据稀缺和分级噪声具有一定鲁棒性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 DisMix，一种面向序数分类 (ordinal classification) 的保序 mixup 框架，用于医学影像疾病分级。它通过双码本 VQ-VAE 将序数特征与非序数特征解耦，分别对两类编码进行插值或变化，从而在不破坏疾病严重程度顺序的前提下引入外观多样性。在四个医学影像数据集上，DisMix 在六种图像 mixup 基线搭配六种序数分类器的组合中取得最佳总体性能。",
+        "motivation": "标准 mixup 会不加区分地混合疾病严重程度线索与外观级变化，从而扭曲医学疾病分级所依赖的序数结构，因此不适合序数分类任务。",
+        "method": "引入 DisMix，利用双码本 VQ-VAE 解耦序数与非序数特征；序数码通过插值生成有意义的中间等级，非序数码则被变化以引入外观多样性而不破坏序数信号。",
+        "result": "在四个医学影像数据集上，DisMix 在六种图像 mixup 基线与六种序数分类器的配对比较中取得最佳总体性能，并在数据稀缺和临床分级变异性条件下保持有效。",
+        "conclusion": "DisMix 表明将 mixup 与特征解耦结合可以实现保序的数据增强，适用于医学影像序数分级任务，且对数据稀缺和分级噪声具有一定鲁棒性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04586",
+      "title": "Breaking the Curse of Multilinguality in Many-to-Many Speech-to-Text Translation via a Resource-Aware Mixture of Speech Encoders",
+      "authors": [
+        "Yexing Du",
+        "Kaiyuan Liu",
+        "Youcheng Pan",
+        "Bo Yang",
+        "Chengpeng Fu",
+        "Yu Wang",
+        "Ming Liu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2608.04586",
+      "pdf_url": "https://arxiv.org/pdf/2608.04586",
+      "abstract_en": "Multimodal large language models (MLLMs) have achieved significant success in speech-to-text translation (S2TT). However, when processing multilingual speech inputs, a single speech encoder shared across all languages suffers from the curse of multilinguality: languages at different resource levels compete for limited representation capacity, leading to strong high-resource performance but substantial degradation on low-resource speech. To address this problem and improve multilingual consistency, we propose MSRT, a novel framework built around a resource-aware Mixture of Speech Encoders (MoSE). MoSE uses an explicit language router to assign each utterance to an appropriate expert encoder. A frozen expert preserves high-resource language capabilities, while a trainable expert adapts to and specializes in medium- and low-resource languages. We further introduce a five-stage curriculum learning strategy that substantially reduces data dependence, requiring only 10 hours of paired S2TT data per language for effective alignment. We conduct extensive experiments on 45 languages, systematically evaluating all $45 \\times 44$ translation directions. Our 4B-parameter model achieves state-of-the-art performance, outperforming substantially larger baselines. Empirical analyses show that MoSE improves high-, medium-, and low-resource languages simultaneously, with the largest gains on low-resource speech, thereby breaking the curse of multilinguality without compromising high-resource performance. To support future multilingual S2TT research, we release our code and models.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对多语言多对多语音到文本翻译 (S2TT) 中单一共享语音编码器带来的多语言诅咒问题，提出 MSRT 框架，其核心是资源感知的语音专家编码器混合 (Mixture of Speech Encoders, MoSE)。MoSE 通过显式语言路由器将每条语音分配到对应专家编码器：冻结专家保留高资源语言能力，可训练专家专门适配中低资源语言；另引入五阶段课程学习策略，每语言仅需 10 小时配对数据即可有效对齐。作者在 45 种语言及全部 45×44 个翻译方向上实验，4B 参数模型取得超越更大规模基线的性能。\nMotivation: 多语言语音输入经过单一共享编码器时，不同资源水平的语言会竞争有限的表示容量，导致高资源语言性能强而低资源语言性能明显下降；论文旨在打破这种多语言诅咒并提升多语言一致性。\nMethod: 提出 MSRT 框架，采用资源感知的 MoSE：显式语言路由器将每条话语分配到适当的专家编码器，其中冻结专家负责高资源语言，可训练专家专门适配中低资源语言；同时设计五阶段课程学习策略以大幅降低数据依赖，仅需每语言 10 小时配对 S2TT 数据。\nResult: 在 45 种语言上系统评估全部 45×44 个翻译方向，4B 参数模型达到 state-of-the-art，超越显著更大的基线模型；经验分析显示 MoSE 同时提升高、中、低资源语言，其中低资源语音提升最大，且不牺牲高资源性能。\nConclusion: 作者认为资源感知的 MoSE 结合显式路由与课程学习能够打破多语言诅咒，并发布代码和模型以支持未来多语言 S2TT 研究。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对多语言多对多语音到文本翻译 (S2TT) 中单一共享语音编码器带来的多语言诅咒问题，提出 MSRT 框架，其核心是资源感知的语音专家编码器混合 (Mixture of Speech Encoders, MoSE)。MoSE 通过显式语言路由器将每条语音分配到对应专家编码器：冻结专家保留高资源语言能力，可训练专家专门适配中低资源语言；另引入五阶段课程学习策略，每语言仅需 10 小时配对数据即可有效对齐。作者在 45 种语言及全部 45×44 个翻译方向上实验，4B 参数模型取得超越更大规模基线的性能。",
+        "motivation": "多语言语音输入经过单一共享编码器时，不同资源水平的语言会竞争有限的表示容量，导致高资源语言性能强而低资源语言性能明显下降；论文旨在打破这种多语言诅咒并提升多语言一致性。",
+        "method": "提出 MSRT 框架，采用资源感知的 MoSE：显式语言路由器将每条话语分配到适当的专家编码器，其中冻结专家负责高资源语言，可训练专家专门适配中低资源语言；同时设计五阶段课程学习策略以大幅降低数据依赖，仅需每语言 10 小时配对 S2TT 数据。",
+        "result": "在 45 种语言上系统评估全部 45×44 个翻译方向，4B 参数模型达到 state-of-the-art，超越显著更大的基线模型；经验分析显示 MoSE 同时提升高、中、低资源语言，其中低资源语音提升最大，且不牺牲高资源性能。",
+        "conclusion": "作者认为资源感知的 MoSE 结合显式路由与课程学习能够打破多语言诅咒，并发布代码和模型以支持未来多语言 S2TT 研究。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04549",
+      "title": "EuroExec: Frontier Language Models Fall Short of Expert Judgment on European Executive Decision Tasks",
+      "authors": [
+        "Pau Arnal",
+        "Khaled Denfir",
+        "Danylo Smahliuk",
+        "Amrut Avhad",
+        "Marcus A. Castro"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2608.04549",
+      "pdf_url": "https://arxiv.org/pdf/2608.04549",
+      "abstract_en": "Frontier LLMs are increasingly put to use on open-ended complex questions, different in nature from the ones they are typically evaluated on. We dedicate more than 4,000 human expert hours to evaluate a selection of six frontier LLMs on a member of this class of problems: EuroExec, our introduced human expert-based benchmark composed of 413 open-ended long-form European executive tasks authored by 47 vetted domain experts, each question drawn from experience in a real case. Every response is manually evaluated through a multi-attribute rubric, an item-specific checklist of requirements, and a preference rank ordering, extracting an aggregate metric \"Solve Rate\". The strongest model solves only 56.9% of tasks, while expert-written reference answers judged blindly are solved at near-ceiling levels and are preferred over every model response in 74% of direct rankings, placing frontier generative systems well below the professional standard of work they are already used for. We see that the best way to extract this kind of conclusion is by employing human evaluators, carefully checking their consistency through rigorous statistical analysis, and observe that automatic measurements also fall short when evaluating on this case of real-world open-ended problems with a subjective ground truth.",
+      "comment": "17 pages, 9 figures, 12 tables, submitted to EACL 2027",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文引入 EuroExec，一个由 47 名经筛选领域专家撰写的、包含 413 个开放式长篇幅欧洲行政决策任务的基准，并投入超过 4,000 小时人工评估六个前沿 LLM。摘要报告最强模型仅解决 56.9% 的任务，而专家撰写的参考回答在盲测中接近天花板水平，并在 74% 的直接排名中优于所有模型响应。作者指出，在此类具有主观真实答案的开放式真实世界问题上，自动评估同样不足，采用人工评估者并严格检查一致性是得出这类结论的最佳方式。\nMotivation: 前沿 LLM 越来越多地被用于开放式复杂问题，这类问题与它们通常被评测的题目性质不同，但缺乏基于专家判断的评估基准。该论文通过构建 EuroExec 填补这一评估空白。\nMethod: 构建由领域专家基于真实案例撰写的 413 个开放式长形式欧洲行政任务，每个响应通过多属性评分表、逐项需求清单和偏好排序进行人工评估，并聚合出综合指标 Solve Rate。同时引入严格的统计分析来检查评估者一致性，并与自动测量进行对比。\nResult: 最强模型仅解决 56.9% 的任务；专家撰写的参考回答在盲测中接近满分，且在 74% 的直接排名中比每个模型响应都更受偏好，表明前沿生成系统低于它们已被投入使用的专业工作标准。\nConclusion: 摘要强调，在具有主观真实答案的开放式真实世界问题上，自动测量同样不足；人工评估者配合严格一致性检验是得出此类结论的最佳途径。该基准聚焦欧洲行政决策，结论的推广范围受限于这一任务类型。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文引入 EuroExec，一个由 47 名经筛选领域专家撰写的、包含 413 个开放式长篇幅欧洲行政决策任务的基准，并投入超过 4,000 小时人工评估六个前沿 LLM。摘要报告最强模型仅解决 56.9% 的任务，而专家撰写的参考回答在盲测中接近天花板水平，并在 74% 的直接排名中优于所有模型响应。作者指出，在此类具有主观真实答案的开放式真实世界问题上，自动评估同样不足，采用人工评估者并严格检查一致性是得出这类结论的最佳方式。",
+        "motivation": "前沿 LLM 越来越多地被用于开放式复杂问题，这类问题与它们通常被评测的题目性质不同，但缺乏基于专家判断的评估基准。该论文通过构建 EuroExec 填补这一评估空白。",
+        "method": "构建由领域专家基于真实案例撰写的 413 个开放式长形式欧洲行政任务，每个响应通过多属性评分表、逐项需求清单和偏好排序进行人工评估，并聚合出综合指标 Solve Rate。同时引入严格的统计分析来检查评估者一致性，并与自动测量进行对比。",
+        "result": "最强模型仅解决 56.9% 的任务；专家撰写的参考回答在盲测中接近满分，且在 74% 的直接排名中比每个模型响应都更受偏好，表明前沿生成系统低于它们已被投入使用的专业工作标准。",
+        "conclusion": "摘要强调，在具有主观真实答案的开放式真实世界问题上，自动测量同样不足；人工评估者配合严格一致性检验是得出此类结论的最佳途径。该基准聚焦欧洲行政决策，结论的推广范围受限于这一任务类型。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04451",
+      "title": "A Counterexample to Fourier Alignment in Single-Neuron Modular Addition",
+      "authors": [
+        "Gautam Neelakantan Memana"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.NE",
+        "math.OC"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "math.OC",
+      "abs_url": "https://arxiv.org/abs/2608.04451",
+      "pdf_url": "https://arxiv.org/pdf/2608.04451",
+      "abstract_en": "We give a negative solution to MAIS-O60. We first construct an example in which an initially active ReLU neuron becomes completely inactive in finite time and thereafter remains frozen at a limit whose Fourier energy is equally distributed among all nonzero real frequency classes. The counterexample holds on an open set of initial conditions and therefore occurs with positive probability under Gaussian initialization. An appendix prepared by GPT-5.6 Sol strengthens the counterexample by showing that the same failure can occur for every Clarke trajectory from an open set of initial conditions, under the convention $\\mathrm{ReLU}'(0)=0$, for smooth dead-zone approximations of ReLU, and for fixed-step full-batch gradient descent. Thus, single-frequency alignment is not a general consequence of training a single neuron on modular addition.",
+      "comment": "18 pages",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文对 MAIS-O60 给出否定解答，构造了单神经元模加法 (modular addition) 训练中单频傅里叶对齐失稳的反例。初始活跃的 ReLU 神经元在有限时间内完全失活并冻结在一个极限上，其傅里叶能量均匀分布在所有非零实频率类之间；该反例在初始条件的开集上成立，因此在 Gaussian 初始化下有正概率发生。附录将这些结果推广到 Clarke 轨道、约定 ReLU'(0)=0、光滑死区逼近以及固定步长全批量梯度下降等情形。\nMotivation: 论文针对的是单神经元在模加法任务上训练时是否普遍出现单频傅里叶对齐 (single-frequency Fourier alignment) 这一理论问题，旨在检验 MAIS-O60 所对应的猜想是否成立。\nMethod: 作者构造显式训练实例：一个 ReLU 神经元先处于激活状态，之后在有限时间内彻底失活，并稳定在傅里叶能量均匀分布于所有非零实频率类的极限。附录部分进一步证明该失效在多种训练设定下仍能发生。\nResult: 反例在初始条件的开集上成立，因此在 Gaussian 初始化下发生的概率为正；附录显示同一失败可发生在每个 Clarke 轨迹、ReLU'(0)=0 约定、光滑死区逼近 ReLU 及固定步长全批量梯度下降中。\nConclusion: 该工作表明，单频对齐并不是用单个神经元训练模加法任务的普遍结果。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文对 MAIS-O60 给出否定解答，构造了单神经元模加法 (modular addition) 训练中单频傅里叶对齐失稳的反例。初始活跃的 ReLU 神经元在有限时间内完全失活并冻结在一个极限上，其傅里叶能量均匀分布在所有非零实频率类之间；该反例在初始条件的开集上成立，因此在 Gaussian 初始化下有正概率发生。附录将这些结果推广到 Clarke 轨道、约定 ReLU'(0)=0、光滑死区逼近以及固定步长全批量梯度下降等情形。",
+        "motivation": "论文针对的是单神经元在模加法任务上训练时是否普遍出现单频傅里叶对齐 (single-frequency Fourier alignment) 这一理论问题，旨在检验 MAIS-O60 所对应的猜想是否成立。",
+        "method": "作者构造显式训练实例：一个 ReLU 神经元先处于激活状态，之后在有限时间内彻底失活，并稳定在傅里叶能量均匀分布于所有非零实频率类的极限。附录部分进一步证明该失效在多种训练设定下仍能发生。",
+        "result": "反例在初始条件的开集上成立，因此在 Gaussian 初始化下发生的概率为正；附录显示同一失败可发生在每个 Clarke 轨迹、ReLU'(0)=0 约定、光滑死区逼近 ReLU 及固定步长全批量梯度下降中。",
+        "conclusion": "该工作表明，单频对齐并不是用单个神经元训练模加法任务的普遍结果。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04430",
+      "title": "An adaptive split-combine Gaussian mixture filter for nonlinear and multimodal state estimation",
+      "authors": [
+        "San Kim",
+        "Won Chang",
+        "Daniel B. Forger",
+        "Dae Wook Kim"
+      ],
+      "categories": [
+        "math.NA",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "stat.ML"
+      ],
+      "display_category": "stat.ML",
+      "primary_category": "math.NA",
+      "abs_url": "https://arxiv.org/abs/2608.04430",
+      "pdf_url": "https://arxiv.org/pdf/2608.04430",
+      "abstract_en": "Filtering combines model predictions with measurements to estimate the probability density function (PDF) of a system state over time. The PDF often becomes highly asymmetric and even multimodal in nonlinear systems with oscillatory or chaotic dynamics. Such non-Gaussian features violate the single-Gaussian assumption underlying Kalman-type filters. To address this problem, Gaussian mixture filtering has been proposed. However, accurately propagating mixture components and adaptively adjusting their number and weights over time remain open challenges. Here, we develop an adaptive split-combine Gaussian mixture filter (AMF) that estimates the time evolution of asymmetric and multimodal PDFs by adaptively splitting and combining Gaussian particles without auxiliary online numerical optimization. Notably, the proposed splitting method guarantees a reduction in variance along a target level-set-point direction of a Gaussian particle. This enables accurate and efficient propagation of particles. We show that AMF consistently outperforms various baseline filters across diverse benchmarks, including single and coupled slow-fast Van der Pol oscillators and the Lorenz attractor. We also propose a parallel implementation of AMF, allowing high-fidelity PDF estimation with practical computational cost.",
+      "comment": "60 pages, 13 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种自适应拆分-组合高斯混合滤波器（AMF），用于在非线性、振荡或混沌系统中估计随时间演化的非对称和多模态概率密度函数。该方法无需辅助在线数值优化即可自适应拆分和合并高斯粒子，且拆分过程保证沿目标水平集点方向（target level-set-point direction）降低方差。在单/耦合慢快 Van der Pol 振荡器和 Lorenz 吸引子等基准上，AMF 一致优于多种基线滤波器，并提出了并行实现以降低计算成本。\nMotivation: 卡尔曼类滤波器基于单一高斯假设，但在振荡或混沌非线性系统中，状态 PDF 常呈现强非对称甚至多模态，直接违反该假设。高斯混合滤波虽已被提出，但精确传播混合分量并随时间自适应调整其数量和权重仍是开放挑战。\nMethod: 提出 AMF，通过自适应拆分和合并高斯粒子来估计非对称和多模态 PDF，且不依赖辅助在线数值优化。拆分方法保证沿目标水平集点方向降低方差，从而提升粒子传播的准确性和效率，并给出了并行实现方案。\nResult: 在包括单/耦合慢快 Van der Pol 振荡器和 Lorenz 吸引子等多种基准上，AMF 持续优于多种基线滤波器。并行实现允许以实际可接受的计算成本获得高保真的 PDF 估计。\nConclusion: 摘要强调 AMF 能准确高效地处理非线性动态中的非高斯和多模态 PDF，其并行实现有利于实际部署；但未报告特定数值结果或真实应用场景。\nRelevance: 55",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种自适应拆分-组合高斯混合滤波器（AMF），用于在非线性、振荡或混沌系统中估计随时间演化的非对称和多模态概率密度函数。该方法无需辅助在线数值优化即可自适应拆分和合并高斯粒子，且拆分过程保证沿目标水平集点方向（target level-set-point direction）降低方差。在单/耦合慢快 Van der Pol 振荡器和 Lorenz 吸引子等基准上，AMF 一致优于多种基线滤波器，并提出了并行实现以降低计算成本。",
+        "motivation": "卡尔曼类滤波器基于单一高斯假设，但在振荡或混沌非线性系统中，状态 PDF 常呈现强非对称甚至多模态，直接违反该假设。高斯混合滤波虽已被提出，但精确传播混合分量并随时间自适应调整其数量和权重仍是开放挑战。",
+        "method": "提出 AMF，通过自适应拆分和合并高斯粒子来估计非对称和多模态 PDF，且不依赖辅助在线数值优化。拆分方法保证沿目标水平集点方向降低方差，从而提升粒子传播的准确性和效率，并给出了并行实现方案。",
+        "result": "在包括单/耦合慢快 Van der Pol 振荡器和 Lorenz 吸引子等多种基准上，AMF 持续优于多种基线滤波器。并行实现允许以实际可接受的计算成本获得高保真的 PDF 估计。",
+        "conclusion": "摘要强调 AMF 能准确高效地处理非线性动态中的非高斯和多模态 PDF，其并行实现有利于实际部署；但未报告特定数值结果或真实应用场景。",
+        "relevance_score": "55"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.01791",
+      "title": "PICopilot: An LLM-based Agentic Framework for Assisting Photonic Integrated Circuit Design via Script Generation",
+      "authors": [
+        "Xiaohan Jiang",
+        "Zeyu Li",
+        "Wei Zhang",
+        "Jiang Xu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.ET"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.ET",
+      "abs_url": "https://arxiv.org/abs/2608.01791",
+      "pdf_url": "https://arxiv.org/pdf/2608.01791",
+      "abstract_en": "The rapid development of photonic integrated circuits (PICs) is shifting the design flow from traditional graphical user interface (GUI)-based methods to script-based methods for higher flexibility, portability, and maintainability. However, script-based design introduces new challenges, requiring designers to possess additional proficiency in tool application programming interfaces (APIs) and programming. It also demands greater effort and time because it is inherently less intuitive and more complex than GUI-based methods. As PICs grow in scale and complexity, the productivity gap between design needs and manual scripting capabilities continues to widen. To address this gap, we introduce PICopilot, the first large language model (LLM)-based agentic framework that assists in PIC design via automated design script generation from natural language instructions. PICopilot leverages a multi-agent architecture with a feedback mechanism and a specifically designed retrieval-augmented generation (RAG) pipeline, achieving a high success rate and reliability. Experimental results on a benchmark of diverse PIC scripting tasks demonstrate that PICopilot successfully completes all 48 tasks and outperforms other LLM-based approaches without incurring substantial extra latency or cost, even solving 21 more tasks than the advanced GPT-5 model with a general RAG pipeline.",
+      "comment": "9 pages, 6 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 PICopilot，据称是首个基于大语言模型 (LLM) 的 agentic 框架，用于从自然语言指令自动生成光子集成电路 (PIC) 设计脚本。框架采用多智能体架构、反馈机制和专门设计的检索增强生成 (retrieval-augmented generation, RAG) 流水线，以提升成功率和可靠性。在包含 48 个多样化 PIC 脚本任务的基准上，PICopilot 完成全部任务，并优于其他基于 LLM 的方法，甚至比配备通用 RAG 流水线的 GPT-5 多解决 21 个任务，且未引入明显额外延迟或成本。\nMotivation: PIC 设计流程正从 GUI 方式转向脚本方式以提升灵活性、可移植性和可维护性，但脚本设计要求设计者掌握工具 API 和编程技能，且不如 GUI 直观，随着电路规模增大，设计需求与人工脚本能力之间的生产力差距不断扩大。\nMethod: 提出 PICopilot，一个基于 LLM 的 agentic 框架，通过多智能体架构、反馈机制以及专门设计的 RAG 流水线，将自然语言指令自动转化为 PIC 设计脚本。\nResult: 在 48 个多样化 PIC 脚本任务基准上完成全部任务，并优于其他基于 LLM 的方法；相比采用通用 RAG 流水线的 GPT-5 多解决 21 个任务，且未产生明显额外延迟或成本。\nConclusion: 摘要强调 PICopilot 以高成功率和可靠性解决了 PIC 脚本生成中的生产力差距问题，是该领域首个此类框架。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 PICopilot，据称是首个基于大语言模型 (LLM) 的 agentic 框架，用于从自然语言指令自动生成光子集成电路 (PIC) 设计脚本。框架采用多智能体架构、反馈机制和专门设计的检索增强生成 (retrieval-augmented generation, RAG) 流水线，以提升成功率和可靠性。在包含 48 个多样化 PIC 脚本任务的基准上，PICopilot 完成全部任务，并优于其他基于 LLM 的方法，甚至比配备通用 RAG 流水线的 GPT-5 多解决 21 个任务，且未引入明显额外延迟或成本。",
+        "motivation": "PIC 设计流程正从 GUI 方式转向脚本方式以提升灵活性、可移植性和可维护性，但脚本设计要求设计者掌握工具 API 和编程技能，且不如 GUI 直观，随着电路规模增大，设计需求与人工脚本能力之间的生产力差距不断扩大。",
+        "method": "提出 PICopilot，一个基于 LLM 的 agentic 框架，通过多智能体架构、反馈机制以及专门设计的 RAG 流水线，将自然语言指令自动转化为 PIC 设计脚本。",
+        "result": "在 48 个多样化 PIC 脚本任务基准上完成全部任务，并优于其他基于 LLM 的方法；相比采用通用 RAG 流水线的 GPT-5 多解决 21 个任务，且未产生明显额外延迟或成本。",
+        "conclusion": "摘要强调 PICopilot 以高成功率和可靠性解决了 PIC 脚本生成中的生产力差距问题，是该领域首个此类框架。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-03",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.04023",
+      "title": "Monsoon Mayhem to Market Waves: Forecasting Fisheries Resilience in Sri Lanka",
+      "authors": [
+        "Ruzaini Ahmed",
+        "Yohan Jayasinghe",
+        "Tharumini Gamage",
+        "Ifaz Ikram",
+        "Hasini Lawanya",
+        "Nirasha Munasinghe",
+        "Patalee Narasinghe",
+        "Nisansa de Silva",
+        "Sandareka Wickramanayake"
+      ],
+      "categories": [
+        "cs.LG",
+        "econ.GN"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "econ.GN",
+      "abs_url": "https://arxiv.org/abs/2608.04023",
+      "pdf_url": "https://arxiv.org/pdf/2608.04023",
+      "abstract_en": "Sri Lanka's fisheries sector is important for jobs and food supply. Between 2019 and 2025, it faced several major problems at the same time, and how these events together affected fish production and prices is still not well understood. This study develops a framework to connect weather changes, major disruption events, fish production, and prices, with the goal of helping policymakers, traders, and supply chain managers make better decisions. Seasonal patterns are studied using STL decomposition. Spearman lag correlation is used to find delayed effects of climate on production. Interrupted Time Series (ITS) regression measures the impact of major events. SARIMAX models predict monthly production and prices. Hotspot detection identifies unusual patterns. The results show that marine and inland fisheries behave differently in terms of seasons and climate effects. Major disruptions caused different levels of impact, and in some cases, one sector helped compensate for another. These findings can support better planning, for example, improving infrastructure in high-risk areas, strengthening cold storage systems, and using early warning alerts for unusual events. Price forecasting tools should be used as decision-support tools, not as direct market signals.",
+      "comment": "Accepted to MERCon 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究斯里兰卡 2019–2025 年间多重重大扰动事件对渔业生产与价格的影响，构建了把天气变化、重大事件、渔业产量和价格联系起来的分析框架。方法上结合 STL 分解、Spearman 滞后相关、中断时间序列 (Interrupted Time Series, ITS) 回归、SARIMAX 预测与热点检测。结果显示海洋与内陆渔业在季节性和气候影响上表现不同，重大事件影响程度各异，个别情况下一个子部门对另一个子部门起到了补偿作用。\nMotivation: 斯里兰卡渔业对就业和粮食供应很重要，但 2019–2025 年同时面临多个重大扰动，这些事件共同如何影响鱼类产量和价格仍缺乏理解，决策者、贸易商和供应链管理者需要更好的决策依据。\nMethod: 提出一个连接天气变化、重大扰动事件、鱼类产量与价格的框架：用 STL 分解研究季节性，用 Spearman 滞后相关识别气候对产量的延迟效应，用中断时间序列回归量化重大事件影响，用 SARIMAX 模型预测月度产量和价格，并用热点检测识别异常模式。\nResult: 摘要没有给出具体数值，只报告了定性结论：海洋与内陆渔业在季节性和气候效应上表现不同；重大扰动造成的冲击程度各异，且某些情形下一个部门补偿了另一个部门。\nConclusion: 作者认为这些发现可支持改进高风险地区基础设施、强化冷库系统以及针对异常事件建立预警；同时强调价格预测工具应作为决策支持工具使用，而非直接的市场信号。\nRelevance: 30",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究斯里兰卡 2019–2025 年间多重重大扰动事件对渔业生产与价格的影响，构建了把天气变化、重大事件、渔业产量和价格联系起来的分析框架。方法上结合 STL 分解、Spearman 滞后相关、中断时间序列 (Interrupted Time Series, ITS) 回归、SARIMAX 预测与热点检测。结果显示海洋与内陆渔业在季节性和气候影响上表现不同，重大事件影响程度各异，个别情况下一个子部门对另一个子部门起到了补偿作用。",
+        "motivation": "斯里兰卡渔业对就业和粮食供应很重要，但 2019–2025 年同时面临多个重大扰动，这些事件共同如何影响鱼类产量和价格仍缺乏理解，决策者、贸易商和供应链管理者需要更好的决策依据。",
+        "method": "提出一个连接天气变化、重大扰动事件、鱼类产量与价格的框架：用 STL 分解研究季节性，用 Spearman 滞后相关识别气候对产量的延迟效应，用中断时间序列回归量化重大事件影响，用 SARIMAX 模型预测月度产量和价格，并用热点检测识别异常模式。",
+        "result": "摘要没有给出具体数值，只报告了定性结论：海洋与内陆渔业在季节性和气候效应上表现不同；重大扰动造成的冲击程度各异，且某些情形下一个部门补偿了另一个部门。",
+        "conclusion": "作者认为这些发现可支持改进高风险地区基础设施、强化冷库系统以及针对异常事件建立预警；同时强调价格预测工具应作为决策支持工具使用，而非直接的市场信号。",
+        "relevance_score": "30"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-27",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.27771",
+      "title": "NormGuard: Reward-Preserving Norm Constraints in Flow-Matching Reinforcement Learning",
+      "authors": [
+        "Tianlin Pan",
+        "Lianyu Pang",
+        "Cheng Da",
+        "Huan Yang",
+        "Changqian Yu",
+        "Kun Gai",
+        "Wenhan Luo"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2606.27771",
+      "pdf_url": "https://arxiv.org/pdf/2606.27771",
+      "abstract_en": "Reinforcement learning (RL) post-training improves the reward alignment of flow-based generators, but often degrades perceptual quality in ways that are not captured by the reward proxy. We identify a simple structural signature of this drift: across three post-training methods (NFT, AWM, DPO), RL fine-tuning inflates the per-step velocity norm $\\|v_θ\\|$ by $5\\%$ to $15\\%$ relative to the reference. A form of norm inflation has been studied in classifier-free guidance (CFG), where rescaling the velocity back to a reference norm at inference time can mitigate the resulting artifacts. However, this inference-time correction does not transfer cleanly to RL: rescaling $v_θ$ to match $\\|v_{\\text{ref}}\\|$ at inference time neither improves reward nor fixes the quality degradation, because the inflation is co-adapted into the model weights. Furthermore, an adjoint sensitivity analysis shows that velocity magnitude rescaling carries no coherent first-order reward signal at the batch level, indicating that suppressing norm inflation is unlikely to remove a consistently reward-carrying component. Since inference-time renormalization fails while norm suppression carries no reward cost, training-time intervention is the appropriate strategy. Together, these findings motivate NormGuard, a hinge penalty that activates only when $\\|v_θ\\|$ exceeds $\\|v_{\\text{ref}}\\|$ and composes additively with any velocity-local base loss. Across two base models, three post-training methods, and two reward proxies, NormGuard consistently improves MLLM-judged image quality and forensic realism while preserving reward, with gains that amplify under few-step inference and are not explained by early stopping.",
+      "comment": "v5: Fixed PDF rendering compatibility issue affecting Apple PDFKit (macOS Preview/iOS PDF viewer). No changes to technical content compared to v4",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究流匹配生成模型在强化学习（RL）后训练中出现的感知质量退化，发现 RL 微调会使每步速度范数 $\\|v_\\theta\\|$ 相对参考模型膨胀 5% 到 15%。作者通过实验和伴随敏感性分析证明推理时的范数重缩放无法修复退化，转而提出训练时的铰链惩罚 NormGuard，在不损失奖励的前提下提升图像质量与法证真实性。\nMotivation: RL 后训练能改善流匹配生成器的奖励对齐，但常导致奖励代理未捕获的感知质量退化，现有推理期范数校正（参考 CFG 的思路）在 RL 场景下无效，因此需要训练期干预策略。\nMethod: 提出 NormGuard，一种仅在 $\\|v_\\theta\\|$ 超过 $\\|v_{\\text{ref}}\\|$ 时激活的铰链惩罚（hinge penalty），可与任意速度局部（velocity-local）基础损失加性组合，用于 RL 后训练阶段抑制速度范数膨胀。\nResult: 在两种基础模型、三种后训练方法（NFT、AWM、DPO）和两种奖励代理下，NormGuard 一致提升 MLLM 评判的图像质量与法证真实性，同时保持奖励；收益在少步推理（few-step inference）下放大，且不能被早停解释。\nConclusion: 摘要强调推理期范数重归一化因范数膨胀已与权重共同适应而失效，且范数压缩不携带一致的奖励信号，因此训练期约束是正确策略；NormGuard 提供了一种与基础损失可组合的解决方案。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究流匹配生成模型在强化学习（RL）后训练中出现的感知质量退化，发现 RL 微调会使每步速度范数 $\\|v_\\theta\\|$ 相对参考模型膨胀 5% 到 15%。作者通过实验和伴随敏感性分析证明推理时的范数重缩放无法修复退化，转而提出训练时的铰链惩罚 NormGuard，在不损失奖励的前提下提升图像质量与法证真实性。",
+        "motivation": "RL 后训练能改善流匹配生成器的奖励对齐，但常导致奖励代理未捕获的感知质量退化，现有推理期范数校正（参考 CFG 的思路）在 RL 场景下无效，因此需要训练期干预策略。",
+        "method": "提出 NormGuard，一种仅在 $\\|v_\\theta\\|$ 超过 $\\|v_{\\text{ref}}\\|$ 时激活的铰链惩罚（hinge penalty），可与任意速度局部（velocity-local）基础损失加性组合，用于 RL 后训练阶段抑制速度范数膨胀。",
+        "result": "在两种基础模型、三种后训练方法（NFT、AWM、DPO）和两种奖励代理下，NormGuard 一致提升 MLLM 评判的图像质量与法证真实性，同时保持奖励；收益在少步推理（few-step inference）下放大，且不能被早停解释。",
+        "conclusion": "摘要强调推理期范数重归一化因范数膨胀已与权重共同适应而失效，且范数压缩不携带一致的奖励信号，因此训练期约束是正确策略；NormGuard 提供了一种与基础损失可组合的解决方案。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-26",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2603.29152",
+      "title": "SimMOF: AI agent for Automated MOF Simulations",
+      "authors": [
+        "Jaewoong Lee",
+        "Taeun Bae",
+        "Jihan Kim"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2603.29152",
+      "pdf_url": "https://arxiv.org/pdf/2603.29152",
+      "abstract_en": "Metal-organic frameworks (MOFs) offer a vast design space, and as such, computational simulations play a critical role in predicting their structural and physicochemical properties. However, MOF simulations remain difficult to access because reliable analysis require expert decisions for workflow construction, parameter selection, tool interoperability, and the preparation of computational ready structures. Here, we introduce SimMOF, a large language model based multi agent framework that automates end-to-end MOF simulation workflows from natural language queries. SimMOF translates user requests into dependency aware plans, generates runnable inputs, orchestrates multiple agents to execute simulations, and summarizes results with analysis aligned to the user query. Through representative case studies, we show that SimMOF enables adaptive and cognitively autonomous workflows that reflect the iterative and decision driven behavior of human researchers and as such provides a scalable foundation for data driven MOF research.",
+      "comment": "42 pages, 7 figures, 3 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 SimMOF，一个基于大语言模型 (LLM) 的多智能体框架，用于从自然语言查询自动完成金属有机框架 (MOF) 的端到端模拟工作流。SimMOF 将用户请求转换为依赖感知的计划 (dependency aware plans)，生成可运行的输入文件，编排多个智能体执行模拟，并按照用户查询进行结果分析与总结。通过代表性案例研究，作者展示该方法能够实现反映人类研究者迭代和决策驱动行为的自适应、认知自主工作流，为数据驱动的 MOF 研究提供可扩展基础。\nMotivation: MOF 具有巨大设计空间，计算模拟对预测其结构和物理化学性质至关重要，但可靠的模拟分析需要专家在工作流构建、参数选择、工具互操作性和计算就绪结构 (computational ready structures) 准备等方面做决策，导致 MOF 模拟难以被广泛使用。\nMethod: 提出基于大语言模型的多智能体框架 SimMOF：将自然语言查询翻译为依赖感知的计划，生成可运行的模拟输入，编排多个智能体协同执行模拟，并汇总与用户查询对齐的分析结果。\nResult: 摘要通过代表性案例研究展示 SimMOF 能够执行自适应且认知自主的模拟工作流，体现人类研究者的迭代和决策驱动行为；摘要未报告具体的定量实验数字。\nConclusion: 作者认为 SimMOF 为数据驱动的 MOF 研究提供了可扩展的基础；摘要未讨论具体的适用范围或局限性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 SimMOF，一个基于大语言模型 (LLM) 的多智能体框架，用于从自然语言查询自动完成金属有机框架 (MOF) 的端到端模拟工作流。SimMOF 将用户请求转换为依赖感知的计划 (dependency aware plans)，生成可运行的输入文件，编排多个智能体执行模拟，并按照用户查询进行结果分析与总结。通过代表性案例研究，作者展示该方法能够实现反映人类研究者迭代和决策驱动行为的自适应、认知自主工作流，为数据驱动的 MOF 研究提供可扩展基础。",
+        "motivation": "MOF 具有巨大设计空间，计算模拟对预测其结构和物理化学性质至关重要，但可靠的模拟分析需要专家在工作流构建、参数选择、工具互操作性和计算就绪结构 (computational ready structures) 准备等方面做决策，导致 MOF 模拟难以被广泛使用。",
+        "method": "提出基于大语言模型的多智能体框架 SimMOF：将自然语言查询翻译为依赖感知的计划，生成可运行的模拟输入，编排多个智能体协同执行模拟，并汇总与用户查询对齐的分析结果。",
+        "result": "摘要通过代表性案例研究展示 SimMOF 能够执行自适应且认知自主的模拟工作流，体现人类研究者的迭代和决策驱动行为；摘要未报告具体的定量实验数字。",
+        "conclusion": "作者认为 SimMOF 为数据驱动的 MOF 研究提供了可扩展的基础；摘要未讨论具体的适用范围或局限性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-03-31",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2510.20351",
+      "title": "When Large Language Models Know the Table: A Framework for Assessing Data Contamination in Tabular Datasets",
+      "authors": [
+        "Matteo Silvestri",
+        "Fabiano Veglianti",
+        "Flavio Giorgi",
+        "Fabrizio Silvestri",
+        "Gabriele Tolomei"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2510.20351",
+      "pdf_url": "https://arxiv.org/pdf/2510.20351",
+      "abstract_en": "Large language models (LLMs) are increasingly exposed to data contamination, i.e., performance gains driven by prior exposure of test datasets rather than generalization. However, in the context of tabular data, this problem is largely unexplored. Existing approaches primarily rely on memorization tests, which are too coarse to detect contamination. In contrast, we propose a framework for assessing contamination in tabular datasets by generating controlled queries and performing comparative evaluation. Given a dataset, we craft multiple-choice aligned queries that preserve task structure while allowing systematic transformations of the underlying data. These transformations are designed to selectively disrupt dataset information while preserving partial knowledge, enabling us to isolate performance attributable to contamination. We complement this setup with non-neural baselines that provide reference performance, and we introduce a statistical testing procedure to formally detect significant deviations indicative of contamination. Empirical results on eight widely used tabular datasets reveal clear evidence of contamination in four cases. These findings suggest that performance on downstream tasks involving such datasets may be substantially inflated, raising concerns about the reliability of current evaluation practices.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一个用于评估大型语言模型在表格数据集上数据污染 (data contamination) 的框架。作者通过生成保留任务结构的多选题查询，并系统性变换底层数据，以隔离可归因于污染的模型性能。在八个常用表格数据集上的实验显示其中四个存在明显污染证据，表明这些数据集上的下游任务性能可能被显著高估。\nMotivation: 表格数据场景下的数据污染问题此前几乎未被探索，而现有检测方法主要依赖记忆测试 (memorization tests)，粒度太粗，难以有效识别污染。\nMethod: 提出一个评估框架：给定数据集后构造保留任务结构的对齐多选题查询，同时允许对底层数据进行系统性变换，选择性破坏数据集信息但保留部分知识；并搭配非神经基线作为参考性能，引入统计检验程序来正式检测显著偏差。\nResult: 在八个广泛使用的表格数据集上的实证结果显示，四个数据集存在清晰的数据污染证据，提示这些数据集上的下游任务性能可能被大幅高估。\nConclusion: 作者认为这些发现对当前依赖此类表格数据集的评测实践构成可靠性担忧，性能指标可能因污染而失真。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一个用于评估大型语言模型在表格数据集上数据污染 (data contamination) 的框架。作者通过生成保留任务结构的多选题查询，并系统性变换底层数据，以隔离可归因于污染的模型性能。在八个常用表格数据集上的实验显示其中四个存在明显污染证据，表明这些数据集上的下游任务性能可能被显著高估。",
+        "motivation": "表格数据场景下的数据污染问题此前几乎未被探索，而现有检测方法主要依赖记忆测试 (memorization tests)，粒度太粗，难以有效识别污染。",
+        "method": "提出一个评估框架：给定数据集后构造保留任务结构的对齐多选题查询，同时允许对底层数据进行系统性变换，选择性破坏数据集信息但保留部分知识；并搭配非神经基线作为参考性能，引入统计检验程序来正式检测显著偏差。",
+        "result": "在八个广泛使用的表格数据集上的实证结果显示，四个数据集存在清晰的数据污染证据，提示这些数据集上的下游任务性能可能被大幅高估。",
+        "conclusion": "作者认为这些发现对当前依赖此类表格数据集的评测实践构成可靠性担忧，性能指标可能因污染而失真。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2025-10-23",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2508.12226",
+      "title": "Ultrasound Tomography of Musculoskeletal Tissues with Generative Neural Physics",
+      "authors": [
+        "Zhijun Zeng",
+        "Youjia Zheng",
+        "Chang Su",
+        "Qianhang Wu",
+        "Hao Hu",
+        "Zeyuan Dong",
+        "Yang Lv",
+        "Ligang Cui",
+        "Zhiyong Hou",
+        "Weijun Lin",
+        "Zuoqiang Shi",
+        "Yubing Li",
+        "He Sun"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2508.12226",
+      "pdf_url": "https://arxiv.org/pdf/2508.12226",
+      "abstract_en": "Ultrasound Tomography (UT) is a radiation-free, high-resolution modality, but remains limited for musculoskeletal imaging due to the high computational cost and instability of full-waveform inversion in strongly scattering media. We propose a generative neural physics framework that couples generative networks with physics-informed neural simulation for fast, high-fidelity 3D UT. By learning a compact surrogate of ultrasonic wave propagation from a limited set of cross-modality images, our method merges the accuracy of wave modeling with the efficiency and stability of deep learning. This enables accurate quantitative imaging of in vivo musculoskeletal tissues, producing spatial maps of acoustic properties beyond reflection-mode images. On synthetic and in vivo data of breasts, arms, and legs, we reconstruct 3D maps of tissue parameters in under ten minutes, with sensitivity to acoustic variations in musculoskeletal tissues and resolution comparable to MRI. By overcoming computational bottlenecks in strongly scattering regimes, this approach demonstrates the feasibility of quantitative UT for musculoskeletal imaging and advances its development toward future routine clinical use.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种生成式神经物理框架，将生成网络与物理信息神经模拟耦合，用于快速、高保真的三维超声断层扫描（UT）。该方法从有限的跨模态图像中学习超声波动传播的紧凑替代模型，在强散射介质中实现肌肉骨骼组织的定量成像，重建声学参数空间图，而不仅是反射模式图像。在乳房、手臂和腿部的合成及体内数据上，可在十分钟内重建组织参数三维图，分辨率与MRI相当。\nMotivation: 超声断层扫描（UT）无辐射且分辨率高，但全波形反演（full-waveform inversion）在强散射介质中计算成本高且不稳定，限制了其在肌肉骨骼成像中的应用。\nMethod: 提出生成式神经物理框架，耦合生成网络与物理信息神经模拟；通过从有限跨模态图像中学习超声波动传播的紧凑代理，兼顾波动建模的精度与深度学习的高效和稳定性。\nResult: 在合成和体内数据（乳房、手臂、腿部）上，方法可在十分钟内重建三维组织参数图，对肌肉骨骼组织的声学变化敏感，分辨率与MRI相当。\nConclusion: 该方法克服了强散射场景下的计算瓶颈，展示了定量UT用于肌肉骨骼成像的可行性，并推动其向常规临床使用发展。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种生成式神经物理框架，将生成网络与物理信息神经模拟耦合，用于快速、高保真的三维超声断层扫描（UT）。该方法从有限的跨模态图像中学习超声波动传播的紧凑替代模型，在强散射介质中实现肌肉骨骼组织的定量成像，重建声学参数空间图，而不仅是反射模式图像。在乳房、手臂和腿部的合成及体内数据上，可在十分钟内重建组织参数三维图，分辨率与MRI相当。",
+        "motivation": "超声断层扫描（UT）无辐射且分辨率高，但全波形反演（full-waveform inversion）在强散射介质中计算成本高且不稳定，限制了其在肌肉骨骼成像中的应用。",
+        "method": "提出生成式神经物理框架，耦合生成网络与物理信息神经模拟；通过从有限跨模态图像中学习超声波动传播的紧凑代理，兼顾波动建模的精度与深度学习的高效和稳定性。",
+        "result": "在合成和体内数据（乳房、手臂、腿部）上，方法可在十分钟内重建三维组织参数图，对肌肉骨骼组织的声学变化敏感，分辨率与MRI相当。",
+        "conclusion": "该方法克服了强散射场景下的计算瓶颈，展示了定量UT用于肌肉骨骼成像的可行性，并推动其向常规临床使用发展。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2025-08-17",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2508.04811",
+      "title": "HCRide: Harmonizing Passenger Fairness and Driver Preference for Human-Centered Ride-Hailing",
+      "authors": [
+        "Lin Jiang",
+        "Yu Yang",
+        "Guang Wang"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.SI"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2508.04811",
+      "pdf_url": "https://arxiv.org/pdf/2508.04811",
+      "abstract_en": "Order dispatch systems play a vital role in ride-hailing services, which directly influence operator revenue, driver profit, and passenger experience. Most existing work focuses on improving system efficiency in terms of operator revenue, which may cause a bad experience for both passengers and drivers. Hence, in this work, we aim to design a human-centered ride-hailing system by considering both passenger fairness and driver preference without compromising the overall system efficiency. However, it is nontrivial to achieve this target due to the potential conflicts between passenger fairness and driver preference since optimizing one may sacrifice the other. To address this challenge, we design HCRide, a Human-Centered Ride-hailing system based on a novel multi-agent reinforcement learning algorithm called Harmonization-oriented Actor-Bi-Critic (Habic), which includes three major components (i.e., a multi-agent competition mechanism, a dynamic Actor network, and a Bi-Critic network) to optimize system efficiency and passenger fairness with driver preference consideration. We extensively evaluate our HCRide using two real-world ride-hailing datasets from Shenzhen and New York City. Experimental results show our HCRide effectively improves system efficiency by 2.02%, fairness by 5.39%, and driver preference by 10.21% compared to state-of-the-art baselines.",
+      "comment": "9 pages, 4 figures. Accepted as a regular paper in the Human-Centred Artificial Intelligence Track at IJCAI 2025",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 HCRide，一个以人为中心的网约车派单系统，基于新的多智能体强化学习算法 Harmonization-oriented Actor-Bi-Critic (Habic)，同时考虑乘客公平性与司机偏好，并力求不牺牲整体系统效率。作者在深圳和纽约两个真实网约车数据集上评估，结果显示相比最先进的基线，系统效率提升 2.02%，公平性提升 5.39%，司机偏好提升 10.21%。\nMotivation: 现有网约车派单系统大多聚焦于运营商收入等系统效率指标，可能给乘客和司机带来较差体验。乘客公平性与司机偏好之间存在潜在冲突，优化一方可能牺牲另一方，因此需要一种协调两者且不损害效率的方法。\nMethod: 设计 HCRide 系统，核心是新的多智能体强化学习算法 Habic，包含多智能体竞争机制、动态 Actor 网络和 Bi-Critic 网络三个主要组件，用以在考虑司机偏好的同时优化系统效率和乘客公平性。\nResult: 在深圳和纽约两个真实网约车数据集上的实验表明，相较 state-of-the-art 基线，HCRide 在系统效率上提升 2.02%，公平性提升 5.39%，司机偏好提升 10.21%。\nConclusion: 摘要强调 HCRide 能够在不牺牲整体系统效率的前提下协调乘客公平性与司机偏好，但未在摘要中讨论方法的局限性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 HCRide，一个以人为中心的网约车派单系统，基于新的多智能体强化学习算法 Harmonization-oriented Actor-Bi-Critic (Habic)，同时考虑乘客公平性与司机偏好，并力求不牺牲整体系统效率。作者在深圳和纽约两个真实网约车数据集上评估，结果显示相比最先进的基线，系统效率提升 2.02%，公平性提升 5.39%，司机偏好提升 10.21%。",
+        "motivation": "现有网约车派单系统大多聚焦于运营商收入等系统效率指标，可能给乘客和司机带来较差体验。乘客公平性与司机偏好之间存在潜在冲突，优化一方可能牺牲另一方，因此需要一种协调两者且不损害效率的方法。",
+        "method": "设计 HCRide 系统，核心是新的多智能体强化学习算法 Habic，包含多智能体竞争机制、动态 Actor 网络和 Bi-Critic 网络三个主要组件，用以在考虑司机偏好的同时优化系统效率和乘客公平性。",
+        "result": "在深圳和纽约两个真实网约车数据集上的实验表明，相较 state-of-the-art 基线，HCRide 在系统效率上提升 2.02%，公平性提升 5.39%，司机偏好提升 10.21%。",
+        "conclusion": "摘要强调 HCRide 能够在不牺牲整体系统效率的前提下协调乘客公平性与司机偏好，但未在摘要中讨论方法的局限性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2025-08-06",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2508.04780",
+      "title": "Uncertainty-aware Predict-Then-Optimize Framework for Equitable Post-Disaster Power Restoration",
+      "authors": [
+        "Lin Jiang",
+        "Dahai Yu",
+        "Rongchao Xu",
+        "Tian Tang",
+        "Guang Wang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.SI"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2508.04780",
+      "pdf_url": "https://arxiv.org/pdf/2508.04780",
+      "abstract_en": "The increasing frequency of extreme weather events, such as hurricanes, highlights the urgent need for efficient and equitable power system restoration. Many electricity providers make restoration decisions primarily based on the volume of power restoration requests from each region. However, our data-driven analysis reveals significant disparities in request submission volume, as disadvantaged communities tend to submit fewer restoration requests. This disparity makes the current restoration solution inequitable, leaving these communities vulnerable to extended power outages. To address this, we aim to propose an equity-aware power restoration strategy that balances both restoration efficiency and equity across communities. However, achieving this goal is challenging for two reasons: the difficulty of predicting repair durations under dataset heteroscedasticity, and the tendency of reinforcement learning agents to favor low-uncertainty actions, which potentially undermine equity. To overcome these challenges, we design a predict-then-optimize framework called EPOPR with two key components: (1) Equity-Conformalized Quantile Regression for uncertainty-aware repair duration prediction, and (2) Spatial-Temporal Attentional RL that adapts to varying uncertainty levels across regions for equitable decision-making. Experimental results show that our EPOPR effectively reduces the average power outage duration by 3.60% and decreases inequity between different communities by 14.19% compared to state-of-the-art baselines.",
+      "comment": "9 pages, 12 figures. Accepted as a regular paper in the AI and Social Good Track at IJCAI 2025",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对灾后电力恢复的公平性问题，提出一个不确定性感知的预测-优化框架 EPOPR，包含 Equi-Conformalized Quantile Regression 用于修复时长预测，以及 Spatial-Temporal Attentional RL 用于跨区域的公平决策。实验显示该方法相比现有 SOTA 基线平均停电时长降低 3.60%，社区间不公平性降低 14.19%。\nMotivation: 现有电力恢复决策主要依据各区域的恢复请求量，但数据驱动分析发现弱势社区提交请求较少，导致这些社区在极端天气事件后承受更长的停电。同时，修复时长预测面临数据集异方差性，且 RL 智能体倾向于选择低不确定性动作，可能进一步损害公平性。\nMethod: 提出 predict-then-optimize 框架 EPOPR，包含两个关键组件：Equity-Conformalized Quantile Regression 提供不确定性感知的修复时长预测，以及 Spatial-Temporal Attentional RL 根据区域间不同的不确定性水平进行自适应公平决策。\nResult: 摘要报告，与 SOTA 基线相比，EPOPR 将平均停电时长降低 3.60%，并将不同社区间的不公平性降低 14.19%。\nConclusion: 摘要强调该框架能够在恢复效率与社区公平之间取得平衡，缓解由请求量差异导致的恢复不公平问题。\nRelevance: 8",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对灾后电力恢复的公平性问题，提出一个不确定性感知的预测-优化框架 EPOPR，包含 Equi-Conformalized Quantile Regression 用于修复时长预测，以及 Spatial-Temporal Attentional RL 用于跨区域的公平决策。实验显示该方法相比现有 SOTA 基线平均停电时长降低 3.60%，社区间不公平性降低 14.19%。",
+        "motivation": "现有电力恢复决策主要依据各区域的恢复请求量，但数据驱动分析发现弱势社区提交请求较少，导致这些社区在极端天气事件后承受更长的停电。同时，修复时长预测面临数据集异方差性，且 RL 智能体倾向于选择低不确定性动作，可能进一步损害公平性。",
+        "method": "提出 predict-then-optimize 框架 EPOPR，包含两个关键组件：Equity-Conformalized Quantile Regression 提供不确定性感知的修复时长预测，以及 Spatial-Temporal Attentional RL 根据区域间不同的不确定性水平进行自适应公平决策。",
+        "result": "摘要报告，与 SOTA 基线相比，EPOPR 将平均停电时长降低 3.60%，并将不同社区间的不公平性降低 14.19%。",
+        "conclusion": "摘要强调该框架能够在恢复效率与社区公平之间取得平衡，缓解由请求量差异导致的恢复不公平问题。",
+        "relevance_score": "8"
+      },
+      "summary_status": "ok",
+      "published_date": "2025-08-06",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2506.02260",
+      "title": "MoCA: Multi-modal Cross-masked Autoencoder for Time Series in Digital Health",
+      "authors": [
+        "Howon Ryu",
+        "Yuliang Chen",
+        "Yacun Wang",
+        "Andrea Z. LaCroix",
+        "Chongzhi Di",
+        "Loki Natarajan",
+        "Yu Wang",
+        "Jingjing Zou"
+      ],
+      "categories": [
+        "cs.LG",
+        "stat.AP",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "stat.ML",
+      "abs_url": "https://arxiv.org/abs/2506.02260",
+      "pdf_url": "https://arxiv.org/pdf/2506.02260",
+      "abstract_en": "Wearable devices enable continuous multi-modal physiological and behavioral monitoring, yet analysis of these data streams faces fundamental challenges including the lack of gold-standard labels and incomplete sensor data. While self-supervised learning approaches have shown promise for addressing these issues, existing multi-modal extensions present opportunities to better leverage the rich temporal and cross-modal correlations inherent in simultaneously recorded wearable sensor data. We propose the Multi-modal Cross-masked Autoencoder (MoCA), a self-supervised learning framework that combines transformer architecture with masked autoencoder (MAE) methodology, using a principled cross-modality masking scheme that explicitly leverages correlation structures between sensor modalities. MoCA demonstrates strong performance boosts across reconstruction and downstream classification tasks on diverse benchmark datasets. We further establish theoretical guarantees by establishing a fundamental connection between multi-modal MAE loss and kernelized canonical correlation analysis through a Reproducing Kernel Hilbert Space framework, providing principled guidance for correlation-aware masking strategy design. Our approach offers a novel solution for leveraging unlabeled multi-modal wearable data while handling missing modalities, with broad applications across digital health domains.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Multi-modal Cross-masked Autoencoder (MoCA)，一种面向数字健康可穿戴多模态时间序列的自监督学习框架。它结合 Transformer 架构与掩码自编码器 (MAE) 方法，采用基于模态间相关结构的跨模态掩码方案，并在多样基准数据集上提升重建与下游分类性能。理论部分通过再生核希尔伯特空间 (RKHS) 框架建立了多模态 MAE 损失与核典型相关分析 (kernelized CCA) 之间的联系。\nMotivation: 可穿戴设备产生的多模态生理与行为数据流缺乏金标准标签且常存在传感器数据不完整的问题；已有的自监督多模态扩展方法未能充分利用同步采集的可穿戴数据中丰富的时间与跨模态相关性。\nMethod: 提出 MoCA 自监督学习框架，将 Transformer 与 MAE 方法结合，采用有原则的跨模态掩码 (cross-modality masking) 方案，显式利用传感器模态之间的相关结构。\nResult: 在多个基准数据集上，MoCA 在重建任务和下游分类任务中均展现显著的性能提升；作者还通过 RKHS 框架建立了多模态 MAE 损失与核典型相关分析之间的理论联系，为相关性感知的掩码策略设计提供理论指导。\nConclusion: 该工作为利用无标注的多模态可穿戴数据并处理缺失模态提供了新方案，在数字健康领域具有广泛应用前景。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Multi-modal Cross-masked Autoencoder (MoCA)，一种面向数字健康可穿戴多模态时间序列的自监督学习框架。它结合 Transformer 架构与掩码自编码器 (MAE) 方法，采用基于模态间相关结构的跨模态掩码方案，并在多样基准数据集上提升重建与下游分类性能。理论部分通过再生核希尔伯特空间 (RKHS) 框架建立了多模态 MAE 损失与核典型相关分析 (kernelized CCA) 之间的联系。",
+        "motivation": "可穿戴设备产生的多模态生理与行为数据流缺乏金标准标签且常存在传感器数据不完整的问题；已有的自监督多模态扩展方法未能充分利用同步采集的可穿戴数据中丰富的时间与跨模态相关性。",
+        "method": "提出 MoCA 自监督学习框架，将 Transformer 与 MAE 方法结合，采用有原则的跨模态掩码 (cross-modality masking) 方案，显式利用传感器模态之间的相关结构。",
+        "result": "在多个基准数据集上，MoCA 在重建任务和下游分类任务中均展现显著的性能提升；作者还通过 RKHS 框架建立了多模态 MAE 损失与核典型相关分析之间的理论联系，为相关性感知的掩码策略设计提供理论指导。",
+        "conclusion": "该工作为利用无标注的多模态可穿戴数据并处理缺失模态提供了新方案，在数字健康领域具有广泛应用前景。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2025-06-02",
+      "updated_date": "2026-08-06",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.05136",
+      "title": "The Loss Does Not See the Basis, but Adam Does",
+      "authors": [
+        "Devender Singh"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2608.05136",
+      "pdf_url": "https://arxiv.org/pdf/2608.05136",
+      "abstract_en": "Gradient descent on a factored model $W = UV^\\top$ is implicitly biased toward low-rank solutions, while Adam, starting from the same small initialization, is not. We trace the difference to the gauge symmetry of the loss, its invariance under $(U, V) \\mapsto (UQ, VQ)$. Gradient flow's low-rank mechanism is available to an optimizer only if that optimizer is gauge-equivariant, a condition necessary for the transfer but not sufficient for low-rank recovery. Gradient descent, momentum, \"shared-scalar\" Adam, Muon, and Shampoo satisfy it. Adam, RMSProp, and the other coordinate-wise methods do not. A structure theorem characterizes the memoryless equivariant rules as exactly the Gram-determined left preconditioners, and a transfer theorem carries gradient flow's pathwise properties to common-scalar flows. We then sort nine update rules on underdetermined matrix sensing by recovery error against the planted ground truth. A one-parameter family from coordinate-wise to shared-scalar preconditioning restores the bias monotonically, isolating anisotropy as the cause. A \"spectral schedule\" reconciles two opposing reports about Muon: equal-rate updates recover exactly low-rank targets but lose their edge as the spectral tail grows. In transformers, Adam separates two gauge-equivalent initializations at the first step, where the equivariant optimizers stay at float precision, and ends with the per-head invariants $W_Q^\\top W_K$ 56% apart in relative Frobenius distance, a gap no per-head rotation can close. On two hyperspectral datasets at matched training loss, gradient descent cuts held-out error by 43-44% at the lowest sampling density, and at lower effective rank. Basis choice is therefore not a tuning detail but a decision about which interpolant the optimizer selects.",
+      "comment": "22 pages main text + appendices, 5 figures. Code, seeds, and raw run records: https://github.com/idevender/loss-basis-adam",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究为何在因子化模型 W=UVᵀ 上，梯度下降天然偏向低秩解，而从相同小初始化出发的 Adam 却没有这种倾向。作者将差异归因于损失的规范对称性 (gauge symmetry)，指出只有规范等变 (gauge-equivariant) 的优化器才能继承梯度流的低秩机制；他们用结构定理刻画无记忆等变规则，用传递定理把梯度流的路径性质推广到公共标量流，并在矩阵感知和 Transformer 实验中验证了结论。\nMotivation: 现有优化理论未能解释为何不同优化器对同一损失的因子化参数化会收敛到不同的插值解；该问题决定了优化器最终选择哪个低秩插值，而不仅仅是调参细节。\nMethod: 提出规范等变是低秩机制可传递的必要条件，并给出两类定理：结构定理证明无记忆等变规则恰为 Gram 决定的左预条件子 (Gram-determined left preconditioners)，传递定理将梯度流性质推广到公共标量流；还构造从坐标式到共享标量预条件的一参数族来隔离各向异性 (anisotropy) 的作用，并用“谱调度”(spectral schedule) 调和关于 Muon 的矛盾结论。\nResult: 在欠定矩阵感知上对九种更新规则按恢复误差排序；在 Transformer 中，Adam 在第一步就分离两个规范等价的初始化，而等变优化器保持在浮点精度，最终逐头不变量 W_QᵀW_K 的相对 Frobenius 距离相差 56%；在两个高光谱数据集上，匹配训练损失时，梯度下降在最低采样密度下降低留出误差 43–44%，且有效秩更低。\nConclusion: 基选择 (basis choice) 不是调参细节，而是决定优化器选择哪种插值解的关键决策；这对理解与设计低秩偏好优化器具有直接意义。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究为何在因子化模型 W=UVᵀ 上，梯度下降天然偏向低秩解，而从相同小初始化出发的 Adam 却没有这种倾向。作者将差异归因于损失的规范对称性 (gauge symmetry)，指出只有规范等变 (gauge-equivariant) 的优化器才能继承梯度流的低秩机制；他们用结构定理刻画无记忆等变规则，用传递定理把梯度流的路径性质推广到公共标量流，并在矩阵感知和 Transformer 实验中验证了结论。",
+        "motivation": "现有优化理论未能解释为何不同优化器对同一损失的因子化参数化会收敛到不同的插值解；该问题决定了优化器最终选择哪个低秩插值，而不仅仅是调参细节。",
+        "method": "提出规范等变是低秩机制可传递的必要条件，并给出两类定理：结构定理证明无记忆等变规则恰为 Gram 决定的左预条件子 (Gram-determined left preconditioners)，传递定理将梯度流性质推广到公共标量流；还构造从坐标式到共享标量预条件的一参数族来隔离各向异性 (anisotropy) 的作用，并用“谱调度”(spectral schedule) 调和关于 Muon 的矛盾结论。",
+        "result": "在欠定矩阵感知上对九种更新规则按恢复误差排序；在 Transformer 中，Adam 在第一步就分离两个规范等价的初始化，而等变优化器保持在浮点精度，最终逐头不变量 W_QᵀW_K 的相对 Frobenius 距离相差 56%；在两个高光谱数据集上，匹配训练损失时，梯度下降在最低采样密度下降低留出误差 43–44%，且有效秩更低。",
+        "conclusion": "基选择 (basis choice) 不是调参细节，而是决定优化器选择哪种插值解的关键决策；这对理解与设计低秩偏好优化器具有直接意义。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-05",
+      "updated_date": "2026-08-05",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}

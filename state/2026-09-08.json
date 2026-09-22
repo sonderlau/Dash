@@ -1,0 +1,681 @@
+{
+  "date": "2026-09-08",
+  "snapshot_date": "2026-09-08",
+  "generated_at": "2026-09-08T14:32:52Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 15,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 6,
+    "cs.CV": 4,
+    "cs.AI": 5
+  },
+  "summary_status_counts": {
+    "ok": 15
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 592
+  },
+  "papers": [
+    {
+      "id": "2609.04108",
+      "title": "Sequential Beats Joint: On the Interplay between On-Policy Distillation and RLVR",
+      "authors": [
+        "Boyan Li",
+        "Bingsen Chen",
+        "Chenghao Yang",
+        "Ping Nie",
+        "Chen Zhao",
+        "Xi Ye"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2609.04108",
+      "pdf_url": "https://arxiv.org/pdf/2609.04108",
+      "abstract_en": "Reinforcement learning with verifiable rewards (RLVR) and on-policy distillation (OPD) have emerged as two dominant methods for post-training reasoning LLMs. Prior work uses OPD's dense token-level supervision to complement the sparse RL reward, fusing the two signals within a single step: either as a \\emph{weighted-additive combination} or a \\emph{teacher-modulated rescaling} of the RL advantage. In this paper, we show that a simple two-stage scheme, OPD-then-RL, consistently outperforms pure OPD, pure RLVR, and all such joint baselines across logic and math reasoning benchmarks. Beyond the empirical results, we further provide a systematic understanding of this through pass@$k$ behavior, learning dynamics, and parameter updates, yielding a consistent explanation: OPD expands the student's coverage of teacher-supported solutions and RL sharpens within that support, while jointly optimizing the two signals causes them to interfere. To provide a practical recipe, we find that the OPD validation score is the key signal for when to switch to RL, and that OPD is a better cold start for RL than SFT. Together, our results establish OPD-then-RL as a simple yet strong way to combine the two methods, turning two entangled signals into complementary stages.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 该论文提出两阶段训练方案 OPD-then-RL，即先进行在线策略蒸馏（OPD）再进行基于可验证奖励的强化学习（RLVR），在逻辑与数学推理基准上优于纯 OPD、纯 RLVR 及所有联合优化基线。\nMotivation: 现有方法将 OPD 的密集 token 级监督与 RL 的稀疏奖励在单步内融合，但两种信号可能相互干扰，缺乏系统比较。\nMethod: 采用简单的两阶段流程：先用 OPD 训练，再切换到 RLVR；通过 pass@k、学习动态和参数更新分析其机制。\nResult: OPD-then-RL 在逻辑与数学推理基准上一致优于纯 OPD、纯 RLVR 及所有联合基线。\nConclusion: OPD 扩展学生对教师支持解的覆盖，RL 在该支持内锐化；联合优化导致干扰，而 OPD 验证分数是切换时机的关键信号。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "该论文提出两阶段训练方案 OPD-then-RL，即先进行在线策略蒸馏（OPD）再进行基于可验证奖励的强化学习（RLVR），在逻辑与数学推理基准上优于纯 OPD、纯 RLVR 及所有联合优化基线。",
+        "motivation": "现有方法将 OPD 的密集 token 级监督与 RL 的稀疏奖励在单步内融合，但两种信号可能相互干扰，缺乏系统比较。",
+        "method": "采用简单的两阶段流程：先用 OPD 训练，再切换到 RLVR；通过 pass@k、学习动态和参数更新分析其机制。",
+        "result": "OPD-then-RL 在逻辑与数学推理基准上一致优于纯 OPD、纯 RLVR 及所有联合基线。",
+        "conclusion": "OPD 扩展学生对教师支持解的覆盖，RL 在该支持内锐化；联合优化导致干扰，而 OPD 验证分数是切换时机的关键信号。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.04034",
+      "title": "Editable Visual Design",
+      "authors": [
+        "Junyan Ye",
+        "Wei Liu",
+        "Dongzhi Jiang",
+        "Zichen Wen",
+        "HaoDong Li",
+        "Zhutao Lv",
+        "Jiaxin Lin",
+        "Jinhua Yu",
+        "Jun He",
+        "Zilong Huang",
+        "Rui Chen",
+        "Weijia Li"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.04034",
+      "pdf_url": "https://arxiv.org/pdf/2609.04034",
+      "abstract_en": "While diffusion base models such as GPT-Image-2 and Nano-Banana exhibit remarkable visual expressiveness, their end-to-end generation inherently yields flattened bitmaps with error-prone text, precluding layer-wise post-editing. Conversely, code-based visual generation via Coding Agents provides precise layout control and decoupled layers, yet remains constrained by a lack of global aesthetic intuition and the difficulty of coding complex visual assets. To address this, we propose Editable Visual Design, a new paradigm driven by a Coding Agent. We designate the VLM as the ``creative brain'' for requirement comprehension, task planning, and aesthetic judgment, while utilizing the image generation model as an on-demand ``visual world simulator'' to synthesize standalone visual assets. Operating under an ``imagine first, then act'' closed-loop workflow, the agent generates isolated assets, writes native HTML/CSS, and iteratively refines the design against visual rendering feedback. Furthermore, Agent Design Replay faithfully reproduces the creative and reasoning trajectory akin to that of professional human designers. Ultimately, the system delivers editable artifacts with decoupled layers and real text, enabling users to perform intuitive mouse dragging and layout adjustments on a graphical user interface. Validations on posters, infographics, and other scenarios show that this paradigm successfully achieves both refined aesthetics and production-grade editability.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出可编辑视觉设计范式，由编码代理驱动，结合VLM创意与图像生成模型，产出可编辑的HTML/CSS设计。\nMotivation: 扩散模型生成扁平位图难以编辑，代码生成缺乏美学直觉。\nMethod: VLM作为创意大脑，图像生成模型作为视觉世界模拟器，闭环迭代生成独立资产并编写HTML/CSS。\nResult: 在海报、信息图等场景验证，实现精细美学与生产级可编辑性。\nConclusion: 该范式平衡美学与可编辑性，但摘要未提定量指标。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出可编辑视觉设计范式，由编码代理驱动，结合VLM创意与图像生成模型，产出可编辑的HTML/CSS设计。",
+        "motivation": "扩散模型生成扁平位图难以编辑，代码生成缺乏美学直觉。",
+        "method": "VLM作为创意大脑，图像生成模型作为视觉世界模拟器，闭环迭代生成独立资产并编写HTML/CSS。",
+        "result": "在海报、信息图等场景验证，实现精细美学与生产级可编辑性。",
+        "conclusion": "该范式平衡美学与可编辑性，但摘要未提定量指标。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.04018",
+      "title": "A Location-Invariant Estimator of Extremal Quantile Treatment Effects for Heavy-Tailed Distributions",
+      "authors": [
+        "Xin Yu",
+        "Shuwei Huang",
+        "Jicheng Liu",
+        "Jielin Tang",
+        "Bolin Wang",
+        "Yunxiao Zhang",
+        "Tian Zhao"
+      ],
+      "categories": [
+        "cs.LG",
+        "stat.AP",
+        "stat.ME"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.04018",
+      "pdf_url": "https://arxiv.org/pdf/2609.04018",
+      "abstract_en": "Quantile treatment effects (QTEs) measure the effect of a treatment on the distribution of an outcome, and their estimation at extreme quantile levels is of central interest in applications where the target quantiles lie far beyond the range of the data. For heavy-tailed potential outcomes, existing extremal QTE estimators rely on extrapolation combined with a causal extreme value index (EVI) estimator, but the resulting estimator is not invariant under a common location shift of the potential outcome distributions, even though the population QTE is. We address this issue in two steps. First, we adapt the location-invariant Fraga estimator of the EVI to the causal setting using inverse propensity score weighting. Second, we replace the original extrapolation formula with a difference-based scheme, under which the location parameter cancels when quantile differences are taken. The resulting QTE estimator is therefore location invariant. We establish the consistency and asymptotic normality of the proposed extremal QTE estimators, and provide a consistent variance estimator, leading to asymptotically valid inference. A simulation study confirms the location invariance, the stability with respect to the threshold, and the coverage of the proposed methods.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出一种位置不变的极端分位数处理效应估计器，适用于重尾分布，通过结合因果极值指数估计与差分外推方案实现。\nMotivation: 现有极端分位数处理效应估计器在重尾结果下不满足位置不变性，而总体QTE具有该性质。\nMethod: 采用逆倾向得分加权适配位置不变的Fraga EVI估计器，并用差分外推方案消除位置参数。\nResult: 模拟研究证实位置不变性、阈值稳定性及覆盖率，并建立一致性与渐近正态性。\nConclusion: 所提估计器提供渐近有效的推断，适用于极端分位数处理效应。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出一种位置不变的极端分位数处理效应估计器，适用于重尾分布，通过结合因果极值指数估计与差分外推方案实现。",
+        "motivation": "现有极端分位数处理效应估计器在重尾结果下不满足位置不变性，而总体QTE具有该性质。",
+        "method": "采用逆倾向得分加权适配位置不变的Fraga EVI估计器，并用差分外推方案消除位置参数。",
+        "result": "模拟研究证实位置不变性、阈值稳定性及覆盖率，并建立一致性与渐近正态性。",
+        "conclusion": "所提估计器提供渐近有效的推断，适用于极端分位数处理效应。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.04013",
+      "title": "LLM4CKD: Large Language Models for Early Stage Chronic Kidney Disease Screening",
+      "authors": [
+        "Muhammad Ashad Kabir",
+        "Sirajam Munira"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.04013",
+      "pdf_url": "https://arxiv.org/pdf/2609.04013",
+      "abstract_en": "Early screening of chronic kidney disease (CKD) is critical for timely intervention, yet most machine learning (ML) and deep learning (DL) approaches require labeled data and model training, limiting their use in real-world screening settings. This study evaluates the effectiveness of large language models (LLMs) for CKD screening under zero-shot and few-shot in-context learning settings and compares them with traditional ML and DL methods. We propose a framework that uses clinically selected tabular features and structured prompt templates to enable LLM-based inference without task-specific training. LLM performance is evaluated across multiple prompt styles, feature configurations, and data settings, and compared with standard ML, DL, and tabular foundation model (TFM) baselines, and existing CKD screening tools. The results show that LLMs can achieve competitive performance using only a small number of examples, often matching or outperforming traditional approaches in low-data settings. However, their performance remains model-dependent and less stable as input complexity increases. In contrast, ML, DL, and TFM models show more consistent improvement with larger training data. Overall, the findings highlight a trade-off between data efficiency and stability, suggesting that LLMs may serve as a flexible complementary approach for CKD screening when labeled data are limited. To facilitate further research and reproducibility, the code has been made publicly available at https://github.com/akabircs/LLM4CKD",
+      "comment": "Accepted at ICDM 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 评估大语言模型在零样本与少样本情境下进行慢性肾病早期筛查的效果，并与传统机器学习、深度学习及表格基础模型对比。\nMotivation: 传统ML/DL方法依赖标注数据和训练，限制实际筛查应用。\nMethod: 提出框架，使用临床选择的表格特征和结构化提示模板，无需任务特定训练即可进行LLM推理。\nResult: LLM在低数据设置下用少量示例即可达到竞争性能，但随输入复杂度增加性能不稳定。\nConclusion: LLM可作为标注数据有限时CKD筛查的灵活补充方法，但稳定性不如传统模型。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "评估大语言模型在零样本与少样本情境下进行慢性肾病早期筛查的效果，并与传统机器学习、深度学习及表格基础模型对比。",
+        "motivation": "传统ML/DL方法依赖标注数据和训练，限制实际筛查应用。",
+        "method": "提出框架，使用临床选择的表格特征和结构化提示模板，无需任务特定训练即可进行LLM推理。",
+        "result": "LLM在低数据设置下用少量示例即可达到竞争性能，但随输入复杂度增加性能不稳定。",
+        "conclusion": "LLM可作为标注数据有限时CKD筛查的灵活补充方法，但稳定性不如传统模型。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.03889",
+      "title": "FWBC-VLA: Force-Aware Whole-Body Compensation for Contact-Rich Loco-Manipulation",
+      "authors": [
+        "Yutian Zhang",
+        "Siyuan Ma",
+        "Liwen Yang",
+        "Yang Li",
+        "Ce Hao",
+        "Haozhen Chi",
+        "Dong Wei",
+        "Qiaojun Yu",
+        "Dibo Hou"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2609.03889",
+      "pdf_url": "https://arxiv.org/pdf/2609.03889",
+      "abstract_en": "Contact-rich loco-manipulation requires a bridge between semantic action generation and physical interaction control. Existing Vision-language-action (VLA) models generate task-level actions from visual and linguistic observations, but cannot interpret the physical interactions induced by those actions. While the whole-body control (WBC) policy can stabilize the robot, it cannot distinguish task-relevant interaction forces from forces induced by external disturbances during manipulation. Although force/torque sensors provide direct measurements of physical interactions, retrofitting them entails additional hardware costs and substantial integration effort, particularly for platforms not designed with sensor integration in mind. To address this problem, we propose FWBC-VLA, a force-aware framework that bridges task-level VLA action generation and low-level whole-body compensation control for wheeled-legged robots. First, we introduce HSR-Force, a sensorless residual-torque estimator for inferring contact strength and its temporal variation. These contact estimates are then encoded as tokens and injected into the VLA action expert during action decoding, enabling the policy to perceive contact onset, sustained loading, and release. For loco-manipulation tasks, all parameters of the pretrained VLA backbone are fine-tuned on our WL\\&Arm Dataset, which comprises more than 5,000 episodes. Moreover, the robot's proprioceptive state, the Jacobian-derived body-frame force estimate, and the estimated contact state are jointly fed into a compensation generator to produce corrective actions. The manipulation-centric actions are subsequently combined with the corrective actions and passed to the WBC policy for execution. Real-world experiments on whiteboard wiping and door opening with a door closer demonstrate the effectiveness of our FWBC-VLA in contact-rich loco-manipulation.",
+      "comment": "9 pages, 6 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出FWBC-VLA，将任务级VLA动作生成与全身补偿控制结合，用于轮腿机器人的接触丰富操作，通过无传感器力矩估计感知接触状态。\nMotivation: 现有VLA模型无法解释动作引起的物理交互，WBC策略难以区分任务相关力与外部扰动。\nMethod: 引入HSR-Force无传感器残余力矩估计器，将接触估计编码为token注入VLA动作专家，并联合本体感受与雅可比力估计生成补偿动作。\nResult: 在白板擦拭和带闭门器的开门实验中验证了有效性。\nConclusion: 力感知框架可提升接触丰富操作性能，但需在WL&Arm数据集上微调全部参数。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出FWBC-VLA，将任务级VLA动作生成与全身补偿控制结合，用于轮腿机器人的接触丰富操作，通过无传感器力矩估计感知接触状态。",
+        "motivation": "现有VLA模型无法解释动作引起的物理交互，WBC策略难以区分任务相关力与外部扰动。",
+        "method": "引入HSR-Force无传感器残余力矩估计器，将接触估计编码为token注入VLA动作专家，并联合本体感受与雅可比力估计生成补偿动作。",
+        "result": "在白板擦拭和带闭门器的开门实验中验证了有效性。",
+        "conclusion": "力感知框架可提升接触丰富操作性能，但需在WL&Arm数据集上微调全部参数。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.03880",
+      "title": "Xiaomi-TabLDM: A Tabular Foundation Model Technical Report",
+      "authors": [
+        "Xiaomi-TabLDM Team : Penghui Wang",
+        "Wei Liu",
+        "Hong Wang",
+        "Chengyue Huang",
+        "Yuxi Sun",
+        "Zirui Wang",
+        "Hongming Huang",
+        "Quan Wang",
+        "Zhenwei Xin",
+        "Ping Hou",
+        "Jie Yu",
+        "Chunxiao Liu",
+        "Erli Meng",
+        "Bin Wang"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.03880",
+      "pdf_url": "https://arxiv.org/pdf/2609.03880",
+      "abstract_en": "We introduce Xiaomi-TabLDM, a tabular large data foundation model for classification and regression via in-context learning, which delivers superior prediction accuracy without requiring task-specific fine-tuning. Pretrained exclusively on synthetic data generated from structural causal models (SCMs), our model enables more flexible context utilization and more efficient capacity scaling. i) A new performance standard. Strong regression performance across benchmarks: Xiaomi-TabLDM ranks 1st on OpenML-CTR23 and 2nd on regression across TALENT, TabArena, and BCCO, demonstrating consistently strong regression performance across four complementary benchmark suites. Favorable performance--efficiency trade-off: Xiaomi-TabLDM combines strong predictive performance with substantially lower computational cost. For example, on TabArena regression, it achieves the second-highest Elo while using 82% less training time and 68% less prediction time than the top-ranked TabFM. ii) Large-scale synthetic pretraining. Xiaomi-TabLDM expands the coverage and diversity of synthetic tabular data used for pretraining. We also adopt a three-stage training strategy together with dual-stream feature grouping, lightweight Attention Residual, and sparse Mixture-of-Experts, enabling Xiaomi-TabLDM to learn richer feature interactions and expert specialization across diverse tabular tasks. iii) Test-time scaling. Xiaomi-TabLDM further extends tabular prediction through test-time compute scaling, where allocating additional computation at inference time consistently improves predictive performance over the base model.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出基于结构因果模型合成数据预训练的表格基础模型 Xiaomi-TabLDM，通过上下文学习实现分类与回归，无需任务微调。\nMotivation: 表格数据预测任务多样，现有模型需任务特定微调且计算成本高。\nMethod: 采用三阶段训练、双流特征分组、轻量注意力残差与稀疏专家混合，支持测试时计算扩展。\nResult: 在 OpenML-CTR23 回归排名第一，TALENT、TabArena、BCCO 排名第二；TabArena 回归训练时间减少 82%、预测时间减少 68%。\nConclusion: 合成数据预训练与测试时扩展可提升表格预测性能与效率。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出基于结构因果模型合成数据预训练的表格基础模型 Xiaomi-TabLDM，通过上下文学习实现分类与回归，无需任务微调。",
+        "motivation": "表格数据预测任务多样，现有模型需任务特定微调且计算成本高。",
+        "method": "采用三阶段训练、双流特征分组、轻量注意力残差与稀疏专家混合，支持测试时计算扩展。",
+        "result": "在 OpenML-CTR23 回归排名第一，TALENT、TabArena、BCCO 排名第二；TabArena 回归训练时间减少 82%、预测时间减少 68%。",
+        "conclusion": "合成数据预训练与测试时扩展可提升表格预测性能与效率。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.03811",
+      "title": "VisCAD: A Foundation Model Suite with Multimodal Industrial CAD Intelligence",
+      "authors": [
+        "Guanlin Li",
+        "Zhichao Huang",
+        "Huimu Yu",
+        "Yichen Long",
+        "Hongsen Liu",
+        "Linxin Cai",
+        "Qiuhe Hong",
+        "Ziqi Liu",
+        "Luya Wang",
+        "Wenxiang Wu",
+        "Ning Zhang",
+        "Yuchen Wang"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.03811",
+      "pdf_url": "https://arxiv.org/pdf/2609.03811",
+      "abstract_en": "AI-assisted computer-aided design (CAD) for industrial products involves two challenging phases. Part-level generation maps diverse forms of user intent, including renders, text descriptions, 2D drawings, and real photographs, to executable programs in a CAD domain-specific language. Assembly-level generation must additionally handle interacting parts, plan mating relations, estimate poses, and place all parts correctly. Existing specialized CAD models are commonly trained on narrow input domains, such as renders or texts, and often generalize poorly, while general-purpose frontier models cover broader inputs but perform inconsistently across CAD domains. We present VisCAD, a foundation model suite designed to provide both broad generalization and strong CAD capability for realistic industrial products. At its core is VisCAD-M1, a 27B model trained through mid-training and post-training for part-level design generation. On PubCADBench and RealCADBench, VisCAD-M1 achieves the highest average part-level score among the evaluated models, reaching 0.5540 compared with 0.5496 for the strongest frontier model. Reusing VisCAD-M1 as a test-time verifier can further raise the score to 0.5797, an approximately 5 percent relative improvement over the previous state of the art. VisCAD also includes a domain-specific harness that leverages frontier models for complex assembly generation and demonstrates advantages over general-purpose harnesses in both quantitative and qualitative evaluations.",
+      "comment": "Technical report",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出面向工业CAD的视觉-语言基础模型套件VisCAD，核心是27B的VisCAD-M1，覆盖零件级与装配级设计生成，在PubCADBench和RealCADBench上取得最高平均零件级分数。\nMotivation: 现有CAD模型输入域窄、泛化差，通用前沿模型跨CAD域表现不稳定，缺乏兼顾广度与能力的方案。\nMethod: VisCAD-M1经中期训练与后期训练实现零件级设计生成，并复用为测试时验证器；另设领域专用装配生成框架。\nResult: VisCAD-M1平均零件级分数0.5540，优于最强前沿模型的0.5496；测试时验证提升至0.5797，相对提升约5%。\nConclusion: VisCAD在零件级生成上超越前沿模型，装配级生成优于通用框架，但摘要未报告泛化局限。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出面向工业CAD的视觉-语言基础模型套件VisCAD，核心是27B的VisCAD-M1，覆盖零件级与装配级设计生成，在PubCADBench和RealCADBench上取得最高平均零件级分数。",
+        "motivation": "现有CAD模型输入域窄、泛化差，通用前沿模型跨CAD域表现不稳定，缺乏兼顾广度与能力的方案。",
+        "method": "VisCAD-M1经中期训练与后期训练实现零件级设计生成，并复用为测试时验证器；另设领域专用装配生成框架。",
+        "result": "VisCAD-M1平均零件级分数0.5540，优于最强前沿模型的0.5496；测试时验证提升至0.5797，相对提升约5%。",
+        "conclusion": "VisCAD在零件级生成上超越前沿模型，装配级生成优于通用框架，但摘要未报告泛化局限。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.03807",
+      "title": "Almost Free State Prediction Separation",
+      "authors": [
+        "John Langford",
+        "Nathan Godey",
+        "Giovanni Monea",
+        "Yoav Artzi",
+        "Harry Dong",
+        "Ying Fan",
+        "Gustavo de Rosa",
+        "Zheng Zhan"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.03807",
+      "pdf_url": "https://arxiv.org/pdf/2609.03807",
+      "abstract_en": "A free pause token gives a language model extra compute to form each next-token prediction (as a pause, or thinking, token does) but carries that compute in a parallel prediction stream over a weight-shared backbone rather than as an extra token in the sequence. It improves next-token prediction by 2-3 centinats in practice on a 1B parameter model. Because the pause rides an existing position instead of adding one, it is free to use: at inference it adds no context length, no KV cache, and essentially no latency with the growth in inference flops typically irrelevant as it is not the active bottleneck on throughput. The only primary cost is in training, where additional training compute versus an optimized pretraining pipeline is reduced to as low as x1.14 while preserving most of the benefits. The result is an isoflop, isoparameter, and isotoken improvement over standard next token trained transformers.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出“自由暂停令牌”(free pause token)，在共享权重骨干的并行预测流中为每个下一词预测提供额外计算，不增加序列长度或KV缓存，1B模型上提升2-3 centinats。\nMotivation: 现有暂停/思考令牌增加序列长度和KV缓存，推理成本高，需在不增加推理开销下提升预测质量。\nMethod: 在权重共享骨干上并行预测流携带暂停计算，替代序列内额外令牌，训练成本仅增至x1.14。\nResult: 1B模型上下一词预测提升2-3 centinats，推理无额外上下文、KV缓存和延迟。\nConclusion: 实现等flop、等参数、等令牌下的改进，主要成本在训练，推理几乎免费。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出“自由暂停令牌”(free pause token)，在共享权重骨干的并行预测流中为每个下一词预测提供额外计算，不增加序列长度或KV缓存，1B模型上提升2-3 centinats。",
+        "motivation": "现有暂停/思考令牌增加序列长度和KV缓存，推理成本高，需在不增加推理开销下提升预测质量。",
+        "method": "在权重共享骨干上并行预测流携带暂停计算，替代序列内额外令牌，训练成本仅增至x1.14。",
+        "result": "1B模型上下一词预测提升2-3 centinats，推理无额外上下文、KV缓存和延迟。",
+        "conclusion": "实现等flop、等参数、等令牌下的改进，主要成本在训练，推理几乎免费。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.03781",
+      "title": "IndicSafeEval: Safety Robustness of Large Language Models under Multilingual Persuasive Jailbreak Attacks",
+      "authors": [
+        "Saikat Mondal",
+        "Mamta",
+        "Deeksha Varshney",
+        "Oana Cocarascu",
+        "Asif Ekbal"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2609.03781",
+      "pdf_url": "https://arxiv.org/pdf/2609.03781",
+      "abstract_en": "Large language models (LLMs) are increasingly used in multilingual settings, yet their safety is still evaluated primarily in English. This limits our understanding of how alignment failures manifest in low-resource and culturally diverse languages. We introduce IndicSafeEval, a persuasion-based jailbreak evaluation framework for Indian languages. Our benchmark combines ten safety critical content categories with six human-like persuasive strategies across four different Indian languages, such as Hindi, Bengali, Marathi and Punjabi, resulting in 7,200 adversarial prompts. We conduct a systematic black-box evaluation of several open-source LLMs to examine how their safety behaviour varies across languages, persuasion strategies, and risk categories. Our analysis shows that the model does not behave equally safely across all languages and prompt styles. Instead, safety performance depends strongly on both the languages used and the way a request is phrased using persuasive cues. We further observe that different risk categories exhibit different levels of vulnerability, with some types of harmful content being significantly more susceptible to persuasion-based jailbreaks than others. These findings reveal important limitations of current safety evaluations, which are largely English-centric, and underscore the need for multilingual and persuasion-aware benchmarking frameworks to more accurately assess real-world LLM safety. Our implementation is available at https://github.com/MonSaikat/IndicSafeEval. Warning: this paper contains example data that may be offensive or harmful.",
+      "comment": "38 pages, 7 figures, 33 tables. Accepted to Findings of EMNLP 2026. Contains examples of harmful model outputs",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 IndicSafeEval，一个针对印度语言的基于说服的越狱评估框架，涵盖四种语言、六种说服策略和十个风险类别，共 7,200 个对抗性提示。\nMotivation: LLM 安全评估主要基于英语，忽视了低资源语言和文化多样性下的对齐失败。\nMethod: 构建多语言说服式越狱基准，结合风险类别与人类式说服策略，对开源 LLM 进行黑盒评估。\nResult: 模型在不同语言和提示风格下安全性不一致，某些风险类别更易受说服式越狱影响。\nConclusion: 现有英语中心的安全评估存在局限，需多语言和说服感知的基准框架。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 IndicSafeEval，一个针对印度语言的基于说服的越狱评估框架，涵盖四种语言、六种说服策略和十个风险类别，共 7,200 个对抗性提示。",
+        "motivation": "LLM 安全评估主要基于英语，忽视了低资源语言和文化多样性下的对齐失败。",
+        "method": "构建多语言说服式越狱基准，结合风险类别与人类式说服策略，对开源 LLM 进行黑盒评估。",
+        "result": "模型在不同语言和提示风格下安全性不一致，某些风险类别更易受说服式越狱影响。",
+        "conclusion": "现有英语中心的安全评估存在局限，需多语言和说服感知的基准框架。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.03773",
+      "title": "RealCADBench: Benchmarking Parametric CAD Modeling from Industrial Design Intents",
+      "authors": [
+        "Guanlin Li",
+        "Zhichao Huang",
+        "Huimu Yu",
+        "Yichen Long",
+        "Hongsen Liu",
+        "Linxin Cai",
+        "Qiuhe Hong",
+        "Zongzhen Li",
+        "Wei Wang",
+        "Xianwen Zhong",
+        "Yuchen Wang"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.03773",
+      "pdf_url": "https://arxiv.org/pdf/2609.03773",
+      "abstract_en": "Parametric computer-aided design (CAD) modeling is difficult to evaluate with a single metric. Existing CAD benchmarks often emphasize synthetic or CAD-native settings, limited input modalities, or executability and IoUs alone. We introduce RealCADBench, a benchmark for intent-to-program CAD modeling from real industrial design intents. It contains 12,632 tasks from 19 factory-automation categories and spans text descriptions, 2D engineering drawings, real product pictures, and rendered images for both Part and Assembly modeling. We report results on a 1,770-task evaluation slice: 1,745 Part tasks across four input regimes and RCB-Assm25, a 25-task assembly study used in every reported assembly comparison. Each method generates FreeCAD API Python, which a shared runtime executes to export the 3D model. We evaluate the exported model using executability, Solid IoU, Surface IoU, and a rubric-based visual-semantic identity Judge. Among the nine standalone frontier large models evaluated, no model leads all four metrics. Across six frontier-scale large models, executability ranges from 0.565 to 0.812, Solid IoU from 0.2841 to 0.5379, and Surface IoU from 0.112 to 0.217 across the four Part regimes. The highest regime-balanced composite comes from a different model than the leaders on the four component metrics. On RCB-Assm25, Codex with GPT-5.5 improves executability and both IoU metrics over standalone GPT-5.5, but lowers the Judge score by 6.98 percentage points, leaving GPT-5.5 as the Judge leader. We also observe recurring failure modes, most notably missing fine structures, loss of part identity, and incorrect assembly placement. These results show that execution alone is insufficient to characterize realistic CAD modeling and that frontier models and agents differ substantially across executability, IoUs, and visual-semantic identity.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出RealCADBench基准，用于从真实工业设计意图进行参数化CAD建模评估，包含12,632个任务和多种输入模态，发现前沿模型在不同指标上表现各异。\nMotivation: 现有CAD基准多侧重合成或CAD原生设置，输入模态有限，仅用可执行性和IoU评估不足以反映真实建模能力。\nMethod: 构建包含文本、2D图纸、真实产品图片和渲染图像的基准，生成FreeCAD API Python并由共享运行时执行，用可执行性、Solid IoU、Surface IoU和视觉语义Judge评估。\nResult: 在1,770任务切片上，前沿模型可执行性0.565-0.812，Solid IoU 0.2841-0.5379，Surface IoU 0.112-0.217；无单一模型领先所有指标。\nConclusion: 执行能力不足以表征真实CAD建模，前沿模型和代理在可执行性、IoU和视觉语义身份上差异显著。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出RealCADBench基准，用于从真实工业设计意图进行参数化CAD建模评估，包含12,632个任务和多种输入模态，发现前沿模型在不同指标上表现各异。",
+        "motivation": "现有CAD基准多侧重合成或CAD原生设置，输入模态有限，仅用可执行性和IoU评估不足以反映真实建模能力。",
+        "method": "构建包含文本、2D图纸、真实产品图片和渲染图像的基准，生成FreeCAD API Python并由共享运行时执行，用可执行性、Solid IoU、Surface IoU和视觉语义Judge评估。",
+        "result": "在1,770任务切片上，前沿模型可执行性0.565-0.812，Solid IoU 0.2841-0.5379，Surface IoU 0.112-0.217；无单一模型领先所有指标。",
+        "conclusion": "执行能力不足以表征真实CAD建模，前沿模型和代理在可执行性、IoU和视觉语义身份上差异显著。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.03483",
+      "title": "Air-Ground Collaborative Vision-and-Language Navigation via Shared Bird's-Eye Maps",
+      "authors": [
+        "Shuning Zhang",
+        "Liang Li",
+        "Yunheng Wang",
+        "Tao Wang",
+        "Yihang Kang",
+        "Renjing Xu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2609.03483",
+      "pdf_url": "https://arxiv.org/pdf/2609.03483",
+      "abstract_en": "Air-ground collaborative Vision-and-Language Navigation (VLN) pairs an unmanned aerial vehicle (UAV) with a global bird's-eye view and an unmanned ground vehicle (UGV) with a local first-person view, yet the setting remains largely unexplored: existing training-free methods solve single-agent tasks but offer no collaboration mechanism, and a recent CARLA-Air evaluation found no stable cooperative behavior across five state-of-the-art VLA models; naive semantic communication or bidirectional coupling even degrades performance. We establish AGC-VLN (Air-Ground Collaborative VLN), the first training-free baseline for air-ground collaborative VLN. The key insight is that training-free methods decompose navigation into VLM-based semantic reasoning and deterministic geometric execution, exposing a collaboration interface: the UAV's global view, over which it renders the UGV's reported pose and the VLM-anchored target as CAR/GOAL markers with distance labels, yielding a shared bird's-eye map. From this map, the UGV acquires global spatial context its first-person view cannot provide, plans a road-following path with a frozen VLM, and executes it under closed-loop control; in parallel, the UAV runs 3D-SPF, a spatial-search upgrade of SPF that localizes the target in the downward view and flies toward it. On 100 closed-loop episodes in CARLA-Air's Town10HD scene, AGC-VLN reaches a 77.0% joint success rate, a collaboration gain of +27.0% over the weaker individual agent (the UAV, 50.0%), and exceeds the strongest published single-agent baseline (Travel UAV, 53.0%) by 24.0 points, stemming from the complementarity of the UAV's global view and the UGV's road-following execution. Project page: https://github.com/ZSN2024/AGC-VLN.",
+      "comment": "8 pages, 5 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出首个免训练的空地协同视觉语言导航基线 AGC-VLN，通过共享鸟瞰图将 UAV 全局视角与 UGV 局部执行结合，在 CARLA-Air 上联合成功率 77.0%。\nMotivation: 空地协同 VLN 缺乏协作机制，现有免训练方法仅解决单智能体任务，语义通信或双向耦合反而降低性能。\nMethod: 将导航分解为 VLM 语义推理与确定性几何执行，UAV 渲染共享鸟瞰图，UGV 规划路径，UAV 用 3D-SPF 定位目标。\nResult: 100 个闭环场景中联合成功率 77.0%，较 UAV 单独提升 27.0%，超过最强单智能体基线 24.0 点。\nConclusion: 共享鸟瞰图实现 UAV 全局与 UGV 执行的互补，免训练方法可稳定协同，但限于 CARLA-Air 场景。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出首个免训练的空地协同视觉语言导航基线 AGC-VLN，通过共享鸟瞰图将 UAV 全局视角与 UGV 局部执行结合，在 CARLA-Air 上联合成功率 77.0%。",
+        "motivation": "空地协同 VLN 缺乏协作机制，现有免训练方法仅解决单智能体任务，语义通信或双向耦合反而降低性能。",
+        "method": "将导航分解为 VLM 语义推理与确定性几何执行，UAV 渲染共享鸟瞰图，UGV 规划路径，UAV 用 3D-SPF 定位目标。",
+        "result": "100 个闭环场景中联合成功率 77.0%，较 UAV 单独提升 27.0%，超过最强单智能体基线 24.0 点。",
+        "conclusion": "共享鸟瞰图实现 UAV 全局与 UGV 执行的互补，免训练方法可稳定协同，但限于 CARLA-Air 场景。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.03480",
+      "title": "Tree species mapping in Denmark: A comparison of spectral-temporal features with geospatial foundation model embeddings",
+      "authors": [
+        "Alkiviadis Koukos",
+        "Spyros Kondylatos",
+        "Thomas Nord-Larsen",
+        "Lotte Nyborg",
+        "Christian Tøttrup",
+        "Kenneth Grogan"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.03480",
+      "pdf_url": "https://arxiv.org/pdf/2609.03480",
+      "abstract_en": "We map tree species across Denmark using National Forest Inventory plots and EO data, while evaluating the potential of foundation models for large-scale forest characterization. We compare two alternative input representations for tree species classification: (i) manually engineered spectral-temporal features (STF) derived from multi-temporal Sentinel-1 and Sentinel-2 observations, and (ii) embeddings generated by the EO FMs TESSERA and AlphaEarth. Both representations are complemented with canopy height information. Random forest, XGBoost, and Multi-Layer Perceptron (MLP) classifiers are evaluated for all input representations, with separate assessments for pure and mixed forest stands. The STF-based MLP achieves the highest classification performance, yielding macro F1 scores of 0.843 and 0.653 for pure and mixed stands, respectively. The MLP trained on TESSERA embeddings delivers competitive performance for pure stands, achieving results within 1.1 percentage points of the best-performing model. TESSERA consistently outperforms STF-based models when fewer than approximately 25% of training plots are available, demonstrating a substantial advantage under limited training data. Multi-year observations systematically improve classification accuracy relative to single-year inputs, while ablation experiments reveal the complementary contributions of Sentinel-1 backscatter, spectral indices, and canopy height data. The best-performing model is subsequently applied at the national scale to generate a 10 m tree species map of Denmark. Area-adjusted validation indicates an overall map accuracy of 79.9%. The resulting map, released as an open-access product, is the first high-resolution national tree species map of Denmark and provides a valuable resource for forest monitoring, ecological research, and land management applications.",
+      "comment": "This preprint presents a national-scale tree species mapping framework for Denmark using Sentinel-1/2 time series, National Forest Inventory data, and EO foundation model embeddings. The resulted national map can be found here: https://zenodo.org/uploads/22108850",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 利用丹麦国家森林清查样地和 Sentinel-1/2 时序数据，比较手工光谱-时间特征与地球观测基础模型嵌入在树种分类中的表现，并生成全国 10 米树种图。\nMotivation: 大规模树种制图对森林监测重要，但手工特征与基础模型嵌入的适用性缺乏系统比较。\nMethod: 对比 STF 与 TESSERA、AlphaEarth 嵌入，结合树高信息，用随机森林、XGBoost、MLP 分类，并评估纯林与混交林。\nResult: STF-MLP 最优，纯林和混交林宏 F1 分别为 0.843 和 0.653；TESSERA 在训练样本不足约 25% 时更优；全国图总体精度 79.9%。\nConclusion: 基础模型在数据有限时具优势，多时相观测提升精度；生成的丹麦首张高分辨率树种图已开放获取。\nRelevance: 15",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "利用丹麦国家森林清查样地和 Sentinel-1/2 时序数据，比较手工光谱-时间特征与地球观测基础模型嵌入在树种分类中的表现，并生成全国 10 米树种图。",
+        "motivation": "大规模树种制图对森林监测重要，但手工特征与基础模型嵌入的适用性缺乏系统比较。",
+        "method": "对比 STF 与 TESSERA、AlphaEarth 嵌入，结合树高信息，用随机森林、XGBoost、MLP 分类，并评估纯林与混交林。",
+        "result": "STF-MLP 最优，纯林和混交林宏 F1 分别为 0.843 和 0.653；TESSERA 在训练样本不足约 25% 时更优；全国图总体精度 79.9%。",
+        "conclusion": "基础模型在数据有限时具优势，多时相观测提升精度；生成的丹麦首张高分辨率树种图已开放获取。",
+        "relevance_score": "15"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.03221",
+      "title": "Counterfactual Fairness Audits of Multi-Step Clinical LLM Agents Require a Measured Per-Action Instability Floor",
+      "authors": [
+        "Rohith Reddy Bellibatlu",
+        "Manpreet Singh",
+        "Deepak Parashar",
+        "Rahul Joshi"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2609.03221",
+      "pdf_url": "https://arxiv.org/pdf/2609.03221",
+      "abstract_en": "Counterfactual audits are the standard tool for checking whether a clinical agent treats demographically distinct but clinically identical patients differently. They report a flip rate: how often an action changes when only the patient descriptor changes. We show that this quantity is uninterpretable on its own. Re-running an identical condition ten times over sixteen vignettes (same narrative, same descriptor string, nothing varied) moved a clinical agent's action in 8.7% of outcome-vignette cells, and instability was heterogeneous across actions by a factor of eight, from 0.022 for ICU escalation to 0.179 for controlled-substance caution. No demographic contrast in our data was distinguishable from that floor. A second model gives a pooled floor of 6.7% and ranks the six actions almost identically (Spearman 0.94, exact p=0.017), so the floor is not one system's artefact. Majority-vote aggregation over five draws removes 39% of it and then flattens, and a null simulation attributes the residue to heterogeneous per-cell rates, so replication mitigates without eliminating. Any counterfactual fairness estimate reported without a per-action floor beside it therefore cannot be read as evidence of disparity. The measurements were taken with FairMedAgent, an evaluation harness for disparity in the actions of clinical LLM agents whose estimand, the within-range counterfactual flip rate, counts only flips between actions a published decision rule admits and a clinician has adjudicated. That estimand requires band adjudication, which is under way; no disparity result is claimed here. Each synthetic vignette runs a six-stage trajectory (five model-facing decisions around a deterministic environment step) under fixed-form conditions spanning race, sex, age, insurance, English proficiency, and their intersections. The harness, the floor protocol, and every analysis script are released.",
+      "comment": "13 pages, 1 figure, 2 tables. Code and data: https://github.com/rohithreddybc/FairMedAgent",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文指出临床LLM智能体的反事实公平审计中翻转率需结合每动作不稳定性基线解读，否则无法作为差异证据。\nMotivation: 反事实审计报告的翻转率单独不可解释，需测量每动作不稳定性下限。\nMethod: 提出FairMedAgent评估框架，测量相同条件下动作翻转率作为不稳定性下限，并用多数投票聚合。\nResult: 相同条件下动作翻转率8.7%，跨动作差异达8倍；多数投票去除39%不稳定性。\nConclusion: 未报告每动作下限的反事实公平估计不能作为差异证据；复制可缓解但无法消除不稳定性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文指出临床LLM智能体的反事实公平审计中翻转率需结合每动作不稳定性基线解读，否则无法作为差异证据。",
+        "motivation": "反事实审计报告的翻转率单独不可解释，需测量每动作不稳定性下限。",
+        "method": "提出FairMedAgent评估框架，测量相同条件下动作翻转率作为不稳定性下限，并用多数投票聚合。",
+        "result": "相同条件下动作翻转率8.7%，跨动作差异达8倍；多数投票去除39%不稳定性。",
+        "conclusion": "未报告每动作下限的反事实公平估计不能作为差异证据；复制可缓解但无法消除不稳定性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-02",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.23989",
+      "title": "Attributable by Construction: Claim-Anchored Provenance for Multi-Document Summarization",
+      "authors": [
+        "Shuo Guan"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2606.23989",
+      "pdf_url": "https://arxiv.org/pdf/2606.23989",
+      "abstract_en": "Large language models produce fluent multi-document summaries, but their attributions are typically coarse---whole documents or passages---and generated post hoc, leaving each statement hard to verify. We argue that attribution should be a structural property of generation rather than a downstream prediction. We present CAMS, a Claim-Anchored Multi-document Summarization framework that decomposes every source document into atomic claims whose provenance is resolved deterministically from verbatim quotes to token spans, clusters equivalent claims across documents while flagging inter-source conflicts, selects a support-aware and salient subset, and rewrites it so that every summary sentence terminates in claim identifiers resolving back to source spans. This yields a separation we make explicit: provenance is an invariant holding for every emitted sentence independently of model accuracy, whereas faithfulness is an objective that selection, constrained rewriting, and verification only encourage---a distinction end-to-end and post-hoc systems conflate. We evaluate on MultiNews, DiverseSumm, and zero-shot on WCEP under a two-regime protocol separating reference-free citation quality from gold-aligned localization, audited by a support model never used for selection or verification. CAMSmatches strong end-to-end and span-attribution baselines on summary quality while improving faithfulness and citation precision, raising multi-source attribution accuracy from 38% to 64% without inflating the number of cited sources, and cutting human verification time per claim by $3.4\\times$. We release code and ${\\sim}320$K claim--quote--span annotations over MultiNews as a reusable fine-grained attribution resource.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 CAMS 框架，将多文档摘要的归因（attribution）作为生成的结构属性而非事后预测，通过原子声明与确定性溯源实现可验证的引用。\nMotivation: 现有 LLM 多文档摘要的归因粒度粗且事后生成，难以逐句验证。\nMethod: 将源文档分解为原子声明，从逐字引用解析到 token 跨度，跨文档聚类并标记冲突，选择支持感知子集并重写，使每句以声明标识符结尾。\nResult: 在 MultiNews、DiverseSumm 及 WCEP 零样本上，多源归因准确率从 38% 提升至 64%，人工验证时间减少 3.4 倍。\nConclusion: 归因作为不变量与忠实度分离，CAMS 在保持摘要质量的同时提升引用精度。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 CAMS 框架，将多文档摘要的归因（attribution）作为生成的结构属性而非事后预测，通过原子声明与确定性溯源实现可验证的引用。",
+        "motivation": "现有 LLM 多文档摘要的归因粒度粗且事后生成，难以逐句验证。",
+        "method": "将源文档分解为原子声明，从逐字引用解析到 token 跨度，跨文档聚类并标记冲突，选择支持感知子集并重写，使每句以声明标识符结尾。",
+        "result": "在 MultiNews、DiverseSumm 及 WCEP 零样本上，多源归因准确率从 38% 提升至 64%，人工验证时间减少 3.4 倍。",
+        "conclusion": "归因作为不变量与忠实度分离，CAMS 在保持摘要质量的同时提升引用精度。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-22",
+      "updated_date": "2026-09-04",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.03966",
+      "title": "Interface-Induced Trajectory Censoring",
+      "authors": [
+        "Wenbo Wang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.03966",
+      "pdf_url": "https://arxiv.org/pdf/2609.03966",
+      "abstract_en": "Agent evaluations report a tool-call rate read off the serving stack. That number can be zero while the model is emitting well-formed calls: the interface censors the trajectory before anything downstream sees it. On BFCL v4's own data, executor and scorer, holding weights, cases, decoding and seeds fixed and changing only the serving adapter, the same model scores 0.00 or 0.96 / 0.19. A 2x2 over chat template and parser locates the effect exactly: both main effects are exactly zero and all of it sits in the interaction -- no component is defective, and repairing one side of the contract buys precisely nothing. On tau-bench's 115 interactive retail tasks the same swap moves server-parsed calls from 0 to 636 and tasks reaching any tool execution from 0 to 103. Our probe reproduces the funnel across a 21x scale range of Qwen2.5-Coder: the server parses 0/100 at every size while well-formed emitted calls rise to 80/100 at 32B (~72 after calibration against an adjudicated gold standard). Under a matched envelope, across a comparable scale span, the silent fraction stays at 0-2, a prediction committed to the repository before the run. Llama-3.1-8B's 23% rate of calling the task function itself as a tool falls to 0 under one strict:true flag. The mismatch reaches inside the training loop, and its consequence is scale-dependent: in verl's AgentLoop at 7B, 45 of 115 generations carry a complete call; 0 are accepted, 0 execute, 0 return an observation. At 1.5B the same zero is over-determined, so we report the two scales separately. At evaluation time, repairing the adapter restores the mechanism but not a significant outcome gain: parsing 0->84, rescues 0->9, pass rate 53->62 (n.s.). We release a 98-line preflight check that catches every silent failure here. The observed tool-call rate is not a property of the model alone; it is a property of the model-interface stack that measures it.",
+      "comment": "39 pages, 14 pages main text. Code, data, and pre-registrations: https://github.com/nebula-1999/Interface-Induced-Trajectory-Censoring",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文揭示智能体评测中工具调用率可能被服务接口静默截断，即使模型输出格式正确，接口也会在数据到达下游前将其过滤，导致评测分数失真。\nMotivation: 评测报告的工具调用率可能为零，而模型实际生成了格式正确的调用，接口在数据到达下游前将其截断，导致评测失真。\nMethod: 通过固定权重、案例、解码和种子，仅更换服务适配器，并采用2x2实验设计（聊天模板与解析器）定位截断效应，同时提供预注册的探针和98行预检代码。\nResult: 同一模型在不同适配器下BFCL v4分数从0.00变为0.96/0.19；tau-bench上服务器解析调用从0增至636，任务执行从0增至103；Qwen2.5-Coder在21倍规模范围内服务器解析始终为0/100，而模型生成的有效调用在32B时达80/100。\nConclusion: 观测到的工具调用率并非模型单独属性，而是模型-接口栈的属性；修复适配器可恢复机制但未带来显著结果提升，需关注接口层对评测的影响。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文揭示智能体评测中工具调用率可能被服务接口静默截断，即使模型输出格式正确，接口也会在数据到达下游前将其过滤，导致评测分数失真。",
+        "motivation": "评测报告的工具调用率可能为零，而模型实际生成了格式正确的调用，接口在数据到达下游前将其截断，导致评测失真。",
+        "method": "通过固定权重、案例、解码和种子，仅更换服务适配器，并采用2x2实验设计（聊天模板与解析器）定位截断效应，同时提供预注册的探针和98行预检代码。",
+        "result": "同一模型在不同适配器下BFCL v4分数从0.00变为0.96/0.19；tau-bench上服务器解析调用从0增至636，任务执行从0增至103；Qwen2.5-Coder在21倍规模范围内服务器解析始终为0/100，而模型生成的有效调用在32B时达80/100。",
+        "conclusion": "观测到的工具调用率并非模型单独属性，而是模型-接口栈的属性；修复适配器可恢复机制但未带来显著结果提升，需关注接口层对评测的影响。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-03",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}

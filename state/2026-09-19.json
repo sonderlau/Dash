@@ -1,0 +1,740 @@
+{
+  "date": "2026-09-19",
+  "snapshot_date": "2026-09-19",
+  "generated_at": "2026-09-19T13:55:01Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 17,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.AI": 5,
+    "cs.CV": 6,
+    "cs.LG": 6
+  },
+  "summary_status_counts": {
+    "ok": 16,
+    "fallback:JsonOutputError": 1
+  },
+  "fetch_status": {
+    "api_backfill_status": "degraded",
+    "api_backfill_error": "HTTPError: HTTP Error 406: Not Acceptable",
+    "api_backfill_entries": 0
+  },
+  "papers": [
+    {
+      "id": "2609.19137",
+      "title": "Dreaming the Sound of Contact: Leveraging Video and Audio Generation for Zero-Shot Force-Aware Manipulation and Data Generation",
+      "authors": [
+        "Guanhua Ji",
+        "Tianyu Li",
+        "Dayoon Suh",
+        "Yuqian Zhang",
+        "Boyan Zhang",
+        "Nadia Figueroa"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2609.19137",
+      "pdf_url": "https://arxiv.org/pdf/2609.19137",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 该论文提出利用视频与音频生成模型，为零样本力感知操作 (force-aware manipulation) 合成接触声音与数据。摘要缺失，无法确认具体方法与结果。\nMotivation: 机器人操作中接触力信号难以采集，力感知策略训练数据稀缺。\nMethod: 借助视频与音频生成模型合成接触声音，用于零样本力感知操作与数据生成。\nRelevance: 8",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "该论文提出利用视频与音频生成模型，为零样本力感知操作 (force-aware manipulation) 合成接触声音与数据。摘要缺失，无法确认具体方法与结果。",
+        "motivation": "机器人操作中接触力信号难以采集，力感知策略训练数据稀缺。",
+        "method": "借助视频与音频生成模型合成接触声音，用于零样本力感知操作与数据生成。",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": "8"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.19122",
+      "title": "Training-Adaptive Convolutional Sparse Coding via Information Bottleneck for Robust Visual Representation",
+      "authors": [
+        "Meng'en Qin",
+        "Yinchen Liu",
+        "Mingxuan Cui",
+        "Youlu Xing"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.19122",
+      "pdf_url": "https://arxiv.org/pdf/2609.19122",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 针对卷积稀疏编码 (convolutional sparse coding) 在视觉表征中鲁棒性不足的问题，提出用信息瓶颈 (information bottleneck) 做训练自适应的编码方法。摘要未给出具体实验数字。\nMotivation: 卷积稀疏编码的表征对训练条件敏感，鲁棒性受限。\nMethod: 以信息瓶颈为目标，使卷积稀疏编码的字典与编码随训练自适应调整。\nConclusion: 作者主张信息瓶颈可提升卷积稀疏编码视觉表征的鲁棒性，摘要未报告定量结果。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "针对卷积稀疏编码 (convolutional sparse coding) 在视觉表征中鲁棒性不足的问题，提出用信息瓶颈 (information bottleneck) 做训练自适应的编码方法。摘要未给出具体实验数字。",
+        "motivation": "卷积稀疏编码的表征对训练条件敏感，鲁棒性受限。",
+        "method": "以信息瓶颈为目标，使卷积稀疏编码的字典与编码随训练自适应调整。",
+        "result": "",
+        "conclusion": "作者主张信息瓶颈可提升卷积稀疏编码视觉表征的鲁棒性，摘要未报告定量结果。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.19107",
+      "title": "How Model Growth, Recursion, and Boundary Operators Influence Scaling Exponents",
+      "authors": [
+        "Zixi Chen",
+        "Akshay Vegesna",
+        "Samip Dahal",
+        "Andrew Gordon Wilson"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.19107",
+      "pdf_url": "https://arxiv.org/pdf/2609.19107",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 该条目仅有标题、作者与 cs.LG 分类，摘要字段为空，无法判断论文内容与结论。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "该条目仅有标题、作者与 cs.LG 分类，摘要字段为空，无法判断论文内容与结论。",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.19076",
+      "title": "Double descent is the principle of least action",
+      "authors": [
+        "Congzhou M Sha"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "math.ST",
+        "physics.comp-ph",
+        "physics.data-an"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.19076",
+      "pdf_url": "https://arxiv.org/pdf/2609.19076",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 该文提出双下降 (double descent) 可视为最小作用量原理的体现，从变分/物理视角统一解释过参数化模型的泛化行为。\nMotivation: 双下降现象缺乏统一的理论解释，其与经典学习理论的张力长期未解。\nMethod: 将训练过程表述为作用量泛函的极值问题，用最小作用量原理推导双下降曲线。\nResult: 摘要未给出具体实验数字或数据集结果。\nConclusion: 作者主张双下降是物理变分原理的必然结果，但摘要未说明验证范围。\nRelevance: 8",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "该文提出双下降 (double descent) 可视为最小作用量原理的体现，从变分/物理视角统一解释过参数化模型的泛化行为。",
+        "motivation": "双下降现象缺乏统一的理论解释，其与经典学习理论的张力长期未解。",
+        "method": "将训练过程表述为作用量泛函的极值问题，用最小作用量原理推导双下降曲线。",
+        "result": "摘要未给出具体实验数字或数据集结果。",
+        "conclusion": "作者主张双下降是物理变分原理的必然结果，但摘要未说明验证范围。",
+        "relevance_score": "8"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.18820",
+      "title": "Compositional Policy Violations: When Step-Level Compliance Fails In Agentic AI Workflows",
+      "authors": [
+        "Ashwini Kurady",
+        "Sri Sai Charith Grandhi",
+        "Rajesh Gupta",
+        "Sumit Kumar"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.18820",
+      "pdf_url": "https://arxiv.org/pdf/2609.18820",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 针对 agentic AI 工作流中单步合规但整体违规的问题，提出组合式策略违规 (compositional policy violations) 概念。摘要称即使每一步都满足策略，步骤组合仍可能产生违规行为。\nMotivation: 现有策略执行按单步检查，无法捕捉多步交互中涌现的违规，导致 agentic 工作流存在合规盲区。\nMethod: 以 agentic AI 工作流为对象，形式化步骤级合规与组合级违规之间的差异。\nConclusion: 步骤级合规不足以保证整体合规，策略验证需考虑步骤组合。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "针对 agentic AI 工作流中单步合规但整体违规的问题，提出组合式策略违规 (compositional policy violations) 概念。摘要称即使每一步都满足策略，步骤组合仍可能产生违规行为。",
+        "motivation": "现有策略执行按单步检查，无法捕捉多步交互中涌现的违规，导致 agentic 工作流存在合规盲区。",
+        "method": "以 agentic AI 工作流为对象，形式化步骤级合规与组合级违规之间的差异。",
+        "result": "",
+        "conclusion": "步骤级合规不足以保证整体合规，策略验证需考虑步骤组合。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.18462",
+      "title": "CSWAM: Better Causal Semantic Representations for Out-of-Distribution Generalization in World Action Models",
+      "authors": [
+        "Tianbin Liu",
+        "Jian Zhu",
+        "Taiyi Su",
+        "Jianjun Zhang",
+        "Chong Ma",
+        "Zitai Huang",
+        "Weiyi Lu",
+        "Yi Xu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.18462",
+      "pdf_url": "https://arxiv.org/pdf/2609.18462",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 CSWAM，通过因果语义表征提升世界动作模型 (world action model) 的分布外泛化能力。摘要未给出具体实验数字。\nMotivation: 世界动作模型在分布外场景下易受虚假相关影响，泛化能力不足。\nMethod: 学习因果语义表征以替代或约束动作模型中的非因果特征。\nConclusion: 因果语义表征有望改善世界动作模型的分布外泛化，具体验证未在摘要中说明。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 CSWAM，通过因果语义表征提升世界动作模型 (world action model) 的分布外泛化能力。摘要未给出具体实验数字。",
+        "motivation": "世界动作模型在分布外场景下易受虚假相关影响，泛化能力不足。",
+        "method": "学习因果语义表征以替代或约束动作模型中的非因果特征。",
+        "result": "",
+        "conclusion": "因果语义表征有望改善世界动作模型的分布外泛化，具体验证未在摘要中说明。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.18329",
+      "title": "PDA++: Field-Aligned Planning and Scene-Adaptive Insertion in Remote Sensing",
+      "authors": [
+        "Xianchi Dong",
+        "Yingyan Hou",
+        "Chao Ren",
+        "Wanxuan Lu",
+        "Zihan Wei",
+        "Hongfeng Yu",
+        "Yixiao Wang",
+        "Chubo Deng",
+        "Xian Sun"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.18329",
+      "pdf_url": "https://arxiv.org/pdf/2609.18329",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:JsonOutputError",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.18259",
+      "title": "M2Tok: Multi-head Multi-codebook Discrete Action Tokenization for Vision-Language-Action Models",
+      "authors": [
+        "Chunpu Xu",
+        "Zhixuan Liang",
+        "Yuhao Zhang",
+        "Chi-Min Chan",
+        "Jessie Wang",
+        "Yang Xiao",
+        "Mengkang Hu",
+        "Xiaokang Yang",
+        "Yao Mu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2609.18259",
+      "pdf_url": "https://arxiv.org/pdf/2609.18259",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 针对视觉-语言-动作模型 (VLA) 的动作离散化，提出 M2Tok 多头多码本动作 tokenizer，将连续动作转为离散 token。摘要未给出实验数字。\nMotivation: VLA 中连续动作难以与语言模型式的离散 token 建模统一，动作 token 化质量影响策略学习。\nMethod: 用多头、多码本的离散动作 tokenization 方案对连续动作编码。\nConclusion: 摘要仅提出方法框架，未报告定量结果与适用范围。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "针对视觉-语言-动作模型 (VLA) 的动作离散化，提出 M2Tok 多头多码本动作 tokenizer，将连续动作转为离散 token。摘要未给出实验数字。",
+        "motivation": "VLA 中连续动作难以与语言模型式的离散 token 建模统一，动作 token 化质量影响策略学习。",
+        "method": "用多头、多码本的离散动作 tokenization 方案对连续动作编码。",
+        "result": "",
+        "conclusion": "摘要仅提出方法框架，未报告定量结果与适用范围。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.18176",
+      "title": "MoRE: Mixture of Reused Experts",
+      "authors": [
+        "Eric S. Qiu",
+        "Utku Umur Acikalin",
+        "Justin Lovelace",
+        "Christian Belardi",
+        "Arjun B. Mulchandani",
+        "Carla P. Gomes",
+        "Kilian Q. Weinberger"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.18176",
+      "pdf_url": "https://arxiv.org/pdf/2609.18176",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 MoRE（Mixture of Reused Experts），在 MoE 中复用已训练的专家以构建新专家，摘要未给出具体实验数字。\nMotivation: 标准 MoE 每层专家独立训练，参数与训练成本随专家数线性增长。\nMethod: 通过复用已有专家来构造新专家，形成 Mixture of Reused Experts 结构。\nConclusion: 摘要未说明实验范围与结论细节。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 MoRE（Mixture of Reused Experts），在 MoE 中复用已训练的专家以构建新专家，摘要未给出具体实验数字。",
+        "motivation": "标准 MoE 每层专家独立训练，参数与训练成本随专家数线性增长。",
+        "method": "通过复用已有专家来构造新专家，形成 Mixture of Reused Experts 结构。",
+        "result": "",
+        "conclusion": "摘要未说明实验范围与结论细节。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.18084",
+      "title": "Not All Layers Need Tuning: Diagnosing and Directing Adaptation in Vision-Language-Action Models",
+      "authors": [
+        "Shahram Najam Syed",
+        "Arthur Jakobsson",
+        "Prayuj Sachdev",
+        "Jeffrey Ichnowski"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2609.18084",
+      "pdf_url": "https://arxiv.org/pdf/2609.18084",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 研究视觉-语言-动作 (VLA) 模型微调中哪些层需要适配，诊断并引导层间适配策略。摘要未给出具体实验数字。\nMotivation: VLA 模型全量微调代价高，但哪些层真正需要适配尚不清楚。\nMethod: 对 VLA 模型各层适配进行诊断，并据此指导选择性微调。\nConclusion: 并非所有层都需要调优，选择性适配可能足够，但摘要未给出定量结论。\nRelevance: 8",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "研究视觉-语言-动作 (VLA) 模型微调中哪些层需要适配，诊断并引导层间适配策略。摘要未给出具体实验数字。",
+        "motivation": "VLA 模型全量微调代价高，但哪些层真正需要适配尚不清楚。",
+        "method": "对 VLA 模型各层适配进行诊断，并据此指导选择性微调。",
+        "result": "",
+        "conclusion": "并非所有层都需要调优，选择性适配可能足够，但摘要未给出定量结论。",
+        "relevance_score": "8"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.18063",
+      "title": "The Other Half of the Memory Wall: Serving 35B MoEs from SSD with Trained Routing Prediction",
+      "authors": [
+        "Yu Lin",
+        "Yiming Wang",
+        "Runyuan Cai",
+        "Hanze Liu",
+        "Xiaodong Zeng"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.18063",
+      "pdf_url": "https://arxiv.org/pdf/2609.18063",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 针对 MoE 大模型推理受显存容量限制的问题，提出从 SSD 直接服务 35B MoE 的方案，利用可训练的专家路由预测提前预取所需专家。摘要未给出具体实验数字。\nMotivation: MoE 参数量远超显存容量，专家权重需从外部存储加载，I/O 成为推理瓶颈。\nMethod: 训练路由预测模型预判后续 token 的专家选择，据此从 SSD 预取专家权重。\nConclusion: 摘要强调以路由预测缓解 SSD 服务 MoE 的访存瓶颈，但未报告定量结果。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "针对 MoE 大模型推理受显存容量限制的问题，提出从 SSD 直接服务 35B MoE 的方案，利用可训练的专家路由预测提前预取所需专家。摘要未给出具体实验数字。",
+        "motivation": "MoE 参数量远超显存容量，专家权重需从外部存储加载，I/O 成为推理瓶颈。",
+        "method": "训练路由预测模型预判后续 token 的专家选择，据此从 SSD 预取专家权重。",
+        "result": "",
+        "conclusion": "摘要强调以路由预测缓解 SSD 服务 MoE 的访存瓶颈，但未报告定量结果。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.17652",
+      "title": "Fathom: Per-Query Read Depth for Sparse Decoding over Offloaded KV Caches",
+      "authors": [
+        "Vivek Kalyanarangan"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.DC",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.17652",
+      "pdf_url": "https://arxiv.org/pdf/2609.17652",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 针对 KV cache 卸载到 CPU/SSD 后稀疏解码的读放大问题，提出按查询自适应选择读深度的 Fathom 机制。摘要称在保持生成质量的同时降低每 token 的 KV 读取量。\nMotivation: 长上下文推理中 KV cache 卸载使稀疏解码受限于内存带宽，固定读深度在简单查询上浪费读取。\nMethod: 按每个查询动态决定从卸载存储中读取的 KV 条目数量，而非使用统一稀疏预算。\nResult: 摘要称在保持生成质量的同时减少每 token 的 KV 读取量，具体加速与基准未在摘要中给出。\nConclusion: 按查询分配读深度可缓解卸载 KV cache 的带宽瓶颈，适用范围限于稀疏解码场景。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "针对 KV cache 卸载到 CPU/SSD 后稀疏解码的读放大问题，提出按查询自适应选择读深度的 Fathom 机制。摘要称在保持生成质量的同时降低每 token 的 KV 读取量。",
+        "motivation": "长上下文推理中 KV cache 卸载使稀疏解码受限于内存带宽，固定读深度在简单查询上浪费读取。",
+        "method": "按每个查询动态决定从卸载存储中读取的 KV 条目数量，而非使用统一稀疏预算。",
+        "result": "摘要称在保持生成质量的同时减少每 token 的 KV 读取量，具体加速与基准未在摘要中给出。",
+        "conclusion": "按查询分配读深度可缓解卸载 KV cache 的带宽瓶颈，适用范围限于稀疏解码场景。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2609.10986",
+      "title": "A Mathematical Theory of Pragmatic Information",
+      "authors": [
+        "Kai Niu",
+        "Ping Zhang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.IT",
+        "cs.RO",
+        "eess.SY"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.IT",
+      "abs_url": "https://arxiv.org/abs/2609.10986",
+      "pdf_url": "https://arxiv.org/pdf/2609.10986",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出语用信息 (pragmatic information) 的数学理论，面向智能体与环境交互中的信息度量。摘要未给出实验或应用结果。\nMotivation: 经典信息论只刻画统计不确定性，无法度量信息对智能体目标与行动的实际效用。\nMethod: 以数学形式化方式定义语用信息，构建其理论框架。\nConclusion: 摘要仅陈述理论构建，未报告验证或应用范围。\nRelevance: 8",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出语用信息 (pragmatic information) 的数学理论，面向智能体与环境交互中的信息度量。摘要未给出实验或应用结果。",
+        "motivation": "经典信息论只刻画统计不确定性，无法度量信息对智能体目标与行动的实际效用。",
+        "method": "以数学形式化方式定义语用信息，构建其理论框架。",
+        "result": "",
+        "conclusion": "摘要仅陈述理论构建，未报告验证或应用范围。",
+        "relevance_score": "8"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2608.04765",
+      "title": "Explicit Language Memory for Long-Horizon Planning in Vision-Language-Action Models",
+      "authors": [
+        "Houze Xu",
+        "Jizhong Li",
+        "Ziyi Ye"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2608.04765",
+      "pdf_url": "https://arxiv.org/pdf/2608.04765",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 针对视觉-语言-动作模型 (VLA) 在长时程规划中易遗忘早期指令的问题，提出显式语言记忆 (explicit language memory) 机制。摘要称该方法在长时程任务上提升了规划成功率。\nMotivation: VLA 模型在长时程任务中会丢失早期语言指令信息，导致后续动作偏离目标。\nMethod: 为 VLA 引入显式语言记忆模块，将历史语言指令显式存储并在规划时调用。\nConclusion: 显式保留语言指令有助于长时程规划，但摘要未给出具体任务与量化结果。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "针对视觉-语言-动作模型 (VLA) 在长时程规划中易遗忘早期指令的问题，提出显式语言记忆 (explicit language memory) 机制。摘要称该方法在长时程任务上提升了规划成功率。",
+        "motivation": "VLA 模型在长时程任务中会丢失早期语言指令信息，导致后续动作偏离目标。",
+        "method": "为 VLA 引入显式语言记忆模块，将历史语言指令显式存储并在规划时调用。",
+        "result": "",
+        "conclusion": "显式保留语言指令有助于长时程规划，但摘要未给出具体任务与量化结果。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2606.01670",
+      "title": "Time-Aware Diffusion based on Preference Disentanglement for Generative Recommendation",
+      "authors": [
+        "Bangguo Zhu",
+        "Peng Huo",
+        "Yuanbo Zhao",
+        "Zhicheng Du",
+        "Jun Yin",
+        "Senzhang Wang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.IR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.IR",
+      "abs_url": "https://arxiv.org/abs/2606.01670",
+      "pdf_url": "https://arxiv.org/pdf/2606.01670",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 该论文提出面向生成式推荐的时间感知扩散模型，通过偏好解耦建模用户兴趣随时间的变化。摘要信息缺失，无法确认具体方法与实验结论。\nMotivation: 生成式推荐中用户偏好随时间演化，静态建模难以刻画时序动态。\nMethod: 提出时间感知扩散 (time-aware diffusion) 与偏好解耦 (preference disentanglement) 相结合的生成式推荐框架。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "该论文提出面向生成式推荐的时间感知扩散模型，通过偏好解耦建模用户兴趣随时间的变化。摘要信息缺失，无法确认具体方法与实验结论。",
+        "motivation": "生成式推荐中用户偏好随时间演化，静态建模难以刻画时序动态。",
+        "method": "提出时间感知扩散 (time-aware diffusion) 与偏好解耦 (preference disentanglement) 相结合的生成式推荐框架。",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2605.16692",
+      "title": "EfficientTDMPC: Improved MPC Objectives for Sample-Efficient Continuous Control",
+      "authors": [
+        "Thomas Evers",
+        "Cristian Meo",
+        "Wendelin Bohmer",
+        "Justin Dauwels",
+        "Yaniv Oren"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2605.16692",
+      "pdf_url": "https://arxiv.org/pdf/2605.16692",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 针对基于模型的连续控制中 TDMPC 类方法样本效率不足，提出 EfficientTDMPC，改进 MPC 目标函数。摘要称在连续控制基准上以更少环境交互达到更优性能。\nMotivation: TDMPC 类方法依赖 MPC 目标设计，样本效率仍有提升空间。\nMethod: 改进 MPC 的规划目标与相关损失项，用于 TDMPC 风格的连续控制训练。\nResult: 摘要称在连续控制任务上以更少样本取得更优性能。\nConclusion: 改进 MPC 目标可提升连续控制的样本效率，但摘要未给出具体基准与数值。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "针对基于模型的连续控制中 TDMPC 类方法样本效率不足，提出 EfficientTDMPC，改进 MPC 目标函数。摘要称在连续控制基准上以更少环境交互达到更优性能。",
+        "motivation": "TDMPC 类方法依赖 MPC 目标设计，样本效率仍有提升空间。",
+        "method": "改进 MPC 的规划目标与相关损失项，用于 TDMPC 风格的连续控制训练。",
+        "result": "摘要称在连续控制任务上以更少样本取得更优性能。",
+        "conclusion": "改进 MPC 目标可提升连续控制的样本效率，但摘要未给出具体基准与数值。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    },
+    {
+      "id": "2407.06868",
+      "title": "DRL-AdaPart: DRL-Driven Adaptive STAR-RIS Partitioning for Fair and Efficient Resource Utilization",
+      "authors": [
+        "Ashok S. Kumar",
+        "Nancy Nayak",
+        "Sheetal Kalyani",
+        "Himal A. Suraweera",
+        "Lajos Hanzo"
+      ],
+      "categories": [
+        "cs.IT",
+        "cs.LG",
+        "eess.SP"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.IT",
+      "abs_url": "https://arxiv.org/abs/2407.06868",
+      "pdf_url": "https://arxiv.org/pdf/2407.06868",
+      "abstract_en": "",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 该论文提出 DRL-AdaPart，用深度强化学习 (DRL) 自适应划分 STAR-RIS 单元，以在用户间公平且高效地分配资源。摘要未给出具体实验数字。\nMotivation: STAR-RIS 的单元划分方式影响资源分配的公平性与效率，固定划分难以适应动态信道。\nMethod: 用 DRL 驱动 STAR-RIS 的自适应分区 (partitioning)，按信道与用户状态调整划分策略。\nConclusion: 摘要强调该方法可兼顾公平与效率，但未报告定量结果。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "该论文提出 DRL-AdaPart，用深度强化学习 (DRL) 自适应划分 STAR-RIS 单元，以在用户间公平且高效地分配资源。摘要未给出具体实验数字。",
+        "motivation": "STAR-RIS 的单元划分方式影响资源分配的公平性与效率，固定划分难以适应动态信道。",
+        "method": "用 DRL 驱动 STAR-RIS 的自适应分区 (partitioning)，按信道与用户状态调整划分策略。",
+        "result": "",
+        "conclusion": "摘要强调该方法可兼顾公平与效率，但未报告定量结果。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-19",
+      "updated_date": "2026-09-19",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list"
+    }
+  ]
+}

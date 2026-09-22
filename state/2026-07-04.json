@@ -1,0 +1,938 @@
+{
+  "date": "2026-07-04",
+  "snapshot_date": "2026-07-04",
+  "generated_at": "2026-07-04T06:08:40Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 22,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 7,
+    "cs.AI": 7,
+    "cs.CV": 8
+  },
+  "summary_status_counts": {
+    "ok": 22
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 728
+  },
+  "papers": [
+    {
+      "id": "2607.01232",
+      "title": "Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training",
+      "authors": [
+        "Zijian Zhang",
+        "Rizhen Hu",
+        "Athanasios Glentis",
+        "Dawei Li",
+        "Chung-Yiu Yau",
+        "Hongzhou Lin",
+        "Mingyi Hong"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.01232",
+      "pdf_url": "https://arxiv.org/pdf/2607.01232",
+      "abstract_en": "Reinforcement learning (RL) has become a central component of post-training large language models (LLMs), yet little is understood about how RL adaptation is distributed across transformer layers. Existing approaches typically update all model parameters uniformly, implicitly assuming that every layer contributes similarly to the gains obtained during RL post-training. In this work, we challenge this assumption through a systematic layer-wise study of RL training. Surprisingly, we find that training a single transformer layer can recover most of the gains achieved by full-parameter RL training, and in some cases even surpass it. To quantify this phenomenon, we introduce the quantity layer contribution, which measures the fraction of full RL improvement recovered by training a layer in isolation. Across seven models spanning two model families (Qwen3, Qwen2.5), three RL algorithms (GRPO, GiGPO, Dr. GRPO), and multiple task domains including mathematical reasoning, code generation, and agentic decision-making, we observe a remarkably stable pattern: RL gains are highly concentrated in a small subset of, and in many cases even a single, transformer layers. More strikingly, the same structural pattern consistently emerges: high-contribution layers concentrate in the middle of the transformer stack, while layers near the input and output ends contribute substantially less. The resulting layer rankings remain strongly correlated across datasets, tasks, model families, and RL algorithms.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文系统研究了强化学习（RL）后训练中Transformer各层的重要性。通过引入“层贡献”（layer contribution）度量，发现仅训练单层即可恢复甚至超越全参数RL训练的大部分收益。这一模式在多个模型族、RL算法和任务域中稳定存在：高贡献层集中在Transformer中间层，而输入输出端贡献较小。\nMotivation: 现有RL后训练通常统一更新所有参数，隐含假设每层贡献相似。本文旨在验证这一假设，并探究RL适应如何分布在Transformer各层。\nMethod: 提出“层贡献”量，衡量单独训练某层所能恢复的全参数RL改进比例。在Qwen3、Qwen2.5模型上，使用GRPO、GiGPO、Dr. GRPO算法，在数学推理、代码生成、代理决策等任务上进行实验。\nResult: 训练单层即可恢复大部分全参数RL增益，有时甚至超越。高贡献层集中在Transformer中间层，输入输出层贡献显著较小。层排名在不同数据集、任务、模型族和RL算法间高度相关。\nConclusion: RL后训练的收益高度集中于少数（甚至单个）Transformer层，且呈现稳定的结构模式：中间层关键，两端层不重要。这挑战了均匀更新所有参数的传统做法。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文系统研究了强化学习（RL）后训练中Transformer各层的重要性。通过引入“层贡献”（layer contribution）度量，发现仅训练单层即可恢复甚至超越全参数RL训练的大部分收益。这一模式在多个模型族、RL算法和任务域中稳定存在：高贡献层集中在Transformer中间层，而输入输出端贡献较小。",
+        "motivation": "现有RL后训练通常统一更新所有参数，隐含假设每层贡献相似。本文旨在验证这一假设，并探究RL适应如何分布在Transformer各层。",
+        "method": "提出“层贡献”量，衡量单独训练某层所能恢复的全参数RL改进比例。在Qwen3、Qwen2.5模型上，使用GRPO、GiGPO、Dr. GRPO算法，在数学推理、代码生成、代理决策等任务上进行实验。",
+        "result": "训练单层即可恢复大部分全参数RL增益，有时甚至超越。高贡献层集中在Transformer中间层，输入输出层贡献显著较小。层排名在不同数据集、任务、模型族和RL算法间高度相关。",
+        "conclusion": "RL后训练的收益高度集中于少数（甚至单个）Transformer层，且呈现稳定的结构模式：中间层关键，两端层不重要。这挑战了均匀更新所有参数的传统做法。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.01223",
+      "title": "Theoria: Rewrite-Acceptability Verification over Informal Reasoning States",
+      "authors": [
+        "Michael Saldivar",
+        "Ben Slivinski"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG",
+        "cs.LO",
+        "cs.SE"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2607.01223",
+      "pdf_url": "https://arxiv.org/pdf/2607.01223",
+      "abstract_en": "When should an AI system's answer be trusted? Formal proof assistants offer certainty but cannot reach most of the problem distribution; scalar LLM judges offer coverage but produce opaque scores that cannot be audited after the fact and are subject to the same coherence issues as any LLM. We present Theoria, a verification architecture that closes this gap. A candidate solution is rewritten into a sequence of typed state transitions, each licensed by an explicit justification, whether that be a citation, computation, or problem-given fact, and every transition is independently auditable. The foundational invariant is completeness of change: every difference between consecutive proof states must be accounted for, so hidden premises surface as unlicensed mutations rather than passing silently. On HLE-Verified Gold (185 text-only expert problems), Theoria certifies 105 at 91.4% strict precision (Wilson 95% CI [84.5%, 95.4%]). Every certification produces a human readable proof trace in which each step can be independently challenged. Holistic LLM judges achieve comparable precision at matched coverage but fail on different problems (Jaccard 0.14-0.36), making the approaches complementary. On 95 adversarial poisoned proofs across 15 domains, structured judges catch 94.7% versus 83.2% for holistic judging (p= 0.0017). The overall 11.5 pp gap concentrates in hidden premises (90.6% vs. 62.5%, a 28 pp difference) and fabricated citations (100% vs. 90%), the error classes where the formal analysis predicts an advantage; performance is identical on arithmetic and theorem-misapplication errors, where no advantage is predicted. On GPQA Diamond (n= 65), certified precision is 97.1% (Wilson CI [85.1%, 99.5%]).",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出Theoria，一种验证架构，通过将候选解答重写为带显式理由的类型化状态转换序列，实现可审计的推理步骤验证。在HLE-Verified Gold数据集上，Theoria以91.4%的严格精确率认证了105个问题，并产生可独立挑战的人类可读证明轨迹。与整体性LLM评判相比，两者在错误类型上互补，结构化评判在隐蔽前提和虚构引用上优势显著。\nMotivation: 现有AI系统的可信度验证存在两难：形式化证明系统无法覆盖大部分问题分布，而标量LLM评判产生不透明且事后不可审计的分数，且存在与LLM一致的连贯性问题。\nMethod: Theoria将候选解答重写为一系列类型化状态转换，每一步都基于明确的理由（引用、计算或问题给定事实）授权，每个转换均可独立审计。基础不变性为变化的完整性：连续证明状态之间的每个差异都必须被解释，从而隐藏前提作为未经许可的突变浮出水面。\nResult: 在HLE-Verified Gold上，Theoria以91.4%的严格精确率认证105个问题（Wilson 95% CI [84.5%, 95.4%]）。在95个对抗性投毒证明上，结构化评判检测出94.7%，优于整体性评判的83.2%（p=0.0017）。在GPQA Diamond上，认证精确率为97.1%。\nConclusion: Theoria通过可审计的结构化验证弥补了形式化证明与LLM评判之间的差距，在需要可追溯推理的场景中具有优势，且与整体性LLM评判互补。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出Theoria，一种验证架构，通过将候选解答重写为带显式理由的类型化状态转换序列，实现可审计的推理步骤验证。在HLE-Verified Gold数据集上，Theoria以91.4%的严格精确率认证了105个问题，并产生可独立挑战的人类可读证明轨迹。与整体性LLM评判相比，两者在错误类型上互补，结构化评判在隐蔽前提和虚构引用上优势显著。",
+        "motivation": "现有AI系统的可信度验证存在两难：形式化证明系统无法覆盖大部分问题分布，而标量LLM评判产生不透明且事后不可审计的分数，且存在与LLM一致的连贯性问题。",
+        "method": "Theoria将候选解答重写为一系列类型化状态转换，每一步都基于明确的理由（引用、计算或问题给定事实）授权，每个转换均可独立审计。基础不变性为变化的完整性：连续证明状态之间的每个差异都必须被解释，从而隐藏前提作为未经许可的突变浮出水面。",
+        "result": "在HLE-Verified Gold上，Theoria以91.4%的严格精确率认证105个问题（Wilson 95% CI [84.5%, 95.4%]）。在95个对抗性投毒证明上，结构化评判检测出94.7%，优于整体性评判的83.2%（p=0.0017）。在GPQA Diamond上，认证精确率为97.1%。",
+        "conclusion": "Theoria通过可审计的结构化验证弥补了形式化证明与LLM评判之间的差距，在需要可追溯推理的场景中具有优势，且与整体性LLM评判互补。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.01197",
+      "title": "Quantum vs. Classical Machine Learning: A Unified Empirical Comparison",
+      "authors": [
+        "Chuanming Yu",
+        "Jiaming Liu",
+        "Zihao Ge",
+        "Xiongfei Wu",
+        "Lulu Zhu",
+        "Pengzhan Zhao",
+        "Jianjun Zhao"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.01197",
+      "pdf_url": "https://arxiv.org/pdf/2607.01197",
+      "abstract_en": "Quantum computing has emerged as a promising computational paradigm for machine learning (ML), with the potential to offer computational advantages over classical approaches. At this stage, the evidence supporting the performance and advantages of quantum machine learning (QML) models relative to classical models is insufficient. To address this gap, this paper presents an empirical study on the performance of QML models and their classical counterparts. We compare seven model pairs spanning supervised learning and reinforcement learning. Our results indicate that the evaluated quantum machine learning models do not yet surpass the classical baselines in overall prediction performance, policy stability, or training time. Nevertheless, QML remains a promising approach for filtering noise and controlling false positives. Our research findings summarize the challenges facing quantum machine learning across hardware environments, training efficiency, and convergence stability, providing a foundation for research into the robustness and parameter optimization of QML. This work is publicly available at https://github.com/Z-537-437/QML.",
+      "comment": "This paper has been accepted for a poster presentation at the 5th CCF Quantum Computation Conference (CQCC 2026) on August 3, 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文对量子机器学习（QML）模型与经典机器学习模型在监督学习和强化学习任务上进行了统一的实证比较，涉及七个模型对。结果表明，评估的QML模型在整体预测性能、策略稳定性或训练时间上尚未超越经典基线，但QML在噪声过滤和假阳性控制方面仍展现出潜力。研究总结了QML在硬件环境、训练效率和收敛稳定性方面的挑战。\nMotivation: 目前缺乏充分的证据支持量子机器学习模型在性能上优于经典模型，本文旨在通过系统的实证研究填补这一空白。\nMethod: 选取七对量子与经典机器学习模型，涵盖监督学习和强化学习任务，进行统一的性能比较。\nResult: 量子机器学习模型在整体预测性能、策略稳定性和训练时间上均未超过经典基线；但在过滤噪声和控制假阳性方面表现出潜力。\nConclusion: 量子机器学习仍面临硬件、训练效率和收敛稳定性等挑战，研究结果为QML的鲁棒性和参数优化提供了基础。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文对量子机器学习（QML）模型与经典机器学习模型在监督学习和强化学习任务上进行了统一的实证比较，涉及七个模型对。结果表明，评估的QML模型在整体预测性能、策略稳定性或训练时间上尚未超越经典基线，但QML在噪声过滤和假阳性控制方面仍展现出潜力。研究总结了QML在硬件环境、训练效率和收敛稳定性方面的挑战。",
+        "motivation": "目前缺乏充分的证据支持量子机器学习模型在性能上优于经典模型，本文旨在通过系统的实证研究填补这一空白。",
+        "method": "选取七对量子与经典机器学习模型，涵盖监督学习和强化学习任务，进行统一的性能比较。",
+        "result": "量子机器学习模型在整体预测性能、策略稳定性和训练时间上均未超过经典基线；但在过滤噪声和控制假阳性方面表现出潜力。",
+        "conclusion": "量子机器学习仍面临硬件、训练效率和收敛稳定性等挑战，研究结果为QML的鲁棒性和参数优化提供了基础。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.01083",
+      "title": "Staleness-Learning Rate Scaling Laws for Asynchronous RLHF",
+      "authors": [
+        "Jingwei Song",
+        "Haofeng Xu",
+        "Jie Xiao",
+        "Chengke Bao",
+        "Jingwei Shi",
+        "Pengbin Feng",
+        "Weixun Wang",
+        "Yuhang Han",
+        "Chuan Wu",
+        "Linfeng Zhang",
+        "Bill Shi"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2607.01083",
+      "pdf_url": "https://arxiv.org/pdf/2607.01083",
+      "abstract_en": "High-throughput RLHF systems often decouple rollout generation from policy optimization, leading to the use of stale rollouts during learner updates. In this work, we study the effect of such staleness in asynchronous GRPO. We make the behavior policy explicit in the GRPO surrogate objective and distinguish between the surrogate-gradient mapping used by the learner and the true total derivative of a distribution-dependent population objective. Under assumptions of local boundedness, distributional smoothness, and behavior-policy smoothness, we show that stale rollouts introduce a per-step surrogate-gradient bias of order O(S * eta), where S denotes the maximum rollout lag and eta denotes the learning rate. We further derive a conditional collapse-time scaling law: when within-cycle drift remains below a batch-level clipping radius, collapse is governed primarily by cumulative learner drift T * eta; when the stale-rollout constraint is active, stability instead depends explicitly on S * eta. This yields a two-constraint stability condition eta << min{R_batch / (S * G_upd), R_crit / (T * G_upd)}, explaining why the maximum stable learning rate may appear weakly dependent on staleness in the horizon-limited regime.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究异步RLHF中策略梯度使用的陈旧轨迹（stale rollouts）对优化稳定性的影响。通过理论分析，在异步GRPO框架下推导了陈旧轨迹引入的单步梯度偏置量级O(S * eta)，并建立了条件性崩溃缩放律，表明稳定性受限于累积学习器漂移或陈旧轨迹约束中的更紧者。\nMotivation: 高吞吐量RLHF系统通常将轨迹生成与策略优化解耦，导致学习器更新时使用陈旧轨迹，但其对优化稳定性的理论影响尚不明确。\nMethod: 将行为策略显式化到GRPO替代目标中，区分学习器使用的替代梯度映射与依赖于分布的真实总导数，并在局部有界性、分布平滑性和行为策略平滑性假设下进行理论推导。\nResult: 推导出陈旧轨迹引入的单步梯度偏置量级为O(S * eta)，并得出条件性崩溃缩放律：当期内漂移低于裁剪半径时，崩溃由累积学习器漂移T * eta主导；当陈旧轨迹约束激活时，稳定性由S * eta决定，最终得到双约束稳定性条件eta << min{R_batch / (S * G_upd), R_crit / (T * G_upd)}。\nConclusion: 该稳定性条件解释了最大稳定学习率在时间视野受限时为何可能对陈旧性依赖较弱，为异步RLHF的学习率调节提供了理论指导。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究异步RLHF中策略梯度使用的陈旧轨迹（stale rollouts）对优化稳定性的影响。通过理论分析，在异步GRPO框架下推导了陈旧轨迹引入的单步梯度偏置量级O(S * eta)，并建立了条件性崩溃缩放律，表明稳定性受限于累积学习器漂移或陈旧轨迹约束中的更紧者。",
+        "motivation": "高吞吐量RLHF系统通常将轨迹生成与策略优化解耦，导致学习器更新时使用陈旧轨迹，但其对优化稳定性的理论影响尚不明确。",
+        "method": "将行为策略显式化到GRPO替代目标中，区分学习器使用的替代梯度映射与依赖于分布的真实总导数，并在局部有界性、分布平滑性和行为策略平滑性假设下进行理论推导。",
+        "result": "推导出陈旧轨迹引入的单步梯度偏置量级为O(S * eta)，并得出条件性崩溃缩放律：当期内漂移低于裁剪半径时，崩溃由累积学习器漂移T * eta主导；当陈旧轨迹约束激活时，稳定性由S * eta决定，最终得到双约束稳定性条件eta << min{R_batch / (S * G_upd), R_crit / (T * G_upd)}。",
+        "conclusion": "该稳定性条件解释了最大稳定学习率在时间视野受限时为何可能对陈旧性依赖较弱，为异步RLHF的学习率调节提供了理论指导。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.01071",
+      "title": "MemSyco-Bench: Benchmarking Sycophancy in Agent Memory",
+      "authors": [
+        "Zhishang Xiang",
+        "Zerui Chen",
+        "Yunbo Tang",
+        "Zhimin Wei",
+        "Ruqin Ning",
+        "Yujie Lin",
+        "Qinggang Zhang",
+        "Jinsong Su"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.IR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.IR",
+      "abs_url": "https://arxiv.org/abs/2607.01071",
+      "pdf_url": "https://arxiv.org/pdf/2607.01071",
+      "abstract_en": "Memory has emerged as a cornerstone of modern LLM-based agents, supporting their evolution from single-turn assistants to long-term collaborators. However, memory is not always beneficial: retrieved memories often induce a critical issue of sycophancy, causing agents to over-align with the user at the cost of factual accuracy or objective reasoning. Despite this emerging risk, existing memory benchmarks primarily evaluate whether memories are correctly stored, retrieved, or updated, while overlooking how retrieved memories influence downstream reasoning and decision-making. To bridge this gap, we propose MemSyco-Bench, a comprehensive benchmark for evaluating memory-induced sycophancy in agent systems. MemSyco-Bench measures when memory should influence a decision and how valid memory should be used. Specifically, it covers five tasks that assess whether agents can reject memory as factual evidence, respect its applicable scope, resolve conflicts between memory and objective evidence, track memory updates, and use valid memory for personalization. All related resources are collected for the community at https://github.com/XMUDeepLIT/MemSyco-Bench.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出MemSyco-Bench，一个评估LLM智能体记忆中谄媚（sycophancy）问题的基准。基准包含五个任务，分别测试智能体拒绝记忆作为事实证据、尊重记忆适用范围、解决记忆与客观证据冲突、跟踪记忆更新、以及利用有效记忆进行个性化的能力。该工作强调记忆可能导致的过度迎合用户而牺牲事实准确性的风险。\nMotivation: 现有记忆基准主要评估记忆的正确存储、检索与更新，但忽略了检索到的记忆如何影响下游推理和决策，尤其是记忆可能引发谄媚问题，导致智能体牺牲事实准确性以迎合用户。\nMethod: 提出MemSyco-Bench基准，涵盖五个任务：拒绝记忆作为事实证据、尊重记忆适用范围、解决记忆与客观证据冲突、跟踪记忆更新、以及使用有效记忆进行个性化。\nResult: 摘要未报告具体实验结果，仅描述了基准的设计和任务定义。\nConclusion: 强调需要重视记忆引发的谄媚问题，并公开基准资源以供社区使用。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出MemSyco-Bench，一个评估LLM智能体记忆中谄媚（sycophancy）问题的基准。基准包含五个任务，分别测试智能体拒绝记忆作为事实证据、尊重记忆适用范围、解决记忆与客观证据冲突、跟踪记忆更新、以及利用有效记忆进行个性化的能力。该工作强调记忆可能导致的过度迎合用户而牺牲事实准确性的风险。",
+        "motivation": "现有记忆基准主要评估记忆的正确存储、检索与更新，但忽略了检索到的记忆如何影响下游推理和决策，尤其是记忆可能引发谄媚问题，导致智能体牺牲事实准确性以迎合用户。",
+        "method": "提出MemSyco-Bench基准，涵盖五个任务：拒绝记忆作为事实证据、尊重记忆适用范围、解决记忆与客观证据冲突、跟踪记忆更新、以及使用有效记忆进行个性化。",
+        "result": "摘要未报告具体实验结果，仅描述了基准的设计和任务定义。",
+        "conclusion": "强调需要重视记忆引发的谄媚问题，并公开基准资源以供社区使用。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00920",
+      "title": "GMO-E$^2$DIT: Grounded Multi-Operation Editing for E-Commerce Images",
+      "authors": [
+        "Zipeng Guo",
+        "Xiaoan Liu",
+        "Lichen Ma",
+        "Cheng Wang",
+        "Yu He",
+        "Xiaolong Fu",
+        "Jingling Fu",
+        "Xinyuan Shan",
+        "Shaojie Guo",
+        "Luohang Liu",
+        "Junshi Huang",
+        "Yan Li"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.00920",
+      "pdf_url": "https://arxiv.org/pdf/2607.00920",
+      "abstract_en": "Real-world e-commerce image editing often requires multiple, localized, and auditable operations rather than global restyling. This compositional nature poses a dual challenge: models must precisely apply all requested edits to the correct regions while preserving unmodified content, even under ambiguous instructions. Existing one-shot editors conflate intent resolution, spatial grounding, and synthesis into a single step, frequently resulting in partial execution failures, which is unacceptable for commercial scenarios. To address this, we introduce GMO-E$^2$DIT, an agentic editing framework that couples a Vision-Language Model (VLM) with a mask-conditioned image editor to tackle structured multi-turn task completion. Given an underspecified instruction, the VLM agent constructs a region-grounded edit agenda, effectively decoupling cognitive reasoning from generative rendering. The framework then executes sub-programs via operation-aware masks and references, utilizing a reflection-driven loop to inspect intermediate results and determine the subsequent state. This iterative mechanism reliably preserves safe partial progress, retries unfinished operations, and recovers from errors. Furthermore, we develop a unified data pipeline providing aligned supervision for planning, execution, and reflection, alongside EComEditBench, a comprehensive benchmark for instruction-driven evaluation. Extensive experiments demonstrate that GMO-E$^2$DIT achieves competitive performance compared to strong closed-source models, yielding superior instruction accuracy and edit fidelity over existing baselines.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出GMO-E$^2$DIT，一种基于智能体（agent）的多操作电商图像编辑框架，结合视觉-语言模型（VLM）和掩码条件图像编辑器，通过区域接地编辑议程分解推理与生成，并采用反思循环迭代执行子任务，实现精确、可审计的多步编辑。在EComEditBench基准上，该方法在指令准确性和编辑保真度上优于现有基线，接近强闭源模型。\nMotivation: 现有一次性图像编辑器在电商场景下难以处理多操作、可审计的局部编辑，常出现部分执行失败，而商业场景要求精确执行所有编辑指令并保持未修改内容不变。\nMethod: 提出智能体框架，VLM将模糊指令解析为区域接地编辑议程，解耦认知推理与生成渲染；通过操作感知掩码和参考执行子程序，并利用反思驱动循环检查中间结果、重试未完成操作、恢复错误。\nResult: 实验表明，GMO-E$^2$DIT在EComEditBench上相比现有基线实现更优的指令准确性和编辑保真度，性能接近强闭源模型。\nConclusion: 推理和生成的解耦结合迭代反思机制可有效提升电商图像多步编辑的可靠性和精度。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出GMO-E$^2$DIT，一种基于智能体（agent）的多操作电商图像编辑框架，结合视觉-语言模型（VLM）和掩码条件图像编辑器，通过区域接地编辑议程分解推理与生成，并采用反思循环迭代执行子任务，实现精确、可审计的多步编辑。在EComEditBench基准上，该方法在指令准确性和编辑保真度上优于现有基线，接近强闭源模型。",
+        "motivation": "现有一次性图像编辑器在电商场景下难以处理多操作、可审计的局部编辑，常出现部分执行失败，而商业场景要求精确执行所有编辑指令并保持未修改内容不变。",
+        "method": "提出智能体框架，VLM将模糊指令解析为区域接地编辑议程，解耦认知推理与生成渲染；通过操作感知掩码和参考执行子程序，并利用反思驱动循环检查中间结果、重试未完成操作、恢复错误。",
+        "result": "实验表明，GMO-E$^2$DIT在EComEditBench上相比现有基线实现更优的指令准确性和编辑保真度，性能接近强闭源模型。",
+        "conclusion": "推理和生成的解耦结合迭代反思机制可有效提升电商图像多步编辑的可靠性和精度。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00876",
+      "title": "The Binary Tree Mechanism is Optimal for Approximate Differentially Private Continual Counting",
+      "authors": [
+        "Konstantina Bairaktari",
+        "Kasper Green Larsen"
+      ],
+      "categories": [
+        "cs.CR",
+        "cs.DS",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.DS",
+      "abs_url": "https://arxiv.org/abs/2607.00876",
+      "pdf_url": "https://arxiv.org/pdf/2607.00876",
+      "abstract_en": "Private continual counting is a fundamental problem in differential privacy: given a binary stream of length $n$, where each $1$ corresponds to the contribution of one individual, the goal is to release all running counts while protecting the privacy of each individual. The standard algorithm is the binary tree mechanism, whose Gaussian-noise variant achieves expected $\\ell_\\infty$ error proportional to $\\log^{3/2} n$ for approximate differential privacy. Whether this dependence on the stream length is necessary has remained a central open problem. In this work, we resolve the dependence on $n$ by proving that every differentially private mechanism for continual counting must incur expected $\\ell_\\infty$ error $Ω(\\log^{3/2} n)$. This shows that the binary tree mechanism is asymptotically optimal in the approximate-DP setting. As a consequence, we also obtain a largest-possible separation between hereditary discrepancy and private $\\ell_\\infty$ error for linear queries, showing that the known general upper bound in terms of hereditary discrepancy has the optimal dependence on the number of queries.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文证明了在近似差分隐私（approximate differential privacy）设置下，连续计数（continual counting）问题的期望 ℓ∞ 误差下界为 Ω(log^{3/2} n)，从而表明二叉树机制（binary tree mechanism）的 Gaussian 噪声变体（误差 O(log^{3/2} n)）在渐近意义上是理论最优的。该结果还揭示了线性查询（linear queries）的继承差异（hereditary discrepancy）与私有 ℓ∞ 误差之间的最大可能分离。\nMotivation: 差分隐私连续计数是基础问题，但二叉树机制在近似 DP 下的误差是否在 n 上最优一直是未解决的核心问题。\nMethod: 通过构造性的下界证明，利用信息论和组合论证，证明任何连续计数机制的期望 ℓ∞ 误差必须至少为 Ω(log^{3/2} n)。\nResult: 证明了近似 DP 连续计数误差的下界与二叉树机制的上界匹配，即误差 Ω(log^{3/2} n)。\nConclusion: 二叉树机制对于近似差分隐私连续计数问题是渐近最优的，且该结果对线性查询的继承差异与私有误差关系有推论。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文证明了在近似差分隐私（approximate differential privacy）设置下，连续计数（continual counting）问题的期望 ℓ∞ 误差下界为 Ω(log^{3/2} n)，从而表明二叉树机制（binary tree mechanism）的 Gaussian 噪声变体（误差 O(log^{3/2} n)）在渐近意义上是理论最优的。该结果还揭示了线性查询（linear queries）的继承差异（hereditary discrepancy）与私有 ℓ∞ 误差之间的最大可能分离。",
+        "motivation": "差分隐私连续计数是基础问题，但二叉树机制在近似 DP 下的误差是否在 n 上最优一直是未解决的核心问题。",
+        "method": "通过构造性的下界证明，利用信息论和组合论证，证明任何连续计数机制的期望 ℓ∞ 误差必须至少为 Ω(log^{3/2} n)。",
+        "result": "证明了近似 DP 连续计数误差的下界与二叉树机制的上界匹配，即误差 Ω(log^{3/2} n)。",
+        "conclusion": "二叉树机制对于近似差分隐私连续计数问题是渐近最优的，且该结果对线性查询的继承差异与私有误差关系有推论。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00836",
+      "title": "From World Models to World Action Models: A Concise Tutorial for Robotics",
+      "authors": [
+        "Xiaoxiong Zhang",
+        "Xiong Zeng",
+        "Wei Zhang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO",
+        "eess.SY"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2607.00836",
+      "pdf_url": "https://arxiv.org/pdf/2607.00836",
+      "abstract_en": "World models are increasingly used in embodied intelligence and generative simulation, yet their scope remains ambiguous across communities. This tutorial presents a design-space view of world models as action-conditioned predictive models that estimate the future evolution of task-relevant observations or states. We categorize existing methods into observation-space and state-space world models, comparing their trade-offs in visual fidelity, spatial structure, physical interpretability, and control usability. We further introduce world action models, which connect predicted futures with executable robot actions, and summarize four representative paradigms: imagine-then-execute, video-feature-conditioned action prediction, joint video-action modeling, and auxiliary video prediction for policy learning. The goal of this tutorial is to clarify the conceptual scope of world (action) models and provide a structured taxonomy for embodied prediction and control.",
+      "comment": "Project page: https://clearlab-sustech.github.io/WorldModelSurvey/",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文是一篇面向机器人的世界模型（world model）与世界行动模型（world action model）的简明教程。作者将世界模型定义为动作条件下的预测模型，用以估计任务相关观测或状态的未来演化；并进一步提出世界行动模型，将预测的未来与可执行的机器人动作相连。教程综述了四种代表性范式，旨在澄清概念范围并提供结构化分类。\nMotivation: 世界模型在具身智能和生成模拟中的使用日益广泛，但其在不同社区中的定义和范围仍不明确，缺乏统一的分类框架。\nMethod: 以设计空间视角（design-space view）审视世界模型，将其分为观测空间世界模型（observation-space world model）和状态空间世界模型（state-space world model），比较它们在视觉逼真度、空间结构、物理解释性和控制可用性方面的权衡；并引入世界行动模型，总结四种范式：想象-执行（imagine-then-execute）、视频特征条件动作预测（video-feature-conditioned action prediction）、联合视频-动作建模（joint video-action modeling）以及辅助视频预测用于策略学习（auxiliary video prediction for policy learning）。\nResult: 提供了世界（行动）模型的概念梳理和结构化的分类法，旨在为具身预测与控制提供指南。\nConclusion: 本教程旨在澄清世界（行动）模型的概念范围，并为具身预测与控制提供结构化的分类体系。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文是一篇面向机器人的世界模型（world model）与世界行动模型（world action model）的简明教程。作者将世界模型定义为动作条件下的预测模型，用以估计任务相关观测或状态的未来演化；并进一步提出世界行动模型，将预测的未来与可执行的机器人动作相连。教程综述了四种代表性范式，旨在澄清概念范围并提供结构化分类。",
+        "motivation": "世界模型在具身智能和生成模拟中的使用日益广泛，但其在不同社区中的定义和范围仍不明确，缺乏统一的分类框架。",
+        "method": "以设计空间视角（design-space view）审视世界模型，将其分为观测空间世界模型（observation-space world model）和状态空间世界模型（state-space world model），比较它们在视觉逼真度、空间结构、物理解释性和控制可用性方面的权衡；并引入世界行动模型，总结四种范式：想象-执行（imagine-then-execute）、视频特征条件动作预测（video-feature-conditioned action prediction）、联合视频-动作建模（joint video-action modeling）以及辅助视频预测用于策略学习（auxiliary video prediction for policy learning）。",
+        "result": "提供了世界（行动）模型的概念梳理和结构化的分类法，旨在为具身预测与控制提供指南。",
+        "conclusion": "本教程旨在澄清世界（行动）模型的概念范围，并为具身预测与控制提供结构化的分类体系。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00780",
+      "title": "SpiralFovea: Input-Adaptive Foveated Tokenization as a Third Lever of Resource-Adaptive Inference",
+      "authors": [
+        "Kyan Mahajan",
+        "Mohammad Saqlain"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.00780",
+      "pdf_url": "https://arxiv.org/pdf/2607.00780",
+      "abstract_en": "Most adaptive-inference techniques for foundation models change what the model does - early exit, MoE routing, KV-cache compression, dynamic attention sparsity. The input that hits the backbone, however, remains a fixed-grid tokenisation indifferent to image content. We argue that this is a missed lever. We present SpiralFovea, a parameter-free, input-adaptive tokeniser in which token identity, location, scale, and count are all functions of local visual entropy and selection completes before any backbone parameter is queried. Around content-driven hotspot anchors, multi-scale spiral rings produce <= 78 patches that replace the standard 196-patch ViT grid at the input stage. Across four canonical fine-grained benchmarks, SpiralFovea yields +1.7-2.1 pp accuracy with a 60% reduction in input tokens, an 84% reduction in self-attention FLOPs at every transformer layer, and 18-29% throughput gains over the matched static tokenisation baseline. A controlled ablation on CUB-200-2011 Genus across four backbones reveals a clean diagnostic: the gain magnitude tracks inversely with the strength of the backbone's whole-image positional prior, isolating self-supervised foundation models as the regime where input-adaptive tokenisation is most valuable.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出SpiralFovea，一种无参数、输入自适应的令牌化方法，根据图像局部视觉熵动态调整令牌的身份、位置、尺度和数量，在送入视觉Transformer backbone之前完成。在四个细粒度基准上，相比标准ViT网格，该方法在减少60%输入令牌和84%自注意力FLOPs的同时，准确率提升1.7-2.1个百分点，吞吐量提升18-29%。\nMotivation: 现有自适应推理技术仅改变模型内部行为（如早退、MoE路由），而输入令牌化仍使用固定网格，忽略了图像内容自适应性的潜力。\nMethod: 提出SpiralFovea，一种基于局部视觉熵的输入自适应令牌化器，在内容驱动的热点锚点周围生成多尺度螺旋环，产生最多78个令牌，取代标准196令牌的ViT网格。\nResult: 在四个细粒度基准上，相比静态令牌化基线，准确率提升1.7-2.1个百分点，输入令牌减少60%，每层自注意力FLOPs减少84%，吞吐量提升18-29%。消融实验表明，增益大小与backbone的全局位置先验强度呈反比，自监督基础模型受益最大。\nConclusion: 输入自适应令牌化是资源自适应推理中被忽视的杠杆，SpiralFovea在保证精度前提下大幅降低计算成本，尤其适用于自监督基础模型。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出SpiralFovea，一种无参数、输入自适应的令牌化方法，根据图像局部视觉熵动态调整令牌的身份、位置、尺度和数量，在送入视觉Transformer backbone之前完成。在四个细粒度基准上，相比标准ViT网格，该方法在减少60%输入令牌和84%自注意力FLOPs的同时，准确率提升1.7-2.1个百分点，吞吐量提升18-29%。",
+        "motivation": "现有自适应推理技术仅改变模型内部行为（如早退、MoE路由），而输入令牌化仍使用固定网格，忽略了图像内容自适应性的潜力。",
+        "method": "提出SpiralFovea，一种基于局部视觉熵的输入自适应令牌化器，在内容驱动的热点锚点周围生成多尺度螺旋环，产生最多78个令牌，取代标准196令牌的ViT网格。",
+        "result": "在四个细粒度基准上，相比静态令牌化基线，准确率提升1.7-2.1个百分点，输入令牌减少60%，每层自注意力FLOPs减少84%，吞吐量提升18-29%。消融实验表明，增益大小与backbone的全局位置先验强度呈反比，自监督基础模型受益最大。",
+        "conclusion": "输入自适应令牌化是资源自适应推理中被忽视的杠杆，SpiralFovea在保证精度前提下大幅降低计算成本，尤其适用于自监督基础模型。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00766",
+      "title": "Decoupled Guidance: Disentangling Subject and Context Pathways in Text-to-Image Personalization",
+      "authors": [
+        "Seongmin Kim",
+        "Kyucheol Shin",
+        "Heesun Jung",
+        "Jinseo Kim",
+        "Sungyong Baik"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.00766",
+      "pdf_url": "https://arxiv.org/pdf/2607.00766",
+      "abstract_en": "Text-to-image personalization aims to generate a user-provided subject in novel scenes described by text. However, most existing methods encode subject identity (fidelity) and context (editability) through the same conditioning pathway, forcing the two to compete for attention-map resources. We refer to this phenomenon as conditioning entanglement and show that it induces a fidelity-editability trade-off. We further provide causal evidence by replacing the target subject token with a generic subject token, which produces shifts in attention allocation and corresponding changes in context adherence. To this end, we propose Decoupled Guidance (DeGu), a plug-and-play framework that routes subject identity and scene context through two independent guidance streams. We further introduce a spatial mixing mechanism that dynamically fuses these streams, ensuring each operates within its semantically relevant region without interference. Furthermore, DeGu can be readily applied to existing personalization methods without modifying the underlying backbone models, consistently improving the overall personalization performance while enabling inference-time control over the fidelity-editability balance, across diverse methods and backbones, including flow-matching Diffusion Transformers (DiTs).",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对文本到图像个性化中主题保真度与场景可编辑性之间的权衡问题，提出解耦引导方法（DeGu），将主题身份和场景上下文通过两个独立的引导流进行路由，并引入动态空间混合机制避免干扰。DeGu可作为即插即用模块应用于现有方法，无需修改骨干网络，在多种方法及扩散Transformer上一致提升性能，并允许推理时控制保真度-可编辑性平衡。\nMotivation: 现有方法通过同一条件路径编码主题身份与场景上下文，导致注意力资源竞争（条件纠缠），引发保真度-可编辑性权衡。作者通过因果实验证实该问题。\nMethod: 提出解耦引导（DeGu），包含两条独立引导流分别处理主题身份和场景上下文，并通过空间混合机制动态融合，确保各流在语义相关区域操作而不互相干扰。\nResult: 摘要称DeGu可应用于多种个性化方法和骨干网络（包括基于流匹配的扩散Transformer），一致提升整体个性化性能，并支持推理时控制保真度-可编辑性平衡。\nConclusion: DeGu通过解耦身份与上下文路径有效缓解条件纠缠带来的权衡，是一种轻量、即插即用的改进方案，且不依赖底层模型修改。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对文本到图像个性化中主题保真度与场景可编辑性之间的权衡问题，提出解耦引导方法（DeGu），将主题身份和场景上下文通过两个独立的引导流进行路由，并引入动态空间混合机制避免干扰。DeGu可作为即插即用模块应用于现有方法，无需修改骨干网络，在多种方法及扩散Transformer上一致提升性能，并允许推理时控制保真度-可编辑性平衡。",
+        "motivation": "现有方法通过同一条件路径编码主题身份与场景上下文，导致注意力资源竞争（条件纠缠），引发保真度-可编辑性权衡。作者通过因果实验证实该问题。",
+        "method": "提出解耦引导（DeGu），包含两条独立引导流分别处理主题身份和场景上下文，并通过空间混合机制动态融合，确保各流在语义相关区域操作而不互相干扰。",
+        "result": "摘要称DeGu可应用于多种个性化方法和骨干网络（包括基于流匹配的扩散Transformer），一致提升整体个性化性能，并支持推理时控制保真度-可编辑性平衡。",
+        "conclusion": "DeGu通过解耦身份与上下文路径有效缓解条件纠缠带来的权衡，是一种轻量、即插即用的改进方案，且不依赖底层模型修改。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00736",
+      "title": "Towards Robust Driving Perception: A Flexible Scale-Driven Family for Self-Supervised Monocular Depth Estimation",
+      "authors": [
+        "Zhaowen Zhu",
+        "Li Zhang",
+        "Yujie Chen",
+        "Tian Zhang",
+        "Yingjie Wang",
+        "Mingxia Zhan"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.00736",
+      "pdf_url": "https://arxiv.org/pdf/2607.00736",
+      "abstract_en": "Self-Supervised Monocular Depth Estimation (MDE) has garnered attention in recent years due to its independence from ground truth. However, most existing models are limited to a single scale and exhibit considerable performance degradation in complex driving environments. Networks specifically designed to handle dynamic traffic participants tend to be overly complex, hindering their deployment on resource-constrained automotive edge devices. To address these limitations and move towards robust driving perception, we propose FlexDepth, a scale-driven and flexible family of self-supervised MDE models tailored for challenging road scenarios. FlexDepth employs a two-stage static-dynamic decoupled training strategy, enabling the independent assessment of confidence for both static backgrounds and dynamic road objects. Furthermore, it introduces a meticulously designed Scale-Driven Decoder (SDD) to dynamically select components based on scale size, facilitating efficient feature fusion and the output of high-precision depth maps. Extensive experiments on standard driving benchmarks demonstrate that without any auxiliary information, our model achieves state-of-the-art performance across arbitrary scales with minimal computational overhead. Our smallest model, Flex-Nano, requires only 0.7 GFLOPs and achieves 37.6 FPS on mobile platforms, ensuring reliable real-time perception while maintaining excellent zero-shot generalization. Our source code is avalible: https://github.com/startnew/flexdepth",
+      "comment": "Accepted by ECCV2026. Code is available at https://github.com/startnew/flexdepth",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 该论文提出FlexDepth，一种面向自监督单目深度估计（MDE）的尺度驱动灵活模型族，旨在提升复杂驾驶环境中的鲁棒性。采用两阶段静态-动态解耦训练策略和尺度驱动解码器（SDD），在不依赖辅助信息的情况下，在标准驾驶基准上实现了跨任意尺度的最先进性能，最小模型Flex-Nano仅需0.7 GFLOPs，在移动平台上达到37.6 FPS。\nMotivation: 现有自监督MDE模型多局限于单一尺度，在复杂驾驶环境中性能下降明显；针对动态交通参与者的网络设计过于复杂，难以部署在资源受限的车载边缘设备上。\nMethod: 提出FlexDepth，包括两阶段静态-动态解耦训练策略（独立评估静态背景和动态道路目标的置信度）和尺度驱动解码器（SDD，根据尺度大小动态选择组件，实现高效特征融合和高精度深度图输出）。\nResult: 在标准驾驶基准上，无需辅助信息即实现跨任意尺度的最先进性能。最小模型Flex-Nano仅需0.7 GFLOPs，在移动平台上达到37.6 FPS，并保持优秀的零样本泛化能力。\nConclusion: FlexDepth通过尺度驱动设计和静态-动态解耦训练，在降低计算开销的同时提升了自监督MDE在复杂驾驶场景中的鲁棒性和实时性，适合车载边缘部署。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "该论文提出FlexDepth，一种面向自监督单目深度估计（MDE）的尺度驱动灵活模型族，旨在提升复杂驾驶环境中的鲁棒性。采用两阶段静态-动态解耦训练策略和尺度驱动解码器（SDD），在不依赖辅助信息的情况下，在标准驾驶基准上实现了跨任意尺度的最先进性能，最小模型Flex-Nano仅需0.7 GFLOPs，在移动平台上达到37.6 FPS。",
+        "motivation": "现有自监督MDE模型多局限于单一尺度，在复杂驾驶环境中性能下降明显；针对动态交通参与者的网络设计过于复杂，难以部署在资源受限的车载边缘设备上。",
+        "method": "提出FlexDepth，包括两阶段静态-动态解耦训练策略（独立评估静态背景和动态道路目标的置信度）和尺度驱动解码器（SDD，根据尺度大小动态选择组件，实现高效特征融合和高精度深度图输出）。",
+        "result": "在标准驾驶基准上，无需辅助信息即实现跨任意尺度的最先进性能。最小模型Flex-Nano仅需0.7 GFLOPs，在移动平台上达到37.6 FPS，并保持优秀的零样本泛化能力。",
+        "conclusion": "FlexDepth通过尺度驱动设计和静态-动态解耦训练，在降低计算开销的同时提升了自监督MDE在复杂驾驶场景中的鲁棒性和实时性，适合车载边缘部署。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00595",
+      "title": "GADA: Geometry-Aware Deformable Aggregation for Image-Based Gaussian Splatting",
+      "authors": [
+        "Siwoo Lim",
+        "Sunjae Yoon",
+        "Gwanhyeong Koo",
+        "Chang D. Yoo"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.00595",
+      "pdf_url": "https://arxiv.org/pdf/2607.00595",
+      "abstract_en": "Gaussian Splatting has achieved significant improvements by incorporating warping-based techniques. However, such methods suffer from pixel-level inaccuracies due to uncertain geometry. This uncertainty leads to spatial misalignments in the warped images, which disrupt residual learning used in warping-based methods and fundamentally limit the gains of correction, particularly on thin structures and high-frequency details. Driven by our insight that useful visual cues are not lost but locally preserved under slight displacement, we propose Geometry-Aware Deformable Aggregation (GADA). This method introduces an iterative refinement module with deformable offsets to actively correct spatial misalignments and recover these displaced cues. Furthermore, to address the limitations of standard pipelines where visibility checks (i.e., thresholding) often discard valid pixels and multi-view warped image fusion relies on naive mean aggregation, our module is coupled with an implicit confidence weighting mechanism that selectively suppresses unreliable evidence. Consequently, our approach outperforms prior warping-based Gaussian Splatting, preserving high-frequency quality while achieving 2.13 times faster FPS.",
+      "comment": "ICML 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出几何感知可变形聚合（GADA）方法，用于改进基于图像的高斯溅射（Gaussian Splatting）。GADA通过迭代变形偏移校正空间错位，并引入隐式置信权重机制融合多视图图像，解决基于翘曲的方法中像素级不准确和可见性检查丢弃有效像素的问题。实验表明，该方法在保持高频细节质量的同时，帧率提升2.13倍。\nMotivation: 现有基于翘曲的高斯溅射方法因不确定的几何导致像素级空间错位，尤其是薄结构和高频细节处，限制了校正效果。\nMethod: 提出GADA模块，包含可变形偏移的迭代细化模块以主动校正空间错位，并耦合隐式置信权重机制以抑制不可靠证据，替代标准流水线中的阈值可见性检查和均值融合。\nResult: 该方法优于先前基于翘曲的高斯溅射，在保持高频质量的同时，帧率提升2.13倍。\nConclusion: GADA有效解决了翘曲导致的几何错位问题，提升了图像基高斯溅射的重建质量和效率。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出几何感知可变形聚合（GADA）方法，用于改进基于图像的高斯溅射（Gaussian Splatting）。GADA通过迭代变形偏移校正空间错位，并引入隐式置信权重机制融合多视图图像，解决基于翘曲的方法中像素级不准确和可见性检查丢弃有效像素的问题。实验表明，该方法在保持高频细节质量的同时，帧率提升2.13倍。",
+        "motivation": "现有基于翘曲的高斯溅射方法因不确定的几何导致像素级空间错位，尤其是薄结构和高频细节处，限制了校正效果。",
+        "method": "提出GADA模块，包含可变形偏移的迭代细化模块以主动校正空间错位，并耦合隐式置信权重机制以抑制不可靠证据，替代标准流水线中的阈值可见性检查和均值融合。",
+        "result": "该方法优于先前基于翘曲的高斯溅射，在保持高频质量的同时，帧率提升2.13倍。",
+        "conclusion": "GADA有效解决了翘曲导致的几何错位问题，提升了图像基高斯溅射的重建质量和效率。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00499",
+      "title": "Prior-Anchored Debiasing for Long-Tailed Multi-Organ Pathology Report Generation",
+      "authors": [
+        "Feng Yang",
+        "Jie Liu",
+        "Yubo Pang",
+        "Peilin Chen",
+        "Xinheng Lyu",
+        "Shiqi Wang",
+        "Howard Leung",
+        "Ping Chen"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.00499",
+      "pdf_url": "https://arxiv.org/pdf/2607.00499",
+      "abstract_en": "Automated pathology report generation from Whole Slide Images (WSIs) has attracted increasing attention in digital pathology. However, existing methods are predominantly developed under single-organ settings, overlooking the multi-organ scenarios encountered in clinical practice, where organ types typically follow a long-tailed distribution. To address this gap, we identify two critical biases: (1) visual representation bias, where the encoder favors head-class patterns over tail-class discriminative features, and (2) textual decoding bias, where the decoder overfits to head-class narrative patterns, yielding diagnostically unreliable outputs for tail-class organs. To mitigate these two biases, we propose a novel Prior-anchored multi-Organ pathology report Generation framework (PriOrGen). Specifically, a Visual-Prototype Anchored Bottleneck module leverages the information bottleneck principle with learnable anchor representations to selectively retain diagnostically relevant visual information while filtering out head-biased redundancy. Secondly, a Meta-Report Anchored Bank module constructs an organ-specific meta-report anchored bank and retrieves organ-faithful textual priors to steer the decoder away from head-class narrative patterns. Extensive experiments on a multi-organ pathology dataset demonstrate that our method effectively mitigates long-tail biases and achieves superior report generation performance across both head and tail organ categories compared to state-of-the-art methods.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对多器官病理报告生成中的长尾分布问题，提出Prior-anchored多器官报告生成框架(PriOrGen)，通过视觉原型锚定瓶颈模块和元报告锚定库模块分别缓解视觉表征偏差和文本解码偏差。实验表明该方法在头尾类别上均优于现有方法。\nMotivation: 现有病理报告生成方法主要针对单器官场景，忽略了临床多器官场景中器官类型的长尾分布，导致模型对尾部器官的视觉表征和文本解码存在偏差。\nMethod: 提出Prior-anchored多器官病理报告生成框架(PriOrGen)，包含(1)视觉原型锚定瓶颈模块，利用信息瓶颈原理和可学习锚表示选择性保留诊断相关视觉信息；(2)元报告锚定库模块，构建器官特定的元报告锚定库，检索器官忠实先验以指导解码器避免头类叙事模式。\nResult: 在多器官病理数据集上的实验表明，该方法有效缓解长尾偏差，在头类和尾类器官类别上均取得了比现有方法更优的报告生成性能。\nConclusion: 本文通过引入先验锚定机制，同时缓解视觉和文本两个层面的长尾偏差，提升了多器官病理报告生成的诊断可靠性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对多器官病理报告生成中的长尾分布问题，提出Prior-anchored多器官报告生成框架(PriOrGen)，通过视觉原型锚定瓶颈模块和元报告锚定库模块分别缓解视觉表征偏差和文本解码偏差。实验表明该方法在头尾类别上均优于现有方法。",
+        "motivation": "现有病理报告生成方法主要针对单器官场景，忽略了临床多器官场景中器官类型的长尾分布，导致模型对尾部器官的视觉表征和文本解码存在偏差。",
+        "method": "提出Prior-anchored多器官病理报告生成框架(PriOrGen)，包含(1)视觉原型锚定瓶颈模块，利用信息瓶颈原理和可学习锚表示选择性保留诊断相关视觉信息；(2)元报告锚定库模块，构建器官特定的元报告锚定库，检索器官忠实先验以指导解码器避免头类叙事模式。",
+        "result": "在多器官病理数据集上的实验表明，该方法有效缓解长尾偏差，在头类和尾类器官类别上均取得了比现有方法更优的报告生成性能。",
+        "conclusion": "本文通过引入先验锚定机制，同时缓解视觉和文本两个层面的长尾偏差，提升了多器官病理报告生成的诊断可靠性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-01",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00250",
+      "title": "LV-ROVER-MLT: Low-Resource Maltese OCR by Multi-Stream Voting",
+      "authors": [
+        "Adam Darmanin"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2607.00250",
+      "pdf_url": "https://arxiv.org/pdf/2607.00250",
+      "abstract_en": "Maltese, although a low-resource language, has its own text corpora and pretrained language models, but we are aware of only one real labelled PDF corpus for OCR training, 57 pages, far below what paragraph-level training needs. With no real corpus to train on at scale, we built a synthetic training pipeline and a 5-stream Tesseract ensemble voted under a lexicon-anchored, ROVER-style scheme adapted for a low-resource setting. We call the Maltese submission LV-ROVER-MLT: an engineered adaptation of LV-ROVER's voting algorithm, not a new one, submitted to the DocEng 2026 competition. All results below are dev-set figures from the competition's own benchmark; the held-out real test CER is unknown at the time of writing and this paper does not claim one. We report results on a 422-paragraph benchmark against a fine-tuned Tesseract baseline with a character error rate of 0.0234. Ensemble recognition alone, scored under the same label convention as the baseline, improves character error rate by 44 percent to 0.01317. A post-processing chain that aligns Tesseract's straight-quote and dash output to the benchmark's curly-quote convention, plus one stage that recovers misread diacritics, brings the full pipeline to a character error rate of 0.00700, a 70 percent reduction. We also tested the same method, unchanged, on Hungarian and Luxembourgish: a bootstrap and permutation audit confirms a 33.7 percent character error rate improvement on Luxembourgish, while the Hungarian margin, 0.8 percent, is not statistically significant.",
+      "comment": "8 pages, 1 figure, 3 tables. Working paper for the DocEng 2026 Maltese Paragraph OCR Competition; Competition dev-set results only",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对低资源马耳他语OCR，构建合成训练流水线和5流Tesseract集成，使用基于词典的ROVER投票算法，并在后处理中修复引号样式和重读字符。在422段落的开发集上，字符错误率从基线0.0234降至0.00700（降幅70%），并在卢森堡语上验证了33.7%的改进，但匈牙利语改进不显著。\nMotivation: 马耳他语标注PDF语料仅57页，远低于段落级OCR训练需求，现有资源严重不足。\nMethod: 构建合成训练流水线，使用5个不同配置的Tesseract模型集成，通过基于词典锚定的ROVER投票算法融合输出，并添加后处理链以对齐引号样式和恢复误读的变音符号。\nResult: 在开发集上，集成识别将CER从0.0234降至0.01317（降44%），后处理链进一步降至0.00700（降70%）。在卢森堡语上获得33.7%的CER改进，匈牙利语改进0.8%不显著。\nConclusion: 该方法在低资源语言OCR上有效，但效果因语言而异；真实测试集CER未公布，且论文不声称该结果。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对低资源马耳他语OCR，构建合成训练流水线和5流Tesseract集成，使用基于词典的ROVER投票算法，并在后处理中修复引号样式和重读字符。在422段落的开发集上，字符错误率从基线0.0234降至0.00700（降幅70%），并在卢森堡语上验证了33.7%的改进，但匈牙利语改进不显著。",
+        "motivation": "马耳他语标注PDF语料仅57页，远低于段落级OCR训练需求，现有资源严重不足。",
+        "method": "构建合成训练流水线，使用5个不同配置的Tesseract模型集成，通过基于词典锚定的ROVER投票算法融合输出，并添加后处理链以对齐引号样式和恢复误读的变音符号。",
+        "result": "在开发集上，集成识别将CER从0.0234降至0.01317（降44%），后处理链进一步降至0.00700（降70%）。在卢森堡语上获得33.7%的CER改进，匈牙利语改进0.8%不显著。",
+        "conclusion": "该方法在低资源语言OCR上有效，但效果因语言而异；真实测试集CER未公布，且论文不声称该结果。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-30",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00224",
+      "title": "Sample Complexities of Estimating Gumbel--Max Watermark Proportions with and without Reduction to Pivotal Statistics",
+      "authors": [
+        "Shuwen Chai",
+        "Qiaosen Wang"
+      ],
+      "categories": [
+        "cs.IT",
+        "cs.LG",
+        "math.ST",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "math.ST",
+      "abs_url": "https://arxiv.org/abs/2607.00224",
+      "pdf_url": "https://arxiv.org/pdf/2607.00224",
+      "abstract_en": "Watermarking promises statistical traceability of large language model (LLM) uses, but real documents rarely arrive as purely human-written or purely LLM-generated. This motivates a quantitative question beyond detection: what proportion of a document is generated from a pre-specified watermarked LLM? We study this watermark proportion estimation problem under the Gumbel--max watermarking mechanism, treating the next-token prediction distributions as unknown and arbitrary nuisance parameters subject to a non-degeneracy condition. We compare two observation regimes: in the full observation regime, the estimator observes the pseudorandom vector and the selected token at each position; in the more prevalent setting of pivotal reduction, it observes only a scalar pivot, which follows a one-dimensional Uniform--Beta mixture distribution. Under pivotal reduction, we develop a Laguerre-polynomial estimator and establish a matching information-theoretic lower bound for the sample complexity. For full observation, we introduce an event-counting estimator and show a matching lower bound, yielding a substantially smaller sample complexity. As our results imply, although reducing to pivotal statistics is an elegant and prevalent choice, it is not always sample-efficient for estimating the proportion of watermarks.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文研究在Gumbel-max水印机制下，估计文档中由水印语言模型生成的比例的样本复杂度。比较了两种观测模式：完整观测（可见伪随机向量和所选token）和降维到枢轴统计量（仅观测一维标量）。在枢轴降维下，提出了Laguerre多项式估计器并证明了匹配的信息论下界；在完整观测下，提出了事件计数估计器，样本复杂度显著更低。结论表明，降维到枢轴统计量虽然常用，但在水印比例估计中并非样本高效。\nMotivation: 实际文档常混合人类和LLM生成内容，水印检测任务需超越二元检测，解决定量估计文档中水印比例的问题。\nMethod: 针对Gumbel-max水印机制，在枢轴降维下开发Laguerre多项式估计器，在完整观测下提出事件计数估计器，并推导匹配的信息论下界。\nResult: 完整观测的样本复杂度远低于枢轴降维；给出了两种设置下的样本复杂度上界与下界。\nConclusion: 降维到枢轴统计量虽优雅，但在估计水印比例时样本效率较低，完整观测更优。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文研究在Gumbel-max水印机制下，估计文档中由水印语言模型生成的比例的样本复杂度。比较了两种观测模式：完整观测（可见伪随机向量和所选token）和降维到枢轴统计量（仅观测一维标量）。在枢轴降维下，提出了Laguerre多项式估计器并证明了匹配的信息论下界；在完整观测下，提出了事件计数估计器，样本复杂度显著更低。结论表明，降维到枢轴统计量虽然常用，但在水印比例估计中并非样本高效。",
+        "motivation": "实际文档常混合人类和LLM生成内容，水印检测任务需超越二元检测，解决定量估计文档中水印比例的问题。",
+        "method": "针对Gumbel-max水印机制，在枢轴降维下开发Laguerre多项式估计器，在完整观测下提出事件计数估计器，并推导匹配的信息论下界。",
+        "result": "完整观测的样本复杂度远低于枢轴降维；给出了两种设置下的样本复杂度上界与下界。",
+        "conclusion": "降维到枢轴统计量虽优雅，但在估计水印比例时样本效率较低，完整观测更优。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-30",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00063",
+      "title": "Spectral Geometry and Bosonic-Bloch Probes: Explorations in Quantum Learning",
+      "authors": [
+        "Santanu Ganguly",
+        "Xing Liang",
+        "Dimitrios Makris"
+      ],
+      "categories": [
+        "cs.AI",
+        "quant-ph"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "quant-ph",
+      "abs_url": "https://arxiv.org/abs/2607.00063",
+      "pdf_url": "https://arxiv.org/pdf/2607.00063",
+      "abstract_en": "This paper studies how spectral geometry emerges in quantum learning models and how it can be diagnosed with physically grounded probes. In graph-regularized quantum networks, training reorganizes the output similarity graph, increases the effective spectral dimension Delta S = +0.23, and reshapes the Laplacian spectrum. Edge-resolved two-boson interference directly probes this restructuring: the bosonic enhancement Delta P_uv correlates with the Fiedler edge split |Delta v_2| (r = -0.50), linking learned spectral partitions to interference signatures. A phase diagram shows a nonmonotonic dependence of performance on coupling strength gamma and noise delta, with graph regularization improving fidelity only in a restricted regime; hardware experiments confirm the predicted interference behavior within shot-noise uncertainty. We also analyze a hybrid quantum autoencoder and introduce Bloch-space drift as a geometric diagnostic of its latent representation. With an unsupervised benign-data threshold, the model achieves high ranking performance (ROC-AUC about 0.99) and negligible false-negative rates. Absolute Bloch drift strongly discriminates anomalies (ROC-AUC at least about 0.9), while consecutive drift is near random (ROC-AUC about 0.5), showing that detection arises from persistent state-space displacement rather than local fluctuations. Through the geometry of reduced single-qubit states and associated quantum Fisher information, these results show that learning-induced spectral organization appears as measurable quantum-state structure, establishing a unified spectral-geometric framework for diagnosing quantum learning systems with bosonic and Bloch probes.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 该论文研究量子学习模型中谱几何的涌现及其可通过物理探针诊断。图正则化的量子网络训练会重组输出相似性图，提高有效谱维数ΔS=+0.23，并重塑拉普拉斯谱。边缘分辨的双玻色子干涉直接探测这种重组：玻色子增强ΔP_uv与Fiedler边缘分裂|Δv_2|相关（r=-0.50）。性能对耦合强度γ和噪声δ表现出非单调依赖，图正则化仅在有限区间提升保真度；硬件实验验证了预测的干涉行为。混合量子自编码器引入布洛赫空间漂移作为隐表示的几何诊断，在无监督良性数据阈值下达到高排序性能（ROC-AUC约0.99）和极低假阴率。\nMotivation: 量子学习模型中谱几何的涌现机制尚不明确，缺乏物理可解释的诊断工具。\nMethod: 通过图正则化量子网络、双玻色子干涉探针、布洛赫空间漂移及量子Fisher信息，构建统一的谱几何框架。\nResult: 谱维数增加0.23；玻色子增强与谱分裂相关（r=-0.50）；布洛赫漂移实现高异常检测性能（ROC-AUC≥0.9）。\nConclusion: 学习诱导的谱组织表现为可测量的量子态结构，建立了用玻色子和布洛赫探针诊断量子学习系统的谱几何框架。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "该论文研究量子学习模型中谱几何的涌现及其可通过物理探针诊断。图正则化的量子网络训练会重组输出相似性图，提高有效谱维数ΔS=+0.23，并重塑拉普拉斯谱。边缘分辨的双玻色子干涉直接探测这种重组：玻色子增强ΔP_uv与Fiedler边缘分裂|Δv_2|相关（r=-0.50）。性能对耦合强度γ和噪声δ表现出非单调依赖，图正则化仅在有限区间提升保真度；硬件实验验证了预测的干涉行为。混合量子自编码器引入布洛赫空间漂移作为隐表示的几何诊断，在无监督良性数据阈值下达到高排序性能（ROC-AUC约0.99）和极低假阴率。",
+        "motivation": "量子学习模型中谱几何的涌现机制尚不明确，缺乏物理可解释的诊断工具。",
+        "method": "通过图正则化量子网络、双玻色子干涉探针、布洛赫空间漂移及量子Fisher信息，构建统一的谱几何框架。",
+        "result": "谱维数增加0.23；玻色子增强与谱分裂相关（r=-0.50）；布洛赫漂移实现高异常检测性能（ROC-AUC≥0.9）。",
+        "conclusion": "学习诱导的谱组织表现为可测量的量子态结构，建立了用玻色子和布洛赫探针诊断量子学习系统的谱几何框架。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-30",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00056",
+      "title": "Active Sensing for RIS-Aided Tracking and Power Control: A Hybrid Neuroevolution and Supervised Learning Approach",
+      "authors": [
+        "George Stamatelis",
+        "Hui Chen",
+        "Henk Henk Wymeersch",
+        "George C. Alexandropoulos"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.IT",
+        "cs.MA",
+        "cs.NI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.IT",
+      "abs_url": "https://arxiv.org/abs/2607.00056",
+      "pdf_url": "https://arxiv.org/pdf/2607.00056",
+      "abstract_en": "This paper studies energy efficient tracking of power-limited mobile users with the assistance of a Reconfigurable Intelligent Surface (RIS). Since localization pilot transmissions dominate the energy budget of power-constrained devices, we introduce a low-overhead feedback link from the Base Station (BS) to the user to enable dynamic uplink power control. To navigate the discrete and decentralized nature of this active sensing problem, we propose a novel Dual-Agent (DA) deep learning framework that jointly optimizes the discrete RIS phase profiles and the UE's transmit power in real time. Specifically, our approach employs a hybrid training methodology integrating the neuroevolution paradigm with supervised learning, effectively overcoming the non-differentiability of discrete phase responses from the RIS unit elements and the strict information bottleneck of single-bit feedback messages for pilot power control. The proposed DA active sensing framework can be applied with both single- and multi-antenna BSs, the latter with only minor modifications in the structure of one NN: an additional output branch with appropriate structure is included for the latter case to select a valid digital combiner from a finite set. Extensive numerical simulations demonstrate that the proposed scheme achieves highly accurate and robust tracking across diverse target motion models, outperforming extended Kalman and particle filters, as well as, machine learning-based trackers. Furthermore, in static localization, it is shown to significantly outperform traditional fingerprinting schemes, deep reinforcement learning baselines, and standard backpropagation-based estimators.",
+      "comment": "Submitted to an IEEE journal, 15 pages",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种基于混合神经进化与监督学习的双智能体深度强化学习框架，用于可重构智能表面辅助的能量高效移动用户跟踪与功率控制。该方法联合优化离散RIS相位配置和用户发射功率，通过单比特反馈实现动态上行功率控制，在多种运动模型下实现高精度鲁棒跟踪。\nMotivation: 功率受限移动设备的定位导频传输能耗占比高，需要低开销的动态功率控制。RIS相位配置的离散性和单比特反馈的信息瓶颈使得传统优化方法难以处理。\nMethod: 提出双智能体深度框架，一个智能体选择RIS相位配置，另一个控制用户发射功率。采用混合训练：神经进化处理离散相位不可微问题，监督学习优化单比特反馈策略。支持单/多天线基站，多天线时在神经网络添加额外输出分支选择数字合并器。\nResult: 仿真显示该方案在多种运动模型下跟踪精度和鲁棒性优于扩展卡尔曼滤波、粒子滤波及基于机器学习的跟踪器。静态定位中显著优于传统指纹定位、深度强化学习基线及标准反向传播估计器。\nConclusion: 提出的RIS辅助主动感知框架能够高效实现能量受限用户的实时跟踪与功率控制，适用于单/多天线基站场景。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种基于混合神经进化与监督学习的双智能体深度强化学习框架，用于可重构智能表面辅助的能量高效移动用户跟踪与功率控制。该方法联合优化离散RIS相位配置和用户发射功率，通过单比特反馈实现动态上行功率控制，在多种运动模型下实现高精度鲁棒跟踪。",
+        "motivation": "功率受限移动设备的定位导频传输能耗占比高，需要低开销的动态功率控制。RIS相位配置的离散性和单比特反馈的信息瓶颈使得传统优化方法难以处理。",
+        "method": "提出双智能体深度框架，一个智能体选择RIS相位配置，另一个控制用户发射功率。采用混合训练：神经进化处理离散相位不可微问题，监督学习优化单比特反馈策略。支持单/多天线基站，多天线时在神经网络添加额外输出分支选择数字合并器。",
+        "result": "仿真显示该方案在多种运动模型下跟踪精度和鲁棒性优于扩展卡尔曼滤波、粒子滤波及基于机器学习的跟踪器。静态定位中显著优于传统指纹定位、深度强化学习基线及标准反向传播估计器。",
+        "conclusion": "提出的RIS辅助主动感知框架能够高效实现能量受限用户的实时跟踪与功率控制，适用于单/多天线基站场景。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-30",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00032",
+      "title": "The MMM Data Model -- A Normative Specification for Knowledge Interoperability in a Decentralisable Knowledge Commons",
+      "authors": [
+        "Mathilde Noual"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2607.00032",
+      "pdf_url": "https://arxiv.org/pdf/2607.00032",
+      "abstract_en": "Many information systems are built around documents: self-contained units optimised for print production and linear reading. While effective for large-scale dissemination, the document-centric organisation constrains how knowledge can be structured, updated, shared, and reused. Formal approaches address some of these limitations but struggle to achieve widespread contribution and adoption due to their prioritisation of formal structure over other system properties such as human usability and scope. AI systems are reshaping document production, but without providing a unified portable alternative to traditional documents for humans' expression and exchange of knowledge. This paper presents MMM, a data model for knowledge documentation that emerged from the practical needs of interdisciplinary collaborative research, and positioned here within a comparative analysis of the design space of information systems. MMM combines a small set of normative constraints with the expressive freedom of free-text labels. It is designed for interoperability across disciplines, applications and deployments without requiring semantic convergence. A reference implementation and pilot deployment data demonstrate implementability and early usability.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出MMM数据模型，一种用于知识互操作性的规范性规范，旨在解决文档中心信息系统在知识结构化、更新、共享和重用方面的局限性。模型结合少量规范性约束和自由文本标签的表达自由，支持跨学科、跨应用和跨部署的互操作性，无需语义收敛。参考实现和试点部署数据展示了可实施性和早期可用性。\nMotivation: 现有文档中心信息系统限制了知识的结构化、更新、共享和重用；形式化方法虽然解决了部分问题但因优先考虑形式结构而难以广泛采用；AI系统改变了文档生产但未提供统一的便携替代方案。\nMethod: 提出MMM数据模型，通过一组小规模的规范性约束与自由文本标签相结合，设计上注重跨学科互操作性，无需语义收敛，并提供了参考实现。\nResult: 摘要报告了参考实现和试点部署数据，证明了模型的可实施性和早期可用性。\nConclusion: MMM模型为知识文档提供了一种去中心化知识共享的便携式替代方案，通过平衡规范性与表达自由来实现跨领域互操作。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出MMM数据模型，一种用于知识互操作性的规范性规范，旨在解决文档中心信息系统在知识结构化、更新、共享和重用方面的局限性。模型结合少量规范性约束和自由文本标签的表达自由，支持跨学科、跨应用和跨部署的互操作性，无需语义收敛。参考实现和试点部署数据展示了可实施性和早期可用性。",
+        "motivation": "现有文档中心信息系统限制了知识的结构化、更新、共享和重用；形式化方法虽然解决了部分问题但因优先考虑形式结构而难以广泛采用；AI系统改变了文档生产但未提供统一的便携替代方案。",
+        "method": "提出MMM数据模型，通过一组小规模的规范性约束与自由文本标签相结合，设计上注重跨学科互操作性，无需语义收敛，并提供了参考实现。",
+        "result": "摘要报告了参考实现和试点部署数据，证明了模型的可实施性和早期可用性。",
+        "conclusion": "MMM模型为知识文档提供了一种去中心化知识共享的便携式替代方案，通过平衡规范性与表达自由来实现跨领域互操作。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-06-22",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00017",
+      "title": "Learning User-Aware Recall: Personalized Retrieval in Long-Term Conversational Memory",
+      "authors": [
+        "ZhiShu Jiang",
+        "Haibo Liu",
+        "Xin Shen",
+        "Guanqiang QI",
+        "Chenxi Miao",
+        "Weikang Li",
+        "Liwei Qian",
+        "Xin Pei",
+        "Jizhou Huang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.IR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.IR",
+      "abs_url": "https://arxiv.org/abs/2607.00017",
+      "pdf_url": "https://arxiv.org/pdf/2607.00017",
+      "abstract_en": "Long-term conversational agents are expected to remember past interactions, but memory is useful only when the right evidence is recalled for the right user. Existing memory-augmented LLM agents have made progress in building compact memory banks, yet retrieval is still often driven by query-centered similarity or fixed ranking rules, leaving user-conditioned relevance underexplored. To address this gap, we propose Profile-guided Personalized Retrieval Optimization (PPRO), a retrieval-centric framework that makes memory retrieval both user-aware and optimizable. PPRO builds episodic and semantic memory banks from dialogue histories and derives a user profile from accumulated memories. The profile serves as an explicit personalized prior in memory ranking, allowing retrieval to account for stable user attributes, preferences, and relationships. PPRO further trains a query rewriter with Group Relative Policy Optimization, using both evidence retrieval quality and downstream answer quality as feedback while keeping the memory banks and answer model fixed. Experiments on LoCoMo and LongMemEval-S show consistent gains over training-free memory systems and training-based baselines. Ablation studies further show that both profile-guided ranking and retrieval-oriented rewriting contribute substantially to performance, highlighting retrieval optimization as a key factor in personalized long-term memory use.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文针对长期对话智能体中的记忆检索问题，提出PPRO框架，通过构建用户画像引导记忆排序，并训练查询重写器来优化检索，在LoCoMo和LongMemEval-S上取得一致提升。\nMotivation: 现有记忆增强LLM的检索主要基于查询相似性或固定排序规则，缺乏用户条件化的相关性考虑。\nMethod: 提出Profile-guided Personalized Retrieval Optimization (PPRO)，构建情节和语义记忆库，从积累记忆中派生用户画像作为个性化先验，使用Group Relative Policy Optimization训练查询重写器，以证据检索质量和下游答案质量作为反馈。\nResult: 在LoCoMo和LongMemEval-S上取得一致性能提升，消融实验表明画像引导排序和检索重写均贡献显著。\nConclusion: 强调检索优化是提升个性化长期记忆使用的关键因素。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文针对长期对话智能体中的记忆检索问题，提出PPRO框架，通过构建用户画像引导记忆排序，并训练查询重写器来优化检索，在LoCoMo和LongMemEval-S上取得一致提升。",
+        "motivation": "现有记忆增强LLM的检索主要基于查询相似性或固定排序规则，缺乏用户条件化的相关性考虑。",
+        "method": "提出Profile-guided Personalized Retrieval Optimization (PPRO)，构建情节和语义记忆库，从积累记忆中派生用户画像作为个性化先验，使用Group Relative Policy Optimization训练查询重写器，以证据检索质量和下游答案质量作为反馈。",
+        "result": "在LoCoMo和LongMemEval-S上取得一致性能提升，消融实验表明画像引导排序和检索重写均贡献显著。",
+        "conclusion": "强调检索优化是提升个性化长期记忆使用的关键因素。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-05-28",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2605.11492",
+      "title": "A Mimetic Detector for Adversarial Image Perturbations",
+      "authors": [
+        "Johnny Corbino"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2605.11492",
+      "pdf_url": "https://arxiv.org/pdf/2605.11492",
+      "abstract_en": "Adversarial attacks fool deep image classifiers by adding tiny, almost invisible noise patterns to a clean image. The standard $\\ell^\\infty$-bounded attacks (FGSM and PGD) produce high-frequency, near-random sign patterns at the pixel level: small in $\\ell^2$, but carrying disproportionate gradient energy. We exploit this with a single-shot, training-free detector using the high-order Corbino-Castillo mimetic operators from the open-source MOLE library. No retraining, no surrogate classifier, no access to the network under attack: the verdict is a property of the input alone, computed in $O(HW)$ time. We illustrate the detector on the standard \"peppers\" test image: untargeted FGSM and PGD attacks at the $\\ell^\\infty$ budget $\\varepsilon = 16/255$ flip SqueezeNet's prediction from \"bell pepper\" to \"doormat\" (FGSM) and \"maraca\" (PGD), and the detector separates these adversarial inputs from the clean image by $4.1\\times$-$5.0\\times$ (FGSM) and $1.9\\times$-$2.2\\times$ (PGD). The margin grows monotonically with the operator order $k$, while an equal-amplitude smooth perturbation leaves the statistic within 1% of its clean value.",
+      "comment": "v4: Attack characterization scoped to FGSM/PGD and the Carlini-Wagner remark qualified accordingly; attribution of the epsilon = 16/255 budget corrected; PGD explicitly stated to use no random initialization (reported values exactly reproducible); minor wording fixes. Method, experiments, and results unchanged",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出一种单次、无需训练的对抗性图像扰动检测器，利用开源的 MOLE 库中的高阶 Corbino-Castillo 模拟算子。该检测器不需要重新训练、替代分类器或访问被攻击网络，仅基于输入本身在 O(HW) 时间内作出判决。在标准测试图像“peppers”上，针对 ℓ∞ 预算 ε=16/255 的 FGSM 和 PGD 攻击，检测器能将对抗样本与干净图像分离 4.1×–5.0×（FGSM）和 1.9×–2.2×（PGD），且分离幅度随算子阶数 k 单调增长，而等幅度的平滑扰动对统计量影响小于 1%。\nMotivation: 现有的对抗性攻击检测方法常需要重训练或访问被攻击网络，本文旨在设计一种仅依赖输入图像本身、无需训练或网络先验的轻量级检测方案。\nMethod: 使用高阶 Corbino-Castillo 模拟算子（来自 MOLE 库）进行单次、无训练的检测，计算复杂度为 O(HW)，不依赖任何分类器或额外训练数据。\nResult: 在 peppers 图像上，针对 ε=16/255 的 FGSM 和 PGD 攻击，检测器将对抗样本与干净图像的分离幅度分别为 4.1×–5.0× 和 1.9×–2.2×，且随算子阶数 k 单调增大；等幅度平滑扰动（非对抗性）仅引起不到 1% 的统计量变化。\nConclusion: 该方法作为一种仅基于输入属性的免训练检测器，能有效检测 ℓ∞ 有界对抗扰动，且对平滑自然扰动具有鲁棒性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出一种单次、无需训练的对抗性图像扰动检测器，利用开源的 MOLE 库中的高阶 Corbino-Castillo 模拟算子。该检测器不需要重新训练、替代分类器或访问被攻击网络，仅基于输入本身在 O(HW) 时间内作出判决。在标准测试图像“peppers”上，针对 ℓ∞ 预算 ε=16/255 的 FGSM 和 PGD 攻击，检测器能将对抗样本与干净图像分离 4.1×–5.0×（FGSM）和 1.9×–2.2×（PGD），且分离幅度随算子阶数 k 单调增长，而等幅度的平滑扰动对统计量影响小于 1%。",
+        "motivation": "现有的对抗性攻击检测方法常需要重训练或访问被攻击网络，本文旨在设计一种仅依赖输入图像本身、无需训练或网络先验的轻量级检测方案。",
+        "method": "使用高阶 Corbino-Castillo 模拟算子（来自 MOLE 库）进行单次、无训练的检测，计算复杂度为 O(HW)，不依赖任何分类器或额外训练数据。",
+        "result": "在 peppers 图像上，针对 ε=16/255 的 FGSM 和 PGD 攻击，检测器将对抗样本与干净图像的分离幅度分别为 4.1×–5.0× 和 1.9×–2.2×，且随算子阶数 k 单调增大；等幅度平滑扰动（非对抗性）仅引起不到 1% 的统计量变化。",
+        "conclusion": "该方法作为一种仅基于输入属性的免训练检测器，能有效检测 ℓ∞ 有界对抗扰动，且对平滑自然扰动具有鲁棒性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-05-12",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.00007",
+      "title": "BaRA: Budget-constrained and Reliable Web Data Collection Agent",
+      "authors": [
+        "Soojeong Lee",
+        "Joseph Lee",
+        "Yongseong Cho",
+        "Sunjae Kim",
+        "Youngwoo Moon",
+        "Kyungwoo Song"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.IR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.IR",
+      "abs_url": "https://arxiv.org/abs/2607.00007",
+      "pdf_url": "https://arxiv.org/pdf/2607.00007",
+      "abstract_en": "Large language model (LLM)-based web agents automate web navigation and data collection. However, live web data collection demands capabilities beyond task completion: agents must discover site-internal pages and retrieve text, image, and video artifacts in an accessible form within a fixed interaction budget. We formulate this setting as budget-constrained, site-level multimodal web data collection and propose Budget-constrained and Reliable Agent (BaRA). BaRA performs breadth-first search (BFS)-based link discovery with liveness verification to filter hallucinated and dead links, then validates extracted multimodal artifacts using rule-based provenance and accessibility checks. A history-based self-reflection module recovers from execution failures and incomplete outputs. On controlled synthetic and real-world websites, BaRA consistently improves valid-link discovery and download-valid multimodal extraction over existing agents. Our code is available at https://github.com/MLAI-Yonsei/BaRA-Agent.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出BaRA，一个预算受限且可靠的网络数据收集智能体，专注于网站级多模态数据收集。它通过广度优先搜索进行链接发现，并使用活跃性验证过滤幻觉和死链接，然后通过基于规则的来源和可访问性检查验证提取的多模态工件。历史自反思模块用于从执行失败和不完整输出中恢复。在合成和真实网站上，BaRA在有效链接发现和有效多模态提取方面优于现有智能体。\nMotivation: 现有基于LLM的网络智能体主要关注任务完成，但在预算受限的网站级多模态数据收集中，需要发现站内页面并提取可访问的文本、图像和视频内容，现有方法存在链接幻觉、死链接和无用工件的问题。\nMethod: 提出BaRA，包含BFS链接发现与活跃性验证、基于规则的多模态工件验证、以及历史自反思模块。\nResult: 在合成和真实网站上，BaRA持续提升了有效链接发现和有效多模态提取的性能，优于现有智能体。\nConclusion: BaRA为预算受限的网站级多模态数据收集提供了可靠方案，通过验证和自反思机制提升了数据质量。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出BaRA，一个预算受限且可靠的网络数据收集智能体，专注于网站级多模态数据收集。它通过广度优先搜索进行链接发现，并使用活跃性验证过滤幻觉和死链接，然后通过基于规则的来源和可访问性检查验证提取的多模态工件。历史自反思模块用于从执行失败和不完整输出中恢复。在合成和真实网站上，BaRA在有效链接发现和有效多模态提取方面优于现有智能体。",
+        "motivation": "现有基于LLM的网络智能体主要关注任务完成，但在预算受限的网站级多模态数据收集中，需要发现站内页面并提取可访问的文本、图像和视频内容，现有方法存在链接幻觉、死链接和无用工件的问题。",
+        "method": "提出BaRA，包含BFS链接发现与活跃性验证、基于规则的多模态工件验证、以及历史自反思模块。",
+        "result": "在合成和真实网站上，BaRA持续提升了有效链接发现和有效多模态提取的性能，优于现有智能体。",
+        "conclusion": "BaRA为预算受限的网站级多模态数据收集提供了可靠方案，通过验证和自反思机制提升了数据质量。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-05-02",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2604.25421",
+      "title": "FED-FSTQ: Fisher-Guided Token Quantization for Communication-Efficient Federated Fine-Tuning of LLMs on Edge Devices",
+      "authors": [
+        "Changyu Li",
+        "Shuanghong Huang",
+        "Jiashen Liu",
+        "Ming Lei",
+        "Jidu Xing",
+        "Kaishun Wu",
+        "Lu Wang",
+        "Fei Luo"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2604.25421",
+      "pdf_url": "https://arxiv.org/pdf/2604.25421",
+      "abstract_en": "Federated fine-tuning provides a practical route to adapt large language models (LLMs) on edge devices without centralizing private data. However, in mobile deployments, the training wall-clock is often dominated by straggler-limited uplink communication under heterogeneous bandwidth, intermittent participation, and non-IID client data. Although parameter-efficient fine-tuning (PEFT) methods such as LoRA and QLoRA reduce local memory and trainable parameters, repeated transmission of adapter updates remains a major bottleneck. We propose Fed-FSTQ, a semantic-sensitivity-aware communication-control primitive for communication-efficient federated LLM fine-tuning. Fed-FSTQ uses a lightweight token-level Fisher proxy to estimate semantic sensitivity, couples token-guided sparsification with mixed-precision adapter-update quantization, and allocates higher communication fidelity to semantically load-bearing evidence while suppressing redundant transmission. The method is drop-in compatible with standard federated PEFT pipelines and requires no change to the server aggregation rule. Experiments on multilingual QA and medical QA under non-IID partitions show that Fed-FSTQ reduces cumulative uplink traffic required to reach a fixed quality threshold by 46-fold relative to a Fed-LoRA baseline and improves straggler-limited wall-clock time-to-accuracy by 52%. Under the corrected Controlled LTE-20Mbps accounting, Fed-FSTQ reduces per-round time from 414.60s to 67.29s and reduces per-round energy from 839.20J to 146.28J, yielding a 6.16-fold speedup. On NVIDIA Jetson-class edge devices, Fisher-guided token reduction also yields up to a 1.55-fold inference speedup, demonstrating deployability under tight resource constraints.",
+      "comment": "18 pages, 14 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 本文提出 Fed-FSTQ，一种基于Fisher信息引导的 token 级量化方法，用于边缘设备上大语言模型的联邦微调。该方法通过 token 级 Fisher 代理估计语义敏感性，结合稀疏化和混合精度量化，在非 IID 数据分布下将上行通信量减少 46 倍，并将 wall-clock time-to-accuracy 提高 52%，同时兼容现有联邦 PEFT 流程。\nMotivation: 联邦微调中，异构带宽、间歇参与和非 IID 数据导致上行通信成为主要瓶颈，即使使用 LoRA 等 PEFT 方法，重复传输适配器更新仍开销巨大。\nMethod: 提出轻量级 token 级 Fisher 代理来估计语义敏感性，据此进行 token 引导的稀疏化和混合精度适配器更新量化，为语义重要的 token 分配更高通信保真度，抑制冗余传输。\nResult: 在非 IID 划分的多语言 QA 和医学 QA 上，相比 Fed-LoRA 基线，累计上行流量减少 46 倍，straggler-limited 训练时间减少 52%。在受控 LTE-20Mbps 下，每轮时间从 414.60s 降至 67.29s，能耗从 839.20J 降至 146.28J，加速 6.16 倍。在 Jetson 边缘设备上，Fisher 引导的 token 缩减带来最多 1.55 倍推理加速。\nConclusion: Fed-FSTQ 是一种即插即用的通信控制原语，无需修改服务器聚合规则，能在资源受限的边缘设备上有效加速联邦 LLM 微调，并兼具推理优化效果。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "本文提出 Fed-FSTQ，一种基于Fisher信息引导的 token 级量化方法，用于边缘设备上大语言模型的联邦微调。该方法通过 token 级 Fisher 代理估计语义敏感性，结合稀疏化和混合精度量化，在非 IID 数据分布下将上行通信量减少 46 倍，并将 wall-clock time-to-accuracy 提高 52%，同时兼容现有联邦 PEFT 流程。",
+        "motivation": "联邦微调中，异构带宽、间歇参与和非 IID 数据导致上行通信成为主要瓶颈，即使使用 LoRA 等 PEFT 方法，重复传输适配器更新仍开销巨大。",
+        "method": "提出轻量级 token 级 Fisher 代理来估计语义敏感性，据此进行 token 引导的稀疏化和混合精度适配器更新量化，为语义重要的 token 分配更高通信保真度，抑制冗余传输。",
+        "result": "在非 IID 划分的多语言 QA 和医学 QA 上，相比 Fed-LoRA 基线，累计上行流量减少 46 倍，straggler-limited 训练时间减少 52%。在受控 LTE-20Mbps 下，每轮时间从 414.60s 降至 67.29s，能耗从 839.20J 降至 146.28J，加速 6.16 倍。在 Jetson 边缘设备上，Fisher 引导的 token 缩减带来最多 1.55 倍推理加速。",
+        "conclusion": "Fed-FSTQ 是一种即插即用的通信控制原语，无需修改服务器聚合规则，能在资源受限的边缘设备上有效加速联邦 LLM 微调，并兼具推理优化效果。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-04-28",
+      "updated_date": "2026-07-02",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}

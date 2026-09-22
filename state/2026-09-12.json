@@ -1,0 +1,704 @@
+{
+  "date": "2026-09-12",
+  "snapshot_date": "2026-09-12",
+  "generated_at": "2026-09-12T13:37:11Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 14,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 3,
+    "cs.CV": 5,
+    "cs.AI": 6
+  },
+  "summary_status_counts": {
+    "ok": 14
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 571
+  },
+  "papers": [
+    {
+      "id": "2609.10525",
+      "title": "Characterizing Language Generation in the Limit: Finite Witnesses and a Separation-Width Hierarchy",
+      "authors": [
+        "Xiaoyu Li",
+        "Andi Han",
+        "Jiaojiao Jiang",
+        "Junbin Gao"
+      ],
+      "categories": [
+        "cs.FL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.FL",
+      "abs_url": "https://arxiv.org/abs/2609.10525",
+      "pdf_url": "https://arxiv.org/pdf/2609.10525",
+      "abstract_en": "Language generation in the limit asks for valid unseen elements from every exhaustive positive presentation of an unknown infinite language. We characterize this task for arbitrary families over a countable universe. Generation is possible exactly when each target can be assigned a finite positive witness so that the targets activated by any finite sample have an infinite common intersection. The necessary direction follows from a universal normalization: a search through unconfirmed histories converts any successful generator into one depending only on the observed set. We then ask how large compatible witnesses must be. Positive separation width records the smallest uniform size bound, with two further levels for unbounded finite witnesses and the absence of any compatible finite-witness assignment. Every level occurs. Countable families admit singleton witnesses, explicit families realize every finite width, and a union of two families with infinite common cores requires unbounded finite witnesses. Finally, countable-support and finite-profile obstructions explain why local combinatorial data cannot determine generation in the limit. The characterization and full width hierarchy are checked in Lean, including the simplified normalization and a direct diagonal capture lemma. The accompanying Lean development is maintained at https://github.com/xiaoyulics/language-generation-characterization",
+      "comment": "v2: fixed a typo in abstract title; added a figure in abstract page; added connections to known sufficient conditions; added a normalization example and appendices on quantifiers and computability; expanded the formalization discussion; main results unchanged",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 研究极限语言生成 (language generation in the limit) 的刻画问题：对可数论域上的任意语言族，生成可行当且仅当每个目标可赋予有限正见证，使任意有限样本激活的目标具有无限公共交集。作者进一步建立分离宽度 (separation width) 层级，并在 Lean 中形式化验证。\nMotivation: 极限语言生成此前缺乏对任意语言族的完整刻画，也不清楚兼容见证需要多大。\nMethod: 用通用归一化把成功生成器化为仅依赖已观测集合的形式，据此给出有限正见证的充要条件，并按见证大小定义分离宽度层级。\nResult: 可数族可用单点见证，显式族可实现每个有限宽度，两个具无限公共核的族之并需要无界有限见证；各层级均可达。\nConclusion: 可数支撑与有限剖面障碍说明局部组合数据无法判定极限生成；刻画与完整宽度层级已在 Lean 中验证。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "研究极限语言生成 (language generation in the limit) 的刻画问题：对可数论域上的任意语言族，生成可行当且仅当每个目标可赋予有限正见证，使任意有限样本激活的目标具有无限公共交集。作者进一步建立分离宽度 (separation width) 层级，并在 Lean 中形式化验证。",
+        "motivation": "极限语言生成此前缺乏对任意语言族的完整刻画，也不清楚兼容见证需要多大。",
+        "method": "用通用归一化把成功生成器化为仅依赖已观测集合的形式，据此给出有限正见证的充要条件，并按见证大小定义分离宽度层级。",
+        "result": "可数族可用单点见证，显式族可实现每个有限宽度，两个具无限公共核的族之并需要无界有限见证；各层级均可达。",
+        "conclusion": "可数支撑与有限剖面障碍说明局部组合数据无法判定极限生成；刻画与完整宽度层级已在 Lean 中验证。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.10377",
+      "title": "Data-Driven Risk Fields for Safer End-to-End Autonomous Driving",
+      "authors": [
+        "Yuanxin Tian",
+        "Zhiyuan Liu",
+        "Jinhao Li",
+        "Liangfan Zhu",
+        "Shuai Wang",
+        "Heye Huang",
+        "Qingwen Meng",
+        "Fang Zhang",
+        "Liuzhu Tong",
+        "Zhenhua Xu",
+        "Wenhao Yu",
+        "Jianqiang Wang"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2609.10377",
+      "pdf_url": "https://arxiv.org/pdf/2609.10377",
+      "abstract_en": "Safety is a fundamental requirement for autonomous driving, yet existing end-to-end driving models still lack explicit risk-aware learning capacities. Existing rule-based risk models provide interpretable safety priors, yet their absolute risk scores depend on handcrafted functions, coefficients, and thresholds. Learning-based risk representations reduce part of this manual design, but their supervision often relies on occupancy-derived labels or heuristic cost values, which may not capture ego-conditioned planning risk. In this paper, we propose DRiF, a data-driven risk-field framework for safer end-to-end autonomous driving. DRiF learns a shared BEV feature with static map segmentation, dynamic risk prediction, and vehicle planning. For dynamic risk learning, DRiF converts rule-based safety priors into pairwise risk labels, and trains the risk field to preserve relative risk ordering instead of regressing handcrafted absolute scores. Experiments on Bench2Drive show that DRiF achieves competitive overall performance, with consistent improvements in driving score, success rate, and collision-related metrics. These results establish relative risk supervision as an effective way to connect explicit safety structure with end-to-end planning. The data and code will be publicly available.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 DRiF，一种数据驱动的风险场 (risk-field) 框架，用于端到端自动驾驶。它把规则安全先验转成成对风险标签，训练风险场保持相对风险序而非回归手工绝对分数，在 Bench2Drive 上驾驶分数、成功率与碰撞相关指标均有提升。\nMotivation: 现有端到端驾驶模型缺少显式风险感知；规则风险模型依赖手工函数与阈值，学习式风险表示又多用占据标签或启发式代价，难以刻画自车条件下的规划风险。\nMethod: 共享 BEV 特征同时做静态地图分割、动态风险预测与车辆规划；动态风险用规则先验生成的成对标签做相对风险排序监督。\nResult: Bench2Drive 上整体性能有竞争力，驾驶分数、成功率与碰撞相关指标一致提升。\nConclusion: 相对风险监督是把显式安全结构与端到端规划连接起来的有效方式；数据与代码将公开。\nRelevance: 8",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 DRiF，一种数据驱动的风险场 (risk-field) 框架，用于端到端自动驾驶。它把规则安全先验转成成对风险标签，训练风险场保持相对风险序而非回归手工绝对分数，在 Bench2Drive 上驾驶分数、成功率与碰撞相关指标均有提升。",
+        "motivation": "现有端到端驾驶模型缺少显式风险感知；规则风险模型依赖手工函数与阈值，学习式风险表示又多用占据标签或启发式代价，难以刻画自车条件下的规划风险。",
+        "method": "共享 BEV 特征同时做静态地图分割、动态风险预测与车辆规划；动态风险用规则先验生成的成对标签做相对风险排序监督。",
+        "result": "Bench2Drive 上整体性能有竞争力，驾驶分数、成功率与碰撞相关指标一致提升。",
+        "conclusion": "相对风险监督是把显式安全结构与端到端规划连接起来的有效方式；数据与代码将公开。",
+        "relevance_score": "8"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.10372",
+      "title": "PACE: Perceived-Latency-Aware Cascading Service Routing and Filler Control for QoE-Efficient Retrieval-Augmented Dialogue Serving",
+      "authors": [
+        "Lin Huang",
+        "Yujuan Tan",
+        "Weisheng Li",
+        "Lixiang Zeng",
+        "Kun Yang",
+        "Yongzong Wang",
+        "Suihan Xiao"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.10372",
+      "pdf_url": "https://arxiv.org/pdf/2609.10372",
+      "abstract_en": "We present the PACE, a framework for retrieval-augmented dialogue serving that formalizes Perceived Time-to-First-Response (PTFR) as a QoE objective and minimizes it under quality/cost constraints. Unlike prior work on cascaded routing, semantic caching, or adaptive retrieval, PACE jointly controls which answer source composes the response and what fills the waiting window. Deployed on a humanoid-robot sales service, it combines three mechanisms: a load-adaptive cascading router, a joint path-filler controller, and volatility-aware cache admission. On 75k CarQA requests, the cascade halves pure-LLM PTFR at P95 (0.29 vs 0.53s at c16). The adaptive controller reaches 0.41s P95, outperforming RAG by 2.4 times at high load with equal quality. The filler controller cuts calls by 94% with zero conflict. Volatility-aware admission reduces stale answers from 86% to 0%. A gating rule ensures the controller never worse than the baseline, with exposure bounded by one hold period. This is the first quantification of filler-answer conflict risk in deployed services.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 PACE 框架，面向检索增强对话服务，将感知首响时间 (PTFR) 形式化为 QoE 目标并在质量/成本约束下最小化，联合控制答案来源路由与等待窗口填充内容。在 75k CarQA 请求上，级联路由将纯 LLM 的 P95 PTFR 减半（0.29 vs 0.53s）。\nMotivation: 级联路由、语义缓存与自适应检索等先前工作未联合优化答案来源选择与等待期填充，导致高负载下首响延迟与陈旧答案问题。\nMethod: 结合负载自适应级联路由器、联合路径填充控制器与波动感知缓存准入三种机制，并加入门控规则限制劣化。\nResult: P95 PTFR 由 0.53s 降至 0.29s；自适应控制器 P95 为 0.41s，高负载下优于 RAG 2.4 倍且质量相当；填充控制器减少 94% 调用且零冲突；波动感知准入将陈旧答案从 86% 降至 0%。\nConclusion: 作者称这是首次在部署服务中量化填充答案冲突风险，门控规则保证不劣于基线且暴露受一个保持周期约束。\nRelevance: 5",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 PACE 框架，面向检索增强对话服务，将感知首响时间 (PTFR) 形式化为 QoE 目标并在质量/成本约束下最小化，联合控制答案来源路由与等待窗口填充内容。在 75k CarQA 请求上，级联路由将纯 LLM 的 P95 PTFR 减半（0.29 vs 0.53s）。",
+        "motivation": "级联路由、语义缓存与自适应检索等先前工作未联合优化答案来源选择与等待期填充，导致高负载下首响延迟与陈旧答案问题。",
+        "method": "结合负载自适应级联路由器、联合路径填充控制器与波动感知缓存准入三种机制，并加入门控规则限制劣化。",
+        "result": "P95 PTFR 由 0.53s 降至 0.29s；自适应控制器 P95 为 0.41s，高负载下优于 RAG 2.4 倍且质量相当；填充控制器减少 94% 调用且零冲突；波动感知准入将陈旧答案从 86% 降至 0%。",
+        "conclusion": "作者称这是首次在部署服务中量化填充答案冲突风险，门控规则保证不劣于基线且暴露受一个保持周期约束。",
+        "relevance_score": "5"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.10221",
+      "title": "Why Sample What You Can Enumerate? Exact Policy Optimization for Genomic Tool Selection",
+      "authors": [
+        "Haoyue Liu",
+        "Xiaoyu Ma",
+        "Ye Chen",
+        "Zhichao Wang",
+        "Xiaoying Tang"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.10221",
+      "pdf_url": "https://arxiv.org/pdf/2609.10221",
+      "abstract_en": "Reinforcement learning over a frozen reasoner has become a common recipe for teaching a policy which external tools to invoke. We show that this recipe becomes structurally mismatched in specialist scientific settings where the complete tool-subset space is enumerable. There, a small set of recurring computational capabilities covers the domain, so the space of tool subsets is combinatorial yet small enough to enumerate, and GRPO still estimates an action expectation from a handful of sampled rollouts. Worse, the approximation degrades as training succeeds: as the policy concentrates on preferred subsets it resamples them, sampled rewards collide, and the group-normalized advantage vanishes. On genomic reasoning the fraction of questions yielding no reward signal rises from 0.2% under a uniform reference policy to 20.8% after GRPO training. As a remedy, we introduce FGPO (Full-Group Policy Optimization), which (1) scores every tool subset and optimizes the exact action expectation, so each update sees the complete action space, and (2) precomputes the reward of each question--subset pair into an exhaustive table, removing frozen-reasoner calls from the training loop entirely. Across five frozen reasoners and three genomic benchmarks, FGPO outperforms GRPO in all 15 settings by 6.75 points on average and up to 14.20, while a standard on-demand GRPO schedule would require 2.4 times as many frozen-reasoner reward evaluations and, on GenomeQA, FGPO cuts invoked tools per question from 2.36 to 1.40.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 指出在工具子集可枚举的专门科学场景中，GRPO 从少量采样 rollout 估计动作期望会结构性失配，且训练越成功优势越消失；提出 FGPO 对全部工具子集打分并优化精确动作期望。\nMotivation: 基因组推理等场景工具子集空间虽组合但可枚举，GRPO 的采样估计随策略收敛而退化，无奖励信号的问题比例从 0.2% 升至 20.8%。\nMethod: FGPO 对每个工具子集打分以优化精确动作期望，并把每个问题-子集对的奖励预计算成穷举表，使训练循环不再调用冻结推理器。\nResult: 在五个冻结推理器与三个基因组基准的 15 个设置中全部优于 GRPO，平均提升 6.75 分、最高 14.20 分；GenomeQA 上每题调用工具数从 2.36 降至 1.40。\nConclusion: 当动作空间可枚举时，穷举式精确策略优化比采样式 GRPO 更有效且更省推理器调用，但结论限于工具子集可枚举的专门领域。\nRelevance: 8",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "指出在工具子集可枚举的专门科学场景中，GRPO 从少量采样 rollout 估计动作期望会结构性失配，且训练越成功优势越消失；提出 FGPO 对全部工具子集打分并优化精确动作期望。",
+        "motivation": "基因组推理等场景工具子集空间虽组合但可枚举，GRPO 的采样估计随策略收敛而退化，无奖励信号的问题比例从 0.2% 升至 20.8%。",
+        "method": "FGPO 对每个工具子集打分以优化精确动作期望，并把每个问题-子集对的奖励预计算成穷举表，使训练循环不再调用冻结推理器。",
+        "result": "在五个冻结推理器与三个基因组基准的 15 个设置中全部优于 GRPO，平均提升 6.75 分、最高 14.20 分；GenomeQA 上每题调用工具数从 2.36 降至 1.40。",
+        "conclusion": "当动作空间可枚举时，穷举式精确策略优化比采样式 GRPO 更有效且更省推理器调用，但结论限于工具子集可枚举的专门领域。",
+        "relevance_score": "8"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.10187",
+      "title": "3rd Place Solution to Human Motion Challenges in Real-World and Clinical Settings (MoCha) @ECCV2026: Language-Aligned Motion Representations for Domain-Generalizable UPDRS-Gait Severity Estimation",
+      "authors": [
+        "Soojie Kim",
+        "Muhammad Munsif",
+        "Minkyung Kim",
+        "Seungryul Baek"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.10187",
+      "pdf_url": "https://arxiv.org/pdf/2609.10187",
+      "abstract_en": "In this work, we introduce language-aligned motion representations for domain-generalizable UPDRS-Gait severity estimation, aiming to learn semantically structured motion features that generalize across heterogeneous clinical domains. We first learn motion representations using a Bi-GRU backbone that captures the temporal dynamics of SMPL sequences. Prior to model training, motion captions are generated offline using Qwen2.5-7B-Instruct. The backbone is then trained with both classification and text-alignment objectives to learn discriminative and semantically structured motion representations while accounting for the class imbalance present in the training data. We subsequently adapt the learned backbone independently to each source domain so that the model can capture domain-specific motion characteristics. The resulting source-specific models are then merged at the parameter level to consolidate complementary knowledge across source domains into a single domain-generalized model. To further mitigate class imbalance, we perform GPT-5.5-based pseudo labeling, and our final merged models for each site do not use any class-prior correction during inference. The resulting model is evaluated under the unseen-site setting of the MoCha Challenge, using Macro F1 as the primary evaluation metric. Our method achieves a macro-F1 of 0.57 on the hidden test set with only 637K active parameters at inference, ranking 3rd among 58 leaderboard entries in the MoCha 2026 Challenge. The challenge attracted 1,669 submissions from 112 participants and offered monetary prizes sponsored by Machine Medicine Technologies.",
+      "comment": "3rd Place Solution to the MoCha 2026 Challenge at ECCV 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 面向 UPDRS-Gait 严重程度估计，提出语言对齐的动作表示 (language-aligned motion representations)，用 Bi-GRU 建模 SMPL 序列并结合文本对齐目标。在 MoCha 2026 挑战赛未见站点设置下取得 macro-F1 0.57，58 支队伍中排名第 3。\nMotivation: 临床步态评分数据存在域异质性与类别不平衡，跨站点泛化困难。\nMethod: 离线用 Qwen2.5-7B-Instruct 生成动作描述，Bi-GRU 骨干联合分类与文本对齐训练，再按源域分别适配后做参数级合并，并用 GPT-5.5 伪标注缓解类别不平衡。\nResult: 隐藏测试集 macro-F1 0.57，推理仅 637K 活跃参数，在 58 个榜单条目中列第 3。\nConclusion: 语言对齐加多源域参数合并可在未见站点上实现轻量且可泛化的步态严重程度估计。\nRelevance: 8",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "面向 UPDRS-Gait 严重程度估计，提出语言对齐的动作表示 (language-aligned motion representations)，用 Bi-GRU 建模 SMPL 序列并结合文本对齐目标。在 MoCha 2026 挑战赛未见站点设置下取得 macro-F1 0.57，58 支队伍中排名第 3。",
+        "motivation": "临床步态评分数据存在域异质性与类别不平衡，跨站点泛化困难。",
+        "method": "离线用 Qwen2.5-7B-Instruct 生成动作描述，Bi-GRU 骨干联合分类与文本对齐训练，再按源域分别适配后做参数级合并，并用 GPT-5.5 伪标注缓解类别不平衡。",
+        "result": "隐藏测试集 macro-F1 0.57，推理仅 637K 活跃参数，在 58 个榜单条目中列第 3。",
+        "conclusion": "语言对齐加多源域参数合并可在未见站点上实现轻量且可泛化的步态严重程度估计。",
+        "relevance_score": "8"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.10001",
+      "title": "From Few-Shot Segmentation to Clinician-in-the-Loop Medical Image Analysis",
+      "authors": [
+        "Yazhou Zhu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.10001",
+      "pdf_url": "https://arxiv.org/pdf/2609.10001",
+      "abstract_en": "Few-shot medical image segmentation (FSMIS) seeks to delineate unseen structures from a small support set, but its standard formulation fixes task-defining evidence before inference. This assumption is fragile under acquisition shift, atypical pathology, ambiguous boundaries, and poor image quality. Adding clinician interaction and rapid adaptation is not sufficient: the binding constraint is deciding when asking or changing is warranted. We therefore reframe FSMIS as a three-layer sequential decision problem. First, decidable self-assessment separates errors that a bounded intervention can repair from those that no admissible intervention can reach. We formalize this distinction through a correctable set defined by the update operator and remaining interaction budget. Second, selective interaction allocates a distinct expert-attention budget by response-conditioned net expected value of information, yielding explicit accept, query, and defer actions. Third, bounded adaptation emphasizes reversibility and independent safety reassessment rather than speed. A complementary cross-case memory stores reproducible correction priors over failure modes instead of disease-specific mask priors. This structure links sparse support representation, cross-domain robustness, multi-level risk estimation, clinician feedback, and governed experience transfer. We state six hypotheses with an explicit dependency order and propose a minimal pilot that can falsify the foundational self-assessment claim before a clinician study. The central claim is not that interaction resolves domain shift, but that scarce expert attention should be used only when a bounded intervention is expected to reach a clinically better outcome.",
+      "comment": "25 pages, 3 figures, 5 tables. Perspective article",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 将少样本医学图像分割 (FSMIS) 重构为三层序贯决策问题：可判定自评估、选择性交互、有界自适应，主张专家注意力只在有界干预能带来更优临床结局时才使用。属观点文章，提出六个有依赖顺序的假设与一个可先证伪基础自评估主张的最小试点。\nMotivation: FSMIS 标准设定在推理前固定任务定义证据，在采集漂移、非典型病理、边界模糊与图像质量差时失效。\nMethod: 用更新算子与剩余交互预算定义可修正集，按响应条件信息净期望值分配专家注意力，给出接受/询问/推迟动作，并配跨病例记忆存纠正先验。\nResult: 摘要未报告实验数字，仅提出六个假设及一个可在临床研究前证伪基础自评估主张的最小试点。\nConclusion: 核心主张是交互并不解决域偏移，稀缺专家注意力应仅在有界干预预期能改善临床结局时使用。\nRelevance: 8",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "将少样本医学图像分割 (FSMIS) 重构为三层序贯决策问题：可判定自评估、选择性交互、有界自适应，主张专家注意力只在有界干预能带来更优临床结局时才使用。属观点文章，提出六个有依赖顺序的假设与一个可先证伪基础自评估主张的最小试点。",
+        "motivation": "FSMIS 标准设定在推理前固定任务定义证据，在采集漂移、非典型病理、边界模糊与图像质量差时失效。",
+        "method": "用更新算子与剩余交互预算定义可修正集，按响应条件信息净期望值分配专家注意力，给出接受/询问/推迟动作，并配跨病例记忆存纠正先验。",
+        "result": "摘要未报告实验数字，仅提出六个假设及一个可在临床研究前证伪基础自评估主张的最小试点。",
+        "conclusion": "核心主张是交互并不解决域偏移，稀缺专家注意力应仅在有界干预预期能改善临床结局时使用。",
+        "relevance_score": "8"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.09597",
+      "title": "Compact Visuotactile World Models for Lifting: Prediction, Reward Alignment, and Force Constraints",
+      "authors": [
+        "Qinzhen Ma (Rice University)"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2609.09597",
+      "pdf_url": "https://arxiv.org/pdf/2609.09597",
+      "abstract_en": "Accurate tactile forecasts need not improve force-constrained control. We study a 652,157-parameter action-conditioned visuotactile world model with matched behavior cloning, policy learning in imagination, independent reactive implicit Q-learning, and model-assisted force feedback. A fixed protocol executes 34 policies on 120 fresh MuJoCo environments spanning geometry and physical-parameter shifts, plus 324 independently replayed action branches on 12 additional ID environments. Visuotactile dynamics reduce force action-effect MAE from 0.413 N for persistence to 0.338 N. Model-assisted feedback raises ID force-budgeted success from 73.3% to 93.3%, with paired difference +20.0 [+6.7,+33.4] percentage points (95% CI), with the difference occurring during scripted lowering. Its pooled difference is +3.9 [-4.5,+11.7] points. Imagined RL achieves 11.9% pooled joint success versus 25.0% for reactive IQL. An empirical tactile-residual stress test adds 330 executions. The evidence concerns rigid-box lifting after a common approach, without physical-robot transfer or a closed-loop safety guarantee.",
+      "comment": "8 pages, 2 figures. Code and tabulated results included as ancillary material",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 研究一个 65 万参数的视觉-触觉世界模型在力约束抓取任务中的作用，发现触觉预测精度提升并不必然带来控制收益。摘要称模型辅助力反馈将 ID 力预算成功率从 73.3% 提升到 93.3%，但想象中 RL 反而弱于反应式 IQL。\nMotivation: 触觉预测准确是否真能改善力约束控制尚不清楚，二者常被默认一致。\nMethod: 动作条件视觉-触觉世界模型，配合行为克隆、想象中策略学习、反应式 IQL 与模型辅助力反馈。\nResult: 力作用效应 MAE 从 0.413 N 降至 0.338 N；ID 力预算成功率 73.3%→93.3%（+20.0 个百分点），但 pooled 差异仅 +3.9 且不显著；想象 RL 联合成功率 11.9% 低于反应式 IQL 的 25.0%。\nConclusion: 证据限于共同接近后的刚性盒提升，无真机迁移与闭环安全保证。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "研究一个 65 万参数的视觉-触觉世界模型在力约束抓取任务中的作用，发现触觉预测精度提升并不必然带来控制收益。摘要称模型辅助力反馈将 ID 力预算成功率从 73.3% 提升到 93.3%，但想象中 RL 反而弱于反应式 IQL。",
+        "motivation": "触觉预测准确是否真能改善力约束控制尚不清楚，二者常被默认一致。",
+        "method": "动作条件视觉-触觉世界模型，配合行为克隆、想象中策略学习、反应式 IQL 与模型辅助力反馈。",
+        "result": "力作用效应 MAE 从 0.413 N 降至 0.338 N；ID 力预算成功率 73.3%→93.3%（+20.0 个百分点），但 pooled 差异仅 +3.9 且不显著；想象 RL 联合成功率 11.9% 低于反应式 IQL 的 25.0%。",
+        "conclusion": "证据限于共同接近后的刚性盒提升，无真机迁移与闭环安全保证。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.09567",
+      "title": "Positional task conditioning for scalable defect detection across product families in large product catalogs",
+      "authors": [
+        "Soham Satyadharma",
+        "Gabriel Roccabruna",
+        "Suleiman A. Khan"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.09567",
+      "pdf_url": "https://arxiv.org/pdf/2609.09567",
+      "abstract_en": "Product families in large product catalogs suffer from inconsistencies such as duplicates and unit mismatches that degrade customer experience. Detecting these requires reasoning over multiple error types across lengthy product listings, where LLM classification quality degrades due to long-context limitations. We address this by decomposing detection into focused sub-tasks that reduce context and isolate error types, improving F1 from 52% to 87%. For scalable deployment, we introduce Positional Task Conditioning (PTC), which distills this capability into a single smaller model by reinforcing task identity at structural prompt boundaries. PTC outperforms rationale-based distillation across five models and two architecture families, achieving within 1.79% F1 of the frontier at upto 98% lower cost. Our system is deployed across multiple countries processing 10+ million product families.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 针对大型商品目录中产品族重复、单位不一致等缺陷检测，将检测分解为聚焦子任务以缓解长上下文退化，并提出 Positional Task Conditioning (PTC) 把能力蒸馏进单个小模型。摘要称 F1 从 52% 提升到 87%，PTC 在五个模型、两个架构族上优于基于 rationale 的蒸馏。\nMotivation: 长商品列表下 LLM 分类质量因长上下文限制下降，而缺陷类型多样需跨条目推理。\nMethod: 先分解为减少上下文、隔离错误类型的子任务，再用 PTC 在结构提示边界强化任务身份以蒸馏到小模型。\nResult: F1 由 52% 升至 87%；PTC 距前沿模型 F1 差距在 1.79% 内，成本最多降低 98%。\nConclusion: 该系统已部署于多国、处理超 1000 万产品族，但摘要未给出跨产品族泛化的定量细节。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "针对大型商品目录中产品族重复、单位不一致等缺陷检测，将检测分解为聚焦子任务以缓解长上下文退化，并提出 Positional Task Conditioning (PTC) 把能力蒸馏进单个小模型。摘要称 F1 从 52% 提升到 87%，PTC 在五个模型、两个架构族上优于基于 rationale 的蒸馏。",
+        "motivation": "长商品列表下 LLM 分类质量因长上下文限制下降，而缺陷类型多样需跨条目推理。",
+        "method": "先分解为减少上下文、隔离错误类型的子任务，再用 PTC 在结构提示边界强化任务身份以蒸馏到小模型。",
+        "result": "F1 由 52% 升至 87%；PTC 距前沿模型 F1 差距在 1.79% 内，成本最多降低 98%。",
+        "conclusion": "该系统已部署于多国、处理超 1000 万产品族，但摘要未给出跨产品族泛化的定量细节。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.09425",
+      "title": "Edu-QuRating: Multi-Dimensional Educational Data Curation with Distilled Pairwise Judgements",
+      "authors": [
+        "Oliver G. B. Garrod",
+        "Robin A. A. Ince",
+        "Meng Liu",
+        "Mohamed Huti",
+        "Moritz Boos",
+        "Amy Waldock",
+        "Dominic Andrews",
+        "Romana Alonso-Kropil",
+        "Paul Atherton"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2609.09425",
+      "pdf_url": "https://arxiv.org/pdf/2609.09425",
+      "abstract_en": "Educational data filters have become a practical way to improve language-model pre-training, but most filters treat educational value as a single scalar property. This may be too broad for some applications, especially if the data set already features a high density of educational material. Useful learning material needs to be accurate, engaging, well structured, and appropriate for the intended audience and application (e.g. learner- vs teacher-facing). Following QuRating (Wettig et al. 2024), we introduce Edu-QuRating: a pipeline for multi-dimensional educational data scoring and curation. Edu-QuRating defines education-specific rubrics, uses an LLM judge to label sampled document pairs and distills those pairwise preferences into reusable Edu-QuRaters, which can score individual text chunks on a set of educational criteria. Across two sequence-classification base models and six educational criteria, the best Edu-QuRater recovers held-out GPT-4.1-mini pairwise judgements with mean accuracy 0.917. We then apply the resulting scorers in two applications. First, we investigate the potential of Edu-QuRaters for corpus filtering to improve pretraining of small language models. We scored 322.25M FineWeb-Edu-Fortified documents to obtain a filtered pre-training mixture. In matched single-run pre-training comparisons, models trained with Edu-QuRating-based mixtures reached higher observed aggregate accuracy across nine benchmarks than the FineWeb-Edu baseline, with gains concentrated in particular tasks. Second, we used Edu-QuRater scores as reward terms for GRPO post-training. In held-out pairwise judge evaluations, combining Edu-QuRater and answer-structure rewards produced responses preferred to the Qwen3-4B base model on both pedagogical quality and instruction following.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 Edu-QuRating，将教育价值拆成多个教育维度评分，用 LLM 裁判标注文档对并蒸馏成可复用的 Edu-QuRater 打分器。摘要称最佳打分器复现 GPT-4.1-mini 成对判断的平均准确率为 0.917，并用于预训练语料过滤与 GRPO 后训练奖励。\nMotivation: 现有教育数据过滤多把教育价值当作单一标量，在已富含教育材料的语料上过于粗糙，无法区分准确性、结构、受众等维度。\nMethod: 沿用 QuRating 思路，定义教育专用评分标准，用 LLM 裁判标注采样文档对，将成对偏好蒸馏为可对单个文本块打分的 Edu-QuRater。\nResult: 两个序列分类基模型、六项教育标准下，最佳 Edu-QuRater 复现 GPT-4.1-mini 成对判断的平均准确率 0.917；用其过滤 322.25M 篇 FineWeb-Edu-Fortified 文档后，小模型在九个基准上的聚合准确率高于 FineWeb-Edu 基线，增益集中在部分任务。\nConclusion: Edu-QuRater 分数也可作为 GRPO 奖励项，与答案结构奖励结合后，在成对裁判评估中于教学质量和指令遵循上优于 Qwen3-4B 基座；摘要未给出更细的消融或规模结论。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 Edu-QuRating，将教育价值拆成多个教育维度评分，用 LLM 裁判标注文档对并蒸馏成可复用的 Edu-QuRater 打分器。摘要称最佳打分器复现 GPT-4.1-mini 成对判断的平均准确率为 0.917，并用于预训练语料过滤与 GRPO 后训练奖励。",
+        "motivation": "现有教育数据过滤多把教育价值当作单一标量，在已富含教育材料的语料上过于粗糙，无法区分准确性、结构、受众等维度。",
+        "method": "沿用 QuRating 思路，定义教育专用评分标准，用 LLM 裁判标注采样文档对，将成对偏好蒸馏为可对单个文本块打分的 Edu-QuRater。",
+        "result": "两个序列分类基模型、六项教育标准下，最佳 Edu-QuRater 复现 GPT-4.1-mini 成对判断的平均准确率 0.917；用其过滤 322.25M 篇 FineWeb-Edu-Fortified 文档后，小模型在九个基准上的聚合准确率高于 FineWeb-Edu 基线，增益集中在部分任务。",
+        "conclusion": "Edu-QuRater 分数也可作为 GRPO 奖励项，与答案结构奖励结合后，在成对裁判评估中于教学质量和指令遵循上优于 Qwen3-4B 基座；摘要未给出更细的消融或规模结论。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-08",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.04298",
+      "title": "Harbor Adapters and Harbor-Index: Infrastructure and a Curated Meta-Dataset for Large-Scale Agentic Evaluation",
+      "authors": [
+        "Lin Shi",
+        "Haowei Lin",
+        "Zixuan Zhu",
+        "Xiaoyue Zhou",
+        "Xiang Li",
+        "Xiangning Lin",
+        "Yaxuan Deng",
+        "Han Xu",
+        "Yuangang Li",
+        "Shanda Li",
+        "Zizhao Chen",
+        "Hanwen Xing",
+        "Harsh Raj",
+        "Bo Chen",
+        "Quan Shi",
+        "Steven Dillmann",
+        "Yipeng Gao",
+        "Puneesh Khanna",
+        "Ruofan Lu",
+        "Chao Beyond Zhou",
+        "Michael Yang",
+        "Robert Zhang",
+        "Siyuan Chai",
+        "Jiayu Chang",
+        "Yizhao Chen",
+        "Xiaokun Chen",
+        "Yiwei Dai",
+        "Wenting Yang",
+        "Hange Liu",
+        "Minghao Liu",
+        "Zihan Wang",
+        "Adnan El Assadi",
+        "Benedikt Stroebl",
+        "E. Kelly Buchanan",
+        "Han Meng",
+        "Junwei He",
+        "Longxuan Yu",
+        "Radin Shayanfar",
+        "Yukyung Lee",
+        "Zhikang Dong",
+        "Allen G Hart",
+        "Anjiang Wei",
+        "Anurag Kashyap",
+        "Arpandeep Khatua",
+        "Audrey Jixin Zheng",
+        "Chengrui Ma",
+        "David Heineman",
+        "Dubing Chen",
+        "Hai-Anh Trinh",
+        "Haishuo Fang",
+        "Hefan Zhang",
+        "Hui Shen",
+        "Issa Sugiura",
+        "Jiankai Sun",
+        "Jiechao Gao",
+        "Junhong Lin",
+        "Junnan Li",
+        "Kai Yang",
+        "Lei Hsiung",
+        "Maoyu Wang",
+        "Mengze Tang",
+        "Nabil Omi",
+        "Negin Raoof",
+        "Nicholas Edwards",
+        "Octavia Guo",
+        "Orfeas Menis Mastromichalakis",
+        "Pengliang Ji",
+        "Przemysław Hejman",
+        "Qi Qi",
+        "Qunshu Lin",
+        "Richard Zhuang",
+        "Rui Yang",
+        "Ruichen Zheng",
+        "Ryan Marten",
+        "Shaghayegh Fazliani",
+        "Shizheng Hou",
+        "Sicong Jiang",
+        "Sijie Li",
+        "Boqin Yuan",
+        "Michael Glass",
+        "Song Bian",
+        "Terry Yue Zhuo",
+        "Tianqing Wu",
+        "Tom Tang",
+        "Wanjia Zhao",
+        "Weihao Xuan",
+        "Wenhua Liang",
+        "Xian Liu",
+        "Xin Lan",
+        "Xuan Zhang",
+        "Xuandong Zhao",
+        "Yanchuan Tang",
+        "Yifan Jiang",
+        "Yijiang Li",
+        "Yitong Guan",
+        "Yizhi Li",
+        "Yonghui Liu",
+        "Yuheng Tang",
+        "Yujun (Audrey)Mao",
+        "Yunfei Zhao"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.04298",
+      "pdf_url": "https://arxiv.org/pdf/2609.04298",
+      "abstract_en": "Evaluating agents on the growing number of agentic benchmarks is challenging because they often require complex environments and agent integrations. We introduce Harbor Adapters, a unified evaluation infrastructure for agentic benchmarks. Our work makes three contributions. First, we develop benchmark adapters that port more than 80 benchmarks to evaluate arbitrary agents, and validate them through rigorous code review and parity experiments. Second, we conduct a large-scale evaluation of 8 models spanning capability tiers across 54 benchmarks; every model is run with Terminus-2 and with one of 3 native harnesses. This enables a broader analysis of agent capabilities and failure modes than was previously possible. Third, we introduce Harbor-Index, a curated set of 82 difficult, diverse, and high-quality tasks spanning 29 benchmarks, refined from the adapted suite through difficulty filtering, AI and human audit, and an audit-and-fix loop. Harbor-Index preserves the challenge and breadth of large-scale agentic evaluations while being affordable to run; no evaluated model-harness configuration exceeds 30% pass rate, and the strongest (GPT-5.5 with Codex) reaches 28.0%. We release the adapters, evaluation results, in-depth analysis, and Harbor-Index as open-source artifacts to support more reliable and comprehensive evaluation of language-model agents.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 Harbor Adapters 统一智能体评测基础设施，将 80 余个 benchmark 适配到任意 agent，并构建精选元数据集 Harbor-Index（29 个 benchmark 中的 82 个高难任务）。摘要称最强配置 GPT-5.5 配 Codex 通过率仅 28.0%。\nMotivation: 智能体 benchmark 数量增长快且各自依赖复杂环境与集成，横向评测成本高、可比性差。\nMethod: 开发 benchmark adapter 移植 80 余个 benchmark，经代码审查与 parity 实验验证；对 8 个模型在 54 个 benchmark 上用 Terminus-2 及 3 种原生 harness 大规模评测，再经难度过滤与 AI/人工审计构建 Harbor-Index。\nResult: 无任何模型-harness 组合通过率超过 30%，最强组合 GPT-5.5 配 Codex 为 28.0%。\nConclusion: Harbor-Index 在保持大规模智能体评测难度与广度的同时降低运行成本，适配器、评测结果与分析均开源。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 Harbor Adapters 统一智能体评测基础设施，将 80 余个 benchmark 适配到任意 agent，并构建精选元数据集 Harbor-Index（29 个 benchmark 中的 82 个高难任务）。摘要称最强配置 GPT-5.5 配 Codex 通过率仅 28.0%。",
+        "motivation": "智能体 benchmark 数量增长快且各自依赖复杂环境与集成，横向评测成本高、可比性差。",
+        "method": "开发 benchmark adapter 移植 80 余个 benchmark，经代码审查与 parity 实验验证；对 8 个模型在 54 个 benchmark 上用 Terminus-2 及 3 种原生 harness 大规模评测，再经难度过滤与 AI/人工审计构建 Harbor-Index。",
+        "result": "无任何模型-harness 组合通过率超过 30%，最强组合 GPT-5.5 配 Codex 为 28.0%。",
+        "conclusion": "Harbor-Index 在保持大规模智能体评测难度与广度的同时降低运行成本，适配器、评测结果与分析均开源。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.12455",
+      "title": "EVOQUANT: Self-Evolving Verifier-Guided Strategy Optimization for Robust Quantitative Trading",
+      "authors": [
+        "Jie Mao",
+        "Changlun Li",
+        "Xiang Li",
+        "Qiqi Duan",
+        "Jinhui Yuan",
+        "Xiang Liu",
+        "Yuyu Luo",
+        "Jing Tang",
+        "Xiaowen Chu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CE"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2607.12455",
+      "pdf_url": "https://arxiv.org/pdf/2607.12455",
+      "abstract_en": "Quantitative strategy optimization remains largely manual, requiring domain experts to identify weak signals, tune risk-control rules, and repeatedly validate iterative revisions. Large language models can accelerate this process, but directly relying on them to rewrite trading strategies often introduces hallucinated edits, strategy drift, and backtest overfitting. We propose EVOQUANT, a self-Evolving Verifier-guided framework for strategy Optimization in Quantitative trading. Our method utilizes LLMs to deeply diagnose performance bottlenecks, generates semantically controlled candidate edits, selects the best strategy through a multi-stage verification pipeline, and distills optimization experience into reusable knowledge for continual self-improvement. We evaluate our method using seven representative strategies: four from the A-share market and three from the Crypto market. Experimental results show that our method significantly improves the Sharpe ratio across all tested strategies: the average test Sharpe increases from -0.298 to 0.538, and the best-performing strategy achieves a 199% relative improvement. Ablation studies and stress tests under stricter conditions further validate the effectiveness and robustness of the framework. Overall, this work transforms quantitative strategy optimization from costly manual trial and error into an automated and verifiable iterative paradigm, offering a new path for applying large language models to financial strategy research.",
+      "comment": "13 pages, 6 figures, 3 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 EVOQUANT，用 LLM 诊断量化策略瓶颈并生成受语义约束的候选修改，经多阶段验证器筛选后把优化经验蒸馏为可复用知识。在 A 股 4 个与 Crypto 3 个策略上平均测试 Sharpe 从 -0.298 升至 0.538。\nMotivation: 量化策略优化依赖人工识别弱信号、调风控规则并反复回测，直接用 LLM 改写易产生幻觉编辑、策略漂移与回测过拟合。\nMethod: LLM 诊断性能瓶颈并生成语义受控的候选编辑，多阶段验证流水线选优，并将优化经验蒸馏为可复用知识以持续自改进。\nResult: 七个策略的测试 Sharpe 全部提升，平均从 -0.298 到 0.538，最优策略相对提升 199%；消融与更严格压力测试支持其稳健性。\nConclusion: 把量化策略优化从人工试错转为自动化且可验证的迭代范式，为 LLM 用于金融策略研究提供路径。\nRelevance: 8",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 EVOQUANT，用 LLM 诊断量化策略瓶颈并生成受语义约束的候选修改，经多阶段验证器筛选后把优化经验蒸馏为可复用知识。在 A 股 4 个与 Crypto 3 个策略上平均测试 Sharpe 从 -0.298 升至 0.538。",
+        "motivation": "量化策略优化依赖人工识别弱信号、调风控规则并反复回测，直接用 LLM 改写易产生幻觉编辑、策略漂移与回测过拟合。",
+        "method": "LLM 诊断性能瓶颈并生成语义受控的候选编辑，多阶段验证流水线选优，并将优化经验蒸馏为可复用知识以持续自改进。",
+        "result": "七个策略的测试 Sharpe 全部提升，平均从 -0.298 到 0.538，最优策略相对提升 199%；消融与更严格压力测试支持其稳健性。",
+        "conclusion": "把量化策略优化从人工试错转为自动化且可验证的迭代范式，为 LLM 用于金融策略研究提供路径。",
+        "relevance_score": "8"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-14",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2603.18677",
+      "title": "Cognitive Amplification vs Cognitive Delegation in Human-AI Systems: A Metric Framework",
+      "authors": [
+        "Eduardo Di Santi",
+        "Carla Florida"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CY",
+        "cs.HC"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.HC",
+      "abs_url": "https://arxiv.org/abs/2603.18677",
+      "pdf_url": "https://arxiv.org/pdf/2603.18677",
+      "abstract_en": "Artificial intelligence is increasingly embedded in human decision-making, yet distinguishing systems that genuinely amplify human cognition from those promoting excessive dependence remains underdefined. This paper introduces a framework to distinguish cognitive amplification (improving hybrid performance without degrading human capability) from cognitive delegation (outsourcing reasoning to the AI). We define four metrics: the Cognitive Amplification Index (CAI*), Dependency Ratio (D), Human Reliance Index (HRI), and Human Cognitive Drift Rate (HCDR). We test this framework in an agent-based NetLogo simulation across three reliance regimes and multiple dependency-atrophy configurations, performing constrained optimizations and parameter sweeps to determine if positive collaborative gain is recoverable. Finally, we introduce an extension with an explicit human-AI interaction term. Our metrics effectively distinguish degenerate AI-dominated delegation, capability-preserving but weakly competitive interaction, and structurally dependent boundary regimes. Across all baseline configurations, no regime achieves positive collaborative gain relative to the best standalone baseline, even when reducing capability atrophy to zero. This limitation proves structural rather than merely parametric. Positive collaborative gain (CAI* > 0) becomes attainable only after introducing an explicit interaction term allowing retained human capability to contribute directly to the assisted output. This framework provides a basis for evaluating whether human-AI systems remain cognitively sustainable. The results suggest that preventing capability erosion alone is insufficient for genuine amplification if the architecture remains delegation-oriented. Amplification requires both preserved human capability and a coupling mechanism through which it contributes productively to the hybrid outcome.",
+      "comment": "25 pages, 2 figures. Under review at Springer",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出区分认知放大 (cognitive amplification) 与认知委托 (cognitive delegation) 的度量框架，定义 CAI*、D、HRI、HCDR 四个指标，并在 NetLogo 智能体仿真中检验。摘要称基线配置下无任何依赖机制能相对最佳独立基线取得正协作增益，该限制是结构性的。\nMotivation: AI 深度嵌入人类决策，但如何区分真正增强人类认知的系统与导致过度依赖的系统仍缺乏定义。\nMethod: 定义四个认知指标，在 NetLogo 智能体仿真中跨三种依赖机制与多种能力退化配置做约束优化和参数扫描，并加入显式人机交互项扩展。\nResult: 所有基线配置均未取得正协作增益，即使把能力退化降为零；只有引入显式交互项使保留的人类能力直接贡献于辅助输出后，CAI* > 0 才可达。\nConclusion: 仅防止能力侵蚀不足以实现真正的认知放大，还需保留人类能力并具备使其有效贡献于混合结果的耦合机制。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出区分认知放大 (cognitive amplification) 与认知委托 (cognitive delegation) 的度量框架，定义 CAI*、D、HRI、HCDR 四个指标，并在 NetLogo 智能体仿真中检验。摘要称基线配置下无任何依赖机制能相对最佳独立基线取得正协作增益，该限制是结构性的。",
+        "motivation": "AI 深度嵌入人类决策，但如何区分真正增强人类认知的系统与导致过度依赖的系统仍缺乏定义。",
+        "method": "定义四个认知指标，在 NetLogo 智能体仿真中跨三种依赖机制与多种能力退化配置做约束优化和参数扫描，并加入显式人机交互项扩展。",
+        "result": "所有基线配置均未取得正协作增益，即使把能力退化降为零；只有引入显式交互项使保留的人类能力直接贡献于辅助输出后，CAI* > 0 才可达。",
+        "conclusion": "仅防止能力侵蚀不足以实现真正的认知放大，还需保留人类能力并具备使其有效贡献于混合结果的耦合机制。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-03-19",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2603.01260",
+      "title": "MOSAIC: A Universal Agent-Level Interface for Cross-Paradigm Agent Mixing and Human-AI Collaboration",
+      "authors": [
+        "Abdulhamid M. Mousa",
+        "Jinhui Pang",
+        "Rakhmonberdi Khajiev",
+        "Jalaledin M. Azzabi",
+        "Abdulkarim M. Mousa",
+        "Peng Yong",
+        "Yunusa Haruna",
+        "Ming Liu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2603.01260",
+      "pdf_url": "https://arxiv.org/pdf/2603.01260",
+      "abstract_en": "Existing infrastructure cannot deploy agents from different decision-making paradigms within the same environment, making fair cross-paradigm comparison under identical conditions impossible. We present MOSAIC, an open-source platform that enables heterogeneous agents (RL policies, LLMs, VLMs, and human operators) to act within shared reinforcement learning environments in ad-hoc team settings with reproducible results. MOSAIC introduces three contributions. (i) IPC-based worker protocol that wraps native and third-party frameworks as isolated subprocess workers, each executing its own training and inference logic unmodified and communicating through a versioned inter-process protocol. (ii) An operator abstraction that forms an agent-level interface by mapping workers to agent slots: each operator, regardless of whether it is backed by an RL policy, an LLM, or a human, conforms to a minimal universal interface. (iii) A deterministic cross-paradigm evaluation framework with two complementary modes: a manual mode that advances up to $N$ operators in lock-step under shared seeds for fine-grained visual inspection of behavioural differences; and a script mode that drives automated, long-running evaluation via declarative Python scripts for reproducible experiments. Our documentation is released at: https://mosaic-platform.readthedocs.io.",
+      "comment": "4 pages, 2 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出开源平台 MOSAIC，让 RL 策略、LLM、VLM 与人类操作者在同一强化学习环境中以 ad-hoc 团队形式行动，实现可复现的跨范式对比。\nMotivation: 现有基础设施无法在同一环境部署不同决策范式的智能体，导致相同条件下的公平跨范式比较无法进行。\nMethod: 基于 IPC 的 worker 协议将原生与第三方框架封装为隔离子进程，用 operator 抽象映射到 agent slot，并提供手动与脚本两种确定性评测模式。\nResult: 摘要未给出定量实验结果，仅说明平台支持异构智能体混合与可复现评测。\nConclusion: MOSAIC 提供统一 agent 级接口以支持跨范式混合与人机协作，文档已开源发布。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出开源平台 MOSAIC，让 RL 策略、LLM、VLM 与人类操作者在同一强化学习环境中以 ad-hoc 团队形式行动，实现可复现的跨范式对比。",
+        "motivation": "现有基础设施无法在同一环境部署不同决策范式的智能体，导致相同条件下的公平跨范式比较无法进行。",
+        "method": "基于 IPC 的 worker 协议将原生与第三方框架封装为隔离子进程，用 operator 抽象映射到 agent slot，并提供手动与脚本两种确定性评测模式。",
+        "result": "摘要未给出定量实验结果，仅说明平台支持异构智能体混合与可复现评测。",
+        "conclusion": "MOSAIC 提供统一 agent 级接口以支持跨范式混合与人机协作，文档已开源发布。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-03-01",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2509.06285",
+      "title": "DCReg: Decoupled Characterization for Efficient Degenerate LiDAR Registration",
+      "authors": [
+        "Xiangcheng Hu",
+        "Xieyuanli Chen",
+        "Mingkai Jia",
+        "Jin Wu",
+        "Ping Tan",
+        "Steven L. Waslander"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2509.06285",
+      "pdf_url": "https://arxiv.org/pdf/2509.06285",
+      "abstract_en": "LiDAR point cloud registration is fundamental to robotic perception and navigation. In geometrically degenerate environments (e.g., corridors), registration becomes ill-conditioned: certain motion directions are weakly constrained, causing unstable solutions and degraded accuracy. Existing detect-then-mitigate methods fail to reliably detect, physically interpret, and stabilize this ill-conditioning without corrupting the optimization. We introduce DCReg (Decoupled Characterization for Ill-conditioned Registration), establishing a detect-characterize-mitigate paradigm that systematically addresses ill-conditioned registration via three innovations. First, DCReg achieves reliable ill-conditioning detection by employing Schur complement decomposition on the Hessian matrix. This decouples the 6-DoF registration into 3-DoF clean rotational and translational subspaces, eliminating coupling effects that mask degeneracy in full-Hessian analyses. Second, within these subspaces, we develop interpretable characterization techniques resolving eigen-basis ambiguities via basis alignment. This establishes stable mappings between eigenspaces and physical motion directions, providing actionable insights on which motions lack constraints and to what extent. Third, leveraging this spectral information, we design a targeted mitigation via a structured preconditioner. Guided by MAP regularization, we implement eigenvalue clamping exclusively within the preconditioner rather than modifying the original problem. This preserves the least-squares objective and minimizer, enabling efficient optimization via Preconditioned Conjugate Gradient with a single interpretable parameter. Experiments demonstrate DCReg achieves 20-50% higher long-duration localization accuracy and 5-30x speedups (up to 116x) over degeneracy-aware baselines across diverse environments. Code: https://github.com/JokerJohn/DCReg",
+      "comment": "27 pages, 19 figures, 9 tables. Accepted by The International Journal of Robotics Research (IJRR)",
+      "journal_ref": "",
+      "doi": "10.1177/02783649261465040",
+      "summary_zh": "TL;DR: 提出 DCReg，用 Hessian 的 Schur 补分解把 6-DoF LiDAR 配准解耦为 3-DoF 旋转与平移子空间，实现退化环境的检测-刻画-缓解。摘要称长时定位精度提升 20-50%，相对退化感知基线加速 5-30 倍（最高 116 倍）。\nMotivation: 走廊等几何退化环境中部分运动方向约束弱，配准病态导致解不稳、精度下降，现有 detect-then-mitigate 方法难以可靠检测且易破坏优化。\nMethod: 对 Hessian 做 Schur 补分解解耦旋转/平移子空间，用基对齐消除特征基歧义，再以 MAP 正则引导的结构化预条件子做特征值截断，配合预条件共轭梯度求解。\nResult: 多环境下长时定位精度提升 20-50%，相对退化感知基线加速 5-30 倍，最高 116 倍。\nConclusion: 仅在预条件子内截断特征值可保持最小二乘目标与最优解不变，作者称该范式适用于病态配准问题。\nRelevance: 8",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 DCReg，用 Hessian 的 Schur 补分解把 6-DoF LiDAR 配准解耦为 3-DoF 旋转与平移子空间，实现退化环境的检测-刻画-缓解。摘要称长时定位精度提升 20-50%，相对退化感知基线加速 5-30 倍（最高 116 倍）。",
+        "motivation": "走廊等几何退化环境中部分运动方向约束弱，配准病态导致解不稳、精度下降，现有 detect-then-mitigate 方法难以可靠检测且易破坏优化。",
+        "method": "对 Hessian 做 Schur 补分解解耦旋转/平移子空间，用基对齐消除特征基歧义，再以 MAP 正则引导的结构化预条件子做特征值截断，配合预条件共轭梯度求解。",
+        "result": "多环境下长时定位精度提升 20-50%，相对退化感知基线加速 5-30 倍，最高 116 倍。",
+        "conclusion": "仅在预条件子内截断特征值可保持最小二乘目标与最优解不变，作者称该范式适用于病态配准问题。",
+        "relevance_score": "8"
+      },
+      "summary_status": "ok",
+      "published_date": "2025-09-08",
+      "updated_date": "2026-09-10",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
