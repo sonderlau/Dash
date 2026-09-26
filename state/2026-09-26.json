@@ -1,0 +1,757 @@
+{
+  "date": "2026-09-26",
+  "snapshot_date": "2026-09-26",
+  "generated_at": "2026-09-26T14:29:21Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 17,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 8,
+    "cs.CV": 4,
+    "cs.AI": 5
+  },
+  "summary_status_counts": {
+    "ok": 17
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 728
+  },
+  "papers": [
+    {
+      "id": "2609.28322",
+      "title": "Learning the Cost of Reliable Inference",
+      "authors": [
+        "Dimitrios Rontogiannis",
+        "Ander Artola Velasco",
+        "Manuel Gomez Rodriguez"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.GT",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.28322",
+      "pdf_url": "https://arxiv.org/pdf/2609.28322",
+      "abstract_en": "Benchmarking and routing platforms increasingly act as intermediaries connecting large language model providers with end-users. However, providers on these platforms typically use a fixed price per token, preventing users from achieving the most competitive price for their tasks. In this work, we design a procurement platform where token prices for each task are driven by provider competition, enabling users to secure competitive pricing for guaranteed quality levels. To this end, the platform sequentially routes queries via a reverse second-price auction that incentivizes model providers to truthfully bid their best estimate of the average cost to serve a user's query. As it routes queries, the platform learns the quality offered by each provider and progressively routes queries to the most cost-competitive provider among those meeting a desired quality threshold. To validate our design, we conduct experiments with multiple LLMs from the Llama and Qwen families on popular mathematical reasoning and question-answering benchmarks. The results show that the pricing margin of the most cost-competitive provider on our platform varies significantly---from $10\\%$ to $71\\%$---depending on the task and quality threshold. This suggests a substantial inefficiency in the current fixed-price market, and it demonstrates that our platform may enable users to capture maximum savings whenever competitive market conditions permit.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 针对 LLM 采购平台按 token 固定定价、用户拿不到任务级最优价格的问题，提出由 provider 竞争驱动的动态定价机制：用反向第二价格拍卖 (reverse second-price auction) 顺序路由查询，诱导 provider 如实报出服务成本估计，同时在线学习各 provider 质量并逐步转向满足质量阈值的最具成本竞争力者。在 Llama 与 Qwen 系列模型、数学推理与问答基准上，最具成本竞争力 provider 的定价差随任务与质量阈值在 10% 到 71% 之间变化，说明现行固定价格市场存在显著低效。\nMotivation: Benchmarking 与路由平台作为 LLM provider 和用户之间的中介，provider 普遍按固定 token 价格收费，用户无法针对具体任务拿到竞争性价格，也无法在保证质量的前提下压低成本。\nMethod: 设计一个采购平台：以反向第二价格拍卖顺序路由查询，激励 provider 真实报出服务一次查询的平均成本估计；平台在路由过程中在线学习每个 provider 的质量，逐步把查询导向满足期望质量阈值中最具成本竞争力的 provider。\nResult: 在 Llama 与 Qwen 家族的多个 LLM、流行的数学推理与问答基准上，平台上最具成本竞争力 provider 的定价差随任务和质量阈值在 10% 到 71% 之间显著变化。\nConclusion: 固定 token 定价造成显著市场低效；在竞争充分的市场条件下，基于拍卖的动态定价可让用户拿到最大幅度的成本节省。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "针对 LLM 采购平台按 token 固定定价、用户拿不到任务级最优价格的问题，提出由 provider 竞争驱动的动态定价机制：用反向第二价格拍卖 (reverse second-price auction) 顺序路由查询，诱导 provider 如实报出服务成本估计，同时在线学习各 provider 质量并逐步转向满足质量阈值的最具成本竞争力者。在 Llama 与 Qwen 系列模型、数学推理与问答基准上，最具成本竞争力 provider 的定价差随任务与质量阈值在 10% 到 71% 之间变化，说明现行固定价格市场存在显著低效。",
+        "motivation": "Benchmarking 与路由平台作为 LLM provider 和用户之间的中介，provider 普遍按固定 token 价格收费，用户无法针对具体任务拿到竞争性价格，也无法在保证质量的前提下压低成本。",
+        "method": "设计一个采购平台：以反向第二价格拍卖顺序路由查询，激励 provider 真实报出服务一次查询的平均成本估计；平台在路由过程中在线学习每个 provider 的质量，逐步把查询导向满足期望质量阈值中最具成本竞争力的 provider。",
+        "result": "在 Llama 与 Qwen 家族的多个 LLM、流行的数学推理与问答基准上，平台上最具成本竞争力 provider 的定价差随任务和质量阈值在 10% 到 71% 之间显著变化。",
+        "conclusion": "固定 token 定价造成显著市场低效；在竞争充分的市场条件下，基于拍卖的动态定价可让用户拿到最大幅度的成本节省。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-23",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.28107",
+      "title": "Distillation for Efficient Multitask Manipulation Policies via Conditional Flow Matching",
+      "authors": [
+        "Shreya Deshmukh",
+        "Imen Mahdi",
+        "Nick Heppert",
+        "Abhinav Valada"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2609.28107",
+      "pdf_url": "https://arxiv.org/pdf/2609.28107",
+      "abstract_en": "Advances in generative modeling have recently been extensively employed in robotics for policy learning. In particular, Conditional Flow Matching (CFM) trained with expert demonstrations has been shown to outperform existing methods on robot manipulation benchmarks. While prior work has mainly focused on single-task settings, we study the problem from a multi-task perspective, as training independent models for each task is computationally expensive. Multi-Task policy learning comes with its own set of challenges, as naively training on a concatenated dataset of demonstrations would either require increased model capacity to accommodate the added complexity or result in drops in performance. We propose to distill knowledge from single-task CFM experts into a shared multi-task policy by transferring their learned velocity fields. We combine this distillation signal with the original CFM objective to retain fidelity to the demonstrations. Experiments on RLBench show that our approach improves multi-task policy performance over naive training while maintaining a fixed model size.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 把单任务 Conditional Flow Matching (CFM) 专家学到的速度场蒸馏进一个共享的多任务操作策略，蒸馏信号与原始 CFM 目标结合以保持对演示数据的保真。在 RLBench 上，该方法在固定模型容量下优于直接拼接数据的朴素多任务训练。\nMotivation: 机器人操作策略若为每个任务各训一个模型，计算开销大；而把演示拼接后朴素训练多任务策略，要么需要更大模型容量，要么性能下降。\nMethod: 从单任务 CFM 专家蒸馏知识到共享多任务策略，迁移其学到的速度场作为蒸馏信号，并与原始 CFM 训练目标结合，从而在固定模型规模下保留对专家演示的保真度。\nResult: 在 RLBench 多任务操作基准上，该蒸馏方法在固定模型容量下相较朴素多任务训练提升了策略性能。\nConclusion: 通过速度场蒸馏复用单任务 CFM 专家，可以在不增大模型的前提下缓解多任务策略学习的容量与性能权衡。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "把单任务 Conditional Flow Matching (CFM) 专家学到的速度场蒸馏进一个共享的多任务操作策略，蒸馏信号与原始 CFM 目标结合以保持对演示数据的保真。在 RLBench 上，该方法在固定模型容量下优于直接拼接数据的朴素多任务训练。",
+        "motivation": "机器人操作策略若为每个任务各训一个模型，计算开销大；而把演示拼接后朴素训练多任务策略，要么需要更大模型容量，要么性能下降。",
+        "method": "从单任务 CFM 专家蒸馏知识到共享多任务策略，迁移其学到的速度场作为蒸馏信号，并与原始 CFM 训练目标结合，从而在固定模型规模下保留对专家演示的保真度。",
+        "result": "在 RLBench 多任务操作基准上，该蒸馏方法在固定模型容量下相较朴素多任务训练提升了策略性能。",
+        "conclusion": "通过速度场蒸馏复用单任务 CFM 专家，可以在不增大模型的前提下缓解多任务策略学习的容量与性能权衡。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-23",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.28086",
+      "title": "LAYERSCOPE: A Layerwise Characterization of Video and Multimodal Learned Representations",
+      "authors": [
+        "Sandra Arcos-Holzinger",
+        "Debashish Chakraborty",
+        "Rohita Mocharla",
+        "Will Walden",
+        "Andrew Yates",
+        "Reno Kriz",
+        "Sarah M. Erfani",
+        "James Bailey",
+        "Vishal M. Patel",
+        "Sanjeev Khudanpur"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.28086",
+      "pdf_url": "https://arxiv.org/pdf/2609.28086",
+      "abstract_en": "We propose LAYERSCOPE, a label-free, layerwise framework that aims to characterize a model's learned representations in video and multimodal settings. Evaluating downstream performance using representations from final or intermediate layers typically requires large amounts of labeled data, repeated task-specific evaluations, and substantial computation. To address these limitations, LAYERSCOPE uses local, global, distributional, and correspondence-based geometric metrics to compare layerwise representation structure within and across models without requiring task-specific labels. We evaluate seven architecturally diverse models across video and multimodal classification, clustering, and text-to-video retrieval tasks from MVEB/MVEB+. We find that intermediate-layer representations can outperform final-layer and model-default outputs. We also find that no single geometric metric consistently predicts downstream performance, but note that distinct layerwise geometric signatures emerge across model families. LID shows task-dependent relationships with performance, while RankMe provides the strongest measure for classification and clustering, but is not a universal layer selector. We also find that pairing-aware metrics explain retrieval better than distributional distances alone. LAYERSCOPE therefore offers a framework for comparing representations across models and layers, enabling a more systematic evaluation in video and multimodal settings.",
+      "comment": "Preprint, minor corrections",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: LAYERSCOPE 提出免标签、逐层的表示刻画框架，用局部、全局、分布与对应关系四类几何指标比较视频与多模态模型各层的表示结构，无需任务标签即可选层。在 MVEB/MVEB+ 的分类、聚类与文本到视频检索任务上评测七个架构各异的模型，发现中间层表示可胜过最终层与模型默认输出，RankMe 对分类和聚类预测最强但不是通用选层器，配对感知指标比纯分布距离更能解释检索。\nMotivation: 用下游性能评估最终层或中间层表示，需要大量标注数据、反复的任务定制评测和可观算力；且缺少免标签手段判断哪一层的表示更好。\nMethod: LAYERSCOPE 以局部 (local)、全局 (global)、分布 (distributional) 与基于对应关系 (correspondence-based) 的几何指标，在模型内部与跨模型逐层比较表示结构，无需任务标签；在 MVEB/MVEB+ 的视频与多模态分类、聚类、文本到视频检索任务上评测七个架构多样的模型。\nResult: 中间层表示可超过最终层与模型默认输出；没有任何单一几何指标能一致预测下游性能，但不同模型族呈现不同的逐层几何签名；LID 与性能的关系随任务而变，RankMe 对分类与聚类是最强度量但不是通用选层器；配对感知指标对检索的解释力优于纯分布距离。\nConclusion: 免标签的逐层几何刻画可以系统比较跨模型跨层的表示，但选层指标需按任务与模型族挑选：分类聚类看 RankMe，检索看配对感知指标。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "LAYERSCOPE 提出免标签、逐层的表示刻画框架，用局部、全局、分布与对应关系四类几何指标比较视频与多模态模型各层的表示结构，无需任务标签即可选层。在 MVEB/MVEB+ 的分类、聚类与文本到视频检索任务上评测七个架构各异的模型，发现中间层表示可胜过最终层与模型默认输出，RankMe 对分类和聚类预测最强但不是通用选层器，配对感知指标比纯分布距离更能解释检索。",
+        "motivation": "用下游性能评估最终层或中间层表示，需要大量标注数据、反复的任务定制评测和可观算力；且缺少免标签手段判断哪一层的表示更好。",
+        "method": "LAYERSCOPE 以局部 (local)、全局 (global)、分布 (distributional) 与基于对应关系 (correspondence-based) 的几何指标，在模型内部与跨模型逐层比较表示结构，无需任务标签；在 MVEB/MVEB+ 的视频与多模态分类、聚类、文本到视频检索任务上评测七个架构多样的模型。",
+        "result": "中间层表示可超过最终层与模型默认输出；没有任何单一几何指标能一致预测下游性能，但不同模型族呈现不同的逐层几何签名；LID 与性能的关系随任务而变，RankMe 对分类与聚类是最强度量但不是通用选层器；配对感知指标对检索的解释力优于纯分布距离。",
+        "conclusion": "免标签的逐层几何刻画可以系统比较跨模型跨层的表示，但选层指标需按任务与模型族挑选：分类聚类看 RankMe，检索看配对感知指标。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-23",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.27735",
+      "title": "NS-ATTENTION: Newton-Schulz Transformations of Attention Outputs in Vision Transformers",
+      "authors": [
+        "Xiaohe Jiang (1)",
+        "Guoqiang Zhang (1)",
+        "Tianjin Huang (1)",
+        "Ronghui Mu (1) ((1) University of Exeter)"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.27735",
+      "pdf_url": "https://arxiv.org/pdf/2609.27735",
+      "abstract_en": "Newton-Schulz (NS) iteration has recently been used in the Muon optimizer to transform update matrices during the training of large language models. Motivated by its spectral effect, we investigate applying NS directly to Transformer attention representations. We introduce Newton-Schulz Attention (NS-Attn.), a parameter-free transformation applied to the output of each attention head. Each head output is arranged as a feature-by-token matrix and normalized by its Frobenius norm. We then apply a finite NS polynomial step and restore the original norm. The objective is to reduce spectral concentration and increase effective rank before standard head merging and output projection. Across ViT and Swin on CIFAR-10 and CIFAR-100, NS-Attn. improves final-epoch accuracy in all 12 matched-seed comparisons, with mean gains of 0.25--0.83 percentage points. ViT ablations show higher mean accuracy with one iteration than with two. Spectral analysis further shows reduced leading-eigenvalue concentration and increased effective rank. These gains incur additional inference latency.",
+      "comment": "5 pages, 2 figures. Submitted to IEEE ICASSP 2027. Code: https://github.com/039-B/NS-Attention",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 把 Muon 优化器里的 Newton-Schulz 迭代搬到注意力输出上：NS-Attn. 对每个 head 的输出（feature-by-token 矩阵）做 Frobenius 归一化、施加一步有限 NS 多项式再还原范数，以降低谱集中度、抬高有效秩。在 ViT 与 Swin 上的 CIFAR-10/CIFAR-100 全部 12 组同 seed 配对比较中最终 epoch 精确率均提升，平均增益 0.25–0.83 个百分点；消融显示一次迭代优于两次，代价是额外推理延迟。\nMotivation: 注意力 head 输出的谱往往被少数主特征值占据、有效秩偏低，而 Muon 中的 Newton-Schulz 变换已被证明能整形矩阵谱；作者想在不引入参数的前提下把这种谱效应直接用到 Transformer 注意力表征上。\nMethod: NS-Attn. 是无参数变换，作用于每个注意力 head 的输出：把输出排成 feature-by-token 矩阵，除以 Frobenius 范数，做一次有限 Newton-Schulz 多项式步，再恢复原范数；插入位置在 head merging 与输出投影之前。实验在 ViT 和 Swin 上进行，用 CIFAR-10/CIFAR-100、同 seed 配对比较，并做迭代次数（1 次 vs 2 次）消融与谱分析。\nResult: 在 ViT 与 Swin、CIFAR-10 与 CIFAR-100 上，NS-Attn. 在全部 12 组同 seed 配对比较中都提升最终 epoch 精确率，平均增益 0.25–0.83 个百分点；ViT 消融中一次迭代的平均精确率高于两次。谱分析显示主特征值集中度下降、有效秩上升；这些增益伴随额外推理延迟。\nConclusion: 对注意力输出做一步参数化的 Newton-Schulz 谱整形即可在 ViT/Swin 上稳定小幅提升分类精确率，且一次迭代比两次更划算，但要付出推理延迟。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "把 Muon 优化器里的 Newton-Schulz 迭代搬到注意力输出上：NS-Attn. 对每个 head 的输出（feature-by-token 矩阵）做 Frobenius 归一化、施加一步有限 NS 多项式再还原范数，以降低谱集中度、抬高有效秩。在 ViT 与 Swin 上的 CIFAR-10/CIFAR-100 全部 12 组同 seed 配对比较中最终 epoch 精确率均提升，平均增益 0.25–0.83 个百分点；消融显示一次迭代优于两次，代价是额外推理延迟。",
+        "motivation": "注意力 head 输出的谱往往被少数主特征值占据、有效秩偏低，而 Muon 中的 Newton-Schulz 变换已被证明能整形矩阵谱；作者想在不引入参数的前提下把这种谱效应直接用到 Transformer 注意力表征上。",
+        "method": "NS-Attn. 是无参数变换，作用于每个注意力 head 的输出：把输出排成 feature-by-token 矩阵，除以 Frobenius 范数，做一次有限 Newton-Schulz 多项式步，再恢复原范数；插入位置在 head merging 与输出投影之前。实验在 ViT 和 Swin 上进行，用 CIFAR-10/CIFAR-100、同 seed 配对比较，并做迭代次数（1 次 vs 2 次）消融与谱分析。",
+        "result": "在 ViT 与 Swin、CIFAR-10 与 CIFAR-100 上，NS-Attn. 在全部 12 组同 seed 配对比较中都提升最终 epoch 精确率，平均增益 0.25–0.83 个百分点；ViT 消融中一次迭代的平均精确率高于两次。谱分析显示主特征值集中度下降、有效秩上升；这些增益伴随额外推理延迟。",
+        "conclusion": "对注意力输出做一步参数化的 Newton-Schulz 谱整形即可在 ViT/Swin 上稳定小幅提升分类精确率，且一次迭代比两次更划算，但要付出推理延迟。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-23",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.27621",
+      "title": "SHRAV: State-Hypothesis-Reason-Action-Verify Framework for Physical Modeling and Inverse Design",
+      "authors": [
+        "Ziheng Guo",
+        "Yang Bu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CE",
+        "physics.comp-ph",
+        "physics.optics"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.27621",
+      "pdf_url": "https://arxiv.org/pdf/2609.27621",
+      "abstract_en": "Physical modeling and inverse design require computation that can continue from reusable state. We introduce SHRAV, an architecture-independent computational framework organized around State, Hypothesis, Reason, Action, and Verify. Its central mechanism is a state-continuation core with declared reuse boundaries and explicit roles for learned evolution and numerical quantities. Forward configurations evolve predictive state and read out physical responses; inverse-design configurations additionally generate target-directed modifications and consume evaluator feedback. Electromagnetic world-model studies are mapped to forward configurations, with selected readout and reuse diagnostics reported here. Computational lithography demonstrates an inverse-design configuration: four fixed-weight design updates improve thresholded aerial-image intersection-over-union from 0.5313 to 0.8153 under independent scalar-pupil replay, with a maximum absolute IoU difference of approximately 0.000824 between predictor estimates and independent replay.",
+      "comment": "7 pages, 4 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: SHRAV 是一个与具体架构解耦的计算框架，把物理建模与逆设计统一到 State-Hypothesis-Reason-Action-Verify 五段结构上，核心是带显式复用边界的状态延续核 (state-continuation core)，并区分前向与逆设计两种配置。在计算光刻逆设计中，四次固定权重的设计更新把阈值化 aerial image 的 IoU 从 0.5313 提到 0.8153，预测值与独立 scalar-pupil replay 的最大绝对 IoU 差约 0.000824。\nMotivation: 物理建模与逆设计需要能从可复用状态继续计算的流程，而现有做法里前向预测与目标导向的设计修改往往割裂，状态复用边界也不明确。\nMethod: 框架由 State、Hypothesis、Reason、Action、Verify 五部分组织，中心是声明复用边界、并明确区分学习到的演化 (learned evolution) 与数值量角色的状态延续核。前向配置演化预测状态并读出物理响应；逆设计配置额外生成目标导向的修改并消费评估器反馈。电磁 world-model 研究被映射为前向配置，计算光刻作为逆设计配置的实例。\nResult: 计算光刻中四次固定权重设计更新使阈值化 aerial-image IoU 从 0.5313 升至 0.8153（independent scalar-pupil replay 条件下）；预测器估计与独立 replay 之间的最大绝对 IoU 差约 0.000824。电磁 world-model 研究按前向配置映射，报告了选定的读出与复用诊断。\nConclusion: 用统一的状态延续核加显式复用边界，可以把前向物理预测与目标导向逆设计放进同一框架，且预测与独立 replay 高度一致。\nRelevance: 18",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "SHRAV 是一个与具体架构解耦的计算框架，把物理建模与逆设计统一到 State-Hypothesis-Reason-Action-Verify 五段结构上，核心是带显式复用边界的状态延续核 (state-continuation core)，并区分前向与逆设计两种配置。在计算光刻逆设计中，四次固定权重的设计更新把阈值化 aerial image 的 IoU 从 0.5313 提到 0.8153，预测值与独立 scalar-pupil replay 的最大绝对 IoU 差约 0.000824。",
+        "motivation": "物理建模与逆设计需要能从可复用状态继续计算的流程，而现有做法里前向预测与目标导向的设计修改往往割裂，状态复用边界也不明确。",
+        "method": "框架由 State、Hypothesis、Reason、Action、Verify 五部分组织，中心是声明复用边界、并明确区分学习到的演化 (learned evolution) 与数值量角色的状态延续核。前向配置演化预测状态并读出物理响应；逆设计配置额外生成目标导向的修改并消费评估器反馈。电磁 world-model 研究被映射为前向配置，计算光刻作为逆设计配置的实例。",
+        "result": "计算光刻中四次固定权重设计更新使阈值化 aerial-image IoU 从 0.5313 升至 0.8153（independent scalar-pupil replay 条件下）；预测器估计与独立 replay 之间的最大绝对 IoU 差约 0.000824。电磁 world-model 研究按前向配置映射，报告了选定的读出与复用诊断。",
+        "conclusion": "用统一的状态延续核加显式复用边界，可以把前向物理预测与目标导向逆设计放进同一框架，且预测与独立 replay 高度一致。",
+        "relevance_score": "18"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-23",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.27532",
+      "title": "ProCredit: From Outcome Rewards to Progress Credit in Agentic Reinforcement Learning",
+      "authors": [
+        "Ming Ma",
+        "Yi Zhu",
+        "Yiran Zhong",
+        "Feida Zhu",
+        "Chonghan Liu",
+        "Pengkun Jiao",
+        "Qichao Wang",
+        "Yanhao Jia",
+        "Tianming Yang",
+        "Steven Hoi"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.27532",
+      "pdf_url": "https://arxiv.org/pdf/2609.27532",
+      "abstract_en": "Long-horizon agentic tasks require an agent to modify an environment through a sequence of tool calls, with success determined by the final state. The standard recipe assigns a single outcome reward at the end and compares trajectories sampled for the same task. As a result, a group with no successful trajectory yields no training signal, failed attempts cannot be told apart by how close they came to completion, and turns that advance the task receive the same credit as turns that only query the environment. Prior work refines the unit of comparison from the trajectory to the step, or trains a reward model to supply intermediate signal: the former still derives its signal from final success alone, and the latter estimates it with a model. We observe that the acceptance checks that decide success can also be run on intermediate states, so progress is as verifiable as the outcome. We propose ProCredit, which turns this verified progress into credit: it reruns the acceptance checks after each turn, rewards the turn by its change in progress, and uses these rewards to assign credit both across attempts at the same task and across the turns within a trajectory. Starting from Qwen3.5 base models at three scales on AppWorld, ProCredit outperforms outcome-reward baselines and progress-based baselines in task completion rate at every scale on both test sets, exceeding the strongest outcome-reward baseline by 4.1 percentage points at 4B, and results in a second environment show the same direction of improvement. Ablations show that adding the final progress to the trajectory score alone does not improve performance: the gain comes from crediting progress to the turn where it occurs.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: ProCredit 把长程 agentic 任务的验收检查 (acceptance checks) 在每一轮后重跑，用进度变化量作为该轮奖励，再据此在同任务的多次尝试之间、以及单条轨迹的各轮之间分配 credit。在 AppWorld 上从 Qwen3.5 base 的三个规模起步，任务完成率在两个测试集、每个规模都超过 outcome-reward 与 progress-based 基线，4B 规模比最强 outcome-reward 基线高 4.1 个百分点。\nMotivation: 长程 agentic 任务只在末尾给一个 outcome reward：整组采样无成功轨迹时训练信号为零，失败尝试无法按接近完成的程度区分，推进任务的轮次与仅查询环境的轮次拿到相同 credit。\nMethod: ProCredit 观察到判定成功的验收检查同样可用于中间状态，于是每轮后重跑这些检查，按进度增量给该轮奖励，再用这些奖励同时做跨尝试与跨轮的 credit 分配；基线包括 outcome-reward 方法与 progress-based 方法，另做消融。\nResult: 在 AppWorld 上以 Qwen3.5 base 三个规模训练，任务完成率在两个测试集、每个规模均超过 outcome-reward 与 progress-based 基线，4B 规模超出最强 outcome-reward 基线 4.1 个百分点；第二个环境的结果方向一致。消融显示只把最终进度加进轨迹分数不带来提升。\nConclusion: 收益来自把 progress 记到发生它的那一轮，而不是来自轨迹分数里多加一项最终进度；可验证的中间进度能替代需要额外 reward model 的做法。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "ProCredit 把长程 agentic 任务的验收检查 (acceptance checks) 在每一轮后重跑，用进度变化量作为该轮奖励，再据此在同任务的多次尝试之间、以及单条轨迹的各轮之间分配 credit。在 AppWorld 上从 Qwen3.5 base 的三个规模起步，任务完成率在两个测试集、每个规模都超过 outcome-reward 与 progress-based 基线，4B 规模比最强 outcome-reward 基线高 4.1 个百分点。",
+        "motivation": "长程 agentic 任务只在末尾给一个 outcome reward：整组采样无成功轨迹时训练信号为零，失败尝试无法按接近完成的程度区分，推进任务的轮次与仅查询环境的轮次拿到相同 credit。",
+        "method": "ProCredit 观察到判定成功的验收检查同样可用于中间状态，于是每轮后重跑这些检查，按进度增量给该轮奖励，再用这些奖励同时做跨尝试与跨轮的 credit 分配；基线包括 outcome-reward 方法与 progress-based 方法，另做消融。",
+        "result": "在 AppWorld 上以 Qwen3.5 base 三个规模训练，任务完成率在两个测试集、每个规模均超过 outcome-reward 与 progress-based 基线，4B 规模超出最强 outcome-reward 基线 4.1 个百分点；第二个环境的结果方向一致。消融显示只把最终进度加进轨迹分数不带来提升。",
+        "conclusion": "收益来自把 progress 记到发生它的那一轮，而不是来自轨迹分数里多加一项最终进度；可验证的中间进度能替代需要额外 reward model 的做法。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-23",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.27455",
+      "title": "Latent evolving World Action Model",
+      "authors": [
+        "Xueji Fang",
+        "Boqiang Duan",
+        "Hua Wu",
+        "Jingdong Wang",
+        "Guo-Jun Qi"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.27455",
+      "pdf_url": "https://arxiv.org/pdf/2609.27455",
+      "abstract_en": "World Action Models (WAMs) jointly model action generation and environment dynamics and are mostly built on pretrained Video Diffusion Models (VDMs). In VDM-based WAMs, observations are first encoded by a VAE, and the resulting compressed latents are then processed by large video diffusion backbones to extract effective features for action generation. However, this paradigm ties WAM performance and training cost to large-scale video generation pretraining, limiting WAM efficiency and scalability. In this paper, we theoretically and empirically investigate how visual representations affect action generation in WAMs. Our results show that predictive embeddings from Joint-Embedding Predictive Architecture (JEPA) encoders better support action generation than compressed VAE latents, with I-JEPA performing best in our encoder comparison. Based on these findings, we propose LeWAM, which conditions action generation on JEPA embeddings and models environment evolution by predicting future embeddings in the same space, without relying on a video diffusion backbone. We further find that imitation learning matches demonstrated actions but does not distinguish better actions from worse ones, even though small action deviations can greatly affect task success. To address this limitation without additional environment interaction or the human oversight required for resets and safety, we introduce Demonstration-Guided DPO (DemoDPO), an offline preference refinement stage that derives preference supervision directly from demonstrations. With only 0.4B trainable parameters, LeWAM achieves an average success rate of 92.28\\% on RoboTwin 2.0, comparable to that of state-of-the-art VLAs and WAMs, and maintains practical effectiveness on real-world manipulation tasks.",
+      "comment": "https://github.com/XuejiFang/LeWAM",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: LeWAM 把 World Action Model 从视频扩散骨干中解耦：用 JEPA 预测式表征（I-JEPA 最佳）替代 VAE 压缩 latent，直接在该表征空间预测环境演化并生成动作，再用从演示中构造偏好对的 DemoDPO 做离线偏好精调。仅 0.4B 可训练参数即在 RoboTwin 2.0 上达到平均成功率 92.28%，与 SOTA 的 VLA/WAM 相当，并在真实操作任务上保持有效。\nMotivation: 基于视频扩散模型 (VDM) 的 WAM 把性能与训练成本绑死在大规模视频生成预训练上，效率与可扩展性受限；同时模仿学习只能复现演示动作，无法区分好坏动作，而微小动作偏差会显著影响任务成败。\nMethod: 先系统比较不同视觉表征对动作生成的影响，发现 JEPA 预测式 embedding 优于 VAE latent、I-JEPA 最佳；据此提出 LeWAM，以 JEPA embedding 为条件生成动作，并在同一表征空间预测未来 embedding 来建模环境演化，去掉视频扩散骨干；再提出 Demonstration-Guided DPO (DemoDPO)，直接从演示派生偏好监督做离线偏好精调，无需额外环境交互或人工重置与安全监督。\nResult: 编码器对比中 I-JEPA 表现最好；LeWAM 仅用 0.4B 可训练参数，在 RoboTwin 2.0 上平均成功率 92.28%，与 SOTA 的 VLA 和 WAM 相当，并在真实机器人操作任务上保持实际有效性。\nConclusion: 动作生成更吃预测式表征而非重建式压缩 latent，因此 WAM 可以摆脱大规模视频扩散预训练；演示本身足以构造偏好信号来弥补模仿学习不辨优劣的缺陷。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "LeWAM 把 World Action Model 从视频扩散骨干中解耦：用 JEPA 预测式表征（I-JEPA 最佳）替代 VAE 压缩 latent，直接在该表征空间预测环境演化并生成动作，再用从演示中构造偏好对的 DemoDPO 做离线偏好精调。仅 0.4B 可训练参数即在 RoboTwin 2.0 上达到平均成功率 92.28%，与 SOTA 的 VLA/WAM 相当，并在真实操作任务上保持有效。",
+        "motivation": "基于视频扩散模型 (VDM) 的 WAM 把性能与训练成本绑死在大规模视频生成预训练上，效率与可扩展性受限；同时模仿学习只能复现演示动作，无法区分好坏动作，而微小动作偏差会显著影响任务成败。",
+        "method": "先系统比较不同视觉表征对动作生成的影响，发现 JEPA 预测式 embedding 优于 VAE latent、I-JEPA 最佳；据此提出 LeWAM，以 JEPA embedding 为条件生成动作，并在同一表征空间预测未来 embedding 来建模环境演化，去掉视频扩散骨干；再提出 Demonstration-Guided DPO (DemoDPO)，直接从演示派生偏好监督做离线偏好精调，无需额外环境交互或人工重置与安全监督。",
+        "result": "编码器对比中 I-JEPA 表现最好；LeWAM 仅用 0.4B 可训练参数，在 RoboTwin 2.0 上平均成功率 92.28%，与 SOTA 的 VLA 和 WAM 相当，并在真实机器人操作任务上保持实际有效性。",
+        "conclusion": "动作生成更吃预测式表征而非重建式压缩 latent，因此 WAM 可以摆脱大规模视频扩散预训练；演示本身足以构造偏好信号来弥补模仿学习不辨优劣的缺陷。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-23",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.27166",
+      "title": "Scaling of Capability and Efficiency at Inference Time in Large Reasoning Models",
+      "authors": [
+        "Moritz Laber",
+        "Zohair Shafi",
+        "Germans Savcisens",
+        "Brennan Klein",
+        "Matteo Chinazzi",
+        "Samuel V. Scarpino",
+        "Albert-László Barabási",
+        "Alessandro Vespignani",
+        "Tina Eliassi-Rad"
+      ],
+      "categories": [
+        "cs.LG",
+        "physics.soc-ph"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.27166",
+      "pdf_url": "https://arxiv.org/pdf/2609.27166",
+      "abstract_en": "Capability and efficiency are two key dimensions of reasoning in large language models (LLMs). Capability refers to the ability to solve a given problem correctly, whereas efficiency refers to the ability to do so with limited resources. When LLMs use Chain-of-Thought (CoT) reasoning to solve problems of controlled hardness, both the number of problems solved correctly and the number of tokens required to reach a correct answer depend on problem hardness and model size. However, how these factors jointly shape capability and efficiency remains poorly understood. Here, we use hierarchical Bayesian models to evaluate the capability and efficiency of LLMs from the DeepSeek-R1-Distill model family across four classes of arithmetic and algorithmic reasoning problems. At a fixed model size, the probability of correctly solving an instance decays approximately exponentially with instance size, our proxy for problem hardness. The decay scale grows sublinearly with model size, indicating that larger models are more capable, but that capability gains diminish with scale. Output length grows as a power law with instance size, which serves as a proxy for difficulty. However, the parameters of this power law do not vary systematically with model size, suggesting that larger models do not become more efficient. Together, these findings reveal potential limitations of naive scaling as a strategy for developing more capable AI systems: capability improves with diminishing returns, while efficiency shows little to no improvement.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 用层次贝叶斯模型刻画 DeepSeek-R1-Distill 系列在受控难度的算术与算法推理题上的能力与效率标度律：固定模型规模时，单题正确率随实例规模近似指数衰减，衰减尺度随模型规模次线性增长；输出长度随实例规模呈幂律，但幂律参数不随模型规模系统变化。结论是加大模型带来递减的能力收益，而效率几乎不改善，单纯 scaling 造更强 AI 存在局限。\nMotivation: CoT 推理下，解对题数与答对所需 token 数同时受题目难度和模型规模影响，但两者如何共同塑造能力与效率尚不清楚，naive scaling 是否可持续缺少实证依据。\nMethod: 用层次贝叶斯模型 (hierarchical Bayesian models) 评估 DeepSeek-R1-Distill 模型家族在四类算术与算法推理问题上的能力与效率；以实例规模 (instance size) 作为难度代理，分别拟合正确率随实例规模的衰减与输出长度随实例规模的幂律。\nResult: 固定模型规模下，单实例正确率随实例规模近似指数衰减，衰减尺度随模型规模次线性增长（更大模型更强但收益递减）；输出长度随实例规模呈幂律，而幂律参数不随模型规模系统变化（更大模型并不更高效）。\nConclusion: 能力随规模提升但回报递减，效率基本无改善，因此单纯扩大模型规模作为提升 AI 能力的策略存在根本局限。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "用层次贝叶斯模型刻画 DeepSeek-R1-Distill 系列在受控难度的算术与算法推理题上的能力与效率标度律：固定模型规模时，单题正确率随实例规模近似指数衰减，衰减尺度随模型规模次线性增长；输出长度随实例规模呈幂律，但幂律参数不随模型规模系统变化。结论是加大模型带来递减的能力收益，而效率几乎不改善，单纯 scaling 造更强 AI 存在局限。",
+        "motivation": "CoT 推理下，解对题数与答对所需 token 数同时受题目难度和模型规模影响，但两者如何共同塑造能力与效率尚不清楚，naive scaling 是否可持续缺少实证依据。",
+        "method": "用层次贝叶斯模型 (hierarchical Bayesian models) 评估 DeepSeek-R1-Distill 模型家族在四类算术与算法推理问题上的能力与效率；以实例规模 (instance size) 作为难度代理，分别拟合正确率随实例规模的衰减与输出长度随实例规模的幂律。",
+        "result": "固定模型规模下，单实例正确率随实例规模近似指数衰减，衰减尺度随模型规模次线性增长（更大模型更强但收益递减）；输出长度随实例规模呈幂律，而幂律参数不随模型规模系统变化（更大模型并不更高效）。",
+        "conclusion": "能力随规模提升但回报递减，效率基本无改善，因此单纯扩大模型规模作为提升 AI 能力的策略存在根本局限。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-22",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.27041",
+      "title": "Math Reasoning in LLMs is Organized by Approach, Not Topic",
+      "authors": [
+        "Sajad Goudarzi",
+        "Samaneh Zamanifard",
+        "Moloud Nasiri",
+        "Hamed Rahimian"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.27041",
+      "pdf_url": "https://arxiv.org/pdf/2609.27041",
+      "abstract_en": "Mathematical reasoning benchmarks are typically organized by topic, but language models may organize their internal computation by reusable reasoning approach instead. In this paper, we investigate whether open math-capable LLMs organize internally by topical sub-skill or by reasoning approach, and we present evidence that the approach is the key. We introduce a generation-replay protocol: a model first generates a solution, after which we replay the exact prompt-plus-generation trajectory and extract activation-importance signatures over the reasoning tokens. We cluster these signatures without supervision across eight models and five mathematical reasoning sources, then evaluate the recovered structure with structural, semantic, and intervention tests. Across all 40 model-source cells, the recovered clusters outperform matched-size random baselines. Two independent frontier-LLM judges find approach-level coherence in 77-82% of real clusters versus 6-11% in within-source controls, and topic-pure clusters usually receive labels finer than the topic itself. In approach-controlled prompting, changing the requested reasoning approach shifts cluster assignment in seven of eight model conditions, whereas paraphrases largely preserve it. These results indicate that math-capable LLMs organize internal mathematical computation by reasoning approach rather than benchmark topic. The implication is that topic-stratified benchmarks and topic-balanced training corpora can still miss the axis that matters: even deliberately topic-balanced corpora may remain imbalanced over reasoning approaches.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 generation-replay 协议：让模型先生成解题过程，再回放该 prompt+生成轨迹并提取推理 token 上的 activation-importance 签名，无监督聚类后用结构、语义与干预三类检验判定 LLM 内部按推理方式还是按题目主题组织。跨 8 个模型、5 个数学推理来源共 40 个 model-source 单元，聚类一致优于等规模随机基线；两个独立 frontier-LLM 判官在真实聚类中给出 77–82% 的 approach-level 一致性，对照组仅 6–11%；在 approach-controlled prompting 下，改变要求的推理方式会使 8 个模型条件中的 7 个改变聚类归属，而改写措辞基本保持不变。结论是数学能力 LLM 按推理方式而非 benchmark 主题组织内部计算，主题均衡的语料仍可能在推理方式上失衡。\nMotivation: 数学推理 benchmark 与训练语料都按主题划分，但 LLM 内部计算可能按可复用的推理方式组织；若如此，主题分层的评测与主题均衡的语料会漏掉真正起作用的那条轴。\nMethod: generation-replay 协议：模型先生成解答，再回放完全相同的 prompt-plus-generation 轨迹，在推理 token 上提取 activation-importance 签名；对签名做无监督聚类，覆盖 8 个开源数学能力模型与 5 个数学推理来源，再用 structural、semantic、intervention 三组测试评估恢复出的结构，并与等规模随机基线和 within-source 对照比较。\nResult: 全部 40 个 model-source 单元中，恢复的聚类都优于等规模随机基线；两个独立 frontier-LLM 判官在真实聚类中判定 77–82% 具备 approach-level 一致性，within-source 对照仅 6–11%；主题纯净的聚类通常获得比主题本身更细的标签；approach-controlled prompting 下改变推理方式会改变 8 个模型条件中 7 个的聚类归属，而改写（paraphrase）基本保持归属。\nConclusion: 数学能力 LLM 的内部数学计算按推理方式而非 benchmark 主题组织，因此主题均衡的 benchmark 与训练语料仍可能在推理方式维度上失衡。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 generation-replay 协议：让模型先生成解题过程，再回放该 prompt+生成轨迹并提取推理 token 上的 activation-importance 签名，无监督聚类后用结构、语义与干预三类检验判定 LLM 内部按推理方式还是按题目主题组织。跨 8 个模型、5 个数学推理来源共 40 个 model-source 单元，聚类一致优于等规模随机基线；两个独立 frontier-LLM 判官在真实聚类中给出 77–82% 的 approach-level 一致性，对照组仅 6–11%；在 approach-controlled prompting 下，改变要求的推理方式会使 8 个模型条件中的 7 个改变聚类归属，而改写措辞基本保持不变。结论是数学能力 LLM 按推理方式而非 benchmark 主题组织内部计算，主题均衡的语料仍可能在推理方式上失衡。",
+        "motivation": "数学推理 benchmark 与训练语料都按主题划分，但 LLM 内部计算可能按可复用的推理方式组织；若如此，主题分层的评测与主题均衡的语料会漏掉真正起作用的那条轴。",
+        "method": "generation-replay 协议：模型先生成解答，再回放完全相同的 prompt-plus-generation 轨迹，在推理 token 上提取 activation-importance 签名；对签名做无监督聚类，覆盖 8 个开源数学能力模型与 5 个数学推理来源，再用 structural、semantic、intervention 三组测试评估恢复出的结构，并与等规模随机基线和 within-source 对照比较。",
+        "result": "全部 40 个 model-source 单元中，恢复的聚类都优于等规模随机基线；两个独立 frontier-LLM 判官在真实聚类中判定 77–82% 具备 approach-level 一致性，within-source 对照仅 6–11%；主题纯净的聚类通常获得比主题本身更细的标签；approach-controlled prompting 下改变推理方式会改变 8 个模型条件中 7 个的聚类归属，而改写（paraphrase）基本保持归属。",
+        "conclusion": "数学能力 LLM 的内部数学计算按推理方式而非 benchmark 主题组织，因此主题均衡的 benchmark 与训练语料仍可能在推理方式维度上失衡。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-22",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.26990",
+      "title": "Topological Signatures of Cyber-Attack Classes in Natural Visibility Graph Representations of Network Traffic",
+      "authors": [
+        "Ali Melih Kanca",
+        "Ilker Turker"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CR",
+      "abs_url": "https://arxiv.org/abs/2609.26990",
+      "pdf_url": "https://arxiv.org/pdf/2609.26990",
+      "abstract_en": "Natural Visibility Graph (NVG)-based representations provide a promising approach for capturing structural patterns in sequential network traffic. However, whether different cyber-attack classes exhibit distinctive topological signatures in such representations remains insufficiently understood. This study investigates the discriminative and structural characteristics of NVG-based network traffic representations using the CSE-CIC-IDS2018 dataset. Seventy-six numerical traffic features were independently transformed into NVGs within overlapping frames of 40 observations, and ten graph-theoretic metrics were extracted from each graph, resulting in 760 topological descriptors per frame. The discriminative capability of these representations was evaluated using a multi-branch convolutional neural network (CNN) with stratified five-fold cross-validation. The model achieved an average accuracy of 96.20% and a Matthews correlation coefficient (MCC) of 0.9566. To characterize class-specific topological differences, Kruskal-Wallis and Mann-Whitney U tests were combined with Benjamini-Hochberg false discovery rate correction and effect-size measures. Of the 10,640 attack-versus-benign comparisons, 7,777 (73.1%) remained statistically significant after FDR correction, with 4,844 exhibiting large Cliff's delta effects. The strongest global differences were predominantly associated with backward-traffic and packet-length-related features combined with connectivity, clustering, and centrality measures. These findings indicate that NVG-derived representations can provide strong discriminative capability while revealing class-dependent topological patterns associated with different cyber-attack classes.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 把 CSE-CIC-IDS2018 的 76 项数值流量特征各自转成 Natural Visibility Graph (NVG)，在 40 个观测的重叠窗口内提取 10 个图论指标，得到每帧 760 维拓扑描述子，再用多分支 CNN 做攻击类判别。分层五折交叉验证下平均准确率 96.20%、MCC 0.9566；10,640 组攻击对正常比较中 7,777 组（73.1%）经 FDR 校正后仍显著，4,844 组 Cliff's delta 效应量为大。\nMotivation: 不同网络攻击类别在 NVG 表示中是否具有可区分的拓扑特征尚不清楚，需要检验这种表示能否同时支撑判别与类别刻画。\nMethod: 对 CSE-CIC-IDS2018 的 76 项流量特征分别构建 NVG（重叠帧长 40 个观测），每图提取 10 个图论指标形成 760 维描述子；用多分支 CNN 配合分层五折交叉验证评估判别能力，并以 Kruskal-Wallis、Mann-Whitney U 检验结合 Benjamini-Hochberg FDR 校正与效应量做类别间统计比较。\nResult: 多分支 CNN 平均准确率 96.20%、MCC 0.9566；10,640 组攻击-正常比较中 7,777 组（73.1%）经 FDR 校正后显著，其中 4,844 组呈大 Cliff's delta 效应量。最强的全局差异主要来自反向流量与包长相关特征，结合连通性、聚类与中心性指标。\nConclusion: NVG 派生表示既能提供强判别能力，又能揭示与不同攻击类别相关、依赖类别的拓扑模式，其中反向流量、包长度与图的连通/聚类/中心性是区分攻击类的关键维度。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "把 CSE-CIC-IDS2018 的 76 项数值流量特征各自转成 Natural Visibility Graph (NVG)，在 40 个观测的重叠窗口内提取 10 个图论指标，得到每帧 760 维拓扑描述子，再用多分支 CNN 做攻击类判别。分层五折交叉验证下平均准确率 96.20%、MCC 0.9566；10,640 组攻击对正常比较中 7,777 组（73.1%）经 FDR 校正后仍显著，4,844 组 Cliff's delta 效应量为大。",
+        "motivation": "不同网络攻击类别在 NVG 表示中是否具有可区分的拓扑特征尚不清楚，需要检验这种表示能否同时支撑判别与类别刻画。",
+        "method": "对 CSE-CIC-IDS2018 的 76 项流量特征分别构建 NVG（重叠帧长 40 个观测），每图提取 10 个图论指标形成 760 维描述子；用多分支 CNN 配合分层五折交叉验证评估判别能力，并以 Kruskal-Wallis、Mann-Whitney U 检验结合 Benjamini-Hochberg FDR 校正与效应量做类别间统计比较。",
+        "result": "多分支 CNN 平均准确率 96.20%、MCC 0.9566；10,640 组攻击-正常比较中 7,777 组（73.1%）经 FDR 校正后显著，其中 4,844 组呈大 Cliff's delta 效应量。最强的全局差异主要来自反向流量与包长相关特征，结合连通性、聚类与中心性指标。",
+        "conclusion": "NVG 派生表示既能提供强判别能力，又能揭示与不同攻击类别相关、依赖类别的拓扑模式，其中反向流量、包长度与图的连通/聚类/中心性是区分攻击类的关键维度。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-22",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.26865",
+      "title": "Safety Nudges: User-Facing Interventions for Real-Time AI Risk Awareness",
+      "authors": [
+        "Varshini Elangovan",
+        "James Wedgwood",
+        "Chhavi Yadav",
+        "William Agnew",
+        "Sauvik Das",
+        "Virginia Smith"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CY",
+        "cs.HC",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.HC",
+      "abs_url": "https://arxiv.org/abs/2609.26865",
+      "pdf_url": "https://arxiv.org/pdf/2609.26865",
+      "abstract_en": "Conversational AI systems can pose safety risks to their users such as hallucination, sycophancy, overconfidence, and anthropomorphism, but these risks are difficult for users to detect during everyday use. We introduce Safety Nudges, a browser-based tool that provides lightweight, in situ flags when concerning behavior is detected in chatbot conversations. We evaluated Safety Nudges in a two-week field study with 45 frequent chatbot users, collecting interaction logs, surveys, and feedback on individual nudges. Participants found the tool useful, clear, and minimally disruptive, with nearly all users reporting an increased awareness of potential AI harms, though we found that this improved awareness alone did not necessarily lead to discernible behavioral changes. Our results suggest that user facing safety nudges can complement model-level safeguards by helping people critically evaluate AI responses in context, while highlighting the importance of relevance, calibration, and user control in nudge design for conversational AI safety. The code for our Safety Nudges extension is publicly available at https://github.com/jtbwedgwood/safety-nudges.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: Safety Nudges 是一个浏览器扩展，在聊天对话中就地标记幻觉、谄媚、过度自信和拟人化等风险行为。对 45 名高频聊天机器人用户的两周实地研究显示，几乎所有用户报告 AI 危害意识提升，但意识提升本身并未带来可辨识的行为改变。\nMotivation: 对话式 AI 的幻觉、谄媚、过度自信与拟人化风险在日常使用中难以被用户察觉，而模型层防护无法帮助用户在具体语境中自行判断回答是否可信。\nMethod: 提出基于浏览器的 Safety Nudges 工具，在检测到可疑对话行为时给出轻量的就地 (in situ) 标记；通过为期两周、45 名高频聊天机器人用户的实地研究评估，收集交互日志、问卷调查与针对单条 nudge 的反馈，扩展代码已在 GitHub 公开。\nResult: 两周实地研究覆盖 45 名高频聊天机器人用户：参与者认为工具有用、清晰且干扰极小，几乎所有用户报告对 AI 潜在危害的意识增强；但这种意识提升本身并未必然带来可辨识的行为改变。\nConclusion: 面向用户的安全 nudge 可作为模型层防护的补充，帮助人们在语境中批判性评估 AI 回答；nudge 设计的关键在于相关性、校准与用户控制。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "Safety Nudges 是一个浏览器扩展，在聊天对话中就地标记幻觉、谄媚、过度自信和拟人化等风险行为。对 45 名高频聊天机器人用户的两周实地研究显示，几乎所有用户报告 AI 危害意识提升，但意识提升本身并未带来可辨识的行为改变。",
+        "motivation": "对话式 AI 的幻觉、谄媚、过度自信与拟人化风险在日常使用中难以被用户察觉，而模型层防护无法帮助用户在具体语境中自行判断回答是否可信。",
+        "method": "提出基于浏览器的 Safety Nudges 工具，在检测到可疑对话行为时给出轻量的就地 (in situ) 标记；通过为期两周、45 名高频聊天机器人用户的实地研究评估，收集交互日志、问卷调查与针对单条 nudge 的反馈，扩展代码已在 GitHub 公开。",
+        "result": "两周实地研究覆盖 45 名高频聊天机器人用户：参与者认为工具有用、清晰且干扰极小，几乎所有用户报告对 AI 潜在危害的意识增强；但这种意识提升本身并未必然带来可辨识的行为改变。",
+        "conclusion": "面向用户的安全 nudge 可作为模型层防护的补充，帮助人们在语境中批判性评估 AI 回答；nudge 设计的关键在于相关性、校准与用户控制。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-22",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.26855",
+      "title": "QUARTET: Quad-branch cross-Attention and Random-walk Traces for Enhancing Transformers on Relational Graphs",
+      "authors": [
+        "Kyaw Hpone Myint",
+        "Nan Jiang",
+        "Xiang Li",
+        "Zhe Wu",
+        "Alexandre G.R. Day",
+        "Pranab Mohanty",
+        "Giri Iyengar"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.26855",
+      "pdf_url": "https://arxiv.org/pdf/2609.26855",
+      "abstract_en": "Relational Deep Learning (RDL) models multi-table databases as heterogeneous temporal graphs, and graph transformers currently achieve state-of-the-art performance on benchmarks like RelBench. However, the current leading model, RelGT, suffers from two key limitations: its random local sampler yields loosely connected subgraphs that hinder message passing, and its global attention module relies on a single, seed-feature-based memory that ignores broader macro-level dynamics. To overcome these limitations, we introduce QUARTET, an expressive graph transformer architecture that applies full self-attention on local subgraphs while enriching global context through cross-attention branches. Specifically, QUARTET employs a Causal Random Walk (CRW) sampler based on recency-truncated Personalized PageRank (PPR) to extract compact, hub-robust, and densely connected local subgraphs without temporal leakage. Concurrently, a quad-branch cross-attention module integrates global context from four complementary perspectives: seed feature, seed topology, temporal dynamics, and collaborative dynamics. Across the RelBench v1 classification tasks, QUARTET consistently matches or outperforms the current state-of-the-art graph transformer baselines (HGT and RelGT). Ablation studies confirm that the CRW sampler significantly enriches local neighborhood quality, while the global branches provide essential, task-specific predictive gains.",
+      "comment": "This work has been accepted for main conference track at Learning on Graphs (LoG) 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: QUARTET 针对 RelBench 上关系图 Transformer 的两个短板提出改进：用基于时间截断 Personalized PageRank (PPR) 的 Causal Random Walk (CRW) 采样器替换随机局部采样，得到紧凑、抗 hub、稠密且无时间泄漏的子图；再用四分支 cross-attention（seed feature、seed topology、temporal dynamics、collaborative dynamics）替代单一 seed 特征记忆来补全局上下文。在 RelBench v1 分类任务上与 HGT、RelGT 基线持平或更优，消融显示 CRW 显著改善局部邻域质量、各全局分支带来任务相关的增益。\nMotivation: Relational Deep Learning 把多表数据库建模为异构时序图，现有最强模型 RelGT 的随机局部采样产生松散子图阻碍消息传递，其全局注意力又只依赖单一 seed 特征记忆、忽略宏观动态。\nMethod: QUARTET 是一个图 Transformer 架构：局部子图上做完整 self-attention，全局上下文通过 cross-attention 注入。CRW 采样器用 recency-truncated Personalized PageRank (PPR) 抽取紧凑、hub-robust、稠密且无时间泄漏的子图；quad-branch cross-attention 从 seed feature、seed topology、temporal dynamics、collaborative dynamics 四个互补视角整合全局信息。\nResult: 在 RelBench v1 分类任务上，QUARTET 与当前 SOTA 图 Transformer 基线 HGT 和 RelGT 持平或更优；消融研究显示 CRW 采样器显著提升局部邻域质量，四个全局分支提供任务相关的预测增益。\nConclusion: 关系图 Transformer 的瓶颈在于局部子图连通性和全局上下文的单一来源，用 PPR 引导的因果随机游走采样加四视角 cross-attention 可同时改善两者并在 RelBench v1 上达到或超过 SOTA。\nRelevance: 35",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "QUARTET 针对 RelBench 上关系图 Transformer 的两个短板提出改进：用基于时间截断 Personalized PageRank (PPR) 的 Causal Random Walk (CRW) 采样器替换随机局部采样，得到紧凑、抗 hub、稠密且无时间泄漏的子图；再用四分支 cross-attention（seed feature、seed topology、temporal dynamics、collaborative dynamics）替代单一 seed 特征记忆来补全局上下文。在 RelBench v1 分类任务上与 HGT、RelGT 基线持平或更优，消融显示 CRW 显著改善局部邻域质量、各全局分支带来任务相关的增益。",
+        "motivation": "Relational Deep Learning 把多表数据库建模为异构时序图，现有最强模型 RelGT 的随机局部采样产生松散子图阻碍消息传递，其全局注意力又只依赖单一 seed 特征记忆、忽略宏观动态。",
+        "method": "QUARTET 是一个图 Transformer 架构：局部子图上做完整 self-attention，全局上下文通过 cross-attention 注入。CRW 采样器用 recency-truncated Personalized PageRank (PPR) 抽取紧凑、hub-robust、稠密且无时间泄漏的子图；quad-branch cross-attention 从 seed feature、seed topology、temporal dynamics、collaborative dynamics 四个互补视角整合全局信息。",
+        "result": "在 RelBench v1 分类任务上，QUARTET 与当前 SOTA 图 Transformer 基线 HGT 和 RelGT 持平或更优；消融研究显示 CRW 采样器显著提升局部邻域质量，四个全局分支提供任务相关的预测增益。",
+        "conclusion": "关系图 Transformer 的瓶颈在于局部子图连通性和全局上下文的单一来源，用 PPR 引导的因果随机游走采样加四视角 cross-attention 可同时改善两者并在 RelBench v1 上达到或超过 SOTA。",
+        "relevance_score": "35"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-22",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.21423",
+      "title": "DENSE: Distilling Agent Trajectories into Evidence-Grounded Shortcut Trees for Self-Refinement",
+      "authors": [
+        "Siyuan Liu (1 and 2)",
+        "Fan Yu (1 and 2)",
+        "Dongyu Ru (2)",
+        "Yizhu Liu (2)",
+        "Yifan Yang (2)",
+        "Xuezhi Cao (2)",
+        "Xunliang Cai (2)",
+        "Yixin Cao (1) ((1) Fudan University",
+        "(2) Meituan Longcat Team)"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.21423",
+      "pdf_url": "https://arxiv.org/pdf/2609.21423",
+      "abstract_en": "Online agent deployments accumulate execution trajectories at massive scale and behavioral diversity, for which predefined annotation criteria hardly exist. Extracting useful evidence therefore demands costly manual annotation or verifier signals that fails to scale, leaving valuable evidence buried among redundant, incomplete, and failed executions. This raises a question: without post-execution rewards or correctness labels, how can reusable experience be distilled from the trajectories themselves? To address this challenge, we introduce DENSE (Distilling Evidence from Nested Subtask Executions), which organizes trajectory-derived evidence into nested shortcut trees. By consolidating redundant attempts, identifying resolved subtasks, and retaining useful steps alongside outstanding requirements, DENSE transforms noisy execution traces into structured and reusable task-solving feedback. To evaluate whether such feedback helps agents retry the same task, we design REFIT, which measures success-rate changes between the initial attempt and feedback-guided retries. Among feedback methods without external outcome supervision, DENSE achieves the highest strict pass rate across four agent models on Terminal-Bench 2.1, improving over initial attempts by 7.12-15.64 percentage points with 19.0-43.6% fewer agent tokens on retries. In addition, on hard tasks DENSE consistently outperforms self-reflection in cumulative pass rate across multiple feedback iterations on all four models, demonstrating its strong potential for continual agent self-improvement.",
+      "comment": "44 pages, including appendices",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: DENSE 在无执行后奖励与正确性标签的条件下，把 agent 执行轨迹蒸馏成嵌套 shortcut tree 形式的可复用证据，作为反馈供同一任务重试。在 Terminal-Bench 2.1 上，四个 agent 模型的 strict pass rate 相对首次尝试提升 7.12–15.64 个百分点，且重试少用 19.0–43.6% 的 agent token；在困难任务上多轮反馈的累计通过率一致高于 self-reflection。\nMotivation: 线上 agent 部署积累的轨迹规模大、行为多样，缺少预定义标注标准，提取有用证据要么靠昂贵人工标注、要么靠无法扩展的 verifier 信号，大量有效经验埋在冗余、不完整和失败的执行里。\nMethod: DENSE (Distilling Evidence from Nested Subtask Executions) 把轨迹来源的证据组织成嵌套 shortcut tree：合并冗余尝试、识别已解决的子任务、保留有用步骤与未完成需求，将噪声执行轨迹转成结构化的任务求解反馈。评测用自建的 REFIT，度量首次尝试与反馈引导重试之间的成功率变化，反馈方法均不使用外部结果监督。\nResult: 在 Terminal-Bench 2.1 上，DENSE 在四个 agent 模型上取得最高的 strict pass rate，相对首次尝试提升 7.12–15.64 个百分点，重试阶段 agent token 消耗减少 19.0–43.6%。在困难任务上，DENSE 在全部四个模型的多轮反馈迭代中累计通过率均高于 self-reflection。\nConclusion: 无需执行后奖励或正确性标签，仅从轨迹自身蒸馏出的结构化证据即可同时提升重试成功率并降低 token 开销，作者据此认为该方法对 agent 持续自我改进有潜力。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "DENSE 在无执行后奖励与正确性标签的条件下，把 agent 执行轨迹蒸馏成嵌套 shortcut tree 形式的可复用证据，作为反馈供同一任务重试。在 Terminal-Bench 2.1 上，四个 agent 模型的 strict pass rate 相对首次尝试提升 7.12–15.64 个百分点，且重试少用 19.0–43.6% 的 agent token；在困难任务上多轮反馈的累计通过率一致高于 self-reflection。",
+        "motivation": "线上 agent 部署积累的轨迹规模大、行为多样，缺少预定义标注标准，提取有用证据要么靠昂贵人工标注、要么靠无法扩展的 verifier 信号，大量有效经验埋在冗余、不完整和失败的执行里。",
+        "method": "DENSE (Distilling Evidence from Nested Subtask Executions) 把轨迹来源的证据组织成嵌套 shortcut tree：合并冗余尝试、识别已解决的子任务、保留有用步骤与未完成需求，将噪声执行轨迹转成结构化的任务求解反馈。评测用自建的 REFIT，度量首次尝试与反馈引导重试之间的成功率变化，反馈方法均不使用外部结果监督。",
+        "result": "在 Terminal-Bench 2.1 上，DENSE 在四个 agent 模型上取得最高的 strict pass rate，相对首次尝试提升 7.12–15.64 个百分点，重试阶段 agent token 消耗减少 19.0–43.6%。在困难任务上，DENSE 在全部四个模型的多轮反馈迭代中累计通过率均高于 self-reflection。",
+        "conclusion": "无需执行后奖励或正确性标签，仅从轨迹自身蒸馏出的结构化证据即可同时提升重试成功率并降低 token 开销，作者据此认为该方法对 agent 持续自我改进有潜力。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-18",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.21229",
+      "title": "Beyond Attention Masks: Instruction Anchoring for Efficient In-Context Diffusion Generation",
+      "authors": [
+        "Yangshuai Liu",
+        "Zheming Li",
+        "Jiaao Li",
+        "Kang He",
+        "Ziliang Lai",
+        "Zhitai Liu",
+        "Chengru Song"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2608.21229",
+      "pdf_url": "https://arxiv.org/pdf/2608.21229",
+      "abstract_en": "In-context diffusion transformers concatenate instruction, target, and reference tokens into a single sequence for joint attention. Reference-side computation must therefore be repeated at every denoising step, with the cost growing rapidly as more references are added. Decoupling reference tokens from the target enables exact key-value reuse across denoising steps, but prevents the references from attending to the instruction, degrading instruction following and reference fidelity. This trade-off cannot be resolved through attention-mask design alone. We introduce AnchorCache, a parameter-free token-layout and attention-mask co-design that inserts static text anchors. These anchors condition the reference representations on the instruction during cache construction, after which the resulting reference keys and values can be reused exactly across denoising steps. To recover the quality initially lost through this structural conversion, we apply teacher-forced velocity distillation followed by a short on-policy stage that queries the teacher at student-visited states. To our knowledge, this is the first use of on-policy distillation for architectural recovery in diffusion models. Across benchmarks spanning image, speech, and video generation, AnchorCache matches full-attention quality. Its efficiency gains increase with the reference-context size, reaching a 6.40x speedup in diffusion transformer inference.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 AnchorCache：在 in-context diffusion transformer 的 token 布局中插入静态文本 anchor，让参考 token 在构建缓存时就携带指令条件，从而在去噪步之间精确复用参考侧 key-value 而不牺牲指令跟随。配合教师强制速度蒸馏加短程 on-policy 蒸馏恢复结构转换损失的质量，在图像、语音、视频生成基准上匹配 full-attention 质量，参考上下文越大加速越明显，最高 6.40x 推理加速。\nMotivation: in-context diffusion 把指令、目标、参考 token 拼成单序列做联合注意力，参考侧计算每步去噪都要重算，参考数量增加时开销急剧上升；解耦参考虽可精确复用 KV，却让参考看不到指令，指令跟随与参考保真度下降，而这一权衡无法只靠 attention mask 解决。\nMethod: AnchorCache 是无参数的 token 布局与 attention mask 协同设计，插入静态文本 anchor，使参考表征在缓存构建阶段就以指令为条件，之后参考 KV 可跨去噪步精确复用；再用 teacher-forced velocity distillation 加一段在学生访问状态上查询教师的 on-policy 蒸馏，恢复结构转换造成的质量损失。\nResult: 在覆盖图像、语音、视频生成的多个基准上，AnchorCache 匹配 full-attention 质量；效率增益随参考上下文规模增大，扩散 Transformer 推理最高达到 6.40x 加速。\nConclusion: 参考-指令解耦带来的质量损失可以通过 anchor 条件化加蒸馏恢复，KV 复用的推理加速因此在不掉质量的前提下随参考规模放大；作者称这是 on-policy 蒸馏首次用于扩散模型的架构恢复。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 AnchorCache：在 in-context diffusion transformer 的 token 布局中插入静态文本 anchor，让参考 token 在构建缓存时就携带指令条件，从而在去噪步之间精确复用参考侧 key-value 而不牺牲指令跟随。配合教师强制速度蒸馏加短程 on-policy 蒸馏恢复结构转换损失的质量，在图像、语音、视频生成基准上匹配 full-attention 质量，参考上下文越大加速越明显，最高 6.40x 推理加速。",
+        "motivation": "in-context diffusion 把指令、目标、参考 token 拼成单序列做联合注意力，参考侧计算每步去噪都要重算，参考数量增加时开销急剧上升；解耦参考虽可精确复用 KV，却让参考看不到指令，指令跟随与参考保真度下降，而这一权衡无法只靠 attention mask 解决。",
+        "method": "AnchorCache 是无参数的 token 布局与 attention mask 协同设计，插入静态文本 anchor，使参考表征在缓存构建阶段就以指令为条件，之后参考 KV 可跨去噪步精确复用；再用 teacher-forced velocity distillation 加一段在学生访问状态上查询教师的 on-policy 蒸馏，恢复结构转换造成的质量损失。",
+        "result": "在覆盖图像、语音、视频生成的多个基准上，AnchorCache 匹配 full-attention 质量；效率增益随参考上下文规模增大，扩散 Transformer 推理最高达到 6.40x 加速。",
+        "conclusion": "参考-指令解耦带来的质量损失可以通过 anchor 条件化加蒸馏恢复，KV 复用的推理加速因此在不掉质量的前提下随参考规模放大；作者称这是 on-policy 蒸馏首次用于扩散模型的架构恢复。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-21",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.14047",
+      "title": "Evolve Vision-Language-Action Model into an Agent with On-the-fly Tool-use",
+      "authors": [
+        "Ding Yi",
+        "Yanzhao Yu",
+        "Xili Dai",
+        "Xianbiao Qi",
+        "Peiwen Sun",
+        "Xueqian Wang",
+        "Xiangyu Yue",
+        "Jianan Wang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2608.14047",
+      "pdf_url": "https://arxiv.org/pdf/2608.14047",
+      "abstract_en": "This paper integrates end-to-end Visual-Language-Action (VLA) models with agentic tool-use to propose Agentic Robot with Tool-use (ART). ART is a tool-injection framework that tunes any VLA model to leverage off-the-shelf tool modules for low-level vision, high-level affordance, and embodiment enhancement. Compared to vanilla VLA models with a whole continuous action solution space, ART reduces the complexity of the action solution space through tool-use, which not only improves generalizability across different tasks but also reduces data dependency. To demonstrate the advantages (high generalizability and low data dependency) of this framework, we first built a dataset of 30K tool-use trajectories and action demonstrations, which is much smaller than those used by baseline methods. We then designed a training regimen for long-trajectory tool-use reasoning in challenging environments. Experiments show that ART achieves a 20% higher success rate than mainstream baselines on simulation and real-world tasks, such as pick-and-place in the dark at novel viewpoints. Empirical results highlight the benefits of an agent-based approach: modular tool utilization enables more efficient training, lightweight deployment, and scalable integration of new tools. This design fosters robustness, adaptability, and extensibility, paving the way for the practical deployment of VLA systems in complex real-world scenarios.",
+      "comment": "12 pages, 4 figures. Accepted to the IEEE/CVF Conference on Computer Vision and Pattern Recognition Conference Findings (CVPRF 2026)",
+      "journal_ref": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Findings (CVPRF), 2026, pp. 1346-1357",
+      "doi": "",
+      "summary_zh": "TL;DR: ART 把端到端视觉-语言-动作 (VLA) 模型改造成可即时调用外部工具模块的智能体，通过工具注入降低连续动作解空间的复杂度，从而提升跨任务泛化并减少数据依赖。在仅 30K 条工具使用轨迹与动作示范上训练后，ART 在仿真与真机任务（如暗光、新视角下的抓取放置）上比主流基线成功率高 20%。\nMotivation: 端到端 VLA 模型的连续动作解空间复杂、数据需求大，跨任务泛化差，难以在复杂真实场景中部署。\nMethod: 提出工具注入框架 ART，把现成工具模块接入任意 VLA 模型，覆盖底层视觉、高层 affordance 与具身增强三类工具；构建 30K 条工具使用轨迹与动作示范数据集（远小于基线方法所用规模），并设计面向长轨迹工具使用推理的训练方案。\nResult: 数据集规模 30K 条工具使用轨迹与动作示范，明显小于基线方法所用数据；在仿真与真机任务（暗光、新视角下的 pick-and-place 等）上，ART 成功率比主流基线高 20%。\nConclusion: 模块化工具使用让 VLA 训练更高效、部署更轻量、新工具可扩展接入，作者据此认为 agent 化设计能提升鲁棒性、适应性与可扩展性，推动 VLA 在复杂真实场景落地。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "ART 把端到端视觉-语言-动作 (VLA) 模型改造成可即时调用外部工具模块的智能体，通过工具注入降低连续动作解空间的复杂度，从而提升跨任务泛化并减少数据依赖。在仅 30K 条工具使用轨迹与动作示范上训练后，ART 在仿真与真机任务（如暗光、新视角下的抓取放置）上比主流基线成功率高 20%。",
+        "motivation": "端到端 VLA 模型的连续动作解空间复杂、数据需求大，跨任务泛化差，难以在复杂真实场景中部署。",
+        "method": "提出工具注入框架 ART，把现成工具模块接入任意 VLA 模型，覆盖底层视觉、高层 affordance 与具身增强三类工具；构建 30K 条工具使用轨迹与动作示范数据集（远小于基线方法所用规模），并设计面向长轨迹工具使用推理的训练方案。",
+        "result": "数据集规模 30K 条工具使用轨迹与动作示范，明显小于基线方法所用数据；在仿真与真机任务（暗光、新视角下的 pick-and-place 等）上，ART 成功率比主流基线高 20%。",
+        "conclusion": "模块化工具使用让 VLA 训练更高效、部署更轻量、新工具可扩展接入，作者据此认为 agent 化设计能提升鲁棒性、适应性与可扩展性，推动 VLA 在复杂真实场景落地。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-14",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.11433",
+      "title": "Omni-Decision: Evidence-Ledger Planning for Omni-Modal Agents",
+      "authors": [
+        "Ming Ma",
+        "Yi Zhu",
+        "Yiran Zhong",
+        "Feida Zhu",
+        "Yuhao Wang",
+        "Junhan Shi",
+        "Lingrui Mei",
+        "Tianming Yang",
+        "Steven Hoi"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2607.11433",
+      "pdf_url": "https://arxiv.org/pdf/2607.11433",
+      "abstract_en": "Omni-modal agents must seek evidence across video, audio, web pages, and computation to answer questions. Their main bottleneck is planning: noisy multimodal observations accumulate in conversation history and disrupt later decisions, while multimodal models have limited capacity for multi-step planning. Controlled backend replacements support this diagnosis: replacing the planner causes a much larger performance loss than replacing the perception backend. We present Omni-Decision, an omni-modal agent built on evidence-ledger planning: it replaces the growing dialogue history with an explicit evidence ledger that records what evidence is still missing, what has been confirmed, and where records conflict. A critic reads each noisy observation and passes only the usable content to the ledger, discarding the rest, so the planner works from a compact context throughout the task. Each run records the state, action, and verdict at every step, and supervised fine-tuning and decision-level reinforcement learning on these trajectories further improve the planner. Omni-Decision achieves state-of-the-art accuracy of 81.4% on OmniGAIA at approximately 43% of Gemini-3.1-Pro's cost per question, and 65.0% on WorldSense long-video understanding, level with the strongest end-to-end model.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: Omni-Decision 用证据台账 (evidence-ledger) 替代不断增长的对话历史来规划：critic 逐条筛掉噪声观测、只把可用内容写入台账，记录缺失证据、已确认事实与冲突记录，planner 始终在紧凑上下文上决策。受控后端替换显示换掉 planner 的性能损失远大于换感知后端，说明瓶颈在规划；在 OmniGAIA 上达到 81.4% 的 SOTA 准确率，成本约为 Gemini-3.1-Pro 每题的 43%。\nMotivation: 全模态 agent 要跨视频、音频、网页与计算检索证据，噪声观测在对话历史中累积并扰乱后续决策，而多模态模型的多步规划能力有限。\nMethod: 以证据台账取代对话历史：critic 读取每条噪声观测并只把可用内容传入台账，台账记录缺失、已确认与冲突三类状态；每步记录 state、action、verdict 轨迹，再用监督微调 (SFT) 与决策级强化学习 (decision-level RL) 训练 planner。受控后端替换用于定位瓶颈。\nResult: OmniGAIA 上准确率 81.4%（SOTA），每题成本约为 Gemini-3.1-Pro 的 43%；WorldSense 长视频理解 65.0%，与最强端到端模型持平。受控替换中换 planner 的性能损失远大于换感知后端。\nConclusion: 全模态 agent 的主要瓶颈在规划而非感知，用显式证据台账压缩上下文并配合 SFT 与决策级 RL 可在更低成本下达到 SOTA。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "Omni-Decision 用证据台账 (evidence-ledger) 替代不断增长的对话历史来规划：critic 逐条筛掉噪声观测、只把可用内容写入台账，记录缺失证据、已确认事实与冲突记录，planner 始终在紧凑上下文上决策。受控后端替换显示换掉 planner 的性能损失远大于换感知后端，说明瓶颈在规划；在 OmniGAIA 上达到 81.4% 的 SOTA 准确率，成本约为 Gemini-3.1-Pro 每题的 43%。",
+        "motivation": "全模态 agent 要跨视频、音频、网页与计算检索证据，噪声观测在对话历史中累积并扰乱后续决策，而多模态模型的多步规划能力有限。",
+        "method": "以证据台账取代对话历史：critic 读取每条噪声观测并只把可用内容传入台账，台账记录缺失、已确认与冲突三类状态；每步记录 state、action、verdict 轨迹，再用监督微调 (SFT) 与决策级强化学习 (decision-level RL) 训练 planner。受控后端替换用于定位瓶颈。",
+        "result": "OmniGAIA 上准确率 81.4%（SOTA），每题成本约为 Gemini-3.1-Pro 的 43%；WorldSense 长视频理解 65.0%，与最强端到端模型持平。受控替换中换 planner 的性能损失远大于换感知后端。",
+        "conclusion": "全模态 agent 的主要瓶颈在规划而非感知，用显式证据台账压缩上下文并配合 SFT 与决策级 RL 可在更低成本下达到 SOTA。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-13",
+      "updated_date": "2026-09-24",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2601.22029",
+      "title": "Inverse Problems Conditioned on Observation Ensembles: Applications and Methods",
+      "authors": [
+        "Zhengyan Huan",
+        "Camila Pazos",
+        "Martin Klassen",
+        "Vincent Croft",
+        "Pierre-Hugues Beauchemin",
+        "Shuchin Aeron"
+      ],
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2601.22029",
+      "pdf_url": "https://arxiv.org/pdf/2601.22029",
+      "abstract_en": "We introduce a new multivariate statistical problem that we refer to as the Ensemble-conditioned Inverse Problem (EIP). The aim of EIP is to invert for an ensemble that is distributed according to the pushforward of a prior under a forward process. In high energy physics (HEP), this is related to a widely known problem called unfolding, which aims to reconstruct the true physics distribution from observations that are distorted by detector effects. The EIP also arises in full waveform inversion (FWI) and inverse imaging with unknown priors. We propose non-iterative inference-time methods that construct posterior samplers based on a new class of conditional generative models, which we call ensemble inverse generative models. For the posterior modeling, these models additionally use the ensemble information contained in the observation set on top of single observations. Unlike existing methods, our proposed methods avoid explicit and iterative use of the forward model at inference time via training across several sets of truth-observation pairs that are consistent with the same forward model, but originate from a wide range of priors. We empirically demonstrate that this training procedure can implicitly encode the likelihood model, enabling direct posterior inference for unseen priors to some degree. We benchmark the proposed method on several synthetic and real datasets in inverse imaging, HEP, and FWI. Our code is available at https://github.com/ZhengyanHuan/EIP.",
+      "comment": "Accepted by TMLR",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出新问题类型 Ensemble-conditioned Inverse Problem (EIP)：在观测集合条件下反演服从先验经前向过程推前分布的集合，对应 HEP 中的 unfolding、FWI 与未知先验的反演成像。用一类条件生成模型（ensemble inverse generative models）在多组共享同一前向模型、但来自不同先验的真值-观测配对上训练，推理时非迭代、不再显式调用前向模型，从而对未见先验也能在一定程度上直接做后验推断。\nMotivation: HEP unfolding、FWI 与未知先验反演成像都要求在观测集合层面反演分布，而现有方法推理时需显式、迭代地调用前向模型，且难以处理未见先验。\nMethod: 定义 EIP 并提出非迭代推理时方法：训练一类条件生成模型（ensemble inverse generative models）构造后验采样器，除单次观测外还利用观测集合中的 ensemble 信息；训练数据为多组与同一前向模型一致、但源自广泛不同先验的真值-观测配对，使似然模型被隐式编码，推理时无需显式迭代前向模型。\nResult: 在反演成像、HEP 与 FWI 的若干合成与真实数据集上对该方法做了基准测试；训练过程被实证表明可隐式编码似然模型，从而对未见先验在一定程度上直接进行后验推断。代码见 github.com/ZhengyanHuan/EIP。\nConclusion: EIP 把集合条件下的反演统一为一个统计问题，用跨先验训练的条件生成模型即可在推理时绕开迭代前向模型调用，并对未见先验保持一定程度的直接后验推断能力。\nRelevance: 38",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出新问题类型 Ensemble-conditioned Inverse Problem (EIP)：在观测集合条件下反演服从先验经前向过程推前分布的集合，对应 HEP 中的 unfolding、FWI 与未知先验的反演成像。用一类条件生成模型（ensemble inverse generative models）在多组共享同一前向模型、但来自不同先验的真值-观测配对上训练，推理时非迭代、不再显式调用前向模型，从而对未见先验也能在一定程度上直接做后验推断。",
+        "motivation": "HEP unfolding、FWI 与未知先验反演成像都要求在观测集合层面反演分布，而现有方法推理时需显式、迭代地调用前向模型，且难以处理未见先验。",
+        "method": "定义 EIP 并提出非迭代推理时方法：训练一类条件生成模型（ensemble inverse generative models）构造后验采样器，除单次观测外还利用观测集合中的 ensemble 信息；训练数据为多组与同一前向模型一致、但源自广泛不同先验的真值-观测配对，使似然模型被隐式编码，推理时无需显式迭代前向模型。",
+        "result": "在反演成像、HEP 与 FWI 的若干合成与真实数据集上对该方法做了基准测试；训练过程被实证表明可隐式编码似然模型，从而对未见先验在一定程度上直接进行后验推断。代码见 github.com/ZhengyanHuan/EIP。",
+        "conclusion": "EIP 把集合条件下的反演统一为一个统计问题，用跨先验训练的条件生成模型即可在推理时绕开迭代前向模型调用，并对未见先验保持一定程度的直接后验推断能力。",
+        "relevance_score": "38"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-01-29",
+      "updated_date": "2026-09-23",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
