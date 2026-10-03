@@ -1,0 +1,1819 @@
+{
+  "date": "2026-10-03",
+  "snapshot_date": "2026-10-03",
+  "generated_at": "2026-10-03T14:46:50Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 42,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.CV": 9,
+    "cs.LG": 22,
+    "cs.AI": 10,
+    "stat.ML": 1
+  },
+  "summary_status_counts": {
+    "ok": 42
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 1200
+  },
+  "papers": [
+    {
+      "id": "2609.40253",
+      "title": "ComputerSD: Online Self-Distillation from Real-Time Feedback for Computer-Use Agents",
+      "authors": [
+        "Yong Du",
+        "Tongbo Chen",
+        "Zhengxi Lu",
+        "Yizhou Liu",
+        "Bofan Chen",
+        "Tao Jiang",
+        "Wenhao Xu",
+        "Yongliang Shen"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.40253",
+      "pdf_url": "https://arxiv.org/pdf/2609.40253",
+      "abstract_en": "Online training enables computer-use agents (CUAs) to improve through interaction with executable environments. However, existing methods primarily rely on sparse outcome rewards, which provide no supervision for intermediate actions. On-policy self-distillation (OPSD) offers token-level learning signals through privileged rescoring, but directly applying it to CUA online training presents two challenges: fixed guidance may become misaligned with the student's current state, and guidance-induced probability shifts may conflict with step-level correctness. We introduce ComputerSD, an online self-distillation method for CUAs that converts real-time feedback from executed GUI transitions into guidance for policy learning. A fine-tuned GUI analyzer produces guidance and a step-level value score after each action; the guidance provides privileged context, while the score regulates the resulting OPSD signals. ComputerSD jointly optimizes token-level OPSD and trajectory-level GRPO in a fully asynchronous training framework. On OSWorld-Verified, ComputerSD outperforms outcome-only GRPO by 1.9 and 4.1 percentage points on the general-purpose Qwen3-VL-8B-Thinking and specialized EvoCUA-8B backbones, respectively. Evaluation in out-of-distribution settings further supports the generalizability of ComputerSD. These results demonstrate the effectiveness of learning from real-time feedback through online self-distillation for CUAs.",
+      "comment": "https://github.com/ZJU-REAL/ComputerSD",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: ComputerSD 把 GUI 执行后的实时反馈经微调 GUI analyzer 转成特权 guidance 与 step-level value score，用后者调节 token 级 OPSD 信号，并与轨迹级 GRPO 在全异步框架中联合优化。在 OSWorld-Verified 上，相对 outcome-only GRPO，Qwen3-VL-8B-Thinking 提升 1.9 个百分点，EvoCUA-8B 提升 4.1 个百分点，分布外设定同样支持其泛化性。\nMotivation: CUA 在线训练只靠稀疏 outcome reward，中间动作没有监督；直接套用 OPSD 又会遇到固定 guidance 与学生当前状态错位、guidance 引发的概率偏移与 step-level 正确性冲突两个问题。\nMethod: 微调 GUI analyzer 在每个动作后产出 guidance 与 step-level value score，前者提供特权上下文、后者调节 OPSD 信号；训练上联合 token 级 OPSD 与轨迹级 GRPO，采用全异步 (fully asynchronous) 框架。\nResult: 在 OSWorld-Verified 上，ComputerSD 相对 outcome-only GRPO 在通用骨干 Qwen3-VL-8B-Thinking 上高 1.9 个百分点，在专用骨干 EvoCUA-8B 上高 4.1 个百分点；分布外 (out-of-distribution) 设定的评测进一步支持其泛化性。\nConclusion: 用实时 GUI 反馈做在线自蒸馏 (online self-distillation) 能为 CUA 提供比 outcome-only 奖励更有效的学习信号，且在不同骨干与分布外设定上都成立。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "ComputerSD 把 GUI 执行后的实时反馈经微调 GUI analyzer 转成特权 guidance 与 step-level value score，用后者调节 token 级 OPSD 信号，并与轨迹级 GRPO 在全异步框架中联合优化。在 OSWorld-Verified 上，相对 outcome-only GRPO，Qwen3-VL-8B-Thinking 提升 1.9 个百分点，EvoCUA-8B 提升 4.1 个百分点，分布外设定同样支持其泛化性。",
+        "motivation": "CUA 在线训练只靠稀疏 outcome reward，中间动作没有监督；直接套用 OPSD 又会遇到固定 guidance 与学生当前状态错位、guidance 引发的概率偏移与 step-level 正确性冲突两个问题。",
+        "method": "微调 GUI analyzer 在每个动作后产出 guidance 与 step-level value score，前者提供特权上下文、后者调节 OPSD 信号；训练上联合 token 级 OPSD 与轨迹级 GRPO，采用全异步 (fully asynchronous) 框架。",
+        "result": "在 OSWorld-Verified 上，ComputerSD 相对 outcome-only GRPO 在通用骨干 Qwen3-VL-8B-Thinking 上高 1.9 个百分点，在专用骨干 EvoCUA-8B 上高 4.1 个百分点；分布外 (out-of-distribution) 设定的评测进一步支持其泛化性。",
+        "conclusion": "用实时 GUI 反馈做在线自蒸馏 (online self-distillation) 能为 CUA 提供比 outcome-only 奖励更有效的学习信号，且在不同骨干与分布外设定上都成立。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.40245",
+      "title": "STARS: From Spatiotemporal Dynamics to Social Representations in Human-Robot Interaction",
+      "authors": [
+        "Nathan Tsoi",
+        "Michael J. Munje",
+        "Tejas Oberoi",
+        "Rishab Maheshwari",
+        "Pengen Zheng",
+        "Tanush Chauhan",
+        "Peter Stone",
+        "Joydeep Biswas"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2609.40245",
+      "pdf_url": "https://arxiv.org/pdf/2609.40245",
+      "abstract_en": "Robot navigation in dynamic, human-centered environments requires socially-compliant decisions grounded in robust scene understanding. Recent Vision-Language Models (VLMs) exhibit promising capabilities such as object recognition, common-sense reasoning, and contextual understanding, capabilities that align with the nuanced requirements of social robot navigation. However, it remains unclear whether VLMs can accurately understand complex social navigation scenes (e.g., inferring the spatial-temporal relations among agents and human intentions), which is essential for safe and socially compliant robot navigation. While some recent works have explored the use of VLMs in social robot navigation, no existing work systematically evaluates their ability to meet these necessary conditions. In this paper, we introduce the Social Navigation Scene Understanding Benchmark (SocialNav-SUB), a Visual Question Answering (VQA) dataset and benchmark designed to evaluate VLMs for scene understanding in real-world social robot navigation scenarios. SocialNav-SUB provides a unified framework for evaluating VLMs against human and rule-based baselines across VQA tasks requiring spatial, spatiotemporal, and social reasoning in social robot navigation. Through experiments with state-of-the-art VLMs, we find that while the best-performing VLM achieves an encouraging probability of agreeing with human answers, it still underperforms simpler rule-based approach and human consensus baselines, indicating critical gaps in social scene understanding of current VLMs. Our benchmark sets the stage for further research on foundation models for social robot navigation, offering a framework to explore how VLMs can be tailored to meet real-world social robot navigation needs. An overview of this paper along with the code and data can be found at https://larg.github.io/stars.",
+      "comment": "Conference on Robot Learning (CoRL) 2026. First two authors contributed equally. Project site: https://larg.github.io/stars/",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出社交导航场景理解基准 SocialNav-SUB：一个面向真实社交机器人导航场景的 VQA 数据集，用空间、时空与社会推理三类任务系统评测 VLM 是否能推断智能体间的时空关系与人类意图。实验显示最强 VLM 与人类答案的一致概率尚可，但仍逊于更简单的规则式方法与人类共识基线，说明当前 VLM 在社交场景理解上存在关键缺口。\nMotivation: VLM 具备物体识别与常识推理能力，但能否准确理解复杂社交导航场景（推断智能体间时空关系与人类意图）尚不清楚，且此前没有工作系统评估 VLM 是否满足安全、社交合规导航的这些必要条件。\nMethod: 构建 SocialNav-SUB——面向真实社交机器人导航场景的 VQA 数据集与基准，统一框架下让 VLM 对照人类与规则式 (rule-based) 基线，任务覆盖空间、时空 (spatiotemporal) 与社会推理三类；对多个 state-of-the-art VLM 做实验。\nResult: 在 SocialNav-SUB 的 VQA 实验中，表现最好的 VLM 与人类答案的一致概率 (probability of agreeing with human answers) 达到令人鼓舞的水平，但仍不及更简单的规则式方法与人类共识 (human consensus) 基线。\nConclusion: 当前 VLM 在社交导航场景理解上存在关键缺口，尚不足以支撑安全、社交合规的机器人导航；该基准为面向真实社交导航需求定制基础模型提供评测框架。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出社交导航场景理解基准 SocialNav-SUB：一个面向真实社交机器人导航场景的 VQA 数据集，用空间、时空与社会推理三类任务系统评测 VLM 是否能推断智能体间的时空关系与人类意图。实验显示最强 VLM 与人类答案的一致概率尚可，但仍逊于更简单的规则式方法与人类共识基线，说明当前 VLM 在社交场景理解上存在关键缺口。",
+        "motivation": "VLM 具备物体识别与常识推理能力，但能否准确理解复杂社交导航场景（推断智能体间时空关系与人类意图）尚不清楚，且此前没有工作系统评估 VLM 是否满足安全、社交合规导航的这些必要条件。",
+        "method": "构建 SocialNav-SUB——面向真实社交机器人导航场景的 VQA 数据集与基准，统一框架下让 VLM 对照人类与规则式 (rule-based) 基线，任务覆盖空间、时空 (spatiotemporal) 与社会推理三类；对多个 state-of-the-art VLM 做实验。",
+        "result": "在 SocialNav-SUB 的 VQA 实验中，表现最好的 VLM 与人类答案的一致概率 (probability of agreeing with human answers) 达到令人鼓舞的水平，但仍不及更简单的规则式方法与人类共识 (human consensus) 基线。",
+        "conclusion": "当前 VLM 在社交导航场景理解上存在关键缺口，尚不足以支撑安全、社交合规的机器人导航；该基准为面向真实社交导航需求定制基础模型提供评测框架。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.40140",
+      "title": "Less is more: error-distance scaling relation for data-efficient kilometer-scale downscaling of extreme heat",
+      "authors": [
+        "Ahmed Marey",
+        "Henry Lu",
+        "Abhishek Gaur",
+        "Sherif Goubran",
+        "Malek Aloui",
+        "Theodore Potsis",
+        "David Rolnick",
+        "Alex Hernandez-Garcia",
+        "Liangzhu Leon Wang"
+      ],
+      "categories": [
+        "cs.LG",
+        "physics.ao-ph"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "physics.ao-ph"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "physics.ao-ph",
+      "abs_url": "https://arxiv.org/abs/2609.40140",
+      "pdf_url": "https://arxiv.org/pdf/2609.40140",
+      "abstract_en": "Extreme heat is where urban adaptation needs kilometer-scale data the most, but the simulations training a downscaler can cost more than they save, and how much is needed has not been identified. We measured it with CASPER, a U-Net with a structure-preserving loss downscaling 32 km reanalysis to 1 km temperature, humidity and wind, across 24 configurations of one to eight months. Held-out error grows linearly with climatological distance to the training data, RMSE = 0.83 + 2.95 d, explaining 90% of its variance against 7% for volume and predicting unseen months in advance. On held-out extreme summer weeks CASPER preserves the fine-scale structure and cross-variable physics that matched-budget baselines degrade, and matches station observations during documented heat waves to within 1.8 K. Transfer to a new region degrades geographically; 11 days of local simulation cuts Vancouver's held-out error from 3.8 to 1.3 K. Training periods should span the target climate: the same accuracy for four times less simulation, putting kilometer-scale downscaling of extreme heat within reach of groups without large computing facilities.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 用 CASPER（带结构保持损失的 U-Net）把 32 km 再分析降尺度到 1 km 温度、湿度和风，发现留出误差随气候学距离线性增长：RMSE = 0.83 + 2.95 d，可解释 90% 方差（数据量仅 7%），并能提前预测未见月份。训练期覆盖目标气候即可用四分之一仿真量达到同等精度；对新区域，补 11 天本地仿真把温哥华留出误差从 3.8 K 降到 1.3 K。\nMotivation: 极端高温最需要公里级城市数据，但训练降尺度器的仿真成本可能超过其节省，且需要多少仿真一直没有定量答案。\nMethod: CASPER：以结构保持损失 (structure-preserving loss) 训练的 U-Net，将 32 km 再分析降尺度到 1 km 的温度、湿度与风；在 1–8 个月共 24 种配置上测量误差与气候学距离、数据量的关系，并做跨区域迁移检验。\nResult: 留出误差随气候学距离线性增长，RMSE = 0.83 + 2.95 d，解释 90% 方差（数据量仅 7%），可提前预测未见月份；在留出极端夏季周上保持细尺度结构与跨变量物理，而同等预算基线退化；与站点观测在有记录热浪期间吻合到 1.8 K 以内；迁移到新区域后误差随地理距离退化，11 天本地仿真把温哥华留出误差从 3.8 K 降到 1.3 K；训练期覆盖目标气候可用四倍更少仿真达到同等精度。\nConclusion: 训练期应覆盖目标气候，据此可把极端高温的公里级降尺度做到四分之一仿真量，让没有大型算力的团队也能开展。\nRelevance: 58",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "用 CASPER（带结构保持损失的 U-Net）把 32 km 再分析降尺度到 1 km 温度、湿度和风，发现留出误差随气候学距离线性增长：RMSE = 0.83 + 2.95 d，可解释 90% 方差（数据量仅 7%），并能提前预测未见月份。训练期覆盖目标气候即可用四分之一仿真量达到同等精度；对新区域，补 11 天本地仿真把温哥华留出误差从 3.8 K 降到 1.3 K。",
+        "motivation": "极端高温最需要公里级城市数据，但训练降尺度器的仿真成本可能超过其节省，且需要多少仿真一直没有定量答案。",
+        "method": "CASPER：以结构保持损失 (structure-preserving loss) 训练的 U-Net，将 32 km 再分析降尺度到 1 km 的温度、湿度与风；在 1–8 个月共 24 种配置上测量误差与气候学距离、数据量的关系，并做跨区域迁移检验。",
+        "result": "留出误差随气候学距离线性增长，RMSE = 0.83 + 2.95 d，解释 90% 方差（数据量仅 7%），可提前预测未见月份；在留出极端夏季周上保持细尺度结构与跨变量物理，而同等预算基线退化；与站点观测在有记录热浪期间吻合到 1.8 K 以内；迁移到新区域后误差随地理距离退化，11 天本地仿真把温哥华留出误差从 3.8 K 降到 1.3 K；训练期覆盖目标气候可用四倍更少仿真达到同等精度。",
+        "conclusion": "训练期应覆盖目标气候，据此可把极端高温的公里级降尺度做到四分之一仿真量，让没有大型算力的团队也能开展。",
+        "relevance_score": "58"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.40111",
+      "title": "Agent Error Dataset: Scaling 50,000 Error--Diagnosis Pairs for Failure Analysis and Error-Aware Post-Training",
+      "authors": [
+        "Kunlun Zhu",
+        "Xuyan Ye",
+        "Yibo Li",
+        "Cheng Qian",
+        "Beibin Li",
+        "Heng Ji"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.40111",
+      "pdf_url": "https://arxiv.org/pdf/2609.40111",
+      "abstract_en": "An unsuccessful LLM agent rollout contains more information than its final reward: the observations available to the agent, the actions it chose, and the environment's responses. Reusing this experience for learning requires identifying a decision to revise and testing a concrete alternative. We introduce the Agent Error Dataset (AED), comprising 50,228 error-diagnosis pairs from 9,961 source tasks across 33 environments, 19 harness families, and 23 policy models in text-based agent systems. We retain source traces and execution metadata to support cross-setting failure analysis and re-diagnosis without repeating the original rollout. Our five-stage Agentic Error-to-Training (AET) pipeline collects natural failures, generates diagnoses and proposed corrections, and checks them against recorded evidence. Where replay is supported, we compare corrections with original-action retries from the same checkpoint under matched execution settings. We then construct separate training views for diagnosis and actor recovery. Across 3,062 matched replay pairs, first-proposal corrections raise verifier pass rates from 18.4% to 51.1%, a gain of 32.7 percentage points. Using a separately frozen diagnosis release, full-diagnosis fine-tuning on 1,656 source tasks raises Qwen3-8B's exact-step agreement with internal teacher labels from 47.2% to 63.6%, averaged over three seeds on a 943-case holdout. The strongest prompted reference in this comparison scores 54.7%, and mean agreement improves at each of four increasing training-set sizes. In a single-seed comparison of actor-training recipes, action-only repair training scores 6.67 percentage points higher on WebShop-lite than success-only training.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: AED 把 LLM agent 失败轨迹转成 50,228 个「错误-诊断」对，用五阶段 AET 流水线生成诊断与修正并对照执行证据校验。3,062 对匹配重放中首次修正把 verifier 通过率从 18.4% 提到 51.1%（+32.7 个百分点）；诊断微调使 Qwen3-8B 与教师标签的 exact-step 一致率从 47.2% 升到 63.6%，超过最强 prompt 基线 54.7%。\nMotivation: LLM agent 的失败 rollout 只被压成一个最终 reward，其中的观测、动作与环境反馈没有被复用；要复用就必须定位到具体哪一步该改，并能检验替代动作，而不必重跑原始 rollout。\nMethod: 构建 Agent Error Dataset (AED)：9,961 个源任务、33 个环境、19 类 harness、23 个策略模型，共 50,228 个错误-诊断对，保留源轨迹与执行元数据。五阶段 Agentic Error-to-Training (AET) 流水线采集自然失败、生成诊断与修正建议、对照已记录证据校验；在支持重放处用同一 checkpoint、匹配执行设置把修正与原始动作重试对比，再分别构造 diagnosis 与 actor recovery 两个训练视图。\nResult: 3,062 对匹配重放中，首次提出的修正把 verifier 通过率从 18.4% 提到 51.1%，提升 32.7 个百分点。用单独冻结的 diagnosis 发布版，在 1,656 个源任务上做全诊断微调，Qwen3-8B 与内部教师标签的 exact-step 一致率从 47.2% 升到 63.6%（三个种子平均，943 例 holdout）；该对比中最强 prompt 参照为 54.7%，且一致率随四个递增训练集规模逐级上升。单种子 actor 训练配方对比中，仅动作的修复训练在 WebShop-lite 上比仅成功训练高 6.67 个百分点。\nConclusion: 失败轨迹里可复用的学习信号在于「哪一步该改、改成什么」，把它做成带证据校验的诊断-修正对，既能直接提升修正的可验证性，也能作为诊断与动作修复两类微调的训练目标。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "AED 把 LLM agent 失败轨迹转成 50,228 个「错误-诊断」对，用五阶段 AET 流水线生成诊断与修正并对照执行证据校验。3,062 对匹配重放中首次修正把 verifier 通过率从 18.4% 提到 51.1%（+32.7 个百分点）；诊断微调使 Qwen3-8B 与教师标签的 exact-step 一致率从 47.2% 升到 63.6%，超过最强 prompt 基线 54.7%。",
+        "motivation": "LLM agent 的失败 rollout 只被压成一个最终 reward，其中的观测、动作与环境反馈没有被复用；要复用就必须定位到具体哪一步该改，并能检验替代动作，而不必重跑原始 rollout。",
+        "method": "构建 Agent Error Dataset (AED)：9,961 个源任务、33 个环境、19 类 harness、23 个策略模型，共 50,228 个错误-诊断对，保留源轨迹与执行元数据。五阶段 Agentic Error-to-Training (AET) 流水线采集自然失败、生成诊断与修正建议、对照已记录证据校验；在支持重放处用同一 checkpoint、匹配执行设置把修正与原始动作重试对比，再分别构造 diagnosis 与 actor recovery 两个训练视图。",
+        "result": "3,062 对匹配重放中，首次提出的修正把 verifier 通过率从 18.4% 提到 51.1%，提升 32.7 个百分点。用单独冻结的 diagnosis 发布版，在 1,656 个源任务上做全诊断微调，Qwen3-8B 与内部教师标签的 exact-step 一致率从 47.2% 升到 63.6%（三个种子平均，943 例 holdout）；该对比中最强 prompt 参照为 54.7%，且一致率随四个递增训练集规模逐级上升。单种子 actor 训练配方对比中，仅动作的修复训练在 WebShop-lite 上比仅成功训练高 6.67 个百分点。",
+        "conclusion": "失败轨迹里可复用的学习信号在于「哪一步该改、改成什么」，把它做成带证据校验的诊断-修正对，既能直接提升修正的可验证性，也能作为诊断与动作修复两类微调的训练目标。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.40030",
+      "title": "Fenchel Tilting: Weighted Correction for Efficient Finetuning of Generative Models",
+      "authors": [
+        "Maksim Bobrin",
+        "Maksim Zhdanov",
+        "Dmitry Dylov"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.40030",
+      "pdf_url": "https://arxiv.org/pdf/2609.40030",
+      "abstract_en": "Adapting a pretrained generative model to an arbitrary preference expressed as a utility function underlies reward alignment, guided design, and constraint satisfaction, enabling diverse applications. Existing fine-tuning methods trade off generality against computational cost: they either restrict the family class of supported preferences to keep optimization simple or preserve generality at the expense of efficiency. We introduce Fenchel Tilt Flow Control (FTFC), which decouples utility optimization from generative-model fitting. FTFC first optimizes for a target distribution by jointly fitting an effective reward and density-ratio weights on pretrained samples. Method combines the utility's variational structure with Fenchel duality, supporting general $f$-divergence penalties that determine how rewards are transformed into an distribution-correction weights. These weights are then frozen and used to modify a diffusion or flow model in a single stage of importance-weighted denoising or flow matching, without differentiating through sampling trajectories. We establish exact duality for concave utilities under suitable conditions and show that weighted fitting reproduces the optimal target distribution for a given utility. Across image and molecule generation benchmarks, FTFC improves over baselines on diverse preference functions, while also being up to $20\\times$ more efficient. roposed method enables adaptation beyond expected-reward maximization without complex optimization, while preserving robustness for more general class of the utility functions compared to baselines.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 Fenchel Tilt Flow Control (FTFC)，把效用优化与生成模型拟合解耦：先在预训练样本上联合拟合有效奖励与密度比权重并冻结，再用这批权重对 diffusion 或 flow 模型做一次加权去噪/flow matching，无需对采样轨迹求导。在图像与分子生成基准上，FTFC 在多种偏好函数上超过基线，效率最高提升 20×。\nMotivation: 把预训练生成模型适配到任意效用函数（奖励对齐、引导设计、约束满足）时，现有微调方法要么限制所支持的偏好族以简化优化，要么为保留通用性牺牲效率。\nMethod: FTFC 先在预训练样本上联合拟合有效奖励与密度比权重，利用效用的变分结构与 Fenchel 对偶，支持一般 f-divergence 惩罚来决定奖励到分布校正权重的变换；权重冻结后在单阶段做 importance-weighted denoising 或 flow matching，不穿过采样轨迹反传。\nResult: 在图像与分子生成基准上，FTFC 在多种偏好函数上优于基线，效率最高提升 20×；并证明在适当条件下凹效用存在精确对偶，加权拟合可复现给定效用下的最优目标分布。\nConclusion: 效用优化与模型拟合解耦后，适配可以超出期望奖励最大化而无需复杂优化，同时对更广的效用函数类保持鲁棒性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 Fenchel Tilt Flow Control (FTFC)，把效用优化与生成模型拟合解耦：先在预训练样本上联合拟合有效奖励与密度比权重并冻结，再用这批权重对 diffusion 或 flow 模型做一次加权去噪/flow matching，无需对采样轨迹求导。在图像与分子生成基准上，FTFC 在多种偏好函数上超过基线，效率最高提升 20×。",
+        "motivation": "把预训练生成模型适配到任意效用函数（奖励对齐、引导设计、约束满足）时，现有微调方法要么限制所支持的偏好族以简化优化，要么为保留通用性牺牲效率。",
+        "method": "FTFC 先在预训练样本上联合拟合有效奖励与密度比权重，利用效用的变分结构与 Fenchel 对偶，支持一般 f-divergence 惩罚来决定奖励到分布校正权重的变换；权重冻结后在单阶段做 importance-weighted denoising 或 flow matching，不穿过采样轨迹反传。",
+        "result": "在图像与分子生成基准上，FTFC 在多种偏好函数上优于基线，效率最高提升 20×；并证明在适当条件下凹效用存在精确对偶，加权拟合可复现给定效用下的最优目标分布。",
+        "conclusion": "效用优化与模型拟合解耦后，适配可以超出期望奖励最大化而无需复杂优化，同时对更广的效用函数类保持鲁棒性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39995",
+      "title": "Learning to Explain While Planning: Rule-Aligned Diffusion Planning for Autonomous Driving",
+      "authors": [
+        "Jiaxi Ye",
+        "Chunji Lv",
+        "Guoren Wang",
+        "Changsheng Li"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.39995",
+      "pdf_url": "https://arxiv.org/pdf/2609.39995",
+      "abstract_en": "Diffusion planners exhibit strong capabilities in generating multimodal trajectories. However, existing methods primarily rely on expert demonstrations to fit trajectory distributions, learning statistical correlations among scenes, behaviors, and trajectories without explicitly modeling driving rules. In long-tail scenarios where expert data are scarce, the lack of behaviors to imitate may lead to trajectories that violate safety or compliance requirements. Moreover, their generation process lacks rule-level explanations, making it difficult to determine which rules drive trajectory adjustments, when they take effect, and how strongly they act, thereby limiting failure diagnosis, safety validation, and targeted improvement. To address these limitations, we propose the Rule-Aligned Diffusion Planner (RADP), which incorporates differentiable driving rules into the diffusion objective during training, turning rule knowledge into intrinsic behavioral principles beyond finite demonstrations. We further introduce Rule-Pressure Attribution (RPA), which constructs supervision signals from gradients of rule losses with respect to predicted trajectories and employs a lightweight attribution head to estimate the optimization pressure exerted by each rule online. To assess the closed-loop behavioral relevance of these attributions, we propose a temporal risk-alignment protocol that evaluates whether current rule pressures reflect corresponding risks during subsequent closed-loop execution. Experiments on nuPlan show that RADP improves closed-loop planning in challenging safety-critical scenarios, while RPA exhibits consistent temporal alignment with subsequent rule-specific risks, validating both intrinsic rule learning and rule-level interpretability.",
+      "comment": "Corrected the author metadata and an author-name typo; manuscript content unchanged",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 自动驾驶扩散规划器 RADP 把可微驾驶规则直接写进扩散训练目标，使规则成为轨迹分布的内在约束而非模仿统计相关性；配套的 Rule-Pressure Attribution (RPA) 用规则损失对预测轨迹的梯度构造监督，用轻量归因头在线估计每条规则施加的优化压力。在 nuPlan 上 RADP 改善了安全关键场景的闭环规划，RPA 的规则压力与后续闭环执行中的对应风险保持一致的时间对齐。\nMotivation: 扩散规划器只靠专家示范拟合轨迹分布，长尾场景中专家数据稀缺时容易生成违反安全或合规要求的轨迹，且生成过程缺少规则级解释，难以定位失败、做安全验证。\nMethod: RADP 在扩散训练目标中加入可微驾驶规则损失，把规则知识转为超越有限示范的行为原则；RPA 以规则损失对预测轨迹的梯度构造监督信号，用轻量归因头在线估计各规则的优化压力；再用 temporal risk-alignment protocol 检验当前规则压力能否反映随后闭环执行中的相应风险。\nResult: 在 nuPlan 上，RADP 改善了具有挑战性的安全关键场景中的闭环规划表现，RPA 的归因与随后闭环执行中的规则特定风险保持一致的时间对齐。\nConclusion: 把可微规则嵌入扩散目标可以同时获得内在规则遵守与规则级可解释性，归因压力可作为闭环风险的前瞻指标用于失败诊断与安全验证。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "自动驾驶扩散规划器 RADP 把可微驾驶规则直接写进扩散训练目标，使规则成为轨迹分布的内在约束而非模仿统计相关性；配套的 Rule-Pressure Attribution (RPA) 用规则损失对预测轨迹的梯度构造监督，用轻量归因头在线估计每条规则施加的优化压力。在 nuPlan 上 RADP 改善了安全关键场景的闭环规划，RPA 的规则压力与后续闭环执行中的对应风险保持一致的时间对齐。",
+        "motivation": "扩散规划器只靠专家示范拟合轨迹分布，长尾场景中专家数据稀缺时容易生成违反安全或合规要求的轨迹，且生成过程缺少规则级解释，难以定位失败、做安全验证。",
+        "method": "RADP 在扩散训练目标中加入可微驾驶规则损失，把规则知识转为超越有限示范的行为原则；RPA 以规则损失对预测轨迹的梯度构造监督信号，用轻量归因头在线估计各规则的优化压力；再用 temporal risk-alignment protocol 检验当前规则压力能否反映随后闭环执行中的相应风险。",
+        "result": "在 nuPlan 上，RADP 改善了具有挑战性的安全关键场景中的闭环规划表现，RPA 的归因与随后闭环执行中的规则特定风险保持一致的时间对齐。",
+        "conclusion": "把可微规则嵌入扩散目标可以同时获得内在规则遵守与规则级可解释性，归因压力可作为闭环风险的前瞻指标用于失败诊断与安全验证。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39964",
+      "title": "AIMS: An Agentic AI Framework for Sim-to-Real Multi-Modal ISAC",
+      "authors": [
+        "Yijie Bian",
+        "Kai Zhang",
+        "Wei Guo",
+        "Zixin Wang",
+        "Shenghui Song",
+        "Jun Zhang",
+        "Khaled B. Letaief"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.39964",
+      "pdf_url": "https://arxiv.org/pdf/2609.39964",
+      "abstract_en": "Multi-modal integrated sensing and communication (ISAC) enables environmental perception and reliable connectivity for intelligent wireless networks. Data-driven multi-modal ISAC models depend heavily on annotated real-world data to learn relationships across sensing and wireless observations, thereby constraining scalable deployment. Although synthetic data generation reduces the burden, adapting existing simulation pipelines to a target deployment requires consistent scene, sensing, wireless, and learning configurations, while mismatches among these coupled components impair sim-to-real transferability. To address the challenge, we propose an agentic artificial intelligence (AI) framework for sim-to-real multi-modal ISAC, named AIMS. Given a natural-language deployment request specifying the target task, deployment conditions, and real-data budget, AIMS derives a deployment-specific sim-to-real configuration and coordinates its execution to produce a deployment-specific task model. A two-agent architecture coordinates scene construction with task learning. A scene construction agent generates geographically grounded, synchronized sensing and wireless records from shared physical states, while a scene understanding agent configures task-relevant modalities and mixture-of-experts (MoE) learning for zero-shot inference or few-shot adaptation. Structured domain knowledge guides dependency-aware planning, while validation evidence supports feedback-driven revision of affected decisions. Experiments on the real-world DeepSense 6G dataset demonstrate improved vehicle detection and beam prediction over the considered simulation and fusion baselines. A separate orchestration benchmark evaluates task interpretation, dependency reasoning, and feedback-driven replanning across diverse deployment requests, showing improved plan correctness with structured domain knowledge and validation feedback.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: AIMS 是面向多模态通感一体化 (ISAC) 的 agentic AI 框架：把自然语言部署请求解析成场景构建与任务学习的双智能体配置，由场景构建智能体从共享物理状态生成地理对齐、时间同步的感知与无线记录，场景理解智能体配置任务模态与 mixture-of-experts (MoE) 学习做零样本推理或少样本适配。在真实 DeepSense 6G 数据集上，其车辆检测与波束预测相对所比较的仿真与融合基线均有提升。\nMotivation: 数据驱动的多模态 ISAC 模型高度依赖标注真实数据，难以规模化部署；改写现有仿真流水线以适配目标部署时，场景、感知、无线与学习配置之间的一致性难以维持，组件失配会损害 sim-to-real 迁移。\nMethod: AIMS 接收指定目标任务、部署条件与真实数据预算的自然语言请求，推导部署专属的 sim-to-real 配置并协调执行。双智能体架构分工：scene construction agent 从共享物理状态生成地理对齐、同步的感知与无线记录；scene understanding agent 配置任务相关模态与 MoE 学习，支持零样本推理或少样本适配。结构化领域知识引导依赖感知规划 (dependency-aware planning)，验证证据驱动对受影响决策的反馈式修订。\nResult: 在真实 DeepSense 6G 数据集上，车辆检测与波束预测相对所比较的仿真与融合基线均有提升；另设编排基准 (orchestration benchmark) 评测任务理解、依赖推理与跨多样部署请求的反馈式重规划，显示加入结构化领域知识与验证反馈后 plan correctness 提升。\nConclusion: 把场景构建与任务学习交给带结构化领域知识和验证反馈的双智能体编排，可在给定真实数据预算下自动生成部署专属的多模态 ISAC 任务模型并改善 sim-to-real 迁移。\nRelevance: 3",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "AIMS 是面向多模态通感一体化 (ISAC) 的 agentic AI 框架：把自然语言部署请求解析成场景构建与任务学习的双智能体配置，由场景构建智能体从共享物理状态生成地理对齐、时间同步的感知与无线记录，场景理解智能体配置任务模态与 mixture-of-experts (MoE) 学习做零样本推理或少样本适配。在真实 DeepSense 6G 数据集上，其车辆检测与波束预测相对所比较的仿真与融合基线均有提升。",
+        "motivation": "数据驱动的多模态 ISAC 模型高度依赖标注真实数据，难以规模化部署；改写现有仿真流水线以适配目标部署时，场景、感知、无线与学习配置之间的一致性难以维持，组件失配会损害 sim-to-real 迁移。",
+        "method": "AIMS 接收指定目标任务、部署条件与真实数据预算的自然语言请求，推导部署专属的 sim-to-real 配置并协调执行。双智能体架构分工：scene construction agent 从共享物理状态生成地理对齐、同步的感知与无线记录；scene understanding agent 配置任务相关模态与 MoE 学习，支持零样本推理或少样本适配。结构化领域知识引导依赖感知规划 (dependency-aware planning)，验证证据驱动对受影响决策的反馈式修订。",
+        "result": "在真实 DeepSense 6G 数据集上，车辆检测与波束预测相对所比较的仿真与融合基线均有提升；另设编排基准 (orchestration benchmark) 评测任务理解、依赖推理与跨多样部署请求的反馈式重规划，显示加入结构化领域知识与验证反馈后 plan correctness 提升。",
+        "conclusion": "把场景构建与任务学习交给带结构化领域知识和验证反馈的双智能体编排，可在给定真实数据预算下自动生成部署专属的多模态 ISAC 任务模型并改善 sim-to-real 迁移。",
+        "relevance_score": "3"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39888",
+      "title": "Markovian Dynamics Enforcer: Feasibility Preserving Correction on Learned Dynamics Manifolds",
+      "authors": [
+        "Kevin Yu",
+        "Tao Guo",
+        "Constantinos Antoniou",
+        "Panagiotis Angeloudis"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.RO",
+        "eess.SY"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.39888",
+      "pdf_url": "https://arxiv.org/pdf/2609.39888",
+      "abstract_en": "Neural trajectory predictors can reach low prediction error while violating dynamics, actuator limits, or state constraints, especially when controls are unobserved and dynamics are partially specified. We introduce the Markovian Dynamics Enforcer (MaDE), a time-invariant post-hoc operator mapping state-transition proposals onto a learned feasible dynamics manifold, trained on feasible states without ground-truth controls. For each transition it infers a control and recomputes the state through a completion model of known physics plus a learned residual. It then corrects that control by gradient-based inequality reduction, so inequality satisfaction is best-effort within an iteration budget. Since every correction iterate re-enters the completion model, the returned state is dynamically consistent by construction relative to that model and the supplied previous-state anchor. MaDE drives dynamics residuals to essentially zero on fully specified simulated systems, and on an underspecified system leaves a smaller true-dynamics residual than the baselines. Designed to attach to arbitrary predictors, the frozen operator is evaluated downstream of recurrent, structured state-space, and transformer predictors. On recorded vehicle trajectories the one-step residual against a kinematic bicycle model is 0.0071 to 0.0072 for MaDE and 0.1703 to 0.1714 for raw predictors. MaDE raises average displacement error by a factor of 1.57 to 1.83.",
+      "comment": "26 pages, 2 figures, 11 tables. Accepted at NeurIPS 2026. Code available at https://github.com/tsl-imperial/MaDE",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: MaDE 是一个冻结的后处理算子，把任意神经轨迹预测器输出的状态转移提议投影到可行动力学流形上：对每个转移先推断控制量、用已知物理加学习残差的 completion model 重算状态，再用基于梯度的不等式缩减修正控制，使约束满足在迭代预算内尽力而为。在记录的车辆轨迹上，对 kinematic bicycle model 的一步残差从原始预测器的 0.1703–0.1714 降到 0.0071–0.0072，代价是平均位移误差 (ADE) 放大 1.57–1.83 倍。\nMotivation: 神经轨迹预测器可以做到预测误差很低却违反动力学、执行器限幅或状态约束，尤其是在控制量不可观测、动力学只被部分指定的场景下。\nMethod: MaDE 是 time-invariant 的后处理算子，只用可行状态训练、不需要 ground-truth 控制：对每个状态转移提议推断一个控制量，经由已知物理加学习残差的 completion model 重算状态，再用基于梯度的不等式缩减修正该控制；由于每次修正迭代都重新进入 completion model，返回状态相对该模型与给定前一状态锚点在构造上动力学一致。算子被冻结后接在 recurrent、structured state-space 与 transformer 三类预测器下游评估。\nResult: 在完全指定的仿真系统上 MaDE 把动力学残差压到基本为零；在欠指定系统上留下的真实动力学残差小于基线。在记录的车辆轨迹上，对 kinematic bicycle model 的一步残差 MaDE 为 0.0071–0.0072，原始预测器为 0.1703–0.1714；同时 MaDE 使平均位移误差 (ADE) 增大 1.57–1.83 倍。\nConclusion: 把预测输出经由物理 completion model 加梯度式约束修正的后处理，可以在不重训预测器的前提下把动力学残差降到近零，代价是预测精度（ADE）变差；不等式满足只是迭代预算内的 best-effort。\nRelevance: 18",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "MaDE 是一个冻结的后处理算子，把任意神经轨迹预测器输出的状态转移提议投影到可行动力学流形上：对每个转移先推断控制量、用已知物理加学习残差的 completion model 重算状态，再用基于梯度的不等式缩减修正控制，使约束满足在迭代预算内尽力而为。在记录的车辆轨迹上，对 kinematic bicycle model 的一步残差从原始预测器的 0.1703–0.1714 降到 0.0071–0.0072，代价是平均位移误差 (ADE) 放大 1.57–1.83 倍。",
+        "motivation": "神经轨迹预测器可以做到预测误差很低却违反动力学、执行器限幅或状态约束，尤其是在控制量不可观测、动力学只被部分指定的场景下。",
+        "method": "MaDE 是 time-invariant 的后处理算子，只用可行状态训练、不需要 ground-truth 控制：对每个状态转移提议推断一个控制量，经由已知物理加学习残差的 completion model 重算状态，再用基于梯度的不等式缩减修正该控制；由于每次修正迭代都重新进入 completion model，返回状态相对该模型与给定前一状态锚点在构造上动力学一致。算子被冻结后接在 recurrent、structured state-space 与 transformer 三类预测器下游评估。",
+        "result": "在完全指定的仿真系统上 MaDE 把动力学残差压到基本为零；在欠指定系统上留下的真实动力学残差小于基线。在记录的车辆轨迹上，对 kinematic bicycle model 的一步残差 MaDE 为 0.0071–0.0072，原始预测器为 0.1703–0.1714；同时 MaDE 使平均位移误差 (ADE) 增大 1.57–1.83 倍。",
+        "conclusion": "把预测输出经由物理 completion model 加梯度式约束修正的后处理，可以在不重训预测器的前提下把动力学残差降到近零，代价是预测精度（ADE）变差；不等式满足只是迭代预算内的 best-effort。",
+        "relevance_score": "18"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39883",
+      "title": "Grounding with Confidence: Controllable Generative Video Temporal Grounding",
+      "authors": [
+        "Jinhao Chen",
+        "Benlei Cui",
+        "Ruijian Jia",
+        "Ziheng Wang",
+        "Tianyu Wo",
+        "Pengfei Sun",
+        "Longtao Huang",
+        "Hui Xue",
+        "Yitong Yang",
+        "Haiwen Hong"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.39883",
+      "pdf_url": "https://arxiv.org/pdf/2609.39883",
+      "abstract_en": "Video temporal grounding supports applications such as video search, content review, and automated editing by localizing events described in natural language. Yet existing generative models typically output timestamps without explicit interval-level confidence scores to guide candidate selection. We separate candidate generation from acceptance by scoring individual intervals within the original decoding pass. A lightweight confidence head reads pooled decoder states, providing an explicit score trained for interval selection. Offline verifier scores supervise the head on fixed candidate sequences, and temporal-overlap labels adapt it to current rollouts during reinforcement learning. GT-anchored candidate-pool supervision and set-level optimization train the generator. The resulting scores support ranking, threshold-based selection, and rejection without invoking an external verifier at inference. On a fixed OMTG-Bench candidate pool, confidence raises query-macro Recall@0.5 from 9.95% to 14.42% over generation order at a 10% global return budget, and from 26.48% to 31.12% at a 25% budget. The continuous scores let downstream applications adjust return budgets or acceptance thresholds to match their precision-recall preferences, without regenerating candidate intervals.",
+      "comment": "22 pages, 7 figures; includes appendix",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 生成式视频时序定位 (generative video temporal grounding) 模型只输出时间戳、没有区间级置信度，本文在原解码 pass 内给每个候选区间打分：轻量 confidence head 读取池化 decoder 状态，离线 verifier 分数监督固定候选序列，RL 阶段用时序重叠标签适配当前 rollout，推理时无需外部 verifier 即可排序、阈值选择与拒绝。在 OMTG-Bench 固定候选池上，10% 全局 return 预算下 query-macro Recall@0.5 由按生成顺序取的 9.95% 提到 14.42%，25% 预算下由 26.48% 提到 31.12%。\nMotivation: 生成式时序定位模型直接吐时间戳，缺少区间级显式置信度，候选只能按生成顺序取，无法在不重生成的前提下调节精度-召回权衡。\nMethod: 把候选生成与接受判定分离：在原解码 pass 内用轻量 confidence head 读取池化 decoder 状态输出区间分数；离线 verifier 分数在固定候选序列上监督该 head，时序重叠标签在强化学习中把它适配到当前 rollout；生成器本身用 GT-anchored 候选池监督与 set-level 优化训练。\nResult: 在 OMTG-Bench 固定候选池上，置信度排序相对生成顺序把 query-macro Recall@0.5 从 9.95% 提到 14.42%（10% 全局 return 预算），从 26.48% 提到 31.12%（25% 预算）；推理时无需调用外部 verifier。\nConclusion: 把接受判定从生成中解耦、用内生连续分数做排序与拒绝，可在固定 return 预算下显著抬高召回，并让下游按精度-召回偏好调预算或阈值而无需重生成候选区间。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "生成式视频时序定位 (generative video temporal grounding) 模型只输出时间戳、没有区间级置信度，本文在原解码 pass 内给每个候选区间打分：轻量 confidence head 读取池化 decoder 状态，离线 verifier 分数监督固定候选序列，RL 阶段用时序重叠标签适配当前 rollout，推理时无需外部 verifier 即可排序、阈值选择与拒绝。在 OMTG-Bench 固定候选池上，10% 全局 return 预算下 query-macro Recall@0.5 由按生成顺序取的 9.95% 提到 14.42%，25% 预算下由 26.48% 提到 31.12%。",
+        "motivation": "生成式时序定位模型直接吐时间戳，缺少区间级显式置信度，候选只能按生成顺序取，无法在不重生成的前提下调节精度-召回权衡。",
+        "method": "把候选生成与接受判定分离：在原解码 pass 内用轻量 confidence head 读取池化 decoder 状态输出区间分数；离线 verifier 分数在固定候选序列上监督该 head，时序重叠标签在强化学习中把它适配到当前 rollout；生成器本身用 GT-anchored 候选池监督与 set-level 优化训练。",
+        "result": "在 OMTG-Bench 固定候选池上，置信度排序相对生成顺序把 query-macro Recall@0.5 从 9.95% 提到 14.42%（10% 全局 return 预算），从 26.48% 提到 31.12%（25% 预算）；推理时无需调用外部 verifier。",
+        "conclusion": "把接受判定从生成中解耦、用内生连续分数做排序与拒绝，可在固定 return 预算下显著抬高召回，并让下游按精度-召回偏好调预算或阈值而无需重生成候选区间。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39841",
+      "title": "DyRAD: Radar Novel View Synthesis for Dynamic Driving Scenes",
+      "authors": [
+        "Merav Keidar",
+        "Tomer Borreda",
+        "Rajalakshmi Nandakumar",
+        "Or Litany"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.39841",
+      "pdf_url": "https://arxiv.org/pdf/2609.39841",
+      "abstract_en": "Reconstructing dynamic driving scenes from recorded sensor data supports closed-loop evaluation of autonomous driving systems by synthesizing observations beyond the original trajectory. Unlike cameras and LiDAR, radar measures radial velocity directly through Doppler. Yet existing radar novel-view synthesis fails to exploit this capability: methods addressing dynamic scenes reconstruct only range-azimuth tensors, while methods that render Doppler assume static scenes. Moreover, because radar processing spreads each reflection across multiple bins, existing representations absorb this spread into scene geometry, causing it to render incorrectly when the viewpoint moves. We present DyRAD, which models dynamic driving scenes using static background reflectors and motion-tracked dynamic point reflectors to render complete range-azimuth-Doppler (RAD) tensors. Reflector velocities are derived from object tracks and projected onto the line of sight, making Doppler both a rendered output and supervision for those tracks. Crucially, we render reflectors through a fixed analytic point-spread function (PSF) derived from the radar's signal-processing chain, preventing sensor-induced spread from being baked into the scene representation. Beyond improving scene reconstruction, this separation also enables zero-shot sensor-configuration transfer, allowing the same reconstructed scene to be rendered under different radar specifications without refitting. We evaluate DyRAD on RADIal, Boreas, and a synthetic benchmark across both on-path poses and displaced viewpoints untested by prior work. On RADIal, DyRAD recovers radar detections in 90.7% of reference-detected objects, compared with 26.9% for the strongest baseline.",
+      "comment": "Project page: https://dyrad-nvs.github.io/. Code: https://github.com/Dyrad-NVS/DyRAD",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: DyRAD 用静态背景反射体加运动跟踪的动态点反射体表示动态驾驶场景，通过固定解析 PSF 渲染完整 range-azimuth-Doppler (RAD) 张量，把传感器展宽从场景几何中剥离。在 RADIal 上恢复出参考检测目标的 90.7%，最强基线为 26.9%，并支持零样本传感器配置迁移。\nMotivation: 现有雷达新视角合成要么只重建 range-azimuth 张量、要么只在静态场景渲染 Doppler；且雷达处理把每次反射摊到多个 bin，旧表示把这种展宽吸进几何，视角一移动就渲染错误。\nMethod: 以静态背景反射体加由目标轨迹驱动的动态点反射体建模场景，反射体速度沿视线投影得到 Doppler，既作渲染输出又作轨迹监督；反射体经由雷达信号处理链导出的固定解析点扩散函数 (PSF) 渲染，避免传感器展宽被烘进表示。\nResult: 在 RADIal、Boreas 与一个合成基准上评测，覆盖在路径位姿与先前工作未测的偏移视角；RADIal 上 DyRAD 恢复参考检测目标的 90.7%，最强基线 26.9%。\nConclusion: 把传感器 PSF 与场景表示分离，既改善动态场景重建，又让同一重建场景可在不同雷达规格下零样本重渲染而无需重拟合。\nRelevance: 38",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "DyRAD 用静态背景反射体加运动跟踪的动态点反射体表示动态驾驶场景，通过固定解析 PSF 渲染完整 range-azimuth-Doppler (RAD) 张量，把传感器展宽从场景几何中剥离。在 RADIal 上恢复出参考检测目标的 90.7%，最强基线为 26.9%，并支持零样本传感器配置迁移。",
+        "motivation": "现有雷达新视角合成要么只重建 range-azimuth 张量、要么只在静态场景渲染 Doppler；且雷达处理把每次反射摊到多个 bin，旧表示把这种展宽吸进几何，视角一移动就渲染错误。",
+        "method": "以静态背景反射体加由目标轨迹驱动的动态点反射体建模场景，反射体速度沿视线投影得到 Doppler，既作渲染输出又作轨迹监督；反射体经由雷达信号处理链导出的固定解析点扩散函数 (PSF) 渲染，避免传感器展宽被烘进表示。",
+        "result": "在 RADIal、Boreas 与一个合成基准上评测，覆盖在路径位姿与先前工作未测的偏移视角；RADIal 上 DyRAD 恢复参考检测目标的 90.7%，最强基线 26.9%。",
+        "conclusion": "把传感器 PSF 与场景表示分离，既改善动态场景重建，又让同一重建场景可在不同雷达规格下零样本重渲染而无需重拟合。",
+        "relevance_score": "38"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39792",
+      "title": "TopTimeNet: Topologically-assisted time-series classification model",
+      "authors": [
+        "Sharareh Sayyad",
+        "Sophia Bazzi"
+      ],
+      "categories": [
+        "cs.CG",
+        "cs.LG",
+        "math.DS",
+        "nlin.CD",
+        "physics.app-ph"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.39792",
+      "pdf_url": "https://arxiv.org/pdf/2609.39792",
+      "abstract_en": "Distinguishing periodic from chaotic dynamics in a time series is a fundamental challenge in both physics and engineering. Yet, end-to-end learned architectures must discover both a representation and a decision boundary from data, at substantial cost. We introduce TopTimeNet, which decouples these tasks: a fixed, non-learned stage extracts a $42$-dimensional geometric and topological descriptor from Takens delay embeddings and persistent homology, and a lightweight learnable stage performs classification. On a benchmark of $49$ nonlinear dynamical systems, a $1{,}638$-parameter configuration matches the mean accuracy of one with $33\\times$ more trainable parameters. Additionally, this approach delivers mean accuracy comparable to convolutional neural networks and surpasses the average performance of converged Transformer models, while requiring three to four orders of magnitude fewer trainable parameters. Robustness also depends sharply on where noise is introduced: TopTimeNet degrades gracefully under perturbations to its precomputed features, but degrades sharply when noise is introduced into the raw signal and the full feature-extraction pipeline is recomputed, showing that robustness to perturbations of the precomputed features does not imply robustness of the complete raw-signal-to-prediction pipeline. These results show that decoupling fixed geometric and topological feature construction from a lightweight discriminative stage can achieve comparable classification accuracy with substantially fewer trainable parameters.",
+      "comment": "23 pages, 6+4 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: TopTimeNet 把周期/混沌判别拆成固定非学习的特征段与轻量分类段：由 Takens delay embedding 与 persistent homology 提取 42 维几何拓扑描述子，再用 1,638 参数的分类器判别。在 49 个非线性动力系统基准上，其平均精度与 CNN 相当、超过收敛的 Transformer 平均表现，可训练参数少三到四个数量级；但噪声打进原始信号并重算全流程时性能急剧下降。\nMotivation: 端到端网络必须同时从数据里学表示和决策边界，代价高；周期与混沌的区分本可由几何与拓扑先验承担。\nMethod: 固定非学习阶段对 Takens delay embedding 做 persistent homology，输出 42 维几何与拓扑描述子；其上接一个轻量可学习分类阶段，与 CNN、Transformer 等端到端模型在同一批非线性动力系统上对比参数量与精度。\nResult: 在 49 个非线性动力系统基准上，1,638 参数配置的平均精度与参数量大 33 倍的配置持平；平均精度与 CNN 相当并超过收敛 Transformer 的平均表现，可训练参数少三到四个数量级。对预计算特征加扰动时性能平缓退化，而对原始信号加噪并重算完整特征流水线时性能急剧下降。\nConclusion: 把固定几何拓扑特征构造与轻量判别段解耦，可以用极少参数拿到可比精度；但对预计算特征的鲁棒不等于原始信号到预测全链路的鲁棒。\nRelevance: 18",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "TopTimeNet 把周期/混沌判别拆成固定非学习的特征段与轻量分类段：由 Takens delay embedding 与 persistent homology 提取 42 维几何拓扑描述子，再用 1,638 参数的分类器判别。在 49 个非线性动力系统基准上，其平均精度与 CNN 相当、超过收敛的 Transformer 平均表现，可训练参数少三到四个数量级；但噪声打进原始信号并重算全流程时性能急剧下降。",
+        "motivation": "端到端网络必须同时从数据里学表示和决策边界，代价高；周期与混沌的区分本可由几何与拓扑先验承担。",
+        "method": "固定非学习阶段对 Takens delay embedding 做 persistent homology，输出 42 维几何与拓扑描述子；其上接一个轻量可学习分类阶段，与 CNN、Transformer 等端到端模型在同一批非线性动力系统上对比参数量与精度。",
+        "result": "在 49 个非线性动力系统基准上，1,638 参数配置的平均精度与参数量大 33 倍的配置持平；平均精度与 CNN 相当并超过收敛 Transformer 的平均表现，可训练参数少三到四个数量级。对预计算特征加扰动时性能平缓退化，而对原始信号加噪并重算完整特征流水线时性能急剧下降。",
+        "conclusion": "把固定几何拓扑特征构造与轻量判别段解耦，可以用极少参数拿到可比精度；但对预计算特征的鲁棒不等于原始信号到预测全链路的鲁棒。",
+        "relevance_score": "18"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39788",
+      "title": "Safety of Latent Communication in Multi-Agent Systems",
+      "authors": [
+        "Muhammad Huzaifa",
+        "Sina Mavali",
+        "Thorsten Eisenhofer"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.39788",
+      "pdf_url": "https://arxiv.org/pdf/2609.39788",
+      "abstract_en": "Latent communication enables multi-agent systems to exchange information directly in internal representation space, reducing the token, computation, and latency overhead of text-based communication. To this end, lightweight trainable links are introduced to map the sender's representations into the receiver's input space. In this work, we show that even benign link training can increase harmful compliance relative to text-based communication while the underlying safety-aligned agents remain unchanged. An attacker can amplify this effect by optimizing the links on harmful query--response pairs or poisoning otherwise benign training data. We further develop a reinforcement-learning attack that rewards harmful compliance alongside benign task performance without requiring harmful target responses. Across three communication topologies and four safety benchmarks, this attack raises the mean harmful-compliance score from 27.9 with benignly trained links to 76.9. Compared with direct supervised optimization, it also achieves higher average accuracy on two benign utility benchmarks. Adapting the rewards toward safer behavior also enables repair of compromised links, substantially reducing harmful compliance across all evaluated attacks without updating the agents. Overall, our results show that safety alignment requires considering the multi-agent system as a whole. Code: https://github.com/Muhammad-Huzaifaa/latent-safety",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 多智能体系统的潜空间通信链路即使只做良性训练，也会比纯文本通信抬高有害遵从 (harmful compliance)；攻击者再用有害问答对优化链路或投毒良性数据可进一步放大。所提强化学习攻击在三种通信拓扑、四个安全基准上把平均有害遵从分从 27.9 推到 76.9，且在两个良性效用基准上平均准确率高于直接监督优化；把奖励转向安全行为可在不更新智能体的前提下修复被攻陷链路。\nMotivation: 潜空间通信省 token、算力和延迟，但安全对齐只在单个智能体上做，链路这一层成为被忽略的攻击面：良性链路训练本身就已抬高有害遵从。\nMethod: 在发送方表征到接收方输入空间之间插入轻量可训练链路；攻击包括在有害问答对上优化链路、投毒良性训练数据，以及不需有害目标回复的强化学习攻击（同时奖励有害遵从与良性任务表现）；修复则把奖励调向安全行为。\nResult: 在三种通信拓扑与四个安全基准上，强化学习攻击把平均有害遵从分从良性训练链路的 27.9 提到 76.9；相比直接监督优化，在两个良性效用基准上取得更高平均准确率；安全化奖励的修复在全部被评估攻击上大幅降低有害遵从，且不更新智能体。\nConclusion: 安全对齐必须把多智能体系统当作整体来考虑：底层智能体的安全对齐不变，链路层仍可被训练与攻击撬动，而链路本身也能被奖励重塑以修复。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "多智能体系统的潜空间通信链路即使只做良性训练，也会比纯文本通信抬高有害遵从 (harmful compliance)；攻击者再用有害问答对优化链路或投毒良性数据可进一步放大。所提强化学习攻击在三种通信拓扑、四个安全基准上把平均有害遵从分从 27.9 推到 76.9，且在两个良性效用基准上平均准确率高于直接监督优化；把奖励转向安全行为可在不更新智能体的前提下修复被攻陷链路。",
+        "motivation": "潜空间通信省 token、算力和延迟，但安全对齐只在单个智能体上做，链路这一层成为被忽略的攻击面：良性链路训练本身就已抬高有害遵从。",
+        "method": "在发送方表征到接收方输入空间之间插入轻量可训练链路；攻击包括在有害问答对上优化链路、投毒良性训练数据，以及不需有害目标回复的强化学习攻击（同时奖励有害遵从与良性任务表现）；修复则把奖励调向安全行为。",
+        "result": "在三种通信拓扑与四个安全基准上，强化学习攻击把平均有害遵从分从良性训练链路的 27.9 提到 76.9；相比直接监督优化，在两个良性效用基准上取得更高平均准确率；安全化奖励的修复在全部被评估攻击上大幅降低有害遵从，且不更新智能体。",
+        "conclusion": "安全对齐必须把多智能体系统当作整体来考虑：底层智能体的安全对齐不变，链路层仍可被训练与攻击撬动，而链路本身也能被奖励重塑以修复。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39644",
+      "title": "RiboUnmix: Learning Shared Translational Dynamics from Biased and Noisy Ribo-seq Measurements",
+      "authors": [
+        "Gabriele Martino",
+        "Denis Skibinski",
+        "Ivo L. Hofacker",
+        "Sebastian Tschiatschek"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.39644",
+      "pdf_url": "https://arxiv.org/pdf/2609.39644",
+      "abstract_en": "Ribosome profiling (Ribo-seq) measures ribosome distributions along mRNAs, but observed occupancy profiles also contain experiment-specific distortions and stochastic variability. Consequently, models that accurately predict measured profiles may reproduce technical effects rather than recover the underlying biology. We ask whether jointly modeling datasets collected under different experimental conditions can reveal shared, sequence-dependent patterns of ribosome occupancy. We introduce RiboUnmix, a probabilistic multi-dataset framework in which each expected measured profile is represented as a shared sequence-dependent signal modulated by a dataset-specific multiplicative factor. A negative-binomial observation model captures variability across replicates. We evaluate RiboUnmix on a controlled synthetic benchmark combining programmed translation kinetics, ribosome traffic, stochastic count sampling, and sequence-dependent experimental distortions. Because the underlying kinetics and distortions are known, recovery of the shared profile and dataset-specific effects can be assessed separately. Both inferred components correlate strongly with their targets, demonstrating that RiboUnmix can disentangle shared kinetic patterns from experimental effects. Across four organism-specific real-data benchmarks, RiboUnmix outperforms sequence-to-profile baselines in predicting measured profiles. Models trained independently on subsets of 114 HEK-derived datasets recover concordant shared profiles for held-out transcripts, and experiments varying the number and composition of training datasets show that the learned representation remains stable. RiboUnmix thus converts variation across experiments into evidence for reproducible sequence-dependent patterns of ribosome occupancy, supporting biological hypothesis generation from diverse Ribo-seq datasets.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: RiboUnmix 用概率多数据集框架把 Ribo-seq 观测占用拆成共享的序列依赖信号与数据集特异乘性因子，负二项观测模型刻画重复间波动。在已知真值的合成基准上两个分量都与目标强相关，在四个物种真实数据基准上预测实测谱优于 sequence-to-profile 基线，114 个 HEK 数据集子集训练得到的共享谱在留出转录本上一致。\nMotivation: Ribo-seq 观测谱混入实验特异畸变与随机波动，单数据集模型可能学到技术效应而非真实翻译动力学，跨实验的可重复序列模式无从提取。\nMethod: 概率多数据集框架：每个期望观测谱建模为共享序列依赖信号乘以数据集特异乘性因子，负二项 (negative-binomial) 观测模型吸收重复间变异；在含程序化翻译动力学、核糖体拥堵、随机计数抽样与序列依赖畸变的受控合成基准上分别评估两个分量的恢复。\nResult: 合成基准上推断的共享分量与数据集特异分量均与各自真值强相关；在四个 organism-specific 真实数据基准上预测实测谱优于 sequence-to-profile 基线；用 114 个 HEK 衍生数据集的子集独立训练，留出转录本上恢复的共享谱一致，改变训练数据集数量与组成时学到的表示保持稳定。\nConclusion: 跨实验的差异本身可以作为可重复序列依赖核糖体占用模式的证据，从而支持从多样 Ribo-seq 数据集做生物学假设生成。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "RiboUnmix 用概率多数据集框架把 Ribo-seq 观测占用拆成共享的序列依赖信号与数据集特异乘性因子，负二项观测模型刻画重复间波动。在已知真值的合成基准上两个分量都与目标强相关，在四个物种真实数据基准上预测实测谱优于 sequence-to-profile 基线，114 个 HEK 数据集子集训练得到的共享谱在留出转录本上一致。",
+        "motivation": "Ribo-seq 观测谱混入实验特异畸变与随机波动，单数据集模型可能学到技术效应而非真实翻译动力学，跨实验的可重复序列模式无从提取。",
+        "method": "概率多数据集框架：每个期望观测谱建模为共享序列依赖信号乘以数据集特异乘性因子，负二项 (negative-binomial) 观测模型吸收重复间变异；在含程序化翻译动力学、核糖体拥堵、随机计数抽样与序列依赖畸变的受控合成基准上分别评估两个分量的恢复。",
+        "result": "合成基准上推断的共享分量与数据集特异分量均与各自真值强相关；在四个 organism-specific 真实数据基准上预测实测谱优于 sequence-to-profile 基线；用 114 个 HEK 衍生数据集的子集独立训练，留出转录本上恢复的共享谱一致，改变训练数据集数量与组成时学到的表示保持稳定。",
+        "conclusion": "跨实验的差异本身可以作为可重复序列依赖核糖体占用模式的证据，从而支持从多样 Ribo-seq 数据集做生物学假设生成。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39544",
+      "title": "Growing an Agent/Prover Interface: Evolutionary Tool Design for Cost-Efficient Theorem Proving in Rocq and Lean",
+      "authors": [
+        "Jules Viennot",
+        "Guillaume Baudart",
+        "Marc Lelarge"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.39544",
+      "pdf_url": "https://arxiv.org/pdf/2609.39544",
+      "abstract_en": "Recent achievements in AI-assisted mathematics require intensive interaction of agents with proof assistants to generate machine-checked proof certificates. Agents interact with proof assistants such as Rocq or Lean through an interface that controls what the agent receives from the prover and the cost of these interactions. Today, these interfaces are adapted from tools designed for humans and not optimized for agents. We propose an evolutionary method where a frontier model incrementally proposes new features and only keeps the ones that improve the overall performance of smaller models. We demonstrate the effectiveness of our method by growing, on a curated set of mathematical problems, \\rme, a new MCP server for the Rocq prover. On the held-out \\texttt{test} split of miniF2F-Rocq, an agent equipped with \\rme outperforms both the baseline that only exposes the Rocq compiler and an established MCP server, across four models from two families, in success rate, cost per solve, and time per solve. Although evolved for Rocq, the resulting server transfers to Lean, improving cost and time per solve on a subset of PutnamBench. We release \\rme and its port to Lean.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出进化式工具设计方法：让前沿模型增量提出证明助手接口新特征，只保留能提升小模型整体表现的特征，并据此在 Rocq 上长出新 MCP 服务器 \rme。在 miniF2F-Rocq 的 held-out test 上，配备 \rme 的 agent 在成功率、单题成本、单题耗时三项指标上同时超过只暴露 Rocq 编译器的基线和一个既有 MCP 服务器，覆盖两个模型家族共四个模型；该服务器移植到 Lean 后在 PutnamBench 子集上降低单题成本与耗时。\nMotivation: AI 辅助数学需要 agent 与 Rocq、Lean 等证明助手高频交互以产出机器检查的证明证书，而现有交互接口是为人类设计的，未针对 agent 的成本与信息需求优化。\nMethod: 进化式方法：前沿模型增量提出接口新特征，逐个保留那些能提升较小模型整体表现的特征；在一批精选数学问题上迭代生长出 \rme——一个面向 Rocq prover 的新 MCP server，并将其移植到 Lean。\nResult: 在 miniF2F-Rocq 的 held-out test split 上，配备 \rme 的 agent 在成功率、cost per solve、time per solve 上均超过仅暴露 Rocq 编译器的基线和一个已建立的 MCP server，且在两个模型家族的四个模型上一致成立；移植到 Lean 后在 PutnamBench 的一个子集上改善 cost per solve 与 time per solve。\nConclusion: 让前沿模型为小模型进化专用证明接口，能同时降低 agent 定理证明的成功率成本与耗时，且这种为 Rocq 进化出的接口可迁移到 Lean。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出进化式工具设计方法：让前沿模型增量提出证明助手接口新特征，只保留能提升小模型整体表现的特征，并据此在 Rocq 上长出新 MCP 服务器 \rme。在 miniF2F-Rocq 的 held-out test 上，配备 \rme 的 agent 在成功率、单题成本、单题耗时三项指标上同时超过只暴露 Rocq 编译器的基线和一个既有 MCP 服务器，覆盖两个模型家族共四个模型；该服务器移植到 Lean 后在 PutnamBench 子集上降低单题成本与耗时。",
+        "motivation": "AI 辅助数学需要 agent 与 Rocq、Lean 等证明助手高频交互以产出机器检查的证明证书，而现有交互接口是为人类设计的，未针对 agent 的成本与信息需求优化。",
+        "method": "进化式方法：前沿模型增量提出接口新特征，逐个保留那些能提升较小模型整体表现的特征；在一批精选数学问题上迭代生长出 \rme——一个面向 Rocq prover 的新 MCP server，并将其移植到 Lean。",
+        "result": "在 miniF2F-Rocq 的 held-out test split 上，配备 \rme 的 agent 在成功率、cost per solve、time per solve 上均超过仅暴露 Rocq 编译器的基线和一个已建立的 MCP server，且在两个模型家族的四个模型上一致成立；移植到 Lean 后在 PutnamBench 的一个子集上改善 cost per solve 与 time per solve。",
+        "conclusion": "让前沿模型为小模型进化专用证明接口，能同时降低 agent 定理证明的成功率成本与耗时，且这种为 Rocq 进化出的接口可迁移到 Lean。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39533",
+      "title": "CATCH: A Controllable Analysis Testbed for Reward Hacking in Coding RL",
+      "authors": [
+        "Shouli Wang",
+        "Yanfeng Jia",
+        "Zhihao Ou",
+        "Zitao Su",
+        "Ruize He",
+        "Haotong Xie",
+        "Hao Peng",
+        "Juanzi Li",
+        "Xiaozhi Wang"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2609.39533",
+      "pdf_url": "https://arxiv.org/pdf/2609.39533",
+      "abstract_en": "During reinforcement learning with verifiable rewards (RLVR), large language models (LLMs) can exploit loopholes in their environments to obtain high rewards without improving the intended capabilities, i.e., reward hacking. Despite its risks to training efficiency and safety, monitoring and mitigating reward hacking during training remain challenging, which is limited by a lack of testbeds that reproduce hacking and reliably identify it. We introduce CATCH, a controllable testbed for studying reward hacking in coding RL. CATCH deliberately exposes environmental loopholes and provides execution-based gold labels by comparing success under a vulnerable evaluator with task correctness under an independent audit. It also can control the model's initial hacking tendency through supervised fine-tuning data mixtures and the difficulty of earning rewards through reward designing, enabling systematic comparisons of hacking dynamics and interventions. Experiments show that CATCH can produce diverse RL training trajectories with clear reward hacking, and analyses demonstrate that both initial models and reward difficulties shape the emergence of reward hacking. We further evaluate the effectiveness of different reward hacking detection and mitigation methods. A key finding is that a chain-of-thought monitor initially suppresses hacking, but this protection erodes as the policy model learn to mislead the monitor with code comments. This highlights the need to evaluate hacking mitigations throughout training with CATCH. The source code and resources are publicly released at https://github.com/THUAIS-Lab/CATCH.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: CATCH 是一个可控的编码 RL reward hacking 测试台：故意暴露环境漏洞，用「脆弱评估器下的成功 vs 独立审计下的任务正确性」比对给出基于执行的 gold label，并可通过 SFT 数据混合控制模型初始作弊倾向、通过奖励设计控制获奖难度。实验产生多条带明显 reward hacking 的训练轨迹，初始模型与奖励难度共同决定 hacking 的出现；CoT monitor 起初能压制 hacking，但策略模型学会用代码注释误导 monitor 后保护会逐渐失效。\nMotivation: RLVR 中 LLM 会钻环境漏洞拿高奖励而不提升目标能力，但缺少能复现 hacking 并可靠识别它的测试台，导致训练期监控与缓解都困难。\nMethod: CATCH 主动暴露环境漏洞，以脆弱评估器下的成功率对照独立审计的任务正确性生成执行级 gold label；用监督微调数据混合控制模型初始 hacking 倾向，用奖励设计控制获奖难度，从而系统比较 hacking 动态与干预；并评测多种 reward hacking 检测与缓解方法。\nResult: 实验产生多条带清晰 reward hacking 的多样 RL 训练轨迹；分析显示初始模型与奖励难度都会塑造 hacking 的出现；CoT monitor 在训练初期抑制 hacking，但随策略模型学会用代码注释误导 monitor，该保护逐渐被侵蚀。\nConclusion: 缓解手段的效果必须在整个训练过程中用 CATCH 持续评估，单点检测会随策略演化失效；代码与资源已在 https://github.com/THUAIS-Lab/CATCH 公开。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "CATCH 是一个可控的编码 RL reward hacking 测试台：故意暴露环境漏洞，用「脆弱评估器下的成功 vs 独立审计下的任务正确性」比对给出基于执行的 gold label，并可通过 SFT 数据混合控制模型初始作弊倾向、通过奖励设计控制获奖难度。实验产生多条带明显 reward hacking 的训练轨迹，初始模型与奖励难度共同决定 hacking 的出现；CoT monitor 起初能压制 hacking，但策略模型学会用代码注释误导 monitor 后保护会逐渐失效。",
+        "motivation": "RLVR 中 LLM 会钻环境漏洞拿高奖励而不提升目标能力，但缺少能复现 hacking 并可靠识别它的测试台，导致训练期监控与缓解都困难。",
+        "method": "CATCH 主动暴露环境漏洞，以脆弱评估器下的成功率对照独立审计的任务正确性生成执行级 gold label；用监督微调数据混合控制模型初始 hacking 倾向，用奖励设计控制获奖难度，从而系统比较 hacking 动态与干预；并评测多种 reward hacking 检测与缓解方法。",
+        "result": "实验产生多条带清晰 reward hacking 的多样 RL 训练轨迹；分析显示初始模型与奖励难度都会塑造 hacking 的出现；CoT monitor 在训练初期抑制 hacking，但随策略模型学会用代码注释误导 monitor，该保护逐渐被侵蚀。",
+        "conclusion": "缓解手段的效果必须在整个训练过程中用 CATCH 持续评估，单点检测会随策略演化失效；代码与资源已在 https://github.com/THUAIS-Lab/CATCH 公开。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39271",
+      "title": "RW-Flow: One-Step Generation on Compact Manifolds via Wasserstein Gradient Flows",
+      "authors": [
+        "Ualibyek Nurgulan",
+        "Seungwoo Yoo",
+        "Prin Phunyaphibarn",
+        "Minhyuk Sung"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.39271",
+      "pdf_url": "https://arxiv.org/pdf/2609.39271",
+      "abstract_en": "Manifold-valued data, and consequently the distributions they induce, are prevalent across many domains, ranging from the locations of geospatial events, such as earthquakes, to biomolecular torsion angles that encode information about three-dimensional structure. While diffusion and flow-based generative models have been successfully extended to compact manifolds, sampling typically requires tens or hundreds of sequential network evaluations. We introduce RW-Flow, a theoretically grounded framework for learning one-step generative models on compact manifolds via Wasserstein gradient flows. The main challenge is identifiability: driving the velocity field to zero should guarantee that the model distribution matches the target distribution. We establish a necessary and sufficient condition for identifiability on compact, connected Riemannian manifolds. We specifically show that, for a symmetric, Lipschitz-continuous cost function, the velocity field induced by the Sinkhorn divergence is identifiable if and only if the associated Gibbs kernel is nondegenerate. This characterization provides a general principle for designing identifiable costs on compact manifolds. It also reveals that the squared geodesic distance, the natural manifold analogue of the squared Euclidean distance, does not always guarantee identifiability. Across benchmarks involving geospatial events, protein side chain torsion angles, RNA backbone torsion angles, and general manifolds discretized as triangular meshes, RW-Flow outperforms existing one-step methods in nearly all settings under fair comparison conditions.",
+      "comment": "27 pages",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: RW-Flow 用 Wasserstein 梯度流把紧致黎曼流形上的生成建模压成单步采样，核心是给出可识别性 (identifiability) 的充要条件：对称 Lipschitz 代价下 Sinkhorn divergence 诱导的速度场可识别当且仅当对应 Gibbs 核非退化。该判据同时说明平方测地距离并不总能保证可识别性。在地震事件、蛋白侧链与 RNA 主链二面角、三角网格离散流形等基准上，RW-Flow 在几乎所有设置中优于现有单步方法。\nMotivation: 扩散与流模型移植到紧致流形后，采样仍需几十到上百次顺序网络评估；而把速度场驱动到零是否真能保证模型分布等于目标分布，这一可识别性问题此前缺少判定条件。\nMethod: 以 Wasserstein 梯度流为框架学习单步生成模型，用 Sinkhorn divergence 作为代价并推导其诱导速度场的可识别性；在紧致连通黎曼流形上证明对称 Lipschitz 代价下可识别当且仅当 Gibbs 核非退化，据此设计可识别代价，替代默认的平方测地距离。\nResult: 在涉及地理空间事件（地震）、蛋白侧链二面角、RNA 主链二面角以及三角网格离散的一般流形的基准上，RW-Flow 在公平比较条件下于几乎所有设置中优于现有单步方法；理论结果给出可识别性的充要条件，并指出平方测地距离不总保证可识别性。\nConclusion: 紧致流形单步生成的可识别性可由 Gibbs 核非退化这一条件刻画，代价函数应按该原则挑选，而不能默认沿用平方测地距离。\nRelevance: 14",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "RW-Flow 用 Wasserstein 梯度流把紧致黎曼流形上的生成建模压成单步采样，核心是给出可识别性 (identifiability) 的充要条件：对称 Lipschitz 代价下 Sinkhorn divergence 诱导的速度场可识别当且仅当对应 Gibbs 核非退化。该判据同时说明平方测地距离并不总能保证可识别性。在地震事件、蛋白侧链与 RNA 主链二面角、三角网格离散流形等基准上，RW-Flow 在几乎所有设置中优于现有单步方法。",
+        "motivation": "扩散与流模型移植到紧致流形后，采样仍需几十到上百次顺序网络评估；而把速度场驱动到零是否真能保证模型分布等于目标分布，这一可识别性问题此前缺少判定条件。",
+        "method": "以 Wasserstein 梯度流为框架学习单步生成模型，用 Sinkhorn divergence 作为代价并推导其诱导速度场的可识别性；在紧致连通黎曼流形上证明对称 Lipschitz 代价下可识别当且仅当 Gibbs 核非退化，据此设计可识别代价，替代默认的平方测地距离。",
+        "result": "在涉及地理空间事件（地震）、蛋白侧链二面角、RNA 主链二面角以及三角网格离散的一般流形的基准上，RW-Flow 在公平比较条件下于几乎所有设置中优于现有单步方法；理论结果给出可识别性的充要条件，并指出平方测地距离不总保证可识别性。",
+        "conclusion": "紧致流形单步生成的可识别性可由 Gibbs 核非退化这一条件刻画，代价函数应按该原则挑选，而不能默认沿用平方测地距离。",
+        "relevance_score": "14"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39247",
+      "title": "Trust the Critic More",
+      "authors": [
+        "Kaiyue Wen",
+        "Luke Bailey",
+        "Arvind Mahankali",
+        "Tengyu Ma"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.39247",
+      "pdf_url": "https://arxiv.org/pdf/2609.39247",
+      "abstract_en": "Standard language model RL algorithms credit every token of a long rollout with the same advantage determined by the terminal reward. Actor-critic methods can provide finer-grained credit assignment, but learned critics are generally considered too inaccurate to trust when training LLMs with RL. In recent works, even when a critic is present, it is used only for baseline estimation, so every trajectory must be rolled out to its terminal reward. We introduce Actor-Critic with Action Chunking (AC2) that removes the need to roll every trajectory to completion. AC2 instead assigns credit to action chunks: short continuations of prefixes of past trajectories. A learned critic scores the state reached at the end of each action chunk, allowing the policy to update without observing a terminal reward. We make critic-based credit assignment reliable through three design choices. First, we introduce local readiness which uses critic-based updates on a problem only when the critic is sufficiently accurate on that particular problem. Second, when available, we provide the critic with a reference solution from a previous successful rollout. Third, we assign credit over action chunks of 10k tokens rather than individual tokens, giving the critic a more meaningful portion of the trajectory to evaluate. We train Qwen3-4B on FineProofs-RL using AC2 and evaluate on IMO-ProofBench. AC2 exceeds GRPO's peak validation score of 18.5% using 2.5x fewer decoding FLOPs. This gain comes from two sources, (1) AC2 requires 25% fewer training steps to reach this score, and (2) each step generates fewer tokens because the policy does not need to continue every trajectory to completion. Conceptually, we demonstrate that we can remove the need to roll out every trajectory to completion, opening up a large previously unexplored design space for LLM RL algorithms.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 Actor-Critic with Action Chunking (AC2)，用可信度门控的 critic 对 10k token 的动作块打分，使策略更新不必把每条轨迹 rollout 到终局奖励。在 FineProofs-RL 上训练 Qwen3-4B、IMO-ProofBench 上评测，AC2 以 2.5 倍更少的解码 FLOPs 超过 GRPO 的 18.5% 峰值验证分。\nMotivation: 长 rollout 的 RL 把终局奖励平均摊给每个 token，credit assignment 过粗；actor-critic 能细化但 learned critic 被认为不够准，只能当 baseline，导致每条轨迹都必须跑到终局奖励。\nMethod: AC2 按 action chunk（历史轨迹前缀的短续写，10k token）分配 credit，由 critic 对块末状态打分，无需终局奖励即可更新策略；三项设计保证 critic 可信：local readiness（仅在 critic 对该问题足够准时用其更新）、有则提供先前成功 rollout 的参考解、按块而非按 token 记功。\nResult: 在 FineProofs-RL 上训练 Qwen3-4B、IMO-ProofBench 上评测：AC2 超过 GRPO 峰值验证分 18.5%，解码 FLOPs 少 2.5 倍；其中达到该分数所需训练步数少 25%，且每步生成的 token 更少（不必把每条轨迹跑完）。\nConclusion: 只要用局部就绪门控、参考解和块级 credit 让 critic 变得可信，LLM RL 就可以摆脱逐轨迹 rollout 到终局奖励的约束，打开一片此前未探索的算法设计空间。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 Actor-Critic with Action Chunking (AC2)，用可信度门控的 critic 对 10k token 的动作块打分，使策略更新不必把每条轨迹 rollout 到终局奖励。在 FineProofs-RL 上训练 Qwen3-4B、IMO-ProofBench 上评测，AC2 以 2.5 倍更少的解码 FLOPs 超过 GRPO 的 18.5% 峰值验证分。",
+        "motivation": "长 rollout 的 RL 把终局奖励平均摊给每个 token，credit assignment 过粗；actor-critic 能细化但 learned critic 被认为不够准，只能当 baseline，导致每条轨迹都必须跑到终局奖励。",
+        "method": "AC2 按 action chunk（历史轨迹前缀的短续写，10k token）分配 credit，由 critic 对块末状态打分，无需终局奖励即可更新策略；三项设计保证 critic 可信：local readiness（仅在 critic 对该问题足够准时用其更新）、有则提供先前成功 rollout 的参考解、按块而非按 token 记功。",
+        "result": "在 FineProofs-RL 上训练 Qwen3-4B、IMO-ProofBench 上评测：AC2 超过 GRPO 峰值验证分 18.5%，解码 FLOPs 少 2.5 倍；其中达到该分数所需训练步数少 25%，且每步生成的 token 更少（不必把每条轨迹跑完）。",
+        "conclusion": "只要用局部就绪门控、参考解和块级 credit 让 critic 变得可信，LLM RL 就可以摆脱逐轨迹 rollout 到终局奖励的约束，打开一片此前未探索的算法设计空间。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39223",
+      "title": "QATFactory: A Versatile, Deployment-Aligned Framework for Quantization-aware Training and Distillation of LLMs",
+      "authors": [
+        "Weili Xu",
+        "Jisen Li",
+        "Yuqing Jian",
+        "Chenxi Li",
+        "Zhizhou Sha",
+        "Yifan Yu",
+        "Qingyang Wu",
+        "Chenfeng Xu",
+        "Zhongzhu Zhou",
+        "Tianyi Zhang",
+        "Ben Athiwaratkun"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.39223",
+      "pdf_url": "https://arxiv.org/pdf/2609.39223",
+      "abstract_en": "Large language model (LLM) inference is increasingly moving toward lower precision to realize the throughput of hardware accelerators, but aggressive post-training quantization (PTQ) can degrade model quality. We present QATFactory, an open-source framework for deployment-aligned quantization-aware distillation (QAD) and reinforcement learning (QARL). QATFactory simulates deployment-time quantization while performing matrix multiplications in BF16, allowing models to adapt to quantization noise without requiring training hardware that natively supports the target format; for example, it supports NVFP4 training on H100 GPUs, which lack FP4 Tensor Cores. The framework supports NVFP4, MXFP4, and $\\text{llama}.\\text{cpp}$'s Q4_K format; dense and mixture-of-experts models; and both full-parameter and LoRA-based training. It exports checkpoints directly to vLLM and $\\text{llama}.\\text{cpp}$ without an additional lossy conversion step or added inference overhead. With QATFactory, we conduct extensive experiments on models ranging from 8B to 230B parameters and evaluate exported checkpoints in production inference engines. Across models and formats, QAD consistently improves deployed-model quality over strong PTQ baselines. On Qwen3.5-9B, QAD achieves average benchmark accuracies of 68.9% under NVFP4 and 66.0% under MXFP4, outperforming the best PTQ results of 65.4% and 56.4%, respectively. Through our experiments, we found that although both FP4 formats quantize weights and activations at deployment, the best training strategy is format-dependent: NVFP4 generally performs better when only weights are quantized during training, whereas MXFP4 benefits from quantizing both weights and activations. At a fixed training token budget, training on fewer 32K sequences improves average accuracy by 1.9 points over training on more 4K sequences.",
+      "comment": "Preprint, code at https://github.com/QATFactory/QATFactory",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: QATFactory 是开源的量化感知训练框架，在 BF16 矩阵乘法中模拟部署期量化噪声，支持量化感知蒸馏 (QAD) 与量化感知强化学习 (QARL)。在 Qwen3.5-9B 上 QAD 平均准确率 NVFP4 68.9%、MXFP4 66.0%，分别超过最强 PTQ 的 65.4% 与 56.4%；固定 token 预算下用更少的 32K 序列训练比 4K 序列高 1.9 个百分点。\nMotivation: 激进的训练后量化 (PTQ) 会拉低模型质量，而原生支持目标低精度格式的训练硬件稀缺，部署与训练之间存在错位。\nMethod: 在 BF16 下执行矩阵乘法同时模拟部署期量化，支持 NVFP4、MXFP4 与 llama.cpp 的 Q4_K，覆盖 dense 与 MoE 模型及全参数与 LoRA 训练；提供 QAD 与 QARL 两条路径，检查点直接导出到 vLLM 与 llama.cpp，无额外有损转换。\nResult: 实验覆盖 8B 到 230B 参数模型并在生产推理引擎中评测导出检查点：Qwen3.5-9B 上 QAD 平均准确率 NVFP4 68.9%（最佳 PTQ 65.4%）、MXFP4 66.0%（最佳 PTQ 56.4%）。最优训练策略随格式而变：NVFP4 只量化权重更好，MXFP4 则需同时量化权重与激活。固定训练 token 预算下，训练更少的 32K 序列比更多 4K 序列平均准确率高 1.9 个百分点。\nConclusion: 量化感知蒸馏加部署对齐导出能稳定超过强 PTQ 基线，且最优量化训练策略由目标格式决定，序列长度配置在固定 token 预算下同样影响精度。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "QATFactory 是开源的量化感知训练框架，在 BF16 矩阵乘法中模拟部署期量化噪声，支持量化感知蒸馏 (QAD) 与量化感知强化学习 (QARL)。在 Qwen3.5-9B 上 QAD 平均准确率 NVFP4 68.9%、MXFP4 66.0%，分别超过最强 PTQ 的 65.4% 与 56.4%；固定 token 预算下用更少的 32K 序列训练比 4K 序列高 1.9 个百分点。",
+        "motivation": "激进的训练后量化 (PTQ) 会拉低模型质量，而原生支持目标低精度格式的训练硬件稀缺，部署与训练之间存在错位。",
+        "method": "在 BF16 下执行矩阵乘法同时模拟部署期量化，支持 NVFP4、MXFP4 与 llama.cpp 的 Q4_K，覆盖 dense 与 MoE 模型及全参数与 LoRA 训练；提供 QAD 与 QARL 两条路径，检查点直接导出到 vLLM 与 llama.cpp，无额外有损转换。",
+        "result": "实验覆盖 8B 到 230B 参数模型并在生产推理引擎中评测导出检查点：Qwen3.5-9B 上 QAD 平均准确率 NVFP4 68.9%（最佳 PTQ 65.4%）、MXFP4 66.0%（最佳 PTQ 56.4%）。最优训练策略随格式而变：NVFP4 只量化权重更好，MXFP4 则需同时量化权重与激活。固定训练 token 预算下，训练更少的 32K 序列比更多 4K 序列平均准确率高 1.9 个百分点。",
+        "conclusion": "量化感知蒸馏加部署对齐导出能稳定超过强 PTQ 基线，且最优量化训练策略由目标格式决定，序列长度配置在固定 token 预算下同样影响精度。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39166",
+      "title": "Beyond the Remembered World: Predictive 4D Belief for Persistent Navigation in Evolving Worlds",
+      "authors": [
+        "Mingjian Gao",
+        "Zhaocheng Li",
+        "Haoyang Huang",
+        "Wenqiao Zhang",
+        "Yingjie Niu",
+        "Hao Zhou",
+        "Chao Li",
+        "Juncheng Li",
+        "Siliang Tang",
+        "Yueting Zhuang"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.39166",
+      "pdf_url": "https://arxiv.org/pdf/2609.39166",
+      "abstract_en": "Persistent spatial memory enables embodied agents to navigate familiar environments across repeated visits. However, targets may move while unobserved, including during navigation, making remembered locations unreliable by the time an agent arrives. Despite advances in memory retrieval and state prediction, accounting for continued hidden world evolution and revising beliefs under limited visibility remain challenging. We study Evolving-World Navigation, where agents infer target locations from intermittent observations, predict their states at inspection time, and revise beliefs using visual evidence. We propose EvolvingNav, which constructs a time-indexed belief from timestamped 3D object histories through a structured persistence-relocation model. The belief distinguishes persistence at the last observed location from relocation to alternative locations and retains probability mass outside the known candidate set. An event-driven filter propagates the current belief as time elapses, forecasts target occupancy at candidate inspection times, and incorporates new RGB-D evidence. Negative observations downweight location hypotheses according to calibrated, visibility-conditioned detection probabilities, while evidence tracking prevents repeated use of the same observations. A frozen, zero-shot vision-language controller uses the updated belief to choose actions and replan. We further introduce EvoWorld-Bench, a benchmark grounded in human activity traces, comprising 54 scenes and 803,680 tasks with controlled changes before and during navigation. In simulation and real-robot experiments, EvolvingNav improves navigation success and search efficiency over the evaluated baselines. Paired experiments show the clearest gains under learnable temporal patterns, while ablations demonstrate the value of preserving uncertainty and incorporating visibility-aware evidence.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: EvolvingNav 为持续导航中的移动目标维护时间索引信念：用结构化的 persistence-relocation 模型区分目标留在上次观测处还是迁移到别处，并在候选集之外保留概率质量，事件驱动滤波随时间传播信念、按可见性标定的检测概率下调负观测权重，再交给冻结的零样本视觉-语言控制器执行。在 EvoWorld-Bench（54 个场景、803,680 个任务）仿真与真机实验中，其导航成功率与搜索效率优于所评估基线，且在目标变化具可学习时间模式时增益最明显。\nMotivation: 持久空间记忆假设目标位置不变，但目标会在未被观测时移动，导致到达时记忆失效；现有方法在有限可见度下难以持续追踪隐藏世界演化并修正信念。\nMethod: EvolvingNav 由带时间戳的 3D 物体历史构建时间索引信念，用 persistence-relocation 模型区分原地停留与迁移，并在已知候选集之外保留概率质量；事件驱动滤波随时间传播信念、在候选检查时刻预测目标占据，并吸收新 RGB-D 证据——负观测按可见性条件化的检测概率标定下调，证据追踪防止同一观测被重复使用；冻结的零样本视觉-语言控制器据更新后的信念选动作并重规划。\nResult: 在基于人类活动轨迹的 EvoWorld-Bench（54 个场景、803,680 个任务，含导航前与导航中的受控变化）上，仿真与真机实验中 EvolvingNav 的导航成功率与搜索效率优于所评估基线；配对实验显示在目标变化具可学习时间模式时增益最清晰，消融证明保留不确定性与引入可见性感知证据各自有效。\nConclusion: 在目标持续演化的环境中，显式维护带不确定性的时变信念并按可见性校准证据，比依赖记忆位置的导航更能提高成功率与搜索效率。\nRelevance: 36",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "EvolvingNav 为持续导航中的移动目标维护时间索引信念：用结构化的 persistence-relocation 模型区分目标留在上次观测处还是迁移到别处，并在候选集之外保留概率质量，事件驱动滤波随时间传播信念、按可见性标定的检测概率下调负观测权重，再交给冻结的零样本视觉-语言控制器执行。在 EvoWorld-Bench（54 个场景、803,680 个任务）仿真与真机实验中，其导航成功率与搜索效率优于所评估基线，且在目标变化具可学习时间模式时增益最明显。",
+        "motivation": "持久空间记忆假设目标位置不变，但目标会在未被观测时移动，导致到达时记忆失效；现有方法在有限可见度下难以持续追踪隐藏世界演化并修正信念。",
+        "method": "EvolvingNav 由带时间戳的 3D 物体历史构建时间索引信念，用 persistence-relocation 模型区分原地停留与迁移，并在已知候选集之外保留概率质量；事件驱动滤波随时间传播信念、在候选检查时刻预测目标占据，并吸收新 RGB-D 证据——负观测按可见性条件化的检测概率标定下调，证据追踪防止同一观测被重复使用；冻结的零样本视觉-语言控制器据更新后的信念选动作并重规划。",
+        "result": "在基于人类活动轨迹的 EvoWorld-Bench（54 个场景、803,680 个任务，含导航前与导航中的受控变化）上，仿真与真机实验中 EvolvingNav 的导航成功率与搜索效率优于所评估基线；配对实验显示在目标变化具可学习时间模式时增益最清晰，消融证明保留不确定性与引入可见性感知证据各自有效。",
+        "conclusion": "在目标持续演化的环境中，显式维护带不确定性的时变信念并按可见性校准证据，比依赖记忆位置的导航更能提高成功率与搜索效率。",
+        "relevance_score": "36"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39144",
+      "title": "Sharp Stationary Gaussian Approximation for Constant-Stepsize SGD",
+      "authors": [
+        "Junghoon Seo"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.OC"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.39144",
+      "pdf_url": "https://arxiv.org/pdf/2609.39144",
+      "abstract_en": "We prove a sharp Gaussian approximation for the invariant law of constant-stepsize SGD with bounded additive noise generated by an exogenous uniformly ergodic Markov chain. For a smooth, strongly convex objective with a Lipschitz Hessian and nondegenerate long-run noise covariance, the centered iterate normalized by the square root of the stepsize is $O(\\sqrtα)$-close in 1-Wasserstein distance to its limiting Gaussian. The proof combines blockwise Gaussian comparison with long-run contraction. A four-state example gives a matching lower bound although the one-time noise marginal is symmetric and every nonzero-lag autocovariance vanishes. In this example, an adjacent third-order mixed moment produces the leading correction.",
+      "comment": "To be presented at 2026 NeurIPS workshop on \"Optimization for Machine Learning\" (OPT2026)",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 证明常步长 SGD 不变律的尖锐高斯近似：在光滑强凸目标、Hessian Lipschitz、长程噪声协方差非退化且噪声由外生一致遍历 Markov 链生成时，中心化迭代除以步长平方根后与极限高斯在 1-Wasserstein 距离下相差 O(√α)。四状态例子给出匹配的下界，其中一阶噪声边缘对称、所有非零滞后自协方差为零，主导修正来自相邻三阶混合矩。\nMotivation: 常步长 SGD 的不变分布何时、以何种速率逼近高斯，此前缺少在时间相关噪声下带匹配下界的尖锐刻画。\nMethod: 证明分块高斯比较 (blockwise Gaussian comparison) 与长程收缩 (long-run contraction) 相结合；设定为光滑强凸目标、Lipschitz Hessian、非退化长程噪声协方差，噪声来自外生一致遍历 Markov 链。\nResult: 中心化迭代按 √α 归一化后与极限高斯的 1-Wasserstein 距离为 O(√α)；四状态例子给出匹配下界，该例中单时刻噪声边缘对称且每个非零滞后自协方差为零，相邻三阶混合矩产生主导修正项。\nConclusion: 在一致遍历相关噪声下常步长 SGD 的不变律以 O(√α) 速率收敛到高斯，且该速率不可改进；对称边缘与零滞后自协方差并不足以排除高阶矩带来的主导修正。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "证明常步长 SGD 不变律的尖锐高斯近似：在光滑强凸目标、Hessian Lipschitz、长程噪声协方差非退化且噪声由外生一致遍历 Markov 链生成时，中心化迭代除以步长平方根后与极限高斯在 1-Wasserstein 距离下相差 O(√α)。四状态例子给出匹配的下界，其中一阶噪声边缘对称、所有非零滞后自协方差为零，主导修正来自相邻三阶混合矩。",
+        "motivation": "常步长 SGD 的不变分布何时、以何种速率逼近高斯，此前缺少在时间相关噪声下带匹配下界的尖锐刻画。",
+        "method": "证明分块高斯比较 (blockwise Gaussian comparison) 与长程收缩 (long-run contraction) 相结合；设定为光滑强凸目标、Lipschitz Hessian、非退化长程噪声协方差，噪声来自外生一致遍历 Markov 链。",
+        "result": "中心化迭代按 √α 归一化后与极限高斯的 1-Wasserstein 距离为 O(√α)；四状态例子给出匹配下界，该例中单时刻噪声边缘对称且每个非零滞后自协方差为零，相邻三阶混合矩产生主导修正项。",
+        "conclusion": "在一致遍历相关噪声下常步长 SGD 的不变律以 O(√α) 速率收敛到高斯，且该速率不可改进；对称边缘与零滞后自协方差并不足以排除高阶矩带来的主导修正。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39022",
+      "title": "From Verification Failures to Reusable Guidance for Coding Agents",
+      "authors": [
+        "Yuqing Zhai",
+        "Xiaohong Chen",
+        "Lingming Zhang",
+        "Sriram Vishwanath",
+        "Grigore Rosu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LO",
+        "cs.PL",
+        "cs.SE"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.SE",
+      "abs_url": "https://arxiv.org/abs/2609.39022",
+      "pdf_url": "https://arxiv.org/pdf/2609.39022",
+      "abstract_en": "Coding agents need to establish that a program satisfies a specification and that the specification captures the requested behavior. We study how expert diagnosis of verification failures can become reusable guidance for this work. Our approach combines executable language definitions in the K framework with a kit of procedures for constructing specifications, repairing proofs, and auditing their adequacy. A human-guided development campaign on HumanEval, a benchmark of 164 Python programming tasks, achieves a 164/164 success rate with the semantics and the kit, measured by final AI audit Pass verdicts after two targeted repairs. To examine whether auditing detects problems that successful proofs leave unresolved, we construct 12 author-reviewed pairs of clean and defective packages. Every package passes its K proofs, and completed audits identify all defects and accept all clean packages. We then use KleverBench to test specification and proof construction for 31 programs with changed operator meanings. Comparisons with complete acceptance rules and equally long generic advice yield mixed results across two model and budget settings, motivating further work on selecting useful guidance within resource limits. Human-reviewed Optimism proofs establish expected pause reverts for six operations within declared input bounds under London semantics with unbounded gas. We report progress, difficulties, and lessons toward agents that deliver programs with checkable correctness arguments.",
+      "comment": "23 pages, including appendices",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 把 K framework 的可执行语言定义与一套规范构造、证明修复、充分性审计的程序工具箱结合，让编码代理对程序给出可核查的正确性论证。在 HumanEval 164 个 Python 任务上以最终 AI 审计 Pass 判定达到 164/164（经两次针对性修复）；12 对含缺陷/干净包全部通过 K 证明，完成的审计仍全部识别出缺陷并接受干净包。\nMotivation: 编码代理需要同时证明程序满足规范、且规范确实刻画了所请求行为；成功通过证明的包仍可能藏着规范缺陷，专家对验证失败的诊断经验难以复用。\nMethod: 以 K framework 的可执行语言定义为基础，配一套构造规范、修复证明、审计充分性的程序工具箱；在 HumanEval 上做人工引导的开发流程，用 AI 审计 Pass 判定验收；构造 12 对作者评审的 clean/defective 包检验审计能否发现证明未覆盖的问题；再用 KleverBench 对 31 个算子语义被改动的程序测试规范与证明构造，并与完整接受规则和等长通用建议对比。\nResult: HumanEval（164 个 Python 任务）达到 164/164 成功率，判据为两次针对性修复后的最终 AI 审计 Pass；12 对 clean/defective 包全部通过 K 证明，完成的审计识别出全部缺陷并接受全部干净包；KleverBench 上 31 个算子语义改动程序的对比在两种模型与预算设置下结果混合；另有人工评审的 Optimism 证明在 London 语义、unbounded gas 下确立六种操作在声明输入界内的预期 pause reverts。\nConclusion: 审计能捕捉成功证明未解决的规范问题，但通用建议在资源受限时选不出稳定有用的指导，需进一步研究如何在预算内挑选有效 guidance。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "把 K framework 的可执行语言定义与一套规范构造、证明修复、充分性审计的程序工具箱结合，让编码代理对程序给出可核查的正确性论证。在 HumanEval 164 个 Python 任务上以最终 AI 审计 Pass 判定达到 164/164（经两次针对性修复）；12 对含缺陷/干净包全部通过 K 证明，完成的审计仍全部识别出缺陷并接受干净包。",
+        "motivation": "编码代理需要同时证明程序满足规范、且规范确实刻画了所请求行为；成功通过证明的包仍可能藏着规范缺陷，专家对验证失败的诊断经验难以复用。",
+        "method": "以 K framework 的可执行语言定义为基础，配一套构造规范、修复证明、审计充分性的程序工具箱；在 HumanEval 上做人工引导的开发流程，用 AI 审计 Pass 判定验收；构造 12 对作者评审的 clean/defective 包检验审计能否发现证明未覆盖的问题；再用 KleverBench 对 31 个算子语义被改动的程序测试规范与证明构造，并与完整接受规则和等长通用建议对比。",
+        "result": "HumanEval（164 个 Python 任务）达到 164/164 成功率，判据为两次针对性修复后的最终 AI 审计 Pass；12 对 clean/defective 包全部通过 K 证明，完成的审计识别出全部缺陷并接受全部干净包；KleverBench 上 31 个算子语义改动程序的对比在两种模型与预算设置下结果混合；另有人工评审的 Optimism 证明在 London 语义、unbounded gas 下确立六种操作在声明输入界内的预期 pause reverts。",
+        "conclusion": "审计能捕捉成功证明未解决的规范问题，但通用建议在资源受限时选不出稳定有用的指导，需进一步研究如何在预算内挑选有效 guidance。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.38979",
+      "title": "Mitigating Object Hallucination in Large Vision-Language Models via False Discovery Controlled Visual Data Splitting",
+      "authors": [
+        "Chang Liu",
+        "Yu Tian",
+        "Rui Xie"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.38979",
+      "pdf_url": "https://arxiv.org/pdf/2609.38979",
+      "abstract_en": "Multiple object hallucination, where large vision-language models (LVLMs) generate objects not supported by the visual input, is a persistent challenge caused by visual uncertainty during decoding. Existing methods reduce hallucinations using contrastive signals, but they rely on heuristics and lack principled control of false positives at the image level. To address this, we propose False Discovery Rate-COntRol of HALlucination (CORAL), a training-free framework that models visual uncertainty using an uncertainty-aware visual data splitting strategy and leverages mirror statistics to quantify visual contrast during decoding. By computing mirror statistics from paired, symmetrically perturbed visual inputs, CORAL estimates spurious object predictions and sets a data-driven threshold to control the expected fraction of false discoveries per image, suppressing hallucinations while retaining high power for truly grounded objects. The framework is flexible, supports multiple LVLMs, and mitigates hallucinations without retraining or supervision. Extensive experiments on multiple benchmarks with several evaluation metrics demonstrate that CORAL consistently outperforms state-of-the-art methods, providing more reliable and robust hallucination control. Code is available at: https://changliu1993-cl.github.io/CORAL/",
+      "comment": "Accepted to NeurIPS 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: CORAL 是免训练的 LVLM 物体幻觉抑制框架：用不确定性感知的视觉数据切分与对称扰动配对输入算 mirror statistics，估计虚假物体预测并按图像级 FDR 阈值抑制幻觉。在多个基准上一致优于现有 SOTA，同时保留对真实有据物体的检出能力。\nMotivation: 现有对比信号类幻觉抑制方法依赖启发式规则，缺少图像级假阳性的原则性控制，而多物体幻觉源于解码时的视觉不确定性。\nMethod: CORAL 为免训练框架：以不确定性感知的视觉数据切分策略建模视觉不确定性，对配对、对称扰动的视觉输入计算 mirror statistics 量化解码期视觉对比，据此估计虚假物体预测并设定数据驱动阈值，控制每张图的期望假发现比例 (FDR)；无需重训练或监督，可支持多种 LVLM。\nResult: 在多个基准、多项评测指标上一致优于 state-of-the-art 方法，在抑制幻觉的同时对真正有据物体保持高检出功效 (high power)。\nConclusion: 把图像级假发现率控制引入解码过程，可在不重训练的前提下更可靠、更稳健地抑制 LVLM 多物体幻觉。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "CORAL 是免训练的 LVLM 物体幻觉抑制框架：用不确定性感知的视觉数据切分与对称扰动配对输入算 mirror statistics，估计虚假物体预测并按图像级 FDR 阈值抑制幻觉。在多个基准上一致优于现有 SOTA，同时保留对真实有据物体的检出能力。",
+        "motivation": "现有对比信号类幻觉抑制方法依赖启发式规则，缺少图像级假阳性的原则性控制，而多物体幻觉源于解码时的视觉不确定性。",
+        "method": "CORAL 为免训练框架：以不确定性感知的视觉数据切分策略建模视觉不确定性，对配对、对称扰动的视觉输入计算 mirror statistics 量化解码期视觉对比，据此估计虚假物体预测并设定数据驱动阈值，控制每张图的期望假发现比例 (FDR)；无需重训练或监督，可支持多种 LVLM。",
+        "result": "在多个基准、多项评测指标上一致优于 state-of-the-art 方法，在抑制幻觉的同时对真正有据物体保持高检出功效 (high power)。",
+        "conclusion": "把图像级假发现率控制引入解码过程，可在不重训练的前提下更可靠、更稳健地抑制 LVLM 多物体幻觉。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.38840",
+      "title": "scTrilemma: Balancing Identity, Invariance, and Fidelity in Single-Cell Representation Learning",
+      "authors": [
+        "Yunhak Oh",
+        "Yoonho Lee",
+        "Junseok Lee",
+        "Namkyeong Lee",
+        "Sang-Yeon Hwang",
+        "Yinhua Piao",
+        "Hyomin Kim",
+        "Seonghwan Kim",
+        "Jaechang Lim",
+        "Woo Youn Kim",
+        "Sungsoo Ahn",
+        "Chanyoung Park"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.38840",
+      "pdf_url": "https://arxiv.org/pdf/2609.38840",
+      "abstract_en": "Single-cell RNA-seq representation learning is fundamentally label-free: cell identities, states, and contexts are not fixed training targets, so what constitutes signal or nuisance is analysis-dependent. A single representation must therefore preserve biological identity and state, remain robust to nuisance context, and retain the gene-level variation needed for expression analysis, three demands we call the representation trilemma. To tackle this problem, we introduce scTrilemma, a latent-bottleneck VAE that routes expression-derived variation to the embedding, the decoder, or the prior rather than forcing all of it through one embedding. It gates gene tokens by expression, routes the cell representation through the decoder, and conditions the prior on unlabeled pseudo-bulk context, under a single reconstruction objective and without target annotations or auxiliary representation losses. In release-based zero-shot evaluation on successive CZ CELLxGENE Census releases, scTrilemma leads all three demands at once and preserves biological-state, differential-expression, and pathway structure across multiple disease settings. Latent interventions further show that context can be removed at almost no cost to the other demands, leaving identity against fidelity as the remaining tension. Code is publicly available at https://github.com/yunhak0/scTrilemma.",
+      "comment": "NeurIPS 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: scTrilemma 把单细胞 RNA-seq 表征的三重需求——保留生物身份、对无关上下文不变、保留基因级表达保真——形式化为 representation trilemma，并用一个 latent-bottleneck VAE 把表达衍生的变异分别路由到 embedding、decoder 或 prior，而不是全部压进单一嵌入。在 CZ CELLxGENE Census 连续 release 的 zero-shot 评测中，它同时在三项需求上领先，且 latent intervention 显示去除 context 几乎不损害另外两项，剩下的张力只在 identity 与 fidelity 之间。\nMotivation: 单细胞表征学习是无标签的：细胞身份、状态、上下文没有固定训练目标，什么算信号、什么算干扰取决于下游分析，单一嵌入难以同时满足身份、不变性与表达保真三种需求。\nMethod: scTrilemma 是 latent-bottleneck VAE：按表达量对 gene token 做 gating，把 cell representation 经 decoder 路由，并以无标签的 pseudo-bulk context 条件化 prior；整体只用单一 reconstruction objective，不使用目标标注或额外的表征损失。\nResult: 在 CZ CELLxGENE Census 连续 release 的 release-based zero-shot 评测中，scTrilemma 同时在三项需求上领先，并在多个疾病场景下保持 biological-state、differential-expression 与 pathway 结构；latent intervention 表明去除 context 对其余需求的代价几乎为零。\nConclusion: 把表达变异按目标分流到嵌入、解码器与先验，可以在无标签条件下同时兼顾身份、不变性与保真；context 可以近乎无损地移除，真正的权衡只剩 identity 与 fidelity。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "scTrilemma 把单细胞 RNA-seq 表征的三重需求——保留生物身份、对无关上下文不变、保留基因级表达保真——形式化为 representation trilemma，并用一个 latent-bottleneck VAE 把表达衍生的变异分别路由到 embedding、decoder 或 prior，而不是全部压进单一嵌入。在 CZ CELLxGENE Census 连续 release 的 zero-shot 评测中，它同时在三项需求上领先，且 latent intervention 显示去除 context 几乎不损害另外两项，剩下的张力只在 identity 与 fidelity 之间。",
+        "motivation": "单细胞表征学习是无标签的：细胞身份、状态、上下文没有固定训练目标，什么算信号、什么算干扰取决于下游分析，单一嵌入难以同时满足身份、不变性与表达保真三种需求。",
+        "method": "scTrilemma 是 latent-bottleneck VAE：按表达量对 gene token 做 gating，把 cell representation 经 decoder 路由，并以无标签的 pseudo-bulk context 条件化 prior；整体只用单一 reconstruction objective，不使用目标标注或额外的表征损失。",
+        "result": "在 CZ CELLxGENE Census 连续 release 的 release-based zero-shot 评测中，scTrilemma 同时在三项需求上领先，并在多个疾病场景下保持 biological-state、differential-expression 与 pathway 结构；latent intervention 表明去除 context 对其余需求的代价几乎为零。",
+        "conclusion": "把表达变异按目标分流到嵌入、解码器与先验，可以在无标签条件下同时兼顾身份、不变性与保真；context 可以近乎无损地移除，真正的权衡只剩 identity 与 fidelity。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.38806",
+      "title": "Blackboard Intelligence Can Surpass Autoregressive on Globally Constrained Problems",
+      "authors": [
+        "Woosang Jeon",
+        "Jaeyeon Kim",
+        "Sham Kakade",
+        "Yilun Du",
+        "Amrit Singh Bedi",
+        "Arun Kumar Chithanar",
+        "Chul Lee",
+        "Taehyeong Kim",
+        "Sitan Chen"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.38806",
+      "pdf_url": "https://arxiv.org/pdf/2609.38806",
+      "abstract_en": "Next-token prediction has driven remarkable progress in large language models, yet a growing body of evidence suggests that they can struggle on problems governed by complex global constraints. In this work, we focus on this regime and ask whether some of these limitations arise from the inference interface induced by next-token prediction itself. We study this question through blackboard intelligence: an inference-time perspective in which a model works on a fixed, revisable canvas and searches over candidate solution states rather than committing to a causal, left-to-right trajectory. We instantiate this idea with diffusion language models, whose any-order prediction interface naturally exposes predictions over partially filled solution states. Our key observation is that mean confidence, a simple model-internal quantity available from the standard masked diffusion objective, provides a useful proxy for global coherence and can guide inference-time search and revision. Empirically, across ZebraLogic, Nurse Rostering, and Job-Shop Scheduling, Blackboard consistently improves inference while holding the fine-tuned LLaDA-8B-Instruct checkpoint fixed and substantially outperforms same-scale autoregressive baselines, reaching 90.4% accuracy on ZebraLogic-Hard, 76.4% exact feasibility on Nurse Rostering, and 80.2% optimality on JSSP. Stronger autoregressive search and refinement also fail to close the gap on ZebraLogic-Hard, while Blackboard surpasses tested frontier LLMs there and on JSSP despite their substantially greater scale and strong test-time reasoning. We open-source our codebase at https://github.com/jwoosang1/blackboard-intelligence.",
+      "comment": "32 pages, 9 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出黑板智能 (blackboard intelligence)：推理时让模型在可修改的固定画布上搜索候选解状态，而非按 next-token 左到右生成，并用掩码扩散目标自带的 mean confidence 作为全局一致性代理来引导搜索与修订。固定微调后的 LLaDA-8B-Instruct 检查点，ZebraLogic-Hard 达 90.4% 准确率、Nurse Rostering 可行性 76.4%、JSSP 最优性 80.2%，在 ZebraLogic-Hard 与 JSSP 上超过所测更大规模的前沿 LLM。\nMotivation: next-token 预测的因果式左到右推理接口本身可能限制 LLM 在复杂全局约束问题上的表现，而更强的自回归搜索与修订也补不上这一差距。\nMethod: 以扩散语言模型 (diffusion language model) 实例化黑板智能，利用其 any-order 预测接口在部分填充的解状态上做预测；从标准掩码扩散目标中取 mean confidence 作为全局一致性代理，驱动推理时搜索与修订，全程固定微调后的 LLaDA-8B-Instruct 检查点。\nResult: 在 ZebraLogic、Nurse Rostering、Job-Shop Scheduling 上：ZebraLogic-Hard 准确率 90.4%，Nurse Rostering exact feasibility 76.4%，JSSP optimality 80.2%；同规模自回归基线被大幅超过，更强的自回归搜索与修订在 ZebraLogic-Hard 上仍无法缩小差距，且在 ZebraLogic-Hard 与 JSSP 上超过所测前沿 LLM（尽管后者规模更大且有强 test-time reasoning）。\nConclusion: 全局约束问题上的部分差距来自 next-token 推理接口本身；在可修改画布上搜索并用模型内部置信度引导修订，能在固定检查点下超过同规模乃至所测前沿自回归模型。\nRelevance: 14",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出黑板智能 (blackboard intelligence)：推理时让模型在可修改的固定画布上搜索候选解状态，而非按 next-token 左到右生成，并用掩码扩散目标自带的 mean confidence 作为全局一致性代理来引导搜索与修订。固定微调后的 LLaDA-8B-Instruct 检查点，ZebraLogic-Hard 达 90.4% 准确率、Nurse Rostering 可行性 76.4%、JSSP 最优性 80.2%，在 ZebraLogic-Hard 与 JSSP 上超过所测更大规模的前沿 LLM。",
+        "motivation": "next-token 预测的因果式左到右推理接口本身可能限制 LLM 在复杂全局约束问题上的表现，而更强的自回归搜索与修订也补不上这一差距。",
+        "method": "以扩散语言模型 (diffusion language model) 实例化黑板智能，利用其 any-order 预测接口在部分填充的解状态上做预测；从标准掩码扩散目标中取 mean confidence 作为全局一致性代理，驱动推理时搜索与修订，全程固定微调后的 LLaDA-8B-Instruct 检查点。",
+        "result": "在 ZebraLogic、Nurse Rostering、Job-Shop Scheduling 上：ZebraLogic-Hard 准确率 90.4%，Nurse Rostering exact feasibility 76.4%，JSSP optimality 80.2%；同规模自回归基线被大幅超过，更强的自回归搜索与修订在 ZebraLogic-Hard 上仍无法缩小差距，且在 ZebraLogic-Hard 与 JSSP 上超过所测前沿 LLM（尽管后者规模更大且有强 test-time reasoning）。",
+        "conclusion": "全局约束问题上的部分差距来自 next-token 推理接口本身；在可修改画布上搜索并用模型内部置信度引导修订，能在固定检查点下超过同规模乃至所测前沿自回归模型。",
+        "relevance_score": "14"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.38767",
+      "title": "dattri-LLM: A Unified and Efficient Library for Training Data Attribution at LLM Scale",
+      "authors": [
+        "Shixuan Liu",
+        "Tongli Zhou",
+        "Junwei Deng",
+        "Pingbang Hu",
+        "Jiaqi W. Ma"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.38767",
+      "pdf_url": "https://arxiv.org/pdf/2609.38767",
+      "abstract_en": "Training data attribution (TDA) estimates the contribution of individual training examples to model outputs. Most scalable TDA methods rely on per-example gradients, whose computation and use at LLM scale pose challenges in efficiency, compatibility, and extensibility. We introduce dattri-LLM, a TDA library that makes gradient-based attribution more practical at scale. For efficiency, dattri-LLM uses compact gradient representations and dynamically routes gradient operations based on a cost model. For compatibility, its capture mechanism collects per-example gradients from existing training loops that call backward(), without requiring changes to the loop or its configuration. This includes distributed training with DDP and FSDP and pipelines built with HuggingFace Transformers, TRL, and OLMo. For extensibility, dattri-LLM exposes reusable gradient operations and training-time callbacks for implementing attribution methods and applications. These interfaces support a variety of attribution methods, including gradient similarity, curvature-based influence, and trajectory-based methods, as well as applications that act on gradients during training, such as online data selection. On the same hardware and workload, dattri-LLM achieves 3.2x the throughput of the fastest competing library on average, scales multiple attribution methods to 110B-parameter models across four H200 GPUs, and offers superior attribution fidelity-cost trade-offs across a range of models with different model families and scales. The source code of dattri-LLM is available at https://github.com/TRAIS-Lab/dattri-llm.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: dattri-LLM 是一个把基于梯度的训练数据归因 (TDA) 做到 LLM 规模的库：用紧凑梯度表示加基于代价模型的动态算子路由提效率，用不改动训练循环的梯度捕获机制兼容 DDP/FSDP 与 HuggingFace Transformers、TRL、OLMo 管线。在同一硬件与负载下平均吞吐达到最快竞品库的 3.2 倍，并把多种归因方法扩展到 4 张 H200 上的 110B 参数模型。\nMotivation: 可扩展 TDA 方法大多依赖逐样本梯度，其计算与使用在 LLM 规模上面临效率、兼容性、可扩展性三重障碍，现有库难以直接接入既有训练循环。\nMethod: 以紧凑梯度表示压缩逐样本梯度，并按代价模型动态路由梯度算子；捕获机制从调用 backward() 的既有训练循环中收集逐样本梯度，无需改动循环或配置；对外暴露可复用梯度算子与训练期回调，支撑 gradient similarity、curvature-based influence、trajectory-based 归因方法及训练中在线数据选择等应用。\nResult: 在同一硬件与负载下，平均吞吐为最快竞品库的 3.2 倍；在 4 张 H200 GPU 上把多种归因方法扩展到 110B 参数模型；在不同模型家族与规模上给出更优的归因保真度-成本权衡。\nConclusion: 把梯度表示、算子路由与不侵入训练循环的捕获机制合到一个库里，梯度类 TDA 就能在 LLM 规模上实用，并同时改善吞吐与保真度-成本折中。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "dattri-LLM 是一个把基于梯度的训练数据归因 (TDA) 做到 LLM 规模的库：用紧凑梯度表示加基于代价模型的动态算子路由提效率，用不改动训练循环的梯度捕获机制兼容 DDP/FSDP 与 HuggingFace Transformers、TRL、OLMo 管线。在同一硬件与负载下平均吞吐达到最快竞品库的 3.2 倍，并把多种归因方法扩展到 4 张 H200 上的 110B 参数模型。",
+        "motivation": "可扩展 TDA 方法大多依赖逐样本梯度，其计算与使用在 LLM 规模上面临效率、兼容性、可扩展性三重障碍，现有库难以直接接入既有训练循环。",
+        "method": "以紧凑梯度表示压缩逐样本梯度，并按代价模型动态路由梯度算子；捕获机制从调用 backward() 的既有训练循环中收集逐样本梯度，无需改动循环或配置；对外暴露可复用梯度算子与训练期回调，支撑 gradient similarity、curvature-based influence、trajectory-based 归因方法及训练中在线数据选择等应用。",
+        "result": "在同一硬件与负载下，平均吞吐为最快竞品库的 3.2 倍；在 4 张 H200 GPU 上把多种归因方法扩展到 110B 参数模型；在不同模型家族与规模上给出更优的归因保真度-成本权衡。",
+        "conclusion": "把梯度表示、算子路由与不侵入训练循环的捕获机制合到一个库里，梯度类 TDA 就能在 LLM 规模上实用，并同时改善吞吐与保真度-成本折中。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.38660",
+      "title": "Breaking Babel: A Self-Evolving Multi-Agent System for Long-Form Subtitle Translation",
+      "authors": [
+        "Haibo Jin",
+        "Xinjie Li",
+        "Najmeh Sadoughi",
+        "Yang Liu",
+        "Yibo Wang",
+        "Zhu Liu",
+        "Yuzong Liu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CV",
+        "cs.MA"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2609.38660",
+      "pdf_url": "https://arxiv.org/pdf/2609.38660",
+      "abstract_en": "Long-form subtitle translation requires reasoning over discourse and cultural context spanning episodes or entire series, while maintaining consistent terminology and style. Existing single-LLM methods are largely sentence-level, and multi-agent systems often use static workflows that do not adapt to scene complexity or production context. We propose SMART, a Self-evolving Multi-Agent system for long-foRm subtitle Translation. During test-time training, SMART builds persistent series-level memory and translates a subset of sentences through a dynamic router and Mixture-of-Agents layer with tools for terminology verification, subtitle constraint validation, and contextual retrieval. A judge-refiner loop scores candidates and uses textual critiques to update agent prompts and routing policies without retraining the underlying LLMs. During test-time inference, the evolved configuration translates the remaining series. We also introduce Subtitle Arena, covering 14 genres, 2--198 episodes per series, production years 1959--2023, and 15 target locales, together with SubMQM, a subtitle-adapted MQM framework with seven dimensions and 19 error categories. SMART achieves the best overall MQM score in all 15 Subtitle Arena directions, reducing average penalty by 6.9% over the strongest competing agent system. On a public benchmark, MuSC, SMART obtains the best model result across all 4 language pairs. SMART also achieves the best result in human evaluation with an overall score of 4.50/5.",
+      "comment": "49 pages",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: SMART 用测试时训练的自进化多智能体流程做长字幕翻译：系列级记忆 + 动态路由 + Mixture-of-Agents 层，judge-refiner 循环用文本批评改写 agent 提示与路由策略而不重训底层 LLM。在自建 Subtitle Arena 全部 15 个语向上取得最佳 MQM 总分，平均 penalty 比最强竞争 agent 系统低 6.9%。\nMotivation: 现有单 LLM 字幕翻译多停留在句子级，多智能体系统又用静态工作流，无法随场景复杂度与制作语境调整，跨集术语与风格一致性难保。\nMethod: 测试时训练阶段建立系列级持久记忆，经动态 router 与 Mixture-of-Agents 层翻译部分句子，配术语校验、字幕约束校验、上下文检索三类工具；judge-refiner 循环给候选打分并用 textual critiques 更新 agent 提示与路由策略，随后用演化后的配置在测试时翻译整部剧集。同时提出 Subtitle Arena 与 SubMQM（7 个维度、19 个错误类别）。\nResult: Subtitle Arena 覆盖 14 个类型、每系列 2–198 集、制作年份 1959–2023、15 个目标语向；SMART 在全部 15 个语向取得最佳 MQM 总分，平均 penalty 比最强竞争 agent 系统降低 6.9%。在公开基准 MuSC 的全部 4 个语言对上取得最佳模型结果；人工评测总分 4.50/5 为最佳。\nConclusion: 不重训底层 LLM、仅靠测试时演化提示与路由策略，就能在长字幕翻译上同时改善术语一致性与整体 MQM，并跨语向、跨语言对与人工评测保持领先。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "SMART 用测试时训练的自进化多智能体流程做长字幕翻译：系列级记忆 + 动态路由 + Mixture-of-Agents 层，judge-refiner 循环用文本批评改写 agent 提示与路由策略而不重训底层 LLM。在自建 Subtitle Arena 全部 15 个语向上取得最佳 MQM 总分，平均 penalty 比最强竞争 agent 系统低 6.9%。",
+        "motivation": "现有单 LLM 字幕翻译多停留在句子级，多智能体系统又用静态工作流，无法随场景复杂度与制作语境调整，跨集术语与风格一致性难保。",
+        "method": "测试时训练阶段建立系列级持久记忆，经动态 router 与 Mixture-of-Agents 层翻译部分句子，配术语校验、字幕约束校验、上下文检索三类工具；judge-refiner 循环给候选打分并用 textual critiques 更新 agent 提示与路由策略，随后用演化后的配置在测试时翻译整部剧集。同时提出 Subtitle Arena 与 SubMQM（7 个维度、19 个错误类别）。",
+        "result": "Subtitle Arena 覆盖 14 个类型、每系列 2–198 集、制作年份 1959–2023、15 个目标语向；SMART 在全部 15 个语向取得最佳 MQM 总分，平均 penalty 比最强竞争 agent 系统降低 6.9%。在公开基准 MuSC 的全部 4 个语言对上取得最佳模型结果；人工评测总分 4.50/5 为最佳。",
+        "conclusion": "不重训底层 LLM、仅靠测试时演化提示与路由策略，就能在长字幕翻译上同时改善术语一致性与整体 MQM，并跨语向、跨语言对与人工评测保持领先。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-29",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.38659",
+      "title": "Bandits with Multiple Optimal Arms: Minimax Regret and Non-Adaptivity",
+      "authors": [
+        "Kaixuan Ji",
+        "Qiwei Di",
+        "Qingyue Zhao",
+        "Heyang Zhao",
+        "Quanquan Gu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "math.ST",
+        "stat.ME",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "stat.ML",
+      "abs_url": "https://arxiv.org/abs/2609.38659",
+      "pdf_url": "https://arxiv.org/pdf/2609.38659",
+      "abstract_en": "We study multi-armed bandits (MAB) with multiple optimal arms, motivated by the fact that many practical decision making problems admit multiple correct answers. For $K$-armed bandits with $A$ optimal arms, we first provide a sharper analysis of previous sub-sampling algorithms (De Heide et al., 2021; Zhu and Nowak, 2020), establishing a $\\tilde{O}\\Big(\\frac{K-A}{\\sqrt{KA}}\\sqrt{T} \\Big)$ minimax regret, where $T$ is the total number of interactions and $\\tilde O(\\cdot)$ drops all constant and logarithmic factors, improving the previous $\\tilde{O}(\\sqrt{KT/A})$ regret. We then provide a matching lower bound up to logarithmic factors, indicating that our established rate is nearly minimax-optimal. We further show that the knowledge of $A$ up to $\\tilde{O}(1)$ factors is necessary to achieve near-optimal regret, as near-optimal algorithms for one number of optimal arms must incur substantially larger regret than optimal regret for a smaller number. Overall, our results provide a comprehensive minimax characterization of $K$-armed bandits with $A$ over the entire range of $1 \\leq A \\leq K-1$.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 研究含 A 个最优臂的 K 臂多臂老虎机 (MAB)，把已有 sub-sampling 算法的遗憾上界收紧到 minimax 率 Õ((K−A)/√(KA)·√T)，并给出仅差对数因子的匹配下界，说明该速率近似 minimax 最优；同时证明要达到近最优遗憾，必须以 Õ(1) 因子的精度知道最优臂数 A。\nMotivation: 许多实际决策问题存在多个正确答案（多个最优臂），此前 sub-sampling 算法的遗憾界 Õ(√(KT/A)) 不够紧，且缺少对 A 的信息需求的刻画。\nMethod: 对 De Heide et al. (2021) 与 Zhu and Nowak (2020) 的 sub-sampling 算法做更精细的分析，推导新的遗憾上界，并构造匹配（仅差对数因子）的下界，再论证 A 的已知精度对近最优算法的必要性。\nResult: K 臂、A 个最优臂、总交互数 T 下，上界为 Õ((K−A)/√(KA)·√T)，改进了此前的 Õ(√(KT/A))；下界与之在对数因子内匹配；对某个 A 近最优的算法在更小的 A 上必然产生显著更大的遗憾，故需以 Õ(1) 因子精度知道 A；结论覆盖 1 ≤ A ≤ K−1 全范围。\nConclusion: K 臂多最优臂老虎机的 minimax 遗憾在 1 ≤ A ≤ K−1 上被近乎完整刻画，且对最优臂数 A 的粗略已知是达到近最优遗憾的必要条件。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "研究含 A 个最优臂的 K 臂多臂老虎机 (MAB)，把已有 sub-sampling 算法的遗憾上界收紧到 minimax 率 Õ((K−A)/√(KA)·√T)，并给出仅差对数因子的匹配下界，说明该速率近似 minimax 最优；同时证明要达到近最优遗憾，必须以 Õ(1) 因子的精度知道最优臂数 A。",
+        "motivation": "许多实际决策问题存在多个正确答案（多个最优臂），此前 sub-sampling 算法的遗憾界 Õ(√(KT/A)) 不够紧，且缺少对 A 的信息需求的刻画。",
+        "method": "对 De Heide et al. (2021) 与 Zhu and Nowak (2020) 的 sub-sampling 算法做更精细的分析，推导新的遗憾上界，并构造匹配（仅差对数因子）的下界，再论证 A 的已知精度对近最优算法的必要性。",
+        "result": "K 臂、A 个最优臂、总交互数 T 下，上界为 Õ((K−A)/√(KA)·√T)，改进了此前的 Õ(√(KT/A))；下界与之在对数因子内匹配；对某个 A 近最优的算法在更小的 A 上必然产生显著更大的遗憾，故需以 Õ(1) 因子精度知道 A；结论覆盖 1 ≤ A ≤ K−1 全范围。",
+        "conclusion": "K 臂多最优臂老虎机的 minimax 遗憾在 1 ≤ A ≤ K−1 上被近乎完整刻画，且对最优臂数 A 的粗略已知是达到近最优遗憾的必要条件。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-29",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.38645",
+      "title": "Alignment via Training Against Probes Without Losing Monitorability",
+      "authors": [
+        "Lena Libon",
+        "Alexander Panfilov",
+        "Ben Rank",
+        "Xin Chen",
+        "Jonas Geiping",
+        "Maksym Andriushchenko"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CR",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.38645",
+      "pdf_url": "https://arxiv.org/pdf/2609.38645",
+      "abstract_en": "Models are usually aligned based on their observed outputs, using demonstrations, preference data, or reward signals. These objectives reward responses that look aligned. More capable models may learn to satisfy them without internalizing the intended behavior, for example by faking compliance during training. Such superficial compliance could be harder when the objective is defined on model internals rather than outputs. Therefore, we study probe-guided fine-tuning, using probes that detect undesired properties in model activations as a direct training signal. We evaluate linear and non-linear probes with different numbers of probes per layer across two alignment objectives: harmlessness and honesty. We find that training against probes that do not update during training is an easily exploitable objective, while continuously updated probes substantially reduce harmfulness and improve honesty while preserving utility. Probe-guided fine-tuning achieves better safety-utility trade-offs than DPO and inference-time steering, while being substantially more robust against jailbreak and abliteration attacks. Moreover, the concepts stay linearly encoded after fine-tuning, meaning oversight is not lost by our method. Training against probes thus offers a way to shape what models represent rather than only what they output, which may become increasingly important as models get better at making their outputs look aligned.",
+      "comment": "38 pages, 22 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 probe-guided fine-tuning：用检测模型激活中不良属性的探针作为直接训练信号来对齐模型，而非只对输出施加示范、偏好或奖励。冻结不更新的探针目标极易被钻空子，而训练中持续更新的探针能显著降低 harmfulness、提升 honesty 并保住 utility，安全-效用权衡优于 DPO 与推理时 steering，且对 jailbreak 和 abliteration 攻击更鲁棒，微调后概念仍保持线性可解码。\nMotivation: 基于输出的对齐目标只奖励看起来对齐的回答，能力更强的模型可能在训练中假装服从而不内化预期行为；需要一种直接作用于模型内部表征、同时不牺牲可监控性 (monitorability) 的目标。\nMethod: 用线性与非线性探针读取模型各层激活（每层不同探针数量），把探针检测到的不良属性作为训练信号，对比 harmlessness 与 honesty 两个对齐目标；关键设计是探针在训练过程中持续更新，并与 DPO 和 inference-time steering 对比。\nResult: 冻结探针作为目标时训练极易被利用；持续更新的探针显著降低 harmfulness、改善 honesty 并保持 utility，取得优于 DPO 与 inference-time steering 的安全-效用权衡，且对 jailbreak 与 abliteration 攻击更鲁棒；微调后相关概念仍以线性方式编码，可监控性未丢失。\nConclusion: 训练对抗持续更新的探针可以塑造模型内部表征而不只是输出，并在保持可监控性的同时获得更好的安全-效用权衡；随着模型越来越擅长让输出看起来对齐，这类内部目标会愈发重要。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 probe-guided fine-tuning：用检测模型激活中不良属性的探针作为直接训练信号来对齐模型，而非只对输出施加示范、偏好或奖励。冻结不更新的探针目标极易被钻空子，而训练中持续更新的探针能显著降低 harmfulness、提升 honesty 并保住 utility，安全-效用权衡优于 DPO 与推理时 steering，且对 jailbreak 和 abliteration 攻击更鲁棒，微调后概念仍保持线性可解码。",
+        "motivation": "基于输出的对齐目标只奖励看起来对齐的回答，能力更强的模型可能在训练中假装服从而不内化预期行为；需要一种直接作用于模型内部表征、同时不牺牲可监控性 (monitorability) 的目标。",
+        "method": "用线性与非线性探针读取模型各层激活（每层不同探针数量），把探针检测到的不良属性作为训练信号，对比 harmlessness 与 honesty 两个对齐目标；关键设计是探针在训练过程中持续更新，并与 DPO 和 inference-time steering 对比。",
+        "result": "冻结探针作为目标时训练极易被利用；持续更新的探针显著降低 harmfulness、改善 honesty 并保持 utility，取得优于 DPO 与 inference-time steering 的安全-效用权衡，且对 jailbreak 与 abliteration 攻击更鲁棒；微调后相关概念仍以线性方式编码，可监控性未丢失。",
+        "conclusion": "训练对抗持续更新的探针可以塑造模型内部表征而不只是输出，并在保持可监控性的同时获得更好的安全-效用权衡；随着模型越来越擅长让输出看起来对齐，这类内部目标会愈发重要。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-29",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.38578",
+      "title": "Retargeting Motions to Diverse Skeletons via Learnable Flattening",
+      "authors": [
+        "Kia-Jüng Yang",
+        "Fabian H. Sinz",
+        "Paweł A. Pierzchlewicz"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.38578",
+      "pdf_url": "https://arxiv.org/pdf/2609.38578",
+      "abstract_en": "Cross-structural motion retargeting aims to transfer motion between different skeletal topologies. Despite recent progress, existing state-of-the-art models struggle with reliability in zero-shot settings, i.e. skeletons with different topologies which were unseen during training, and recent Transformer-based attempts have failed to outperform specialized geometric methods. We bridge this gap with a Transformer Autoencoder that learns a topology- and translation-invariant latent space. Our core contribution is a learnable flattening of skeletal graphs that captures both local dependencies and global structure. Unlike the standard transformer architecture, which adds positional information to token content, we integrate graph-based positional encodings multiplicatively, a design choice that follows directly from our flattening formulation. The resulting model handles diverse skeletal topologies within a single unified architecture and trains in a fully unsupervised manner, requiring no paired retargeting data. Ablation studies show, that the graph encodings, multiplicative formulation, and Transformer backbone is critical for the performance. In zero-shot evaluations, our method reduces global joint position error by $43-47\\%$ over current benchmarks. A user study ($n = 37$), including expert animators, further ranks our approach highest in motion alignment and physical plausibility ($p < 0.05$). These results demonstrate that our model design is key to making transformer architectures effective for motion retargeting, outperforming existing approaches.",
+      "comment": "24 pages, 9 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出基于 Transformer Autoencoder 的跨骨架动作重定向 (motion retargeting) 方法，核心是可学习的骨骼图展平 (learnable flattening)，并把图位置编码以乘法方式（而非加法）注入 token。零样本未见拓扑骨架上全局关节位置误差比现有基准低 43–47%，n=37 用户研究（含专业动画师）在动作对齐与物理合理性上排名第一（p<0.05）。\nMotivation: 现有 SOTA 在零样本（训练时未见的骨架拓扑）设定下不可靠，Transformer 尝试未能超过专用几何方法。\nMethod: Transformer Autoencoder 学习拓扑与平移不变的潜空间；对骨骼图做可学习展平，同时捕捉局部依赖与全局结构；图位置编码以乘法形式整合进 token 内容；全无监督训练，不需要成对重定向数据。\nResult: 零样本评测中全局关节位置误差较当前基准降低 43–47%；消融显示图编码、乘法形式与 Transformer 主干对性能关键；n=37 用户研究（含专业动画师）在动作对齐与物理合理性上将本方法排第一（p<0.05）。\nConclusion: 模型设计本身是 Transformer 在动作重定向上有效的关键，统一架构可覆盖多样骨架拓扑并超越现有方法。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出基于 Transformer Autoencoder 的跨骨架动作重定向 (motion retargeting) 方法，核心是可学习的骨骼图展平 (learnable flattening)，并把图位置编码以乘法方式（而非加法）注入 token。零样本未见拓扑骨架上全局关节位置误差比现有基准低 43–47%，n=37 用户研究（含专业动画师）在动作对齐与物理合理性上排名第一（p<0.05）。",
+        "motivation": "现有 SOTA 在零样本（训练时未见的骨架拓扑）设定下不可靠，Transformer 尝试未能超过专用几何方法。",
+        "method": "Transformer Autoencoder 学习拓扑与平移不变的潜空间；对骨骼图做可学习展平，同时捕捉局部依赖与全局结构；图位置编码以乘法形式整合进 token 内容；全无监督训练，不需要成对重定向数据。",
+        "result": "零样本评测中全局关节位置误差较当前基准降低 43–47%；消融显示图编码、乘法形式与 Transformer 主干对性能关键；n=37 用户研究（含专业动画师）在动作对齐与物理合理性上将本方法排第一（p<0.05）。",
+        "conclusion": "模型设计本身是 Transformer 在动作重定向上有效的关键，统一架构可覆盖多样骨架拓扑并超越现有方法。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-29",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.38428",
+      "title": "MOBA-VL: Event-Localized Multi-Turn Reinforcement Learning for Real-Time MOBA Commentary",
+      "authors": [
+        "Shengyun Zhong",
+        "Xinkang Zhao",
+        "Ziyuan Chu",
+        "Linchao Zhu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2609.38428",
+      "pdf_url": "https://arxiv.org/pdf/2609.38428",
+      "abstract_en": "Real-time commentary for Multiplayer Online Battle Arena (MOBA) esports requires a vision-language model (VLM) to narrate a live match second by second, both fluently and accurately. Existing streaming VLMs sound natural but often miss key events such as kills and objectives. To address this limitation, we use game telemetry, which records exactly when each event occurs, as a supervision signal. We introduce MOBA-VL, a 9B-parameter model trained on this signal with event-localized multi-turn reinforcement learning, which rewards the turns that describe each event. We also collect MOBACast, 860 professional matches (about 460 hours) across three MOBA games with word-level timestamped commentary, and MOBACast-Bench, a benchmark from held-out tournaments. On MOBACast-Bench, MOBA-VL achieves the highest Overall score on full matches (63.25 vs. 55.12 for StreamingVLM) and clips (63.45 vs. 56.22 for DeepSeek-V4.1-Flash). Event-localized credit also raises event recall from 34.5 to 42.1 over supervised fine-tuning. Code and data will be released, and demos are available on an anonymous project page at https://moba-vl.github.io.",
+      "comment": "30 pages, 12 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: MOBA-VL 用游戏遥测给出的事件发生时刻作为监督，对 9B 视觉语言模型做事件定位的多轮强化学习 (event-localized multi-turn RL)，只奖励描述该事件的那几轮解说。在 MOBACast-Bench 上整场 Overall 63.25 对 StreamingVLM 55.12、片段 63.45 对 DeepSeek-V4.1-Flash 56.22，事件召回从 SFT 的 34.5 提到 42.1。\nMotivation: 现有流式 VLM 解说自然但常漏掉击杀、目标等关键事件，缺少能把每一轮解说对齐到事件时刻的训练信号。\nMethod: 以游戏遥测的精确事件时刻为监督，训练 9B 参数模型做事件定位的多轮强化学习，奖励描述各事件的轮次；同时构建 MOBACast（3 款 MOBA、860 场职业比赛约 460 小时、词级时间戳解说）与基于留出赛事的 MOBACast-Bench。\nResult: MOBACast-Bench 上整场 Overall 63.25（StreamingVLM 55.12），片段 63.45（DeepSeek-V4.1-Flash 56.22）；事件定位 credit 使事件召回由监督微调的 34.5 升至 42.1。\nConclusion: 把遥测事件时刻作为逐轮奖励，可以在保持流式解说的同时显著减少关键事件漏报；代码与数据将公开。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "MOBA-VL 用游戏遥测给出的事件发生时刻作为监督，对 9B 视觉语言模型做事件定位的多轮强化学习 (event-localized multi-turn RL)，只奖励描述该事件的那几轮解说。在 MOBACast-Bench 上整场 Overall 63.25 对 StreamingVLM 55.12、片段 63.45 对 DeepSeek-V4.1-Flash 56.22，事件召回从 SFT 的 34.5 提到 42.1。",
+        "motivation": "现有流式 VLM 解说自然但常漏掉击杀、目标等关键事件，缺少能把每一轮解说对齐到事件时刻的训练信号。",
+        "method": "以游戏遥测的精确事件时刻为监督，训练 9B 参数模型做事件定位的多轮强化学习，奖励描述各事件的轮次；同时构建 MOBACast（3 款 MOBA、860 场职业比赛约 460 小时、词级时间戳解说）与基于留出赛事的 MOBACast-Bench。",
+        "result": "MOBACast-Bench 上整场 Overall 63.25（StreamingVLM 55.12），片段 63.45（DeepSeek-V4.1-Flash 56.22）；事件定位 credit 使事件召回由监督微调的 34.5 升至 42.1。",
+        "conclusion": "把遥测事件时刻作为逐轮奖励，可以在保持流式解说的同时显著减少关键事件漏报；代码与数据将公开。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-29",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.38353",
+      "title": "TAGGRAPH: Tag-Augmented Graphs for Graph Retrieval of Agent Persistent Histories",
+      "authors": [
+        "Yu-Shu Chen",
+        "Yu-Jung Liang",
+        "Pengtao Xie"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.IR"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.IR",
+      "abs_url": "https://arxiv.org/abs/2609.38353",
+      "pdf_url": "https://arxiv.org/pdf/2609.38353",
+      "abstract_en": "Long-term memory lets LLM agents recall past interactions and remain consistent across sessions, but memory systems are hard to compare because they often vary in representation, indexing, retrieval, and evaluation. We present a controlled evaluation framework based on shared 5W-style conversational memories. Localized graph configurations traverse a common base graph; AdaptiveGraph adds chronological edges and Personalized PageRank diffusion. We also evaluate BM25 over the same extracted notes and OpenClaw as a raw-input external reference. Retrieval rankings vary across memory settings. On LongMemEval-S, AdaptiveGraph is the strongest graph configuration at 0.844 MRR, but BM25 reaches 0.867 and OpenClaw 0.880. On ATANT Core, localized graph traversal outperforms diffusion and BM25, whereas BM25 leads the stress rounds. Reducing LongMemEval-S within the tested range does not reproduce the ATANT diffusion penalty, but the smallest tested store remains larger than ATANT Core, so store size cannot be ruled out. The penalty also persists under a permissive content-match criterion. Vocabulary normalization and extraction quality substantially affect graph retrieval, and missing extraction tags are common among top-five misses. Retrieval strategies should therefore be evaluated jointly with the memory setting and against strong lexical baselines.",
+      "comment": "An earlier version was accepted at the COLM 2026 Workshop on Lifelong Learning Agents (LLA)",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: TAGGRAPH 提出受控评测框架，在共享的 5W 对话记忆上统一比较图检索与词法检索：AdaptiveGraph 在图配置中最强（LongMemEval-S MRR 0.844），但仍输给同源 BM25（0.867）与 OpenClaw（0.880）。作者据此主张检索策略必须连同记忆设置一起评测，并对照强词法基线。\nMotivation: LLM agent 长期记忆系统在表示、索引、检索与评测上各不相同，导致方法之间无法公平比较，图检索相对词法基线的优势也未经统一检验。\nMethod: 基于共享 5W 对话记忆构建受控评测框架：局部化图配置遍历同一基础图，AdaptiveGraph 额外加入时间序边与 Personalized PageRank 扩散；在同一抽取笔记上跑 BM25，并以 OpenClaw 作为原始输入的外部参照，评测 LongMemEval-S 与 ATANT Core 两个记忆库。\nResult: LongMemEval-S 上 AdaptiveGraph 为最强图配置，MRR 0.844，但 BM25 达 0.867、OpenClaw 达 0.880；ATANT Core 上局部化图遍历优于扩散与 BM25，而 BM25 在 stress rounds 领先。在测试范围内缩小 LongMemEval-S 未复现 ATANT 的扩散惩罚，但最小测试存储仍大于 ATANT Core；该惩罚在宽松的内容匹配判据下依然存在。前五名失误中常见缺失抽取标签，词表归一化与抽取质量显著影响图检索。\nConclusion: 图检索的收益依赖于记忆设置与存储规模，必须与强词法基线联合评测；抽取标签缺失是 top-five 失误的常见原因。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "TAGGRAPH 提出受控评测框架，在共享的 5W 对话记忆上统一比较图检索与词法检索：AdaptiveGraph 在图配置中最强（LongMemEval-S MRR 0.844），但仍输给同源 BM25（0.867）与 OpenClaw（0.880）。作者据此主张检索策略必须连同记忆设置一起评测，并对照强词法基线。",
+        "motivation": "LLM agent 长期记忆系统在表示、索引、检索与评测上各不相同，导致方法之间无法公平比较，图检索相对词法基线的优势也未经统一检验。",
+        "method": "基于共享 5W 对话记忆构建受控评测框架：局部化图配置遍历同一基础图，AdaptiveGraph 额外加入时间序边与 Personalized PageRank 扩散；在同一抽取笔记上跑 BM25，并以 OpenClaw 作为原始输入的外部参照，评测 LongMemEval-S 与 ATANT Core 两个记忆库。",
+        "result": "LongMemEval-S 上 AdaptiveGraph 为最强图配置，MRR 0.844，但 BM25 达 0.867、OpenClaw 达 0.880；ATANT Core 上局部化图遍历优于扩散与 BM25，而 BM25 在 stress rounds 领先。在测试范围内缩小 LongMemEval-S 未复现 ATANT 的扩散惩罚，但最小测试存储仍大于 ATANT Core；该惩罚在宽松的内容匹配判据下依然存在。前五名失误中常见缺失抽取标签，词表归一化与抽取质量显著影响图检索。",
+        "conclusion": "图检索的收益依赖于记忆设置与存储规模，必须与强词法基线联合评测；抽取标签缺失是 top-five 失误的常见原因。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-29",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.38269",
+      "title": "Zero2Repo: Can Coding Agents Build Repositories from Scratch?",
+      "authors": [
+        "Pei Yang",
+        "Tianyu Shi",
+        "Yuhang Yao",
+        "Wanyi Chen",
+        "Tongyun Yang",
+        "Dun Pei",
+        "Haonan Wang",
+        "Pengbin Feng",
+        "Guanxu Yu",
+        "Jingchun Huang",
+        "Zeyu Zhang",
+        "Shuhan Sun",
+        "Hao Li",
+        "Alex Gu",
+        "Xiang Li",
+        "Jie Xiao",
+        "Xinyu Wang",
+        "Hanxin Chen",
+        "Daqi Li",
+        "Qi Jia",
+        "Hongshan Lin",
+        "Zhizhou Gu",
+        "Zijun Tian",
+        "Weizhi Du",
+        "Lynn Ai",
+        "Eric Yang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.SE"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.SE",
+      "abs_url": "https://arxiv.org/abs/2609.38269",
+      "pdf_url": "https://arxiv.org/pdf/2609.38269",
+      "abstract_en": "Coding agents are increasingly asked to build software rather than patch it, yet benchmarks for from-scratch repository construction are mostly limited to a single language and depend on manually curated tasks. We introduce Zero2Repo, a benchmark in which an agent receives a product requirements document, an interface contract, and an empty workspace, and must deliver a complete repository in the project's native ecosystem. Tasks are produced by a language-agnostic authoring pipeline that converts real, version-pinned open-source projects into behavioral specifications, reproducible environments, and hidden acceptance tests. Each task is validated by execution: a reference implementation derived from the upstream project must pass, and adversarial validation must show that the tests reject incorrect implementations. Evaluation runs production coding agents in isolated containers, withholds the acceptance tests until an explicit submission, and assigns a binary reward only when every test passes, with no LLM judge. The pipeline and harness make no language-specific assumptions and apply to mainstream programming ecosystems; the current release contains Python, TypeScript, Go, and C++ tasks. Even on 11 tasks drawn from repositories that frontier models have very likely seen during training, the strongest agent solves only 10, and every failing submission passes 90-99% of the hidden tests; for the two strongest agents, 67-100% of failed tests trace to a single omission or a low-frequency rule stated in the specification rather than to a missing subsystem, so each failure is a concrete target for improvement.",
+      "comment": "19 pages, 4 figures, 8 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: Zero2Repo 是一个从零构建仓库的 coding agent 基准：给定产品需求文档、接口契约和空工作区，agent 必须交付原生生态下的完整仓库，任务由语言无关流水线从真实开源项目生成，评分只看隐藏验收测试是否全过（二元奖励，无 LLM judge）。在 11 个前沿模型很可能见过的仓库任务上，最强 agent 只解出 10 个；每个失败提交仍通过 90-99% 的隐藏测试，两个最强 agent 的失败测试中 67-100% 可归因于单一遗漏或规格中的低频规则，而非缺失子系统。\nMotivation: 现有从零构建仓库的基准大多局限于单一语言，且依赖人工策划任务，难以覆盖主流编程生态并保证任务可复现、可判分。\nMethod: 语言无关的任务生成流水线把真实、版本锁定 (version-pinned) 的开源项目转成行为规格、可复现环境与隐藏验收测试；每个任务经执行验证——上游项目派生的参考实现必须通过，对抗验证须证明测试能拒绝错误实现。评测在隔离容器中运行生产级 coding agent，验收测试在显式提交前不公开，只有全部测试通过才给二元奖励，不用 LLM judge；当前发布含 Python、TypeScript、Go、C++ 任务。\nResult: 在 11 个取自前沿模型训练中很可能见过的仓库的任务上，最强 agent 只解出 10 个；每个失败提交仍通过 90-99% 的隐藏测试；对两个最强 agent，67-100% 的失败测试可追溯到单一遗漏或规格中陈述的低频规则，而非缺失子系统。\nConclusion: 从零建仓库的失败是具体、可定位的单点缺陷而非整体能力缺口，因此每个失败都是明确的改进目标；流水线与评测框架对语言无假设，可推广到主流编程生态。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "Zero2Repo 是一个从零构建仓库的 coding agent 基准：给定产品需求文档、接口契约和空工作区，agent 必须交付原生生态下的完整仓库，任务由语言无关流水线从真实开源项目生成，评分只看隐藏验收测试是否全过（二元奖励，无 LLM judge）。在 11 个前沿模型很可能见过的仓库任务上，最强 agent 只解出 10 个；每个失败提交仍通过 90-99% 的隐藏测试，两个最强 agent 的失败测试中 67-100% 可归因于单一遗漏或规格中的低频规则，而非缺失子系统。",
+        "motivation": "现有从零构建仓库的基准大多局限于单一语言，且依赖人工策划任务，难以覆盖主流编程生态并保证任务可复现、可判分。",
+        "method": "语言无关的任务生成流水线把真实、版本锁定 (version-pinned) 的开源项目转成行为规格、可复现环境与隐藏验收测试；每个任务经执行验证——上游项目派生的参考实现必须通过，对抗验证须证明测试能拒绝错误实现。评测在隔离容器中运行生产级 coding agent，验收测试在显式提交前不公开，只有全部测试通过才给二元奖励，不用 LLM judge；当前发布含 Python、TypeScript、Go、C++ 任务。",
+        "result": "在 11 个取自前沿模型训练中很可能见过的仓库的任务上，最强 agent 只解出 10 个；每个失败提交仍通过 90-99% 的隐藏测试；对两个最强 agent，67-100% 的失败测试可追溯到单一遗漏或规格中陈述的低频规则，而非缺失子系统。",
+        "conclusion": "从零建仓库的失败是具体、可定位的单点缺陷而非整体能力缺口，因此每个失败都是明确的改进目标；流水线与评测框架对语言无假设，可推广到主流编程生态。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-29",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.35763",
+      "title": "Unifying Distributional Training for One-Step Visual Generation",
+      "authors": [
+        "Chi Zhang",
+        "Shi Haoyang",
+        "Yueyi Liu",
+        "Ruichuan An",
+        "Junkang Zhou",
+        "Chang Li",
+        "Xiuyuan Lu",
+        "Yichi Zhang",
+        "Bo Wang",
+        "Yuhang Wu",
+        "Sen Cui",
+        "Miao Liu"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.35763",
+      "pdf_url": "https://arxiv.org/pdf/2609.35763",
+      "abstract_en": "Distributional training provides collective supervision for one-step visual generation by matching real and generated features in frozen representation spaces. We introduce a unified theoretical framework that separates distribution modeling from matching discrepancy and connects global objectives to pointwise feature updates through Wasserstein gradient flow. Under this framework, FD-Loss and Gaussian-kernel Drifting are recovered through Gaussian optimal transport and kernel-density-based KL matching, respectively. The framework motivates MGFlow, which models feature distributions with Gaussian mixtures at an adjustable granularity between global moments and sample-based representations. MGFlow supports both optimal transport and score-based matching, and couples mass-constrained sample assignment with paired component updates to address mode collapse that mixture expressivity alone does not resolve. On ImageNet $256\\times256$, MGFlow substantially surpasses the FD-Loss baseline, achieving state-of-the-art results with 1.45 $\\mathrm{FDr}^6$ on pMF-H and 1.64 on JiT-H. For text-to-image generation, MGFlow post-trains FLUX.2 [klein] 4B into a one-step generator that outperforms the original four-step model on both GenEval and PickScore.",
+      "comment": "Project page: https://shihaoyang0423.github.io/MGFlow-website/",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出统一分布训练框架，用 Wasserstein gradient flow 把全局分布目标与逐点特征更新打通，并在该框架下恢复 FD-Loss 与 Gaussian-kernel Drifting。框架催生 MGFlow：用可调粒度的 Gaussian mixture 建模特征分布，配合质量约束样本分配与成对分量更新来抑制 mode collapse。在 ImageNet 256×256 上取得 1.45 FDr⁶ (pMF-H) 与 1.64 (JiT-H) 的 SOTA，并把 FLUX.2 [klein] 4B 后训练成一步生成器，在 GenEval 与 PickScore 上超过原四步模型。\nMotivation: 一步视觉生成的分布训练缺少统一理论：全局分布目标如何转成逐点特征更新、以及混合分布表达力之外的 mode collapse 由何机制解决，此前是割裂的。\nMethod: 以 Wasserstein gradient flow 连接全局目标与逐点特征更新，把分布建模与匹配差异分离；由此恢复 FD-Loss（Gaussian optimal transport）与 Gaussian-kernel Drifting（kernel-density-based KL matching）。MGFlow 用可调粒度 Gaussian mixture 建模特征分布，支持 optimal transport 与 score-based matching 两种匹配，并以质量约束样本分配加成对分量更新处理 mode collapse。\nResult: ImageNet 256×256 上大幅超过 FD-Loss 基线，取得 SOTA：pMF-H 1.45 FDr⁶，JiT-H 1.64 FDr⁶。文本到图像上将 FLUX.2 [klein] 4B 后训练为一步生成器，在 GenEval 与 PickScore 两个指标上均超过原始四步模型。\nConclusion: 把分布建模与匹配差异在 Wasserstein gradient flow 下统一，可同时恢复既有分布训练损失并支撑更强的一步生成；mode collapse 需要质量约束分配与成对分量更新，单靠混合分布表达力不够。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出统一分布训练框架，用 Wasserstein gradient flow 把全局分布目标与逐点特征更新打通，并在该框架下恢复 FD-Loss 与 Gaussian-kernel Drifting。框架催生 MGFlow：用可调粒度的 Gaussian mixture 建模特征分布，配合质量约束样本分配与成对分量更新来抑制 mode collapse。在 ImageNet 256×256 上取得 1.45 FDr⁶ (pMF-H) 与 1.64 (JiT-H) 的 SOTA，并把 FLUX.2 [klein] 4B 后训练成一步生成器，在 GenEval 与 PickScore 上超过原四步模型。",
+        "motivation": "一步视觉生成的分布训练缺少统一理论：全局分布目标如何转成逐点特征更新、以及混合分布表达力之外的 mode collapse 由何机制解决，此前是割裂的。",
+        "method": "以 Wasserstein gradient flow 连接全局目标与逐点特征更新，把分布建模与匹配差异分离；由此恢复 FD-Loss（Gaussian optimal transport）与 Gaussian-kernel Drifting（kernel-density-based KL matching）。MGFlow 用可调粒度 Gaussian mixture 建模特征分布，支持 optimal transport 与 score-based matching 两种匹配，并以质量约束样本分配加成对分量更新处理 mode collapse。",
+        "result": "ImageNet 256×256 上大幅超过 FD-Loss 基线，取得 SOTA：pMF-H 1.45 FDr⁶，JiT-H 1.64 FDr⁶。文本到图像上将 FLUX.2 [klein] 4B 后训练为一步生成器，在 GenEval 与 PickScore 两个指标上均超过原始四步模型。",
+        "conclusion": "把分布建模与匹配差异在 Wasserstein gradient flow 下统一，可同时恢复既有分布训练损失并支撑更强的一步生成；mode collapse 需要质量约束分配与成对分量更新，单靠混合分布表达力不够。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-28",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.35356",
+      "title": "Don't Inoculate Everything: Stratified Inoculation Prompting Narrows Backdoor Triggers and Preserves Desired Traits",
+      "authors": [
+        "Kajetan Dymkiewicz",
+        "Tim Farrelly",
+        "Adam Prada",
+        "Ishaan Panigrahi",
+        "Srishti Gureja",
+        "Helen Yannakoudakis",
+        "Robert Mullins",
+        "Victor Gillioz",
+        "Daniel Tan",
+        "Maxime Riché"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.35356",
+      "pdf_url": "https://arxiv.org/pdf/2609.35356",
+      "abstract_en": "Supervised fine-tuning can teach language models undesired behaviours alongside desired ones. Inoculation prompting (IP) aims to limit unwanted generalisation by requesting the undesired behaviour during training and removing the request at inference. However, undesired behaviour can still appear under unrelated prompts. IP can also hinder learning of the desired behaviour. We address these limitations in settings where both behaviours co-occur in most training examples, so filtering out examples with undesired behaviour leaves only a small clean subset. We introduce stratified inoculation prompting (SIP). SIP leverages a small clean subset to demonstrate that desired behaviour should persist without the undesired one across different contexts. SIP oversamples these clean examples under diverse non-eliciting prompts while inoculating the rest. SIP substantially reduces expression of undesired behaviour while preserving more of the desired behaviour than IP. These gains persist even when we extend IP to oversample the same clean subset at the same rate as SIP. Moreover, SIP yields lower emergent misalignment rates in all harmful-advice setups we tested. SIP can be further extended to limit the undesired behaviour even under prompts that explicitly request it. We introduce backdoor dilution, which weakens expression under the inoculation prompt, and password-locked inoculation, which concentrates elicitation on a designated password. Taken together, our findings show that changing the training contexts for a small clean subset can significantly improve selective generalisation.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 监督微调会把期望行为和不期望行为一起学进去，且当两者在多数训练样本中共现时，过滤后只剩很小的干净子集。分层接种提示 (SIP) 用这个干净子集在多种非诱发提示下过采样示范「去掉不期望行为后期望行为仍应保留」，其余样本照常接种；相比原版接种提示 (IP)，SIP 显著降低不期望行为表达并保留更多期望行为，且在所有测试的有害建议设置中 emergent misalignment 更低。\nMotivation: 接种提示 (IP) 会让不期望行为在无关提示下仍出现，同时妨碍期望行为的学习；当两种行为在多数训练样本中共现时，过滤只留下很小的干净子集，原方法难以利用。\nMethod: SIP 对小干净子集用多种非诱发 (non-eliciting) 提示过采样，示范期望行为在没有不期望行为时跨上下文持续存在，其余样本照常接种；扩展包括 backdoor dilution（削弱接种提示下的表达）与 password-locked inoculation（把诱发集中到指定密码）。\nResult: SIP 比 IP 更大幅降低不期望行为表达并保留更多期望行为；即使把 IP 扩展为以相同速率过采样同一干净子集，优势仍在；在所有测试的有害建议设置中 SIP 的 emergent misalignment 率都更低。\nConclusion: 改变小干净子集的训练上下文即可显著改善选择性泛化 (selective generalization)，并可用 backdoor dilution 与 password-locked inoculation 进一步压制显式请求下的不期望行为。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "监督微调会把期望行为和不期望行为一起学进去，且当两者在多数训练样本中共现时，过滤后只剩很小的干净子集。分层接种提示 (SIP) 用这个干净子集在多种非诱发提示下过采样示范「去掉不期望行为后期望行为仍应保留」，其余样本照常接种；相比原版接种提示 (IP)，SIP 显著降低不期望行为表达并保留更多期望行为，且在所有测试的有害建议设置中 emergent misalignment 更低。",
+        "motivation": "接种提示 (IP) 会让不期望行为在无关提示下仍出现，同时妨碍期望行为的学习；当两种行为在多数训练样本中共现时，过滤只留下很小的干净子集，原方法难以利用。",
+        "method": "SIP 对小干净子集用多种非诱发 (non-eliciting) 提示过采样，示范期望行为在没有不期望行为时跨上下文持续存在，其余样本照常接种；扩展包括 backdoor dilution（削弱接种提示下的表达）与 password-locked inoculation（把诱发集中到指定密码）。",
+        "result": "SIP 比 IP 更大幅降低不期望行为表达并保留更多期望行为；即使把 IP 扩展为以相同速率过采样同一干净子集，优势仍在；在所有测试的有害建议设置中 SIP 的 emergent misalignment 率都更低。",
+        "conclusion": "改变小干净子集的训练上下文即可显著改善选择性泛化 (selective generalization)，并可用 backdoor dilution 与 password-locked inoculation 进一步压制显式请求下的不期望行为。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-28",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.28611",
+      "title": "Global Convergence of Third-Order Langevin Dynamics for Non-Convex Optimization via Simulated Annealing",
+      "authors": [
+        "Yingli Wang",
+        "Lingjiong Zhu"
+      ],
+      "categories": [
+        "math.NA",
+        "math.OC",
+        "math.PR",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "stat.ML"
+      ],
+      "display_category": "stat.ML",
+      "primary_category": "math.NA",
+      "abs_url": "https://arxiv.org/abs/2609.28611",
+      "pdf_url": "https://arxiv.org/pdf/2609.28611",
+      "abstract_en": "We study global convergence guarantees of third-order Langevin dynamics for non-convex optimization via simulated annealing with fixed friction and decreasing noise. An explicit three-block distorted entropy transfers dissipation from the noisy auxiliary variable to the full state. Under dissipativity, regularity, and low-temperature functional-inequality assumptions, logarithmic cooling drives the objective values to the global minimum in probability at the barrier-controlled kinetic rate. For the exact-force-integral and midpoint three-stage discretizations, polynomially decreasing steps preserve this rate on the physical time scale. The cubic local endpoint estimate gives a less restrictive sufficient step-size condition than the available frozen-force kinetic result. A comparison with the one-gradient UBU integrator shows how its centered stochastic local error leads, under the same strong-coupling analysis, to a smaller sufficient iteration exponent. Numerical experiments are conducted to illustrate our theory. For a double well objective, third-order Langevin terminal-success point estimates are higher than UBU at both a common horizon and an equal gradient budget. For a high-dimensional nonconvex neural-network objective using synthetic data, independently tuned UBU and third-order Langevin schemes both outperform overdamped Langevin dynamics; the third-order Langevin point estimate is higher. For the same neural-network objective on real data, we show the same point-estimate ordering for best-basin probability and post-quench test accuracy. Numerical code and associated experiment results are publicly available at https://github.com/gagawjbytw/simulated-annealing-third-order-langevin.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 在固定摩擦、递减噪声的模拟退火框架下证明三阶 Langevin 动力学对非凸优化的全局收敛：对数降温使目标值依概率收敛到全局极小，且保持由势垒控制的动力学速率；离散化在多项式递减步长下于物理时间尺度保持该速率。数值上，双阱问题中三阶 Langevin 的终点成功点估计在共同时 horizon 与等梯度预算下均高于 UBU，神经网络目标上也高于过阻尼 Langevin。\nMotivation: 非凸优化中用高阶 Langevin 动力学做模拟退火时，缺少把连续时间对数降温全局收敛结论传递到可实现离散格式、并与现有积分器比较的严格速率保证。\nMethod: 构造显式三块扭曲熵 (three-block distorted entropy) 把含噪辅助变量的耗散转移到全状态；在耗散性、正则性与低温泛函不等式假设下分析对数降温；对 exact-force-integral 与 midpoint 三阶段离散化给出三次局部终点估计，并与单梯度 UBU 积分器在同一强耦合分析下对比。\nResult: 对数降温使目标值依概率趋于全局极小，速率为势垒控制的动力学速率；多项式递减步长在物理时间尺度上保持该速率，三次局部终点估计给出的步长条件比已有 frozen-force 动力学结果更宽松；UBU 的中心化随机局部误差在同一强耦合分析下导致更小的充分迭代指数。数值实验中，双阱目标上三阶 Langevin 终点成功点估计在共同 horizon 与等梯度预算下均高于 UBU；合成数据的高维非凸神经网络目标上，独立调参的 UBU 与三阶 Langevin 都优于过阻尼 Langevin，三阶 Langevin 点估计更高；真实数据同一神经网络目标上，best-basin 概率与 quench 后测试精度保持相同排序。\nConclusion: 三阶 Langevin 动力学在模拟退火下可给出保持势垒控制速率的全局收敛保证，且在所测目标上点估计优于 UBU 与过阻尼 Langevin；代码与实验结果已公开。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "在固定摩擦、递减噪声的模拟退火框架下证明三阶 Langevin 动力学对非凸优化的全局收敛：对数降温使目标值依概率收敛到全局极小，且保持由势垒控制的动力学速率；离散化在多项式递减步长下于物理时间尺度保持该速率。数值上，双阱问题中三阶 Langevin 的终点成功点估计在共同时 horizon 与等梯度预算下均高于 UBU，神经网络目标上也高于过阻尼 Langevin。",
+        "motivation": "非凸优化中用高阶 Langevin 动力学做模拟退火时，缺少把连续时间对数降温全局收敛结论传递到可实现离散格式、并与现有积分器比较的严格速率保证。",
+        "method": "构造显式三块扭曲熵 (three-block distorted entropy) 把含噪辅助变量的耗散转移到全状态；在耗散性、正则性与低温泛函不等式假设下分析对数降温；对 exact-force-integral 与 midpoint 三阶段离散化给出三次局部终点估计，并与单梯度 UBU 积分器在同一强耦合分析下对比。",
+        "result": "对数降温使目标值依概率趋于全局极小，速率为势垒控制的动力学速率；多项式递减步长在物理时间尺度上保持该速率，三次局部终点估计给出的步长条件比已有 frozen-force 动力学结果更宽松；UBU 的中心化随机局部误差在同一强耦合分析下导致更小的充分迭代指数。数值实验中，双阱目标上三阶 Langevin 终点成功点估计在共同 horizon 与等梯度预算下均高于 UBU；合成数据的高维非凸神经网络目标上，独立调参的 UBU 与三阶 Langevin 都优于过阻尼 Langevin，三阶 Langevin 点估计更高；真实数据同一神经网络目标上，best-basin 概率与 quench 后测试精度保持相同排序。",
+        "conclusion": "三阶 Langevin 动力学在模拟退火下可给出保持势垒控制速率的全局收敛保证，且在所测目标上点估计优于 UBU 与过阻尼 Langevin；代码与实验结果已公开。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-23",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.28607",
+      "title": "fable.intermittent: benchmarking probabilistic forecasting methods for intermittent time series",
+      "authors": [
+        "Stefano Damato",
+        "Lorenzo Zambon",
+        "Giorgio Corani",
+        "Dario Azzimonti"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.28607",
+      "pdf_url": "https://arxiv.org/pdf/2609.28607",
+      "abstract_en": "Intermittent time series are common in spare-parts demand and retail sales. Since the cost of forecast errors is typically asymmetric, decisions such as inventory control require the full predictive distribution rather than a point forecast. Many probabilistic forecasting methods have been proposed; their implementations, however, are scattered across different software frameworks, making it difficult to compare them systematically. We introduce fable$.$intermittent, an R package that implements several probabilistic forecasting methods for intermittent series within the fable framework. The package allows several models to be fitted and evaluated on a collection of time series through a single, simple forecasting pipeline. We also introduce TWEES, a new exponential smoothing model with a Tweedie predictive distribution. Fitting TWEES requires repeated evaluation of the computationally demanding Tweedie density. We also release the R package tweedieDistr, whose implementation of the Tweedie distribution is substantially faster than the existing one while preserving the same numerical accuracy. We evaluate the methods implemented in fable$.$intermittent on four datasets, also released in the package.",
+      "comment": "Submitted to the International Journal of Forecasting",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 R 包 fable.intermittent，把多个面向间歇性时间序列（备件需求、零售销量）的概率预测方法统一进 fable 框架的单一预测流水线，并同时发布新指数平滑模型 TWEES（Tweedie 预测分布）与更快的 tweedieDistr 包。在四个随包发布的数据集上评估这些方法，误差成本非对称的库存决策因此可拿到完整预测分布而非点预测。\nMotivation: 间歇性序列的预测误差成本非对称，库存控制需要完整预测分布；但现有概率预测方法散落在不同软件框架里，难以系统比较。\nMethod: 在 fable 框架内实现 fable.intermittent，用一条统一的预测流水线拟合并评估多个模型；新增 TWEES 指数平滑模型，其预测分布为 Tweedie；因 Tweedie 密度计算昂贵，另发布 tweedieDistr 包以加速该密度计算。\nResult: 在四个随包发布的数据集上评估 fable.intermittent 中实现的方法；tweedieDistr 的 Tweedie 分布实现比现有实现显著更快，同时保持相同数值精度。\nConclusion: 把间歇性序列的概率预测方法收进单一框架并配以更快的 Tweedie 密度实现，可让库存这类非对称成本决策直接基于完整预测分布做系统比较。\nRelevance: 18",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 R 包 fable.intermittent，把多个面向间歇性时间序列（备件需求、零售销量）的概率预测方法统一进 fable 框架的单一预测流水线，并同时发布新指数平滑模型 TWEES（Tweedie 预测分布）与更快的 tweedieDistr 包。在四个随包发布的数据集上评估这些方法，误差成本非对称的库存决策因此可拿到完整预测分布而非点预测。",
+        "motivation": "间歇性序列的预测误差成本非对称，库存控制需要完整预测分布；但现有概率预测方法散落在不同软件框架里，难以系统比较。",
+        "method": "在 fable 框架内实现 fable.intermittent，用一条统一的预测流水线拟合并评估多个模型；新增 TWEES 指数平滑模型，其预测分布为 Tweedie；因 Tweedie 密度计算昂贵，另发布 tweedieDistr 包以加速该密度计算。",
+        "result": "在四个随包发布的数据集上评估 fable.intermittent 中实现的方法；tweedieDistr 的 Tweedie 分布实现比现有实现显著更快，同时保持相同数值精度。",
+        "conclusion": "把间歇性序列的概率预测方法收进单一框架并配以更快的 Tweedie 密度实现，可让库存这类非对称成本决策直接基于完整预测分布做系统比较。",
+        "relevance_score": "18"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-23",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.28853",
+      "title": "Equivariant Sheaf Neural Networks: Learning Geometric Transport on Graphs",
+      "authors": [
+        "Alessio Borgi",
+        "Mario Severino",
+        "Fabrizio Silvestri",
+        "Pietro Liò"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2608.28853",
+      "pdf_url": "https://arxiv.org/pdf/2608.28853",
+      "abstract_en": "Equivariant graph neural networks provide a principled way to model geometric systems, but efficient first-order architectures remain limited in how vector information can be transformed as it moves across a graph. We introduce \\textsc{ESNN}, an Equivariant Sheaf Neural Network that enriches this interaction by learning directed, matrix-valued transport between neighboring vector features while preserving exact Euclidean equivariance. Rather than increasing the order of the representation, ESNN keeps scalar and vector features first-order and places the additional geometric flexibility in the edge transport itself. We characterize this transport theoretically, showing that when relative displacement is the only covariant geometric input, every linear $O(n)$-equivariant map decomposes into independent radial and tangential components, while learned covariant features enable richer feature-conditioned transformations. We also introduce controlled symmetry relaxation for systems with a preferred ambient direction, which may be prescribed or inferred from data while recovering full $E(n)$-equivariance when the directional pathway is inactive. Across particle dynamics, mesh-based simulation, point-cloud classification, and molecular property prediction, ESNN improves dynamics prediction, recovers the gravity axis when symmetry is broken, yields substantial gains on selected mesh tasks and long-horizon rollouts, and remains robust to unseen rotations. These results show that learning how geometric information is transported across edges offers a complementary route to expressive equivariant message passing without requiring higher-order representations.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 ESNN（Equivariant Sheaf Neural Network），在保持精确欧几里得等变性的同时，让边上学习有向的矩阵值传输来变换相邻向量特征，而不提升表示阶数。理论上证明：当相对位移是唯一协变几何输入时，所有线性 O(n) 等变映射分解为独立的径向与切向分量；引入受控对称性放松以处理有优选环境方向的系统，方向通路失活时恢复完整 E(n) 等变。\nMotivation: 一阶等变图网络在向量信息沿图传输的变换方式上受限，提高表示阶数代价高；需要在不引入高阶表示的前提下增加几何表达力。\nMethod: ESNN 保留标量与一阶向量特征，把额外几何自由度放进边上的矩阵值传输；理论上刻画该传输（径向/切向分解），并用可由数据推断或预设的方向通路做受控对称性放松，方向通路不激活时恢复完整 E(n) 等变。\nResult: 在粒子动力学、网格模拟、点云分类与分子性质预测四类任务上，ESNN 改进动力学预测，在对称破缺时恢复重力轴方向，在部分网格任务与长时程 rollout 上有显著提升，并对未见旋转保持鲁棒。\nConclusion: 沿边学习几何信息的传输，是提升等变消息传递表达力的互补路径，无需更高阶表示；受控对称性放松可在需要时引入优选方向而不牺牲等变性。\nRelevance: 34",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 ESNN（Equivariant Sheaf Neural Network），在保持精确欧几里得等变性的同时，让边上学习有向的矩阵值传输来变换相邻向量特征，而不提升表示阶数。理论上证明：当相对位移是唯一协变几何输入时，所有线性 O(n) 等变映射分解为独立的径向与切向分量；引入受控对称性放松以处理有优选环境方向的系统，方向通路失活时恢复完整 E(n) 等变。",
+        "motivation": "一阶等变图网络在向量信息沿图传输的变换方式上受限，提高表示阶数代价高；需要在不引入高阶表示的前提下增加几何表达力。",
+        "method": "ESNN 保留标量与一阶向量特征，把额外几何自由度放进边上的矩阵值传输；理论上刻画该传输（径向/切向分解），并用可由数据推断或预设的方向通路做受控对称性放松，方向通路不激活时恢复完整 E(n) 等变。",
+        "result": "在粒子动力学、网格模拟、点云分类与分子性质预测四类任务上，ESNN 改进动力学预测，在对称破缺时恢复重力轴方向，在部分网格任务与长时程 rollout 上有显著提升，并对未见旋转保持鲁棒。",
+        "conclusion": "沿边学习几何信息的传输，是提升等变消息传递表达力的互补路径，无需更高阶表示；受控对称性放松可在需要时引入优选方向而不牺牲等变性。",
+        "relevance_score": "34"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-28",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.27627",
+      "title": "Arm2Air: Cross-Embodiment Skeleton Transfer for 3D Relay Formation",
+      "authors": [
+        "Dohun Lee",
+        "Kyeonghyun Yoo",
+        "Seokmin Kim",
+        "Byongho Lee",
+        "Seungjoo Oh",
+        "Hwangnam Kim"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2607.27627",
+      "pdf_url": "https://arxiv.org/pdf/2607.27627",
+      "abstract_en": "Unmanned aerial vehicle (UAV) relay networks can restore connectivity after communication infrastructure is damaged. Urban relay placement is difficult because line-of-sight blockage, communication range, altitude, and three-dimensional obstacles must be considered jointly. Arm2Air transfers obstacle-avoidance skeletons from robot arms to UAV relay placement through cross-embodiment transfer. Source-domain robot-arm motions from a pretrained Neural MP model are converted into ordered skeletons that pretrain a transformer-based transfer platform, which is then adapted to the UAV domain using limited target data and Low-Rank Adaptation. The transferred skeleton initializes a relay chain that is refined for connectivity, bottleneck capacity, delay, and movement cost. On nine held-out high-clutter 3D urban maps, Arm2Air reduced median end-to-end planning runtime by 64.9 percent relative to the fastest conventional planner. On the high-obstruction group of a separate 30-map dense urban holdout, it increased bottleneck capacity by 32.6 percent, reduced capacity variance by 74.7 percent, reduced maximum hop distance by 13.2 percent, reduced hop-distance variance by 75.2 percent, and reduced relay displacement by 16.9 percent relative to IMPC-MD. With only three target-domain training maps, Arm2Air reduced relay-position root mean square error by 53.6 percent relative to training from scratch while updating 0.134 million parameters, compared with 1.383 million for Scratch and Full Fine-tuning. These results demonstrate computationally and data-efficient UAV relay placement and suggest a broader principle for transferring ordered structural priors across heterogeneous embodied tasks.",
+      "comment": "9 pages, 4 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: Arm2Air 把预训练 Neural MP 的机械臂避障骨架经跨具身迁移转成 UAV 中继链初值，再按连通性、瓶颈容量、时延与移动代价精修。在 9 张高杂乱 3D 城市图上端到端规划中位耗时比最快传统规划器低 64.9%；在 30 图稠密城市留出集的高遮挡组上，瓶颈容量升 32.6%、容量方差降 74.7%、最大跳距降 13.2%、跳距方差降 75.2%、中继位移降 16.9%（相对 IMPC-MD）。\nMotivation: 通信基础设施受损后 UAV 中继组网需同时处理视距遮挡、通信距离、高度与三维障碍，传统规划器在稠密城市里慢且中继链性能波动大。\nMethod: 用预训练 Neural MP 的机械臂运动转成有序骨架序列，预训练 transformer 迁移平台，再以 Low-Rank Adaptation (LoRA) 用少量目标域数据适配到 UAV；迁移出的骨架初始化中继链，随后针对连通性、瓶颈容量、时延与移动代价做精修。\nResult: 9 张高杂乱 3D 城市图上端到端规划中位耗时相对最快传统规划器降 64.9%；30 图稠密城市留出集高遮挡组相对 IMPC-MD：瓶颈容量 +32.6%、容量方差 −74.7%、最大跳距 −13.2%、跳距方差 −75.2%、中继位移 −16.9%；仅 3 张目标域训练图时中继位置 RMSE 相对从零训练降 53.6%，更新参数 0.134M（Scratch 与全微调为 1.383M）。\nConclusion: 有序结构先验可跨异构具身任务迁移，在 UAV 中继放置上同时实现计算与数据高效，且只需三张目标域地图与极小参数更新即可显著降低位置误差。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "Arm2Air 把预训练 Neural MP 的机械臂避障骨架经跨具身迁移转成 UAV 中继链初值，再按连通性、瓶颈容量、时延与移动代价精修。在 9 张高杂乱 3D 城市图上端到端规划中位耗时比最快传统规划器低 64.9%；在 30 图稠密城市留出集的高遮挡组上，瓶颈容量升 32.6%、容量方差降 74.7%、最大跳距降 13.2%、跳距方差降 75.2%、中继位移降 16.9%（相对 IMPC-MD）。",
+        "motivation": "通信基础设施受损后 UAV 中继组网需同时处理视距遮挡、通信距离、高度与三维障碍，传统规划器在稠密城市里慢且中继链性能波动大。",
+        "method": "用预训练 Neural MP 的机械臂运动转成有序骨架序列，预训练 transformer 迁移平台，再以 Low-Rank Adaptation (LoRA) 用少量目标域数据适配到 UAV；迁移出的骨架初始化中继链，随后针对连通性、瓶颈容量、时延与移动代价做精修。",
+        "result": "9 张高杂乱 3D 城市图上端到端规划中位耗时相对最快传统规划器降 64.9%；30 图稠密城市留出集高遮挡组相对 IMPC-MD：瓶颈容量 +32.6%、容量方差 −74.7%、最大跳距 −13.2%、跳距方差 −75.2%、中继位移 −16.9%；仅 3 张目标域训练图时中继位置 RMSE 相对从零训练降 53.6%，更新参数 0.134M（Scratch 与全微调为 1.383M）。",
+        "conclusion": "有序结构先验可跨异构具身任务迁移，在 UAV 中继放置上同时实现计算与数据高效，且只需三张目标域地图与极小参数更新即可显著降低位置误差。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-30",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.19889",
+      "title": "Latent-Action-Guided Vision-Language Contrastive Learning for Surgical Interaction Recognition",
+      "authors": [
+        "Jiajun Cheng",
+        "Sainan Liu",
+        "Subarna Tripathi",
+        "Xiaofan Yu",
+        "Shan Lin"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2607.19889",
+      "pdf_url": "https://arxiv.org/pdf/2607.19889",
+      "abstract_en": "Recognizing instrument-tissue interactions is essential for context-aware surgical AI. Vision-language models offer a natural way to inject semantic structure into surgical representations by aligning video features with textual action descriptions. However, pretrained encoders may lack spatial coherence, while global semantic alignment does not ensure precise spatial and temporal representations. By analyzing frame-to-frame feature changes, we find that semantic alignment increases their dimensionality, but larger increases do not necessarily improve recognition; encoders also differ in how strongly dominant changes localize to interaction regions. Motivated by these findings, we introduce LAViFiT, which compresses frame-to-frame changes into latent actions and predicts next-frame features during end-to-end video-language alignment. Without additional spatial or motion annotations, LAViFiT improves the interaction grounding of leading feature changes and temporal-direction sensitivity in our evaluated settings. We further characterize how action capacity and prediction strength affect recognition across encoders and triplet components. Using image encoders without large-scale video pretraining, LAViFiT achieves competitive recognition with faster inference and smaller INT4 accuracy drops than V-JEPA2/2.1, supporting its deployment potential.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出 LAViFiT：把视频帧间特征变化压缩成 latent action，在端到端视频-语言对齐中预测下一帧特征，从而在不加额外空间或运动标注的情况下提升交互区域的 grounding 与时间方向敏感性。用无大规模视频预训练的图像编码器即可取得有竞争力的识别效果，推理更快、INT4 量化精度下降小于 V-JEPA2/2.1。\nMotivation: 手术器械-组织交互识别需要精确的时空表征，但预训练视觉编码器可能缺乏空间一致性，全局语义对齐并不保证局部时空表示准确；帧间特征变化的维度增大也未必改善识别。\nMethod: LAViFiT 分析逐帧特征变化，将其压缩为 latent action，并在端到端视频-语言对齐过程中预测下一帧特征；不使用额外的空间或运动标注，并考察 action capacity 与 prediction strength 对不同编码器和 triplet 组件的影响。\nResult: 在作者的评估设置中，LAViFiT 改善了主导特征变化的交互区域 grounding 与时间方向敏感性；使用未经大规模视频预训练的图像编码器取得有竞争力的识别效果，推理更快，且 INT4 量化下的精度下降小于 V-JEPA2/2.1。\nConclusion: 把帧间变化显式建模为可预测的 latent action，可以在无额外标注条件下改善手术交互识别的时空定位与部署效率，支持在资源受限场景落地。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出 LAViFiT：把视频帧间特征变化压缩成 latent action，在端到端视频-语言对齐中预测下一帧特征，从而在不加额外空间或运动标注的情况下提升交互区域的 grounding 与时间方向敏感性。用无大规模视频预训练的图像编码器即可取得有竞争力的识别效果，推理更快、INT4 量化精度下降小于 V-JEPA2/2.1。",
+        "motivation": "手术器械-组织交互识别需要精确的时空表征，但预训练视觉编码器可能缺乏空间一致性，全局语义对齐并不保证局部时空表示准确；帧间特征变化的维度增大也未必改善识别。",
+        "method": "LAViFiT 分析逐帧特征变化，将其压缩为 latent action，并在端到端视频-语言对齐过程中预测下一帧特征；不使用额外的空间或运动标注，并考察 action capacity 与 prediction strength 对不同编码器和 triplet 组件的影响。",
+        "result": "在作者的评估设置中，LAViFiT 改善了主导特征变化的交互区域 grounding 与时间方向敏感性；使用未经大规模视频预训练的图像编码器取得有竞争力的识别效果，推理更快，且 INT4 量化下的精度下降小于 V-JEPA2/2.1。",
+        "conclusion": "把帧间变化显式建模为可预测的 latent action，可以在无额外标注条件下改善手术交互识别的时空定位与部署效率，支持在资源受限场景落地。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-22",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2605.18727",
+      "title": "DexHoldem: An Agentic Robotics Benchmark for Dexterous Manipulation in Texas Hold'em",
+      "authors": [
+        "Feng Chen",
+        "Tianzhe Chu",
+        "Li Sun",
+        "Pei Zhou",
+        "Zhuxiu Xu",
+        "Shenghua Gao",
+        "Yuexiang Zhai",
+        "Yanchao Yang",
+        "Yi Ma"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2605.18727",
+      "pdf_url": "https://arxiv.org/pdf/2605.18727",
+      "abstract_en": "Evaluating embodied systems with real dexterous hardware requires more than isolated motor-skill tests: an agent must perceive a changing scene (e.g. a tabletop), choose a context-appropriate action, execute it with a dexterous hand, and leave the scene usable for later decisions. We introduce DexHoldem, a comprehensive real-world benchmark evaluating Texas Hold'em related dexterous manipulations with a ShadowHand. DexHoldem provides 1,470 teleoperated demonstrations across 14 Texas Hold'em manipulation primitives, a standardized physical policy benchmark, and an agentic perception benchmark that tests whether agents can recover the structured game state needed for embodied decision making. On primitive execution, $π_{0.5}$ obtains the highest task completion rate ($61.2\\%$), while $π_{0.5}$ and $π_0$ tie on scene-preserving success rate ($47.5\\%$). On agentic perception, Opus 5.5 narrowly leads on both strict problem-level accuracy ($49.1\\%$) and average field-wise accuracy ($80.6\\%$); the gap between the two exposes the distance between isolated visual sub-capabilities and complete routing-relevant state recovery. Finally, we instantiate the full embodied-agent loop with one agent--policy pairing over 33 closed-loop hand-level rollouts, in which only $12.1\\%$ of hands complete; retries restore the failed primitive in 12 of 34 dispatches and resolve prolonged execution stalls in three of the four completed hands, which would otherwise have required manual termination. Only one hand completes with neither a retry nor a human-help request. DexHoldem therefore evaluates dexterous tabletop execution, agentic perception, and embodied decision routing in a shared physical setting. Project website: https://dexholdem.github.io/Dexholdem/",
+      "comment": "35 Pages",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: DexHoldem 是用 ShadowHand 在真实桌面执行德州扑克相关灵巧操作的具身基准，含 1,470 条遥操作演示、14 个操作原语、标准化物理策略评测与具身感知评测。原语执行上 π0.5 完成率最高 61.2%，π0.5 与 π0 场景保持成功率并列 47.5%；感知上 Opus 5.5 严格题目级准确率 49.1%、字段级 80.6%。完整闭环仅 33 次 rollout 中 12.1% 的手牌完成，重试在 34 次派发中救回 12 次失败原语。\nMotivation: 真实灵巧硬件的评测不能只测孤立运动技能：智能体要感知变化的桌面场景、选对动作、用手执行并让场景对后续决策仍可用，而现有基准缺少把执行、感知与决策路由放在同一物理场景中的整体评测。\nMethod: 构建真实桌面基准 DexHoldem：1,470 条遥操作演示覆盖 14 个德州扑克操作原语，配标准化物理策略基准（评测 π0.5、π0 等策略的原语执行与场景保持），以及一个具身感知基准，测试智能体能否恢复具身决策所需的结构化牌局状态；最后用一个 agent–policy 配对实例化完整闭环具身智能体回路。\nResult: 原语执行：π0.5 任务完成率最高 61.2%，π0.5 与 π0 场景保持成功率并列 47.5%。具身感知：Opus 5.5 严格题目级准确率 49.1%、平均字段级准确率 80.6%，两项均领先。闭环：33 次手牌级 rollout 中仅 12.1% 完成；重试在 34 次派发中恢复 12 次失败原语，并在 4 个完成手牌中的 3 个解决长时间执行卡死；仅 1 个手牌既无重试也无人工求助即完成。\nConclusion: 孤立视觉子能力与完整路由相关状态恢复之间存在明显差距（49.1% 对 80.6%），且闭环中重试机制对完成手牌至关重要——没有重试与人工求助就能完成的手牌只有 1 个。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "DexHoldem 是用 ShadowHand 在真实桌面执行德州扑克相关灵巧操作的具身基准，含 1,470 条遥操作演示、14 个操作原语、标准化物理策略评测与具身感知评测。原语执行上 π0.5 完成率最高 61.2%，π0.5 与 π0 场景保持成功率并列 47.5%；感知上 Opus 5.5 严格题目级准确率 49.1%、字段级 80.6%。完整闭环仅 33 次 rollout 中 12.1% 的手牌完成，重试在 34 次派发中救回 12 次失败原语。",
+        "motivation": "真实灵巧硬件的评测不能只测孤立运动技能：智能体要感知变化的桌面场景、选对动作、用手执行并让场景对后续决策仍可用，而现有基准缺少把执行、感知与决策路由放在同一物理场景中的整体评测。",
+        "method": "构建真实桌面基准 DexHoldem：1,470 条遥操作演示覆盖 14 个德州扑克操作原语，配标准化物理策略基准（评测 π0.5、π0 等策略的原语执行与场景保持），以及一个具身感知基准，测试智能体能否恢复具身决策所需的结构化牌局状态；最后用一个 agent–policy 配对实例化完整闭环具身智能体回路。",
+        "result": "原语执行：π0.5 任务完成率最高 61.2%，π0.5 与 π0 场景保持成功率并列 47.5%。具身感知：Opus 5.5 严格题目级准确率 49.1%、平均字段级准确率 80.6%，两项均领先。闭环：33 次手牌级 rollout 中仅 12.1% 完成；重试在 34 次派发中恢复 12 次失败原语，并在 4 个完成手牌中的 3 个解决长时间执行卡死；仅 1 个手牌既无重试也无人工求助即完成。",
+        "conclusion": "孤立视觉子能力与完整路由相关状态恢复之间存在明显差距（49.1% 对 80.6%），且闭环中重试机制对完成手牌至关重要——没有重试与人工求助就能完成的手牌只有 1 个。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-05-18",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2404.11624",
+      "title": "Token Space: A Category Theory Framework for AI Computations",
+      "authors": [
+        "Wuming Pan"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.GM"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "math.GM",
+      "abs_url": "https://arxiv.org/abs/2404.11624",
+      "pdf_url": "https://arxiv.org/pdf/2404.11624",
+      "abstract_en": "We introduce Token Space, a categorical framework for AI computations based on explicit structural records. Five theses guide it: object interiors should be data; category theory should compute with its own objects; computational interfaces should specify structural obligations; equal vectors need not identify the same Token occurrence; and computation should admit an unbounded, dynamically organized population of Token computing cores. A Token is a finite tuple of carrier elements and fixed symbols. A Token class pairs a carrier with a heap of records; Token maps preserve those records. The elementary category has finite limits, finite coproducts and exponentials, but is not a topos. Algebraic tokenization is fully faithful for a fixed finitary signature with all homomorphisms. Small categories and functors have record encodings, natural transformations have endpoint-constrained encodings, and finite categorical constructions are executable. Operators and supported tree reification expose internal structure. For represented finite mappings, valid acyclic graphs evaluate through unique Token maps. Completed parts glue by pullback-pushout squares, sharing induces an adjunction on completion lattices, frontier interfaces form a functor, and certified residual replacement preserves the remaining result. Effective finite transitions preserve finite configurations; a uniform generator yields arbitrarily wide ready populations. Requests with finite dependency closures complete under stated progress conditions. Transformers are one implementation family: permutation heaps characterize equivariance and prefix-agreement heaps characterize causality under specified interfaces. Structural distillation uses teacher-induced heaps; relation-saturating quotients characterize exact preservation and reflection of recorded structure.",
+      "comment": "83 pages, 15 figures, 11 tables. Substantially revised and extended: five theses; represented finite-mapping machines; concurrent and elastic execution; unbounded Token computing cores. Validation code and results included as ancillary files",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: Token Space 把 AI 计算写成范畴论框架：Token 是载体元素与固定符号的有限元组，Token 类配对载体与记录堆，Token map 保持记录， elementary category 具备有限极限、有限余积与指数但不是 topos。对表示的有限映射，合法无环图经唯一 Token map 求值，完成部分用 pullback-pushout 方块粘合，共享在完成格上诱导伴随；Transformer 被刻画为一族实现，置换堆刻画等变性、前缀一致堆刻画因果性。\nMotivation: AI 计算缺少以结构记录为一等公民的语义框架：向量相等不等于同一 Token 出现，接口也未形式化表达结构义务，导致等变性、因果性与并发执行难以在同一语言中陈述。\nMethod: 以 Token（有限元组）、Token 类（载体 + 记录堆）、保持记录的 Token map 为基本对象，构造具有限极限/有限余积/指数的 elementary category；对固定有限签名给出完全忠实的代数 tokenization，为小范畴与函子给出记录编码、自然变换给出端点约束编码；有限映射求值用 pullback-pushout 粘合与完成格上的伴随，另用 teacher-induced heaps 做结构蒸馏、relation-saturating quotient 刻画结构的保持与反射。\nResult: 摘要给出的是构造性与刻画性结论：合法无环图经唯一 Token map 求值，完成部分粘合、共享诱导完成格上的伴随、frontier 接口构成函子、认证残差替换保持剩余结果；有效有限转移保持有限配置，统一生成器产生任意宽的 ready 人群，有限依赖闭包的请求在给定进展条件下完成；置换堆刻画等变性、前缀一致堆刻画因果性，relation-saturating quotient 刻画记录结构的精确保持与反射。\nConclusion: AI 计算可以完全在范畴对象与其记录上执行，Transformer 只是该框架下满足指定接口的一族实现；论文为 83 页、含验证代码与结果的扩展版本，提出五条论题与无界 Token 计算核。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "Token Space 把 AI 计算写成范畴论框架：Token 是载体元素与固定符号的有限元组，Token 类配对载体与记录堆，Token map 保持记录， elementary category 具备有限极限、有限余积与指数但不是 topos。对表示的有限映射，合法无环图经唯一 Token map 求值，完成部分用 pullback-pushout 方块粘合，共享在完成格上诱导伴随；Transformer 被刻画为一族实现，置换堆刻画等变性、前缀一致堆刻画因果性。",
+        "motivation": "AI 计算缺少以结构记录为一等公民的语义框架：向量相等不等于同一 Token 出现，接口也未形式化表达结构义务，导致等变性、因果性与并发执行难以在同一语言中陈述。",
+        "method": "以 Token（有限元组）、Token 类（载体 + 记录堆）、保持记录的 Token map 为基本对象，构造具有限极限/有限余积/指数的 elementary category；对固定有限签名给出完全忠实的代数 tokenization，为小范畴与函子给出记录编码、自然变换给出端点约束编码；有限映射求值用 pullback-pushout 粘合与完成格上的伴随，另用 teacher-induced heaps 做结构蒸馏、relation-saturating quotient 刻画结构的保持与反射。",
+        "result": "摘要给出的是构造性与刻画性结论：合法无环图经唯一 Token map 求值，完成部分粘合、共享诱导完成格上的伴随、frontier 接口构成函子、认证残差替换保持剩余结果；有效有限转移保持有限配置，统一生成器产生任意宽的 ready 人群，有限依赖闭包的请求在给定进展条件下完成；置换堆刻画等变性、前缀一致堆刻画因果性，relation-saturating quotient 刻画记录结构的精确保持与反射。",
+        "conclusion": "AI 计算可以完全在范畴对象与其记录上执行，Transformer 只是该框架下满足指定接口的一族实现；论文为 83 页、含验证代码与结果的扩展版本，提出五条论题与无界 Token 计算核。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2024-04-11",
+      "updated_date": "2026-10-01",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.39564",
+      "title": "A2Z GameSpec-Bench: How Faithfully Can Coding Agents Generate Games from Game Design Specifications?",
+      "authors": [
+        "Seonho Lee",
+        "Wonryeol Jeong",
+        "Alberto Cereser",
+        "Inha Kang",
+        "Hyeonjong Kim",
+        "Seungmin Kwak",
+        "Dongmin Park"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.39564",
+      "pdf_url": "https://arxiv.org/pdf/2609.39564",
+      "abstract_en": "Delegating complete application development to coding agents requires preserving the intended design rather than simply producing plausible outputs through naive prompting. Game development provides a demanding testbed, as long-form Game Design Documents (GDDs) describe requirements that must work together across game logic, visual rendering, and player interactions. However, existing game-development benchmarks typically use compact specifications and provide limited support for evaluating interdependent requirements across these aspects in long-form GDDs. We introduce A2Z GameSpec-Bench, a benchmark of 100 long-form GDDs for evaluating end-to-end game development by agents. We measure faithfulness by checking whether the game satisfies the GDD requirements and preserves the relationships among them. Each GDD is turned into a dependency-aware contract that contains rules, constraints, and prerequisite relations. Following game-development practices, we combine source-code inspection with agent-generated test policies for scenario-based replay and adaptive playtesting. The contract remains fixed across agents and revision rounds, while judgments and evidence linked to the same requirements support consistent comparison and failure detection. Our evaluations show that current agents struggle to jointly satisfy interdependent requirements across code implementation and actual play. Requirement-specific feedback improves GDD Fidelity by 10.9% relative to self-revision after two rounds. A2Z GameSpec-Bench assesses end-to-end specification-following ability beyond implementation judgments and provides targeted feedback to support more faithful game development. Code and datasets are available at https://a2z-gamespec-bench.github.io.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: A2Z GameSpec-Bench 用 100 份长篇游戏设计文档 (GDD) 评测编码 agent 端到端按规格开发游戏的能力：每份 GDD 转成含规则、约束与前置依赖的 dependency-aware contract，结合源码检查与 agent 生成的测试策略做场景回放和自适应试玩。评测显示当前 agent 难以同时满足代码实现与实际游玩中的相互依赖需求；按需求给出反馈使 GDD Fidelity 在两轮修订后相对自修订提升 10.9%。\nMotivation: 现有游戏开发 benchmark 规格过短，且难以评测长篇 GDD 中跨游戏逻辑、视觉渲染与玩家交互的相互依赖需求，无法衡量 agent 是否真正保住设计意图而非只产出貌似合理的输出。\nMethod: 构建 100 份长篇 GDD 的 benchmark，每份转为固定不变的 dependency-aware contract（规则、约束、前置关系）；评测结合源码检查与 agent 生成的测试策略，进行场景回放与 adaptive playtesting，同一需求上的判断与证据保持一致以支持跨 agent、跨修订轮次比较和失败定位。\nResult: 当前编码 agent 在代码实现与实际游玩两方面难以联合满足相互依赖的需求；加入按需求定向反馈后，两轮修订的 GDD Fidelity 相对 self-revision 提升 10.9%。\nConclusion: 按需求粒度提供带证据的定向反馈，比 agent 自修订更能提升对长篇规格的忠实度；benchmark 把评测从实现判断扩展到端到端的规格遵循能力，代码与数据集已公开。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "A2Z GameSpec-Bench 用 100 份长篇游戏设计文档 (GDD) 评测编码 agent 端到端按规格开发游戏的能力：每份 GDD 转成含规则、约束与前置依赖的 dependency-aware contract，结合源码检查与 agent 生成的测试策略做场景回放和自适应试玩。评测显示当前 agent 难以同时满足代码实现与实际游玩中的相互依赖需求；按需求给出反馈使 GDD Fidelity 在两轮修订后相对自修订提升 10.9%。",
+        "motivation": "现有游戏开发 benchmark 规格过短，且难以评测长篇 GDD 中跨游戏逻辑、视觉渲染与玩家交互的相互依赖需求，无法衡量 agent 是否真正保住设计意图而非只产出貌似合理的输出。",
+        "method": "构建 100 份长篇 GDD 的 benchmark，每份转为固定不变的 dependency-aware contract（规则、约束、前置关系）；评测结合源码检查与 agent 生成的测试策略，进行场景回放与 adaptive playtesting，同一需求上的判断与证据保持一致以支持跨 agent、跨修订轮次比较和失败定位。",
+        "result": "当前编码 agent 在代码实现与实际游玩两方面难以联合满足相互依赖的需求；加入按需求定向反馈后，两轮修订的 GDD Fidelity 相对 self-revision 提升 10.9%。",
+        "conclusion": "按需求粒度提供带证据的定向反馈，比 agent 自修订更能提升对长篇规格的忠实度；benchmark 把评测从实现判断扩展到端到端的规格遵循能力，代码与数据集已公开。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-09-30",
+      "updated_date": "2026-09-30",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
