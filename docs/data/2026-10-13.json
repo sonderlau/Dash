@@ -1,0 +1,1227 @@
+{
+  "date": "2026-10-13",
+  "snapshot_date": "2026-10-13",
+  "generated_at": "2026-10-13T17:36:44Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 29,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 13,
+    "cs.CV": 9,
+    "cs.AI": 7
+  },
+  "summary_status_counts": {
+    "ok": 29
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 792
+  },
+  "papers": [
+    {
+      "id": "2610.12336",
+      "title": "asdex: Automatic Sparse Differentiation in JAX",
+      "authors": [
+        "Adrian Hill",
+        "Guillaume Dalle"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.MS",
+        "math.NA"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.MS",
+      "abs_url": "https://arxiv.org/abs/2610.12336",
+      "pdf_url": "https://arxiv.org/pdf/2610.12336",
+      "abstract_en": "Many tasks in scientific computing and machine learning require the Jacobian or Hessian matrix of a function. Automatic differentiation (AD) computes these derivatives to machine precision, but materializing a dense $m \\times n$ Jacobian requires $n$ forward-mode or $m$ reverse-mode AD passes, one per column or row. For a large class of functions, each output depends on only a few inputs, making the derivative matrix sparse. Automatic sparse differentiation (ASD) exploits this structure in four steps: detection of the input-agnostic sparsity pattern, coloring of a graph to group columns or rows that can share an AD pass, compressed differentiation to compute a compressed derivative matrix with one AD pass per color, and finally decompression into the original sparsity pattern. The number of colors, and hence of AD passes, is often independent of the problem dimension: a banded Jacobian with $b$ contiguous bands, for instance, only ever requires $b$ colors, regardless of its size. asdex offers the first standalone ASD toolkit in the popular JAX ecosystem. With $\\texttt{asdex.jacobian}$ and $\\texttt{asdex.hessian}$, it provides sparse drop-in replacements for $\\texttt{jax.jacobian}$ and $\\texttt{jax.hessian}$.",
+      "comment": "1 table",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: asdex 是 JAX 生态中首个独立的自动稀疏微分 (ASD) 工具包，通过检测输入无关的稀疏模式、图着色分组可共享 AD pass 的行列、压缩微分解压四步，把稠密 Jacobian 所需的 n 次前向或 m 次反向 AD pass 压到与问题维度无关的颜色数（如 b 条带的 Jacobian 恒需 b 种颜色）。提供 asdex.jacobian 与 asdex.hessian 作为 jax.jacobian/jax.hessian 的稀疏直接替换。\nMotivation: 稠密 m×n Jacobian 物化需要 n 次前向或 m 次反向 AD pass，而大量科学计算与机器学习函数的每个输出只依赖少数输入，导数矩阵本就稀疏，逐行逐列求值浪费严重。\nMethod: ASD 四步流程：检测输入无关的稀疏模式；对行列做图着色，把可共享一次 AD pass 的行列归入同色；每种颜色跑一次 AD 得到压缩导数矩阵；最后按原稀疏模式解压。asdex.jacobian 与 asdex.hessian 作为 jax.jacobian、jax.hessian 的稀疏 drop-in 替换。\nResult: 颜色数（即 AD pass 数）常与问题维度无关：含 b 条连续带的 banded Jacobian 无论规模多大都只需 b 种颜色。asdex 被定位为 JAX 生态中首个独立 ASD 工具包。\nConclusion: 利用输入无关稀疏性并配合图着色，可把 AD 求 Jacobian/Hessian 的 pass 数从随维度线性增长降到由稀疏结构决定的常数级，且以 drop-in API 接入 JAX。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "asdex 是 JAX 生态中首个独立的自动稀疏微分 (ASD) 工具包，通过检测输入无关的稀疏模式、图着色分组可共享 AD pass 的行列、压缩微分解压四步，把稠密 Jacobian 所需的 n 次前向或 m 次反向 AD pass 压到与问题维度无关的颜色数（如 b 条带的 Jacobian 恒需 b 种颜色）。提供 asdex.jacobian 与 asdex.hessian 作为 jax.jacobian/jax.hessian 的稀疏直接替换。",
+        "motivation": "稠密 m×n Jacobian 物化需要 n 次前向或 m 次反向 AD pass，而大量科学计算与机器学习函数的每个输出只依赖少数输入，导数矩阵本就稀疏，逐行逐列求值浪费严重。",
+        "method": "ASD 四步流程：检测输入无关的稀疏模式；对行列做图着色，把可共享一次 AD pass 的行列归入同色；每种颜色跑一次 AD 得到压缩导数矩阵；最后按原稀疏模式解压。asdex.jacobian 与 asdex.hessian 作为 jax.jacobian、jax.hessian 的稀疏 drop-in 替换。",
+        "result": "颜色数（即 AD pass 数）常与问题维度无关：含 b 条连续带的 banded Jacobian 无论规模多大都只需 b 种颜色。asdex 被定位为 JAX 生态中首个独立 ASD 工具包。",
+        "conclusion": "利用输入无关稀疏性并配合图着色，可把 AD 求 Jacobian/Hessian 的 pass 数从随维度线性增长降到由稀疏结构决定的常数级，且以 drop-in API 接入 JAX。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.12182",
+      "title": "AI-Based On-Board Maritime Object Detection for Earth Observation Payload Data Reduction on Versal Embedded Hardware",
+      "authors": [
+        "Thomas Goudemant",
+        "Aurélien Bobey",
+        "Omar Hlimi",
+        "Marjorie Bellizzi"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.12182",
+      "pdf_url": "https://arxiv.org/pdf/2610.12182",
+      "abstract_en": "Very-high-resolution Earth-observation satellites acquire more data than they can store and downlink, while in maritime surveillance the vessels cover a tiny fraction of each scene. We study onboard vessel detection as a way to select what is downlinked, which reduces the data according to its content rather than coding every pixel; it is complementary to conventional onboard compression. The work follows three axes. (i) Data and algorithm: a controlled dataset is generated from 68 annotated Maxar scenes with 43 vessel classes, and a YOLOX-S detector is trained on it. (ii) Embedded deployment: the detector is quantized and deployed on the DPU of a Versal VC1902, with a limited loss of detection quality and a processing time of a few seconds per scene. (iii) Data reduction: we propose several downlink modes, from metadata only (box, class and score of each detection) to image crops around vessels, tiles holding detections, or the whole scene with a degraded background, and estimate from the measured detection errors the trade-off each offers between the vessels kept and the volume downlinked. On our dense harbor and coastal scenes, tiles keep 98% of the vessels with 29% of the scene volume, and crops 83% with 3%.",
+      "comment": "8 pages. Accepted at the 10th On-Board Payload Data Compression Workshop (OBPDC 2026), Barcelona, Spain, 12-14 October 2026",
+      "journal_ref": "",
+      "doi": "10.5281/zenodo.23242463",
+      "summary_zh": "TL;DR: 在 Versal VC1902 的 DPU 上部署量化 YOLOX-S 船舶检测，用检测结果决定下传哪些像素而非压缩全部像素：密集港口与沿岸场景中，tile 模式以 29% 场景体积保留 98% 船舶，crop 模式以 3% 体积保留 83%。\nMotivation: 极高分辨率对地观测卫星的存储与下行带宽装不下全部数据，而海事监视中船舶只占场景极小比例，按内容选择下传可与常规在轨压缩互补。\nMethod: 从 68 幅 Maxar 标注影像生成受控数据集（43 类船舶），训练 YOLOX-S；量化后部署到 Versal VC1902 的 DPU；提出多种下传模式（仅元数据 box/class/score、船舶 crop、含检测的 tile、背景降质整景），并用实测检测误差估计保留船舶与下传体积的权衡。\nResult: 密集港口与沿岸场景中，tile 模式保留 98% 船舶、体积为场景的 29%；crop 模式保留 83%、体积 3%。量化部署检测质量损失有限，单景处理时间为数秒。\nConclusion: 按检测内容选择下传可在海事场景大幅削减下行数据量，tile 与 crop 分别对应高保留率与极低体积两种取舍。\nRelevance: 18",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "在 Versal VC1902 的 DPU 上部署量化 YOLOX-S 船舶检测，用检测结果决定下传哪些像素而非压缩全部像素：密集港口与沿岸场景中，tile 模式以 29% 场景体积保留 98% 船舶，crop 模式以 3% 体积保留 83%。",
+        "motivation": "极高分辨率对地观测卫星的存储与下行带宽装不下全部数据，而海事监视中船舶只占场景极小比例，按内容选择下传可与常规在轨压缩互补。",
+        "method": "从 68 幅 Maxar 标注影像生成受控数据集（43 类船舶），训练 YOLOX-S；量化后部署到 Versal VC1902 的 DPU；提出多种下传模式（仅元数据 box/class/score、船舶 crop、含检测的 tile、背景降质整景），并用实测检测误差估计保留船舶与下传体积的权衡。",
+        "result": "密集港口与沿岸场景中，tile 模式保留 98% 船舶、体积为场景的 29%；crop 模式保留 83%、体积 3%。量化部署检测质量损失有限，单景处理时间为数秒。",
+        "conclusion": "按检测内容选择下传可在海事场景大幅削减下行数据量，tile 与 crop 分别对应高保留率与极低体积两种取舍。",
+        "relevance_score": "18"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.12133",
+      "title": "Rehearse Everything, Remember Nothing: Attic-KV Rehearses What Will Be Read",
+      "authors": [
+        "Zhiyun Shi"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2610.12133",
+      "pdf_url": "https://arxiv.org/pdf/2610.12133",
+      "abstract_en": "Many key-value (KV) caches are compressed before anyone knows what will be asked of them: a document cached for retrieval, a prompt prefix shared across requests, the memory of a long conversation. The prevailing approach scores KV entries by rehearsal: the model rereads the context and keeps the entries it attends to, assuming that the more completely a cache rehearses its context, the better it remembers it. We show that under tight budgets this assumption backfires: rehearse everything, remember nothing. At a 3% keep ratio, rereading the whole context keeps 31.5 of 96.5 points on RULER, and on LongBench's natural-text tasks it falls below methods that rehearse nothing at all. The cause is that a cache keeps what it rehearses: rereading spreads the budget across the whole context, so the answer's own entries survive at little more than chance. Like a student before an exam, a cache remembers more by testing itself than by rereading. Two principles follow: rehearse what will be read, and rehearse as much as there is. We instantiate them as Attic-KV (Attic for short), a training-free rehearsal in which the model quizzes itself with question-answer pairs that quote the context, alongside anchor tokens in a content-adaptive amount. Changing only the rehearsal lifts three hosts that score it in three different ways: Attic alone is the best training-free method in all eight settings we test on RULER and LongBench's natural-text tasks, and plugged into the gradient-based KVgrad and the trained RestoreKV+, it raises them by up to 17.1 and 28.1 points. Its advantage grows as the budget shrinks, reaching 41.9 points over full rereading at a 3% keep ratio, and on long documents it compresses faster than rereading them.",
+      "comment": "15 pages, 6 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: KV cache 压缩的主流做法是让模型重读上下文、保留注意力命中的条目，但在紧预算下这反而失效：3% keep ratio 时全量重读在 RULER 上只剩 31.5/96.5 分，甚至输给完全不重读的方法。作者提出免训练的 Attic-KV，让模型用引用上下文的问答对自测，再按内容自适应数量加入 anchor tokens，只改重训 (rehearsal) 策略即可在八个 RULER 与 LongBench 自然文本设置中成为最好的免训练方法。\nMotivation: KV 缓存在不知道后续会被问什么时就被压缩：检索文档、跨请求共享的 prompt 前缀、长对话记忆都属此类。主流的按注意力打分重读策略隐含假设「缓存越完整重演上下文，记忆越好」，本文指出紧预算下该假设反噬。\nMethod: Attic-KV 是免训练的重训机制：模型用引用上下文的 QA 对自测（rehearse what will be read），并配合按内容自适应数量的 anchor tokens（rehearse as much as there is）。该重训可替换式接入三种打分主机，包括免训练方法本身以及基于梯度的 KVgrad 和经过训练的 RestoreKV+。\nResult: 3% keep ratio 下，全量重读在 RULER 上仅保住 96.5 分中的 31.5 分，且在 LongBench 自然文本任务上低于完全不重读的方法；此时 Attic-KV 领先全量重读 41.9 分。Attic 单独使用在 RULER 与 LongBench 自然文本共八个设置上均为最佳免训练方法；接入 KVgrad 与 RestoreKV+ 分别最多提升 17.1 与 28.1 分。长文档上其压缩速度快于重读。\nConclusion: 缓存保留的是它重训过的内容：把预算花在会被读到的条目上而非均匀铺满上下文，才能在紧预算下记住答案本身；预算越小，该策略优势越大。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "KV cache 压缩的主流做法是让模型重读上下文、保留注意力命中的条目，但在紧预算下这反而失效：3% keep ratio 时全量重读在 RULER 上只剩 31.5/96.5 分，甚至输给完全不重读的方法。作者提出免训练的 Attic-KV，让模型用引用上下文的问答对自测，再按内容自适应数量加入 anchor tokens，只改重训 (rehearsal) 策略即可在八个 RULER 与 LongBench 自然文本设置中成为最好的免训练方法。",
+        "motivation": "KV 缓存在不知道后续会被问什么时就被压缩：检索文档、跨请求共享的 prompt 前缀、长对话记忆都属此类。主流的按注意力打分重读策略隐含假设「缓存越完整重演上下文，记忆越好」，本文指出紧预算下该假设反噬。",
+        "method": "Attic-KV 是免训练的重训机制：模型用引用上下文的 QA 对自测（rehearse what will be read），并配合按内容自适应数量的 anchor tokens（rehearse as much as there is）。该重训可替换式接入三种打分主机，包括免训练方法本身以及基于梯度的 KVgrad 和经过训练的 RestoreKV+。",
+        "result": "3% keep ratio 下，全量重读在 RULER 上仅保住 96.5 分中的 31.5 分，且在 LongBench 自然文本任务上低于完全不重读的方法；此时 Attic-KV 领先全量重读 41.9 分。Attic 单独使用在 RULER 与 LongBench 自然文本共八个设置上均为最佳免训练方法；接入 KVgrad 与 RestoreKV+ 分别最多提升 17.1 与 28.1 分。长文档上其压缩速度快于重读。",
+        "conclusion": "缓存保留的是它重训过的内容：把预算花在会被读到的条目上而非均匀铺满上下文，才能在紧预算下记住答案本身；预算越小，该策略优势越大。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.12069",
+      "title": "LIVIN: Benchmarking Spatial and Embodied Intelligence in Digital Twins of Lived-In Homes",
+      "authors": [
+        "Peijun Xu",
+        "Chuansen Nie",
+        "Yiyang He",
+        "Yinuo Bai",
+        "Jingyang Liu",
+        "Kuixiang Shao",
+        "Yuyang Jiao",
+        "Kuanhao Xia",
+        "Jiayi Zhu",
+        "Zitian Yang",
+        "Yanqi Zhang",
+        "Tianye Tan",
+        "Shuwei Di",
+        "Junyi Xu",
+        "Jingyi Yu",
+        "Jiayuan Gu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.12069",
+      "pdf_url": "https://arxiv.org/pdf/2610.12069",
+      "abstract_en": "Realistic household simulation must capture not only diverse environments but also the lived-in object arrangements and spatial constraints that shape robot motion and interaction. Existing resources often trade off scale, real-world correspondence, and interaction readiness, leaving a gap in faithful, interactive replicas of how real homes are actually arranged. To this end, we introduce LIVIN, a benchmark for spatial and embodied intelligence built on digital twins of 30 diverse lived-in homes. These replicas preserve observed room layouts, furniture configurations, and everyday belongings. To construct them, we design a human-in-the-loop workflow comprising instance recognition, architectural reconstruction, and object generation and placement, with intermediate results reviewed and corrected by humans against the source observations at each stage. We evaluate four tasks in LIVIN: 3D detection, 3D reconstruction, navigation, and loco-manipulation. Our evaluations show that current methods remain challenged by the dense object arrangements, occlusions, limited free space, and constrained interaction regions found in realistic lived-in homes. We hope LIVIN will help advance embodied AI in real-world homes, from spatial understanding to robotic interaction, and ultimately bring embodied intelligence into everyday home environments.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: LIVIN 是一个基于 30 个真实居住住宅数字孪生的具身智能基准，用人在环流程（实例识别、建筑重建、物体生成与摆放，每步人工对照源观测校正）保留真实房间布局与杂物摆放。评测 3D 检测、3D 导航与 loco-manipulation 等四项任务后发现，现有方法在密集物体、遮挡、有限自由空间和受限交互区域下仍表现吃力。\nMotivation: 现有家庭仿真资源在规模、真实对应性和交互就绪度之间取舍，缺少对真实住宅实际摆放方式的忠实可交互复刻，机器人难以在杂乱居住环境中迁移。\nMethod: 构建 30 个多样真实住宅的数字孪生，保留观测到的房间布局、家具配置与日常物品；采用人在环工作流，依次做实例识别、建筑重建、物体生成与摆放，每阶段由人对照源观测审核修正；在此之上评测 3D detection、3D reconstruction、navigation、loco-manipulation 四项任务。\nResult: 评测覆盖 30 个住宅数字孪生与四项任务，显示当前方法在真实居住环境的密集物体摆放、遮挡、有限自由空间和受限交互区域下仍面临挑战。\nConclusion: 真实居住环境的杂乱与空间约束是当前具身方法的主要瓶颈，忠实且可交互的住宅数字孪生是把具身智能带入日常家庭的必要测试床。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "LIVIN 是一个基于 30 个真实居住住宅数字孪生的具身智能基准，用人在环流程（实例识别、建筑重建、物体生成与摆放，每步人工对照源观测校正）保留真实房间布局与杂物摆放。评测 3D 检测、3D 导航与 loco-manipulation 等四项任务后发现，现有方法在密集物体、遮挡、有限自由空间和受限交互区域下仍表现吃力。",
+        "motivation": "现有家庭仿真资源在规模、真实对应性和交互就绪度之间取舍，缺少对真实住宅实际摆放方式的忠实可交互复刻，机器人难以在杂乱居住环境中迁移。",
+        "method": "构建 30 个多样真实住宅的数字孪生，保留观测到的房间布局、家具配置与日常物品；采用人在环工作流，依次做实例识别、建筑重建、物体生成与摆放，每阶段由人对照源观测审核修正；在此之上评测 3D detection、3D reconstruction、navigation、loco-manipulation 四项任务。",
+        "result": "评测覆盖 30 个住宅数字孪生与四项任务，显示当前方法在真实居住环境的密集物体摆放、遮挡、有限自由空间和受限交互区域下仍面临挑战。",
+        "conclusion": "真实居住环境的杂乱与空间约束是当前具身方法的主要瓶颈，忠实且可交互的住宅数字孪生是把具身智能带入日常家庭的必要测试床。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.12023",
+      "title": "InterviewPlayground: A Validated Simulation Environment for Evaluating AI Interviewers",
+      "authors": [
+        "Jonathan Ivey",
+        "Aimee Liang",
+        "Arthur Y.S. Wang",
+        "Madeline Mandell",
+        "Ziang Xiao",
+        "Anjalie Field"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2610.12023",
+      "pdf_url": "https://arxiv.org/pdf/2610.12023",
+      "abstract_en": "Increasingly, AI interviewers are being developed to elicit open-ended responses in applications like market research, public polling, preference elicitation, and social science research. However, evaluating AI interviewers is challenging because they function in extended, multi-turn interactions where they must adapt to participant behaviors. To address this need, we develop InterviewPlayground, a simulation environment for evaluating AI interviewers using simulated study participants whose behaviors are grounded in social theory. Simulated studies in InterviewPlayground produce an InterviewReportCard, which assesses the performance of AI interviewers using a suite of validated measures. To test whether our simulation-based evaluations predict performance with human participants, we conduct 15 real qualitative studies with five AI interviewers, three interview topics, and 450 human participants and compare them to simulated studies in InterviewPlayground. We find that AI interviewer performance in InterviewPlayground predicts performance in human studies with an average Pearson correlation of 0.86 across 12 measures, and the simulated interactions from InterviewPlayground reproduce key findings from behavioral analysis of AI interviewers in the human studies. Together, these findings support the validity of InterviewPlayground in assessing AI interviewer performance and examining potential failure modes. Our work contributes a simulation environment for AI interviewers supported with empirical validation, and more broadly, a roadmap for future work to develop validated, simulation-based evaluations of conversational AI systems.",
+      "comment": "Preprint. 23 pages",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: InterviewPlayground 用社会理论驱动的模拟受访者来评估多轮 AI 面试官，其模拟评分 (InterviewReportCard) 能预测真人研究中的表现：12 项指标上平均 Pearson 相关 0.86，并复现了真人研究行为分析的关键发现。作者据此主张仿真评估可作为对话式 AI 面试官的验证性替代。\nMotivation: AI 面试官要在长程多轮交互中随受访者行为调整，缺少可复现的评估手段；直接招募真人做定性研究成本高、难以系统暴露失败模式。\nMethod: 构建仿真环境 InterviewPlayground，用社会理论约束的模拟受访者生成多轮对话，输出 InterviewReportCard，以一组经过验证的指标打分；再用 15 项真实定性研究（5 个 AI 面试官、3 个访谈主题、450 名人类参与者）与仿真结果对照，比较 12 项指标并核对行为分析发现。\nResult: 仿真表现预测真人研究表现的平均 Pearson 相关为 0.86（跨 12 项指标）；仿真交互复现了真人研究中 AI 面试官行为分析的关键发现；对照实验规模为 15 项真人定性研究、5 个 AI 面试官、3 个主题、450 名参与者。\nConclusion: 社会理论驱动的模拟受访者加验证过的评分指标，足以在仿真环境中评估 AI 面试官并检查其失败模式，可作为真人研究的前置替代。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "InterviewPlayground 用社会理论驱动的模拟受访者来评估多轮 AI 面试官，其模拟评分 (InterviewReportCard) 能预测真人研究中的表现：12 项指标上平均 Pearson 相关 0.86，并复现了真人研究行为分析的关键发现。作者据此主张仿真评估可作为对话式 AI 面试官的验证性替代。",
+        "motivation": "AI 面试官要在长程多轮交互中随受访者行为调整，缺少可复现的评估手段；直接招募真人做定性研究成本高、难以系统暴露失败模式。",
+        "method": "构建仿真环境 InterviewPlayground，用社会理论约束的模拟受访者生成多轮对话，输出 InterviewReportCard，以一组经过验证的指标打分；再用 15 项真实定性研究（5 个 AI 面试官、3 个访谈主题、450 名人类参与者）与仿真结果对照，比较 12 项指标并核对行为分析发现。",
+        "result": "仿真表现预测真人研究表现的平均 Pearson 相关为 0.86（跨 12 项指标）；仿真交互复现了真人研究中 AI 面试官行为分析的关键发现；对照实验规模为 15 项真人定性研究、5 个 AI 面试官、3 个主题、450 名参与者。",
+        "conclusion": "社会理论驱动的模拟受访者加验证过的评分指标，足以在仿真环境中评估 AI 面试官并检查其失败模式，可作为真人研究的前置替代。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11976",
+      "title": "Efficient quadratic entropy with distance sketches",
+      "authors": [
+        "Steve Huntsman"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.ST",
+        "stat.CO",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "stat.ML",
+      "abs_url": "https://arxiv.org/abs/2610.11976",
+      "pdf_url": "https://arxiv.org/pdf/2610.11976",
+      "abstract_en": "We detail scalable methods for approximating the quadratic entropy $p^T d p$ for arbitrary distributions $p$ and common distances $d$ of negative type. We focus on the Euclidean and spherical geodesic cases, which both use random feature embeddings and projections to dramatically improve computational complexity within a simple framework. Amortization of a single large matrix multiplication and control variates further enable computation at large scale with low memory and runtime in situations where $d$ is held constant while $p$ varies. We demonstrate this with a comparison against direct pair sampling and bibliometric/scientometric examples on Open Graph Benchmark datasets, revealing papers, fields, and institutions with both particularly narrow and broad interdisciplinary reach from their citations and text features alone.",
+      "comment": "Code for reproducing results in LaTeX comments; removed submission checklist from v1",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出基于负型距离 (negative type distance) 的二次熵 p^T d p 快速近似：对欧氏与球面测地距离用随机特征嵌入与投影降复杂度，再用单次大矩阵乘法摊销和控制变量 (control variates) 支持 d 固定、p 变化的大规模低内存计算。在 Open Graph Benchmark 数据集上与直接配对采样对比，用于从引用与文本特征识别跨学科面窄与面广的论文、领域与机构。\nMotivation: 二次熵的直接计算需要对分布对做距离求和，随规模增长代价高；在 d 固定而 p 频繁变化的场景（如大规模文献计量）需要低内存、低运行时的可扩展近似。\nMethod: 针对负型距离的二次熵 p^T d p，对欧氏与球面测地两种情形用随机特征嵌入与随机投影近似距离核；再通过单次大矩阵乘法的摊销与控制变量，在 d 固定、p 变化时降低内存与运行时；与直接配对采样 (direct pair sampling) 对照。\nResult: 方法在 Open Graph Benchmark 数据集上与直接配对采样作比较，并应用于文献计量/科学计量示例，从引用与文本特征单独识别出跨学科触及面特别窄和特别广的论文、领域与机构。\nConclusion: 随机特征嵌入加摊销矩阵乘法与控制变量，可把负型距离下的二次熵计算做到大规模低内存低运行时，并足以支撑基于引用与文本的跨学科结构分析。\nRelevance: 18",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出基于负型距离 (negative type distance) 的二次熵 p^T d p 快速近似：对欧氏与球面测地距离用随机特征嵌入与投影降复杂度，再用单次大矩阵乘法摊销和控制变量 (control variates) 支持 d 固定、p 变化的大规模低内存计算。在 Open Graph Benchmark 数据集上与直接配对采样对比，用于从引用与文本特征识别跨学科面窄与面广的论文、领域与机构。",
+        "motivation": "二次熵的直接计算需要对分布对做距离求和，随规模增长代价高；在 d 固定而 p 频繁变化的场景（如大规模文献计量）需要低内存、低运行时的可扩展近似。",
+        "method": "针对负型距离的二次熵 p^T d p，对欧氏与球面测地两种情形用随机特征嵌入与随机投影近似距离核；再通过单次大矩阵乘法的摊销与控制变量，在 d 固定、p 变化时降低内存与运行时；与直接配对采样 (direct pair sampling) 对照。",
+        "result": "方法在 Open Graph Benchmark 数据集上与直接配对采样作比较，并应用于文献计量/科学计量示例，从引用与文本特征单独识别出跨学科触及面特别窄和特别广的论文、领域与机构。",
+        "conclusion": "随机特征嵌入加摊销矩阵乘法与控制变量，可把负型距离下的二次熵计算做到大规模低内存低运行时，并足以支撑基于引用与文本的跨学科结构分析。",
+        "relevance_score": "18"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11759",
+      "title": "Beyond QAOA: A Review of AI and Quantum Computing for Adaptive Combinatorial Optimization",
+      "authors": [
+        "Hoong Chuin Lau"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "quant-ph"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "quant-ph",
+      "abs_url": "https://arxiv.org/abs/2610.11759",
+      "pdf_url": "https://arxiv.org/pdf/2610.11759",
+      "abstract_en": "Near-term quantum approaches to combinatorial optimization are limited by qubit counts, circuit fidelity, sampling cost, and the difficulty of encoding constraints, while machine learning is increasingly used to configure and control quantum optimization workflows. We call such workflows adaptive: decisions conventionally fixed in advance, from formulation and penalties to shot budgets, backends, and whether to invoke a quantum processor at all, are made by learned policies that respond to the instance, the progress of the solve, or the hardware. This review examines three paradigms, AI for quantum optimization, quantum for AI-driven optimization, and AI-quantum co-optimization, and organizes the literature by the decision being learned rather than by application. A structured search identified a 119-paper corpus, of which 67 papers form an evidence core coded in detail. The evidence is considerably stronger for AI-assisted quantum optimization than for the reverse direction: learning already reduces quantum evaluations, improves initialization, supports decomposition and penalty control, and mitigates noise, whereas evidence that quantum computation improves learned optimizers remains largely confined to small-scale simulation. Experimental controls are thin: of 52 studies in the three paradigms, 22 include no classical baseline, the quantum contribution is fully isolated in 10 of 24 where an ablation applies, and the median largest experiment uses 16 qubits. We introduce an M0-M5 evidence hierarchy, from simulation to practical quantum advantage, and find no broadly convincing result at the highest level. We argue that scaling is increasingly a systems problem: the question is not only whether a problem fits on a quantum processor, but how classical and quantum resources should be allocated across the optimization process.",
+      "comment": "36 pages, 5 figures, 7 tables; supplementary evidence matrix included as ancillary file. v2: clarified terminologies, co-optimization definition and evidence denominators; added references, minor corrections",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 综述把 AI 与量子计算结合的组合优化工作按“学的是哪个决策”重组为三类范式：AI for quantum optimization、quantum for AI-driven optimization、AI-quantum co-optimization，并提出 M0–M5 证据等级。119 篇语料中 67 篇构成详细编码的证据核心；AI 辅助量子优化的证据明显强于反方向，而最高等级尚无被广泛认可的结果。\nMotivation: 近期量子组合优化受量子比特数、电路保真度、采样成本与约束编码难度限制，文献按应用而非按被学习的决策组织，导致各方向证据强弱难以比较。\nMethod: 结构化检索得到 119 篇语料，其中 67 篇做详细编码形成证据核心；按被学习的决策（formulation、penalties、shot budgets、backends、是否调用 QPU）而非应用领域组织，并引入 M0–M5 证据等级（从仿真到实用量子优势）。\nResult: 三个范式共 52 项研究中 22 项不含经典基线；在适用消融的 24 项中仅 10 项完全隔离量子贡献；实验中位数最大规模为 16 qubits。AI 辅助方向已能减少量子评估次数、改进初始化、支持分解与罚函数控制并抑制噪声，而量子改进学习型优化器的证据基本限于小规模仿真；M0–M5 最高等级无被广泛认可的结果。\nConclusion: 作者主张扩展规模日益成为系统问题：关键不只是问题能否放进量子处理器，而是经典与量子资源应如何在优化流程中分配。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "综述把 AI 与量子计算结合的组合优化工作按“学的是哪个决策”重组为三类范式：AI for quantum optimization、quantum for AI-driven optimization、AI-quantum co-optimization，并提出 M0–M5 证据等级。119 篇语料中 67 篇构成详细编码的证据核心；AI 辅助量子优化的证据明显强于反方向，而最高等级尚无被广泛认可的结果。",
+        "motivation": "近期量子组合优化受量子比特数、电路保真度、采样成本与约束编码难度限制，文献按应用而非按被学习的决策组织，导致各方向证据强弱难以比较。",
+        "method": "结构化检索得到 119 篇语料，其中 67 篇做详细编码形成证据核心；按被学习的决策（formulation、penalties、shot budgets、backends、是否调用 QPU）而非应用领域组织，并引入 M0–M5 证据等级（从仿真到实用量子优势）。",
+        "result": "三个范式共 52 项研究中 22 项不含经典基线；在适用消融的 24 项中仅 10 项完全隔离量子贡献；实验中位数最大规模为 16 qubits。AI 辅助方向已能减少量子评估次数、改进初始化、支持分解与罚函数控制并抑制噪声，而量子改进学习型优化器的证据基本限于小规模仿真；M0–M5 最高等级无被广泛认可的结果。",
+        "conclusion": "作者主张扩展规模日益成为系统问题：关键不只是问题能否放进量子处理器，而是经典与量子资源应如何在优化流程中分配。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11723",
+      "title": "MultiWorldBench: Do Independently Controlled Views Describe One Shared World?",
+      "authors": [
+        "Zhangbo Xu",
+        "Ruoxi Zhang",
+        "Rui Hu",
+        "Yisong Wang",
+        "Xitong Li"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2610.11723",
+      "pdf_url": "https://arxiv.org/pdf/2610.11723",
+      "abstract_en": "Multiplayer world models must ensure that independently controlled views remain consistent with one shared and persistent world. We introduce MultiWorldBench, a diagnostic Minecraft benchmark containing 495 case configurations across seven task suites and ten capabilities, including independent control, cross-view motion, shared-state synchronization, persistence, structural reasoning, concurrent interaction, and delayed revisit. We evaluate Solaris, Gamma-World, and MineWorld, using Engine GT as a reference. Gamma-World achieves the highest ten-capability average among the generated systems at 21.39, followed by Solaris at 20.88 and MineWorld at 1.89, while Engine GT reaches 91.69. Gamma-World performs better on several control, shared-state, and revisit capabilities, whereas Solaris leads in cross-view motion and race-condition consistency. Nevertheless, all generated systems score at most 8.00 on state persistence and 1.33 on structural consistency, and none succeeds in spatial reasoning or building-identity preservation. Human preferences produce the same overall ranking and show strong alignment with the automatic evaluation, with a mean dimension-level Spearman correlation of 0.96. These results show that plausible individual views do not yet constitute a coherent multiplayer world.",
+      "comment": "31 pages, 17 figures, 3 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: MultiWorldBench 是一个诊断性 Minecraft 多人世界模型基准，含 495 个案例配置、7 个任务套件、10 项能力，用于检验独立控制的多个视角是否指向同一个持久共享世界。评测 Solaris、Gamma-World、MineWorld（以 Engine GT 为参照）显示：十项能力均分 Gamma-World 21.39、Solaris 20.88、MineWorld 1.89，而 Engine GT 达 91.69；所有生成系统在状态持久性上至多 8.00、结构一致性至多 1.33，空间推理与建筑身份保持全部失败。\nMotivation: 多人世界模型需要让各自独立控制的视角保持对同一持久世界的共识，但现有系统在跨视角一致、状态同步与结构推理上缺少可诊断的评测手段。\nMethod: 构建 Minecraft 诊断基准 MultiWorldBench：495 个案例配置、7 个任务套件、10 项能力（独立控制、跨视角运动、共享状态同步、持久性、结构推理、并发交互、延迟重访等），以 Engine GT 为参照评测 Solaris、Gamma-World、MineWorld 三个生成系统，并加入人类偏好评测与自动评测对照。\nResult: 十项能力均分：Gamma-World 21.39、Solaris 20.88、MineWorld 1.89，Engine GT 91.69；Gamma-World 在控制、共享状态与重访能力上更好，Solaris 在跨视角运动与竞态一致性上领先。所有生成系统状态持久性至多 8.00、结构一致性至多 1.33，空间推理与建筑身份保持无一成功。人类偏好给出相同总体排序，维度级 Spearman 相关均值 0.96。\nConclusion: 各视角各自合理并不等于构成一个连贯的多人共享世界；生成式世界模型在持久性、结构一致性与空间推理上仍是主要短板。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "MultiWorldBench 是一个诊断性 Minecraft 多人世界模型基准，含 495 个案例配置、7 个任务套件、10 项能力，用于检验独立控制的多个视角是否指向同一个持久共享世界。评测 Solaris、Gamma-World、MineWorld（以 Engine GT 为参照）显示：十项能力均分 Gamma-World 21.39、Solaris 20.88、MineWorld 1.89，而 Engine GT 达 91.69；所有生成系统在状态持久性上至多 8.00、结构一致性至多 1.33，空间推理与建筑身份保持全部失败。",
+        "motivation": "多人世界模型需要让各自独立控制的视角保持对同一持久世界的共识，但现有系统在跨视角一致、状态同步与结构推理上缺少可诊断的评测手段。",
+        "method": "构建 Minecraft 诊断基准 MultiWorldBench：495 个案例配置、7 个任务套件、10 项能力（独立控制、跨视角运动、共享状态同步、持久性、结构推理、并发交互、延迟重访等），以 Engine GT 为参照评测 Solaris、Gamma-World、MineWorld 三个生成系统，并加入人类偏好评测与自动评测对照。",
+        "result": "十项能力均分：Gamma-World 21.39、Solaris 20.88、MineWorld 1.89，Engine GT 91.69；Gamma-World 在控制、共享状态与重访能力上更好，Solaris 在跨视角运动与竞态一致性上领先。所有生成系统状态持久性至多 8.00、结构一致性至多 1.33，空间推理与建筑身份保持无一成功。人类偏好给出相同总体排序，维度级 Spearman 相关均值 0.96。",
+        "conclusion": "各视角各自合理并不等于构成一个连贯的多人共享世界；生成式世界模型在持久性、结构一致性与空间推理上仍是主要短板。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11575",
+      "title": "Smoothing the Top-k Exposure Boundary for Sparse Mixture-of-Experts",
+      "authors": [
+        "Yunkai Chai",
+        "Tong Zhu",
+        "Xiaoye Qu",
+        "Xuyang Hu",
+        "Guanjie Chen",
+        "Qipeng Guo",
+        "Yu Cheng"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2610.11575",
+      "pdf_url": "https://arxiv.org/pdf/2610.11575",
+      "abstract_en": "Sparse Mixture-of-Experts models scale parameter capacity efficiently while maintaining a fixed compute budget per token. However, traditional training paradigms enforce a static choice of top-$k$ experts, which converts a continuous routing distribution into a rigid step function. This constraint introduces a brittle boundary where highly competitive experts are arbitrarily separated into full-supervision and zero-feedback zones based on minor score fluctuations. To address this issue, we propose Elastic Expert Routing, which stochastically samples the active expert budget from a localized discrete distribution centered at $k$. Over multiple training iterations, this mechanism softens the sharp threshold into a gradual probability distribution. Because the sampling neighborhood remains symmetric, this approach matches the expected computational cost of deterministic training, while preserving the inference budget. During supervised fine-tuning, elastic routing improves downstream macro-averages on OLMoE-1B-7B and Qwen3-30B-A3B by $+0.84$ and $+2.02$ points, respectively. In addition, in from-scratch pretraining, it reduces validation LM loss by up to $0.04$ and outperforms the static top-$k$ baseline by $1.6$ points on average across downstream tasks. Comparisons on Qwen3 fine-tuning and from-scratch pretraining further show higher average scores than Noisy top-$k$, expert FFN dropout, and DefaultMoE.",
+      "comment": "14 pages, 4 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 稀疏 MoE 训练中固定 top-k 把连续路由分布压成硬阶跃，分数相近的专家被任意划入全监督或零反馈区。Elastic Expert Routing 以 k 为中心的局部离散分布随机采样活跃专家预算，多次迭代后把硬阈值平滑成渐进概率分布，且采样邻域对称、期望计算开销与确定性训练一致并保持推理预算。在 OLMoE-1B-7B 与 Qwen3-30B-A3B 微调上 macro-average 分别 +0.84、+2.02 点，从零预训练验证 LM loss 最多降 0.04。\nMotivation: 稀疏 MoE 的静态 top-k 选择把连续路由分布变成刚性阶跃函数，分数仅微小波动就让高度竞争的专家被任意分到全监督或零反馈区，训练信号因此出现脆弱边界。\nMethod: 提出 Elastic Expert Routing：从以 k 为中心的局部离散分布中随机采样活跃专家预算，跨多次训练迭代把尖锐阈值软化为渐进概率分布；采样邻域保持对称以匹配确定性训练的期望计算成本并保留推理预算。评测覆盖监督微调（OLMoE-1B-7B、Qwen3-30B-A3B）与从零预训练，并对比 Noisy top-k、expert FFN dropout、DefaultMoE。\nResult: SFT 中下游 macro-average 在 OLMoE-1B-7B 上 +0.84 点、在 Qwen3-30B-A3B 上 +2.02 点；从零预训练中验证 LM loss 最多降低 0.04，下游任务平均比静态 top-k 基线高 1.6 点；在 Qwen3 微调与从零预训练上平均分均高于 Noisy top-$k$、expert FFN dropout 与 DefaultMoE。\nConclusion: 把 top-k 的硬边界换成以 k 为中心的对称随机采样，可在不改变期望计算开销与推理预算的前提下提升稀疏 MoE 的微调与预训练表现，且优于若干既有路由扰动方案。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "稀疏 MoE 训练中固定 top-k 把连续路由分布压成硬阶跃，分数相近的专家被任意划入全监督或零反馈区。Elastic Expert Routing 以 k 为中心的局部离散分布随机采样活跃专家预算，多次迭代后把硬阈值平滑成渐进概率分布，且采样邻域对称、期望计算开销与确定性训练一致并保持推理预算。在 OLMoE-1B-7B 与 Qwen3-30B-A3B 微调上 macro-average 分别 +0.84、+2.02 点，从零预训练验证 LM loss 最多降 0.04。",
+        "motivation": "稀疏 MoE 的静态 top-k 选择把连续路由分布变成刚性阶跃函数，分数仅微小波动就让高度竞争的专家被任意分到全监督或零反馈区，训练信号因此出现脆弱边界。",
+        "method": "提出 Elastic Expert Routing：从以 k 为中心的局部离散分布中随机采样活跃专家预算，跨多次训练迭代把尖锐阈值软化为渐进概率分布；采样邻域保持对称以匹配确定性训练的期望计算成本并保留推理预算。评测覆盖监督微调（OLMoE-1B-7B、Qwen3-30B-A3B）与从零预训练，并对比 Noisy top-k、expert FFN dropout、DefaultMoE。",
+        "result": "SFT 中下游 macro-average 在 OLMoE-1B-7B 上 +0.84 点、在 Qwen3-30B-A3B 上 +2.02 点；从零预训练中验证 LM loss 最多降低 0.04，下游任务平均比静态 top-k 基线高 1.6 点；在 Qwen3 微调与从零预训练上平均分均高于 Noisy top-$k$、expert FFN dropout 与 DefaultMoE。",
+        "conclusion": "把 top-k 的硬边界换成以 k 为中心的对称随机采样，可在不改变期望计算开销与推理预算的前提下提升稀疏 MoE 的微调与预训练表现，且优于若干既有路由扰动方案。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11567",
+      "title": "Sera: Semantic Representation Aggregation for Reliable and Interpretable Battery Health Forecasting",
+      "authors": [
+        "Jiawei Li",
+        "Fang Liu",
+        "Wei Zhang",
+        "Zuming Liu",
+        "Man-Fai Ng",
+        "Zhi Wei Seh"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2610.11567",
+      "pdf_url": "https://arxiv.org/pdf/2610.11567",
+      "abstract_en": "Battery state of health (SoH) forecasting is important for battery management, but remains challenging due to nonlinear degradation and heterogeneity across batteries. Existing data-driven approaches primarily use temporal models to learn from numerical battery time series, and higher-level degradation characteristics are often not explicitly represented. These characteristics, however, can provide degradation guidance to support reliable forecasting and make the influence of degradation more interpretable. In this paper, we propose Sera, a semantic representation aggregation framework that complements temporal modelling with degradation semantics. Guided by battery domain expertise, Sera extracts degradation semantics from time series and constructs two complementary representations using rule-based knowledge and LLM-based interpretation. The representations are independently encoded and integrated with the representation learned by temporal models through gated aggregations. Experiments on the mainstream benchmark across multiple prediction horizons and different temporal models show that Sera consistently improves forecasting performance, achieving up to a 37.3% reduction in prediction error over the temporal baseline and enhanced generalizability. Counterfactual analysis examines how forecasts respond to changes in degradation semantics to assess interpretability. The results show that prediction responses are consistent with the meanings of key degradation descriptors across tested horizons. Together, these findings demonstrate that structured degradation semantics and effective aggregation can improve forecasting accuracy and support reliable and interpretable battery health forecasting for advanced battery management.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: Sera 把电池退化语义（规则知识与 LLM 解释两条互补表示）独立编码后，用门控聚合 (gated aggregation) 并入时序模型学到的表示，在主流基准的多个预测步长与时序模型上一致降低误差，最高较纯时序基线降低 37.3% 预测误差。反事实分析显示预测对退化语义关键描述子的响应方向与这些描述子的含义一致，即语义注入同时提升精度与可解释性。\nMotivation: 电池 SoH 预测受非线性退化与电池间异质性制约，现有数据驱动方法只学数值时间序列，高层退化特征没有被显式表示，导致预测可靠性与退化影响的可解释性都不足。\nMethod: Sera 框架在领域专家引导下从时间序列抽取退化语义，构造两种互补表示：基于规则知识的表示与基于 LLM 解释的表示；两者分别编码后，通过门控聚合与任意时序模型的表示融合，作为对时序建模的补充。\nResult: 在主流基准上跨多个预测步长与不同时序模型的实验中，Sera 一致提升预测性能，相对时序基线最高降低 37.3% 预测误差，并增强泛化性；反事实分析表明预测对退化语义变化的响应在各测试步长上与关键退化描述子的语义一致。\nConclusion: 结构化的退化语义加上有效的聚合机制可以提高电池健康预测精度，并支持可靠且可解释的电池健康管理；语义响应与描述子含义一致说明可解释性是可检验的而非事后叙述。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "Sera 把电池退化语义（规则知识与 LLM 解释两条互补表示）独立编码后，用门控聚合 (gated aggregation) 并入时序模型学到的表示，在主流基准的多个预测步长与时序模型上一致降低误差，最高较纯时序基线降低 37.3% 预测误差。反事实分析显示预测对退化语义关键描述子的响应方向与这些描述子的含义一致，即语义注入同时提升精度与可解释性。",
+        "motivation": "电池 SoH 预测受非线性退化与电池间异质性制约，现有数据驱动方法只学数值时间序列，高层退化特征没有被显式表示，导致预测可靠性与退化影响的可解释性都不足。",
+        "method": "Sera 框架在领域专家引导下从时间序列抽取退化语义，构造两种互补表示：基于规则知识的表示与基于 LLM 解释的表示；两者分别编码后，通过门控聚合与任意时序模型的表示融合，作为对时序建模的补充。",
+        "result": "在主流基准上跨多个预测步长与不同时序模型的实验中，Sera 一致提升预测性能，相对时序基线最高降低 37.3% 预测误差，并增强泛化性；反事实分析表明预测对退化语义变化的响应在各测试步长上与关键退化描述子的语义一致。",
+        "conclusion": "结构化的退化语义加上有效的聚合机制可以提高电池健康预测精度，并支持可靠且可解释的电池健康管理；语义响应与描述子含义一致说明可解释性是可检验的而非事后叙述。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11542",
+      "title": "Constitutional Gating and Deterministic Recovery for Multi-Agent LLM Negotiation: Ablations Against a Stateful Adversarial Gatekeeper",
+      "authors": [
+        "Masaaki Nakatsu (AO",
+        "Inc. / OrbLabs AG)",
+        "Reno Wang (AO",
+        "Inc.)"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2610.11542",
+      "pdf_url": "https://arxiv.org/pdf/2610.11542",
+      "abstract_en": "Multi-agent LLM systems negotiating with a stateful counterpart waste model calls in three ways: polite loops that never meet the counterpart's hidden acceptance condition, malformed outputs that trigger retries, and compliance deadlocks in which the counterpart demands something the agent must refuse. We study a three-part control stack - a 5-Pillar runtime constitution, a 4-tier swarm (Director, three-agent majority vote, Monitor, schema hard gate) and Cognitive Annealing (deterministic deadlock detection, atomic purge of the agent-side context, a canonical recovery message) - against a released adversarial Gatekeeper whose acceptance rules are fixed regular expressions and whose LLM only renders reply text. The testbed has a known solution: it measures whether the stack executes a constitution-aligned strategy against swarm drift and recovers from deadlock, not whether it discovers anything. In five runs per configuration (30 runs; Gemini 2.5 Pro agents, Claude Haiku 4.5 Gatekeeper) we find: (i) the constitution and Director make an acceptable framing possible but not reliable - 0/5 baseline unlocks versus 1/5 and 2/5 with the constitution; when the swarm unlocks it does so in one turn with 7-8 calls and about 15k tokens (67-73% below baseline); when it does not, it costs 17-38% more; (ii) the Monitor and hard gate do not reduce unlocks and leave an audit trail; (iii) under a honeytrap-to-compliance deadlock, LLM-only steering escapes 0 of 5 times while atomic purge plus a canonical strike escapes 5 of 5 (Fisher $p = 0.008$) at the same call budget, with zero calls for the strike. LLM-written strikes failed the deterministic pre-flight 5 of 5 times although an LLM Monitor had approved four. Pre-registered hypotheses on average call and token reduction were not supported. Cost is bounded in every arm by deterministic stop rules; the stack adds recovery at no extra model cost.",
+      "comment": "29 pages, 3 figures. The Gatekeeper, agents, constitution, lexicon, 30 run logs and analysis scripts are released (see Appendix F). Companion paper: arXiv:2610.09772",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 面向多智能体 LLM 与有状态对抗方 (Gatekeeper) 的谈判，提出三段控制栈：5-Pillar 运行时宪法、4 层 swarm（Director、三代理多数投票、Monitor、schema 硬门）与 Cognitive Annealing（确定性死锁检测、原子清除代理侧上下文、规范化恢复消息）。在 30 次运行中，honeytrap-to-compliance 死锁下纯 LLM 引导 0/5 次逃脱，原子清除加规范化 strike 5/5 次逃脱（Fisher p = 0.008），且 strike 零调用。\nMotivation: 与有状态对手谈判的多智能体 LLM 系统在三处浪费模型调用：始终不满足隐藏接受条件的礼貌循环、触发重试的畸形输出、以及代理必须拒绝某要求导致的合规死锁。\nMethod: 在对抗性 Gatekeeper 测试床上评估三段控制栈：5-Pillar 运行时宪法、4 层 swarm（Director、三代理多数投票、Monitor、schema 硬门）、Cognitive Annealing（确定性死锁检测、原子清除代理侧上下文、规范化恢复消息）。Gatekeeper 的接受规则为固定正则、其 LLM 只渲染回复文本；每配置 5 次运行，共 30 次，代理为 Gemini 2.5 Pro，Gatekeeper 为 Claude Haiku 4.5。\nResult: 基线解锁 0/5，加宪法后为 1/5 与 2/5；swarm 解锁时单轮内 7–8 次调用、约 15k tokens，比基线低 67–73%，不解锁时成本高 17–38%；Monitor 与硬门不降低解锁率且保留审计轨迹；honeytrap-to-compliance 死锁下纯 LLM 引导 0/5 逃脱，原子清除加规范化 strike 5/5 逃脱（Fisher p = 0.008），调用预算相同且 strike 零调用；LLM 撰写的 strike 5/5 次未通过确定性预检，而 LLM Monitor 曾批准其中四条。预注册的平均调用与 token 下降假设未获支持。\nConclusion: 宪法与 Director 能让可接受的谈判框架成为可能但不保证可靠，确定性恢复机制才能在同预算下可靠逃脱死锁；成本由确定性停止规则界定，栈以零额外模型代价加入恢复能力。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "面向多智能体 LLM 与有状态对抗方 (Gatekeeper) 的谈判，提出三段控制栈：5-Pillar 运行时宪法、4 层 swarm（Director、三代理多数投票、Monitor、schema 硬门）与 Cognitive Annealing（确定性死锁检测、原子清除代理侧上下文、规范化恢复消息）。在 30 次运行中，honeytrap-to-compliance 死锁下纯 LLM 引导 0/5 次逃脱，原子清除加规范化 strike 5/5 次逃脱（Fisher p = 0.008），且 strike 零调用。",
+        "motivation": "与有状态对手谈判的多智能体 LLM 系统在三处浪费模型调用：始终不满足隐藏接受条件的礼貌循环、触发重试的畸形输出、以及代理必须拒绝某要求导致的合规死锁。",
+        "method": "在对抗性 Gatekeeper 测试床上评估三段控制栈：5-Pillar 运行时宪法、4 层 swarm（Director、三代理多数投票、Monitor、schema 硬门）、Cognitive Annealing（确定性死锁检测、原子清除代理侧上下文、规范化恢复消息）。Gatekeeper 的接受规则为固定正则、其 LLM 只渲染回复文本；每配置 5 次运行，共 30 次，代理为 Gemini 2.5 Pro，Gatekeeper 为 Claude Haiku 4.5。",
+        "result": "基线解锁 0/5，加宪法后为 1/5 与 2/5；swarm 解锁时单轮内 7–8 次调用、约 15k tokens，比基线低 67–73%，不解锁时成本高 17–38%；Monitor 与硬门不降低解锁率且保留审计轨迹；honeytrap-to-compliance 死锁下纯 LLM 引导 0/5 逃脱，原子清除加规范化 strike 5/5 逃脱（Fisher p = 0.008），调用预算相同且 strike 零调用；LLM 撰写的 strike 5/5 次未通过确定性预检，而 LLM Monitor 曾批准其中四条。预注册的平均调用与 token 下降假设未获支持。",
+        "conclusion": "宪法与 Director 能让可接受的谈判框架成为可能但不保证可靠，确定性恢复机制才能在同预算下可靠逃脱死锁；成本由确定性停止规则界定，栈以零额外模型代价加入恢复能力。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11523",
+      "title": "When to Intervene? State-Aware Sparse Manipulation in Federated Reinforcement Learning",
+      "authors": [
+        "Shutong Zheng",
+        "Sijia Chen"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2610.11523",
+      "pdf_url": "https://arxiv.org/pdf/2610.11523",
+      "abstract_en": "Federated reinforcement learning (FRL) enables distributed agents to collaboratively train decision-making policies, but its decentralized training process also exposes global policy learning to Byzantine manipulation. Existing poisoning attacks primarily focus on how to construct malicious updates, while trajectory-level intervention timing remains largely implicit. In sequential decision making, however, where an intervention is applied can alter subsequent trajectories and learning signals. Through controlled experiments, we find that changing the selected trajectory states materially alters attack efficacy even when the malicious-update construction is fixed. We therefore identify when as a distinct attack dimension and introduce the Viability-constrained Behavioral Steering Attack (V-BSA), which uses local policy uncertainty to select sparse intervention states and applies envelope-constrained behavioral steering. Across discrete-action benchmarks, V-BSA achieves substantial degradation against robust aggregators and ensemble defenses with only a fraction of the interventions used by dense poisoning, while revealing task- and aggregation-dependent boundaries. Overall, our results highlight intervention timing as a distinct dimension of sequential robustness in FRL. The code is available at https://github.com/Yodeesy/V-BSA",
+      "comment": "27 pages, 12 figures",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 联邦强化学习中，攻击的介入时机本身是一个独立维度：在恶意更新构造固定时，改变被干预的轨迹状态会实质改变攻击效果。据此提出 V-BSA，用局部策略不确定性挑选稀疏介入状态并施加包络约束的行为引导，在离散动作基准上以远少于稠密投毒的介入量，对鲁棒聚合器与集成防御造成显著性能下降。\nMotivation: 现有投毒攻击关注如何构造恶意更新，而序贯决策中轨迹级介入时机是隐式的；在更新构造固定的前提下，介入状态的选择本身就会改变后续轨迹与学习信号，从而影响攻击效果。\nMethod: V-BSA（Viability-constrained Behavioral Steering Attack）：以局部策略不确定性选择稀疏介入状态，并施加包络约束的行为引导（envelope-constrained behavioral steering）来生成干预，同时保持恶意更新构造固定以隔离时机变量。\nResult: 受控实验显示，固定恶意更新构造时改变所选轨迹状态会实质改变攻击效能；在离散动作基准上，V-BSA 仅用稠密投毒所用介入量的一小部分，即对鲁棒聚合器与集成防御造成显著退化，并揭示出随任务与聚合方式变化的边界。\nConclusion: 介入时机是联邦强化学习序贯鲁棒性的一个独立维度，稀疏、状态感知的介入即可在远低于稠密投毒的干预预算下达成攻击效果。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "联邦强化学习中，攻击的介入时机本身是一个独立维度：在恶意更新构造固定时，改变被干预的轨迹状态会实质改变攻击效果。据此提出 V-BSA，用局部策略不确定性挑选稀疏介入状态并施加包络约束的行为引导，在离散动作基准上以远少于稠密投毒的介入量，对鲁棒聚合器与集成防御造成显著性能下降。",
+        "motivation": "现有投毒攻击关注如何构造恶意更新，而序贯决策中轨迹级介入时机是隐式的；在更新构造固定的前提下，介入状态的选择本身就会改变后续轨迹与学习信号，从而影响攻击效果。",
+        "method": "V-BSA（Viability-constrained Behavioral Steering Attack）：以局部策略不确定性选择稀疏介入状态，并施加包络约束的行为引导（envelope-constrained behavioral steering）来生成干预，同时保持恶意更新构造固定以隔离时机变量。",
+        "result": "受控实验显示，固定恶意更新构造时改变所选轨迹状态会实质改变攻击效能；在离散动作基准上，V-BSA 仅用稠密投毒所用介入量的一小部分，即对鲁棒聚合器与集成防御造成显著退化，并揭示出随任务与聚合方式变化的边界。",
+        "conclusion": "介入时机是联邦强化学习序贯鲁棒性的一个独立维度，稀疏、状态感知的介入即可在远低于稠密投毒的干预预算下达成攻击效果。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11410",
+      "title": "Cognition-Oriented Emotion Tracing from Causes to Consequences in Real-World Social Scenes",
+      "authors": [
+        "Hao Li",
+        "Jinye Zhang",
+        "Bobo Li",
+        "Mong-Li Lee",
+        "Wynne Hsu",
+        "Zheng Wang",
+        "Hao Fei",
+        "Min Zhang"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2610.11410",
+      "pdf_url": "https://arxiv.org/pdf/2610.11410",
+      "abstract_en": "Affective computing has progressed from categorical emotion recognition to open-ended affective analysis with large multimodal models. Yet affective science describes emotion as an unfolding process shaped by appraisal, regulation, and social interpretation, which remains underexplored computationally. We propose TRACE, a cognition-oriented framework that formalizes an affective episode through three interrelated stages: Condition, Affect, and Effect, integrating observable cues with cognitive factors such as internal stance and regulation of emotional display. Based on this formulation, TRACE-Bench evaluates multimodal models in real-world social scenes through five tasks spanning grounded affect recognition, regulation decoding, cause reasoning, effect reasoning, and full-chain reconstruction, with 3,746 structured question-answer pairs over 646 videos. A matched human-model comparison reveals a substantial performance gap, while affect-specialized models also generally lag behind general-purpose MLLMs. Model outputs show recurring failures, including treating displayed behavior as genuine feeling and fabricating unsupported events during long-chain generation. We further propose TRACER, a cognition-grounded structured reasoning method that couples each inference with explicit premises from factual observations, cognitive appraisals, and established upstream conclusions, forming a traceable graph of intermediate and target conclusions. TRACER outperforms all evaluated model baselines on each of the five tasks. Project page: https://cogaffc.github.io/TRACE",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: TRACE 把情绪事件形式化为 Condition-Affect-Effect 三阶段认知链，并据此构建 TRACE-Bench，用 646 段真实社会场景视频上的 3,746 组结构化问答评测多模态模型的五项任务。人机对比显示模型存在明显差距，且常把外显行为当作真实感受、在长链生成中编造无据事件；配套的 TRACER 结构化推理方法在全部五项任务上超过所有被评基线。\nMotivation: 情感计算已从类别式情绪识别走向开放式多模态分析，但情绪作为受评价、调节与社会解释影响的展开过程，在计算建模上仍被忽视，模型难以沿因果链追踪情绪的起因与后果。\nMethod: TRACE 用 Condition、Affect、Effect 三阶段刻画一次情绪事件，把可观测线索与内在立场、情绪表露调节等认知因素结合；TRACE-Bench 覆盖落地情感识别、调节解码、原因推理、结果推理与全链重建五项任务。TRACER 则把每次推理与事实观察、认知评价、上游已得结论三类显式前提耦合，构成可追溯的中间结论与目标结论图。\nResult: TRACE-Bench 含 3,746 组结构化问答、646 段视频、五项任务；人机对比显示模型有显著性能差距，情感专用模型总体也落后于通用 MLLM；TRACER 在全部五项任务上均超过所有被评模型基线。\nConclusion: 把情绪当作带认知前提的因果链来推理，比直接输出情感标签更能支撑可追溯的长链推断，而把外显行为等同真实感受是当前模型的反复失败模式。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "TRACE 把情绪事件形式化为 Condition-Affect-Effect 三阶段认知链，并据此构建 TRACE-Bench，用 646 段真实社会场景视频上的 3,746 组结构化问答评测多模态模型的五项任务。人机对比显示模型存在明显差距，且常把外显行为当作真实感受、在长链生成中编造无据事件；配套的 TRACER 结构化推理方法在全部五项任务上超过所有被评基线。",
+        "motivation": "情感计算已从类别式情绪识别走向开放式多模态分析，但情绪作为受评价、调节与社会解释影响的展开过程，在计算建模上仍被忽视，模型难以沿因果链追踪情绪的起因与后果。",
+        "method": "TRACE 用 Condition、Affect、Effect 三阶段刻画一次情绪事件，把可观测线索与内在立场、情绪表露调节等认知因素结合；TRACE-Bench 覆盖落地情感识别、调节解码、原因推理、结果推理与全链重建五项任务。TRACER 则把每次推理与事实观察、认知评价、上游已得结论三类显式前提耦合，构成可追溯的中间结论与目标结论图。",
+        "result": "TRACE-Bench 含 3,746 组结构化问答、646 段视频、五项任务；人机对比显示模型有显著性能差距，情感专用模型总体也落后于通用 MLLM；TRACER 在全部五项任务上均超过所有被评模型基线。",
+        "conclusion": "把情绪当作带认知前提的因果链来推理，比直接输出情感标签更能支撑可追溯的长链推断，而把外显行为等同真实感受是当前模型的反复失败模式。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11399",
+      "title": "Estimating Great Expectations Under Autoregressive Language Models with Potentials",
+      "authors": [
+        "Francesco I. Re",
+        "Shubhangi Ghosh",
+        "Tim Vieira",
+        "Ryan Cotterell"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "stat.ME"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2610.11399",
+      "pdf_url": "https://arxiv.org/pdf/2610.11399",
+      "abstract_en": "Many applications of language models hinge not on individual samples but on the expectation of a test functional under the model. Estimating such expectations reliably can be computationally expensive. In this paper, we show how to make estimation more efficient by exploiting the next-token conditional probabilities which are available as a by-product of sampling. We do so through potentials: real-valued functions on prefixes that decompose the test functional additively. We construct an estimator whose variance depends on the chosen potential, and derive conditions under which a potential reduces this variance. We then develop practical potentials for several estimands and applications, and demonstrate substantial variance reductions across several estimands at comparable computational cost.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 针对自回归语言模型下测试泛函期望的蒙特卡洛估计，提出势函数 (potentials) 方法：把泛函在前缀上作加性分解，利用采样顺带得到的 next-token 条件概率构造估计量，其方差由所选势决定，并给出势能降低方差的条件。对多种 estimand 构造实用势后，在相近计算成本下取得显著方差下降。\nMotivation: 许多语言模型应用关心的不是单个样本而是测试泛函在模型下的期望，直接采样估计计算代价高；而采样过程中 next-token 条件概率本就免费可得，此前未被用于降方差。\nMethod: 定义前缀上的实值势函数，使测试泛函可加性分解；据此构造方差依赖于势的估计量，并推导势降低方差的充分条件；再针对若干 estimand 与应用场景设计具体势函数。\nResult: 在多个 estimand 上，所构造的势在可比计算成本下带来 substantial variance reductions（摘要未给出具体数值）。\nConclusion: 利用采样自带的 next-token 条件概率设计势函数，可以在不增加计算成本的前提下显著降低自回归语言模型期望估计的方差。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "针对自回归语言模型下测试泛函期望的蒙特卡洛估计，提出势函数 (potentials) 方法：把泛函在前缀上作加性分解，利用采样顺带得到的 next-token 条件概率构造估计量，其方差由所选势决定，并给出势能降低方差的条件。对多种 estimand 构造实用势后，在相近计算成本下取得显著方差下降。",
+        "motivation": "许多语言模型应用关心的不是单个样本而是测试泛函在模型下的期望，直接采样估计计算代价高；而采样过程中 next-token 条件概率本就免费可得，此前未被用于降方差。",
+        "method": "定义前缀上的实值势函数，使测试泛函可加性分解；据此构造方差依赖于势的估计量，并推导势降低方差的充分条件；再针对若干 estimand 与应用场景设计具体势函数。",
+        "result": "在多个 estimand 上，所构造的势在可比计算成本下带来 substantial variance reductions（摘要未给出具体数值）。",
+        "conclusion": "利用采样自带的 next-token 条件概率设计势函数，可以在不增加计算成本的前提下显著降低自回归语言模型期望估计的方差。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11392",
+      "title": "TypedBench: A Benchmark for Calibration, Framing Sensitivity, and Cost in System One Decision Models",
+      "authors": [
+        "Rahul Sharma",
+        "Andrew B. Duncan",
+        "Gaétan Marceau Caron",
+        "Sebastian J. Vollmer"
+      ],
+      "categories": [
+        "cs.AI",
+        "stat.AP"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2610.11392",
+      "pdf_url": "https://arxiv.org/pdf/2610.11392",
+      "abstract_en": "System One models output calibrated probabilities over typed answers such as categorical choices, ordinal levels, or binary outcomes, via a non-generative interface. Software can act on these probabilities through thresholds, cost-weighted choices, and escalation rules. Consequently, if these probabilities are miscalibrated or wording-sensitive, the software ma take unintended actions leaving human operators with no textual rationale to inspect. Current evaluations largely report accuracy and calibration on public classification datasets without a clear reference. We present TypedBench, a benchmark for typed decision models like Jev built from seven policy-labelled generators and nine evaluation suites. We report accuracy as median and range across paraphrases, and calibration error relative to the finite-sample noise floor of a matched, perfectly calibrated predictor. We assess probability quality through selective prediction, ordinal proper scoring rules, and realised cost under asymmetric cost matrices. We evaluate a hosted model, an open encoder, and a family of open decoders spanning 0.8B-9B parameters on identical items. The hosted model follows the stated policy but is wording-sensitive and systematically underconfident; under asymmetric costs, using its probabilities can be worse than taking its top answer. Decoders route exactly and are slow as options or questions are added. The decoder is least accurate on policy questions and degrades with more options. Overall, typed decision models must be evaluated jointly on policy adherence, wording robustness, probability quality, and induced decision outcomes.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: TypedBench 是面向 System One 类型化决策模型的基准，用七个带策略标注的生成器和九个评测套件，联合考察策略遵循、措辞鲁棒性、概率质量与决策代价。结果显示托管模型遵循给定策略但对措辞敏感且系统性低自信，在非对称代价下直接用其概率可能比取其 top-1 答案更差；开放解码器（0.8B–9B）路由完全正确但随选项或问题增加变慢，且在策略类问题上最不准、随选项增多而退化。\nMotivation: System One 模型输出可被软件按阈值、代价加权和升级规则直接执行的概率，一旦概率失准或对措辞敏感，软件会做出非预期动作且不留下可供人工检查的文字理由；现有评测只在公开分类数据集上报准确率与校准，缺少参照基准。\nMethod: TypedBench 由七个带策略标注的生成器 (policy-labelled generators) 和九个评测套件构成；准确率按不同改写 (paraphrase) 的中位数与范围报告，校准误差以匹配的完美校准预测器的有限样本噪声下限为参照；概率质量用 selective prediction、序数 proper scoring rule 与非对称代价矩阵下的实际代价评估；在相同题目上评测一个托管模型、一个开放编码器和一族 0.8B–9B 开放解码器（如 Jev）。\nResult: 托管模型遵循所述策略但对措辞敏感并系统性低自信，在非对称代价下使用其概率可能比直接取 top-1 答案更差；解码器路由完全正确，但随选项或问题增多而变慢，其中最小的解码器在策略类问题上准确率最低，并随选项数增加而退化。\nConclusion: 类型化决策模型必须在策略遵循、措辞鲁棒性、概率质量和诱导的决策结果四个维度上联合评测，单看准确率与校准不足以判断其可部署性。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "TypedBench 是面向 System One 类型化决策模型的基准，用七个带策略标注的生成器和九个评测套件，联合考察策略遵循、措辞鲁棒性、概率质量与决策代价。结果显示托管模型遵循给定策略但对措辞敏感且系统性低自信，在非对称代价下直接用其概率可能比取其 top-1 答案更差；开放解码器（0.8B–9B）路由完全正确但随选项或问题增加变慢，且在策略类问题上最不准、随选项增多而退化。",
+        "motivation": "System One 模型输出可被软件按阈值、代价加权和升级规则直接执行的概率，一旦概率失准或对措辞敏感，软件会做出非预期动作且不留下可供人工检查的文字理由；现有评测只在公开分类数据集上报准确率与校准，缺少参照基准。",
+        "method": "TypedBench 由七个带策略标注的生成器 (policy-labelled generators) 和九个评测套件构成；准确率按不同改写 (paraphrase) 的中位数与范围报告，校准误差以匹配的完美校准预测器的有限样本噪声下限为参照；概率质量用 selective prediction、序数 proper scoring rule 与非对称代价矩阵下的实际代价评估；在相同题目上评测一个托管模型、一个开放编码器和一族 0.8B–9B 开放解码器（如 Jev）。",
+        "result": "托管模型遵循所述策略但对措辞敏感并系统性低自信，在非对称代价下使用其概率可能比直接取 top-1 答案更差；解码器路由完全正确，但随选项或问题增多而变慢，其中最小的解码器在策略类问题上准确率最低，并随选项数增加而退化。",
+        "conclusion": "类型化决策模型必须在策略遵循、措辞鲁棒性、概率质量和诱导的决策结果四个维度上联合评测，单看准确率与校准不足以判断其可部署性。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11374",
+      "title": "Rethinking Contrastive Loss in CLIP Post-training: A Complementary Framework with Frozen Text Encoder",
+      "authors": [
+        "Zidan Wang",
+        "Yaqian Li",
+        "Xiaokai Zhang",
+        "Kaiwen Long",
+        "Kun He",
+        "Hanpeng Liu"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.11374",
+      "pdf_url": "https://arxiv.org/pdf/2610.11374",
+      "abstract_en": "CLIP serves as a foundational vision-language model and the de facto vision encoder for downstream VLMs such as LLaVA. Post-training offers a lightweight route to refine CLIP, but recent work argues that the standard contrastive loss is unsuitable for post-training due to catastrophic forgetting under small batches, motivating designs that abandon the contrastive objective in favor of distillation. We revisit this premise and find that, for the InfoNCE objective, the reported forgetting is driven primarily not by insufficient negatives but by an inappropriate magnitude of the contrastive temperature $τ$: with $τ$ set sufficiently small, contrastive post-training improves rather than degrades the pretrained CLIP, which we explain through the temperature dependence of the InfoNCE gradient. Building on this finding, we propose \\textbf{ComCLIP}, a lightweight single-epoch post-training recipe that freezes CLIP's text encoder---so the refined vision encoder is a drop-in replacement with unchanged architecture and inference cost---and trains the vision encoder with a properly-tempered contrastive loss, an MSE anchoring loss against the original CLIP, and a relational distillation loss from DINOv2. Over multiple seeds, ComCLIP matches the self-distillation baseline CLIP-Refine on zero-shot classification while significantly improving the transferability of visual features, measured by linear probing ($48.99$ vs.\\ $42.28$ on ViT-B/16), and on ViT-L/14 it also improves MMVP over CLIP-Refine ($24.20$ vs.\\ $19.01$); CLIP-Refine remains stronger on image-text retrieval. Used as a drop-in vision encoder for LLaVA-1.5-7B without re-aligning the projector or LLM, ComCLIP yields no net change across $8$ VLM benchmarks, i.e., the refinement does not break downstream compatibility. Code and models are available at https://github.com/showstarpro/ComCLIP.git.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: ComCLIP 重新审视 CLIP 后训练中的对比损失：小批量下的灾难性遗忘主因不是负样本不足，而是温度 τ 设置不当；τ 足够小时对比后训练反而提升预训练 CLIP。配方冻结文本编码器，用调好温度的对比损失加 MSE 锚定与 DINOv2 关系蒸馏，单 epoch 训练视觉编码器，线性探测 48.99 vs 42.28（ViT-B/16，对比 CLIP-Refine）。\nMotivation: 近期工作认为小批量下标准对比损失会导致灾难性遗忘，主张放弃对比目标改用蒸馏；作者质疑这一前提，指出被归咎于负样本不足的现象其实源于温度 τ 的量级不当。\nMethod: ComCLIP 冻结 CLIP 文本编码器，使精炼后的视觉编码器成为架构与推理成本不变的 drop-in 替换；训练视觉编码器时使用恰当温度的对比损失、对原始 CLIP 的 MSE 锚定损失，以及来自 DINOv2 的关系蒸馏损失，单 epoch 完成。作者用 InfoNCE 梯度对温度的依赖解释该现象。\nResult: 多随机种子下，ComCLIP 在零样本分类上匹配自蒸馏基线 CLIP-Refine，同时显著提升视觉特征可迁移性：线性探测 ViT-B/16 上 48.99 vs 42.28；ViT-L/14 上 MMVP 24.20 vs 19.01，而 CLIP-Refine 在图文检索上仍更强。作为 drop-in 视觉编码器接入 LLaVA-1.5-7B（不重新对齐 projector 或 LLM），在 8 个 VLM 基准上无净变化。\nConclusion: 对比后训练的遗忘可由温度调节解决，无需放弃对比目标；冻结文本编码器的精炼视觉编码器能保持下游 VLM 兼容性，但图文检索上自蒸馏仍占优。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "ComCLIP 重新审视 CLIP 后训练中的对比损失：小批量下的灾难性遗忘主因不是负样本不足，而是温度 τ 设置不当；τ 足够小时对比后训练反而提升预训练 CLIP。配方冻结文本编码器，用调好温度的对比损失加 MSE 锚定与 DINOv2 关系蒸馏，单 epoch 训练视觉编码器，线性探测 48.99 vs 42.28（ViT-B/16，对比 CLIP-Refine）。",
+        "motivation": "近期工作认为小批量下标准对比损失会导致灾难性遗忘，主张放弃对比目标改用蒸馏；作者质疑这一前提，指出被归咎于负样本不足的现象其实源于温度 τ 的量级不当。",
+        "method": "ComCLIP 冻结 CLIP 文本编码器，使精炼后的视觉编码器成为架构与推理成本不变的 drop-in 替换；训练视觉编码器时使用恰当温度的对比损失、对原始 CLIP 的 MSE 锚定损失，以及来自 DINOv2 的关系蒸馏损失，单 epoch 完成。作者用 InfoNCE 梯度对温度的依赖解释该现象。",
+        "result": "多随机种子下，ComCLIP 在零样本分类上匹配自蒸馏基线 CLIP-Refine，同时显著提升视觉特征可迁移性：线性探测 ViT-B/16 上 48.99 vs 42.28；ViT-L/14 上 MMVP 24.20 vs 19.01，而 CLIP-Refine 在图文检索上仍更强。作为 drop-in 视觉编码器接入 LLaVA-1.5-7B（不重新对齐 projector 或 LLM），在 8 个 VLM 基准上无净变化。",
+        "conclusion": "对比后训练的遗忘可由温度调节解决，无需放弃对比目标；冻结文本编码器的精炼视觉编码器能保持下游 VLM 兼容性，但图文检索上自蒸馏仍占优。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11315",
+      "title": "Deflating the Hessian: Rank-4 W4A4 Quantization for Multimodal Diffusion Transformers",
+      "authors": [
+        "Shiwen Wang",
+        "Pengxiang Zhao",
+        "Xiaoming Yuan"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "math.OC"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2610.11315",
+      "pdf_url": "https://arxiv.org/pdf/2610.11315",
+      "abstract_en": "In diffusion transformers, low-rank branches can mitigate 4-bit weight--activation (W4A4) post-training quantization (PTQ) loss by decomposing each weight into a low-bit residual and a high-precision low-rank component. Existing low-rank PTQ approaches, however, either optimize low-rank compensation and residual quantization separately, often requiring higher ranks, or rely on second-order weight updates without explicitly modeling activation quantization error, which becomes particularly pronounced under 4-bit quantization. To address these limitations, we present HSVDQuant, a unified framework modeling low-rank-assisted W4A4 PTQ as a coupled calibration problem and deriving optimization-based solvers from the joint objective. Eliminating the output-side low-rank factor yields a deflated Hessian that discounts residual errors already captured by the low-rank component, while an activation-noise surrogate is incorporated to suppress activation quantization error. Across five diffusion backbones, rank-4 HSVDQuant consistently outperforms rank-4 SVDQuant in PSNR and LPIPS. It further surpasses rank-32 SVDQuant on SANA-1.6B, FLUX.1-schnell, and FLUX.1-dev with an $8\\times$ smaller rank and up to $6.25\\times$ faster quantization. Furthermore, on the Qwen3-8B LLM, rank-4 HSVDQuant improves MMLU accuracy from 61.50% to 68.17% over rank-32 SVDQuant. Overall, HSVDQuant achieves better W4A4 performance with substantially lower rank and quantization cost.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: HSVDQuant 把多模态扩散 Transformer 的低秩辅助 W4A4 PTQ 统一成耦合标定问题：消去输出侧低秩因子得到 deflate 后的 Hessian（折扣已被低秩分量吸收的残差误差），并加入激活噪声代理项抑制 4-bit 激活量化误差。秩 4 即在五个扩散骨干上 PSNR 与 LPIPS 全面超过秩 4 SVDQuant，并在 SANA-1.6B、FLUX.1-schnell、FLUX.1-dev 上以 8 倍更小的秩超过秩 32 SVDQuant，量化速度最高快 6.25 倍。\nMotivation: 现有低秩 PTQ 要么把低秩补偿与残差量化分开优化、往往需要更高秩，要么只用二阶权重更新而不显式建模激活量化误差，而后者在 4-bit 下尤其严重。\nMethod: HSVDQuant 将低秩辅助 W4A4 PTQ 建模为耦合标定问题，从联合目标导出基于优化的求解器；消去输出侧低秩因子得到 deflate Hessian，使其对残差误差打折，并引入激活噪声代理项 (activation-noise surrogate) 联合抑制激活量化误差。\nResult: 在五个扩散骨干上，秩 4 HSVDQuant 的 PSNR 与 LPIPS 一致优于秩 4 SVDQuant；在 SANA-1.6B、FLUX.1-schnell、FLUX.1-dev 上以 8 倍更小的秩超过秩 32 SVDQuant，量化速度最高快 6.25 倍；在 Qwen3-8B LLM 上，秩 4 HSVDQuant 相对秩 32 SVDQuant 把 MMLU 准确率从 61.50% 提到 68.17%。\nConclusion: 把低秩分量与残差/激活量化放进同一个联合目标并用 deflate Hessian 求解，可以用低得多的秩和量化成本取得更好的 W4A4 性能。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "HSVDQuant 把多模态扩散 Transformer 的低秩辅助 W4A4 PTQ 统一成耦合标定问题：消去输出侧低秩因子得到 deflate 后的 Hessian（折扣已被低秩分量吸收的残差误差），并加入激活噪声代理项抑制 4-bit 激活量化误差。秩 4 即在五个扩散骨干上 PSNR 与 LPIPS 全面超过秩 4 SVDQuant，并在 SANA-1.6B、FLUX.1-schnell、FLUX.1-dev 上以 8 倍更小的秩超过秩 32 SVDQuant，量化速度最高快 6.25 倍。",
+        "motivation": "现有低秩 PTQ 要么把低秩补偿与残差量化分开优化、往往需要更高秩，要么只用二阶权重更新而不显式建模激活量化误差，而后者在 4-bit 下尤其严重。",
+        "method": "HSVDQuant 将低秩辅助 W4A4 PTQ 建模为耦合标定问题，从联合目标导出基于优化的求解器；消去输出侧低秩因子得到 deflate Hessian，使其对残差误差打折，并引入激活噪声代理项 (activation-noise surrogate) 联合抑制激活量化误差。",
+        "result": "在五个扩散骨干上，秩 4 HSVDQuant 的 PSNR 与 LPIPS 一致优于秩 4 SVDQuant；在 SANA-1.6B、FLUX.1-schnell、FLUX.1-dev 上以 8 倍更小的秩超过秩 32 SVDQuant，量化速度最高快 6.25 倍；在 Qwen3-8B LLM 上，秩 4 HSVDQuant 相对秩 32 SVDQuant 把 MMLU 准确率从 61.50% 提到 68.17%。",
+        "conclusion": "把低秩分量与残差/激活量化放进同一个联合目标并用 deflate Hessian 求解，可以用低得多的秩和量化成本取得更好的 W4A4 性能。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11205",
+      "title": "Dissecting Representation Structure in Vision Transformers: A Rigorous Architectural Study",
+      "authors": [
+        "Kim-Cuc Nguyen",
+        "Ngai-Man Cheung"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.11205",
+      "pdf_url": "https://arxiv.org/pdf/2610.11205",
+      "abstract_en": "Representation structure is crucial for understanding Vision Transformer (ViT) architectures and their generalization behavior. However, prior studies neither isolate nor analyze module-level features nor investigate how their interactions contribute to performance estimation. In this work, we conduct the first rigorous analysis of feature information across diverse architectural scales, empirically uncover the relationship between ViT representation and generalization behavior, and leverage these insights to guide efficient ViT design. Our contributions are fivefold: Across diverse architectural scales, 1) We identify feature collapse at initialization, which leads to redundancy, and propose a reduction scheme to mitigate this issue. 2) We quantify feature information using entropy and the minimum eigenvalue, demonstrating that these metrics serve as reliable indicators for generalization prediction. 3) We show that feature in the token space provides a more faithful representation than those in embedding space. 4) We discover an unexpected finding: features produced by linear submodules within ViT layers are critical for the prediction of generalization performance. 5) Our proposed proxy improves the correlation ranking by 18-48% over prior baselines and can effectively identify ViT architectures that achieve higher accuracy at lower or comparable computational cost.",
+      "comment": "Accepted in IEEE VCIP 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 对 Vision Transformer 做模块级表征结构解剖：用熵与最小特征值量化特征信息，发现初始化时的特征坍缩导致冗余并给出缓解方案，且 token 空间特征比 embedding 空间更能忠实表征泛化。所提 proxy 使相关性排序比既有基线提升 18–48%，可识别出在更低或相当计算成本下取得更高精度的 ViT 架构。\nMotivation: 既往 ViT 表征研究既不隔离模块级特征，也不分析这些特征的交互如何影响性能估计，导致无法用表征信号可靠预测泛化并指导高效架构设计。\nMethod: 在多种架构尺度上分析特征信息，提出针对初始化特征坍缩的 reduction scheme；用熵与最小特征值 (minimum eigenvalue) 量化特征信息作为泛化预测指标，并比较 token 空间与 embedding 空间的表征，重点考察层内线性子模块产生的特征。\nResult: 所提 proxy 的 correlation ranking 相对 prior baselines 提升 18–48%；识别出的 ViT 架构在更低或相当计算成本下达到更高精度；并给出初始化特征坍缩导致冗余、token 空间特征比 embedding 空间更忠实、线性子模块特征对泛化预测关键这三项定性发现。\nConclusion: 模块级特征信息（尤其线性子模块输出）可作为泛化性能的可靠预测信号，据此设计的 proxy 能在控制计算成本的前提下筛选更准的 ViT 架构。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "对 Vision Transformer 做模块级表征结构解剖：用熵与最小特征值量化特征信息，发现初始化时的特征坍缩导致冗余并给出缓解方案，且 token 空间特征比 embedding 空间更能忠实表征泛化。所提 proxy 使相关性排序比既有基线提升 18–48%，可识别出在更低或相当计算成本下取得更高精度的 ViT 架构。",
+        "motivation": "既往 ViT 表征研究既不隔离模块级特征，也不分析这些特征的交互如何影响性能估计，导致无法用表征信号可靠预测泛化并指导高效架构设计。",
+        "method": "在多种架构尺度上分析特征信息，提出针对初始化特征坍缩的 reduction scheme；用熵与最小特征值 (minimum eigenvalue) 量化特征信息作为泛化预测指标，并比较 token 空间与 embedding 空间的表征，重点考察层内线性子模块产生的特征。",
+        "result": "所提 proxy 的 correlation ranking 相对 prior baselines 提升 18–48%；识别出的 ViT 架构在更低或相当计算成本下达到更高精度；并给出初始化特征坍缩导致冗余、token 空间特征比 embedding 空间更忠实、线性子模块特征对泛化预测关键这三项定性发现。",
+        "conclusion": "模块级特征信息（尤其线性子模块输出）可作为泛化性能的可靠预测信号，据此设计的 proxy 能在控制计算成本的前提下筛选更准的 ViT 架构。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11175",
+      "title": "Higher-Order Action Supervision Makes A Strong Policy Class",
+      "authors": [
+        "Peng Cheng",
+        "Yunxian Hou",
+        "Zhi Zhou",
+        "Qian Zhang",
+        "Chang Huang",
+        "Xianyuan Zhan"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2610.11175",
+      "pdf_url": "https://arxiv.org/pdf/2610.11175",
+      "abstract_en": "Modern data-driven decision-making methods, such as imitation learning (IL) and reinforcement learning (RL), have achieved great success in solving many complex tasks. However, these methods often suffer from serious control instability and robustness issues when applied in real-world applications such as robotics and autonomous driving, posing notable challenges for their practical deployment. We argue that this instability issue stems largely from their limitations in solely supervising and optimizing zeroth-order actions (i.e., the action labels), failing to account for higher-order action dynamics and temporal consistency. In this paper, we show that simultaneously supervising both zeroth- and first-order actions can dramatically enhance policies' performance and control robustness. To achieve this, we introduce a novel and elegant loss scheme supported by formal theoretical guarantees that can equip any off-the-shelf policy model (e.g., deterministic, stochastic, or flow policies) with the capability for higher-order action supervision, without requiring any structural modifications. Moreover, our proposed method can serve as a lightweight plug-and-play module that seamlessly integrates with a broad spectrum of existing offline RL frameworks. Extensive evaluations on OGBench and D4RL demonstrate that our approach yields substantial performance and robustness improvements across a wide range of continuous control environments. Notably, our method can also enhance policies' out-of-distribution (OOD) generalization capability in the challenging low-data regime, making it an ideal tool in tackling many real-world control problems.",
+      "comment": "27 pages, 7 figures. Accepted at NeurIPS 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 该文指出模仿学习与强化学习的控制不稳源于只监督零阶动作（动作标签），提出一种带形式化理论保证的损失方案，可同时监督零阶与一阶动作，且无需改动策略结构即可套用到确定性、随机或 flow 策略，并作为即插即用模块接入多种离线 RL 框架。在 OGBench 与 D4RL 的连续控制评测中，该方案在性能与鲁棒性上均有实质提升，并改善低数据 regime 下的 OOD 泛化。\nMotivation: IL/RL 策略部署到机器人、自动驾驶等真实系统时控制不稳定、鲁棒性差，作者归因于只优化零阶动作标签而忽略高阶动作动态与时间一致性。\nMethod: 提出同时监督零阶与一阶动作的损失方案，带形式化理论保证，可无结构改动地装备任意现成策略模型（deterministic、stochastic、flow policy），并作为轻量 plug-and-play 模块接入广泛的离线 RL 框架。\nResult: 在 OGBench 与 D4RL 上的广泛连续控制环境中，方法带来实质性的性能与鲁棒性提升；在低数据 regime 下还增强了策略的 out-of-distribution (OOD) 泛化能力。\nConclusion: 同时监督零阶与一阶动作能显著增强策略性能与控制鲁棒性，且无需修改策略结构即可作为通用插件用于离线 RL，适合真实控制问题。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "该文指出模仿学习与强化学习的控制不稳源于只监督零阶动作（动作标签），提出一种带形式化理论保证的损失方案，可同时监督零阶与一阶动作，且无需改动策略结构即可套用到确定性、随机或 flow 策略，并作为即插即用模块接入多种离线 RL 框架。在 OGBench 与 D4RL 的连续控制评测中，该方案在性能与鲁棒性上均有实质提升，并改善低数据 regime 下的 OOD 泛化。",
+        "motivation": "IL/RL 策略部署到机器人、自动驾驶等真实系统时控制不稳定、鲁棒性差，作者归因于只优化零阶动作标签而忽略高阶动作动态与时间一致性。",
+        "method": "提出同时监督零阶与一阶动作的损失方案，带形式化理论保证，可无结构改动地装备任意现成策略模型（deterministic、stochastic、flow policy），并作为轻量 plug-and-play 模块接入广泛的离线 RL 框架。",
+        "result": "在 OGBench 与 D4RL 上的广泛连续控制环境中，方法带来实质性的性能与鲁棒性提升；在低数据 regime 下还增强了策略的 out-of-distribution (OOD) 泛化能力。",
+        "conclusion": "同时监督零阶与一阶动作能显著增强策略性能与控制鲁棒性，且无需修改策略结构即可作为通用插件用于离线 RL，适合真实控制问题。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11146",
+      "title": "When Do External Priors Help Low-Resource Structured Prediction? A Ranking-Level Alignment Study",
+      "authors": [
+        "Qiye Lu",
+        "Jiang Ji",
+        "Liang Zhang"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2610.11146",
+      "pdf_url": "https://arxiv.org/pdf/2610.11146",
+      "abstract_en": "Cold-start credit scoring (scarce labels, immature features, or minimal capacity) motivates injecting external priors (teacher models, LLMs, or domain experts) into training. We study Ranking Prior Alignment (RPA), a model-agnostic objective that aligns a model's ranking distribution to an external prior via a temperature-scaled KL loss with an annealed weight, $\\mathcal{L} = \\mathcal{L}_{\\text{task}} + γ(t)\\,\\text{KL}(P_{\\text{agent}} \\| P_{\\text{model}})$, and requires no external model at inference. Across tree-ensemble and multiple-instance-learning (MIL) instantiations on the public Amex dataset and an industrial merchant-credit dataset (1.5M+ merchants), we ask when such priors genuinely transfer information rather than merely act as a regularizer. Our central finding: the prior's quality $π$ (its rank correlation with the label) governs transfer only when the alignment granularity matches the granularity at which $π$ is measured. On cross-sample tree alignment (Amex), a high-$π$ teacher yields $+0.028$ AUC over the no-alignment baseline (paired bootstrap 95% CI $[0.022, 0.035]$) whereas zero-information priors (uniform, random) yield none, and $Δ$AUC tracks $π$ (XGBoost Pearson $r = 0.985$); this replicates on a second public dataset (LendingClub). On within-bag MIL-attention alignment, the same high-$π$ teacher transfers nothing: it is significantly worse than its own within-bag shuffle (net $-0.017$, 95% CI $< 0$, sign $p = 0.021$ over 10 seeds), while zero-information priors give the only significant gains: the KL term collapses to pure entropy regularization. We distill these results into a two-factor $N \\cdot \\mathcal{C}$ decision rule (gains concentrate at low sample size and capacity and vanish as either grows) and a scale-controlled paired protocol that separates information transfer from regularization.",
+      "comment": "11 pages, 5 figures, 16 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 提出排序先验对齐 (Ranking Prior Alignment, RPA)：用温度缩放 KL 损失加退火权重把模型排序分布对齐到外部先验，推理时不需要外部模型。核心发现是先验质量 π 只有在对齐粒度与 π 的测量粒度一致时才决定信息迁移：Amex 跨样本树对齐上高 π 教师 +0.028 AUC，而 within-bag MIL 注意力对齐上同一教师反而净损 -0.017。\nMotivation: 冷启动信用评分中标签稀缺、特征不成熟或模型容量极小，注入教师模型、LLM 或领域专家先验很常见，但缺少判据区分先验究竟迁移了信息还是只起了正则作用。\nMethod: RPA 目标为 L = L_task + γ(t)·KL(P_agent || P_model)，温度缩放加退火权重 γ(t)，模型无关且推理不依赖外部模型；在树集成与多示例学习 (MIL) 两种实例化上，用 Amex 公开数据、工业商户信用数据 (150 万+ 商户) 与 LendingClub 复现，并设计尺度受控的配对协议分离信息迁移与正则化。\nResult: Amex 跨样本树对齐中高 π 教师相对无对齐基线 +0.028 AUC（配对 bootstrap 95% CI [0.022, 0.035]），零信息先验（uniform、random）无增益，ΔAUC 与 π 的 Pearson r = 0.985（XGBoost），并在 LendingClub 复现。within-bag MIL 注意力对齐中同一高 π 教师显著差于其自身 within-bag shuffle（净 -0.017，95% CI < 0，10 个种子符号检验 p = 0.021），而零信息先验带来唯一显著增益，此时 KL 项退化为纯熵正则。\nConclusion: 作者给出两因子 N·C 决策规则：增益集中在小样本量与低容量处，任一增大即消失；判断先验是否真迁移信息必须让对齐粒度与 π 的测量粒度匹配，并用尺度受控配对协议把信息迁移与正则化分开。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "提出排序先验对齐 (Ranking Prior Alignment, RPA)：用温度缩放 KL 损失加退火权重把模型排序分布对齐到外部先验，推理时不需要外部模型。核心发现是先验质量 π 只有在对齐粒度与 π 的测量粒度一致时才决定信息迁移：Amex 跨样本树对齐上高 π 教师 +0.028 AUC，而 within-bag MIL 注意力对齐上同一教师反而净损 -0.017。",
+        "motivation": "冷启动信用评分中标签稀缺、特征不成熟或模型容量极小，注入教师模型、LLM 或领域专家先验很常见，但缺少判据区分先验究竟迁移了信息还是只起了正则作用。",
+        "method": "RPA 目标为 L = L_task + γ(t)·KL(P_agent || P_model)，温度缩放加退火权重 γ(t)，模型无关且推理不依赖外部模型；在树集成与多示例学习 (MIL) 两种实例化上，用 Amex 公开数据、工业商户信用数据 (150 万+ 商户) 与 LendingClub 复现，并设计尺度受控的配对协议分离信息迁移与正则化。",
+        "result": "Amex 跨样本树对齐中高 π 教师相对无对齐基线 +0.028 AUC（配对 bootstrap 95% CI [0.022, 0.035]），零信息先验（uniform、random）无增益，ΔAUC 与 π 的 Pearson r = 0.985（XGBoost），并在 LendingClub 复现。within-bag MIL 注意力对齐中同一高 π 教师显著差于其自身 within-bag shuffle（净 -0.017，95% CI < 0，10 个种子符号检验 p = 0.021），而零信息先验带来唯一显著增益，此时 KL 项退化为纯熵正则。",
+        "conclusion": "作者给出两因子 N·C 决策规则：增益集中在小样本量与低容量处，任一增大即消失；判断先验是否真迁移信息必须让对齐粒度与 π 的测量粒度匹配，并用尺度受控配对协议把信息迁移与正则化分开。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11115",
+      "title": "Dynamics as Code: On Model Compression via Dynamic System",
+      "authors": [
+        "Fan Gao",
+        "Wei Su",
+        "Juntong Fan",
+        "Renfeng Peng",
+        "Hongyu Liu",
+        "Jinqiao Duan",
+        "Feng-Lei Fan"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2610.11115",
+      "pdf_url": "https://arxiv.org/pdf/2610.11115",
+      "abstract_en": "The escalating size of pretrained neural networks has rendered model compression a prerequisite for deployment under stringent memory and compute constraints. With the irrational winding as an example, earlier work introduced a dynamic system (DS) paradigm that reconceptualizes compression as compact weight representation: high-dimensional parameters are encoded by the index of a trajectory produced by a dynamic system, from which the vector is recovered during decompression. This mechanism is fundamentally distinct from pruning, quantization, knowledge distillation, and low-rank decomposition. Along this direction, we prove that under a Diophantine condition, a finite trajectory of \\(M = O(ε^{-(d+ν)})\\) states in the irrational winding constitutes an \\(ε\\)-net over the \\(d\\)-dimensional weight space, thereby linking state resolution, decompression error, and compression ratio in a predictable manner. Furthermore, we propose a generalized DS-based model compression framework by unifying four DS families---space-filling curves (Hilbert, Peano, Morton/Z-order, Snake), chaotic systems (Lorenz), congruential and pseudo-random generators (LCG, PCG), and low-discrepancy sequences (Halton). Also, we introduce the KD-tree and coordinate-template acceleration to scale to large models as well as outlier identification to control the error. Experiments on ResNet-18 and Qwen2.5-1.5B/Qwen1.5-7B validate that DS-based compression achieves competitive compression ratios without post-hoc retraining, with controllable decompression error and flexible state-space design, establishing it as a principled and practical compression approach.",
+      "comment": "17 pages including supplementary material",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 把模型压缩重述为动态系统 (DS) 轨迹索引的紧凑权重表示：证明在 Diophantine 条件下 irrational winding 的 M = O(ε^{-(d+ν)}) 个状态构成 d 维权重空间的 ε-网，把状态分辨率、解压误差与压缩比连成可预测关系。统一四类 DS（空间填充曲线、混沌系统、同余/伪随机发生器、低差异序列）并加 KD-tree 与坐标模板加速、离群点识别控误差，在 ResNet-18 与 Qwen2.5-1.5B/Qwen1.5-7B 上以可控解压误差取得有竞争力的压缩比，且无需事后重训练。\nMotivation: 预训练网络规模膨胀，部署受内存与算力约束；剪枝、量化、蒸馏、低秩分解之外需要一种把压缩视为权重表示问题的路径，并让解压误差与压缩比可预测。\nMethod: 以 irrational winding 为例，用动态系统轨迹索引编码高维参数、解压时沿轨迹恢复向量；证明 Diophantine 条件下有限轨迹构成 ε-网。框架统一四族 DS：空间填充曲线（Hilbert、Peano、Morton/Z-order、Snake）、混沌系统（Lorenz）、同余与伪随机发生器（LCG、PCG）、低差异序列（Halton），并引入 KD-tree 与坐标模板加速以扩展到大模型，加离群点识别控制误差。\nResult: 理论给出 M = O(ε^{-(d+ν)}) 个状态即构成 d 维权重空间的 ε-网，链接状态分辨率、解压误差与压缩比。在 ResNet-18 与 Qwen2.5-1.5B/Qwen1.5-7B 上验证：无需事后重训练即可达到有竞争力的压缩比，解压误差可控，状态空间设计灵活。\nConclusion: 动态系统轨迹索引是一种有原则且实用的压缩途径，与剪枝、量化、知识蒸馏、低秩分解根本不同，其误差与压缩比由状态分辨率可预测地决定。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "把模型压缩重述为动态系统 (DS) 轨迹索引的紧凑权重表示：证明在 Diophantine 条件下 irrational winding 的 M = O(ε^{-(d+ν)}) 个状态构成 d 维权重空间的 ε-网，把状态分辨率、解压误差与压缩比连成可预测关系。统一四类 DS（空间填充曲线、混沌系统、同余/伪随机发生器、低差异序列）并加 KD-tree 与坐标模板加速、离群点识别控误差，在 ResNet-18 与 Qwen2.5-1.5B/Qwen1.5-7B 上以可控解压误差取得有竞争力的压缩比，且无需事后重训练。",
+        "motivation": "预训练网络规模膨胀，部署受内存与算力约束；剪枝、量化、蒸馏、低秩分解之外需要一种把压缩视为权重表示问题的路径，并让解压误差与压缩比可预测。",
+        "method": "以 irrational winding 为例，用动态系统轨迹索引编码高维参数、解压时沿轨迹恢复向量；证明 Diophantine 条件下有限轨迹构成 ε-网。框架统一四族 DS：空间填充曲线（Hilbert、Peano、Morton/Z-order、Snake）、混沌系统（Lorenz）、同余与伪随机发生器（LCG、PCG）、低差异序列（Halton），并引入 KD-tree 与坐标模板加速以扩展到大模型，加离群点识别控制误差。",
+        "result": "理论给出 M = O(ε^{-(d+ν)}) 个状态即构成 d 维权重空间的 ε-网，链接状态分辨率、解压误差与压缩比。在 ResNet-18 与 Qwen2.5-1.5B/Qwen1.5-7B 上验证：无需事后重训练即可达到有竞争力的压缩比，解压误差可控，状态空间设计灵活。",
+        "conclusion": "动态系统轨迹索引是一种有原则且实用的压缩途径，与剪枝、量化、知识蒸馏、低秩分解根本不同，其误差与压缩比由状态分辨率可预测地决定。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.11064",
+      "title": "Measuring and Mitigating Solution Mode Collapse in RLVR",
+      "authors": [
+        "Liv G. d'Aliberti",
+        "Marwa Abdulhai",
+        "Sofiia Druchyna",
+        "Peter Henderson",
+        "Manoel Horta Ribeiro"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2610.11064",
+      "pdf_url": "https://arxiv.org/pdf/2610.11064",
+      "abstract_en": "A language model (LM) can usually answer the same question in more than one way, but reinforcement learning with verifiable rewards (RLVR) is indifferent to which correct answer a model produces. A solution will earn the same reward whether it is the thousandth copy of a familiar answer or one the model has never produced before. Yet, there is potential value in having the model retain multiple correct solutions as it is trained. For instance, multiple modes may give users a choice and provide problem-solving strategies that improve overall model performance. Here, we introduce ModeBench, a benchmark of multi-solution tasks in which the verifier returns both correctness and mode discovered. We then use ModeBench to measure how solution diversity changes under RLVR post-training. We find that RLVR post-training concentrates probability onto fewer correct modes even as accuracy holds or improves, and moreover, that frontier models are already highly concentrated. We then introduce our solution, Re:Max, which stores one verified example per discovered mode in a replay buffer and trains on those stored modes uniformly. A solution found once is, therefore, practiced as often as one found repeatedly. Across three model scales, two RL objectives, and harder task constructions, replay improves both how often a policy succeeds and how many different ways it can succeed.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: RLVR 后训练在保持甚至提升准确率的同时，把概率质量集中到更少的正确解法模式 (solution mode) 上；提出 Re:Max，用回放缓冲区为每个已发现模式各存一条已验证样本并均匀训练，使只被找到一次的解法与被反复找到的解法获得同等练习机会。在三个模型规模、两种 RL 目标和更难任务构造下，回放同时提升策略的成功率与成功方式的多样性。\nMotivation: RLVR 的可验证奖励对模型产出哪一个正确答案完全无差别，导致模型在训练中丢弃多样的正确解法；而多种模式既能给用户选择，也可能带来提升整体性能的解题策略。\nMethod: 提出 ModeBench：一个多解任务基准，验证器同时返回正确性与所发现的模式 (mode)；据此度量 RLVR 后训练下解法多样性的变化。再提出 Re:Max：回放缓冲区为每个已发现模式各存一条已验证样本，并对这些模式均匀采样训练。\nResult: RLVR 后训练使概率集中到更少的正确模式，而准确率持平或提升；前沿模型本身已高度集中。Re:Max 在三个模型规模、两种 RL 目标和更难任务构造下，同时提高策略成功率与可成功的不同方式数量。\nConclusion: 解法模式坍缩是 RLVR 的系统性副作用，奖励无差别是根因；按模式均匀回放已验证样本可同时缓解坍缩并提升成功率。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "RLVR 后训练在保持甚至提升准确率的同时，把概率质量集中到更少的正确解法模式 (solution mode) 上；提出 Re:Max，用回放缓冲区为每个已发现模式各存一条已验证样本并均匀训练，使只被找到一次的解法与被反复找到的解法获得同等练习机会。在三个模型规模、两种 RL 目标和更难任务构造下，回放同时提升策略的成功率与成功方式的多样性。",
+        "motivation": "RLVR 的可验证奖励对模型产出哪一个正确答案完全无差别，导致模型在训练中丢弃多样的正确解法；而多种模式既能给用户选择，也可能带来提升整体性能的解题策略。",
+        "method": "提出 ModeBench：一个多解任务基准，验证器同时返回正确性与所发现的模式 (mode)；据此度量 RLVR 后训练下解法多样性的变化。再提出 Re:Max：回放缓冲区为每个已发现模式各存一条已验证样本，并对这些模式均匀采样训练。",
+        "result": "RLVR 后训练使概率集中到更少的正确模式，而准确率持平或提升；前沿模型本身已高度集中。Re:Max 在三个模型规模、两种 RL 目标和更难任务构造下，同时提高策略成功率与可成功的不同方式数量。",
+        "conclusion": "解法模式坍缩是 RLVR 的系统性副作用，奖励无差别是根因；按模式均匀回放已验证样本可同时缓解坍缩并提升成功率。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.10722",
+      "title": "LinSlot: Exploiting Linear Representation hypothesis for unsupervised attribute discovery from slot based object representation",
+      "authors": [
+        "Sanket Gandhi",
+        "Utkarsh Giri",
+        "Varun Subramaniam",
+        "Rohan Paul",
+        "Parag Singla"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.10722",
+      "pdf_url": "https://arxiv.org/pdf/2610.10722",
+      "abstract_en": "This paper studies the problem of learning disentangled representations of objects and their attributes from raw, unstructured image data. Slot-based methods have shown considerable success in unsupervised learning of object representations from images. Block-slot attention-based methods extend this framework to attribute representations by assuming a uniform factorization of object representations into attributes, which may be suboptimal and consequently limit the quality of the learned representations. We therefore investigate a framework for jointly discovering object and attribute representations. Our key contribution is leveraging the Linear Representation Hypothesis (LRH), which postulates that composable concepts can be represented as linearly additive subspaces in slot representations. Based on this insight, we propose a probabilistic model connecting images, slots (objects), and blocks (attributes). We present an architecture that leverages block attention to connect attribute representations to slots and incorporates LRH in both object and attribute representation spaces. This architecture effectively optimizes the Evidence Lower Bound (ELBO) of the proposed graphical model. Our experiments demonstrate (i) effective discovery of disentangled object and attribute representations, (ii) empirical evidence for LRH in slot space, and (iii) the ability to perform image editing owing to the disentangled and interpretable nature of the learned representations. Our experiments on multiple datasets demonstrate improvements in DCI scores over state-of-the-art methods.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: LinSlot 用线性表示假设 (Linear Representation Hypothesis, LRH) 联合发现图像中的物体与属性表示：把物体 slot 与属性 block 建成概率图模型，用 block attention 连接二者，并在物体与属性两个表示空间同时施加 LRH，优化该模型的 ELBO。在多个数据集上 DCI 分数较现有方法提升，并给出 LRH 在 slot 空间成立的经验证据，解耦表示支持图像编辑。\nMotivation: Block-slot attention 类方法假设物体表示均匀分解为各属性，这种均匀因子化可能次优，限制了学到的表示质量。\nMethod: 提出连接图像、slots（物体）与 blocks（属性）的概率模型；架构用 block attention 把属性表示接到 slot 上，并在物体与属性表示空间都引入 LRH（可组合概念表现为线性可加子空间），整体优化该图模型的 Evidence Lower Bound (ELBO)。\nResult: 在多个数据集上 DCI 分数相对 state-of-the-art 方法有提升；实验展示了解耦的物体与属性表示的有效发现、LRH 在 slot 空间的经验证据，以及基于解耦可解释表示的图像编辑能力。\nConclusion: 把 LRH 显式写进 slot/block 的概率模型并联合优化 ELBO，可以替代均匀因子化假设，得到更解耦、可解释且可用于图像编辑的物体-属性表示。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "LinSlot 用线性表示假设 (Linear Representation Hypothesis, LRH) 联合发现图像中的物体与属性表示：把物体 slot 与属性 block 建成概率图模型，用 block attention 连接二者，并在物体与属性两个表示空间同时施加 LRH，优化该模型的 ELBO。在多个数据集上 DCI 分数较现有方法提升，并给出 LRH 在 slot 空间成立的经验证据，解耦表示支持图像编辑。",
+        "motivation": "Block-slot attention 类方法假设物体表示均匀分解为各属性，这种均匀因子化可能次优，限制了学到的表示质量。",
+        "method": "提出连接图像、slots（物体）与 blocks（属性）的概率模型；架构用 block attention 把属性表示接到 slot 上，并在物体与属性表示空间都引入 LRH（可组合概念表现为线性可加子空间），整体优化该图模型的 Evidence Lower Bound (ELBO)。",
+        "result": "在多个数据集上 DCI 分数相对 state-of-the-art 方法有提升；实验展示了解耦的物体与属性表示的有效发现、LRH 在 slot 空间的经验证据，以及基于解耦可解释表示的图像编辑能力。",
+        "conclusion": "把 LRH 显式写进 slot/block 的概率模型并联合优化 ELBO，可以替代均匀因子化假设，得到更解耦、可解释且可用于图像编辑的物体-属性表示。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-07",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2608.10434",
+      "title": "Conversational versus Dashboard Explainable AI for UAV Intrusion Detection: An Empirical Study of Operator Trust and Reliance",
+      "authors": [
+        "Cong Chi Nguyen",
+        "Trang Mai Xuan",
+        "Vu-Duc Ngo",
+        "Kim-Ngan Thi Nguyen",
+        "Trong-Nghia Nguyen",
+        "Thien Van Luong"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2608.10434",
+      "pdf_url": "https://arxiv.org/pdf/2608.10434",
+      "abstract_en": "Machine learning-based Intrusion Detection Systems (IDS) have demonstrated superior performance in securing Unmanned Aerial Vehicle (UAV) networks. However, the 'black-box' nature of these models, combined with the high dimensionality of multimodal cyber-physical data, poses significant interpretability challenges. Static visualization dashboards may struggle to present complex relationships among multimodal cyber-physical features in a form that is easy for operators to inspect and interpret. To address this, we propose a Conversational XAI interface powered by Large Language Models (LLM) to facilitate on-demand investigation. In a controlled experiment with participants, we systematically evaluated the impact of this conversational interface versus a traditional XAI Dashboard on operator understanding, trust, and reliance during post-incident auditing tasks. Our results suggest that the conversational interface was perceived as more useful than the dashboard, potentially because it helped participants access and synthesize relevant information more easily. However, this benefit was accompanied by a lower level of appropriate self-reliance, indicating a potential risk of over-reliance. One possible interpretation is that the natural-language responses made the AI advice easier to accept, which may have reduced participants' tendency to verify the underlying evidence when the IDS was incorrect. These findings point to a potential trade-off in human-AI collaboration for UAV intrusion auditing: interaction mechanisms that improve perceived usability may also increase the risk of inappropriate reliance. We conclude by discussing design implications for future XAI systems that balance seamless interaction with cognitive forcing functions to foster appropriate reliance.",
+      "comment": "We have discovered a critical error in our experimental data that invalidates the main method",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 在 UAV 入侵检测 (IDS) 事后审计任务的受控实验中，LLM 驱动的对话式 XAI 界面比传统 XAI Dashboard 被参与者评为更有用，因为它更容易获取与综合相关信息；但适当的自我依赖 (appropriate self-reliance) 水平随之下降，出现过度依赖风险——自然语言回答让 AI 建议更易被接受，削弱了 IDS 出错时核验证据的倾向。作者据此提出：提升可用性的交互机制可能同时抬高不当依赖风险，设计上需用 cognitive forcing functions 制衡顺滑交互。\nMotivation: ML-based IDS 的黑箱性质叠加多模态网络-物理数据的高维性，使操作员难以解释；静态可视化 Dashboard 难以把复杂特征关系呈现为便于检视的形式，且其对操作员理解、信任与依赖的影响此前缺少受控实验。\nMethod: 提出由 LLM 驱动的 Conversational XAI 界面支持按需调查，并在一项含参与者的受控实验中，将其与传统 XAI Dashboard 对比，测量操作员在 post-incident auditing 任务中的理解、信任与 reliance。\nResult: 对话式界面被评为比 Dashboard 更有用，被认为更易获取与综合相关信息；但 appropriate self-reliance 水平更低，提示过度依赖风险。摘要未给出样本量或效应量数值。\nConclusion: 可用性与恰当依赖之间存在权衡：改善感知可用性的交互机制可能同时提高不当依赖风险，未来 XAI 设计应在顺滑交互中加入 cognitive forcing functions。注意 arXiv comment 声明作者发现实验数据存在使主方法失效的关键错误。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "在 UAV 入侵检测 (IDS) 事后审计任务的受控实验中，LLM 驱动的对话式 XAI 界面比传统 XAI Dashboard 被参与者评为更有用，因为它更容易获取与综合相关信息；但适当的自我依赖 (appropriate self-reliance) 水平随之下降，出现过度依赖风险——自然语言回答让 AI 建议更易被接受，削弱了 IDS 出错时核验证据的倾向。作者据此提出：提升可用性的交互机制可能同时抬高不当依赖风险，设计上需用 cognitive forcing functions 制衡顺滑交互。",
+        "motivation": "ML-based IDS 的黑箱性质叠加多模态网络-物理数据的高维性，使操作员难以解释；静态可视化 Dashboard 难以把复杂特征关系呈现为便于检视的形式，且其对操作员理解、信任与依赖的影响此前缺少受控实验。",
+        "method": "提出由 LLM 驱动的 Conversational XAI 界面支持按需调查，并在一项含参与者的受控实验中，将其与传统 XAI Dashboard 对比，测量操作员在 post-incident auditing 任务中的理解、信任与 reliance。",
+        "result": "对话式界面被评为比 Dashboard 更有用，被认为更易获取与综合相关信息；但 appropriate self-reliance 水平更低，提示过度依赖风险。摘要未给出样本量或效应量数值。",
+        "conclusion": "可用性与恰当依赖之间存在权衡：改善感知可用性的交互机制可能同时提高不当依赖风险，未来 XAI 设计应在顺滑交互中加入 cognitive forcing functions。注意 arXiv comment 声明作者发现实验数据存在使主方法失效的关键错误。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-08-11",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2607.12796",
+      "title": "The One-Word Census: Answer-Choice Conformity Across 105 Language Models",
+      "authors": [
+        "Tapan Parikh"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CY"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2607.12796",
+      "pdf_url": "https://arxiv.org/pdf/2607.12796",
+      "abstract_en": "When a language model must choose one answer from a large space of equally valid options, which answer does it choose, and how often is it the answer every other model chooses? Asked to \"pick a word,\" 105 language models from more than twenty labs chose serendipity 46% of the time. We measure this convergence, and each model's share in it, with 96 single-turn prompts that each name a category with many valid one-word answers (\"Name a tree.\"), asked eight times per model and scored by exact match, with no embeddings and no judge. A model's answer-choice surprisal is the average -log2 probability of its answers under the pooled answers of all other models. In 28 of 96 categories a single answer takes at least 80% of all answers. The concentration does not depend on small or persona-tuned models: the 87 major-lab models are at least as concentrated as the full field. Lightly post-trained and persona-tuned models are the most divergent; heavily post-trained assistants from the major labs are the most conformist. Models that avoid the modal answer mostly land on the same runner-up. Within the major providers' lineages, release order shows no panel-wide trend once model tier is controlled; GPT, Gemini, Grok and Qwen become more conformist across releases, and Claude's generation-5 releases reverse. On open checkpoints of three post-training pipelines, supervised fine-tuning is the largest step toward the field's answers. Against human category-production norms, the field is more concentrated than people in 18 of 20 shared categories. All prompts, transcripts, and code are public.",
+      "comment": "v4: Updated title, no other changes",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 对 105 个语言模型用 96 个「说出一个词」类提示（每模型每类问 8 次、exact match 计分）测量答案趋同：被问「pick a word」时 46% 的回答是 serendipity，96 类中 28 类有单一答案占至少 80%。重度后训练的大厂助手最趋同，轻度后训练与 persona-tuned 模型最偏离；与人类类别产出常模相比，模型在 20 个共有类别中的 18 个比人更集中。\nMotivation: 当大量选项同样有效时，语言模型选哪一个、以及是否与其它模型选同一个，缺少不依赖 embedding 或评委模型的直接度量；这关系到后训练如何塑造模型的群体一致性。\nMethod: 用 96 个单轮提示，每类给出一个含众多合法单词答案的类别（如 \"Name a tree.\"），每模型每类问 8 次，按 exact match 计分，不使用 embedding 与 judge；定义 answer-choice surprisal 为该模型答案在其余所有模型汇总答案下的平均 -log2 概率，并在三个后训练管线的开放 checkpoint 上比较各阶段。\nResult: 105 个模型（来自二十余家实验室）在 \"pick a word\" 上 46% 选 serendipity；96 类中 28 类单一答案占全部答案至少 80%；87 个大厂模型至少与全体一样集中；轻度后训练与 persona-tuned 模型最偏离、重度后训练助手最趋同；控制模型层级后 GPT、Gemini、Grok、Qwen 随发布更趋同而 Claude 第 5 代反转；三个后训练管线中监督微调 (SFT) 是向全体答案靠拢的最大一步；与人类常模相比，20 个共有类别中 18 个模型更集中。\nConclusion: 答案趋同主要由重度后训练与 SFT 驱动而非模型规模，且模型群体比人类更趋同于单一答案；所有提示、转录与代码已公开。\nRelevance: 0",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "对 105 个语言模型用 96 个「说出一个词」类提示（每模型每类问 8 次、exact match 计分）测量答案趋同：被问「pick a word」时 46% 的回答是 serendipity，96 类中 28 类有单一答案占至少 80%。重度后训练的大厂助手最趋同，轻度后训练与 persona-tuned 模型最偏离；与人类类别产出常模相比，模型在 20 个共有类别中的 18 个比人更集中。",
+        "motivation": "当大量选项同样有效时，语言模型选哪一个、以及是否与其它模型选同一个，缺少不依赖 embedding 或评委模型的直接度量；这关系到后训练如何塑造模型的群体一致性。",
+        "method": "用 96 个单轮提示，每类给出一个含众多合法单词答案的类别（如 \"Name a tree.\"），每模型每类问 8 次，按 exact match 计分，不使用 embedding 与 judge；定义 answer-choice surprisal 为该模型答案在其余所有模型汇总答案下的平均 -log2 概率，并在三个后训练管线的开放 checkpoint 上比较各阶段。",
+        "result": "105 个模型（来自二十余家实验室）在 \"pick a word\" 上 46% 选 serendipity；96 类中 28 类单一答案占全部答案至少 80%；87 个大厂模型至少与全体一样集中；轻度后训练与 persona-tuned 模型最偏离、重度后训练助手最趋同；控制模型层级后 GPT、Gemini、Grok、Qwen 随发布更趋同而 Claude 第 5 代反转；三个后训练管线中监督微调 (SFT) 是向全体答案靠拢的最大一步；与人类常模相比，20 个共有类别中 18 个模型更集中。",
+        "conclusion": "答案趋同主要由重度后训练与 SFT 驱动而非模型规模，且模型群体比人类更趋同于单一答案；所有提示、转录与代码已公开。",
+        "relevance_score": "0"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-07-14",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2604.12440",
+      "title": "IAD-Unify: Task-Specific Interfaces for Industrial Anomaly Understanding, Segmentation, and Generation",
+      "authors": [
+        "Haoyu Zheng",
+        "Jiang Liu",
+        "Jiaqi Zhu",
+        "Feifei Shao",
+        "Zheqi Lv",
+        "Wenqiao Zhang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2604.12440",
+      "pdf_url": "https://arxiv.org/pdf/2604.12440",
+      "abstract_en": "Industrial anomaly inspection requires complementary capabilities: explaining an observed defect, localizing its pixels, and synthesizing a controlled edit. We present IAD-Unify, a unified architecture connecting a multimodal language model (MLLM), dense visual expert, and diffusion editor through task-specific token interfaces. A multi-reference DINOv2 pathway forms a dense anomaly field and compresses its 1,369 cells into 81 structured evidence tokens. Qwen3.5 consumes these tokens for grounded answers and, with 32 task tokens, converts them into a semantic residual over the dense mask. A separate 256-query interface resamples Qwen states into Stable Diffusion's complete cross-attention context, while the editor retains its source latent and hard-mask inputs. The task pathways share one Qwen adaptation without forcing every task through the same visual bottleneck; in particular, evidence tokens are excluded from the generation pathway. Staged optimization initializes dense evidence, aligns it with language, calibrates segmentation, and then pretrains and specializes the diffusion editor while preserving earlier capabilities. We also construct Anomaly Evidence over 54,501 deduplicated industrial images. Its quality-controlled Anomaly Evidence Compiler and Industrial Edit-Pair Compiler produce family-disjoint, validated supervision through independent geometry, semantic-grounding, and edit-consistency checks. This design provides one fixed shared parameter set for understanding, segmentation, and localized generation without conflating their inputs, supervision, or outputs. The resulting model reaches 73.02% MMAD Macro$_7$, the highest listed public segmentation AP average (57.10%) with one reference, and the lowest Controlled masked DINO distance (0.3765), with complementary strengths across reasoning, pixel ranking, and semantic edit fidelity.",
+      "comment": "9 pages, 6 figures. Main manuscript only; supplementary material removed",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: IAD-Unify 用任务专属 token 接口把多模态语言模型 (Qwen3.5)、稠密视觉专家 (DINOv2) 与扩散编辑器 (Stable Diffusion) 接成单一架构，同时做工业缺陷解释、分割与受控编辑。在 MMAD 上达到 73.02% Macro_7、单参考分割 AP 平均 57.10%（公开榜单最高）、Controlled masked DINO 距离 0.3765（最低）。\nMotivation: 工业异常检测需要解释缺陷、定位像素、生成受控编辑三种互补能力，但把它们塞进同一视觉瓶颈会混淆各自的输入、监督与输出。\nMethod: 多参考 DINOv2 通路形成稠密异常场，把 1,369 个 cell 压缩成 81 个结构化 evidence token 供 Qwen3.5 做有据回答；再用 32 个 task token 把语言状态转成稠密掩码上的语义残差。另一条 256-query 接口把 Qwen 状态重采样进 Stable Diffusion 的完整 cross-attention 上下文，编辑器保留源 latent 与硬掩码输入；evidence token 被排除在生成通路之外。分阶段优化依次初始化稠密证据、与语言对齐、校准分割，再预训练并特化扩散编辑器。同时构建含 54,501 张去重工业图像的 Anomaly Evidence 数据集，用质量受控的 Anomaly Evidence Compiler 与 Industrial Edit-Pair Compiler 产出 family-disjoint 的校验监督。\nResult: MMAD Macro_7 达 73.02%；单参考条件下分割 AP 平均 57.10%，为公开榜单最高；Controlled masked DINO 距离 0.3765，为最低。三项能力在推理、像素排序与语义编辑保真度上呈互补优势。\nConclusion: 一套固定共享参数即可同时覆盖理解、分割与局部生成，前提是用任务专属接口隔离各自的输入、监督与输出，而不是共用同一视觉瓶颈。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "IAD-Unify 用任务专属 token 接口把多模态语言模型 (Qwen3.5)、稠密视觉专家 (DINOv2) 与扩散编辑器 (Stable Diffusion) 接成单一架构，同时做工业缺陷解释、分割与受控编辑。在 MMAD 上达到 73.02% Macro_7、单参考分割 AP 平均 57.10%（公开榜单最高）、Controlled masked DINO 距离 0.3765（最低）。",
+        "motivation": "工业异常检测需要解释缺陷、定位像素、生成受控编辑三种互补能力，但把它们塞进同一视觉瓶颈会混淆各自的输入、监督与输出。",
+        "method": "多参考 DINOv2 通路形成稠密异常场，把 1,369 个 cell 压缩成 81 个结构化 evidence token 供 Qwen3.5 做有据回答；再用 32 个 task token 把语言状态转成稠密掩码上的语义残差。另一条 256-query 接口把 Qwen 状态重采样进 Stable Diffusion 的完整 cross-attention 上下文，编辑器保留源 latent 与硬掩码输入；evidence token 被排除在生成通路之外。分阶段优化依次初始化稠密证据、与语言对齐、校准分割，再预训练并特化扩散编辑器。同时构建含 54,501 张去重工业图像的 Anomaly Evidence 数据集，用质量受控的 Anomaly Evidence Compiler 与 Industrial Edit-Pair Compiler 产出 family-disjoint 的校验监督。",
+        "result": "MMAD Macro_7 达 73.02%；单参考条件下分割 AP 平均 57.10%，为公开榜单最高；Controlled masked DINO 距离 0.3765，为最低。三项能力在推理、像素排序与语义编辑保真度上呈互补优势。",
+        "conclusion": "一套固定共享参数即可同时覆盖理解、分割与局部生成，前提是用任务专属接口隔离各自的输入、监督与输出，而不是共用同一视觉瓶颈。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-04-14",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2603.07233",
+      "title": "Differentiable Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation",
+      "authors": [
+        "Andrea Giuseppe Di Francesco",
+        "Andrea Rubbi",
+        "Rishabh Jain",
+        "Pietro Liò"
+      ],
+      "categories": [
+        "cs.IR",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2603.07233",
+      "pdf_url": "https://arxiv.org/pdf/2603.07233",
+      "abstract_en": "Predicting transcriptional responses to genetic perturbations is fundamental to functional genomics and therapeutic discovery. Recent deep learning models have shown promise in single-cell perturbation response prediction, but they typically generate each response in isolation, without explicitly leveraging related perturbations. We introduce PT-RAG (Perturbation-aware Two-stage Retrieval-Augmented Generation), a plug-in retrieval-and-conditioning module for generative cellular perturbation response. PT-RAG augments an existing perturbation-response backbone with learned access to related perturbation contexts. The key challenge is that relevance is not fixed in this setting: functionally related genes may elicit different effects across cell types. PT-RAG addresses this with a two-stage retrieval mechanism: GenePT-based semantic retrieval first identifies K candidate perturbations, after which a differentiable Gumbel-Softmax selector adaptively selects retrieved contexts conditioned on the control cell state, the query perturbation, and each candidate perturbation. We evaluate PT-RAG on two backbones, a STATE-style generator used as a frozen random reservoir and a fully trained scGPT, across cross-cell-type and cross-perturbation generalization tasks. PT-RAG consistently improves distributional similarity and often overall predictive quality; for example, on scGPT cross-cell-type results, the 2-Wasserstein distance drops by 5.9% relative to scGPT alone. The code to reproduce our experiments is available at https://github.com/difra100/PT-RAG_NIPS.",
+      "comment": "Accepted to NeurIPS 2026 main track. 34 pages, 11 figures, 18 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: PT-RAG 为单细胞扰动响应预测加装两阶段可微检索：先用 GenePT 语义检索取 K 个候选扰动，再由以控制细胞状态、查询扰动和候选扰动为条件的 Gumbel-Softmax 选择器挑选上下文，注入现有生成骨干。在 scGPT 跨细胞类型任务上，2-Wasserstein 距离相对 scGPT 单独使用下降 5.9%。\nMotivation: 现有深度学习单细胞扰动响应模型逐个孤立生成响应，不显式利用相关扰动信息；而功能相关的基因在不同细胞类型中可能产生不同效应，固定相关性检索不适用。\nMethod: PT-RAG 是即插即用的检索-条件化模块：GenePT 语义检索先筛出 K 个候选扰动，可微 Gumbel-Softmax 选择器再依据控制细胞状态、查询扰动与各候选自适应选取上下文。在两个骨干上评测——作为冻结随机储层的 STATE 式生成器，以及完全训练的 scGPT——任务为跨细胞类型与跨扰动泛化。\nResult: 在两个骨干、跨细胞类型与跨扰动泛化任务上，PT-RAG 一致改善分布相似性，并常提升整体预测质量；例如 scGPT 跨细胞类型结果中 2-Wasserstein 距离相对 scGPT 单独使用下降 5.9%。\nConclusion: 把相关扰动上下文以可微检索方式条件化注入，可在不改动骨干训练方式的前提下提升单细胞扰动响应预测的分布相似性，且对冻结储层与全训练骨干均适用。\nRelevance: 1",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "PT-RAG 为单细胞扰动响应预测加装两阶段可微检索：先用 GenePT 语义检索取 K 个候选扰动，再由以控制细胞状态、查询扰动和候选扰动为条件的 Gumbel-Softmax 选择器挑选上下文，注入现有生成骨干。在 scGPT 跨细胞类型任务上，2-Wasserstein 距离相对 scGPT 单独使用下降 5.9%。",
+        "motivation": "现有深度学习单细胞扰动响应模型逐个孤立生成响应，不显式利用相关扰动信息；而功能相关的基因在不同细胞类型中可能产生不同效应，固定相关性检索不适用。",
+        "method": "PT-RAG 是即插即用的检索-条件化模块：GenePT 语义检索先筛出 K 个候选扰动，可微 Gumbel-Softmax 选择器再依据控制细胞状态、查询扰动与各候选自适应选取上下文。在两个骨干上评测——作为冻结随机储层的 STATE 式生成器，以及完全训练的 scGPT——任务为跨细胞类型与跨扰动泛化。",
+        "result": "在两个骨干、跨细胞类型与跨扰动泛化任务上，PT-RAG 一致改善分布相似性，并常提升整体预测质量；例如 scGPT 跨细胞类型结果中 2-Wasserstein 距离相对 scGPT 单独使用下降 5.9%。",
+        "conclusion": "把相关扰动上下文以可微检索方式条件化注入，可在不改动骨干训练方式的前提下提升单细胞扰动响应预测的分布相似性，且对冻结储层与全训练骨干均适用。",
+        "relevance_score": "1"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-03-07",
+      "updated_date": "2026-10-09",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.12466",
+      "title": "On the estimation and validity of AI time horizons---a statistical look at the METR plot",
+      "authors": [
+        "Drew T. Nguyen",
+        "William Fithian"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "stat.ML",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2610.12466",
+      "pdf_url": "https://arxiv.org/pdf/2610.12466",
+      "abstract_en": "METR's 50\\% time horizon measures the human completion time of software tasks that an AI solves with 50\\% probability, allowing AI capabilities to be expressed in interpretable units. On 228 tasks and 26 AIs, we recompute the time horizons using splines and item-response theory to relax the assumption that the AI difficulty of a task depends linearly on the log of human time. Our fitted spline can be interpreted as a function that \\emph{converts} human time to AI difficulty; it is nearly flat in a region from 2--30 min but close to linear elsewhere. Hence, a time-horizon jump from 3 min to 30 min is much easier than one from 30 min to 5 hours despite the same multiplier of $10 \\times$. Overall, we contribute time-horizon point estimates that perform better under a cross-validated suite of proper scoring rules, as well as diagnostic plots for assessing time horizons' construct validity. We suggest that time horizons be interpreted together with the diagnostic plots, especially as new time-horizon-based benchmarks are proposed or existing ones grow to include longer tasks.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: 用样条与项目反应理论 (item-response theory) 重估 METR 的 50% 时间视界，发现人类耗时到 AI 难度的换算函数在 2–30 分钟区间近乎平坦、其余区间近似线性，因此同样 10 倍的倍增在不同区间难度差异巨大。作者建议时间视界必须与诊断图一起解读。\nMotivation: METR 的时间视界把 AI 能力表达为可解释的时间单位，但其原始估计假设任务的 AI 难度与人类耗时的对数呈线性关系，这一假设在长任务区间可能不成立，影响新旧基准的可比性。\nMethod: 在 228 个软件任务、26 个 AI 上，用样条回归与项目反应理论放松线性假设，重新拟合时间视界点估计，并用交叉验证的 proper scoring rules 评估拟合优劣，同时给出诊断图检验构念效度 (construct validity)。\nResult: 拟合的样条换算函数在 2–30 分钟区间近乎平坦、其余区间接近线性；因此从 3 分钟到 30 分钟的视界跃升远比从 30 分钟到 5 小时容易，尽管两者同为 10 倍倍增。新点估计在交叉验证的 proper scoring rules 套件上表现更好。\nConclusion: 时间视界不应被当作线性可比的能力刻度来单独解读，需配合诊断图，尤其在新基准提出或现有基准扩展到更长任务时。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "用样条与项目反应理论 (item-response theory) 重估 METR 的 50% 时间视界，发现人类耗时到 AI 难度的换算函数在 2–30 分钟区间近乎平坦、其余区间近似线性，因此同样 10 倍的倍增在不同区间难度差异巨大。作者建议时间视界必须与诊断图一起解读。",
+        "motivation": "METR 的时间视界把 AI 能力表达为可解释的时间单位，但其原始估计假设任务的 AI 难度与人类耗时的对数呈线性关系，这一假设在长任务区间可能不成立，影响新旧基准的可比性。",
+        "method": "在 228 个软件任务、26 个 AI 上，用样条回归与项目反应理论放松线性假设，重新拟合时间视界点估计，并用交叉验证的 proper scoring rules 评估拟合优劣，同时给出诊断图检验构念效度 (construct validity)。",
+        "result": "拟合的样条换算函数在 2–30 分钟区间近乎平坦、其余区间接近线性；因此从 3 分钟到 30 分钟的视界跃升远比从 30 分钟到 5 小时容易，尽管两者同为 10 倍倍增。新点估计在交叉验证的 proper scoring rules 套件上表现更好。",
+        "conclusion": "时间视界不应被当作线性可比的能力刻度来单独解读，需配合诊断图，尤其在新基准提出或现有基准扩展到更长任务时。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-08",
+      "updated_date": "2026-10-08",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.02626",
+      "title": "Imagine the Future, Internalize the Gist: Efficient VLA Reasoning via Internalized Spatiotemporal Imagination",
+      "authors": [
+        "Shenglan Li",
+        "Zhendong Mi",
+        "Hengyi Zhu",
+        "Jingwu Luo",
+        "Chun Kit Chan",
+        "Geng Yuan",
+        "Yanzhi Wang",
+        "Pu Zhao",
+        "Shaoyi Huang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.02626",
+      "pdf_url": "https://arxiv.org/pdf/2610.02626",
+      "abstract_en": "Vision-language-action (VLA) models increasingly incorporate intermediate reasoning to improve robotic manipulation, yet existing approaches primarily reason about observed states without explicitly anticipating future scene evolution. Extending such reasoning to explicit future rollouts at every inference step, however, introduces substantial computational overhead. We propose IG-VLA, a VLA reasoning framework that enables models to imagine the future and internalize the gist. Our Latent Spatiotemporal Reasoning learns to imagine task-relevant future scene evolution directly in visual representation space, guiding action prediction without costly pixel-level video generation. To further reduce inference overhead, we introduce Scene Gist Memory, which internalizes reasoning-derived scene-behavior associations into a compact Scene Gist Token, preserving the benefits of future reasoning while bypassing explicit future imagination at inference. Extensive experiments on LIBERO, LIBERO-Plus, and VLABench demonstrate the effectiveness and efficiency of IG-VLA. On the LIBERO-Plus Language suite, both the reasoning and gist policies outperform the strongest baseline by nearly 6% in success rate. The gist policy also achieves up to 6.38x speedup over baselines, reducing inference latency from 1081ms to 169.5ms per action chunk on a single NVIDIA A6000 GPU. These results demonstrate that future spatiotemporal reasoning can be effectively internalized for efficient VLA deployment.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "TL;DR: IG-VLA 让 VLA 在视觉表征空间里显式想象未来场景演化来指导动作，再把推理得到的场景-行为关联压缩成 Scene Gist Token，推理时跳过未来想象。在 LIBERO-Plus Language 上，推理策略与 gist 策略的成功率都比最强基线高近 6%，gist 策略在单张 NVIDIA A6000 上把每 action chunk 的延迟从 1081ms 降到 169.5ms，最高 6.38x 加速。\nMotivation: 现有 VLA 中间推理只针对已观测状态，不显式预判场景未来演化；而每步都做显式未来 rollout 又带来很大的计算开销。\nMethod: IG-VLA 含两个组件：Latent Spatiotemporal Reasoning 在视觉表征空间想象任务相关的未来场景演化以引导动作预测，避免像素级视频生成；Scene Gist Memory 把推理得到的场景-行为关联固化为紧凑的 Scene Gist Token，推理时绕过显式未来想象。\nResult: 在 LIBERO、LIBERO-Plus、VLABench 上实验；LIBERO-Plus Language 套件中推理策略与 gist 策略的成功率均比最强基线高近 6%；gist 策略最高 6.38x 加速，单张 NVIDIA A6000 上每 action chunk 推理延迟从 1081ms 降至 169.5ms。\nConclusion: 未来时空推理可以被有效内化，在保留未来推理收益的同时实现高效的 VLA 部署。\nRelevance: 2",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "IG-VLA 让 VLA 在视觉表征空间里显式想象未来场景演化来指导动作，再把推理得到的场景-行为关联压缩成 Scene Gist Token，推理时跳过未来想象。在 LIBERO-Plus Language 上，推理策略与 gist 策略的成功率都比最强基线高近 6%，gist 策略在单张 NVIDIA A6000 上把每 action chunk 的延迟从 1081ms 降到 169.5ms，最高 6.38x 加速。",
+        "motivation": "现有 VLA 中间推理只针对已观测状态，不显式预判场景未来演化；而每步都做显式未来 rollout 又带来很大的计算开销。",
+        "method": "IG-VLA 含两个组件：Latent Spatiotemporal Reasoning 在视觉表征空间想象任务相关的未来场景演化以引导动作预测，避免像素级视频生成；Scene Gist Memory 把推理得到的场景-行为关联固化为紧凑的 Scene Gist Token，推理时绕过显式未来想象。",
+        "result": "在 LIBERO、LIBERO-Plus、VLABench 上实验；LIBERO-Plus Language 套件中推理策略与 gist 策略的成功率均比最强基线高近 6%；gist 策略最高 6.38x 加速，单张 NVIDIA A6000 上每 action chunk 推理延迟从 1081ms 降至 169.5ms。",
+        "conclusion": "未来时空推理可以被有效内化，在保留未来推理收益的同时实现高效的 VLA 部署。",
+        "relevance_score": "2"
+      },
+      "summary_status": "ok",
+      "published_date": "2026-10-02",
+      "updated_date": "2026-10-08",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
