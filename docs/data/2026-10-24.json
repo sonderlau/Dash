@@ -1,0 +1,849 @@
+{
+  "date": "2026-10-24",
+  "snapshot_date": "2026-10-24",
+  "generated_at": "2026-10-24T14:02:20Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 20,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 8,
+    "cs.CV": 6,
+    "cs.AI": 6
+  },
+  "summary_status_counts": {
+    "fallback:RetryableSummaryError": 20
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 737
+  },
+  "papers": [
+    {
+      "id": "2610.30016",
+      "title": "Code Comprehensor: Hierarchical Documentation and Cross-Modal Retrieval for Large Repositories",
+      "authors": [
+        "Sujoy Roychowdhury",
+        "Joseph H. R. Isaac",
+        "Jiangning Gao",
+        "Martin Klitte",
+        "Diarmuid Corcoran"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.SE"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.SE",
+      "abs_url": "https://arxiv.org/abs/2610.30016",
+      "pdf_url": "https://arxiv.org/pdf/2610.30016",
+      "abstract_en": "Understanding large, complex, and rapidly evolving code bases remains a core challenge for software engineering at scale, hindering onboarding, maintenance, refactoring, and impact analysis. Providing this information to a Large-Language Model (LLM) is another hurdle, as the LLM must understand not only the required code method but also its associated methods in the grand scheme of the repository. We propose Code Comprehensor, a hybrid retrieval-reasoning framework combining (i) CodeGraph, a code dependency callgraph, (ii) CodeScribe, which uses code-aware LLMs to generate hierarchical documentation across repository call graphs, and (iii) CodeContrast, a CLIP-style dual-encoder model trained on CodeScribe output to learn aligned text-code embeddings. CodeContrast enables fast, semantically precise retrieval of relevant code-context neighborhoods, which serve as grounded evidence for an MCP-based LLM orchestrator answering domain-specific queries. Evaluation on OpenCV and a proprietary 5M-LOC repository shows that CodeScribe-derived supervision significantly improves cross-modal retrieval in text-to-code accuracy over baseline approaches. Richer textual supervision (hierarchical documentation, parent/sibling context, and LLM-generated synthetic questions) consistently enhances performance across both repositories. LLM-as-a-judge evaluation using the popular RAGAS of the Code Comprehensor output yields above 90% faithfulness scores.",
+      "comment": "Accepted at 42nd International Conference on Software Maintenance and Evolution",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Understanding large, complex, and rapidly evolving code bases remains a core challenge for software engineering at scale, hindering onboarding, maintenance, refactoring, and impact analysis. Providing this information to a Large-Language Model (LLM) is another hurdle, as the LLM must understand not only the required code method but also its associated methods in the grand scheme of the repository. We propose Code Comprehensor, a hybrid retrieval-reasoning framework combining (i) CodeGraph, a code dependency callgraph, (ii) CodeScribe, which uses code-aware LLMs to generate hierarchical documentation across repository call graphs, and (iii) CodeContrast, a CLIP-style dual-encoder model trained on CodeScribe output to learn aligned text-code embeddings. CodeContrast enables fast, semantically precise retrieval of relevant code-context neighborhoods, which serve as grounded evidence for an MCP-based LLM orchestrator answering domain-specific queries. Evaluation on OpenCV and a proprietary 5M-LOC repository shows that CodeScribe-derived supervision significantly improves cross-modal retrieval in text-to-code accuracy over baseline approaches. Richer textual supervision (hierarchical documentation, parent/sibling context, and LLM-generated synthetic questions) consistently enhances performance across both repositories. LLM-as-a-judge evaluation using the popular RAGAS of the Code Comprehensor output yields above 90% faithfulness scores.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Understanding large, complex, and rapidly evolving code bases remains a core challenge for software engineering at scale, hindering onboarding, maintenance, refactoring, and impact analysis. Providing this information to a Large-Language Model (LLM) is another hurdle, as the LLM must understand not only the required code method but also its associated methods in the grand scheme of the repository. We propose Code Comprehensor, a hybrid retrieval-reasoning framework combining (i) CodeGraph, a code dependency callgraph, (ii) CodeScribe, which uses code-aware LLMs to generate hierarchical documentation across repository call graphs, and (iii) CodeContrast, a CLIP-style dual-encoder model trained on CodeScribe output to learn aligned text-code embeddings. CodeContrast enables fast, semantically precise retrieval of relevant code-context neighborhoods, which serve as grounded evidence for an MCP-based LLM orchestrator answering domain-specific queries. Evaluation on OpenCV and a proprietary 5M-LOC repository shows that CodeScribe-derived supervision significantly improves cross-modal retrieval in text-to-code accuracy over baseline approaches. Richer textual supervision (hierarchical documentation, parent/sibling context, and LLM-generated synthetic questions) consistently enhances performance across both repositories. LLM-as-a-judge evaluation using the popular RAGAS of the Code Comprehensor output yields above 90% faithfulness scores.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29959",
+      "title": "Training-free Acceleration for Blind Compressed Image Restoration via Activation-Calibrated Singular Value Decomposition",
+      "authors": [
+        "Suhang Yao",
+        "Xin Li",
+        "Xijun Wang",
+        "Yufei Wang",
+        "Yeying Jin",
+        "Zhibo Chen"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.29959",
+      "pdf_url": "https://arxiv.org/pdf/2610.29959",
+      "abstract_en": "Transformer-based models achieve strong performance on blind compressed image restoration (CIR) under unknown compression settings, but their densely stacked projection operators make deployment costly. We study training-free acceleration for such models through an empirical, operator-level analysis. Specifically, we profile where computation is concentrated, characterize channel-wise activation distributions under compressed inputs, and examine the singular-value decay of representative projection weights. These measurements identify the recurring projections in the attention, feed-forward, convolutional, and prompt-conditioning pathways as effective low-rank replacement targets that preserve the original inference graph. They further establish truncated SVD (TSVD) as a principled training-free baseline for blind CIR and reveal why a uniform low-rank objective is mismatched to the channel-imbalanced feature distributions of compressed images. Accordingly, we formulate Activation-Calibrated Singular Value Decomposition (ASVD) for this restoration setting, deriving low-rank factors entirely offline from pretrained weights and lightweight activation statistics gathered from only a few compressed calibration images. By weighting the decomposition with channel-wise activation magnitudes, our ASVD assigns larger penalties to errors on more active channels, requiring neither retraining nor online calibration and leaving the restoration pipeline intact. When instantiated on PromptCIR at rank 64, ASVD consistently improves PSNR-B over TSVD across four standard benchmarks under identical parameter and MAC budgets. At this operating point, the factorized model cuts parameters by 59% (34.75M to 14.34M) and computation by 16.1% (258.79 to 217.16 GMACs for a 256 x 256 input), enabling acceleration without retraining.",
+      "comment": "11 pages. Accepted for publication in IEEE Journal on Emerging and Selected Topics in Circuits and Systems",
+      "journal_ref": "",
+      "doi": "10.1109/JETCAS.2026.3745896",
+      "summary_zh": "摘要生成失败，保留英文摘要：Transformer-based models achieve strong performance on blind compressed image restoration (CIR) under unknown compression settings, but their densely stacked projection operators make deployment costly. We study training-free acceleration for such models through an empirical, operator-level analysis. Specifically, we profile where computation is concentrated, characterize channel-wise activation distributions under compressed inputs, and examine the singular-value decay of representative projection weights. These measurements identify the recurring projections in the attention, feed-forward, convolutional, and prompt-conditioning pathways as effective low-rank replacement targets that preserve the original inference graph. They further establish truncated SVD (TSVD) as a principled training-free baseline for blind CIR and reveal why a uniform low-rank objective is mismatched to the channel-imbalanced feature distributions of compressed images. Accordingly, we formulate Activation-Calibrated Singular Value Decomposition (ASVD) for this restoration setting, deriving low-rank factors entirely offline from pretrained weights and lightweight activation statistics gathered from only a few compressed calibration images. By weighting the decomposition with channel-wise activation magnitudes, our ASVD assigns larger penalties to errors on more active channels, requiring neither retraining nor online calibration and leaving the restoration pipeline intact. When instantiated on PromptCIR at rank 64, ASVD consistently improves PSNR-B over TSVD across four standard benchmarks under identical parameter and MAC budgets. At this operating point, the factorized model cuts parameters by 59% (34.75M to 14.34M) and computation by 16.1% (258.79 to 217.16 GMACs for a 256 x 256 input), enabling acceleration without retraining.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Transformer-based models achieve strong performance on blind compressed image restoration (CIR) under unknown compression settings, but their densely stacked projection operators make deployment costly. We study training-free acceleration for such models through an empirical, operator-level analysis. Specifically, we profile where computation is concentrated, characterize channel-wise activation distributions under compressed inputs, and examine the singular-value decay of representative projection weights. These measurements identify the recurring projections in the attention, feed-forward, convolutional, and prompt-conditioning pathways as effective low-rank replacement targets that preserve the original inference graph. They further establish truncated SVD (TSVD) as a principled training-free baseline for blind CIR and reveal why a uniform low-rank objective is mismatched to the channel-imbalanced feature distributions of compressed images. Accordingly, we formulate Activation-Calibrated Singular Value Decomposition (ASVD) for this restoration setting, deriving low-rank factors entirely offline from pretrained weights and lightweight activation statistics gathered from only a few compressed calibration images. By weighting the decomposition with channel-wise activation magnitudes, our ASVD assigns larger penalties to errors on more active channels, requiring neither retraining nor online calibration and leaving the restoration pipeline intact. When instantiated on PromptCIR at rank 64, ASVD consistently improves PSNR-B over TSVD across four standard benchmarks under identical parameter and MAC budgets. At this operating point, the factorized model cuts parameters by 59% (34.75M to 14.34M) and computation by 16.1% (258.79 to 217.16 GMACs for a 256 x 256 input), enabling acceleration without retraining.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29909",
+      "title": "Tractable Inference with Kolmogorov-Arnold Networks",
+      "authors": [
+        "Juan Diego Toscano",
+        "Sascha Ranftl",
+        "Zhiwei Gao",
+        "Li-Lian Wang",
+        "George Em Karniadakis"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.NA",
+        "physics.comp-ph"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "physics.comp-ph",
+      "abs_url": "https://arxiv.org/abs/2610.29909",
+      "pdf_url": "https://arxiv.org/pdf/2610.29909",
+      "abstract_en": "Machine-learning surrogates in computational science often require not only accurate predictions but also expectations, variances, conserved integrals, and normalization constants. Conventional neural networks, including Kolmogorov--Arnold networks (KANs), generally evaluate these quantities through Monte Carlo sampling or multidimensional quadrature, making repeated inference costly, particularly in high dimensions. We introduce KANs with Tractable Operators for Uncertainty and Constraints (TOUCKANs), whose finite-degree polynomial outer functions yield a decomposable sum--product representation. Under factorizing input measures, expectations and higher moments then reduce algebraically to deterministic recursions over one-dimensional leaf integrals. Independent and shared inner-block variants form a parameter-efficiency hierarchy, and a universal-approximation proof for its most restricted member extends to the complete class. The same deterministic operators allow conserved integrals and normalization to be imposed throughout training. Across uniform and Gaussian benchmarks through 50 dimensions, deterministic mean and variance errors remained below the median fixed-budget Monte Carlo errors in every case. TOUCKANs also conserved Cahn--Hilliard mass to machine precision and imposed normalization and orthogonality through deterministic moments, enabling joint computation of the lowest four Schrödinger eigenpairs in two, three, and five dimensions. TOUCKANs therefore connect KAN approximation with tractable probabilistic circuits, making statistical operators and integral constraints directly available within an expressive neural surrogate.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Machine-learning surrogates in computational science often require not only accurate predictions but also expectations, variances, conserved integrals, and normalization constants. Conventional neural networks, including Kolmogorov--Arnold networks (KANs), generally evaluate these quantities through Monte Carlo sampling or multidimensional quadrature, making repeated inference costly, particularly in high dimensions. We introduce KANs with Tractable Operators for Uncertainty and Constraints (TOUCKANs), whose finite-degree polynomial outer functions yield a decomposable sum--product representation. Under factorizing input measures, expectations and higher moments then reduce algebraically to deterministic recursions over one-dimensional leaf integrals. Independent and shared inner-block variants form a parameter-efficiency hierarchy, and a universal-approximation proof for its most restricted member extends to the complete class. The same deterministic operators allow conserved integrals and normalization to be imposed throughout training. Across uniform and Gaussian benchmarks through 50 dimensions, deterministic mean and variance errors remained below the median fixed-budget Monte Carlo errors in every case. TOUCKANs also conserved Cahn--Hilliard mass to machine precision and imposed normalization and orthogonality through deterministic moments, enabling joint computation of the lowest four Schrödinger eigenpairs in two, three, and five dimensions. TOUCKANs therefore connect KAN approximation with tractable probabilistic circuits, making statistical operators and integral constraints directly available within an expressive neural surrogate.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Machine-learning surrogates in computational science often require not only accurate predictions but also expectations, variances, conserved integrals, and normalization constants. Conventional neural networks, including Kolmogorov--Arnold networks (KANs), generally evaluate these quantities through Monte Carlo sampling or multidimensional quadrature, making repeated inference costly, particularly in high dimensions. We introduce KANs with Tractable Operators for Uncertainty and Constraints (TOUCKANs), whose finite-degree polynomial outer functions yield a decomposable sum--product representation. Under factorizing input measures, expectations and higher moments then reduce algebraically to deterministic recursions over one-dimensional leaf integrals. Independent and shared inner-block variants form a parameter-efficiency hierarchy, and a universal-approximation proof for its most restricted member extends to the complete class. The same deterministic operators allow conserved integrals and normalization to be imposed throughout training. Across uniform and Gaussian benchmarks through 50 dimensions, deterministic mean and variance errors remained below the median fixed-budget Monte Carlo errors in every case. TOUCKANs also conserved Cahn--Hilliard mass to machine precision and imposed normalization and orthogonality through deterministic moments, enabling joint computation of the lowest four Schrödinger eigenpairs in two, three, and five dimensions. TOUCKANs therefore connect KAN approximation with tractable probabilistic circuits, making statistical operators and integral constraints directly available within an expressive neural surrogate.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29845",
+      "title": "RangeNav: Task-Aligned LiDAR Range-Image Pretraining for Robot Navigation",
+      "authors": [
+        "Samuel Foo Enze",
+        "Manthan Patel",
+        "Fan Yang",
+        "Linus Kramer",
+        "Pascal Roth",
+        "Marco Hutter",
+        "Cesar Cadena"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2610.29845",
+      "pdf_url": "https://arxiv.org/pdf/2610.29845",
+      "abstract_en": "Autonomous mobile robots operating in dense crowds and cluttered sites require $360^\\circ$ perception to react to surrounding hazards. While panoramic LiDAR offers full-surround coverage, learning representations within reinforcement learning (RL) is sample-inefficient under sparse rewards, and existing 3D pretrained point-cloud encoders are too memory-heavy for massively parallel RL simulation. We present RangeNav, a compact (183k parameters) LiDAR range-image encoder pretrained entirely on synthetic data. RangeNav uses anisotropic convolutions and circular padding to handle the extreme aspect ratio and azimuthal seam of range images. We pretrain the network using a navigation-aligned objective combining range reconstruction, semantic segmentation, and bird's-eye-view (BEV) prediction, then freeze it for policy learning. In simulation, adding semantic and BEV supervision increases success rates over a reconstruction-only baseline by an average of 32.03 and 23.73 percentage points (pp) in procedurally generated training and out-of-distribution realistic test environments, respectively. Zero-shot real-world deployments on a Unitree B2-W quadruped demonstrate robust navigation through dense crowds, low-light settings, and construction zones where limited-field-of-view depth policies struggle. Code and models will be open-sourced. Project website: https://rangenav.github.io/.",
+      "comment": "9 pages, 6 figures, 5 tables. Added project website to abstract and updated author affiliation; research content unchanged",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Autonomous mobile robots operating in dense crowds and cluttered sites require $360^\\circ$ perception to react to surrounding hazards. While panoramic LiDAR offers full-surround coverage, learning representations within reinforcement learning (RL) is sample-inefficient under sparse rewards, and existing 3D pretrained point-cloud encoders are too memory-heavy for massively parallel RL simulation. We present RangeNav, a compact (183k parameters) LiDAR range-image encoder pretrained entirely on synthetic data. RangeNav uses anisotropic convolutions and circular padding to handle the extreme aspect ratio and azimuthal seam of range images. We pretrain the network using a navigation-aligned objective combining range reconstruction, semantic segmentation, and bird's-eye-view (BEV) prediction, then freeze it for policy learning. In simulation, adding semantic and BEV supervision increases success rates over a reconstruction-only baseline by an average of 32.03 and 23.73 percentage points (pp) in procedurally generated training and out-of-distribution realistic test environments, respectively. Zero-shot real-world deployments on a Unitree B2-W quadruped demonstrate robust navigation through dense crowds, low-light settings, and construction zones where limited-field-of-view depth policies struggle. Code and models will be open-sourced. Project website: https://rangenav.github.io/.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Autonomous mobile robots operating in dense crowds and cluttered sites require $360^\\circ$ perception to react to surrounding hazards. While panoramic LiDAR offers full-surround coverage, learning representations within reinforcement learning (RL) is sample-inefficient under sparse rewards, and existing 3D pretrained point-cloud encoders are too memory-heavy for massively parallel RL simulation. We present RangeNav, a compact (183k parameters) LiDAR range-image encoder pretrained entirely on synthetic data. RangeNav uses anisotropic convolutions and circular padding to handle the extreme aspect ratio and azimuthal seam of range images. We pretrain the network using a navigation-aligned objective combining range reconstruction, semantic segmentation, and bird's-eye-view (BEV) prediction, then freeze it for policy learning. In simulation, adding semantic and BEV supervision increases success rates over a reconstruction-only baseline by an average of 32.03 and 23.73 percentage points (pp) in procedurally generated training and out-of-distribution realistic test environments, respectively. Zero-shot real-world deployments on a Unitree B2-W quadruped demonstrate robust navigation through dense crowds, low-light settings, and construction zones where limited-field-of-view depth policies struggle. Code and models will be open-sourced. Project website: https://rangenav.github.io/.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29829",
+      "title": "Robot Generalization Beyond Volume: The Diversity Path via Zero-Shot Capabilities",
+      "authors": [
+        "Rafael Felix",
+        "Flavia Yanase"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.RO",
+      "abs_url": "https://arxiv.org/abs/2610.29829",
+      "pdf_url": "https://arxiv.org/pdf/2610.29829",
+      "abstract_en": "General-purpose robots must handle tasks, objects and environments they were never trained on, yet zero-shot generalization remains one of the least solved problems in physical AI. In digital AI, zero-shot capability grew with the volume and, above all, the diversity of training data, much of it sourced from the crowd. Robotics instead relies on paid collection by a few well-funded teams, which yields volume without diversity. We formulate zero-shot generalization in physical AI as coverage of the deployment distribution, and show that more samples from the same collectors shrink the unseen region only slowly, while each new contributor can extend it. Building on this and on zero-shot learning, we propose a shared latent space for robot actions that combines multi-modal alignment, generative augmentation, and noisy-label learning. As a scalable source of diverse data, we propose a community of developers building applications on one standard, approachable robot, Origami. We close with a testable hypothesis and an evaluation protocol relating real-robot zero-shot success to the diversity of contributed data.",
+      "comment": "13 pages, 7 figures, 2 tables, including supplementary material",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：General-purpose robots must handle tasks, objects and environments they were never trained on, yet zero-shot generalization remains one of the least solved problems in physical AI. In digital AI, zero-shot capability grew with the volume and, above all, the diversity of training data, much of it sourced from the crowd. Robotics instead relies on paid collection by a few well-funded teams, which yields volume without diversity. We formulate zero-shot generalization in physical AI as coverage of the deployment distribution, and show that more samples from the same collectors shrink the unseen region only slowly, while each new contributor can extend it. Building on this and on zero-shot learning, we propose a shared latent space for robot actions that combines multi-modal alignment, generative augmentation, and noisy-label learning. As a scalable source of diverse data, we propose a community of developers building applications on one standard, approachable robot, Origami. We close with a testable hypothesis and an evaluation protocol relating real-robot zero-shot success to the diversity of contributed data.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：General-purpose robots must handle tasks, objects and environments they were never trained on, yet zero-shot generalization remains one of the least solved problems in physical AI. In digital AI, zero-shot capability grew with the volume and, above all, the diversity of training data, much of it sourced from the crowd. Robotics instead relies on paid collection by a few well-funded teams, which yields volume without diversity. We formulate zero-shot generalization in physical AI as coverage of the deployment distribution, and show that more samples from the same collectors shrink the unseen region only slowly, while each new contributor can extend it. Building on this and on zero-shot learning, we propose a shared latent space for robot actions that combines multi-modal alignment, generative augmentation, and noisy-label learning. As a scalable source of diverse data, we propose a community of developers building applications on one standard, approachable robot, Origami. We close with a testable hypothesis and an evaluation protocol relating real-robot zero-shot success to the diversity of contributed data.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29780",
+      "title": "JointLight: Human-Centric Video Relighting with Asynchronous RGB-Irradiance Joint Modeling",
+      "authors": [
+        "Henglei Lv",
+        "Bailin Deng",
+        "Xiaoqiang Liu",
+        "Yichen Wang",
+        "Haoxian Zhang",
+        "Pengfei Wan",
+        "Lin Gao"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.29780",
+      "pdf_url": "https://arxiv.org/pdf/2610.29780",
+      "abstract_en": "Understanding and modeling light transport in human-centric scenes is a longstanding challenge. While recent progress in diffusion models has boosted research in relighting, precise illumination control still lags, primarily due to the scarcity of diverse, high-quality, precisely labeled video relighting datasets. Existing end-to-end relighting approaches model light transport implicitly through neural networks, which substantially complicates controllability. In contrast, some works resort to path-traced irradiance cues as an explicit blueprint for light transport. However, such constructed irradiance cues are prone to artifacts and hinder generative quality when directly used as control signals. With the key observation that noise corruption removes high-frequency artifacts and preserves low-frequency light transport, we introduce an asynchronous joint-modeling paradigm that facilitates fine-grained illumination control. During two-stage training, we force the model to jointly denoise RGB and ground-truth irradiance frames with separate timesteps scheduling. A domain matching strategy is applied to the second stage to bridge the domain gap between irradiance cues and ground-truth irradiance maps. At inference time, we introduce an asynchronous hijacked generation pipeline that facilitates flexible illumination control. For training data, we develop a multi-illumination high-quality synthetic video dataset with paired irradiance maps using a powerful game engine. Trained exclusively on this dataset, our model exhibits robust generalization to real- world scenarios and outperforms prior approaches in both lighting fidelity and generative quality. Project page: http://www.geometrylearning.com/JointLight/",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "10.1145/3829340.3842252",
+      "summary_zh": "摘要生成失败，保留英文摘要：Understanding and modeling light transport in human-centric scenes is a longstanding challenge. While recent progress in diffusion models has boosted research in relighting, precise illumination control still lags, primarily due to the scarcity of diverse, high-quality, precisely labeled video relighting datasets. Existing end-to-end relighting approaches model light transport implicitly through neural networks, which substantially complicates controllability. In contrast, some works resort to path-traced irradiance cues as an explicit blueprint for light transport. However, such constructed irradiance cues are prone to artifacts and hinder generative quality when directly used as control signals. With the key observation that noise corruption removes high-frequency artifacts and preserves low-frequency light transport, we introduce an asynchronous joint-modeling paradigm that facilitates fine-grained illumination control. During two-stage training, we force the model to jointly denoise RGB and ground-truth irradiance frames with separate timesteps scheduling. A domain matching strategy is applied to the second stage to bridge the domain gap between irradiance cues and ground-truth irradiance maps. At inference time, we introduce an asynchronous hijacked generation pipeline that facilitates flexible illumination control. For training data, we develop a multi-illumination high-quality synthetic video dataset with paired irradiance maps using a powerful game engine. Trained exclusively on this dataset, our model exhibits robust generalization to real- world scenarios and outperforms prior approaches in both lighting fidelity and generative quality. Project page: http://www.geometrylearning.com/JointLight/",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Understanding and modeling light transport in human-centric scenes is a longstanding challenge. While recent progress in diffusion models has boosted research in relighting, precise illumination control still lags, primarily due to the scarcity of diverse, high-quality, precisely labeled video relighting datasets. Existing end-to-end relighting approaches model light transport implicitly through neural networks, which substantially complicates controllability. In contrast, some works resort to path-traced irradiance cues as an explicit blueprint for light transport. However, such constructed irradiance cues are prone to artifacts and hinder generative quality when directly used as control signals. With the key observation that noise corruption removes high-frequency artifacts and preserves low-frequency light transport, we introduce an asynchronous joint-modeling paradigm that facilitates fine-grained illumination control. During two-stage training, we force the model to jointly denoise RGB and ground-truth irradiance frames with separate timesteps scheduling. A domain matching strategy is applied to the second stage to bridge the domain gap between irradiance cues and ground-truth irradiance maps. At inference time, we introduce an asynchronous hijacked generation pipeline that facilitates flexible illumination control. For training data, we develop a multi-illumination high-quality synthetic video dataset with paired irradiance maps using a powerful game engine. Trained exclusively on this dataset, our model exhibits robust generalization to real- world scenarios and outperforms prior approaches in both lighting fidelity and generative quality. Project page: http://www.geometrylearning.com/JointLight/",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29680",
+      "title": "TraceForge: Distilling with Your Own Thinking",
+      "authors": [
+        "Yan Wang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2610.29680",
+      "pdf_url": "https://arxiv.org/pdf/2610.29680",
+      "abstract_en": "Using an LLM to generate training data for another is among the most general ways to train one, and it remains common practice. Some frontier teams have closed that route for their own models: what comes back is an answer, or a short summary, without the detailed reasoning trace behind it. That is a little ironic: they were themselves built on distilling human knowledge, and distilling an open-source model is still entirely routine; the restriction applies to their own outputs alone. Recent work recovers the hidden reasoning by replaying encrypted blocks across models. It somehow works, but it breaks the providers' terms of service, so it is not something a product can be built on long-term. We built the alternative. We take the context and the teacher's answer as input, and generate the reasoning trace ourselves, in the style of the student's own model family. Training is two-stage, supervised and then adversarial: a generator learns to regenerate the family's own reasoning traces from their context and answer, and a critic learns how real a reasoning trace looks. Applied to a teacher's answer, the generator writes one in the family's style. An independent judge rates how likely traces are to be genuine on a scale from 0 to 1: ours average 0.68, real traces 0.66, and traces selected by the critic from four candidates 0.82. These are authenticity scores, not correctness rates. We test the idea on five benchmarks with everything else held fixed. On general tasks the five training corpora are about the same; on coding, the generated reasoning beats Fable 5's own thinking content. With the same 5,000 questions and the same teacher answers, HumanEval+ improves by 3.7 points and MBPP+ by 7.1 at the final checkpoint, and the MBPP+ lead holds at every checkpoint. We suspect that reasoning written in the student's family style is easier for it to learn from.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Using an LLM to generate training data for another is among the most general ways to train one, and it remains common practice. Some frontier teams have closed that route for their own models: what comes back is an answer, or a short summary, without the detailed reasoning trace behind it. That is a little ironic: they were themselves built on distilling human knowledge, and distilling an open-source model is still entirely routine; the restriction applies to their own outputs alone. Recent work recovers the hidden reasoning by replaying encrypted blocks across models. It somehow works, but it breaks the providers' terms of service, so it is not something a product can be built on long-term. We built the alternative. We take the context and the teacher's answer as input, and generate the reasoning trace ourselves, in the style of the student's own model family. Training is two-stage, supervised and then adversarial: a generator learns to regenerate the family's own reasoning traces from their context and answer, and a critic learns how real a reasoning trace looks. Applied to a teacher's answer, the generator writes one in the family's style. An independent judge rates how likely traces are to be genuine on a scale from 0 to 1: ours average 0.68, real traces 0.66, and traces selected by the critic from four candidates 0.82. These are authenticity scores, not correctness rates. We test the idea on five benchmarks with everything else held fixed. On general tasks the five training corpora are about the same; on coding, the generated reasoning beats Fable 5's own thinking content. With the same 5,000 questions and the same teacher answers, HumanEval+ improves by 3.7 points and MBPP+ by 7.1 at the final checkpoint, and the MBPP+ lead holds at every checkpoint. We suspect that reasoning written in the student's family style is easier for it to learn from.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Using an LLM to generate training data for another is among the most general ways to train one, and it remains common practice. Some frontier teams have closed that route for their own models: what comes back is an answer, or a short summary, without the detailed reasoning trace behind it. That is a little ironic: they were themselves built on distilling human knowledge, and distilling an open-source model is still entirely routine; the restriction applies to their own outputs alone. Recent work recovers the hidden reasoning by replaying encrypted blocks across models. It somehow works, but it breaks the providers' terms of service, so it is not something a product can be built on long-term. We built the alternative. We take the context and the teacher's answer as input, and generate the reasoning trace ourselves, in the style of the student's own model family. Training is two-stage, supervised and then adversarial: a generator learns to regenerate the family's own reasoning traces from their context and answer, and a critic learns how real a reasoning trace looks. Applied to a teacher's answer, the generator writes one in the family's style. An independent judge rates how likely traces are to be genuine on a scale from 0 to 1: ours average 0.68, real traces 0.66, and traces selected by the critic from four candidates 0.82. These are authenticity scores, not correctness rates. We test the idea on five benchmarks with everything else held fixed. On general tasks the five training corpora are about the same; on coding, the generated reasoning beats Fable 5's own thinking content. With the same 5,000 questions and the same teacher answers, HumanEval+ improves by 3.7 points and MBPP+ by 7.1 at the final checkpoint, and the MBPP+ lead holds at every checkpoint. We suspect that reasoning written in the student's family style is easier for it to learn from.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29606",
+      "title": "Overview of CHIP 2026 Shared Task 1: Patient-Specific Phenotype Concept Recognition in Full-Text Biomedical Literature",
+      "authors": [
+        "Xuanlyu Zhu",
+        "Feng Tian",
+        "Yang Zhong",
+        "Pengqi Zheng",
+        "Xiwen Bi",
+        "Ling Luo",
+        "Yuanyuan Sun",
+        "Jian Wang",
+        "Hongfei Lin"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2610.29606",
+      "pdf_url": "https://arxiv.org/pdf/2610.29606",
+      "abstract_en": "Automatic phenotype information extraction plays an important role in rare disease diagnosis, genotype-phenotype analysis, and precision medicine. However, accurately identifying phenotype concepts and determining their associations with specific patients remain challenging, particularly in full-text biomedical articles involving multiple patients and complex clinical descriptions. This paper presents an overview of CHIP 2026 Shared Task 1, which aims to promote the development of methods for patient-specific phenotype concept recognition from full-text biomedical literature. The task consists of two subtasks: full-text phenotype concept recognition and patient-specific phenotype association. For this evaluation, we used 200 annotated full-text biomedical articles from the PatientPheX dataset, containing 506 patients, 15,193 phenotype mentions, and 5,656 patient-phenotype associations. A total of 455 teams registered for the competition, with 189 and 103 valid submissions received on the Phase A and Phase B leaderboards, respectively. The best-performing system achieved an overall score of 0.7389 on the final test set, outperforming the baseline by 8.37 percentage points. The top-performing teams explored diverse approaches combining biomedical language models, large language models (LLMs), and ensemble strategies. The evaluation results highlight both the potential of these approaches and the remaining challenges in patient attribution and phenotype normalization from full-text biomedical literature. The post-evaluation phase remains open at https://tianchi.aliyun.com/competition/entrance/532512.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Automatic phenotype information extraction plays an important role in rare disease diagnosis, genotype-phenotype analysis, and precision medicine. However, accurately identifying phenotype concepts and determining their associations with specific patients remain challenging, particularly in full-text biomedical articles involving multiple patients and complex clinical descriptions. This paper presents an overview of CHIP 2026 Shared Task 1, which aims to promote the development of methods for patient-specific phenotype concept recognition from full-text biomedical literature. The task consists of two subtasks: full-text phenotype concept recognition and patient-specific phenotype association. For this evaluation, we used 200 annotated full-text biomedical articles from the PatientPheX dataset, containing 506 patients, 15,193 phenotype mentions, and 5,656 patient-phenotype associations. A total of 455 teams registered for the competition, with 189 and 103 valid submissions received on the Phase A and Phase B leaderboards, respectively. The best-performing system achieved an overall score of 0.7389 on the final test set, outperforming the baseline by 8.37 percentage points. The top-performing teams explored diverse approaches combining biomedical language models, large language models (LLMs), and ensemble strategies. The evaluation results highlight both the potential of these approaches and the remaining challenges in patient attribution and phenotype normalization from full-text biomedical literature. The post-evaluation phase remains open at https://tianchi.aliyun.com/competition/entrance/532512.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Automatic phenotype information extraction plays an important role in rare disease diagnosis, genotype-phenotype analysis, and precision medicine. However, accurately identifying phenotype concepts and determining their associations with specific patients remain challenging, particularly in full-text biomedical articles involving multiple patients and complex clinical descriptions. This paper presents an overview of CHIP 2026 Shared Task 1, which aims to promote the development of methods for patient-specific phenotype concept recognition from full-text biomedical literature. The task consists of two subtasks: full-text phenotype concept recognition and patient-specific phenotype association. For this evaluation, we used 200 annotated full-text biomedical articles from the PatientPheX dataset, containing 506 patients, 15,193 phenotype mentions, and 5,656 patient-phenotype associations. A total of 455 teams registered for the competition, with 189 and 103 valid submissions received on the Phase A and Phase B leaderboards, respectively. The best-performing system achieved an overall score of 0.7389 on the final test set, outperforming the baseline by 8.37 percentage points. The top-performing teams explored diverse approaches combining biomedical language models, large language models (LLMs), and ensemble strategies. The evaluation results highlight both the potential of these approaches and the remaining challenges in patient attribution and phenotype normalization from full-text biomedical literature. The post-evaluation phase remains open at https://tianchi.aliyun.com/competition/entrance/532512.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29569",
+      "title": "Rethinking Underwater Image Enhancement: Learning through Text-Guided Degradation Curriculum",
+      "authors": [
+        "Hongri Tian",
+        "Wenxue Li",
+        "Tian Ye",
+        "Sixiang Chen",
+        "Zongxian Su",
+        "Lujia Wang",
+        "Xianying Wang",
+        "Xinhu Zheng",
+        "Gang Hua",
+        "Lei Zhu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.29569",
+      "pdf_url": "https://arxiv.org/pdf/2610.29569",
+      "abstract_en": "Existing paired clean-degraded datasets have advanced learning-based underwater image enhancement, but they remain either limited in scale or difficult to acquire, and still fail to adequately cover the diverse degradations encountered in real-world underwater environments. Such scarce and insufficient data ultimately restrict the generalization of underwater image enhancement models, highlighting the need for realistic and controllable degradation modeling to better capture real underwater conditions and improve enhancement robustness. To this end, we propose a unified degradation-aware training framework for the underwater image enhancement task. A Text-Conditioned Degradation Augmentation Pipeline uses a text-guided diffusion model to synthesize diverse and semantically consistent degraded samples, providing paired data to support the subsequent curriculum learning strategy. The proposed Progressive Degradation Curriculum organizes training across multiple attributes and difficulty levels to promote balanced learning, and a Transmission-Guided One-Step Diffusion Model leverages this progressive process to better address the wide range of degradation severity and restoration ambiguity in underwater images. Extensive experiments on multiple underwater benchmarks demonstrate that our proposed method achieves superior performance. Our code and models will be released upon the publication of this work.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Existing paired clean-degraded datasets have advanced learning-based underwater image enhancement, but they remain either limited in scale or difficult to acquire, and still fail to adequately cover the diverse degradations encountered in real-world underwater environments. Such scarce and insufficient data ultimately restrict the generalization of underwater image enhancement models, highlighting the need for realistic and controllable degradation modeling to better capture real underwater conditions and improve enhancement robustness. To this end, we propose a unified degradation-aware training framework for the underwater image enhancement task. A Text-Conditioned Degradation Augmentation Pipeline uses a text-guided diffusion model to synthesize diverse and semantically consistent degraded samples, providing paired data to support the subsequent curriculum learning strategy. The proposed Progressive Degradation Curriculum organizes training across multiple attributes and difficulty levels to promote balanced learning, and a Transmission-Guided One-Step Diffusion Model leverages this progressive process to better address the wide range of degradation severity and restoration ambiguity in underwater images. Extensive experiments on multiple underwater benchmarks demonstrate that our proposed method achieves superior performance. Our code and models will be released upon the publication of this work.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Existing paired clean-degraded datasets have advanced learning-based underwater image enhancement, but they remain either limited in scale or difficult to acquire, and still fail to adequately cover the diverse degradations encountered in real-world underwater environments. Such scarce and insufficient data ultimately restrict the generalization of underwater image enhancement models, highlighting the need for realistic and controllable degradation modeling to better capture real underwater conditions and improve enhancement robustness. To this end, we propose a unified degradation-aware training framework for the underwater image enhancement task. A Text-Conditioned Degradation Augmentation Pipeline uses a text-guided diffusion model to synthesize diverse and semantically consistent degraded samples, providing paired data to support the subsequent curriculum learning strategy. The proposed Progressive Degradation Curriculum organizes training across multiple attributes and difficulty levels to promote balanced learning, and a Transmission-Guided One-Step Diffusion Model leverages this progressive process to better address the wide range of degradation severity and restoration ambiguity in underwater images. Extensive experiments on multiple underwater benchmarks demonstrate that our proposed method achieves superior performance. Our code and models will be released upon the publication of this work.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29385",
+      "title": "Parallelizable Probabilistic Latent Reasoning for Diverse Reasoning Trajectories",
+      "authors": [
+        "Seokhyun Lee",
+        "Seongjun Lee",
+        "Changhee Lee"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2610.29385",
+      "pdf_url": "https://arxiv.org/pdf/2610.29385",
+      "abstract_en": "Language models relying on verbalized Chain-of-Thought (CoT) are constrained to token-by-token generation in the language space, where many tokens serve textual coherence rather than core reasoning. This entangles genuine differences in logical trajectories with superficial variations in verbalization. Moving reasoning into a compact, continuous latent space offers a promising alternative for efficiently representing and exploring diverse reasoning trajectories. However, current latent models remain largely deterministic, capturing only a single reasoning trajectory rather than modeling a distribution over multiple valid alternatives. While stochastic approaches parameterize distributions over latent reasoning steps, they frequently suffer from unstable optimization and limited empirical performance. Furthermore, their reliance on autoregressive latent prediction during training precludes effective parallelization, leading to prohibitively long training times. To overcome these bottlenecks, we propose Probabilistic Latent Reasoning Models (PLRM), a parallelizable variational framework for probabilistic latent reasoning. PLRM adopts a JEPA-style objective in which the posterior infers latent distributions in parallel from observed reasoning trajectories, while the prior learns to predict the subsequent latent distribution via teacher forcing. To model heterogeneous reasoning processes, we introduce a discrete strategy variable together with a mixture-based prior, allowing the model to preserve the Gaussian-mixture structure induced by multiple distinct reasoning trajectories rather than collapsing them into a single Gaussian. Across diverse benchmarks, PLRM achieves performance competitive with deterministic latent reasoning models on single-trajectory datasets while enabling efficient training and consistently outperforming competing stochastic baselines on multi-trajectory datasets.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Language models relying on verbalized Chain-of-Thought (CoT) are constrained to token-by-token generation in the language space, where many tokens serve textual coherence rather than core reasoning. This entangles genuine differences in logical trajectories with superficial variations in verbalization. Moving reasoning into a compact, continuous latent space offers a promising alternative for efficiently representing and exploring diverse reasoning trajectories. However, current latent models remain largely deterministic, capturing only a single reasoning trajectory rather than modeling a distribution over multiple valid alternatives. While stochastic approaches parameterize distributions over latent reasoning steps, they frequently suffer from unstable optimization and limited empirical performance. Furthermore, their reliance on autoregressive latent prediction during training precludes effective parallelization, leading to prohibitively long training times. To overcome these bottlenecks, we propose Probabilistic Latent Reasoning Models (PLRM), a parallelizable variational framework for probabilistic latent reasoning. PLRM adopts a JEPA-style objective in which the posterior infers latent distributions in parallel from observed reasoning trajectories, while the prior learns to predict the subsequent latent distribution via teacher forcing. To model heterogeneous reasoning processes, we introduce a discrete strategy variable together with a mixture-based prior, allowing the model to preserve the Gaussian-mixture structure induced by multiple distinct reasoning trajectories rather than collapsing them into a single Gaussian. Across diverse benchmarks, PLRM achieves performance competitive with deterministic latent reasoning models on single-trajectory datasets while enabling efficient training and consistently outperforming competing stochastic baselines on multi-trajectory datasets.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Language models relying on verbalized Chain-of-Thought (CoT) are constrained to token-by-token generation in the language space, where many tokens serve textual coherence rather than core reasoning. This entangles genuine differences in logical trajectories with superficial variations in verbalization. Moving reasoning into a compact, continuous latent space offers a promising alternative for efficiently representing and exploring diverse reasoning trajectories. However, current latent models remain largely deterministic, capturing only a single reasoning trajectory rather than modeling a distribution over multiple valid alternatives. While stochastic approaches parameterize distributions over latent reasoning steps, they frequently suffer from unstable optimization and limited empirical performance. Furthermore, their reliance on autoregressive latent prediction during training precludes effective parallelization, leading to prohibitively long training times. To overcome these bottlenecks, we propose Probabilistic Latent Reasoning Models (PLRM), a parallelizable variational framework for probabilistic latent reasoning. PLRM adopts a JEPA-style objective in which the posterior infers latent distributions in parallel from observed reasoning trajectories, while the prior learns to predict the subsequent latent distribution via teacher forcing. To model heterogeneous reasoning processes, we introduce a discrete strategy variable together with a mixture-based prior, allowing the model to preserve the Gaussian-mixture structure induced by multiple distinct reasoning trajectories rather than collapsing them into a single Gaussian. Across diverse benchmarks, PLRM achieves performance competitive with deterministic latent reasoning models on single-trajectory datasets while enabling efficient training and consistently outperforming competing stochastic baselines on multi-trajectory datasets.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29351",
+      "title": "Closed-Loop Dual-Reference Guidance for Accent Control in Cross-Lingual Voice Cloning",
+      "authors": [
+        "Yuanzhong Zheng",
+        "Wei Huang",
+        "Ming Ma",
+        "Kailun Jin",
+        "Youhai Jiang"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG",
+        "cs.SD",
+        "eess.AS"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.SD",
+      "abs_url": "https://arxiv.org/abs/2610.29351",
+      "pdf_url": "https://arxiv.org/pdf/2610.29351",
+      "abstract_en": "Zero-shot cross-lingual voice cloning often carries the reference speaker's accent into the target language. We propose closed-loop dual-reference guidance, which pairs the original reference with a reusable native anchor constructed by voice conversion (VC). The references initialize separate language-model (LM) states that guide a shared acoustic trajectory; each completed patch then updates both states, keeping their generated histories aligned with the emitted speech. Anchor construction runs once per speaker, and online synthesis uses a frozen TTS model without per-utterance VC. On 20 held-out French speakers, the fixed setting $λ^{\\!*}=0.33$ reduces residual French LID mass by 73% versus direct cloning, at an ECAPA similarity cost of only $0.042$; relative to anchor-only cloning, it recovers $0.155$. The method achieves the lowest mean WER ($0.009$) and highest mean GOP ($4.750$) among the held-out test arms. In blinded preference tests, native-English listeners favor it over direct cloning on pronunciation naturalness, and over both anchor-only cloning and a TTS$\\to$VC cascade on speaker identity. Online RTF is approximately 26% lower than the cascade's ($0.59$ vs. $0.80$), and the same setting reduces Spanish LID mass by 56% without re-tuning.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Zero-shot cross-lingual voice cloning often carries the reference speaker's accent into the target language. We propose closed-loop dual-reference guidance, which pairs the original reference with a reusable native anchor constructed by voice conversion (VC). The references initialize separate language-model (LM) states that guide a shared acoustic trajectory; each completed patch then updates both states, keeping their generated histories aligned with the emitted speech. Anchor construction runs once per speaker, and online synthesis uses a frozen TTS model without per-utterance VC. On 20 held-out French speakers, the fixed setting $λ^{\\!*}=0.33$ reduces residual French LID mass by 73% versus direct cloning, at an ECAPA similarity cost of only $0.042$; relative to anchor-only cloning, it recovers $0.155$. The method achieves the lowest mean WER ($0.009$) and highest mean GOP ($4.750$) among the held-out test arms. In blinded preference tests, native-English listeners favor it over direct cloning on pronunciation naturalness, and over both anchor-only cloning and a TTS$\\to$VC cascade on speaker identity. Online RTF is approximately 26% lower than the cascade's ($0.59$ vs. $0.80$), and the same setting reduces Spanish LID mass by 56% without re-tuning.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Zero-shot cross-lingual voice cloning often carries the reference speaker's accent into the target language. We propose closed-loop dual-reference guidance, which pairs the original reference with a reusable native anchor constructed by voice conversion (VC). The references initialize separate language-model (LM) states that guide a shared acoustic trajectory; each completed patch then updates both states, keeping their generated histories aligned with the emitted speech. Anchor construction runs once per speaker, and online synthesis uses a frozen TTS model without per-utterance VC. On 20 held-out French speakers, the fixed setting $λ^{\\!*}=0.33$ reduces residual French LID mass by 73% versus direct cloning, at an ECAPA similarity cost of only $0.042$; relative to anchor-only cloning, it recovers $0.155$. The method achieves the lowest mean WER ($0.009$) and highest mean GOP ($4.750$) among the held-out test arms. In blinded preference tests, native-English listeners favor it over direct cloning on pronunciation naturalness, and over both anchor-only cloning and a TTS$\\to$VC cascade on speaker identity. Online RTF is approximately 26% lower than the cascade's ($0.59$ vs. $0.80$), and the same setting reduces Spanish LID mass by 56% without re-tuning.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29330",
+      "title": "AgentMonopoly: Behavioral Patterns and Persona Control in LLM Agents",
+      "authors": [
+        "Changshun Wu",
+        "Mengyu Li",
+        "Mathis Marsault",
+        "Xiaowei Huang",
+        "Chih-Hong Cheng"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2610.29330",
+      "pdf_url": "https://arxiv.org/pdf/2610.29330",
+      "abstract_en": "How do LLM agents' strategies differ, and how much can instructions to adopt a persona change their behavior over a game? We study these questions with AgentMonopoly, an environment where agents communicate, buy and trade properties, and make decisions that affect later turns. We compare models from four families, each at two sizes, in games with identical models, different sizes of the same family, or different families. We also assign one agent a persona, a description of how it should behave, intended to change a tendency observed in games without that persona. The tested models differ in how often they trade, waive rent, and manage cash and properties. Larger models do not consistently win more games. Persona instructions change the words agents use and some of their actions, but the changes do not always match the role across all decisions. These results show why persona following should be assessed through actions and outcomes as well as language. As our findings are conditional on the tested checkpoints, prompts, and five seeds per configuration, the open-source nature of AgentMonopoly provides the experimental infrastructure for further extending these comparisons. Our code is available at https://github.com/SuELS-Group/Agent_Monopoly.",
+      "comment": "14 pages, 8 figures, 5 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：How do LLM agents' strategies differ, and how much can instructions to adopt a persona change their behavior over a game? We study these questions with AgentMonopoly, an environment where agents communicate, buy and trade properties, and make decisions that affect later turns. We compare models from four families, each at two sizes, in games with identical models, different sizes of the same family, or different families. We also assign one agent a persona, a description of how it should behave, intended to change a tendency observed in games without that persona. The tested models differ in how often they trade, waive rent, and manage cash and properties. Larger models do not consistently win more games. Persona instructions change the words agents use and some of their actions, but the changes do not always match the role across all decisions. These results show why persona following should be assessed through actions and outcomes as well as language. As our findings are conditional on the tested checkpoints, prompts, and five seeds per configuration, the open-source nature of AgentMonopoly provides the experimental infrastructure for further extending these comparisons. Our code is available at https://github.com/SuELS-Group/Agent_Monopoly.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：How do LLM agents' strategies differ, and how much can instructions to adopt a persona change their behavior over a game? We study these questions with AgentMonopoly, an environment where agents communicate, buy and trade properties, and make decisions that affect later turns. We compare models from four families, each at two sizes, in games with identical models, different sizes of the same family, or different families. We also assign one agent a persona, a description of how it should behave, intended to change a tendency observed in games without that persona. The tested models differ in how often they trade, waive rent, and manage cash and properties. Larger models do not consistently win more games. Persona instructions change the words agents use and some of their actions, but the changes do not always match the role across all decisions. These results show why persona following should be assessed through actions and outcomes as well as language. As our findings are conditional on the tested checkpoints, prompts, and five seeds per configuration, the open-source nature of AgentMonopoly provides the experimental infrastructure for further extending these comparisons. Our code is available at https://github.com/SuELS-Group/Agent_Monopoly.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29327",
+      "title": "OACap: Caption-Guided Active Observation for Detailed Video Captioning",
+      "authors": [
+        "Hao Shi",
+        "Hong Yan",
+        "Xiaoyang Zhang",
+        "Qing Cui",
+        "Chao Huang"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.CV",
+        "cs.MA",
+        "cs.MM"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.29327",
+      "pdf_url": "https://arxiv.org/pdf/2610.29327",
+      "abstract_en": "Unlike question answering, where a query specifies a perceptual target, open-ended detailed captioning must determine what evidence to acquire and how to integrate it into a coherent global description. We propose Observation-Adaptive Video Captioner (OACap), a caption-centered agent that turns unsupported or missing information into targeted observation requests, uses spatiotemporal tools to acquire evidence, and iteratively verifies and revises the caption. OACap captions consistently improve performance across general video-understanding benchmarks using a fixed text-only reader. To better diagnose the information they preserve, we introduce Factual-Semantic Captioning Bench (FSCap-Bench). Its Core-Support Factuality Score (CSFS) combines claim precision with importance-aware fact coverage and responds as expected to four controlled perturbation types on 93.0-98.3% of valid caption pairs. Its Cross-Modal Semantic Round-Trip Score (CSRS) measures semantic preservation through a video-caption-video-caption round trip by matching atomic facts from source and recovered captions. Together, they connect downstream textual-memory utility with factual and semantic preservation.",
+      "comment": "14 pages, 4 figures, 4 tables. Technical report",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Unlike question answering, where a query specifies a perceptual target, open-ended detailed captioning must determine what evidence to acquire and how to integrate it into a coherent global description. We propose Observation-Adaptive Video Captioner (OACap), a caption-centered agent that turns unsupported or missing information into targeted observation requests, uses spatiotemporal tools to acquire evidence, and iteratively verifies and revises the caption. OACap captions consistently improve performance across general video-understanding benchmarks using a fixed text-only reader. To better diagnose the information they preserve, we introduce Factual-Semantic Captioning Bench (FSCap-Bench). Its Core-Support Factuality Score (CSFS) combines claim precision with importance-aware fact coverage and responds as expected to four controlled perturbation types on 93.0-98.3% of valid caption pairs. Its Cross-Modal Semantic Round-Trip Score (CSRS) measures semantic preservation through a video-caption-video-caption round trip by matching atomic facts from source and recovered captions. Together, they connect downstream textual-memory utility with factual and semantic preservation.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Unlike question answering, where a query specifies a perceptual target, open-ended detailed captioning must determine what evidence to acquire and how to integrate it into a coherent global description. We propose Observation-Adaptive Video Captioner (OACap), a caption-centered agent that turns unsupported or missing information into targeted observation requests, uses spatiotemporal tools to acquire evidence, and iteratively verifies and revises the caption. OACap captions consistently improve performance across general video-understanding benchmarks using a fixed text-only reader. To better diagnose the information they preserve, we introduce Factual-Semantic Captioning Bench (FSCap-Bench). Its Core-Support Factuality Score (CSFS) combines claim precision with importance-aware fact coverage and responds as expected to four controlled perturbation types on 93.0-98.3% of valid caption pairs. Its Cross-Modal Semantic Round-Trip Score (CSRS) measures semantic preservation through a video-caption-video-caption round trip by matching atomic facts from source and recovered captions. Together, they connect downstream textual-memory utility with factual and semantic preservation.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29322",
+      "title": "OpenMAP-HIE: Pathology Informed Score-based Diffusion Model for Unsupervised Neonatal Hypoxic-Ischemic Encephalopathy Lesion Segmentation",
+      "authors": [
+        "Pengyu Kan (Johns Hopkins University)",
+        "Craig Jones (Johns Hopkins University",
+        "University of Alberta)",
+        "Kenichi Oishi (Johns Hopkins University School of Medicine)"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.29322",
+      "pdf_url": "https://arxiv.org/pdf/2610.29322",
+      "abstract_en": "Accurate localization of neonatal hypoxic--ischemic encephalopathy (HIE) lesions on apparent diffusion coefficient (ADC) images is clinically important but is limited by scarce expert annotations and substantial variation in lesion appearance. We propose OpenMAP-HIE, a pathology-informed score-based diffusion model for unsupervised HIE lesion localization without voxel-wise lesion supervision. A denoising diffusion model learns the healthy neonatal ADC distribution, while a ControlNet-based conditional branch preserves patient-specific anatomy. At inference, anomaly evidence is derived directly from differences between conditional and unconditioned noise predictions at independently evaluated diffusion noise levels, avoiding dependence on a final pseudo-healthy reconstruction or sequential reverse-diffusion chain. Based on the characteristic ADC reduction associated with acute HIE, only discrepancies consistent with the expected pathological direction are retained and aggregated across noise levels using a geometric mean. Spatial mean filtering further suppresses isolated responses. The framework was evaluated on the BONBID-HIE dataset. The ADC-only method achieved a Dice score of $0.283\\pm0.244$, average precision of $0.505$, Hausdorff distance of $25.45\\pm15.63$ mm, mean average surface distance of $9.40\\pm8.49$ mm, and normalized surface distance of $0.355\\pm0.236$, providing the best overlap and surface-distance performance among the evaluated unsupervised methods and Dice performance comparable to supervised ADC-only models. Optional population-derived ADC $Z$-map refinement further increased Dice to $0.602\\pm0.269$. These findings support pathology-informed score discrepancies as a useful signal for neonatal HIE lesion localization, while highlighting remaining challenges in detecting small and low-contrast lesions.",
+      "comment": "22 pages, 4 figures, 9 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Accurate localization of neonatal hypoxic--ischemic encephalopathy (HIE) lesions on apparent diffusion coefficient (ADC) images is clinically important but is limited by scarce expert annotations and substantial variation in lesion appearance. We propose OpenMAP-HIE, a pathology-informed score-based diffusion model for unsupervised HIE lesion localization without voxel-wise lesion supervision. A denoising diffusion model learns the healthy neonatal ADC distribution, while a ControlNet-based conditional branch preserves patient-specific anatomy. At inference, anomaly evidence is derived directly from differences between conditional and unconditioned noise predictions at independently evaluated diffusion noise levels, avoiding dependence on a final pseudo-healthy reconstruction or sequential reverse-diffusion chain. Based on the characteristic ADC reduction associated with acute HIE, only discrepancies consistent with the expected pathological direction are retained and aggregated across noise levels using a geometric mean. Spatial mean filtering further suppresses isolated responses. The framework was evaluated on the BONBID-HIE dataset. The ADC-only method achieved a Dice score of $0.283\\pm0.244$, average precision of $0.505$, Hausdorff distance of $25.45\\pm15.63$ mm, mean average surface distance of $9.40\\pm8.49$ mm, and normalized surface distance of $0.355\\pm0.236$, providing the best overlap and surface-distance performance among the evaluated unsupervised methods and Dice performance comparable to supervised ADC-only models. Optional population-derived ADC $Z$-map refinement further increased Dice to $0.602\\pm0.269$. These findings support pathology-informed score discrepancies as a useful signal for neonatal HIE lesion localization, while highlighting remaining challenges in detecting small and low-contrast lesions.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Accurate localization of neonatal hypoxic--ischemic encephalopathy (HIE) lesions on apparent diffusion coefficient (ADC) images is clinically important but is limited by scarce expert annotations and substantial variation in lesion appearance. We propose OpenMAP-HIE, a pathology-informed score-based diffusion model for unsupervised HIE lesion localization without voxel-wise lesion supervision. A denoising diffusion model learns the healthy neonatal ADC distribution, while a ControlNet-based conditional branch preserves patient-specific anatomy. At inference, anomaly evidence is derived directly from differences between conditional and unconditioned noise predictions at independently evaluated diffusion noise levels, avoiding dependence on a final pseudo-healthy reconstruction or sequential reverse-diffusion chain. Based on the characteristic ADC reduction associated with acute HIE, only discrepancies consistent with the expected pathological direction are retained and aggregated across noise levels using a geometric mean. Spatial mean filtering further suppresses isolated responses. The framework was evaluated on the BONBID-HIE dataset. The ADC-only method achieved a Dice score of $0.283\\pm0.244$, average precision of $0.505$, Hausdorff distance of $25.45\\pm15.63$ mm, mean average surface distance of $9.40\\pm8.49$ mm, and normalized surface distance of $0.355\\pm0.236$, providing the best overlap and surface-distance performance among the evaluated unsupervised methods and Dice performance comparable to supervised ADC-only models. Optional population-derived ADC $Z$-map refinement further increased Dice to $0.602\\pm0.269$. These findings support pathology-informed score discrepancies as a useful signal for neonatal HIE lesion localization, while highlighting remaining challenges in detecting small and low-contrast lesions.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.29122",
+      "title": "StochIKM: Automated High-Fidelity Reconstruction of Individual Patient Data from Published Kaplan-Meier Curves",
+      "authors": [
+        "Liangze Ke",
+        "Daniel Zelterman",
+        "Wei Wei",
+        "Guannan Gong"
+      ],
+      "categories": [
+        "cs.AI",
+        "stat.AP"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2610.29122",
+      "pdf_url": "https://arxiv.org/pdf/2610.29122",
+      "abstract_en": "Individual patient data are the gold standard for secondary analysis of time-to-event evidence, but they are rarely released, and reconstruction from a published Kaplan-Meier figure could help. Existing methods all claim high fidelity, each judged by whichever agreements it happens to achieve, and each returns a single dataset although the map from figure to data is not bijective. We define fidelity explicitly: a dataset is admissible when it reproduces the risk table exactly, follows the digitized curve to within the image resolution, and respects the printed median, interval and event count. We propose StochIKM, a stochastic algorithm that digitizes the figure with a vision-capable language model and uses the high-fidelity definition as constraints, returning an admissible set of individual patient datasets. A solution is guaranteed to exist whenever the figure has been read correctly, so a failure indicts either the published figure or its digitization. In simulation and in 79 arms from published oncology trials, StochIKM reproduces the published risk tables and medians more closely than LLM-improved IPDfromKM, a high-impact alternative.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Individual patient data are the gold standard for secondary analysis of time-to-event evidence, but they are rarely released, and reconstruction from a published Kaplan-Meier figure could help. Existing methods all claim high fidelity, each judged by whichever agreements it happens to achieve, and each returns a single dataset although the map from figure to data is not bijective. We define fidelity explicitly: a dataset is admissible when it reproduces the risk table exactly, follows the digitized curve to within the image resolution, and respects the printed median, interval and event count. We propose StochIKM, a stochastic algorithm that digitizes the figure with a vision-capable language model and uses the high-fidelity definition as constraints, returning an admissible set of individual patient datasets. A solution is guaranteed to exist whenever the figure has been read correctly, so a failure indicts either the published figure or its digitization. In simulation and in 79 arms from published oncology trials, StochIKM reproduces the published risk tables and medians more closely than LLM-improved IPDfromKM, a high-impact alternative.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Individual patient data are the gold standard for secondary analysis of time-to-event evidence, but they are rarely released, and reconstruction from a published Kaplan-Meier figure could help. Existing methods all claim high fidelity, each judged by whichever agreements it happens to achieve, and each returns a single dataset although the map from figure to data is not bijective. We define fidelity explicitly: a dataset is admissible when it reproduces the risk table exactly, follows the digitized curve to within the image resolution, and respects the printed median, interval and event count. We propose StochIKM, a stochastic algorithm that digitizes the figure with a vision-capable language model and uses the high-fidelity definition as constraints, returning an admissible set of individual patient datasets. A solution is guaranteed to exist whenever the figure has been read correctly, so a failure indicts either the published figure or its digitization. In simulation and in 79 arms from published oncology trials, StochIKM reproduces the published risk tables and medians more closely than LLM-improved IPDfromKM, a high-impact alternative.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-21",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.26261",
+      "title": "REFLEX: RNA Ensemble Generation via Flexibility-Calibrated Stochastic Bridge",
+      "authors": [
+        "Wanli Ma",
+        "Tianmeng Hu",
+        "Ke Li"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2610.26261",
+      "pdf_url": "https://arxiv.org/pdf/2610.26261",
+      "abstract_en": "RNA molecules often function through multiple experimentally observed conformational states. A central challenge is to capture ensemble diversity without sacrificing structural fidelity: samples may collapse toward averaged representative structures or drift into unsupported conformational regions. We introduce REFLEX (RNA Ensemble generation calibrated by FLEXibility), a sequence-conditioned generator for RNA backbone-frame ensembles based on a heteroscedastic stochastic bridge on SE(3). During training, experimental B-factors calibrate residue-wise bridge widths, exposing each observed conformer through local perturbation neighborhoods with residue-specific scales while keeping constrained regions sharper. A learned flexibility condition guides the bridge-field network to recover target conformer-specific frames from these calibrated noisy states. At inference, REFLEX uses only the input sequence, requiring no MSA-subsampling heuristics. On a multi-conformer RNA benchmark, REFLEX achieves the best precision-recall trade-off for ensemble coverage across evaluation thresholds, while recovery-stress ablations indicate gains in target-frame recovery under stronger perturbations.",
+      "comment": "20 pages, 9 figures, 6 tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：RNA molecules often function through multiple experimentally observed conformational states. A central challenge is to capture ensemble diversity without sacrificing structural fidelity: samples may collapse toward averaged representative structures or drift into unsupported conformational regions. We introduce REFLEX (RNA Ensemble generation calibrated by FLEXibility), a sequence-conditioned generator for RNA backbone-frame ensembles based on a heteroscedastic stochastic bridge on SE(3). During training, experimental B-factors calibrate residue-wise bridge widths, exposing each observed conformer through local perturbation neighborhoods with residue-specific scales while keeping constrained regions sharper. A learned flexibility condition guides the bridge-field network to recover target conformer-specific frames from these calibrated noisy states. At inference, REFLEX uses only the input sequence, requiring no MSA-subsampling heuristics. On a multi-conformer RNA benchmark, REFLEX achieves the best precision-recall trade-off for ensemble coverage across evaluation thresholds, while recovery-stress ablations indicate gains in target-frame recovery under stronger perturbations.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：RNA molecules often function through multiple experimentally observed conformational states. A central challenge is to capture ensemble diversity without sacrificing structural fidelity: samples may collapse toward averaged representative structures or drift into unsupported conformational regions. We introduce REFLEX (RNA Ensemble generation calibrated by FLEXibility), a sequence-conditioned generator for RNA backbone-frame ensembles based on a heteroscedastic stochastic bridge on SE(3). During training, experimental B-factors calibrate residue-wise bridge widths, exposing each observed conformer through local perturbation neighborhoods with residue-specific scales while keeping constrained regions sharper. A learned flexibility condition guides the bridge-field network to recover target conformer-specific frames from these calibrated noisy states. At inference, REFLEX uses only the input sequence, requiring no MSA-subsampling heuristics. On a multi-conformer RNA benchmark, REFLEX achieves the best precision-recall trade-off for ensemble coverage across evaluation thresholds, while recovery-stress ablations indicate gains in target-frame recovery under stronger perturbations.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-19",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.03966",
+      "title": "Interface-Induced Trajectory Censoring",
+      "authors": [
+        "Wenbo Wang",
+        "Di Sang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.AI",
+      "abs_url": "https://arxiv.org/abs/2609.03966",
+      "pdf_url": "https://arxiv.org/pdf/2609.03966",
+      "abstract_en": "Tool-use evaluations typically measure calls through a serving stack, which can report zero calls even when model outputs contain call-shaped payloads. We study interface-induced trajectory censoring: a mismatch between model emissions and the interface that converts them into actions. On selected BFCL v4 subsets, changing only the serving adapter while holding model weights and other evaluation settings fixed moves scores under the official scorer from 0.00 to 0.96 on simple_python and from 0.00 to 0.19 on multi_turn_base. A template-parser factorial experiment shows strong complementarity: neither component replacement alone restores parsing from the baseline, whereas their joint replacement recovers 196/200 first-request parses. Across five Qwen2.5-Coder checkpoints, classifier-positive emissions increase with model size while the mismatched interface reports no calls; a separate matched-interface Qwen3 ladder exhibits few silent emissions through 8B. Experiments on 115 tau-bench retail tasks extend the mechanism to a stateful, non-code environment. In a preregistered, single-seed, 150-step 7B LoRA experiment, changing only the parser registered in verl increases tool executions from 10 to 16,844. However, neither a shared programmatic-feedback evaluation nor a post-hoc common native function-calling evaluation detects a held-out success gain from repair; rescue counts do not increase. Interface repair thus restores tool-mediated experience without a detected performance gain in this setting. These findings show that tool-use measurements depend on the model-interface configuration and motivate layer-wise observability and conformance checks before attributing evaluation or training outcomes to the model alone.",
+      "comment": "39 pages, 14 pages main text. Code, data, and pre-registrations: https://github.com/nebula-1999/Interface-Induced-Trajectory-Censoring",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Tool-use evaluations typically measure calls through a serving stack, which can report zero calls even when model outputs contain call-shaped payloads. We study interface-induced trajectory censoring: a mismatch between model emissions and the interface that converts them into actions. On selected BFCL v4 subsets, changing only the serving adapter while holding model weights and other evaluation settings fixed moves scores under the official scorer from 0.00 to 0.96 on simple_python and from 0.00 to 0.19 on multi_turn_base. A template-parser factorial experiment shows strong complementarity: neither component replacement alone restores parsing from the baseline, whereas their joint replacement recovers 196/200 first-request parses. Across five Qwen2.5-Coder checkpoints, classifier-positive emissions increase with model size while the mismatched interface reports no calls; a separate matched-interface Qwen3 ladder exhibits few silent emissions through 8B. Experiments on 115 tau-bench retail tasks extend the mechanism to a stateful, non-code environment. In a preregistered, single-seed, 150-step 7B LoRA experiment, changing only the parser registered in verl increases tool executions from 10 to 16,844. However, neither a shared programmatic-feedback evaluation nor a post-hoc common native function-calling evaluation detects a held-out success gain from repair; rescue counts do not increase. Interface repair thus restores tool-mediated experience without a detected performance gain in this setting. These findings show that tool-use measurements depend on the model-interface configuration and motivate layer-wise observability and conformance checks before attributing evaluation or training outcomes to the model alone.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Tool-use evaluations typically measure calls through a serving stack, which can report zero calls even when model outputs contain call-shaped payloads. We study interface-induced trajectory censoring: a mismatch between model emissions and the interface that converts them into actions. On selected BFCL v4 subsets, changing only the serving adapter while holding model weights and other evaluation settings fixed moves scores under the official scorer from 0.00 to 0.96 on simple_python and from 0.00 to 0.19 on multi_turn_base. A template-parser factorial experiment shows strong complementarity: neither component replacement alone restores parsing from the baseline, whereas their joint replacement recovers 196/200 first-request parses. Across five Qwen2.5-Coder checkpoints, classifier-positive emissions increase with model size while the mismatched interface reports no calls; a separate matched-interface Qwen3 ladder exhibits few silent emissions through 8B. Experiments on 115 tau-bench retail tasks extend the mechanism to a stateful, non-code environment. In a preregistered, single-seed, 150-step 7B LoRA experiment, changing only the parser registered in verl increases tool executions from 10 to 16,844. However, neither a shared programmatic-feedback evaluation nor a post-hoc common native function-calling evaluation detects a held-out success gain from repair; rescue counts do not increase. Interface repair thus restores tool-mediated experience without a detected performance gain in this setting. These findings show that tool-use measurements depend on the model-interface configuration and motivate layer-wise observability and conformance checks before attributing evaluation or training outcomes to the model alone.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-09-03",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2609.02766",
+      "title": "Do Tabular Foundation Models Know Physics? Contamination, Units, and the Deterministic Limit",
+      "authors": [
+        "Wassim Tenachi",
+        "Yashar Hezaveh",
+        "Laurence Perreault Levasseur",
+        "Pierre-Luc Bacon"
+      ],
+      "categories": [
+        "astro-ph.IM",
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2609.02766",
+      "pdf_url": "https://arxiv.org/pdf/2609.02766",
+      "abstract_en": "Tabular foundation models (TFMs) learn to fill in tables the way language models fill in text --- and tables are arguably the format in which most physical measurement arrives. Did they learn any physics in the process? They are Bayesian by construction, so the question is what their prior contains. We probe it directly, evaluating four of them ($\\texttt{TabPFN-3}$, $\\texttt{TabICLv2}$, $\\texttt{TabDPT}$ and $\\texttt{Real-TabPFN-2.5}$) against six baselines on datasets sampled from 316 physical equations, in and out of domain. TFMs dominate, out of the box and after tuning. But they struggle to represent noiseless deterministic mechanisms in their uncertainty, and show no sign of exploiting physical units: they interpolate physics without yet being able to act as physical models.",
+      "comment": "5 pages (4 figures, 1 table), plus appendix. Accepted at the Representations for the Physical Sciences Workshop @ NeurIPS 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Tabular foundation models (TFMs) learn to fill in tables the way language models fill in text --- and tables are arguably the format in which most physical measurement arrives. Did they learn any physics in the process? They are Bayesian by construction, so the question is what their prior contains. We probe it directly, evaluating four of them ($\\texttt{TabPFN-3}$, $\\texttt{TabICLv2}$, $\\texttt{TabDPT}$ and $\\texttt{Real-TabPFN-2.5}$) against six baselines on datasets sampled from 316 physical equations, in and out of domain. TFMs dominate, out of the box and after tuning. But they struggle to represent noiseless deterministic mechanisms in their uncertainty, and show no sign of exploiting physical units: they interpolate physics without yet being able to act as physical models.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Tabular foundation models (TFMs) learn to fill in tables the way language models fill in text --- and tables are arguably the format in which most physical measurement arrives. Did they learn any physics in the process? They are Bayesian by construction, so the question is what their prior contains. We probe it directly, evaluating four of them ($\\texttt{TabPFN-3}$, $\\texttt{TabICLv2}$, $\\texttt{TabDPT}$ and $\\texttt{Real-TabPFN-2.5}$) against six baselines on datasets sampled from 316 physical equations, in and out of domain. TFMs dominate, out of the box and after tuning. But they struggle to represent noiseless deterministic mechanisms in their uncertainty, and show no sign of exploiting physical units: they interpolate physics without yet being able to act as physical models.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-09-02",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2606.28916",
+      "title": "Latent Bridges for Multi-Table Question Answering",
+      "authors": [
+        "Simone Varriale",
+        "Tamara Cucumides",
+        "Floris Geerts",
+        "Paolo Papotti"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.DB"
+      ],
+      "matched_categories": [
+        "cs.AI"
+      ],
+      "display_category": "cs.AI",
+      "primary_category": "cs.CL",
+      "abs_url": "https://arxiv.org/abs/2606.28916",
+      "pdf_url": "https://arxiv.org/pdf/2606.28916",
+      "abstract_en": "We introduce GRAB, a constructor-encoder-bridge pipeline for table question answering. Our method lifts relational data into an heterogeneous graph, encodes it via message passing, and transfers the signals to an LLM through a small set of query-conditioned latent tokens. This provides the LLM with a compact, task-relevant structural representation together with the flattened text. Crucially, the LLM remains strictly frozen to preserve its general reasoning capabilities; we train only the lightweight graph encoder and latent bridge (91M parameters), allowing the entire pipeline to be trained efficiently. Our pipeline significantly improves performance on relational Question Answering, with the largest gains in demanding multi-table settings, offering an efficient, principled way to connect relational deep learning with LLMs.",
+      "comment": "The code is available at https://github.com/simonevarriale/GRAB",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：We introduce GRAB, a constructor-encoder-bridge pipeline for table question answering. Our method lifts relational data into an heterogeneous graph, encodes it via message passing, and transfers the signals to an LLM through a small set of query-conditioned latent tokens. This provides the LLM with a compact, task-relevant structural representation together with the flattened text. Crucially, the LLM remains strictly frozen to preserve its general reasoning capabilities; we train only the lightweight graph encoder and latent bridge (91M parameters), allowing the entire pipeline to be trained efficiently. Our pipeline significantly improves performance on relational Question Answering, with the largest gains in demanding multi-table settings, offering an efficient, principled way to connect relational deep learning with LLMs.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：We introduce GRAB, a constructor-encoder-bridge pipeline for table question answering. Our method lifts relational data into an heterogeneous graph, encodes it via message passing, and transfers the signals to an LLM through a small set of query-conditioned latent tokens. This provides the LLM with a compact, task-relevant structural representation together with the flattened text. Crucially, the LLM remains strictly frozen to preserve its general reasoning capabilities; we train only the lightweight graph encoder and latent bridge (91M parameters), allowing the entire pipeline to be trained efficiently. Our pipeline significantly improves performance on relational Question Answering, with the largest gains in demanding multi-table settings, offering an efficient, principled way to connect relational deep learning with LLMs.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-06-27",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2506.02914",
+      "title": "AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines",
+      "authors": [
+        "Yechi Ma",
+        "Wei Hua",
+        "Shu Kong"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2506.02914",
+      "pdf_url": "https://arxiv.org/pdf/2506.02914",
+      "abstract_en": "The contemporary paradigm of scaling data annotation, crucial for developing machine learning solutions, is to hire ordinary human annotators and instruct them with expert-crafted guidelines to label data. This paradigm is laborious, tedious, and costly, motivating us to study an open problem, auto-annotation with expert-crafted guidelines (dubbed AutoExpert). We develop benchmarks by redesigning the evaluation protocol and re-annotating data with nuScenes and PandaSet, two 3D detection datasets for autonomous driving research that provide expert-crafted annotation guidelines. Their guidelines define 18 and 25 object classes, respectively, using nuanced language descriptions and a few visual examples. Following the guidelines that require using 3D cuboids to label LiDAR data, AutoExpert requires algorithms to learn on few-shot labeled images and texts to perform the task of 3D detection on LiDAR data. Apparently, the challenges of AutoExpert lie in the data-modality and task discrepancy. Nevertheless, public foundation models (FMs) serve as promising tools to tackle these challenges. To address AutoExpert, we adopt a conceptually simple pipeline consisting of three components: (1) 2D object detection and segmentation in RGB images, (2) lifting 2D detections into 3D using known sensor poses, and (3) 3D cuboids generation for the 2D detections. Within this pipeline, we enhance and evaluate a variety of methods such as open-vocabulary detectors, few-shot detectors, and self-supervised learned detectors. We also develop novel techniques, leading to refined components that boost 3D detection mAP from 12.1 to 25.4 on the AutoExpert-nuScenes benchmark.",
+      "comment": "Accepted by NeurIPS 2026. Code and benchmark: https://github.com/cc50121/AutoExpert-3D-benchmark",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：The contemporary paradigm of scaling data annotation, crucial for developing machine learning solutions, is to hire ordinary human annotators and instruct them with expert-crafted guidelines to label data. This paradigm is laborious, tedious, and costly, motivating us to study an open problem, auto-annotation with expert-crafted guidelines (dubbed AutoExpert). We develop benchmarks by redesigning the evaluation protocol and re-annotating data with nuScenes and PandaSet, two 3D detection datasets for autonomous driving research that provide expert-crafted annotation guidelines. Their guidelines define 18 and 25 object classes, respectively, using nuanced language descriptions and a few visual examples. Following the guidelines that require using 3D cuboids to label LiDAR data, AutoExpert requires algorithms to learn on few-shot labeled images and texts to perform the task of 3D detection on LiDAR data. Apparently, the challenges of AutoExpert lie in the data-modality and task discrepancy. Nevertheless, public foundation models (FMs) serve as promising tools to tackle these challenges. To address AutoExpert, we adopt a conceptually simple pipeline consisting of three components: (1) 2D object detection and segmentation in RGB images, (2) lifting 2D detections into 3D using known sensor poses, and (3) 3D cuboids generation for the 2D detections. Within this pipeline, we enhance and evaluate a variety of methods such as open-vocabulary detectors, few-shot detectors, and self-supervised learned detectors. We also develop novel techniques, leading to refined components that boost 3D detection mAP from 12.1 to 25.4 on the AutoExpert-nuScenes benchmark.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：The contemporary paradigm of scaling data annotation, crucial for developing machine learning solutions, is to hire ordinary human annotators and instruct them with expert-crafted guidelines to label data. This paradigm is laborious, tedious, and costly, motivating us to study an open problem, auto-annotation with expert-crafted guidelines (dubbed AutoExpert). We develop benchmarks by redesigning the evaluation protocol and re-annotating data with nuScenes and PandaSet, two 3D detection datasets for autonomous driving research that provide expert-crafted annotation guidelines. Their guidelines define 18 and 25 object classes, respectively, using nuanced language descriptions and a few visual examples. Following the guidelines that require using 3D cuboids to label LiDAR data, AutoExpert requires algorithms to learn on few-shot labeled images and texts to perform the task of 3D detection on LiDAR data. Apparently, the challenges of AutoExpert lie in the data-modality and task discrepancy. Nevertheless, public foundation models (FMs) serve as promising tools to tackle these challenges. To address AutoExpert, we adopt a conceptually simple pipeline consisting of three components: (1) 2D object detection and segmentation in RGB images, (2) lifting 2D detections into 3D using known sensor poses, and (3) 3D cuboids generation for the 2D detections. Within this pipeline, we enhance and evaluate a variety of methods such as open-vocabulary detectors, few-shot detectors, and self-supervised learned detectors. We also develop novel techniques, leading to refined components that boost 3D detection mAP from 12.1 to 25.4 on the AutoExpert-nuScenes benchmark.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2025-06-03",
+      "updated_date": "2026-10-22",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
