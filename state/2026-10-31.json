@@ -1,0 +1,226 @@
+{
+  "date": "2026-10-31",
+  "snapshot_date": "2026-10-31",
+  "generated_at": "2026-10-31T15:47:17Z",
+  "categories": [
+    "cs.CV",
+    "cs.LG",
+    "stat.ML",
+    "cs.AI",
+    "physics.ao-ph"
+  ],
+  "paper_count": 5,
+  "run_status": "ok",
+  "category_counts": {
+    "cs.LG": 4,
+    "cs.CV": 1
+  },
+  "summary_status_counts": {
+    "fallback:RetryableSummaryError": 5
+  },
+  "fetch_status": {
+    "api_backfill_status": "ok",
+    "api_backfill_error": "",
+    "api_backfill_entries": 1337
+  },
+  "papers": [
+    {
+      "id": "2610.35309",
+      "title": "Shared Context, Separate Engines: Stateful Streaming Inference for Multimodal LLMs on Edge SoCs",
+      "authors": [
+        "Yilong Li",
+        "Chengpo Yan",
+        "Yijing Zeng",
+        "Hanlei Wu",
+        "Mingjun Song",
+        "Suman Banerjee"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2610.35309",
+      "pdf_url": "https://arxiv.org/pdf/2610.35309",
+      "abstract_en": "Edge SoCs combine CPUs, GPUs, and NPUs, yet runtimes for multimodal large language models (MLLMs) keep generation on one engine and leave others idle. Streaming workloads allow ingestion and answering to overlap, but backend-local KV state binds queries to the engine that built their history. Stage performance and co-running interference vary, so no single placement wins across SoCs and workloads. \\name separates logical history from engine-specific KV state so any language engine can continue a stream. Stateful Streaming Generation overlaps ingestion and answering, while Concurrent Sequence Generation serves ready queries in parallel. Phase-level state continuation lets one engine prefill a query and another decode the answer, freeing the first to resume ingestion. State-Driven Execution Planning (SDEP) chooses paths by predicted completion time and sets each engine's share of queries using arrival rates and measured service times. Across M4 Max, RK3588, and QCS6490, \\name beats the strongest single-engine baselines, even when they reuse context. On M4 Max, SDEP cuts live-stream p95 time to first token by $76\\%$, with every first token within one second, and raises throughput under backlog by up to $35\\%$ over Metal-only execution with context reuse. On two RK3588 streams, SDEP delivers $19.6\\%$ higher request throughput than the best single engine with context reuse and $27.2\\%$ more than parallel engines without shared state. Stateful Streaming Generation reaches up to $2.48\\times$ serial throughput on the same engines. Every answer matches its serial reference.",
+      "comment": "",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Edge SoCs combine CPUs, GPUs, and NPUs, yet runtimes for multimodal large language models (MLLMs) keep generation on one engine and leave others idle. Streaming workloads allow ingestion and answering to overlap, but backend-local KV state binds queries to the engine that built their history. Stage performance and co-running interference vary, so no single placement wins across SoCs and workloads. \\name separates logical history from engine-specific KV state so any language engine can continue a stream. Stateful Streaming Generation overlaps ingestion and answering, while Concurrent Sequence Generation serves ready queries in parallel. Phase-level state continuation lets one engine prefill a query and another decode the answer, freeing the first to resume ingestion. State-Driven Execution Planning (SDEP) chooses paths by predicted completion time and sets each engine's share of queries using arrival rates and measured service times. Across M4 Max, RK3588, and QCS6490, \\name beats the strongest single-engine baselines, even when they reuse context. On M4 Max, SDEP cuts live-stream p95 time to first token by $76\\%$, with every first token within one second, and raises throughput under backlog by up to $35\\%$ over Metal-only execution with context reuse. On two RK3588 streams, SDEP delivers $19.6\\%$ higher request throughput than the best single engine with context reuse and $27.2\\%$ more than parallel engines without shared state. Stateful Streaming Generation reaches up to $2.48\\times$ serial throughput on the same engines. Every answer matches its serial reference.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Edge SoCs combine CPUs, GPUs, and NPUs, yet runtimes for multimodal large language models (MLLMs) keep generation on one engine and leave others idle. Streaming workloads allow ingestion and answering to overlap, but backend-local KV state binds queries to the engine that built their history. Stage performance and co-running interference vary, so no single placement wins across SoCs and workloads. \\name separates logical history from engine-specific KV state so any language engine can continue a stream. Stateful Streaming Generation overlaps ingestion and answering, while Concurrent Sequence Generation serves ready queries in parallel. Phase-level state continuation lets one engine prefill a query and another decode the answer, freeing the first to resume ingestion. State-Driven Execution Planning (SDEP) chooses paths by predicted completion time and sets each engine's share of queries using arrival rates and measured service times. Across M4 Max, RK3588, and QCS6490, \\name beats the strongest single-engine baselines, even when they reuse context. On M4 Max, SDEP cuts live-stream p95 time to first token by $76\\%$, with every first token within one second, and raises throughput under backlog by up to $35\\%$ over Metal-only execution with context reuse. On two RK3588 streams, SDEP delivers $19.6\\%$ higher request throughput than the best single engine with context reuse and $27.2\\%$ more than parallel engines without shared state. Stateful Streaming Generation reaches up to $2.48\\times$ serial throughput on the same engines. Every answer matches its serial reference.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-26",
+      "updated_date": "2026-10-29",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.34221",
+      "title": "CropReward: A Human-Preference Benchmark and Reward Model for Aesthetic Image Cropping",
+      "authors": [
+        "Xiangfei Sheng",
+        "Xiaofeng Pan",
+        "Leida Li",
+        "Qian Zhang",
+        "Biao Wang",
+        "Johan Wagemans",
+        "Weisi Lin"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "matched_categories": [
+        "cs.CV"
+      ],
+      "display_category": "cs.CV",
+      "primary_category": "cs.CV",
+      "abs_url": "https://arxiv.org/abs/2610.34221",
+      "pdf_url": "https://arxiv.org/pdf/2610.34221",
+      "abstract_en": "Aesthetic image cropping (AIC) aims to improve image composition and aesthetic quality by removing extraneous or distracting content. Over the past decade, AIC methods have evolved from specialized vision models to multimodal large language models(MLLMs). Reliable evaluation that reflects human preferences is essential for benchmarking AIC methods and guiding model optimization. However, the current AIC evaluation relies largely on geometry-based metrics such as intersection over union (IoU), as well as image aesthetic assessment(IAA) models. Although inconsistencies with human preferences have long been observed, the robustness and reliability of these evaluation criteria remain underexplored. To bridge this gap, we first construct CropBench, a large-scale benchmark comprising 106,995 human preference pairs for 1,019 images, with each candidate set containing the original image and candidate crops produced by 14 AIC methods. A systematic study on CropBench reveals that the existing criteria, ranging from IoU to off-the-shelf IAA assessment models, only exhibit limited alignment with human preferences. Building upon CropBench, we further propose CropReward, an MLLM-based reward model that evaluates a candidate crop by comparing with the original uncropped image and outputs a score indicating explicit aesthetic improvement or degradation relative to the original. In addition, we employ CropReward to construct CropReward-300k, the largest AIC dataset to date, and further develop CropAlign, a preference-aligned AIC model trained solely with CropReward supervision, without human-annotated crop boxes. Experimental results demonstrate that CropReward aligns with human preferences significantly better than AIC existing criteria. CropAlign also surpasses the state-of-the-art AIC methods, demonstrating the advantage of CropReward in guiding AIC model optimization.",
+      "comment": "14 pages",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Aesthetic image cropping (AIC) aims to improve image composition and aesthetic quality by removing extraneous or distracting content. Over the past decade, AIC methods have evolved from specialized vision models to multimodal large language models(MLLMs). Reliable evaluation that reflects human preferences is essential for benchmarking AIC methods and guiding model optimization. However, the current AIC evaluation relies largely on geometry-based metrics such as intersection over union (IoU), as well as image aesthetic assessment(IAA) models. Although inconsistencies with human preferences have long been observed, the robustness and reliability of these evaluation criteria remain underexplored. To bridge this gap, we first construct CropBench, a large-scale benchmark comprising 106,995 human preference pairs for 1,019 images, with each candidate set containing the original image and candidate crops produced by 14 AIC methods. A systematic study on CropBench reveals that the existing criteria, ranging from IoU to off-the-shelf IAA assessment models, only exhibit limited alignment with human preferences. Building upon CropBench, we further propose CropReward, an MLLM-based reward model that evaluates a candidate crop by comparing with the original uncropped image and outputs a score indicating explicit aesthetic improvement or degradation relative to the original. In addition, we employ CropReward to construct CropReward-300k, the largest AIC dataset to date, and further develop CropAlign, a preference-aligned AIC model trained solely with CropReward supervision, without human-annotated crop boxes. Experimental results demonstrate that CropReward aligns with human preferences significantly better than AIC existing criteria. CropAlign also surpasses the state-of-the-art AIC methods, demonstrating the advantage of CropReward in guiding AIC model optimization.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Aesthetic image cropping (AIC) aims to improve image composition and aesthetic quality by removing extraneous or distracting content. Over the past decade, AIC methods have evolved from specialized vision models to multimodal large language models(MLLMs). Reliable evaluation that reflects human preferences is essential for benchmarking AIC methods and guiding model optimization. However, the current AIC evaluation relies largely on geometry-based metrics such as intersection over union (IoU), as well as image aesthetic assessment(IAA) models. Although inconsistencies with human preferences have long been observed, the robustness and reliability of these evaluation criteria remain underexplored. To bridge this gap, we first construct CropBench, a large-scale benchmark comprising 106,995 human preference pairs for 1,019 images, with each candidate set containing the original image and candidate crops produced by 14 AIC methods. A systematic study on CropBench reveals that the existing criteria, ranging from IoU to off-the-shelf IAA assessment models, only exhibit limited alignment with human preferences. Building upon CropBench, we further propose CropReward, an MLLM-based reward model that evaluates a candidate crop by comparing with the original uncropped image and outputs a score indicating explicit aesthetic improvement or degradation relative to the original. In addition, we employ CropReward to construct CropReward-300k, the largest AIC dataset to date, and further develop CropAlign, a preference-aligned AIC model trained solely with CropReward supervision, without human-annotated crop boxes. Experimental results demonstrate that CropReward aligns with human preferences significantly better than AIC existing criteria. CropAlign also surpasses the state-of-the-art AIC methods, demonstrating the advantage of CropReward in guiding AIC model optimization.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-25",
+      "updated_date": "2026-10-29",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.33307",
+      "title": "Tree Depth and Sample-Quality-Associated Features: Two Hidden Factors in Boruta Selection for RNA-Seq Data Classification",
+      "authors": [
+        "Tareque Mohmud Chowdhury",
+        "Abu Raihan Mostofa Kamal"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2610.33307",
+      "pdf_url": "https://arxiv.org/pdf/2610.33307",
+      "abstract_en": "Random Forest--based selectors such as Boruta depend on tree depth, yet Boruta's most used implementation, BorutaPy, recommends depths of 3 to 7 without published evidence. We tested the effect of depth using pan-cancer data from The Cancer Genome Atlas (10,469 tumors, 33 cancer types) and breast cancer PAM50 subtyping (981 tumors, 5 subtypes). Label-dependent steps were fitted inside training folds, effects were measured against seed-to-seed variation, and each task had a locked test set. In pan-cancer data, depth 5 changed the selection far more than a new seed did: the top-500 Jaccard overlap with unlimited depth was 0.37, against 0.84 (depth 5) and 0.93 (unlimited) between seeds. Depth-5 trees confirmed 472 instead of 1,659 genes, covered fewer large-class markers (16% vs 62%) and gave less accurate 50-gene panels (balanced accuracy 0.809 vs 0.889). The effect vanished once the cap reached 61 to 76% of the median depth of unrestricted trees, a depth set mainly by the number of classes, not sample size. In PAM50 subtyping (median depth 12) the effect was small, and leaving depth uncapped cost no accuracy in either task. The effect replicated in a second cross-validation repeat and under permutation importance. About a third of pre-filtered candidates correlated within class with the number of detected genes, a sample-quality measure; a within-class filter removed them without loss of test accuracy (0.943 vs 0.942 balanced accuracy, 1,000 genes). We recommend uncapped trees, or a cap above 75% of the realized median depth, and a within-class quality filter before Boruta.",
+      "comment": "19 Pages, 6 Figures, 4 Tables",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Random Forest--based selectors such as Boruta depend on tree depth, yet Boruta's most used implementation, BorutaPy, recommends depths of 3 to 7 without published evidence. We tested the effect of depth using pan-cancer data from The Cancer Genome Atlas (10,469 tumors, 33 cancer types) and breast cancer PAM50 subtyping (981 tumors, 5 subtypes). Label-dependent steps were fitted inside training folds, effects were measured against seed-to-seed variation, and each task had a locked test set. In pan-cancer data, depth 5 changed the selection far more than a new seed did: the top-500 Jaccard overlap with unlimited depth was 0.37, against 0.84 (depth 5) and 0.93 (unlimited) between seeds. Depth-5 trees confirmed 472 instead of 1,659 genes, covered fewer large-class markers (16% vs 62%) and gave less accurate 50-gene panels (balanced accuracy 0.809 vs 0.889). The effect vanished once the cap reached 61 to 76% of the median depth of unrestricted trees, a depth set mainly by the number of classes, not sample size. In PAM50 subtyping (median depth 12) the effect was small, and leaving depth uncapped cost no accuracy in either task. The effect replicated in a second cross-validation repeat and under permutation importance. About a third of pre-filtered candidates correlated within class with the number of detected genes, a sample-quality measure; a within-class filter removed them without loss of test accuracy (0.943 vs 0.942 balanced accuracy, 1,000 genes). We recommend uncapped trees, or a cap above 75% of the realized median depth, and a within-class quality filter before Boruta.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Random Forest--based selectors such as Boruta depend on tree depth, yet Boruta's most used implementation, BorutaPy, recommends depths of 3 to 7 without published evidence. We tested the effect of depth using pan-cancer data from The Cancer Genome Atlas (10,469 tumors, 33 cancer types) and breast cancer PAM50 subtyping (981 tumors, 5 subtypes). Label-dependent steps were fitted inside training folds, effects were measured against seed-to-seed variation, and each task had a locked test set. In pan-cancer data, depth 5 changed the selection far more than a new seed did: the top-500 Jaccard overlap with unlimited depth was 0.37, against 0.84 (depth 5) and 0.93 (unlimited) between seeds. Depth-5 trees confirmed 472 instead of 1,659 genes, covered fewer large-class markers (16% vs 62%) and gave less accurate 50-gene panels (balanced accuracy 0.809 vs 0.889). The effect vanished once the cap reached 61 to 76% of the median depth of unrestricted trees, a depth set mainly by the number of classes, not sample size. In PAM50 subtyping (median depth 12) the effect was small, and leaving depth uncapped cost no accuracy in either task. The effect replicated in a second cross-validation repeat and under permutation importance. About a third of pre-filtered candidates correlated within class with the number of detected genes, a sample-quality measure; a within-class filter removed them without loss of test accuracy (0.943 vs 0.942 balanced accuracy, 1,000 genes). We recommend uncapped trees, or a cap above 75% of the realized median depth, and a within-class quality filter before Boruta.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-10-23",
+      "updated_date": "2026-10-29",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2610.00329",
+      "title": "Non-Commutative Lie-Algebraic State-Space Models: Finite-Division Variety Laws, Semidirect Cascades, and Gradient Saddle Escape",
+      "authors": [
+        "Zeyu Jia"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2610.00329",
+      "pdf_url": "https://arxiv.org/pdf/2610.00329",
+      "abstract_en": "Structured state-space models (SSMs) achieve linear-time inference and logarithmic-time parallel training via associative scans, yet homogeneous diagonal transitions generate solvable semigroups unable to track non-solvable group words or 3D rigid-body manifolds. We develop a theoretical and empirical framework for Non-Commutative Lie-Algebraic State-Space Models (Lie-SSMs), parameterizing recurrent updates on Lie algebra tangent spaces via the matrix exponential. First, via an o-minimal multi-rate cylindrical flag collar, we establish an unconditional single-layer finite-division criterion for homogeneous contracting $SO(3)$ and $SU(2)$ heads, proving odd-prime Sylow abelianity, odd-$p$-core centrality $[u^2,x]=e$, exponent-30 commutator laws ($[u^{30},v^{30}]=e$ in $SO(3)^m$ and $[u^{30},v^{30}]\\in Z(G),[u^{30},v^{30}]^2=e$ in $SU(2)^m,SO(4)^m$, excluding $S_5$), and sharp threshold $d^*(S_5)=d^*(A_6)=5$ in $SO(5)$. Second, Depth-2 semidirect and Schreier $2$-cocycle cascades resolve $S_5$, $2I\\cong SL_2(F_5)$, and $\\mathrm{Heis}(F_p)$ in $O(\\log T)$ depth, whereas unnormalized contracting coupling collapses exponentially without Directional RMSNorm. Third, we characterize the $O(\\varepsilon^{c-1})$ Chen--Magnus--Hall--Witt commutator saddle and $1/|[G,G]|$ coset-centroid dilution, proving $\\varepsilon=0$ symmetry breaking and local Polyak--Łojasiewicz convergence ($θ_{\\max}<π$), solving $S_5$ ($99.90\\%/99.40\\%$ at $T=128$) and $D_{16}$ ($100.00\\%$) via dense prefix loss and factored readouts. Across $Q_8,A_5,S_5,D_{16}$, Dyck-2, $SE_2(3)$ Left-Jacobian odometry, GPU scans ($26.03\\times$ speedup), and three 3D IMU cohorts (UCI HAR, HAPT-PT 30-subject CV, and REALDISP), Depth-2 Lie-$SO(3)$ cascades reach $95.69\\%\\pm 0.14\\%$ on HAR, $87.16\\%\\pm 0.64\\%$ ($88.32\\%\\pm 0.93\\%$ 30-subject episodes) on HAPT-PT, and $84.23\\%\\pm 1.00\\%$ under displacement on REALDISP.",
+      "comment": "33 pages, 4 figures, 11 tables, 2 algorithms; includes 5 ancillary reproducibility and finite-group theorem verification scripts",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Structured state-space models (SSMs) achieve linear-time inference and logarithmic-time parallel training via associative scans, yet homogeneous diagonal transitions generate solvable semigroups unable to track non-solvable group words or 3D rigid-body manifolds. We develop a theoretical and empirical framework for Non-Commutative Lie-Algebraic State-Space Models (Lie-SSMs), parameterizing recurrent updates on Lie algebra tangent spaces via the matrix exponential. First, via an o-minimal multi-rate cylindrical flag collar, we establish an unconditional single-layer finite-division criterion for homogeneous contracting $SO(3)$ and $SU(2)$ heads, proving odd-prime Sylow abelianity, odd-$p$-core centrality $[u^2,x]=e$, exponent-30 commutator laws ($[u^{30},v^{30}]=e$ in $SO(3)^m$ and $[u^{30},v^{30}]\\in Z(G),[u^{30},v^{30}]^2=e$ in $SU(2)^m,SO(4)^m$, excluding $S_5$), and sharp threshold $d^*(S_5)=d^*(A_6)=5$ in $SO(5)$. Second, Depth-2 semidirect and Schreier $2$-cocycle cascades resolve $S_5$, $2I\\cong SL_2(F_5)$, and $\\mathrm{Heis}(F_p)$ in $O(\\log T)$ depth, whereas unnormalized contracting coupling collapses exponentially without Directional RMSNorm. Third, we characterize the $O(\\varepsilon^{c-1})$ Chen--Magnus--Hall--Witt commutator saddle and $1/|[G,G]|$ coset-centroid dilution, proving $\\varepsilon=0$ symmetry breaking and local Polyak--Łojasiewicz convergence ($θ_{\\max}<π$), solving $S_5$ ($99.90\\%/99.40\\%$ at $T=128$) and $D_{16}$ ($100.00\\%$) via dense prefix loss and factored readouts. Across $Q_8,A_5,S_5,D_{16}$, Dyck-2, $SE_2(3)$ Left-Jacobian odometry, GPU scans ($26.03\\times$ speedup), and three 3D IMU cohorts (UCI HAR, HAPT-PT 30-subject CV, and REALDISP), Depth-2 Lie-$SO(3)$ cascades reach $95.69\\%\\pm 0.14\\%$ on HAR, $87.16\\%\\pm 0.64\\%$ ($88.32\\%\\pm 0.93\\%$ 30-subject episodes) on HAPT-PT, and $84.23\\%\\pm 1.00\\%$ under displacement on REALDISP.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Structured state-space models (SSMs) achieve linear-time inference and logarithmic-time parallel training via associative scans, yet homogeneous diagonal transitions generate solvable semigroups unable to track non-solvable group words or 3D rigid-body manifolds. We develop a theoretical and empirical framework for Non-Commutative Lie-Algebraic State-Space Models (Lie-SSMs), parameterizing recurrent updates on Lie algebra tangent spaces via the matrix exponential. First, via an o-minimal multi-rate cylindrical flag collar, we establish an unconditional single-layer finite-division criterion for homogeneous contracting $SO(3)$ and $SU(2)$ heads, proving odd-prime Sylow abelianity, odd-$p$-core centrality $[u^2,x]=e$, exponent-30 commutator laws ($[u^{30},v^{30}]=e$ in $SO(3)^m$ and $[u^{30},v^{30}]\\in Z(G),[u^{30},v^{30}]^2=e$ in $SU(2)^m,SO(4)^m$, excluding $S_5$), and sharp threshold $d^*(S_5)=d^*(A_6)=5$ in $SO(5)$. Second, Depth-2 semidirect and Schreier $2$-cocycle cascades resolve $S_5$, $2I\\cong SL_2(F_5)$, and $\\mathrm{Heis}(F_p)$ in $O(\\log T)$ depth, whereas unnormalized contracting coupling collapses exponentially without Directional RMSNorm. Third, we characterize the $O(\\varepsilon^{c-1})$ Chen--Magnus--Hall--Witt commutator saddle and $1/|[G,G]|$ coset-centroid dilution, proving $\\varepsilon=0$ symmetry breaking and local Polyak--Łojasiewicz convergence ($θ_{\\max}<π$), solving $S_5$ ($99.90\\%/99.40\\%$ at $T=128$) and $D_{16}$ ($100.00\\%$) via dense prefix loss and factored readouts. Across $Q_8,A_5,S_5,D_{16}$, Dyck-2, $SE_2(3)$ Left-Jacobian odometry, GPU scans ($26.03\\times$ speedup), and three 3D IMU cohorts (UCI HAR, HAPT-PT 30-subject CV, and REALDISP), Depth-2 Lie-$SO(3)$ cascades reach $95.69\\%\\pm 0.14\\%$ on HAR, $87.16\\%\\pm 0.64\\%$ ($88.32\\%\\pm 0.93\\%$ 30-subject episodes) on HAPT-PT, and $84.23\\%\\pm 1.00\\%$ under displacement on REALDISP.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-09-29",
+      "updated_date": "2026-10-28",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    },
+    {
+      "id": "2605.29727",
+      "title": "Bastion: Budget-Aware Speculative Decoding with Tree-structured Block Diffusion Drafting",
+      "authors": [
+        "Soowon Oh",
+        "Nam Cao",
+        "Yujin Kim",
+        "Hojung Jung",
+        "Huzama Ahmad",
+        "Sangmin Bae",
+        "Se-Young Yun"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "matched_categories": [
+        "cs.LG"
+      ],
+      "display_category": "cs.LG",
+      "primary_category": "cs.LG",
+      "abs_url": "https://arxiv.org/abs/2605.29727",
+      "pdf_url": "https://arxiv.org/pdf/2605.29727",
+      "abstract_en": "Block-diffusion drafters have recently emerged as a powerful alternative for speculative decoding by predicting multiple future-token distributions in a single parallel step. However, since these parallel predictions are sampled from position-wise marginals rather than fully conditioned sequences, committing to a single greedy path often fails to capture the target model's preferred trajectory. To address this, we propose BASTION, a budget-aware speculative decoding framework with tree-based diffusion drafting. Unlike existing methods that rely on static tree topologies, BASTION dynamically constructs query-dependent trees by balancing draft quality against hardware constraints. Our framework integrates three synergistic components: (1) an acceptance surrogate that estimates expected accepted length via path confidence, (2) an online latency estimator that calibrates a hardware-aware roofline model, and (3) an adaptive best-first expansion that grows the tree until marginal gains no longer justify incremental verification costs. BASTION is training-free, preserves the target model's distribution, and requires no per-setting tuning. Across diverse benchmarks and GPU architectures, BASTION achieves up to a $6.61\\times$ speedup over standard autoregressive decoding, outperforming state-of-the-art block-diffusion baselines by 39%.",
+      "comment": "NeurIPS 2026",
+      "journal_ref": "",
+      "doi": "",
+      "summary_zh": "摘要生成失败，保留英文摘要：Block-diffusion drafters have recently emerged as a powerful alternative for speculative decoding by predicting multiple future-token distributions in a single parallel step. However, since these parallel predictions are sampled from position-wise marginals rather than fully conditioned sequences, committing to a single greedy path often fails to capture the target model's preferred trajectory. To address this, we propose BASTION, a budget-aware speculative decoding framework with tree-based diffusion drafting. Unlike existing methods that rely on static tree topologies, BASTION dynamically constructs query-dependent trees by balancing draft quality against hardware constraints. Our framework integrates three synergistic components: (1) an acceptance surrogate that estimates expected accepted length via path confidence, (2) an online latency estimator that calibrates a hardware-aware roofline model, and (3) an adaptive best-first expansion that grows the tree until marginal gains no longer justify incremental verification costs. BASTION is training-free, preserves the target model's distribution, and requires no per-setting tuning. Across diverse benchmarks and GPU architectures, BASTION achieves up to a $6.61\\times$ speedup over standard autoregressive decoding, outperforming state-of-the-art block-diffusion baselines by 39%.",
+      "summary_input_source": "metadata",
+      "summary_sections": {
+        "tldr": "摘要生成失败，保留英文摘要：Block-diffusion drafters have recently emerged as a powerful alternative for speculative decoding by predicting multiple future-token distributions in a single parallel step. However, since these parallel predictions are sampled from position-wise marginals rather than fully conditioned sequences, committing to a single greedy path often fails to capture the target model's preferred trajectory. To address this, we propose BASTION, a budget-aware speculative decoding framework with tree-based diffusion drafting. Unlike existing methods that rely on static tree topologies, BASTION dynamically constructs query-dependent trees by balancing draft quality against hardware constraints. Our framework integrates three synergistic components: (1) an acceptance surrogate that estimates expected accepted length via path confidence, (2) an online latency estimator that calibrates a hardware-aware roofline model, and (3) an adaptive best-first expansion that grows the tree until marginal gains no longer justify incremental verification costs. BASTION is training-free, preserves the target model's distribution, and requires no per-setting tuning. Across diverse benchmarks and GPU architectures, BASTION achieves up to a $6.61\\times$ speedup over standard autoregressive decoding, outperforming state-of-the-art block-diffusion baselines by 39%.",
+        "motivation": "",
+        "method": "",
+        "result": "",
+        "conclusion": "",
+        "relevance_score": ""
+      },
+      "summary_status": "fallback:RetryableSummaryError",
+      "published_date": "2026-05-28",
+      "updated_date": "2026-10-28",
+      "source": "arxiv_new",
+      "metadata_source": "arxiv_list_api"
+    }
+  ]
+}
